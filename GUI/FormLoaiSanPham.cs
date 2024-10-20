@@ -27,10 +27,5 @@ namespace DACN.GUI
             dvg_LoaiSP.Columns["MaLoai"].HeaderText = "Mã Loại";
             dvg_LoaiSP.Columns["TenLoai"].HeaderText = "Tên Loại";
         }
-
-        private void uiSymbolButton1_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("hello bạn");
-        }
     }
 }
