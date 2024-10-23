@@ -186,6 +186,18 @@ CREATE TABLE NguoiDung (
 	FOREIGN KEY (QuyenID) REFERENCES Quyen(Id),
     FOREIGN KEY (MaNV) REFERENCES NhanVien(MaNV)
 );
+GO
+INSERT INTO Quyen VALUES(0,N'Admin'),
+(1, N'Giám đốc'),
+(2, N'kế toán'),
+(3, N'Nhân viên bán hàng'),
+(4, N'Nhân viên giao hàng'),
+(5, N'Nhân viên kho')
+GO
+INSERT INTO NhanVien VALUES('NV001','Nguyễn Văn Tài','Quản trị viên', '0326588524', 'banpro@gmail.com','2024-10-10', 20000000)
+GO
+INSERT INTO NguoiDung(TenDN, MatKhau, NgayTao ,QuyenID, MaNV) VALUES('admin', CONVERT(VARCHAR(32),HASHBYTES('MD5', 'admin@123'),2),GETDATE() ,0, 'NV001')
+
 
 --thủ tục getlist người dùng
 GO

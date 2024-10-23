@@ -23,7 +23,9 @@ namespace DACN.GUI
         }
         private void ktlogin()
         {
-            var (isLogin, roleId) = lgdao.DangNhapandKTQuyen(txt_UserName.Text, txt_PassWord.Text);
+            string userName = txt_UserName.Text;
+            string pass = NguoiDungDAO.Hash(txt_PassWord.Text);
+            var (isLogin, roleId) = lgdao.DangNhapandKTQuyen(userName, pass);
             if (isLogin)
             {
                 MessageBox.Show("Đăng nhập thành công!");
