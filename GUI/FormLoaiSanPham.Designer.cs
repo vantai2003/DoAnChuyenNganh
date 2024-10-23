@@ -33,19 +33,19 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lb_LoaiSP = new System.Windows.Forms.Label();
             this.dvg_LoaiSP = new Sunny.UI.UIDataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dvg_LoaiSP)).BeginInit();
             this.SuspendLayout();
             // 
-            // label1
+            // lb_LoaiSP
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(260, 45);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(98, 16);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Loại Sản Phẩm";
+            this.lb_LoaiSP.AutoSize = true;
+            this.lb_LoaiSP.Location = new System.Drawing.Point(281, 27);
+            this.lb_LoaiSP.Name = "lb_LoaiSP";
+            this.lb_LoaiSP.Size = new System.Drawing.Size(98, 16);
+            this.lb_LoaiSP.TabIndex = 1;
+            this.lb_LoaiSP.Text = "Loại Sản Phẩm";
             // 
             // dvg_LoaiSP
             // 
@@ -101,9 +101,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.LightGray;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.dvg_LoaiSP);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lb_LoaiSP);
             this.Name = "FormLoaiSanPham";
             this.Text = "FormLoaiSanPham";
             ((System.ComponentModel.ISupportInitialize)(this.dvg_LoaiSP)).EndInit();
@@ -113,7 +114,7 @@
         }
 
         #endregion
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lb_LoaiSP;
         private Sunny.UI.UIDataGridView dvg_LoaiSP;
     }
 }
