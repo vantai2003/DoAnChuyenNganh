@@ -28,14 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormNguoiDung));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormNguoiDung));
             this.pane_body = new Sunny.UI.UIPanel();
             this.uiPanel2 = new Sunny.UI.UIPanel();
+            this.btnThem = new Sunny.UI.UIImageButton();
             this.uiButton5 = new Sunny.UI.UIButton();
             this.btn_sua = new Sunny.UI.UIButton();
             this.btn_xoa = new Sunny.UI.UIButton();
@@ -54,13 +55,12 @@
             this.btn_reload = new Sunny.UI.UIButton();
             this.btn_Search = new Sunny.UI.UIButton();
             this.txt_Search = new Sunny.UI.UITextBox();
-            this.uiImageButton1 = new Sunny.UI.UIImageButton();
             this.pane_body.SuspendLayout();
             this.uiPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnThem)).BeginInit();
             this.uiPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dvg_NguoiDung)).BeginInit();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.uiImageButton1)).BeginInit();
             this.SuspendLayout();
             // 
             // pane_body
@@ -81,7 +81,7 @@
             // 
             // uiPanel2
             // 
-            this.uiPanel2.Controls.Add(this.uiImageButton1);
+            this.uiPanel2.Controls.Add(this.btnThem);
             this.uiPanel2.Controls.Add(this.uiButton5);
             this.uiPanel2.Controls.Add(this.btn_sua);
             this.uiPanel2.Controls.Add(this.btn_xoa);
@@ -104,6 +104,24 @@
             this.uiPanel2.TabIndex = 2;
             this.uiPanel2.Text = null;
             this.uiPanel2.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnThem
+            // 
+            this.btnThem.BackColor = System.Drawing.Color.Aqua;
+            this.btnThem.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnThem.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.btnThem.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnThem.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnThem.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.btnThem.Image = ((System.Drawing.Image)(resources.GetObject("btnThem.Image")));
+            this.btnThem.Location = new System.Drawing.Point(458, 36);
+            this.btnThem.Name = "btnThem";
+            this.btnThem.Size = new System.Drawing.Size(120, 62);
+            this.btnThem.TabIndex = 14;
+            this.btnThem.TabStop = false;
+            this.btnThem.Text = "Thêm";
+            this.btnThem.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click);
             // 
             // uiButton5
             // 
@@ -398,24 +416,6 @@
             this.txt_Search.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             this.txt_Search.Watermark = "";
             // 
-            // uiImageButton1
-            // 
-            this.uiImageButton1.BackColor = System.Drawing.Color.Aqua;
-            this.uiImageButton1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.uiImageButton1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.uiImageButton1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.uiImageButton1.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uiImageButton1.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.uiImageButton1.Image = ((System.Drawing.Image)(resources.GetObject("uiImageButton1.Image")));
-            this.uiImageButton1.Location = new System.Drawing.Point(458, 36);
-            this.uiImageButton1.Name = "uiImageButton1";
-            this.uiImageButton1.Size = new System.Drawing.Size(120, 62);
-            this.uiImageButton1.TabIndex = 14;
-            this.uiImageButton1.TabStop = false;
-            this.uiImageButton1.Text = "Thêm";
-            this.uiImageButton1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.uiImageButton1.Click += new System.EventHandler(this.uiImageButton1_Click);
-            // 
             // FormNguoiDung
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -427,10 +427,10 @@
             this.pane_body.ResumeLayout(false);
             this.uiPanel2.ResumeLayout(false);
             this.uiPanel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnThem)).EndInit();
             this.uiPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dvg_NguoiDung)).EndInit();
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.uiImageButton1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -457,6 +457,6 @@
         private Sunny.UI.UIButton btn_xoa;
         private Sunny.UI.UIButton btn_them;
         private Sunny.UI.UIButton btn_reload;
-        private Sunny.UI.UIImageButton uiImageButton1;
+        private Sunny.UI.UIImageButton btnThem;
     }
 }

@@ -35,9 +35,9 @@
             this.btn_Login = new Sunny.UI.UIButton();
             this.uiPanel4 = new Sunny.UI.UIPanel();
             this.uiPanel3 = new Sunny.UI.UIPanel();
+            this.txt_PassWord = new Sunny.UI.UITextBox();
             this.txt_UserName = new Sunny.UI.UITextBox();
             this.uiLabel1 = new Sunny.UI.UILabel();
-            this.txt_PassWord = new Sunny.UI.UITextBox();
             this.uiPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -47,7 +47,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.uiPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.uiPanel1.BackgroundImage = global::DACN.Properties.Resources.login;
+            this.uiPanel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("uiPanel1.BackgroundImage")));
             this.uiPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.uiPanel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.uiPanel1.Location = new System.Drawing.Point(13, 3);
@@ -150,6 +150,22 @@
             this.uiPanel3.Text = null;
             this.uiPanel3.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // txt_PassWord
+            // 
+            this.txt_PassWord.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txt_PassWord.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.txt_PassWord.Location = new System.Drawing.Point(107, 227);
+            this.txt_PassWord.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txt_PassWord.MinimumSize = new System.Drawing.Size(1, 16);
+            this.txt_PassWord.Name = "txt_PassWord";
+            this.txt_PassWord.Padding = new System.Windows.Forms.Padding(5);
+            this.txt_PassWord.PasswordChar = '*';
+            this.txt_PassWord.ShowText = false;
+            this.txt_PassWord.Size = new System.Drawing.Size(188, 29);
+            this.txt_PassWord.TabIndex = 2;
+            this.txt_PassWord.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txt_PassWord.Watermark = "";
+            // 
             // txt_UserName
             // 
             this.txt_UserName.Cursor = System.Windows.Forms.Cursors.IBeam;
@@ -175,22 +191,6 @@
             this.uiLabel1.Size = new System.Drawing.Size(151, 36);
             this.uiLabel1.TabIndex = 0;
             this.uiLabel1.Text = "Đăng Nhập";
-            // 
-            // txt_PassWord
-            // 
-            this.txt_PassWord.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txt_PassWord.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.txt_PassWord.Location = new System.Drawing.Point(107, 227);
-            this.txt_PassWord.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txt_PassWord.MinimumSize = new System.Drawing.Size(1, 16);
-            this.txt_PassWord.Name = "txt_PassWord";
-            this.txt_PassWord.Padding = new System.Windows.Forms.Padding(5);
-            this.txt_PassWord.PasswordChar = '*';
-            this.txt_PassWord.ShowText = false;
-            this.txt_PassWord.Size = new System.Drawing.Size(188, 29);
-            this.txt_PassWord.TabIndex = 2;
-            this.txt_PassWord.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
-            this.txt_PassWord.Watermark = "";
             // 
             // FormDangNhap
             // 

@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -50,15 +51,17 @@ namespace DACN.GUI
             //dvg_NguoiDung.Columns["QuyenID"].HeaderText = "QuyenID";
         }
 
-        private void uiImageButton1_Click(object sender, EventArgs e)
+        private void btnThem_Click(object sender, EventArgs e)
         {
-            string tenDN = txt_username.Text;
-            string matKhau = txt_pass.Text;
-            DateTime ngayTao = DateTime.Now;
-            string MaNV = cb_nhanvien.SelectedValue.ToString();
-            int quyenID = int.Parse(cb_vitrilv.SelectedValue.ToString());
-            NguoiDungDAO.Instance.ThemNguoiDung(tenDN, matKhau, ngayTao, MaNV, quyenID);
-            LoadNguoiDung();
+             string tenDN = txt_username.Text;
+             string matKhau = NguoiDungDAO.Hash(txt_pass.Text);
+             DateTime ngayTao = DateTime.Now;
+             string MaNV = cb_nhanvien.SelectedValue.ToString();
+             int quyenID = int.Parse(cb_vitrilv.SelectedValue.ToString());
+
+             NguoiDungDAO.Instance.ThemNguoiDung(tenDN, matKhau, ngayTao, MaNV, quyenID);
+             LoadNguoiDung();
+            
         }
     }
 }
