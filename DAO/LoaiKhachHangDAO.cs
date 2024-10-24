@@ -11,21 +11,26 @@ namespace DACN.DAO
 {
     public class LoaiKhachHangDAO
     {
-        private DataProvider dataProvider = new DataProvider();
+        private static LoaiKhachHangDAO instance;
+        public static LoaiKhachHangDAO Instance
+        {
+            get { if (instance == null) instance = new LoaiKhachHangDAO(); return LoaiKhachHangDAO.instance; }
+            private set { LoaiKhachHangDAO.instance = value; }
+        }
+        public LoaiKhachHangDAO()
+        {
+
+        }
         public List<LoaiKhachHangDTO> GetLoaiKhachHang()
         {
             List<LoaiKhachHangDTO> list = new List<LoaiKhachHangDTO>();
 
-            string query = "SELECT * FROM LoaiKH";
+            DataTable data = DataProvider.Instance.ExecuteQuery("sp_SelectAll_LoaiKH");
 
-            DataTable data = dataProvider.ExecuteQuery(query);
             foreach (DataRow row in data.Rows)
             {
-                string maLoai = row["MaLoaiKH"].ToString();
-                string tenLoai = row["TenLoaiKH"].ToString();
-
-                LoaiKhachHangDTO loaiKH = new LoaiKhachHangDTO(maLoai, tenLoai);
-                list.Add(loaiKH);
+                LoaiKhachHangDTO loaikh = new LoaiKhachHangDTO(row);
+                list.Add(loaikh);
             }
 
             return list;

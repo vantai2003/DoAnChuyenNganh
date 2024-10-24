@@ -22,10 +22,11 @@ namespace DACN.GUI
         }
         private void LoadLoaiKhachHang()
         {
-            List<LoaiKhachHangDTO> listLoaiKH = loaiKhachHangDAO.GetLoaiKhachHang();
+            List<LoaiKhachHangDTO> listLoaiKH = LoaiKhachHangDAO.Instance.GetLoaiKhachHang();
+
+            dgv_LoaiKhachHang.Columns["LoaiKH"].DataPropertyName = "MaLoaiKH";
+            dgv_LoaiKhachHang.Columns["TenLoaiKH"].DataPropertyName = "TenLoaiKH";
             dgv_LoaiKhachHang.DataSource = listLoaiKH;
-            dgv_LoaiKhachHang.Columns["MaLoaiKH"].HeaderText = "Mã Loại Khách Hàng";
-            dgv_LoaiKhachHang.Columns["TenLoaiKH"].HeaderText = "Tên Loại Khách Hàng";
         }
 
         private void dgv_LoaiKhachHang_CellContentClick(object sender, DataGridViewCellEventArgs e)
