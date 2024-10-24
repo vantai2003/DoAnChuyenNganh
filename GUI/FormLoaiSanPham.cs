@@ -26,5 +26,10 @@ namespace DACN.GUI
             dvg_LoaiSP.Columns["TENLOAISP"].DataPropertyName = "TenLoai";
             dvg_LoaiSP.DataSource = listLSP;
         }
+
+        private void dvg_LoaiSP_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
