@@ -14,7 +14,6 @@ namespace DACN.GUI
 {
     public partial class FormLoaiSanPham : Form
     {
-        private LoaiSanPhamDAO loaiSanPhamDAO = new LoaiSanPhamDAO();
         public FormLoaiSanPham()
         {
             InitializeComponent();
@@ -22,10 +21,10 @@ namespace DACN.GUI
         }
         private void LoadLoaiSanPham()
         {
-            List<LoaiSanPhamDTO> listLoaiSanPham = loaiSanPhamDAO.GetLoaiSanPham();
-            dvg_LoaiSP.DataSource = listLoaiSanPham;
-            dvg_LoaiSP.Columns["MaLoai"].HeaderText = "Mã Loại";
-            dvg_LoaiSP.Columns["TenLoai"].HeaderText = "Tên Loại";
+            List<LoaiSanPhamDTO> listLSP = LoaiSanPhamDAO.Instance.GetLoaiSanPham();
+            dvg_LoaiSP.Columns["MALOAISP"].DataPropertyName = "MaLoai";
+            dvg_LoaiSP.Columns["TENLOAISP"].DataPropertyName = "TenLoai";
+            dvg_LoaiSP.DataSource = listLSP;
         }
     }
 }

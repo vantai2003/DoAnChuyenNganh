@@ -199,8 +199,13 @@ GO
 INSERT INTO NguoiDung(TenDN, MatKhau, NgayTao ,QuyenID, MaNV) VALUES('admin', CONVERT(VARCHAR(32),HASHBYTES('MD5', 'admin@123'),2),GETDATE() ,0, 'NV001')
 
 GO 
-INSERT INTO LoaiKH (MaLoaiKH,TenLoaiKH) VALUES('KH001',N'Khách hàng thân thiết'),
-                                              ('KH002',N'Khách hàng thường')
+INSERT INTO LoaiKH (MaLoaiKH,TenLoaiKH) VALUES('LK001',N'Khách hàng thân thiết'),
+                                              ('LK002',N'Khách hàng thường')
+GO
+INSERT INTO LoaiSanPham(MaLoai,TenLoai)VALUES('ML001',N'Hòa Phát'),
+											 ('ML002',N'Việt Nhật')
+GO
+INSERT INTO KhachHang(MaKH, TenKH, SoDienThoai, Email, DiaChi, NgayTao, MaLoaiKH) VALUES('KH001',N'Trần Thế An','0981888213','tranan11@gmail.com',N'Thành phố Hồ Chí Minh','2024-11-23','LK002')
 
 
 --thủ tục getlist người dùng
@@ -252,4 +257,27 @@ AS
 BEGIN
 	SELECT * FROM Quyen
 END
+GO
+
+---------Lấy tất cả các cột trong bảng Khách Hàng----------------------
+CREATE PROC sp_SelectAll_KhachHang
+AS
+BEGIN
+    SELECT * FROM KHACHHANG;
+END;
+GO
+
+---------Lấy tất cả các cột trong bảng Loại Sản Phẩm----------------------
+CREATE PROC sp_SelectAll_LoaiSanPham
+AS
+BEGIN
+    SELECT * FROM LoaiSanPham;
+END;
+GO
+---------Lấy tất cả các cột trong bảng Loại Khách Hàng----------------------
+CREATE PROC sp_SelectAll_LoaiKH
+AS
+BEGIN
+    SELECT * FROM LoaiKH;
+END;
 GO

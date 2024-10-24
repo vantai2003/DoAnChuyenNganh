@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,11 +11,13 @@ namespace DACN.DTO
     {
         public string MaLoai { get; set; }
         public string TenLoai { get; set; }
-
-        public LoaiSanPhamDTO(string maLoai, string tenLoai)
+        public LoaiSanPhamDTO(DataRow row)
         {
-            this.MaLoai = maLoai;
-            this.TenLoai = tenLoai;
+            this.MaLoai = row["MaLoai"].ToString();
+            this.TenLoai = row["TenLoai"].ToString();
+        }
+        public LoaiSanPhamDTO()
+        {
         }
     }
 }

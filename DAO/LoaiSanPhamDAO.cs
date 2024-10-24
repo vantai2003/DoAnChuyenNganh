@@ -10,26 +10,31 @@ namespace DACN.DAO
 {
     public class LoaiSanPhamDAO
     {
-        private DataProvider dataProvider = new DataProvider();
+        private static LoaiSanPhamDAO instance;
+        public static LoaiSanPhamDAO Instance
+        {
+            get { if (instance == null) instance = new LoaiSanPhamDAO(); return LoaiSanPhamDAO.instance; }
+            private set { LoaiSanPhamDAO.instance = value; }
+        }
+        private LoaiSanPhamDAO()
+        {
+
+        }
 
         public List<LoaiSanPhamDTO> GetLoaiSanPham()
         {
             List<LoaiSanPhamDTO> list = new List<LoaiSanPhamDTO>();
 
-            string query = "SELECT * FROM LoaiSanPham";
-
-            DataTable data = dataProvider.ExecuteQuery(query);
+            DataTable data = DataProvider.Instance.ExecuteQuery("sp_SelectAll_LoaiSanPham");
 
             foreach (DataRow row in data.Rows)
             {
-                string maLoai = row["MaLoai"].ToString();
-                string tenLoai = row["TenLoai"].ToString();
-
-                LoaiSanPhamDTO loaiSanPham = new LoaiSanPhamDTO(maLoai, tenLoai);
+                LoaiSanPhamDTO loaiSanPham = new LoaiSanPhamDTO(row);
                 list.Add(loaiSanPham);
             }
 
             return list;
+          
         }
     }
 }
