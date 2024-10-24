@@ -194,9 +194,13 @@ INSERT INTO Quyen VALUES(0,N'Admin'),
 (4, N'Nhân viên giao hàng'),
 (5, N'Nhân viên kho')
 GO
-INSERT INTO NhanVien VALUES('NV001','Nguyễn Văn Tài','Quản trị viên', '0326588524', 'banpro@gmail.com','2024-10-10', 20000000)
+INSERT INTO NhanVien VALUES('NV001',N'Nguyễn Văn Tài',N'Quản trị viên', '0326588524', 'banpro@gmail.com','2024-10-10', 20000000)
 GO
 INSERT INTO NguoiDung(TenDN, MatKhau, NgayTao ,QuyenID, MaNV) VALUES('admin', CONVERT(VARCHAR(32),HASHBYTES('MD5', 'admin@123'),2),GETDATE() ,0, 'NV001')
+
+GO 
+INSERT INTO LoaiKH (MaLoaiKH,TenLoaiKH) VALUES('KH001',N'Khách hàng thân thiết'),
+                                              ('KH002',N'Khách hàng thường')
 
 
 --thủ tục getlist người dùng
