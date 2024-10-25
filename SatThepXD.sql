@@ -274,6 +274,40 @@ BEGIN
     SELECT * FROM LoaiSanPham;
 END;
 GO
+----------Insert Lọai Sản Phẩm-----------------------------------
+CREATE PROC  sp_Insert_LoaiSanPham
+    @MaLoai VARCHAR(10),
+    @TenLoai NVARCHAR(50)
+AS
+BEGIN
+    INSERT INTO LoaiSanPham(MaLoai,TenLoai)
+    VALUES (@MaLoai, @TenLoai);
+END;
+GO
+exec sp_Insert_LoaiSanPham('ML003','Việt Mỹ')
+GO
+----------------------Cập nhật Lọai Sản Phẩm----------------------------------
+CREATE PROCEDURE sp_Update_LoaiSanPham
+    @MaLoai VARCHAR(10),
+    @TenLoai NVARCHAR(50)
+AS
+BEGIN
+    UPDATE LoaiSanPham
+    SET MaLoai = @MaLoai,
+        TenLoai = @TenLoai
+    WHERE MaLoai = @MaLoai;
+END;
+GO
+----------------------Xóa Nhà Lọai Sản Phẩm----------------------
+CREATE PROCEDURE sp_Delete_LoaiSanPham
+    @MaLoai VARCHAR(10)
+AS
+BEGIN
+    DELETE FROM LoaiSanPham
+    WHERE MaLoai = @MaLoai
+END;
+GO
+
 ---------Lấy tất cả các cột trong bảng Loại Khách Hàng----------------------
 CREATE PROC sp_SelectAll_LoaiKH
 AS

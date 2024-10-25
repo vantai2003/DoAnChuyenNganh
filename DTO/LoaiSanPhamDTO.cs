@@ -16,6 +16,7 @@ namespace DACN.DTO
             this.MaLoai = row["MaLoai"].ToString();
             this.TenLoai = row["TenLoai"].ToString();
         }
+ 
         public LoaiSanPhamDTO()
         {
         }
