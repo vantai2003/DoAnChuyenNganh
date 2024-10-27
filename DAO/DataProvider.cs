@@ -11,8 +11,8 @@ namespace DACN.DAO
     public class DataProvider
     {
         private static DataProvider instance;
+        //private string conStr = "Data Source=localhost;Initial Catalog=QL_SatThepXD;User ID=sa;Password = 123;Encrypt=False";
         private string conStr = "Data Source=LAPTOP-70K25FBU\\NGUYENVANTAI;Initial Catalog=QL_SatThepXD;User ID=sa;Password = 123;Encrypt=False";
-
         public static DataProvider Instance
         {
             get { if (instance == null) instance = new DataProvider(); return DataProvider.instance; }
@@ -98,5 +98,7 @@ namespace DACN.DAO
             return data;
         }
 
+
+        
     }
 }

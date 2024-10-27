@@ -1,7 +1,9 @@
 ﻿using DACN.DTO;
+using DACN.DAO;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,8 +24,6 @@ namespace DACN.DAO
             List<LoaiSanPhamDTO> listLoaiSP = new List<LoaiSanPhamDTO>();
 
             string query = "SP_GetListNLoaiSP";
-
-
             DataTable data = DataProvider.Instance.ExecuteQuery(query);
 
             foreach (DataRow row in data.Rows)
