@@ -17,7 +17,7 @@ CREATE TABLE NhaCungCap (
     Email VARCHAR(100) UNIQUE,
     DiaChi NVARCHAR(500),
 	ThanhPho NVARCHAR(20),
-    QuocGia VARCHAR(50),
+    QuocGia NVARCHAR(50),
     NgayTao DATE
 );
 
@@ -207,7 +207,8 @@ INSERT INTO LoaiSanPham(MaLoai,TenLoai)VALUES('ML001',N'Hòa Phát'),
 GO
 INSERT INTO KhachHang(MaKH, TenKH, SoDienThoai, Email, DiaChi, NgayTao, MaLoaiKH) VALUES('KH001',N'Trần Thế An','0981888213','tranan11@gmail.com',N'Thành phố Hồ Chí Minh','2024-11-23','LK002')
 
-
+GO
+INSERT INTO NhaCungCap(MaNCC,TenNCC,SDT,Email,DiaChi,ThanhPho,QuocGia,NgayTao) VALUES('NCC001',N'Công ty sắt thép Việt Phát','0988388111','info@VietPhat',N'66 Nguyễn Du, P. Nguyễn Du, Q. Hai Bà Trưng',N'Hà Nội',N'Việt Nam','2024-11-27')
 --thủ tục getlist người dùng
 GO
 CREATE PROC SP_GetListNguoiDung
@@ -266,7 +267,54 @@ BEGIN
     SELECT * FROM KHACHHANG;
 END;
 GO
+----------Insert Khách Hàng----------------
+CREATE PROC  sp_Insert_KhachHang
+    @MaKH VARCHAR(50),
+    @TenKH NVARCHAR(100),
+    @SoDienThoai VARCHAR(20),
+    @Email VARCHAR(100),
+    @DiaChi NVARCHAR(255),
+    @NgayTao DATE,
+	@MaLoaiKH VARCHAR(50)
+AS
+BEGIN
+    INSERT INTO KhachHang(MaKH,TenKH,SoDienThoai,Email,DiaChi,NgayTao,MaLoaiKH)
+    VALUES (@MaKH,@TenKH ,@SoDienThoai ,@Email,@DiaChi,@NgayTao,@MaLoaiKH)
+END;
+GO
 
+GO
+----------------------Cập nhật Khách Hàng----------------------------------
+
+CREATE PROCEDURE sp_Update_KhachHang
+    @MaKH VARCHAR(50),
+    @TenKH NVARCHAR(100),
+    @SoDienThoai VARCHAR(20),
+    @Email VARCHAR(100),
+    @DiaChi NVARCHAR(255),
+    @NgayTao DATE,
+	@MaLoaiKH VARCHAR(50)
+AS
+BEGIN
+    UPDATE KhachHang
+    SET TenKH =@TenKH,
+    SoDienThoai = @SoDienThoai,
+    Email = @Email,
+    DiaChi = @DiaChi,
+    NgayTao = @NgayTao,
+	MaLoaiKH = @MaLoaiKH
+    WHERE MaKH = @MaKH;
+END;
+GO
+----------------------Xóa Khách Hàng----------------------
+CREATE PROCEDURE sp_Delete_KhachHang
+    @MaKH VARCHAR(10)
+AS
+BEGIN
+    DELETE FROM KhachHang
+    WHERE MaKH = @MaKH
+END;
+GO
 ---------Lấy tất cả các cột trong bảng Loại Sản Phẩm----------------------
 CREATE PROC sp_SelectAll_LoaiSanPham
 AS
@@ -284,21 +332,21 @@ BEGIN
     VALUES (@MaLoai, @TenLoai);
 END;
 GO
-exec sp_Insert_LoaiSanPham('ML003','Việt Mỹ')
+
 GO
 ----------------------Cập nhật Lọai Sản Phẩm----------------------------------
+
 CREATE PROCEDURE sp_Update_LoaiSanPham
     @MaLoai VARCHAR(10),
     @TenLoai NVARCHAR(50)
 AS
 BEGIN
     UPDATE LoaiSanPham
-    SET MaLoai = @MaLoai,
-        TenLoai = @TenLoai
+    SET TenLoai = @TenLoai
     WHERE MaLoai = @MaLoai;
 END;
 GO
-----------------------Xóa Nhà Lọai Sản Phẩm----------------------
+----------------------Xóa Lọai Sản Phẩm----------------------
 CREATE PROCEDURE sp_Delete_LoaiSanPham
     @MaLoai VARCHAR(10)
 AS
@@ -315,3 +363,42 @@ BEGIN
     SELECT * FROM LoaiKH;
 END;
 GO
+---------------------Thêm Loại Khách Hàng-------------------
+CREATE PROC sp_Insert_LoaiKhachHang
+	@MaLKH VARCHAR(10),
+	@TenLKH NVARCHAR(50)
+AS
+BEGIN 
+	INSERT INTO LoaiKH(MaLoaiKH, TenLoaiKH)
+    VALUES (@MaLKH,@TenLKH);
+END;
+GO
+-----------Cập nhật Loại Khách Hàng-------------------
+CREATE PROC sp_Update_LoaiKhachHang
+    @MaLKH VARCHAR(10),
+	@TenLKH NVARCHAR(50)
+AS
+BEGIN
+    UPDATE LoaiKH
+    SET TenLoaiKH = @TenLKH
+    WHERE MaLoaiKH = @MaLKH;
+END;
+GO
+----------------------Xóa Loại Khách Hàng----------------------
+CREATE PROC sp_Delete_LoaiKhachHang
+    @MaLKH VARCHAR(10)
+AS
+BEGIN
+    DELETE FROM LoaiKH
+    WHERE MaLoaiKH = @MaLKH;
+END;
+GO
+---------Lấy tất cả các cột trong bảng Nhà Cung Cấp ----------------------
+CREATE PROC sp_SelectAll_NCC
+AS
+BEGIN
+    SELECT * FROM NhaCungCap;
+END;
+GO
+
+exec sp_SelectAll_NCC

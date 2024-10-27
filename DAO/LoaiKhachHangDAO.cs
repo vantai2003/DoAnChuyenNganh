@@ -35,5 +35,23 @@ namespace DACN.DAO
 
             return list;
         }
+        public int Insert(LoaiKhachHangDTO obj)
+        {
+            string query = "sp_Insert_LoaiKhachHang @MaLKH , @TenLKH";
+            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { obj.MaLoaiKH, obj.TenLoaiKH });
+            return result;
+        }
+        public int Update(LoaiKhachHangDTO obj)
+        {
+            string query = "sp_Update_LoaiKhachHang @MaLKH , @TenLKH";
+            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { obj.MaLoaiKH, obj.TenLoaiKH });
+            return result;
+        }
+        public int Delete(string ID)
+        {
+            string query = "sp_Delete_LoaiKhachHang @MaLKH";
+            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { ID });
+            return result;
+        }
     }
 }

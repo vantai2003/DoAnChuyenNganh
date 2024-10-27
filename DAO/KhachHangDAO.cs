@@ -32,5 +32,23 @@ namespace DACN.DAO
             }
             return listNguoiDung;
         }
+        public int Insert(KhachHangDTO obj)
+        {
+            string query = "sp_Insert_KhachHang @MaKH,@TenKH,@SoDienThoai, @Email,@DiaChi , @NgayTao ,@MaLoaiKH";
+            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { obj.MaKH, obj.TenKH,obj.SoDienThoai,obj.Email,obj.Diachi,obj.NgayTao,obj.MaLoaiKH });
+            return result;
+        }
+        public int Update(KhachHangDTO obj)
+        {
+            string query = "sp_Update_KhachHang @MaKH,@TenKH,@SoDienThoai, @Email,@DiaChi , @NgayTao ,@MaLoaiKH";
+            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { obj.MaKH, obj.TenKH, obj.SoDienThoai, obj.Email, obj.Diachi, obj.NgayTao, obj.MaLoaiKH });
+            return result;
+        }
+        public int Delete(string ID)
+        {
+            string query = "sp_Delete_KhachHang @MaKH";
+            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { ID });
+            return result;
+        }
     }
 }

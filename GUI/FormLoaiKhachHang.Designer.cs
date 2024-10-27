@@ -42,10 +42,8 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbLuu = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
-            this.tsbSearchtxt = new System.Windows.Forms.ToolStripTextBox();
-            this.tsbSearch = new System.Windows.Forms.ToolStripButton();
-            this.uiTextBox1 = new Sunny.UI.UITextBox();
-            this.uiTextBox2 = new Sunny.UI.UITextBox();
+            this.txt_MaLoaiKH = new Sunny.UI.UITextBox();
+            this.txt_TenLoaiKH = new Sunny.UI.UITextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_LoaiKhachHang)).BeginInit();
@@ -64,6 +62,7 @@
             this.dgv_LoaiKhachHang.RowTemplate.Height = 28;
             this.dgv_LoaiKhachHang.Size = new System.Drawing.Size(861, 254);
             this.dgv_LoaiKhachHang.TabIndex = 0;
+            this.dgv_LoaiKhachHang.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_LoaiKhachHang_CellClick);
             this.dgv_LoaiKhachHang.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_LoaiKhachHang_CellContentClick);
             // 
             // LoaiKH
@@ -95,14 +94,12 @@
             this.tsbXoaAll,
             this.toolStripSeparator1,
             this.tsbLuu,
-            this.toolStripSeparator8,
-            this.tsbSearchtxt,
-            this.tsbSearch});
+            this.toolStripSeparator8});
             this.tsCTPN.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
             this.tsCTPN.Location = new System.Drawing.Point(0, 0);
             this.tsCTPN.Name = "tsCTPN";
             this.tsCTPN.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.tsCTPN.Size = new System.Drawing.Size(896, 43);
+            this.tsCTPN.Size = new System.Drawing.Size(896, 40);
             this.tsCTPN.TabIndex = 10;
             this.tsCTPN.Text = "tsNCC";
             // 
@@ -114,13 +111,14 @@
             this.tsbThem.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
             this.tsbThem.Name = "tsbThem";
             this.tsbThem.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.tsbThem.Size = new System.Drawing.Size(119, 39);
+            this.tsbThem.Size = new System.Drawing.Size(119, 36);
             this.tsbThem.Text = "Thêm";
+            this.tsbThem.Click += new System.EventHandler(this.tsbThem_Click);
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 43);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 40);
             // 
             // tsbSua
             // 
@@ -130,13 +128,14 @@
             this.tsbSua.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
             this.tsbSua.Name = "tsbSua";
             this.tsbSua.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.tsbSua.Size = new System.Drawing.Size(97, 39);
+            this.tsbSua.Size = new System.Drawing.Size(97, 36);
             this.tsbSua.Text = "Sửa";
+            this.tsbSua.Click += new System.EventHandler(this.tsbSua_Click);
             // 
             // toolStripSeparator6
             // 
             this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(6, 43);
+            this.toolStripSeparator6.Size = new System.Drawing.Size(6, 40);
             // 
             // tsbXoa
             // 
@@ -146,13 +145,14 @@
             this.tsbXoa.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
             this.tsbXoa.Name = "tsbXoa";
             this.tsbXoa.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.tsbXoa.Size = new System.Drawing.Size(98, 39);
+            this.tsbXoa.Size = new System.Drawing.Size(98, 36);
             this.tsbXoa.Text = "Xóa";
+            this.tsbXoa.Click += new System.EventHandler(this.tsbXoa_Click);
             // 
             // toolStripSeparator7
             // 
             this.toolStripSeparator7.Name = "toolStripSeparator7";
-            this.toolStripSeparator7.Size = new System.Drawing.Size(6, 43);
+            this.toolStripSeparator7.Size = new System.Drawing.Size(6, 40);
             // 
             // tsbXoaAll
             // 
@@ -162,13 +162,13 @@
             this.tsbXoaAll.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
             this.tsbXoaAll.Name = "tsbXoaAll";
             this.tsbXoaAll.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.tsbXoaAll.Size = new System.Drawing.Size(136, 39);
+            this.tsbXoaAll.Size = new System.Drawing.Size(136, 36);
             this.tsbXoaAll.Text = " Xóa all";
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 43);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 40);
             // 
             // tsbLuu
             // 
@@ -178,63 +178,46 @@
             this.tsbLuu.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
             this.tsbLuu.Name = "tsbLuu";
             this.tsbLuu.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.tsbLuu.Size = new System.Drawing.Size(97, 39);
+            this.tsbLuu.Size = new System.Drawing.Size(97, 36);
             this.tsbLuu.Text = "Lưu";
+            this.tsbLuu.Click += new System.EventHandler(this.tsbLuu_Click);
             // 
             // toolStripSeparator8
             // 
             this.toolStripSeparator8.Name = "toolStripSeparator8";
-            this.toolStripSeparator8.Size = new System.Drawing.Size(6, 43);
+            this.toolStripSeparator8.Size = new System.Drawing.Size(6, 40);
             // 
-            // tsbSearchtxt
+            // txt_MaLoaiKH
             // 
-            this.tsbSearchtxt.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tsbSearchtxt.Margin = new System.Windows.Forms.Padding(5, 2, 1, 2);
-            this.tsbSearchtxt.Name = "tsbSearchtxt";
-            this.tsbSearchtxt.Size = new System.Drawing.Size(199, 39);
+            this.txt_MaLoaiKH.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txt_MaLoaiKH.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.txt_MaLoaiKH.Location = new System.Drawing.Point(173, 95);
+            this.txt_MaLoaiKH.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txt_MaLoaiKH.MinimumSize = new System.Drawing.Size(1, 16);
+            this.txt_MaLoaiKH.Name = "txt_MaLoaiKH";
+            this.txt_MaLoaiKH.Padding = new System.Windows.Forms.Padding(5);
+            this.txt_MaLoaiKH.ShowText = false;
+            this.txt_MaLoaiKH.Size = new System.Drawing.Size(150, 39);
+            this.txt_MaLoaiKH.TabIndex = 11;
+            this.txt_MaLoaiKH.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txt_MaLoaiKH.Watermark = "";
             // 
-            // tsbSearch
+            // txt_TenLoaiKH
             // 
-            this.tsbSearch.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbSearch.Image = global::DACN.Properties.Resources.Search;
-            this.tsbSearch.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.tsbSearch.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbSearch.Name = "tsbSearch";
-            this.tsbSearch.Size = new System.Drawing.Size(34, 34);
-            this.tsbSearch.Text = "toolStripButton1";
-            // 
-            // uiTextBox1
-            // 
-            this.uiTextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.uiTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.uiTextBox1.Location = new System.Drawing.Point(173, 95);
-            this.uiTextBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.uiTextBox1.MinimumSize = new System.Drawing.Size(1, 16);
-            this.uiTextBox1.Name = "uiTextBox1";
-            this.uiTextBox1.Padding = new System.Windows.Forms.Padding(5);
-            this.uiTextBox1.ShowText = false;
-            this.uiTextBox1.Size = new System.Drawing.Size(150, 39);
-            this.uiTextBox1.TabIndex = 11;
-            this.uiTextBox1.Text = "uiTextBox1";
-            this.uiTextBox1.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
-            this.uiTextBox1.Watermark = "";
-            // 
-            // uiTextBox2
-            // 
-            this.uiTextBox2.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.uiTextBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.uiTextBox2.Location = new System.Drawing.Point(523, 95);
-            this.uiTextBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.uiTextBox2.MinimumSize = new System.Drawing.Size(1, 16);
-            this.uiTextBox2.Name = "uiTextBox2";
-            this.uiTextBox2.Padding = new System.Windows.Forms.Padding(5);
-            this.uiTextBox2.ShowText = false;
-            this.uiTextBox2.Size = new System.Drawing.Size(150, 29);
-            this.uiTextBox2.TabIndex = 12;
-            this.uiTextBox2.Text = "uiTextBox2";
-            this.uiTextBox2.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
-            this.uiTextBox2.Watermark = "";
-            this.uiTextBox2.TextChanged += new System.EventHandler(this.uiTextBox2_TextChanged);
+            this.txt_TenLoaiKH.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txt_TenLoaiKH.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.txt_TenLoaiKH.Location = new System.Drawing.Point(523, 95);
+            this.txt_TenLoaiKH.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txt_TenLoaiKH.MinimumSize = new System.Drawing.Size(1, 16);
+            this.txt_TenLoaiKH.Name = "txt_TenLoaiKH";
+            this.txt_TenLoaiKH.Padding = new System.Windows.Forms.Padding(5);
+            this.txt_TenLoaiKH.ShowText = false;
+            this.txt_TenLoaiKH.Size = new System.Drawing.Size(150, 29);
+            this.txt_TenLoaiKH.TabIndex = 12;
+            this.txt_TenLoaiKH.Text = "uiTextBox2";
+            this.txt_TenLoaiKH.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txt_TenLoaiKH.Watermark = "";
+            this.txt_TenLoaiKH.TextChanged += new System.EventHandler(this.uiTextBox2_TextChanged);
             // 
             // label1
             // 
@@ -263,8 +246,8 @@
             this.ClientSize = new System.Drawing.Size(896, 450);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.uiTextBox2);
-            this.Controls.Add(this.uiTextBox1);
+            this.Controls.Add(this.txt_TenLoaiKH);
+            this.Controls.Add(this.txt_MaLoaiKH);
             this.Controls.Add(this.tsCTPN);
             this.Controls.Add(this.dgv_LoaiKhachHang);
             this.Name = "FormLoaiKhachHang";
@@ -293,10 +276,8 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripButton tsbLuu;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator8;
-        private System.Windows.Forms.ToolStripTextBox tsbSearchtxt;
-        private System.Windows.Forms.ToolStripButton tsbSearch;
-        private Sunny.UI.UITextBox uiTextBox1;
-        private Sunny.UI.UITextBox uiTextBox2;
+        private Sunny.UI.UITextBox txt_MaLoaiKH;
+        private Sunny.UI.UITextBox txt_TenLoaiKH;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
     }

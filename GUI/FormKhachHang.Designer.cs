@@ -37,23 +37,15 @@
             this.NgayTao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MaLoaiKH = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tsCTPN = new System.Windows.Forms.ToolStrip();
-            this.tsbThem = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.tsbSua = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
-            this.tsbXoa = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
-            this.tsbXoaAll = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.tsbLuu = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
-            this.tsbSearchtxt = new System.Windows.Forms.ToolStripTextBox();
-            this.tsbSearch = new System.Windows.Forms.ToolStripButton();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.txtMK = new System.Windows.Forms.TextBox();
+            this.txtTenKH = new System.Windows.Forms.TextBox();
+            this.txtEmail = new System.Windows.Forms.TextBox();
+            this.txtDiaChi = new System.Windows.Forms.TextBox();
+            this.txtSDT = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -61,8 +53,12 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.dtpNgayDat = new System.Windows.Forms.DateTimePicker();
-            this.uiComboBox1 = new Sunny.UI.UIComboBox();
+            this.dtpNgayTao = new System.Windows.Forms.DateTimePicker();
+            this.cbbLoaiKH = new Sunny.UI.UIComboBox();
+            this.tsbThem = new System.Windows.Forms.ToolStripButton();
+            this.tsbSua = new System.Windows.Forms.ToolStripButton();
+            this.tsbXoa = new System.Windows.Forms.ToolStripButton();
+            this.tsbLuu = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_KH)).BeginInit();
             this.tsCTPN.SuspendLayout();
             this.SuspendLayout();
@@ -146,156 +142,75 @@
             this.toolStripSeparator6,
             this.tsbXoa,
             this.toolStripSeparator7,
-            this.tsbXoaAll,
-            this.toolStripSeparator1,
             this.tsbLuu,
-            this.toolStripSeparator8,
-            this.tsbSearchtxt,
-            this.tsbSearch});
+            this.toolStripSeparator8});
             this.tsCTPN.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
             this.tsCTPN.Location = new System.Drawing.Point(0, 0);
             this.tsCTPN.Name = "tsCTPN";
             this.tsCTPN.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.tsCTPN.Size = new System.Drawing.Size(1228, 43);
+            this.tsCTPN.Size = new System.Drawing.Size(1228, 40);
             this.tsCTPN.TabIndex = 9;
             this.tsCTPN.Text = "tsNCC";
-            // 
-            // tsbThem
-            // 
-            this.tsbThem.Image = global::DACN.Properties.Resources.Add;
-            this.tsbThem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.tsbThem.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbThem.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
-            this.tsbThem.Name = "tsbThem";
-            this.tsbThem.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.tsbThem.Size = new System.Drawing.Size(119, 39);
-            this.tsbThem.Text = "Thêm";
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 43);
-            // 
-            // tsbSua
-            // 
-            this.tsbSua.Image = global::DACN.Properties.Resources.Edit;
-            this.tsbSua.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.tsbSua.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbSua.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
-            this.tsbSua.Name = "tsbSua";
-            this.tsbSua.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.tsbSua.Size = new System.Drawing.Size(97, 39);
-            this.tsbSua.Text = "Sửa";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 40);
             // 
             // toolStripSeparator6
             // 
             this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(6, 43);
-            // 
-            // tsbXoa
-            // 
-            this.tsbXoa.Image = global::DACN.Properties.Resources.Delete;
-            this.tsbXoa.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.tsbXoa.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbXoa.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
-            this.tsbXoa.Name = "tsbXoa";
-            this.tsbXoa.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.tsbXoa.Size = new System.Drawing.Size(98, 39);
-            this.tsbXoa.Text = "Xóa";
+            this.toolStripSeparator6.Size = new System.Drawing.Size(6, 40);
             // 
             // toolStripSeparator7
             // 
             this.toolStripSeparator7.Name = "toolStripSeparator7";
-            this.toolStripSeparator7.Size = new System.Drawing.Size(6, 43);
-            // 
-            // tsbXoaAll
-            // 
-            this.tsbXoaAll.Image = global::DACN.Properties.Resources.Delete;
-            this.tsbXoaAll.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.tsbXoaAll.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbXoaAll.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
-            this.tsbXoaAll.Name = "tsbXoaAll";
-            this.tsbXoaAll.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.tsbXoaAll.Size = new System.Drawing.Size(136, 39);
-            this.tsbXoaAll.Text = " Xóa all";
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 43);
-            // 
-            // tsbLuu
-            // 
-            this.tsbLuu.Image = global::DACN.Properties.Resources.Save;
-            this.tsbLuu.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.tsbLuu.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbLuu.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
-            this.tsbLuu.Name = "tsbLuu";
-            this.tsbLuu.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.tsbLuu.Size = new System.Drawing.Size(97, 39);
-            this.tsbLuu.Text = "Lưu";
+            this.toolStripSeparator7.Size = new System.Drawing.Size(6, 40);
             // 
             // toolStripSeparator8
             // 
             this.toolStripSeparator8.Name = "toolStripSeparator8";
-            this.toolStripSeparator8.Size = new System.Drawing.Size(6, 43);
+            this.toolStripSeparator8.Size = new System.Drawing.Size(6, 40);
             // 
-            // tsbSearchtxt
+            // txtMK
             // 
-            this.tsbSearchtxt.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tsbSearchtxt.Margin = new System.Windows.Forms.Padding(5, 2, 1, 2);
-            this.tsbSearchtxt.Name = "tsbSearchtxt";
-            this.tsbSearchtxt.Size = new System.Drawing.Size(199, 39);
+            this.txtMK.Location = new System.Drawing.Point(142, 81);
+            this.txtMK.Name = "txtMK";
+            this.txtMK.Size = new System.Drawing.Size(190, 26);
+            this.txtMK.TabIndex = 10;
             // 
-            // tsbSearch
+            // txtTenKH
             // 
-            this.tsbSearch.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbSearch.Image = global::DACN.Properties.Resources.Search;
-            this.tsbSearch.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.tsbSearch.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbSearch.Name = "tsbSearch";
-            this.tsbSearch.Size = new System.Drawing.Size(34, 38);
-            this.tsbSearch.Text = "toolStripButton1";
+            this.txtTenKH.Location = new System.Drawing.Point(175, 161);
+            this.txtTenKH.Name = "txtTenKH";
+            this.txtTenKH.Size = new System.Drawing.Size(190, 26);
+            this.txtTenKH.TabIndex = 11;
             // 
-            // textBox1
+            // txtEmail
             // 
-            this.textBox1.Location = new System.Drawing.Point(191, 84);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(190, 26);
-            this.textBox1.TabIndex = 10;
+            this.txtEmail.Location = new System.Drawing.Point(726, 81);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(220, 26);
+            this.txtEmail.TabIndex = 12;
             // 
-            // textBox2
+            // txtDiaChi
             // 
-            this.textBox2.Location = new System.Drawing.Point(191, 167);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(190, 26);
-            this.textBox2.TabIndex = 11;
+            this.txtDiaChi.Location = new System.Drawing.Point(472, 161);
+            this.txtDiaChi.Name = "txtDiaChi";
+            this.txtDiaChi.Size = new System.Drawing.Size(218, 26);
+            this.txtDiaChi.TabIndex = 13;
             // 
-            // textBox3
+            // txtSDT
             // 
-            this.textBox3.Location = new System.Drawing.Point(726, 81);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(220, 26);
-            this.textBox3.TabIndex = 12;
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(472, 161);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(301, 26);
-            this.textBox4.TabIndex = 13;
-            // 
-            // textBox6
-            // 
-            this.textBox6.Location = new System.Drawing.Point(472, 81);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(174, 26);
-            this.textBox6.TabIndex = 15;
+            this.txtSDT.Location = new System.Drawing.Point(472, 81);
+            this.txtSDT.Name = "txtSDT";
+            this.txtSDT.Size = new System.Drawing.Size(174, 26);
+            this.txtSDT.TabIndex = 15;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(42, 90);
+            this.label1.Location = new System.Drawing.Point(32, 81);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(84, 20);
             this.label1.TabIndex = 17;
@@ -304,7 +219,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(32, 167);
+            this.label2.Location = new System.Drawing.Point(32, 161);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(128, 20);
             this.label2.TabIndex = 18;
@@ -349,47 +264,91 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(887, 180);
+            this.label7.Location = new System.Drawing.Point(755, 161);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(131, 20);
             this.label7.TabIndex = 23;
             this.label7.Text = "Loại Khách Hàng";
             // 
-            // dtpNgayDat
+            // dtpNgayTao
             // 
-            this.dtpNgayDat.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.dtpNgayDat.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpNgayDat.Location = new System.Drawing.Point(1053, 82);
-            this.dtpNgayDat.Name = "dtpNgayDat";
-            this.dtpNgayDat.Size = new System.Drawing.Size(138, 26);
-            this.dtpNgayDat.TabIndex = 24;
+            this.dtpNgayTao.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dtpNgayTao.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpNgayTao.Location = new System.Drawing.Point(1053, 82);
+            this.dtpNgayTao.Name = "dtpNgayTao";
+            this.dtpNgayTao.Size = new System.Drawing.Size(138, 26);
+            this.dtpNgayTao.TabIndex = 24;
             // 
-            // uiComboBox1
+            // cbbLoaiKH
             // 
-            this.uiComboBox1.DataSource = null;
-            this.uiComboBox1.FillColor = System.Drawing.Color.White;
-            this.uiComboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.uiComboBox1.ItemHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(200)))), ((int)(((byte)(255)))));
-            this.uiComboBox1.ItemSelectForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
-            this.uiComboBox1.Location = new System.Drawing.Point(1038, 171);
-            this.uiComboBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.uiComboBox1.MinimumSize = new System.Drawing.Size(63, 0);
-            this.uiComboBox1.Name = "uiComboBox1";
-            this.uiComboBox1.Padding = new System.Windows.Forms.Padding(0, 0, 30, 2);
-            this.uiComboBox1.Size = new System.Drawing.Size(150, 29);
-            this.uiComboBox1.SymbolSize = 24;
-            this.uiComboBox1.TabIndex = 25;
-            this.uiComboBox1.Text = "uiComboBox1";
-            this.uiComboBox1.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
-            this.uiComboBox1.Watermark = "";
+            this.cbbLoaiKH.DataSource = null;
+            this.cbbLoaiKH.FillColor = System.Drawing.Color.White;
+            this.cbbLoaiKH.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.cbbLoaiKH.ItemHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(200)))), ((int)(((byte)(255)))));
+            this.cbbLoaiKH.ItemSelectForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
+            this.cbbLoaiKH.Location = new System.Drawing.Point(952, 161);
+            this.cbbLoaiKH.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cbbLoaiKH.MinimumSize = new System.Drawing.Size(63, 0);
+            this.cbbLoaiKH.Name = "cbbLoaiKH";
+            this.cbbLoaiKH.Padding = new System.Windows.Forms.Padding(0, 0, 30, 2);
+            this.cbbLoaiKH.Size = new System.Drawing.Size(150, 29);
+            this.cbbLoaiKH.SymbolSize = 24;
+            this.cbbLoaiKH.TabIndex = 25;
+            this.cbbLoaiKH.Text = "uiComboBox1";
+            this.cbbLoaiKH.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.cbbLoaiKH.Watermark = "";
+            // 
+            // tsbThem
+            // 
+            this.tsbThem.Image = global::DACN.Properties.Resources.Add;
+            this.tsbThem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsbThem.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbThem.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
+            this.tsbThem.Name = "tsbThem";
+            this.tsbThem.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.tsbThem.Size = new System.Drawing.Size(119, 36);
+            this.tsbThem.Text = "Thêm";
+            // 
+            // tsbSua
+            // 
+            this.tsbSua.Image = global::DACN.Properties.Resources.Edit;
+            this.tsbSua.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsbSua.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbSua.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
+            this.tsbSua.Name = "tsbSua";
+            this.tsbSua.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.tsbSua.Size = new System.Drawing.Size(97, 36);
+            this.tsbSua.Text = "Sửa";
+            // 
+            // tsbXoa
+            // 
+            this.tsbXoa.Image = global::DACN.Properties.Resources.Delete;
+            this.tsbXoa.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsbXoa.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbXoa.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
+            this.tsbXoa.Name = "tsbXoa";
+            this.tsbXoa.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.tsbXoa.Size = new System.Drawing.Size(98, 36);
+            this.tsbXoa.Text = "Xóa";
+            // 
+            // tsbLuu
+            // 
+            this.tsbLuu.Image = global::DACN.Properties.Resources.Save;
+            this.tsbLuu.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsbLuu.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbLuu.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
+            this.tsbLuu.Name = "tsbLuu";
+            this.tsbLuu.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.tsbLuu.Size = new System.Drawing.Size(97, 36);
+            this.tsbLuu.Text = "Lưu";
             // 
             // FormKhachHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1228, 518);
-            this.Controls.Add(this.uiComboBox1);
-            this.Controls.Add(this.dtpNgayDat);
+            this.Controls.Add(this.cbbLoaiKH);
+            this.Controls.Add(this.dtpNgayTao);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -397,11 +356,11 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtSDT);
+            this.Controls.Add(this.txtDiaChi);
+            this.Controls.Add(this.txtEmail);
+            this.Controls.Add(this.txtTenKH);
+            this.Controls.Add(this.txtMK);
             this.Controls.Add(this.tsCTPN);
             this.Controls.Add(this.dgv_KH);
             this.Name = "FormKhachHang";
@@ -431,17 +390,13 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
         private System.Windows.Forms.ToolStripButton tsbXoa;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
-        private System.Windows.Forms.ToolStripButton tsbXoaAll;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripButton tsbLuu;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator8;
-        private System.Windows.Forms.ToolStripTextBox tsbSearchtxt;
-        private System.Windows.Forms.ToolStripButton tsbSearch;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox txtMK;
+        private System.Windows.Forms.TextBox txtTenKH;
+        private System.Windows.Forms.TextBox txtEmail;
+        private System.Windows.Forms.TextBox txtDiaChi;
+        private System.Windows.Forms.TextBox txtSDT;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
@@ -449,7 +404,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.DateTimePicker dtpNgayDat;
-        private Sunny.UI.UIComboBox uiComboBox1;
+        private System.Windows.Forms.DateTimePicker dtpNgayTao;
+        private Sunny.UI.UIComboBox cbbLoaiKH;
     }
 }
