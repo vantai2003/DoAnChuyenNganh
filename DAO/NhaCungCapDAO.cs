@@ -17,7 +17,7 @@ namespace DACN.DAO
             get { if (instance == null) instance = new NhaCungCapDAO(); return NhaCungCapDAO.instance; }
             private set { NhaCungCapDAO.instance = value; }
         }
-        private NhaCungCapDAO()
+        public NhaCungCapDAO()
         {
 
         }
@@ -34,6 +34,28 @@ namespace DACN.DAO
             }
 
             return list;
+
+        }
+        public int Insert(NhaCungCapDTO obj)
+        {
+            string query = "sp_Insert_NhaCungCap @MaNCC , @TenNCC , @SDT , @Email , @DiaChi , @ThanhPho , @QuocGia , @NgayTao";
+            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { obj.MaNCC, obj.TenNCC, obj.SDT,obj.Email,obj.DiaChi,obj.ThanhPho,obj.QuocGia,obj.NgayTao});
+            return result;
+        }
+        public int Update(NhaCungCapDTO obj)
+        {
+            string query = "sp_Update_NhaCungCap @MaNCC , @TenNCC , @SDT , @Email , @DiaChi , @ThanhPho , @QuocGia , @NgayTao";
+            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { obj.MaNCC, obj.TenNCC, obj.SDT, obj.Email, obj.DiaChi, obj.ThanhPho, obj.QuocGia, obj.NgayTao });
+            return result;
+        }
+        public int Delete(string ID)
+        {
+            string query = "sp_Delete_NhaCungCap @MaNCC";
+            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { ID });
+            return result;
         }
     }
+
 }
+
+
