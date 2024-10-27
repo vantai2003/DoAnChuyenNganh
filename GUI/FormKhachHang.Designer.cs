@@ -29,13 +29,6 @@
         private void InitializeComponent()
         {
             this.dgv_KH = new System.Windows.Forms.DataGridView();
-            this.MAKH = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TENKH = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SDT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DiaChi = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NgayTao = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MaLoaiKH = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tsCTPN = new System.Windows.Forms.ToolStrip();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
@@ -59,6 +52,12 @@
             this.tsbSua = new System.Windows.Forms.ToolStripButton();
             this.tsbXoa = new System.Windows.Forms.ToolStripButton();
             this.tsbLuu = new System.Windows.Forms.ToolStripButton();
+            this.MAKH = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TENKH = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SDT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DiaChi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NgayTao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_KH)).BeginInit();
             this.tsCTPN.SuspendLayout();
             this.SuspendLayout();
@@ -72,63 +71,14 @@
             this.SDT,
             this.DiaChi,
             this.Email,
-            this.NgayTao,
-            this.MaLoaiKH});
+            this.NgayTao});
             this.dgv_KH.Location = new System.Drawing.Point(12, 220);
             this.dgv_KH.Name = "dgv_KH";
             this.dgv_KH.RowHeadersWidth = 62;
             this.dgv_KH.RowTemplate.Height = 28;
             this.dgv_KH.Size = new System.Drawing.Size(1231, 309);
             this.dgv_KH.TabIndex = 0;
-            // 
-            // MAKH
-            // 
-            this.MAKH.HeaderText = "Mã Khách Hàng";
-            this.MAKH.MinimumWidth = 8;
-            this.MAKH.Name = "MAKH";
-            this.MAKH.Width = 150;
-            // 
-            // TENKH
-            // 
-            this.TENKH.HeaderText = "Tên Khách Hàng";
-            this.TENKH.MinimumWidth = 8;
-            this.TENKH.Name = "TENKH";
-            this.TENKH.Width = 150;
-            // 
-            // SDT
-            // 
-            this.SDT.HeaderText = "Số Điện Thoại";
-            this.SDT.MinimumWidth = 8;
-            this.SDT.Name = "SDT";
-            this.SDT.Width = 150;
-            // 
-            // DiaChi
-            // 
-            this.DiaChi.HeaderText = "Địa Chỉ";
-            this.DiaChi.MinimumWidth = 8;
-            this.DiaChi.Name = "DiaChi";
-            this.DiaChi.Width = 150;
-            // 
-            // Email
-            // 
-            this.Email.HeaderText = "Email";
-            this.Email.MinimumWidth = 8;
-            this.Email.Name = "Email";
-            this.Email.Width = 150;
-            // 
-            // NgayTao
-            // 
-            this.NgayTao.HeaderText = "Ngày Tạo";
-            this.NgayTao.MinimumWidth = 8;
-            this.NgayTao.Name = "NgayTao";
-            this.NgayTao.Width = 150;
-            // 
-            // MaLoaiKH
-            // 
-            this.MaLoaiKH.HeaderText = "Mã Loại Khách Hàng";
-            this.MaLoaiKH.MinimumWidth = 8;
-            this.MaLoaiKH.Name = "MaLoaiKH";
-            this.MaLoaiKH.Width = 150;
+            this.dgv_KH.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_KH_CellClick);
             // 
             // tsCTPN
             // 
@@ -286,15 +236,14 @@
             this.cbbLoaiKH.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.cbbLoaiKH.ItemHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(200)))), ((int)(((byte)(255)))));
             this.cbbLoaiKH.ItemSelectForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
-            this.cbbLoaiKH.Location = new System.Drawing.Point(952, 161);
+            this.cbbLoaiKH.Location = new System.Drawing.Point(956, 152);
             this.cbbLoaiKH.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cbbLoaiKH.MinimumSize = new System.Drawing.Size(63, 0);
             this.cbbLoaiKH.Name = "cbbLoaiKH";
             this.cbbLoaiKH.Padding = new System.Windows.Forms.Padding(0, 0, 30, 2);
-            this.cbbLoaiKH.Size = new System.Drawing.Size(150, 29);
+            this.cbbLoaiKH.Size = new System.Drawing.Size(246, 29);
             this.cbbLoaiKH.SymbolSize = 24;
             this.cbbLoaiKH.TabIndex = 25;
-            this.cbbLoaiKH.Text = "uiComboBox1";
             this.cbbLoaiKH.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             this.cbbLoaiKH.Watermark = "";
             // 
@@ -308,6 +257,7 @@
             this.tsbThem.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.tsbThem.Size = new System.Drawing.Size(119, 36);
             this.tsbThem.Text = "Thêm";
+            this.tsbThem.Click += new System.EventHandler(this.tsbThem_Click);
             // 
             // tsbSua
             // 
@@ -319,6 +269,7 @@
             this.tsbSua.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.tsbSua.Size = new System.Drawing.Size(97, 36);
             this.tsbSua.Text = "Sửa";
+            this.tsbSua.Click += new System.EventHandler(this.tsbSua_Click);
             // 
             // tsbXoa
             // 
@@ -330,6 +281,7 @@
             this.tsbXoa.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.tsbXoa.Size = new System.Drawing.Size(98, 36);
             this.tsbXoa.Text = "Xóa";
+            this.tsbXoa.Click += new System.EventHandler(this.tsbXoa_Click);
             // 
             // tsbLuu
             // 
@@ -341,6 +293,49 @@
             this.tsbLuu.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.tsbLuu.Size = new System.Drawing.Size(97, 36);
             this.tsbLuu.Text = "Lưu";
+            this.tsbLuu.Click += new System.EventHandler(this.tsbLuu_Click);
+            // 
+            // MAKH
+            // 
+            this.MAKH.HeaderText = "Mã Khách Hàng";
+            this.MAKH.MinimumWidth = 8;
+            this.MAKH.Name = "MAKH";
+            this.MAKH.Width = 150;
+            // 
+            // TENKH
+            // 
+            this.TENKH.HeaderText = "Tên Khách Hàng";
+            this.TENKH.MinimumWidth = 8;
+            this.TENKH.Name = "TENKH";
+            this.TENKH.Width = 150;
+            // 
+            // SDT
+            // 
+            this.SDT.HeaderText = "Số Điện Thoại";
+            this.SDT.MinimumWidth = 8;
+            this.SDT.Name = "SDT";
+            this.SDT.Width = 150;
+            // 
+            // DiaChi
+            // 
+            this.DiaChi.HeaderText = "Địa Chỉ";
+            this.DiaChi.MinimumWidth = 8;
+            this.DiaChi.Name = "DiaChi";
+            this.DiaChi.Width = 150;
+            // 
+            // Email
+            // 
+            this.Email.HeaderText = "Email";
+            this.Email.MinimumWidth = 8;
+            this.Email.Name = "Email";
+            this.Email.Width = 150;
+            // 
+            // NgayTao
+            // 
+            this.NgayTao.HeaderText = "Ngày Tạo";
+            this.NgayTao.MinimumWidth = 8;
+            this.NgayTao.Name = "NgayTao";
+            this.NgayTao.Width = 150;
             // 
             // FormKhachHang
             // 
@@ -376,13 +371,6 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dgv_KH;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MAKH;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TENKH;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SDT;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DiaChi;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Email;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NgayTao;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MaLoaiKH;
         private System.Windows.Forms.ToolStrip tsCTPN;
         private System.Windows.Forms.ToolStripButton tsbThem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
@@ -406,5 +394,11 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.DateTimePicker dtpNgayTao;
         private Sunny.UI.UIComboBox cbbLoaiKH;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MAKH;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TENKH;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SDT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DiaChi;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Email;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NgayTao;
     }
 }

@@ -17,7 +17,7 @@ namespace DACN.DAO
             get { if (instance == null) instance = new KhachHangDAO(); return KhachHangDAO.instance; }
             private set { KhachHangDAO.instance = value; }
         }
-        private KhachHangDAO()
+        public KhachHangDAO()
         {
 
         }
@@ -34,13 +34,13 @@ namespace DACN.DAO
         }
         public int Insert(KhachHangDTO obj)
         {
-            string query = "sp_Insert_KhachHang @MaKH,@TenKH,@SoDienThoai, @Email,@DiaChi , @NgayTao ,@MaLoaiKH";
+            string query = "sp_Insert_KhachHang @MaKH , @TenKH , @SoDienThoai , @Email , @DiaChi , @NgayTao , @MaLoaiKH";
             int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { obj.MaKH, obj.TenKH,obj.SoDienThoai,obj.Email,obj.Diachi,obj.NgayTao,obj.MaLoaiKH });
             return result;
         }
         public int Update(KhachHangDTO obj)
         {
-            string query = "sp_Update_KhachHang @MaKH,@TenKH,@SoDienThoai, @Email,@DiaChi , @NgayTao ,@MaLoaiKH";
+            string query = "sp_Update_KhachHang @MaKH , @TenKH , @SoDienThoai , @Email , @DiaChi , @NgayTao , @MaLoaiKH";
             int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { obj.MaKH, obj.TenKH, obj.SoDienThoai, obj.Email, obj.Diachi, obj.NgayTao, obj.MaLoaiKH });
             return result;
         }
