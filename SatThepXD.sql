@@ -267,6 +267,7 @@ BEGIN
     SELECT * FROM KHACHHANG;
 END;
 GO
+drop proc sp_Insert_KhachHang
 ----------Insert Khách Hàng----------------
 CREATE PROC  sp_Insert_KhachHang
     @MaKH VARCHAR(50),
@@ -278,8 +279,8 @@ CREATE PROC  sp_Insert_KhachHang
 	@MaLoaiKH VARCHAR(50)
 AS
 BEGIN
-    INSERT INTO KhachHang(MaKH,TenKH,SoDienThoai,Email,DiaChi,NgayTao,MaLoaiKH)
-    VALUES (@MaKH,@TenKH ,@SoDienThoai ,@Email,@DiaChi,@NgayTao,@MaLoaiKH)
+    INSERT INTO KhachHang
+    VALUES (@MaKH,@TenKH,@SoDienThoai,@Email,@DiaChi,@NgayTao,@MaLoaiKH)
 END;
 GO
 
@@ -393,6 +394,8 @@ BEGIN
     WHERE MaLoaiKH = @MaLKH;
 END;
 GO
+
+
 ---------Lấy tất cả các cột trong bảng Nhà Cung Cấp ----------------------
 CREATE PROC sp_SelectAll_NCC
 AS
@@ -400,5 +403,51 @@ BEGIN
     SELECT * FROM NhaCungCap;
 END;
 GO
-
-exec sp_SelectAll_NCC
+--------------------Thêm Nhà cung cấp--------------------------------------
+CREATE PROC sp_Insert_NhaCungCap
+    @MaNCC VARCHAR(50) ,
+    @TenNCC NVARCHAR(200),
+    @SDT VARCHAR(11) ,
+    @Email VARCHAR(100) ,
+    @DiaChi NVARCHAR(500),
+	@ThanhPho NVARCHAR(20),
+    @QuocGia NVARCHAR(50),
+    @NgayTao DATE
+AS
+BEGIN
+    INSERT INTO NHACUNGCAP
+    VALUES (@MaNCC, @TenNCC, @SDT, @Email, @DiaChi, @ThanhPho, @QuocGia, @NgayTao);
+END;
+GO
+------------------------Cập nhật Nhà cung cấp-----------------------
+CREATE PROCEDURE sp_Update_NhaCungCap
+    @MaNCC VARCHAR(50) ,
+    @TenNCC NVARCHAR(200),
+    @SDT VARCHAR(11) ,
+    @Email VARCHAR(100) ,
+    @DiaChi NVARCHAR(500),
+	@ThanhPho NVARCHAR(20),
+    @QuocGia NVARCHAR(50),
+    @NgayTao DATE
+AS
+BEGIN
+    UPDATE NHACUNGCAP
+    SET TENNCC = @TenNCC,
+        SDT = @SDT,
+        Email = @Email,
+        DiaChi = @DiaChi,
+		ThanhPho =@ThanhPho,
+		QuocGia =@QuocGia,
+		NgayTao =@NgayTao
+    WHERE MANCC = @MaNCC;
+END;
+GO
+----------------------------Xóa Nhà cung cấp----------------------------
+CREATE PROCEDURE sp_Delete_NhaCungCap
+    @MaNCC VARCHAR(50)
+AS
+BEGIN
+    DELETE FROM NHACUNGCAP
+    WHERE MANCC = @MaNCC;
+END;
+GO
