@@ -22,6 +22,7 @@ namespace DACN.GUI
         {
             InitializeComponent();
             LoadLoaiSanPham();
+            khoaDK();
         }
         private void LoadLoaiSanPham()
         {

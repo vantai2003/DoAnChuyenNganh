@@ -19,6 +19,7 @@ namespace DACN.GUI
             InitializeComponent();
             HienThiKH();
             loadCBBLoaiKH();
+            khoaDK();
         }
         private KhachHangDTO khDTO = new KhachHangDTO();
         bool IsInsert = false;

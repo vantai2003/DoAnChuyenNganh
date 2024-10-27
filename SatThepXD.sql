@@ -25,7 +25,7 @@ CREATE TABLE NhaCungCap (
 CREATE TABLE Kho (
     MaKho VARCHAR(50) PRIMARY KEY NOT NULL,
     TenKho NVARCHAR(100),
-    DiaChi VARCHAR(500)
+    DiaChi NVARCHAR(500)
 );
 
 -- Bảng SanPham
@@ -209,6 +209,8 @@ INSERT INTO KhachHang(MaKH, TenKH, SoDienThoai, Email, DiaChi, NgayTao, MaLoaiKH
 
 GO
 INSERT INTO NhaCungCap(MaNCC,TenNCC,SDT,Email,DiaChi,ThanhPho,QuocGia,NgayTao) VALUES('NCC001',N'Công ty sắt thép Việt Phát','0988388111','info@VietPhat',N'66 Nguyễn Du, P. Nguyễn Du, Q. Hai Bà Trưng',N'Hà Nội',N'Việt Nam','2024-11-27')
+GO
+INSERT INTO KHO VALUES('MK001',N'Kho Thép A','Lê trọng tấn TP.Hồ Chí Minh')
 --thủ tục getlist người dùng
 GO
 CREATE PROC SP_GetListNguoiDung
@@ -309,7 +311,7 @@ END;
 GO
 ----------------------Xóa Khách Hàng----------------------
 CREATE PROCEDURE sp_Delete_KhachHang
-    @MaKH VARCHAR(10)
+    @MaKH VARCHAR(50)
 AS
 BEGIN
     DELETE FROM KhachHang
@@ -325,7 +327,7 @@ END;
 GO
 ----------Insert Lọai Sản Phẩm-----------------------------------
 CREATE PROC  sp_Insert_LoaiSanPham
-    @MaLoai VARCHAR(10),
+    @MaLoai VARCHAR(50),
     @TenLoai NVARCHAR(50)
 AS
 BEGIN
@@ -349,7 +351,7 @@ END;
 GO
 ----------------------Xóa Lọai Sản Phẩm----------------------
 CREATE PROCEDURE sp_Delete_LoaiSanPham
-    @MaLoai VARCHAR(10)
+    @MaLoai VARCHAR(50)
 AS
 BEGIN
     DELETE FROM LoaiSanPham
@@ -366,7 +368,7 @@ END;
 GO
 ---------------------Thêm Loại Khách Hàng-------------------
 CREATE PROC sp_Insert_LoaiKhachHang
-	@MaLKH VARCHAR(10),
+	@MaLKH VARCHAR(50),
 	@TenLKH NVARCHAR(50)
 AS
 BEGIN 
@@ -376,7 +378,7 @@ END;
 GO
 -----------Cập nhật Loại Khách Hàng-------------------
 CREATE PROC sp_Update_LoaiKhachHang
-    @MaLKH VARCHAR(10),
+    @MaLKH VARCHAR(50),
 	@TenLKH NVARCHAR(50)
 AS
 BEGIN
@@ -387,7 +389,7 @@ END;
 GO
 ----------------------Xóa Loại Khách Hàng----------------------
 CREATE PROC sp_Delete_LoaiKhachHang
-    @MaLKH VARCHAR(10)
+    @MaLKH VARCHAR(50)
 AS
 BEGIN
     DELETE FROM LoaiKH
@@ -449,5 +451,46 @@ AS
 BEGIN
     DELETE FROM NHACUNGCAP
     WHERE MANCC = @MaNCC;
+END;
+GO
+
+---------Lấy tất cả các cột trong bảng Kho----------------------
+CREATE PROC sp_SelectAll_Kho
+AS
+BEGIN
+    SELECT * FROM Kho;
+END;
+GO
+---------------------Thêm Kho-------------------
+CREATE PROC sp_Insert_Kho
+	@MaKho VARCHAR(50),
+	@TenKho NVARCHAR(100),
+	@DiaChi NVARCHAR(500)
+AS
+BEGIN 
+	INSERT INTO Kho
+    VALUES (@MaKho,@TenKho,@DiaChi);
+END;
+GO
+-----------Cập nhật Kho-------------------
+CREATE PROC sp_Update_Kho
+	@MaKho VARCHAR(50),
+	@TenKho NVARCHAR(100),
+	@DiaChi NVARCHAR(500)
+AS
+BEGIN
+    UPDATE Kho
+    SET TenKho = @TenKho,
+		DiaChi = @DiaChi
+    WHERE MaKho = @MaKho;
+END;
+GO
+----------------------Xóa Kho----------------------
+CREATE PROC sp_Delete_Kho
+    @MaKho VARCHAR(50)
+AS
+BEGIN
+    DELETE FROM Kho
+    WHERE MaKho = @MaKho;
 END;
 GO

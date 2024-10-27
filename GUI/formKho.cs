@@ -12,52 +12,52 @@ using System.Windows.Forms;
 
 namespace DACN.GUI
 {
-    public partial class FormLoaiKhachHang : Form
+    public partial class formKho : Form
     {
         private bool IsInsert = false;
-        private LoaiKhachHangDAO loaiKhachHangDAO = new LoaiKhachHangDAO();
-        private LoaiKhachHangDTO lkhDTO = new LoaiKhachHangDTO();
-        public FormLoaiKhachHang()
+        private KhoDTO KhoDTO = new KhoDTO();
+        private KhoDAO KhoDAO = new KhoDAO();
+        public formKho()
         {
             InitializeComponent();
-            LoadLoaiKhachHang();
+            LoadKho();
             khoaDK();
         }
-        private void LoadLoaiKhachHang()
+        private void LoadKho()
         {
-            List<LoaiKhachHangDTO> listLoaiKH = LoaiKhachHangDAO.Instance.GetLoaiKhachHang();
-
-            dgv_LoaiKhachHang.Columns["LoaiKH"].DataPropertyName = "MaLoaiKH";
-            dgv_LoaiKhachHang.Columns["TenLoaiKH"].DataPropertyName = "TenLoaiKH";
-            dgv_LoaiKhachHang.DataSource = listLoaiKH;
+            List<KhoDTO> list= KhoDAO.Instance.GetKho();
+            dgvKho.Columns["MaKho"].DataPropertyName = "MaKHO";
+            dgvKho.Columns["TENKho"].DataPropertyName = "TenKHo";
+            dgvKho.Columns["DiaChi"].DataPropertyName = "DiaCHI";
+            dgvKho.DataSource = list;
         }
         public void khoaDK()
         {
-            txt_MaLoaiKH.Enabled = txt_TenLoaiKH.Enabled = false;
+            txtMaKho.Enabled = txtTenKho.Enabled = txtDiaChi.Enabled = false;
             tsbThem.Enabled = tsbSua.Enabled = tsbXoa.Enabled = true;
             tsbLuu.Enabled = false;
         }
         public void moKhoaDK()
         {
-            txt_MaLoaiKH.Enabled = txt_TenLoaiKH.Enabled = true;
+            txtMaKho.Enabled = txtTenKho.Enabled = txtDiaChi.Enabled = true;
             tsbThem.Enabled = tsbSua.Enabled = tsbXoa.Enabled = false;
             tsbLuu.Enabled = true;
         }
-        
+        private List<KhoDTO> listkho= new List<KhoDTO>();
         public void xoaTxt()
         {
-            txt_MaLoaiKH.Text = txt_TenLoaiKH.Text = string.Empty;
+            txtMaKho.Text = txtTenKho.Text = txtDiaChi.Text = string.Empty;
         }
-        static string GenerateNewCode(List<LoaiKhachHangDTO> list)
+        static string GenerateNewCode(List<KhoDTO> list)
         {
             // Nếu danh sách rỗng, trả về mã mặc định
             if (list.Count == 0)
             {
-                return "LK001";
+                return "MK001";
             }
 
             // Lấy phần tử cuối cùng trong danh sách
-            string lastCode = list.Last().MaLoaiKH;
+            string lastCode = list.Last().MaKho;
 
             string prefix = lastCode.Substring(0, 2);
             string numberPart = lastCode.Substring(3);
@@ -70,78 +70,54 @@ namespace DACN.GUI
 
             return newCode;
         }
-        private void dgv_LoaiKhachHang_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void label3_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void uiLabel1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void uiTextBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-        private List<LoaiKhachHangDTO> listLKH = new List<LoaiKhachHangDTO>();
         private void tsbThem_Click(object sender, EventArgs e)
         {
             moKhoaDK();
             IsInsert = true;
             xoaTxt();
-            txt_MaLoaiKH.Text = GenerateNewCode(listLKH);
+            txtMaKho.Text = GenerateNewCode(listkho);
         }
 
         private void tsbSua_Click(object sender, EventArgs e)
         {
             moKhoaDK();
-            txt_MaLoaiKH.Enabled = false;
+            txtMaKho.Enabled = false;
             IsInsert = false;
+
         }
 
         private void tsbXoa_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Bạn có muốn xóa thông tin này không?", "Thông báo", MessageBoxButtons.YesNo) == DialogResult.Yes)
-            {
-                try
-                {
-                    loaiKhachHangDAO.Delete(txt_MaLoaiKH.Text);
-                    MessageBox.Show("Đã xóa thông tin thành công!");
-                    xoaTxt();
-                    khoaDK();
 
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine("Error: " + ex.Message);
-                }
-            }
-            LoadLoaiKhachHang();
         }
 
         private void tsbLuu_Click(object sender, EventArgs e)
         {
-            lkhDTO.MaLoaiKH = txt_MaLoaiKH.Text;
-            lkhDTO.TenLoaiKH = txt_TenLoaiKH.Text;
-
+            KhoDTO.MaKho = txtMaKho.Text;
+            KhoDTO.TenKho = txtTenKho.Text;
+            KhoDTO.DiaChi = txtDiaChi.Text;
             try
             {
 
                 if (IsInsert == true)
                 {
                     //Insert
-                    loaiKhachHangDAO.Insert(lkhDTO);
+                    KhoDAO.Insert(KhoDTO);
                     MessageBox.Show("Thêm thông tin thành công!");
                 }
                 else
                 {
                     //Update
-                    loaiKhachHangDAO.Update(lkhDTO);
+                    KhoDAO.Update(KhoDTO);
                     MessageBox.Show("Sửa thông tin thành công!");
 
                 }
-                LoadLoaiKhachHang();
+                LoadKho();
                 xoaTxt();
             }
             catch (Exception ex)
@@ -150,17 +126,22 @@ namespace DACN.GUI
             }
         }
 
-        private void dgv_LoaiKhachHang_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvKho_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             khoaDK();
             try
             {
                 if (e.RowIndex >= 0)
                 {
-                    DataGridViewRow row = dgv_LoaiKhachHang.Rows[e.RowIndex];
-                    txt_MaLoaiKH.Text = row.Cells["LoaiKH"].Value.ToString();
-                    txt_TenLoaiKH.Text = row.Cells["TENLOAIKH"].Value.ToString();
-
+                    DataGridViewRow row = dgvKho.Rows[e.RowIndex];
+                    txtMaKho.Text = row.Cells["MaKho"].Value.ToString();
+                    txtTenKho.Text = row.Cells["TenKho"].Value.ToString();
+                    txtDiaChi.Text = row.Cells["DiaCHi"].Value.ToString();
                 }
             }
             catch (Exception ex)
