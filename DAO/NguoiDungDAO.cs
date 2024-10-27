@@ -33,6 +33,12 @@ namespace DACN.DAO
             }
             return listNguoiDung;
         }
+        public bool KiemTraTrungTenDN(string tenDN)
+        {
+            string query = "SP_KiemTraTrungten @TenDN";
+            DataTable result = DataProvider.Instance.ExecuteQuery(query, new object[] { tenDN });
+            return result.Rows.Count > 0;
+        }
         public List<NguoiDungDTO> GetNguoiDung()
         {
             List<NguoiDungDTO> listNguoiDung = new List<NguoiDungDTO>();
@@ -60,6 +66,18 @@ namespace DACN.DAO
                 hashSb.Append(b.ToString("X2"));
             }
             return hashSb.ToString();
+        }
+        public int XoaNguoiDung(string tenDN)
+        {
+            string query = "SP_XoaNguoiDung @TenDN";
+            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { tenDN });
+            return result;
+        }
+        public int SuaNguoiDung(string tendn, string matkhau, string manv, int quyenid)
+        {
+            string query = "SP_SuaNguoiDung @TenDN , @MatKhau , @MaNV , @QuyenId";
+            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { tendn, matkhau, manv, quyenid });
+            return result;
         }
     }
 }

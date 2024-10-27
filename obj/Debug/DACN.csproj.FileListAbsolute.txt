@@ -1,0 +1,16 @@
+D:\DACN\Project\DACN\bin\Debug\DACN.exe.config
+D:\DACN\Project\DACN\bin\Debug\DACN.exe
+D:\DACN\Project\DACN\bin\Debug\DACN.pdb
+D:\DACN\Project\DACN\bin\Debug\SunnyUI.Common.dll
+D:\DACN\Project\DACN\bin\Debug\SunnyUI.dll
+D:\DACN\Project\DACN\obj\Debug\DACN.csproj.AssemblyReference.cache
+D:\DACN\Project\DACN\obj\Debug\DACN.GUI.FormDangNhap.resources
+D:\DACN\Project\DACN\obj\Debug\DACN.GUI.FormLoaiSanPham.resources
+D:\DACN\Project\DACN\obj\Debug\DACN.GUI.FormNguoiDung.resources
+D:\DACN\Project\DACN\obj\Debug\DACN.GUI.FormTrangChuAdmin.resources
+D:\DACN\Project\DACN\obj\Debug\DACN.Properties.Resources.resources
+D:\DACN\Project\DACN\obj\Debug\DACN.csproj.GenerateResource.cache
+D:\DACN\Project\DACN\obj\Debug\DACN.csproj.CoreCompileInputs.cache
+D:\DACN\Project\DACN\obj\Debug\DACN.csproj.Up2Date
+D:\DACN\Project\DACN\obj\Debug\DACN.exe
+D:\DACN\Project\DACN\obj\Debug\DACN.pdb

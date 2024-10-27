@@ -96,6 +96,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FormLoaiSanPham.resx">
       <DependentUpon>FormLoaiSanPham.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FormNguoiDung.resx">
       <DependentUpon>FormNguoiDung.cs</DependentUpon>
