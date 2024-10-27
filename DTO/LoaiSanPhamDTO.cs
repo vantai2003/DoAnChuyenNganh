@@ -11,14 +11,12 @@ namespace DACN.DTO
     {
         public string MaLoai { get; set; }
         public string TenLoai { get; set; }
+
         public LoaiSanPhamDTO(DataRow row)
         {
             this.MaLoai = row["MaLoai"].ToString();
             this.TenLoai = row["TenLoai"].ToString();
         }
- 
-        public LoaiSanPhamDTO()
-        {
-        }
+        public LoaiSanPhamDTO() { }
     }
 }

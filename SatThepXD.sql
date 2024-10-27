@@ -220,8 +220,7 @@ BEGIN
 END
 GO
 
-
-DROP PROC SP_TimKiemNguoiDung;
+----------------------------------Người dùng-----------------------------
 --thủ tục tìm người dùng
 CREATE PROC SP_TimKiemNguoiDung
 @SearchValue varchar(50)
@@ -245,6 +244,33 @@ BEGIN
 END
 GO
 
+--thủ tục kiểm tra trùng tên
+CREATE PROC SP_KiemTraTrungten
+@TenDN varchar(50)
+AS
+BEGIN
+	SELECT * FROM NguoiDung WHERE TenDN = @TenDN
+END
+GO
+--thu tuc xoa nguoi dung
+CREATE PROC SP_XoaNguoiDung
+@TenDN varchar(50)
+AS
+BEGIN
+	DELETE FROM NguoiDung WHERE TenDN = @TenDN
+END
+GO
+--thủ tục sửa người dùng
+CREATE PROC SP_SuaNguoiDung
+@TenDN varchar(50), @MatKhau varchar(50), @MaNV varchar(50), @QuyenId int
+AS
+BEGIN
+	UPDATE NguoiDung
+	SET  MatKhau = @MatKhau, MaNV = @MaNV, QuyenID = @QuyenId
+	WHERE NguoiDung.TenDN = @TenDN
+END
+GO
+----------------------------------Nhân viên-----------------------------
 --thu tuc getlist nhan vien
 
 CREATE PROC SP_GetListNhanVien
@@ -253,7 +279,7 @@ BEGIN
 	SELECT * FROM NhanVien
 END
 GO
-
+----------------------------------Quyền-----------------------------
 --thu tuc getlist quyen
 CREATE PROC SP_GetListQuyen
 AS
@@ -262,6 +288,55 @@ BEGIN
 END
 GO
 
+<<<<<<< HEAD
+
+----------------------------------Loại Sản phẩm-----------------------------
+--thủ tục getlist Loại sản phẩm
+CREATE PROC SP_GetListNLoaiSP
+AS
+BEGIN
+	SELECT * FROM LoaiSanPham
+END
+GO
+---thur tuc them loai sp
+CREATE PROC SP_ThemLoaiSP
+@MaLoai varchar(50),
+@TenLoai nvarchar(50)
+AS 
+BEGIN
+	INSERT INTO LoaiSanPham VALUES(@MaLoai, @TenLoai)
+END
+GO
+
+--kiểm tra trùng mã loại
+CREATE PROC SP_KiemTraMaLoai
+@MaLoai varchar(50)
+AS
+BEGIN
+	SELECT * FROM LoaiSanPham WHERE MaLoai = @MaLoai
+END
+GO
+
+--thu tuc xoa loai sp
+CREATE PROC SP_XoaLoaiSP
+@MaLoai varchar(50)
+AS
+BEGIN
+	DELETE FROM LoaiSanPham WHERE MaLoai = @MaLoai
+END
+GO
+exec SP_XoaLoaiSP @MaLoai = 'VA';
+
+--thủ tục sửa loại sản phẩm
+CREATE PROC SP_SuaLoaiSP
+@Maloai varchar(100), @TenLoai nvarchar(50)
+AS
+BEGIN
+	UPDATE LoaiSanPham
+	SET  TenLoai = @TenLoai
+	WHERE LoaiSanPham.MaLoai = @Maloai
+END
+=======
 ---------Lấy tất cả các cột trong bảng Khách Hàng----------------------
 CREATE PROC sp_SelectAll_KhachHang
 AS
@@ -493,4 +568,5 @@ BEGIN
     DELETE FROM Kho
     WHERE MaKho = @MaKho;
 END;
+>>>>>>> 91073fff3b9f7cd1a4c59e6c872a5eb20cba8899
 GO

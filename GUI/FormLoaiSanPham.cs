@@ -7,6 +7,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
@@ -15,150 +16,119 @@ namespace DACN.GUI
 {
     public partial class FormLoaiSanPham : Form
     {
-        private bool IsInsert = false;
-        private LoaiSanPhamDTO lspDTO = new LoaiSanPhamDTO();
-        private LoaiSanPhamDAO lspDAO = new LoaiSanPhamDAO();
         public FormLoaiSanPham()
         {
             InitializeComponent();
             LoadLoaiSanPham();
-            khoaDK();
         }
         private void LoadLoaiSanPham()
         {
-            List<LoaiSanPhamDTO> listLSP = LoaiSanPhamDAO.Instance.GetLoaiSanPham();
-            dvg_LoaiSP.Columns["MALOAISP"].DataPropertyName = "MaLoai";
-            dvg_LoaiSP.Columns["TENLOAISP"].DataPropertyName = "TenLoai";
-            dvg_LoaiSP.DataSource = listLSP;
+            List<LoaiSanPhamDTO> listLoaiSanPham = LoaiSanPhamDAO.Instance.GetLoaiSanPham();
+            dvg_LoaiSP.DataSource = listLoaiSanPham;
+            //dvg_LoaiSP.Columns["MaLoai"].HeaderText = "Mã Loại";
+            //dvg_LoaiSP.Columns["TenLoai"].HeaderText = "Tên Loại";
         }
-        public void khoaDK()
+        private bool ktTrungMa(string maloai)
         {
-            txt_MaLoai.Enabled = txt_TenLoai.Enabled = false;
-            tsbThem.Enabled = tsbSua.Enabled = tsbXoa.Enabled = true;
-            tsbLuu.Enabled = false;
+            return LoaiSanPhamDAO.Instance.KiemTraTrungMaLoai(maloai);
         }
-        public void moKhoaDK()
+        // Kiểm tra chuỗi không chứa khoảng trắng và không có chữ có dấu dùng Regex
+        public bool IsValidInput(string input)
         {
-            txt_MaLoai.Enabled = txt_TenLoai.Enabled = true;
-            tsbThem.Enabled = tsbSua.Enabled = tsbXoa.Enabled  = false;
-            tsbLuu.Enabled = true;
+            string pattern = @"^[a-zA-Z0-9]+$";
+            return Regex.IsMatch(input, pattern);
         }
-        private List<LoaiSanPhamDTO> listLSP = new List<LoaiSanPhamDTO>();
-        public void xoaTxt()
+        private void btnThem_Click(object sender, EventArgs e)
         {
-            txt_MaLoai.Text = txt_MaLoai.Text = string.Empty;
-        }
-
-        static string GenerateNewCode(List<LoaiSanPhamDTO> list)
-        {
-            // Nếu danh sách rỗng, trả về mã mặc định
-            if (list.Count == 0)
+            string maLoai = txt_MaLoaiSP.Text;
+            string tenLoai = txt_TenLoaiSP.Text;
+            if (maLoai == "" || tenLoai == "")
             {
-                return "ML001";
-            }
-
-            // Lấy phần tử cuối cùng trong danh sách
-            string lastCode = list.Last().MaLoai;
-
-            string prefix = lastCode.Substring(0, 2);
-            string numberPart = lastCode.Substring(3);
-
-            // Chuyển số thành số nguyên và tăng lên 1
-            int number = int.Parse(numberPart) + 1;
-
-            // Tạo mã mới
-            string newCode = $"{prefix}{number:D4}";
-
-            return newCode;
-        }
-        private void dvg_LoaiSP_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void tsbThem_Click(object sender, EventArgs e)
-        {
-            moKhoaDK();
-            IsInsert = true;
-            xoaTxt();
-            txt_MaLoai.Text = GenerateNewCode(listLSP);
-        }
-        private void tsbLuu_Click(object sender, EventArgs e)
-        {
-
-           
-            lspDTO.MaLoai = txt_MaLoai.Text;
-            lspDTO.TenLoai = txt_TenLoai.Text;
-
-            try
-            {
-          
-            if (IsInsert == true)
-            {
-                //Insert
-                lspDAO.Insert(lspDTO);
-                MessageBox.Show("Thêm thông tin thành công!");
+                MessageBox.Show("Mã loại hoặc tên loại không được để trống");
             }
             else
             {
-                //Update
-                lspDAO.Update(lspDTO);
-                MessageBox.Show("Sửa thông tin thành công!");
-            
-            }
-            LoadLoaiSanPham();
-            xoaTxt();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Có lỗi xảy ra: {ex.Message}");
-            }
-        }
-
-        private void tsbSua_Click(object sender, EventArgs e)
-        {
-            moKhoaDK();
-            txt_MaLoai.Enabled = false;
-            IsInsert = false;
-            
-        }
-
-        private void tsbXoa_Click(object sender, EventArgs e)
-        {
-            if (MessageBox.Show("Bạn có muốn xóa thông tin này không?", "Thông báo", MessageBoxButtons.YesNo) == DialogResult.Yes)
-            {
-                try
+                if (IsValidInput(maLoai))
                 {
-                    lspDAO.Delete(txt_MaLoai.Text);
-                    MessageBox.Show("Đã xóa thông tin thành công!");
-                    xoaTxt();
-                    khoaDK();
-                    
+                    if (ktTrungMa(maLoai))
+                    {
+                        MessageBox.Show("Mã loại đã tồn tại!");
+                    }
+                    else
+                    {
+                        LoaiSanPhamDAO.Instance.ThemLoaiSanPham(maLoai, tenLoai);
+                        MessageBox.Show("Thêm loại sản phẩm thành công!");
+                        LoadLoaiSanPham();
+                        txt_MaLoaiSP.Clear();
+                        txt_TenLoaiSP.Clear();
+
+                    }
                 }
-                catch (Exception ex)
+                else
                 {
-                    Console.WriteLine("Error: " + ex.Message);
+                    MessageBox.Show("Mã Loại không đúng định dạng");
                 }
             }
-            LoadLoaiSanPham();
         }
+        
 
         private void dvg_LoaiSP_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            khoaDK();
+            DataGridViewRow row = new DataGridViewRow();
             try
             {
-                if (e.RowIndex >= 0)
-                {
-                    DataGridViewRow row = dvg_LoaiSP.Rows[e.RowIndex];
-                    txt_MaLoai.Text = row.Cells["MALOAISP"].Value.ToString();
-                    txt_TenLoai.Text = row.Cells["TENLOAISP"].Value.ToString();
-                    
-                }
+                row = dvg_LoaiSP.Rows[e.RowIndex];
+                txt_MaLoaiSP.Text = Convert.ToString(row.Cells["MaLoai"].Value);
+                txt_TenLoaiSP.Text = Convert.ToString(row.Cells["TenLoai"].Value);
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Error: " + ex.Message);
+                MessageBox.Show("Lỗi" + ex.ToString());
+                txt_MaLoaiSP.Clear();
+                txt_TenLoaiSP.Clear();
+            }
+        }
+
+        private void btn_Xoa_Click(object sender, EventArgs e)
+        {
+            string maLoai = "";
+            maLoai = txt_MaLoaiSP.Text;
+            if(maLoai == "")
+            {
+                MessageBox.Show("Vui lòng chọn loại sản phẩm muốn xóa");
+            }
+            else
+            {
+                DialogResult r;
+                r = MessageBox.Show("Bạn có chắc muốn xóa loại sản phẩm này?", "Thoát", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
+                if (r == DialogResult.Yes)
+                {
+                    LoaiSanPhamDAO.Instance.XoaLoaiSP(maLoai);
+                    MessageBox.Show("Xóa loại sản phẩm thành công!");
+                    txt_MaLoaiSP.Clear();
+                    txt_TenLoaiSP.Clear();
+                    LoadLoaiSanPham();
+                }
+            }
+        }
+
+        private void btn_Sua_Click(object sender, EventArgs e)
+        {
+            string maLoai = "";
+            maLoai = txt_MaLoaiSP.Text;
+            
+            if(maLoai == "")
+            {
+                MessageBox.Show("Vui lòng chọn loại sản phẩm muốn sửa");
+            }
+            else
+            {
+                string tenLoai = txt_TenLoaiSP.Text;
+                LoaiSanPhamDAO.Instance.SuaLoaiSP(maLoai, tenLoai);
+                txt_MaLoaiSP.Clear();
+                txt_TenLoaiSP.Clear();
+                MessageBox.Show("Sửa loai sản phẩm thành công");
+                LoadLoaiSanPham();
             }
         }
     }

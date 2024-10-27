@@ -16,44 +16,46 @@ namespace DACN.DAO
         public static LoaiSanPhamDAO Instance
         {
             get { if (instance == null) instance = new LoaiSanPhamDAO(); return LoaiSanPhamDAO.instance; }
-            private set { LoaiSanPhamDAO.instance = value; }
+            private set {LoaiSanPhamDAO.instance = value; }
         }
-        public LoaiSanPhamDAO()
-        {
-
-        }
-
+        public LoaiSanPhamDAO() { }
         public List<LoaiSanPhamDTO> GetLoaiSanPham()
         {
-            List<LoaiSanPhamDTO> list = new List<LoaiSanPhamDTO>();
+            List<LoaiSanPhamDTO> listLoaiSP = new List<LoaiSanPhamDTO>();
 
-            DataTable data = DataProvider.Instance.ExecuteQuery("sp_SelectAll_LoaiSanPham");
+            string query = "SP_GetListNLoaiSP";
+            DataTable data = DataProvider.Instance.ExecuteQuery(query);
 
             foreach (DataRow row in data.Rows)
             {
                 LoaiSanPhamDTO loaiSanPham = new LoaiSanPhamDTO(row);
-                list.Add(loaiSanPham);
+                listLoaiSP.Add(loaiSanPham);
             }
 
-            return list;
-          
+            return listLoaiSP;
         }
-        public int Insert(LoaiSanPhamDTO obj)
-        { 
-            string query = "sp_Insert_LoaiSanPham @MaLoai , @TenLoai";
-            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] {obj.MaLoai , obj.TenLoai });
+        public int ThemLoaiSanPham(string maLoai, string tenLoai)
+        {
+            string query = "SP_ThemLoaiSP @MaLoai , @TenLoai";
+            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { maLoai, tenLoai });
             return result;
         }
-        public int Update(LoaiSanPhamDTO obj)
+        public bool KiemTraTrungMaLoai(string maLoai)
         {
-            string query = "sp_Update_LoaiSanPham @MaLoai , @TenLoai";
-            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { obj.MaLoai, obj.TenLoai });
+            string query = "SP_KiemTraMaLoai @MaLoai";
+            DataTable result = DataProvider.Instance.ExecuteQuery(query, new object[] { maLoai });
+            return result.Rows.Count > 0;
+        }
+        public int XoaLoaiSP(string maLoai)
+        {
+            string query = "SP_XoaLoaiSP @MaLoai";
+            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { maLoai });
             return result;
         }
-        public int Delete(string ID)
+        public int SuaLoaiSP(string maLoai, string tenLoai)
         {
-            string query = "sp_Delete_LoaiSanPham @MaLoai";
-            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { ID });
+            string query = "SP_SuaLoaiSP @MaLoai , @TenLoai";
+            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { maLoai, tenLoai });
             return result;
         }
     }
