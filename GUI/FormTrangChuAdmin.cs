@@ -32,9 +32,14 @@ namespace DACN.GUI
         }
 
 
-        private void uiButton1_Click_1(object sender, EventArgs e)
+        private void btn_QuanLyTaiKhoam_Click_1(object sender, EventArgs e)
         {
             OpenChildForm(new FormNguoiDung());
+        }
+
+        private void btn_QuanLySanPham_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new FormLoaiSanPham());
         }
     }
 }
