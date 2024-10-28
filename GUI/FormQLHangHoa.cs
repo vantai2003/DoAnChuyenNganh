@@ -10,23 +10,21 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Xml.Linq;
 
 namespace DACN.GUI
 {
-    public partial class FormLoaiSanPham : Form
+    public partial class FormQLHangHoa : Form
     {
-        public FormLoaiSanPham()
+        public FormQLHangHoa()
         {
             InitializeComponent();
             LoadLoaiSanPham();
+            LoadSanPham();
         }
         private void LoadLoaiSanPham()
         {
             List<LoaiSanPhamDTO> listLoaiSanPham = LoaiSanPhamDAO.Instance.GetLoaiSanPham();
             dvg_LoaiSP.DataSource = listLoaiSanPham;
-            //dvg_LoaiSP.Columns["MaLoai"].HeaderText = "Mã Loại";
-            //dvg_LoaiSP.Columns["TenLoai"].HeaderText = "Tên Loại";
         }
         private bool ktTrungMa(string maloai)
         {
@@ -38,6 +36,11 @@ namespace DACN.GUI
             string pattern = @"^[a-zA-Z0-9]+$";
             return Regex.IsMatch(input, pattern);
         }
+        private void btn_Search_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void btnThem_Click(object sender, EventArgs e)
         {
             string maLoai = txt_MaLoaiSP.Text;
@@ -70,8 +73,6 @@ namespace DACN.GUI
                 }
             }
         }
-        
-
         private void dvg_LoaiSP_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             DataGridViewRow row = new DataGridViewRow();
@@ -88,12 +89,11 @@ namespace DACN.GUI
                 txt_TenLoaiSP.Clear();
             }
         }
-
         private void btn_Xoa_Click(object sender, EventArgs e)
         {
             string maLoai = "";
             maLoai = txt_MaLoaiSP.Text;
-            if(maLoai == "")
+            if (maLoai == "")
             {
                 MessageBox.Show("Vui lòng chọn loại sản phẩm muốn xóa");
             }
@@ -116,8 +116,8 @@ namespace DACN.GUI
         {
             string maLoai = "";
             maLoai = txt_MaLoaiSP.Text;
-            
-            if(maLoai == "")
+
+            if (maLoai == "")
             {
                 MessageBox.Show("Vui lòng chọn loại sản phẩm muốn sửa");
             }
@@ -131,5 +131,56 @@ namespace DACN.GUI
                 LoadLoaiSanPham();
             }
         }
+
+        private void LoadSanPham()
+        {
+            List<HangHoaDTO> listSanPham = HangHoaDAO.Instance.GetSanPham();
+            dvg_HangHoa.DataSource = listSanPham;
+            List<KhoDTO> listKho = KhoDAO.Instance.GetKho();
+            cb_Kho.DataSource = listKho;
+            cb_Kho.DisplayMember = "TenKho";
+            cb_Kho.ValueMember = "MaKho";
+            List<LoaiSanPhamDTO> listLoaiSP = LoaiSanPhamDAO.Instance.GetLoaiSanPham();
+            cb_LoaiHH.DataSource = listLoaiSP;
+            cb_LoaiHH.DisplayMember = "TenLoai";
+            cb_LoaiHH.ValueMember = "MaLoai";
+        }
+        private bool ktTrungMaSP(string masp)
+        {
+            return HangHoaDAO.Instance.KiemTraTrungMaSP(masp);
+        }
+
+        private void btn_ThemHH_Click(object sender, EventArgs e)
+        {
+            string maSP = HangHoaDAO.GenerateMaNV();
+            string tenSP = txt_TenHH.Text;
+            string dvt = cb_DVT.SelectedItem.ToString();
+            string maKho = cb_Kho.SelectedValue.ToString();
+            string loaiSP = cb_LoaiHH.SelectedValue.ToString();
+
+            if (!string.IsNullOrEmpty(maSP))
+            {
+
+
+                if (tenSP == "")
+                {
+                    MessageBox.Show("Tên sản phẩm không được để trống");
+                }
+                else
+                {
+                    HangHoaDAO.Instance.ThemSanPham(maSP, tenSP, dvt, maKho, loaiSP);
+                    MessageBox.Show("Thêm sản phẩm thành công!");
+                    LoadSanPham();
+                    txt_MaHH.Clear();
+                    txt_TenHH.Clear();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Lỗi khi tạo mã sản phẩm");
+            }
+        }
+        // Kiểm tra chuỗi không chứa khoảng trắng và không có chữ có dấu dùng Regex
+
     }
 }

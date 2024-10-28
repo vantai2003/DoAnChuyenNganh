@@ -35,10 +35,10 @@ namespace DACN.DAO
 
             return list;
         }
-        public int Insert(LoaiKhachHangDTO obj)
+        public int Insert(string maloai, string tenloai)
         {
             string query = "sp_Insert_LoaiKhachHang @MaLKH , @TenLKH";
-            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { obj.MaLoaiKH, obj.TenLoaiKH });
+            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { maloai, tenloai });
             return result;
         }
         public int Update(LoaiKhachHangDTO obj)

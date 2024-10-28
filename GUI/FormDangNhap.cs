@@ -15,26 +15,32 @@ namespace DACN.GUI
 {
     public partial class FormDangNhap : Form
     {
-        LoginDAO lgdao = new LoginDAO();
-        LoginDTO lgDTO = new LoginDTO();
+
         public FormDangNhap()
         {
             InitializeComponent();
         }
-        private void ktlogin()
+        private bool Login(string username, string password)
+        {
+            return LoginDAO.Instance.Login(username, password);
+        }
+        private int getRole(string username, string password)
+        {
+            return LoginDAO.Instance.getRole(username, password);
+        }
+        private void btn_Login_Click(object sender, EventArgs e)
         {
             string userName = txt_UserName.Text;
             string pass = NguoiDungDAO.Hash(txt_PassWord.Text);
-            var (isLogin, roleId) = lgdao.DangNhapandKTQuyen(userName, pass);
-            if (isLogin)
+
+            if (Login(userName, pass))
             {
-                MessageBox.Show("Đăng nhập thành công!");
-                switch (roleId)
+                this.Hide();
+                switch (getRole(userName, pass))
                 {
                     case 0:
                         FormTrangChuAdmin fTrangchuAdmin = new FormTrangChuAdmin();
                         fTrangchuAdmin.Show();
-
                         break;
                     case 1:
                         MessageBox.Show("Đang dăng nhập với quyền giám đốc");
@@ -43,8 +49,8 @@ namespace DACN.GUI
                         MessageBox.Show("Đăng nhập thành công với quyền kế toán");
                         break;
                     case 3:
-                        FormLoaiSanPham floaiSp = new FormLoaiSanPham();
-                        floaiSp.Show();
+                        FormNhanVienBanHang fnvbh = new FormNhanVienBanHang();
+                        fnvbh.Show();
                         break;
                     case 4:
                         MessageBox.Show("Đăng nhập thành công với quyền giao hàng");
@@ -59,9 +65,15 @@ namespace DACN.GUI
                 MessageBox.Show("Sai tên đăng nhập hoặc mật khẩu!");
             }
         }
-        private void btn_Login_Click(object sender, EventArgs e)
+
+        private void FormDangNhap_FormClosing(object sender, FormClosingEventArgs e)
         {
-            ktlogin();
+            DialogResult r;
+            r = MessageBox.Show("Bạn có muốn thoát?", "Thoát", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
+            if (r == DialogResult.No)
+            {
+                e.Cancel = true;
+            }
         }
     }
 }

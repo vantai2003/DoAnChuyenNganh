@@ -21,6 +21,7 @@ namespace DACN.GUI
             InitializeComponent();
             LoadNguoiDung();
         }
+        private int flag = 0;
         private void LoadNguoiDung()
         {
             List<NguoiDungDTO> listNguoiDung = NguoiDungDAO.Instance.GetNguoiDung();
@@ -33,7 +34,7 @@ namespace DACN.GUI
             cb_vitrilv.DataSource = listQuyen;
             cb_vitrilv.DisplayMember = "TenQuyen";
             cb_vitrilv.ValueMember = "Id";
-            cb_vitrilv.SelectedIndex = 2;
+            cb_vitrilv.SelectedIndex = 3;
         }
 
         private void btn_Search_Click(object sender, EventArgs e)
@@ -52,10 +53,14 @@ namespace DACN.GUI
                 txt_pass.Text = Convert.ToString(row.Cells["MatKhau"].Value);
                 cb_nhanvien.SelectedValue = Convert.ToString(row.Cells["MaNV"].Value);
                 cb_vitrilv.SelectedValue = Convert.ToInt32(row.Cells["QuyenID"].Value);
+                btn_Xoa.Enabled = true;
+                btnThem.Enabled = false;
+                btn_Sua.Enabled = true;
+                flag = 2;
             }
             catch(Exception ex)
             {
-                MessageBox.Show("Lỗi" + ex.ToString());
+                MessageBox.Show("Vui lòng chọn vào người dùng");
                 txt_username.Clear();
                 txt_pass.Clear();
                 cb_nhanvien.SelectedIndex = 0;
@@ -73,45 +78,15 @@ namespace DACN.GUI
         }
         private void btnThem_Click_1(object sender, EventArgs e)
         {
-
-            string tenDN = txt_username.Text;
-            string matKhau = NguoiDungDAO.Hash(txt_pass.Text);
-            if (tenDN == "" || txt_pass.Text == "")
-            {
-                MessageBox.Show("Tên đăng nhập hoặc mật khẩu không được để trống!");
-            }
-            else
-            {
-                if (IsValidInput(tenDN))
-                {
-                    if (KTTrungTenDN(tenDN))
-                    {
-                        MessageBox.Show("Tên đăng nhập đã tồn tại");
-                    }
-                    else
-                    {
-                        DateTime ngayTao = DateTime.Now;
-                        string MaNV = cb_nhanvien.SelectedValue.ToString();
-                        int quyenID = int.Parse(cb_vitrilv.SelectedValue.ToString());
-
-                        NguoiDungDAO.Instance.ThemNguoiDung(tenDN, matKhau, ngayTao, MaNV, quyenID);
-                        MessageBox.Show("Thêm người dùng thành công");
-                        LoadNguoiDung();
-                    }
-                    txt_username.Clear();
-                    txt_pass.Clear();
-                }
-                else
-                {
-                    MessageBox.Show("Tên đăng nhập không đúng định dạng");
-                }
-            }
-               
+            txt_username.Enabled = txt_pass.Enabled = cb_nhanvien.Enabled = cb_vitrilv.Enabled = true;
+            flag = 1;  
         }
 
         private void btn_reload_Click(object sender, EventArgs e)
         {
             LoadNguoiDung();
+            btnThem.Enabled = true;
+            btn_Xoa.Enabled = btn_Sua.Enabled = false;
             txt_username.Text = "";
             txt_pass.Text = "";
             cb_nhanvien.SelectedItem = 0;
@@ -120,10 +95,9 @@ namespace DACN.GUI
 
         private void btn_Xoa_Click(object sender, EventArgs e)
         {
-
             string tenDN = "";
             tenDN = txt_username.Text;
-            if(tenDN == "")
+            if (tenDN == "")
             {
                 MessageBox.Show("Vui lòng chọn người dùng để xóa");
             }
@@ -142,33 +116,82 @@ namespace DACN.GUI
                     LoadNguoiDung();
                 }
             }
-
-
         }
             
 
         private void btn_Sua_Click(object sender, EventArgs e)
         {
-            string tenDN = "";
-            tenDN = txt_username.Text;
-            if (tenDN == "")
+            txt_pass.Enabled = cb_nhanvien.Enabled = cb_vitrilv.Enabled = true;
+            flag = 2;
+        }
+
+        private void btnLuu_Click(object sender, EventArgs e)
+        {
+            if(flag == 0)
             {
-                MessageBox.Show("Vui lòng chọn người dùng để sửa");
+                MessageBox.Show("Vui lòng chọn thao tác");
             }
-            else
+            if(flag == 1)
             {
+                string tenDN = "";
+                tenDN = txt_username.Text;
                 string matKhau = NguoiDungDAO.Hash(txt_pass.Text);
-                string maNV = cb_nhanvien.SelectedValue.ToString();
-                int quyenId = int.Parse(cb_vitrilv.SelectedValue.ToString());
-                NguoiDungDAO.Instance.SuaNguoiDung(tenDN, matKhau, maNV, quyenId);
-                txt_username.Clear();
-                txt_pass.Clear();
-                cb_nhanvien.SelectedIndex = 0;
-                cb_vitrilv.SelectedIndex = 2;
-                MessageBox.Show("Sửa người dùng thành công");
-                LoadNguoiDung() ;
+                if (tenDN == "" || txt_pass.Text == "")
+                {
+                    MessageBox.Show("Tên đăng nhập hoặc mật khẩu không được để trống!");
+                }
+                else
+                {
+                    if (IsValidInput(tenDN))
+                    {
+                        if (KTTrungTenDN(tenDN))
+                        {
+                            MessageBox.Show("Tên đăng nhập đã tồn tại");
+                        }
+                        else
+                        {
+                            DateTime ngayTao = DateTime.Now;
+                            string MaNV = cb_nhanvien.SelectedValue.ToString();
+                            int quyenID = int.Parse(cb_vitrilv.SelectedValue.ToString());
+
+                            NguoiDungDAO.Instance.ThemNguoiDung(tenDN, matKhau, ngayTao, MaNV, quyenID);
+                            MessageBox.Show("Thêm người dùng thành công");
+                            LoadNguoiDung();
+                        }
+                        txt_username.Clear();
+                        txt_pass.Clear();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Tên đăng nhập không đúng định dạng");
+                    }
+                }
             }
-            
+            if(flag == 2)
+            {
+                string tenDN = "";
+                tenDN = txt_username.Text;
+                if (tenDN == "")
+                {
+                    MessageBox.Show("Vui lòng chọn người dùng để sửa");
+                }
+                else
+                {
+                    string matKhau = NguoiDungDAO.Hash(txt_pass.Text);
+                    string maNV = cb_nhanvien.SelectedValue.ToString();
+                    int quyenId = int.Parse(cb_vitrilv.SelectedValue.ToString());
+                    NguoiDungDAO.Instance.SuaNguoiDung(tenDN, matKhau, maNV, quyenId);
+                    txt_username.Clear();
+                    txt_pass.Clear();
+                    cb_nhanvien.SelectedIndex = 0;
+                    cb_vitrilv.SelectedIndex = 2;
+                    MessageBox.Show("Sửa người dùng thành công");
+                    LoadNguoiDung();
+                }
+            }
+            btnThem.Enabled = true;
+            btn_Xoa.Enabled = false;
+            btn_Sua.Enabled = false;
         }
     }
 }
