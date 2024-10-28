@@ -26,7 +26,6 @@ namespace DACN.GUI
         private void LoadLoaiKhachHang()
         {
             List<LoaiKhachHangDTO> listLoaiKH = LoaiKhachHangDAO.Instance.GetLoaiKhachHang();
-
             dgv_LoaiKhachHang.Columns["LoaiKH"].DataPropertyName = "MaLoaiKH";
             dgv_LoaiKhachHang.Columns["TenLoaiKH"].DataPropertyName = "TenLoaiKH";
             dgv_LoaiKhachHang.DataSource = listLoaiKH;
@@ -131,7 +130,7 @@ namespace DACN.GUI
                 if (IsInsert == true)
                 {
                     //Insert
-                    loaiKhachHangDAO.Insert(lkhDTO);
+                    //loaiKhachHangDAO.Insert(lkhDTO);
                     MessageBox.Show("Thêm thông tin thành công!");
                 }
                 else
@@ -146,7 +145,7 @@ namespace DACN.GUI
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Có lỗi xảy ra: {ex.Message}");
+                MessageBox.Show("Trùng tên loại khách hàng!");
             }
         }
 

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace DACN.GUI
 {
-    public partial class FormTrangChuAdmin : Form
+    public partial class FormNhanVienBanHang : Form
     {
-        public FormTrangChuAdmin()
+        public FormNhanVienBanHang()
         {
             InitializeComponent();
         }
@@ -31,13 +31,12 @@ namespace DACN.GUI
             childForm.Show();
         }
 
-
-        private void btn_QuanLyTaiKhoam_Click_1(object sender, EventArgs e)
+        private void btn_CapNhatDanhMuc_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new FormNguoiDung());
+            OpenChildForm(new FormDanhMuc());
         }
 
-        private void btn_QuanLySanPham_Click(object sender, EventArgs e)
+        private void btn_QLHangHoa_Click(object sender, EventArgs e)
         {
             OpenChildForm(new FormQLHangHoa());
         }

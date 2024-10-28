@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormDangNhap));
             this.uiPanel1 = new Sunny.UI.UIPanel();
             this.uiPanel2 = new Sunny.UI.UIPanel();
-            this.llb_QuenMK = new Sunny.UI.UILinkLabel();
             this.btn_Login = new Sunny.UI.UIButton();
             this.uiPanel4 = new Sunny.UI.UIPanel();
             this.uiPanel3 = new Sunny.UI.UIPanel();
@@ -65,7 +64,6 @@
             this.uiPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.uiPanel2.AutoSize = true;
-            this.uiPanel2.Controls.Add(this.llb_QuenMK);
             this.uiPanel2.Controls.Add(this.btn_Login);
             this.uiPanel2.Controls.Add(this.uiPanel4);
             this.uiPanel2.Controls.Add(this.uiPanel3);
@@ -83,22 +81,6 @@
             this.uiPanel2.TabIndex = 1;
             this.uiPanel2.Text = null;
             this.uiPanel2.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // llb_QuenMK
-            // 
-            this.llb_QuenMK.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
-            this.llb_QuenMK.DisabledLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.llb_QuenMK.Font = new System.Drawing.Font("Microsoft JhengHei", 8F);
-            this.llb_QuenMK.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
-            this.llb_QuenMK.LinkBehavior = System.Windows.Forms.LinkBehavior.AlwaysUnderline;
-            this.llb_QuenMK.LinkColor = System.Drawing.Color.Blue;
-            this.llb_QuenMK.Location = new System.Drawing.Point(181, 274);
-            this.llb_QuenMK.Name = "llb_QuenMK";
-            this.llb_QuenMK.Size = new System.Drawing.Size(165, 23);
-            this.llb_QuenMK.TabIndex = 6;
-            this.llb_QuenMK.TabStop = true;
-            this.llb_QuenMK.Text = "Quên mật khẩu?";
-            this.llb_QuenMK.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
             // 
             // btn_Login
             // 
@@ -201,6 +183,7 @@
             this.Controls.Add(this.uiPanel1);
             this.Name = "FormDangNhap";
             this.Text = "FormDangNhap";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormDangNhap_FormClosing);
             this.uiPanel2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -216,7 +199,6 @@
         private Sunny.UI.UIPanel uiPanel4;
         private Sunny.UI.UIPanel uiPanel3;
         private Sunny.UI.UIButton btn_Login;
-        private Sunny.UI.UILinkLabel llb_QuenMK;
         private Sunny.UI.UITextBox txt_PassWord;
     }
 }

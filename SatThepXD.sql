@@ -32,7 +32,7 @@ CREATE TABLE Kho (
 CREATE TABLE SanPham (
     MaSP VARCHAR(50) PRIMARY KEY  NOT NULL,
     TenSP NVARCHAR(200),
-    DVT VARCHAR(20),
+    DVT NVARCHAR(20),
     MaKho VARCHAR(50) NOT NULL,
     MaLoai VARCHAR(50) NOT NULL,
     FOREIGN KEY (MaKho) REFERENCES Kho(MaKho),
@@ -211,6 +211,17 @@ GO
 INSERT INTO NhaCungCap(MaNCC,TenNCC,SDT,Email,DiaChi,ThanhPho,QuocGia,NgayTao) VALUES('NCC001',N'Công ty sắt thép Việt Phát','0988388111','info@VietPhat',N'66 Nguyễn Du, P. Nguyễn Du, Q. Hai Bà Trưng',N'Hà Nội',N'Việt Nam','2024-11-27')
 GO
 INSERT INTO KHO VALUES('MK001',N'Kho Thép A','Lê trọng tấn TP.Hồ Chí Minh')
+
+
+-- Stored Procedures Login
+GO
+CREATE PROC SP_Login
+@TenDN varchar(100), @MatKhau varchar(50)
+AS 
+BEGIN
+	SELECT * FROM NguoiDung WHERE TenDN = @TenDN AND MatKhau = @MatKhau
+END
+GO
 --thủ tục getlist người dùng
 GO
 CREATE PROC SP_GetListNguoiDung
@@ -270,6 +281,9 @@ BEGIN
 	WHERE NguoiDung.TenDN = @TenDN
 END
 GO
+
+
+
 ----------------------------------Nhân viên-----------------------------
 --thu tuc getlist nhan vien
 
@@ -288,7 +302,7 @@ BEGIN
 END
 GO
 
-<<<<<<< HEAD
+
 
 ----------------------------------Loại Sản phẩm-----------------------------
 --thủ tục getlist Loại sản phẩm
@@ -336,15 +350,15 @@ BEGIN
 	SET  TenLoai = @TenLoai
 	WHERE LoaiSanPham.MaLoai = @Maloai
 END
-=======
+
 ---------Lấy tất cả các cột trong bảng Khách Hàng----------------------
 CREATE PROC sp_SelectAll_KhachHang
 AS
 BEGIN
-    SELECT * FROM KHACHHANG;
+    SELECT * FROM KhachHang;
 END;
 GO
-drop proc sp_Insert_KhachHang
+
 ----------Insert Khách Hàng----------------
 CREATE PROC  sp_Insert_KhachHang
     @MaKH VARCHAR(50),
@@ -568,5 +582,80 @@ BEGIN
     DELETE FROM Kho
     WHERE MaKho = @MaKho;
 END;
->>>>>>> 91073fff3b9f7cd1a4c59e6c872a5eb20cba8899
 GO
+
+----------------------------------Sản phẩm-----------------------------
+--thủ tục getlist Loại sản phẩm
+CREATE PROC SP_GetListSP
+AS
+BEGIN
+	SELECT * FROM SanPham
+END
+GO
+---thur tuc them loai sp
+CREATE PROC SP_TaoMaSP
+AS
+BEGIN
+    DECLARE @LastMaSP varchar(10);
+    DECLARE @NewNumber int;
+    DECLARE @NewMaSP varchar(10);
+    
+    -- Truy vấn mã NV lớn nhất hiện có, bỏ qua phần "NV" và chỉ lấy số
+    SELECT @LastMaSP = MAX(MaSP) FROM SanPham;
+    
+    -- Nếu bảng chưa có bản ghi nào thì bắt đầu từ NV001
+    IF @LastMaSP IS NULL
+    BEGIN
+        SET @NewNumber = 1;
+    END
+    ELSE
+    BEGIN
+        -- Lấy phần số của MaNV (bỏ đi 2 ký tự đầu "NV")
+        SET @NewNumber = CAST(SUBSTRING(@LastMaSP, 3, LEN(@LastMaSP) - 2) AS INT) + 1;
+    END
+    
+    -- Tạo MaNV mới với định dạng NV + số mới
+    SET @NewMaSP = 'SP' + RIGHT('000' + CAST(@NewNumber AS VARCHAR), 3);
+    
+    -- Trả về MaNV mới
+    SELECT @NewMaSP;
+END
+GO
+
+
+CREATE PROC SP_ThemSP
+@MaSP varchar(50), @TenSP nvarchar(200), @DVT nvarchar(10), @MaKho varchar(10), @MaLoai varchar(10)
+AS 
+BEGIN
+	INSERT INTO SanPham VALUES(@MaSP , @TenSP , @DVT , @MaKho , @MaLoai)
+END
+GO
+
+--kiểm tra trùng mã loại
+CREATE PROC SP_KiemTraMaSP
+@MaSP varchar(50)
+AS
+BEGIN
+	SELECT * FROM SanPham WHERE MaSP = @MaSP
+END
+GO
+
+--thu tuc xoa loai sp
+CREATE PROC SP_XoaSP
+@MaSP varchar(50)
+AS
+BEGIN
+	DELETE FROM SanPham WHERE MaSP = @MaSP
+END
+GO
+exec SP_XoaLoaiSP @MaLoai = 'VA';
+
+--thủ tục sửa loại sản phẩm
+CREATE PROC SP_SuaSP
+@MaSP varchar(50), @TenSP nvarchar(200), @DVT nvarchar(10), @MaKho varchar(10), @MaLoai varchar(10)
+AS
+BEGIN
+	UPDATE SanPham
+	SET  TenSP = @TenSP, DVT = @DVT, MaKho = @MaKho, MaLoai = @MaLoai
+	WHERE SanPham.MaSP = @MaSP
+END

@@ -23,9 +23,9 @@ namespace DACN.DTO
         {
             this.MaNCC = row["MaNCC"].ToString();
             this.TenNCC = row["TenNCC"].ToString();
-            this.DiaChi = row["DiaChi"].ToString();
             this.SDT = row["SDT"].ToString();
-            this.Email = row["EMAIL"].ToString();
+            this.Email = row["Email"].ToString();
+            this.DiaChi = row["DiaChi"].ToString();
             this.ThanhPho = row["ThanhPho"].ToString();
             this.QuocGia = row["QuocGia"].ToString();
             this.NgayTao = DateTime.Parse(row["NgayTao"].ToString());

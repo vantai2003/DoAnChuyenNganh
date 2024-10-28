@@ -8,10 +8,11 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>DACN</RootNamespace>
     <AssemblyName>DACN</AssemblyName>
-    <TargetFrameworkVersion>v4.8.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -55,14 +56,24 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAO\DataProvider.cs" />
+    <Compile Include="DAO\HangHoaDAO.cs" />
+    <Compile Include="DAO\KhachHangDAO.cs" />
+    <Compile Include="DAO\KhoDAO.cs" />
+    <Compile Include="DAO\LoaiKhachHangDAO.cs" />
     <Compile Include="DAO\LoaiSanPhamDAO.cs" />
     <Compile Include="DAO\LoginDAO.cs" />
     <Compile Include="DAO\NguoiDungDAO.cs" />
+    <Compile Include="DAO\NhaCungCapDAO.cs" />
     <Compile Include="DAO\NhanVienDAO.cs" />
     <Compile Include="DAO\QuyenDAO.cs" />
+    <Compile Include="DTO\HangHoaDTO.cs" />
+    <Compile Include="DTO\KhachHangDTO.cs" />
+    <Compile Include="DTO\KhoDTO.cs" />
+    <Compile Include="DTO\LoaiKhachHangDTO.cs" />
     <Compile Include="DTO\LoaiSanPhamDTO.cs" />
     <Compile Include="DTO\LoginDTO.cs" />
     <Compile Include="DTO\NguoiDungDTO.cs" />
+    <Compile Include="DTO\NhaCungCapDTO.cs" />
     <Compile Include="DTO\NhanVienDTO.cs" />
     <Compile Include="DTO\QuyenDTO.cs" />
     <Compile Include="GUI\FormDangNhap.cs">
@@ -71,17 +82,41 @@
     <Compile Include="GUI\FormDangNhap.Designer.cs">
       <DependentUpon>FormDangNhap.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\FormLoaiSanPham.cs">
+    <Compile Include="GUI\FormDanhMuc.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI\FormLoaiSanPham.Designer.cs">
-      <DependentUpon>FormLoaiSanPham.cs</DependentUpon>
+    <Compile Include="GUI\FormDanhMuc.Designer.cs">
+      <DependentUpon>FormDanhMuc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\formKho.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\formKho.Designer.cs">
+      <DependentUpon>formKho.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FormLoaiKhachHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FormLoaiKhachHang.Designer.cs">
+      <DependentUpon>FormLoaiKhachHang.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\FormNguoiDung.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUI\FormNguoiDung.Designer.cs">
       <DependentUpon>FormNguoiDung.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FormNhanVienBanHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FormNhanVienBanHang.Designer.cs">
+      <DependentUpon>FormNhanVienBanHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FormQLHangHoa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FormQLHangHoa.Designer.cs">
+      <DependentUpon>FormQLHangHoa.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\FormTrangChuAdmin.cs">
       <SubType>Form</SubType>
@@ -94,12 +129,23 @@
     <EmbeddedResource Include="GUI\FormDangNhap.resx">
       <DependentUpon>FormDangNhap.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\FormLoaiSanPham.resx">
-      <DependentUpon>FormLoaiSanPham.cs</DependentUpon>
-      <SubType>Designer</SubType>
+    <EmbeddedResource Include="GUI\FormDanhMuc.resx">
+      <DependentUpon>FormDanhMuc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\formKho.resx">
+      <DependentUpon>formKho.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FormLoaiKhachHang.resx">
+      <DependentUpon>FormLoaiKhachHang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FormNguoiDung.resx">
       <DependentUpon>FormNguoiDung.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FormNhanVienBanHang.resx">
+      <DependentUpon>FormNhanVienBanHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FormQLHangHoa.resx">
+      <DependentUpon>FormQLHangHoa.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FormTrangChuAdmin.resx">
       <DependentUpon>FormTrangChuAdmin.cs</DependentUpon>
@@ -127,6 +173,64 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="GUI\Icon_images\account-login.png" />
+    <Content Include="GUI\Icon_images\add-image.png" />
+    <Content Include="GUI\Icon_images\Add.png" />
+    <Content Include="GUI\Icon_images\Admin.png" />
+    <Content Include="GUI\Icon_images\analytics.png" />
+    <Content Include="GUI\Icon_images\backround-XD.jpg" />
+    <Content Include="GUI\Icon_images\client.png" />
+    <Content Include="GUI\Icon_images\Close.png" />
+    <Content Include="GUI\Icon_images\Delete.png" />
+    <Content Include="GUI\Icon_images\Edit.png" />
+    <Content Include="GUI\Icon_images\Excel.png" />
+    <Content Include="GUI\Icon_images\Icon_vatLieuXayDung.png" />
+    <Content Include="GUI\Icon_images\image-nen-loginform.jpg" />
+    <Content Include="GUI\Icon_images\Image_NV.png" />
+    <Content Include="GUI\Icon_images\List.png" />
+    <Content Include="GUI\Icon_images\minus.png" />
+    <Content Include="GUI\Icon_images\order.png" />
+    <Content Include="GUI\Icon_images\password-login.png" />
+    <Content Include="GUI\Icon_images\Print.png" />
+    <Content Include="GUI\Icon_images\restore-down.png" />
+    <Content Include="GUI\Icon_images\Save.png" />
+    <Content Include="GUI\Icon_images\Search.png" />
+    <Content Include="GUI\Icon_images\setting.png" />
+    <Content Include="GUI\Icon_images\staff.png" />
+    <Content Include="GUI\Icon_images\supplier.png" />
+    <Content Include="GUI\Icon_images\user.png" />
+    <Content Include="GUI\Icon_images\Vat_lieu.png" />
+    <Content Include="GUI\Icon_images\warehouse.png" />
+    <None Include="Resources\warehouse.png" />
+    <None Include="Resources\Vat_lieu.png" />
+    <None Include="Resources\user.png" />
+    <None Include="Resources\supplier.png" />
+    <None Include="Resources\staff.png" />
+    <None Include="Resources\setting.png" />
+    <None Include="Resources\Search.png" />
+    <None Include="Resources\Save.png" />
+    <None Include="Resources\restore-down.png" />
+    <None Include="Resources\Print.png" />
+    <None Include="Resources\password-login.png" />
+    <None Include="Resources\order.png" />
+    <None Include="Resources\minus.png" />
+    <None Include="Resources\List.png" />
+    <None Include="Resources\image-nen-loginform.jpg" />
+    <None Include="Resources\Image_NV.png" />
+    <None Include="Resources\Icon_vatLieuXayDung.png" />
+    <None Include="Resources\Excel.png" />
+    <None Include="Resources\Edit.png" />
+    <None Include="Resources\Delete.png" />
+    <None Include="Resources\Close.png" />
+    <None Include="Resources\client.png" />
+    <None Include="Resources\backround-XD.jpg" />
+    <None Include="Resources\analytics.png" />
+    <None Include="Resources\Admin.png" />
+    <None Include="Resources\add-image.png" />
+    <None Include="Resources\Add.png" />
+    <None Include="Resources\account-login.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
