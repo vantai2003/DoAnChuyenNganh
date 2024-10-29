@@ -31,7 +31,7 @@ namespace DACN.GUI
         private LoaiKhachHangDTO lkhDTO = new LoaiKhachHangDTO();
         public void HienThiKH()
         {
-            List<KhachHangDTO> listKH = KhachHangDAO.Instance.GetKhachHang();
+            listKH = KhachHangDAO.Instance.GetKhachHang();
             dgv_KH.Columns["MAKH"].DataPropertyName = "MAKH";
             dgv_KH.Columns["TENKH"].DataPropertyName = "TENKH";
             dgv_KH.Columns["DIACHI"].DataPropertyName = "DIACHI";
@@ -91,7 +91,7 @@ namespace DACN.GUI
             int number = int.Parse(numberPart) + 1;
 
             // Tạo mã mới
-            string newCode = $"{prefix}{number:D4}";
+            string newCode = $"{prefix}{number:D3}";
 
             return newCode;
         }
@@ -141,16 +141,22 @@ namespace DACN.GUI
 
         private void tsbLuu_Click(object sender, EventArgs e)
         {
-            khDTO.MaKH = txtMK.Text;
-            khDTO.TenKH = txtTenKH.Text;
-            khDTO.Email = txtEmail.Text;
-            khDTO.Diachi = txtDiaChi.Text;
-            khDTO.SoDienThoai = txtSDT.Text;
-            khDTO.NgayTao = DateTime.Now;
-            khDTO.MaLoaiKH = cbbLoaiKH.SelectedValue.ToString();
+           
             try
             {
-
+                if (txtTenKH.Text == null|| txtTenKH.Text==null|| txtEmail.Text == null || txtDiaChi.Text == null || txtSDT.Text == null)
+                {
+                    MessageBox.Show("Vui lòng nhập đầy đủ thông tin.");
+                    return;
+                }
+                khDTO.MaKH = txtMK.Text;
+                khDTO.TenKH = txtTenKH.Text;
+                khDTO.Email = txtEmail.Text;
+                khDTO.Diachi = txtDiaChi.Text;
+                khDTO.SoDienThoai = txtSDT.Text;
+                khDTO.NgayTao = DateTime.Now;
+                khDTO.MaLoaiKH = cbbLoaiKH.SelectedValue.ToString();
+               
                 if (IsInsert == true)
                 {
                     //Insert
@@ -198,8 +204,8 @@ namespace DACN.GUI
 
         private void LoadNCC()
         {
-            List<NhaCungCapDTO> listNCC = NhaCungCapDAO.Instance.GetNhaCungCap();
-            dgv_NCC.DataSource = listNCC;
+            listncc = NhaCungCapDAO.Instance.GetNhaCungCap();
+            dgv_NCC.DataSource = listncc;
             khoaThem();
         }
         public void khoaThem()
@@ -278,16 +284,22 @@ namespace DACN.GUI
 
         private void btnLuu_Click(object sender, EventArgs e)
         {
-            nccDTO.MaNCC = txtMaNCC.Text;
-            nccDTO.TenNCC = txtTenNCC.Text;
-            nccDTO.Email = txt_EmailNCC.Text;
-            nccDTO.ThanhPho = txtThanhPho.Text;
-            nccDTO.DiaChi = txt_DiaChiNCC.Text;
-            nccDTO.QuocGia = txt_QuocGia.Text;
-            nccDTO.NgayTao = DateTime.Now;
-            nccDTO.SDT = txt_SDTNCC.Text;
+           
             try
             {
+                if (txtMaNCC.Text ==null || txtTenNCC.Text == null || txt_EmailNCC.Text == null || txtThanhPho.Text == null || txt_DiaChiNCC.Text == null || txt_QuocGia.Text == null || txt_SDTNCC.Text == null )
+                {
+                    MessageBox.Show("Vui lòng nhập đầy đủ thông tin.");
+                    return;
+                }
+                nccDTO.MaNCC = txtMaNCC.Text;
+                nccDTO.TenNCC = txtTenNCC.Text;
+                nccDTO.Email = txt_EmailNCC.Text;
+                nccDTO.ThanhPho = txtThanhPho.Text;
+                nccDTO.DiaChi = txt_DiaChiNCC.Text;
+                nccDTO.QuocGia = txt_QuocGia.Text;
+                nccDTO.NgayTao = DateTime.Now;
+                nccDTO.SDT = txt_SDTNCC.Text;
 
                 if (IsInsert == true)
                 {
@@ -339,10 +351,10 @@ namespace DACN.GUI
         //Loại khách hàng
         private void LoadLoaiKhachHang()
         {
-            List<LoaiKhachHangDTO> listLoaiKH = LoaiKhachHangDAO.Instance.GetLoaiKhachHang();
+            listLKH = LoaiKhachHangDAO.Instance.GetLoaiKhachHang();
             dgv_LoaiKhachHang.Columns["LoaiKH"].DataPropertyName = "MaLoaiKH";
             dgv_LoaiKhachHang.Columns["TenLoaiKH"].DataPropertyName = "TenLoaiKH";
-            dgv_LoaiKhachHang.DataSource = listLoaiKH;
+            dgv_LoaiKhachHang.DataSource = listLKH;
         }
         static string GenerateNewCode(List<LoaiKhachHangDTO> list)
         {
@@ -408,11 +420,17 @@ namespace DACN.GUI
 
         private void btn_LuuLoaiKH_Click(object sender, EventArgs e)
         {
-            string maLoaiKH = txt_MaLoaiKH.Text;
-            string tenLoaiKH = txt_TenLoaiKH.Text;
+      
 
             try
             {
+                if (txt_MaLoaiKH.Text == null || txt_TenLoaiKH.Text == null)
+                {
+                    MessageBox.Show("Vui lòng nhập đầy đủ thông tin.");
+                    return;
+                }
+                string maLoaiKH = txt_MaLoaiKH.Text;
+                string tenLoaiKH = txt_TenLoaiKH.Text;
 
                 if (IsInsert == true)
                 {
