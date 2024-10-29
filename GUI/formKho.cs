@@ -25,11 +25,11 @@ namespace DACN.GUI
         }
         private void LoadKho()
         {
-            List<KhoDTO> list= KhoDAO.Instance.GetKho();
+            listkho = KhoDAO.Instance.GetKho();
             dgvKho.Columns["MaKho"].DataPropertyName = "MaKHO";
             dgvKho.Columns["TENKho"].DataPropertyName = "TenKHo";
             dgvKho.Columns["DiaChi"].DataPropertyName = "DiaCHI";
-            dgvKho.DataSource = list;
+            dgvKho.DataSource = listkho;
         }
         public void khoaDK()
         {
@@ -60,13 +60,13 @@ namespace DACN.GUI
             string lastCode = list.Last().MaKho;
 
             string prefix = lastCode.Substring(0, 2);
-            string numberPart = lastCode.Substring(3);
+            string numberPart = lastCode.Substring(2);
 
             // Chuyển số thành số nguyên và tăng lên 1
             int number = int.Parse(numberPart) + 1;
 
             // Tạo mã mới
-            string newCode = $"{prefix}{number:D4}";
+            string newCode = $"{prefix}{number:D3}";
 
             return newCode;
         }
@@ -98,12 +98,19 @@ namespace DACN.GUI
 
         private void tsbLuu_Click(object sender, EventArgs e)
         {
-            KhoDTO.MaKho = txtMaKho.Text;
-            KhoDTO.TenKho = txtTenKho.Text;
-            KhoDTO.DiaChi = txtDiaChi.Text;
+            
             try
             {
-
+              
+                // Kiểm tra dữ liệu hợp lệ
+                if (txtMaKho.Text == null || txtTenKho.Text == null || txtDiaChi.Text == null) ;
+                {
+                    MessageBox.Show("Vui lòng nhập đầy đủ thông tin.");
+                    return;
+                }
+                KhoDTO.MaKho = txtMaKho.Text;
+                KhoDTO.TenKho = txtTenKho.Text;
+                KhoDTO.DiaChi = txtDiaChi.Text;
                 if (IsInsert == true)
                 {
                     //Insert

@@ -25,10 +25,10 @@ namespace DACN.GUI
         }
         private void LoadLoaiKhachHang()
         {
-            List<LoaiKhachHangDTO> listLoaiKH = LoaiKhachHangDAO.Instance.GetLoaiKhachHang();
+            listLKH = LoaiKhachHangDAO.Instance.GetLoaiKhachHang();
             dgv_LoaiKhachHang.Columns["LoaiKH"].DataPropertyName = "MaLoaiKH";
             dgv_LoaiKhachHang.Columns["TenLoaiKH"].DataPropertyName = "TenLoaiKH";
-            dgv_LoaiKhachHang.DataSource = listLoaiKH;
+            dgv_LoaiKhachHang.DataSource = listLKH;
         }
         public void khoaDK()
         {
@@ -59,13 +59,13 @@ namespace DACN.GUI
             string lastCode = list.Last().MaLoaiKH;
 
             string prefix = lastCode.Substring(0, 2);
-            string numberPart = lastCode.Substring(3);
+            string numberPart = lastCode.Substring(2);
 
             // Chuyển số thành số nguyên và tăng lên 1
             int number = int.Parse(numberPart) + 1;
 
             // Tạo mã mới
-            string newCode = $"{prefix}{number:D4}";
+            string newCode = $"{prefix}{number:D3}";
 
             return newCode;
         }
@@ -121,16 +121,22 @@ namespace DACN.GUI
 
         private void tsbLuu_Click(object sender, EventArgs e)
         {
-            lkhDTO.MaLoaiKH = txt_MaLoaiKH.Text;
-            lkhDTO.TenLoaiKH = txt_TenLoaiKH.Text;
+            
 
             try
             {
-
+            
+                if (txt_MaLoaiKH.Text == null || txt_TenLoaiKH.Text == null)
+                {
+                    MessageBox.Show("Vui lòng nhập đầy đủ thông tin.");
+                    return;
+                }
+                lkhDTO.MaLoaiKH = txt_MaLoaiKH.Text;
+                lkhDTO.TenLoaiKH = txt_TenLoaiKH.Text;
                 if (IsInsert == true)
                 {
                     //Insert
-                    //loaiKhachHangDAO.Insert(lkhDTO);
+                    loaiKhachHangDAO.Insert(lkhDTO.MaLoaiKH,lkhDTO.TenLoaiKH);
                     MessageBox.Show("Thêm thông tin thành công!");
                 }
                 else
