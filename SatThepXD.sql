@@ -679,3 +679,27 @@ BEGIN
 END
 GO
 --lọc sản phẩm theo kho
+
+
+--thủ tục sao lưu
+CREATE PROCEDURE SP_BackupDatabase
+	@BackupPath nvarchar(200)
+AS
+BEGIN
+	BACKUP DATABASE QL_SatThepXD TO DISK = @BackupPath WITH FORMAT, INIT;
+END
+
+--THỦ TỤC PHỤC HỒI
+CREATE PROCEDURE SP_RestoreDatabase
+    @BackupPath NVARCHAR(200)
+AS
+BEGIN
+    -- Đặt database vào chế độ single-user để ngắt kết nối hiện tại
+    ALTER DATABASE QL_SatThepXD SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
+    
+    -- Thực hiện phục hồi
+    RESTORE DATABASE QL_SatThepXD FROM DISK = @BackupPath WITH REPLACE;
+    
+    -- Đặt lại chế độ multi-user sau khi hoàn tất
+    ALTER DATABASE QL_SatThepXD SET MULTI_USER;
+END
