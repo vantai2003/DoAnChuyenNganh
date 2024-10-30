@@ -173,6 +173,26 @@ namespace DACN.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap icon_logout {
+            get {
+                object obj = ResourceManager.GetObject("icon-logout", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icon_logout1 {
+            get {
+                object obj = ResourceManager.GetObject("icon-logout1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Icon_vatLieuXayDung {
             get {
                 object obj = ResourceManager.GetObject("Icon_vatLieuXayDung", resourceCulture);

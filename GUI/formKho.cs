@@ -70,10 +70,6 @@ namespace DACN.GUI
 
             return newCode;
         }
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void tsbThem_Click(object sender, EventArgs e)
         {
@@ -104,7 +100,6 @@ namespace DACN.GUI
 
             try
             {
-                
                 if (IsInsert == true)
                 {
                     //Insert
@@ -125,11 +120,6 @@ namespace DACN.GUI
             {
                 MessageBox.Show($"Có lỗi xảy ra: {ex.Message}");
             }
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void dgvKho_CellClick(object sender, DataGridViewCellEventArgs e)
