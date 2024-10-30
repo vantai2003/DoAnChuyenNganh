@@ -58,5 +58,17 @@ namespace DACN.DAO
             int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { maLoai, tenLoai });
             return result;
         }
+        public List<LoaiSanPhamDTO> TimKiemLHH(string searchValue)
+        {
+            List<LoaiSanPhamDTO> listLHH = new List<LoaiSanPhamDTO>();
+            string query = "SP_TimKiemLSP @SearchValue";
+            DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] { searchValue });
+            foreach (DataRow row in data.Rows)
+            {
+                LoaiSanPhamDTO loaihanghoa = new LoaiSanPhamDTO(row);
+                listLHH.Add(loaihanghoa);
+            }
+            return listLHH;
+        }
     }
 }

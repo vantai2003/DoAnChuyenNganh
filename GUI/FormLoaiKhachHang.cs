@@ -14,34 +14,23 @@ namespace DACN.GUI
 {
     public partial class FormLoaiKhachHang : Form
     {
-        private bool IsInsert = false;
+        private bool IsUpdate = false;
         private LoaiKhachHangDAO loaiKhachHangDAO = new LoaiKhachHangDAO();
         private LoaiKhachHangDTO lkhDTO = new LoaiKhachHangDTO();
         public FormLoaiKhachHang()
         {
             InitializeComponent();
             LoadLoaiKhachHang();
-            khoaDK();
+           
         }
         private void LoadLoaiKhachHang()
         {
-            List<LoaiKhachHangDTO> listLoaiKH = LoaiKhachHangDAO.Instance.GetLoaiKhachHang();
+            listLKH = LoaiKhachHangDAO.Instance.GetLoaiKhachHang();
             dgv_LoaiKhachHang.Columns["LoaiKH"].DataPropertyName = "MaLoaiKH";
             dgv_LoaiKhachHang.Columns["TenLoaiKH"].DataPropertyName = "TenLoaiKH";
-            dgv_LoaiKhachHang.DataSource = listLoaiKH;
+            dgv_LoaiKhachHang.DataSource = listLKH;
         }
-        public void khoaDK()
-        {
-            txt_MaLoaiKH.Enabled = txt_TenLoaiKH.Enabled = false;
-            tsbThem.Enabled = tsbSua.Enabled = tsbXoa.Enabled = true;
-            tsbLuu.Enabled = false;
-        }
-        public void moKhoaDK()
-        {
-            txt_MaLoaiKH.Enabled = txt_TenLoaiKH.Enabled = true;
-            tsbThem.Enabled = tsbSua.Enabled = tsbXoa.Enabled = false;
-            tsbLuu.Enabled = true;
-        }
+    
         
         public void xoaTxt()
         {
@@ -59,13 +48,13 @@ namespace DACN.GUI
             string lastCode = list.Last().MaLoaiKH;
 
             string prefix = lastCode.Substring(0, 2);
-            string numberPart = lastCode.Substring(3);
+            string numberPart = lastCode.Substring(2);
 
             // Chuyển số thành số nguyên và tăng lên 1
             int number = int.Parse(numberPart) + 1;
 
             // Tạo mã mới
-            string newCode = $"{prefix}{number:D4}";
+            string newCode = $"{prefix}{number:D3}";
 
             return newCode;
         }
@@ -84,19 +73,32 @@ namespace DACN.GUI
 
         }
         private List<LoaiKhachHangDTO> listLKH = new List<LoaiKhachHangDTO>();
+        private void ktDK(string ma, string ten)
+        {
+            
+            if (string.IsNullOrWhiteSpace(ma) || string.IsNullOrWhiteSpace(ten))
+            {
+                MessageBox.Show("Mã loại khách hàng và tên loại khách hàng không được để trống!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+        }
         private void tsbThem_Click(object sender, EventArgs e)
         {
-            moKhoaDK();
-            IsInsert = true;
-            xoaTxt();
+            txt_MaLoaiKH.Enabled = false;
             txt_MaLoaiKH.Text = GenerateNewCode(listLKH);
+            lkhDTO.MaLoaiKH = txt_MaLoaiKH.Text;
+            lkhDTO.TenLoaiKH = txt_TenLoaiKH.Text;
+            ktDK(lkhDTO.MaLoaiKH, lkhDTO.TenLoaiKH);
+            loaiKhachHangDAO.Insert(lkhDTO.MaLoaiKH, lkhDTO.TenLoaiKH);
+            MessageBox.Show("Thêm thông tin thành công!");
+
         }
 
         private void tsbSua_Click(object sender, EventArgs e)
         {
-            moKhoaDK();
+            
             txt_MaLoaiKH.Enabled = false;
-            IsInsert = false;
+            IsUpdate = true;
         }
 
         private void tsbXoa_Click(object sender, EventArgs e)
@@ -108,7 +110,7 @@ namespace DACN.GUI
                     loaiKhachHangDAO.Delete(txt_MaLoaiKH.Text);
                     MessageBox.Show("Đã xóa thông tin thành công!");
                     xoaTxt();
-                    khoaDK();
+                  
 
                 }
                 catch (Exception ex)
@@ -121,25 +123,19 @@ namespace DACN.GUI
 
         private void tsbLuu_Click(object sender, EventArgs e)
         {
-            lkhDTO.MaLoaiKH = txt_MaLoaiKH.Text;
-            lkhDTO.TenLoaiKH = txt_TenLoaiKH.Text;
+            
 
             try
             {
-
-                if (IsInsert == true)
+                lkhDTO.MaLoaiKH = txt_MaLoaiKH.Text;
+                lkhDTO.TenLoaiKH = txt_TenLoaiKH.Text;
+                if (IsUpdate == true)
                 {
-                    //Insert
-                    //loaiKhachHangDAO.Insert(lkhDTO);
-                    MessageBox.Show("Thêm thông tin thành công!");
-                }
-                else
-                {
-                    //Update
+                    ktDK(lkhDTO.MaLoaiKH, lkhDTO.TenLoaiKH);
                     loaiKhachHangDAO.Update(lkhDTO);
                     MessageBox.Show("Sửa thông tin thành công!");
-
                 }
+    
                 LoadLoaiKhachHang();
                 xoaTxt();
             }
@@ -151,7 +147,7 @@ namespace DACN.GUI
 
         private void dgv_LoaiKhachHang_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            khoaDK();
+         
             try
             {
                 if (e.RowIndex >= 0)

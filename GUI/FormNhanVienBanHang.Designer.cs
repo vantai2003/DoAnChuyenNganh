@@ -39,6 +39,7 @@
             this.cậpNhậtThôngTinTàiKhoảnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.thôngTinTàiKhoảnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.đổiMậtKhẩuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btn_DangXuat = new System.Windows.Forms.Button();
             this.panel_body.SuspendLayout();
             this.pane_left.SuspendLayout();
             this.menu_NhanVienBanHang.SuspendLayout();
@@ -66,6 +67,7 @@
             // pane_left
             // 
             this.pane_left.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.pane_left.Controls.Add(this.btn_DangXuat);
             this.pane_left.Controls.Add(this.btn_QLHangHoa);
             this.pane_left.Controls.Add(this.btn_LapPhieuBanHang);
             this.pane_left.Controls.Add(this.btn_HuyDonHang);
@@ -163,6 +165,20 @@
             this.đổiMậtKhẩuToolStripMenuItem.Size = new System.Drawing.Size(220, 26);
             this.đổiMậtKhẩuToolStripMenuItem.Text = "Đổi mật khẩu";
             // 
+            // btn_DangXuat
+            // 
+            this.btn_DangXuat.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_DangXuat.Image = global::DACN.Properties.Resources.icon_logout1;
+            this.btn_DangXuat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_DangXuat.Location = new System.Drawing.Point(88, 440);
+            this.btn_DangXuat.Name = "btn_DangXuat";
+            this.btn_DangXuat.Size = new System.Drawing.Size(115, 46);
+            this.btn_DangXuat.TabIndex = 5;
+            this.btn_DangXuat.Text = "Đăng xuất";
+            this.btn_DangXuat.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btn_DangXuat.UseVisualStyleBackColor = true;
+            this.btn_DangXuat.Click += new System.EventHandler(this.btn_DangXuat_Click);
+            // 
             // FormNhanVienBanHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -194,5 +210,6 @@
         private Sunny.UI.UIButton btn_LapPhieuBanHang;
         private Sunny.UI.UIButton btn_HuyDonHang;
         private Sunny.UI.UIButton btn_QLHangHoa;
+        private System.Windows.Forms.Button btn_DangXuat;
     }
 }

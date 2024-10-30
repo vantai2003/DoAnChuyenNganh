@@ -31,7 +31,7 @@ namespace DACN.GUI
         private LoaiKhachHangDTO lkhDTO = new LoaiKhachHangDTO();
         public void HienThiKH()
         {
-            List<KhachHangDTO> listKH = KhachHangDAO.Instance.GetKhachHang();
+            listKH = KhachHangDAO.Instance.GetKhachHang();
             dgv_KH.Columns["MAKH"].DataPropertyName = "MAKH";
             dgv_KH.Columns["TENKH"].DataPropertyName = "TENKH";
             dgv_KH.Columns["DIACHI"].DataPropertyName = "DIACHI";
@@ -91,7 +91,7 @@ namespace DACN.GUI
             int number = int.Parse(numberPart) + 1;
 
             // Tạo mã mới
-            string newCode = $"{prefix}{number:D4}";
+            string newCode = $"{prefix}{number:D3}";
 
             return newCode;
         }
@@ -141,16 +141,18 @@ namespace DACN.GUI
 
         private void tsbLuu_Click(object sender, EventArgs e)
         {
-            khDTO.MaKH = txtMK.Text;
-            khDTO.TenKH = txtTenKH.Text;
-            khDTO.Email = txtEmail.Text;
-            khDTO.Diachi = txtDiaChi.Text;
-            khDTO.SoDienThoai = txtSDT.Text;
-            khDTO.NgayTao = DateTime.Now;
-            khDTO.MaLoaiKH = cbbLoaiKH.SelectedValue.ToString();
+           
             try
             {
-
+               
+                khDTO.MaKH = txtMK.Text;
+                khDTO.TenKH = txtTenKH.Text;
+                khDTO.Email = txtEmail.Text;
+                khDTO.Diachi = txtDiaChi.Text;
+                khDTO.SoDienThoai = txtSDT.Text;
+                khDTO.NgayTao = DateTime.Now;
+                khDTO.MaLoaiKH = cbbLoaiKH.SelectedValue.ToString();
+               
                 if (IsInsert == true)
                 {
                     //Insert
@@ -187,7 +189,8 @@ namespace DACN.GUI
                     txtEmail.Text = row.Cells["Email"].Value.ToString();
                     txtDiaChi.Text = row.Cells["DiaChi"].Value.ToString();
                     dtpNgayTao.Value = DateTime.Parse(row.Cells["NgayTao"].Value.ToString());
-
+                    cbbLoaiKH.Text = row.Cells["MaLoaiKH"].Value.ToString();
+                    
                 }
             }
             catch (Exception ex)
@@ -198,8 +201,8 @@ namespace DACN.GUI
 
         private void LoadNCC()
         {
-            List<NhaCungCapDTO> listNCC = NhaCungCapDAO.Instance.GetNhaCungCap();
-            dgv_NCC.DataSource = listNCC;
+            listncc = NhaCungCapDAO.Instance.GetNhaCungCap();
+            dgv_NCC.DataSource = listncc;
             khoaThem();
         }
         public void khoaThem()
@@ -278,16 +281,18 @@ namespace DACN.GUI
 
         private void btnLuu_Click(object sender, EventArgs e)
         {
-            nccDTO.MaNCC = txtMaNCC.Text;
-            nccDTO.TenNCC = txtTenNCC.Text;
-            nccDTO.Email = txt_EmailNCC.Text;
-            nccDTO.ThanhPho = txtThanhPho.Text;
-            nccDTO.DiaChi = txt_DiaChiNCC.Text;
-            nccDTO.QuocGia = txt_QuocGia.Text;
-            nccDTO.NgayTao = DateTime.Now;
-            nccDTO.SDT = txt_SDTNCC.Text;
+           
             try
             {
+            
+                nccDTO.MaNCC = txtMaNCC.Text;
+                nccDTO.TenNCC = txtTenNCC.Text;
+                nccDTO.Email = txt_EmailNCC.Text;
+                nccDTO.ThanhPho = txtThanhPho.Text;
+                nccDTO.DiaChi = txt_DiaChiNCC.Text;
+                nccDTO.QuocGia = txt_QuocGia.Text;
+                nccDTO.NgayTao = DateTime.Now;
+                nccDTO.SDT = txt_SDTNCC.Text;
 
                 if (IsInsert == true)
                 {
@@ -339,10 +344,10 @@ namespace DACN.GUI
         //Loại khách hàng
         private void LoadLoaiKhachHang()
         {
-            List<LoaiKhachHangDTO> listLoaiKH = LoaiKhachHangDAO.Instance.GetLoaiKhachHang();
+            listLKH = LoaiKhachHangDAO.Instance.GetLoaiKhachHang();
             dgv_LoaiKhachHang.Columns["LoaiKH"].DataPropertyName = "MaLoaiKH";
             dgv_LoaiKhachHang.Columns["TenLoaiKH"].DataPropertyName = "TenLoaiKH";
-            dgv_LoaiKhachHang.DataSource = listLoaiKH;
+            dgv_LoaiKhachHang.DataSource = listLKH;
         }
         static string GenerateNewCode(List<LoaiKhachHangDTO> list)
         {
@@ -408,11 +413,13 @@ namespace DACN.GUI
 
         private void btn_LuuLoaiKH_Click(object sender, EventArgs e)
         {
-            string maLoaiKH = txt_MaLoaiKH.Text;
-            string tenLoaiKH = txt_TenLoaiKH.Text;
+      
 
             try
             {
+           
+                string maLoaiKH = txt_MaLoaiKH.Text;
+                string tenLoaiKH = txt_TenLoaiKH.Text;
 
                 if (IsInsert == true)
                 {

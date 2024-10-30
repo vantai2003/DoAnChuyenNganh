@@ -330,6 +330,15 @@ BEGIN
 	SELECT * FROM LoaiSanPham WHERE MaLoai = @MaLoai
 END
 GO
+--tìm kiếm loại sp
+CREATE PROC SP_TimKiemLSP
+@SearchValue varchar(50)
+AS
+BEGIN
+	SELECT * FROM LoaiSanPham WHERE MaLoai LIKE '%' + @SearchValue + '%'
+	or TenLoai LIKE '%' + @SearchValue + '%'
+END
+GO
 
 --thu tuc xoa loai sp
 CREATE PROC SP_XoaLoaiSP
@@ -640,7 +649,7 @@ BEGIN
 END
 GO
 
---thu tuc xoa loai sp
+--thu tuc xoa sp
 CREATE PROC SP_XoaSP
 @MaSP varchar(50)
 AS
@@ -648,9 +657,9 @@ BEGIN
 	DELETE FROM SanPham WHERE MaSP = @MaSP
 END
 GO
-exec SP_XoaLoaiSP @MaLoai = 'VA';
 
---thủ tục sửa loại sản phẩm
+
+--thủ tục sửa sản phẩm
 CREATE PROC SP_SuaSP
 @MaSP varchar(50), @TenSP nvarchar(200), @DVT nvarchar(10), @MaKho varchar(10), @MaLoai varchar(10)
 AS
@@ -659,3 +668,14 @@ BEGIN
 	SET  TenSP = @TenSP, DVT = @DVT, MaKho = @MaKho, MaLoai = @MaLoai
 	WHERE SanPham.MaSP = @MaSP
 END
+
+--thủ tục tìm sản phẩm
+CREATE PROC SP_TimKiemSP
+@SearchValue varchar(50)
+AS
+BEGIN
+	SELECT * FROM SanPham WHERE MaSP LIKE '%' + @SearchValue + '%'
+	or TenSP LIKE '%' + @SearchValue + '%'
+END
+GO
+--lọc sản phẩm theo kho
