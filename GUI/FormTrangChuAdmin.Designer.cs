@@ -39,11 +39,11 @@
             this.panel_body = new System.Windows.Forms.Panel();
             this.uiPanel2 = new Sunny.UI.UIPanel();
             this.uiPanel1 = new Sunny.UI.UIPanel();
+            this.btn_DangXuat = new System.Windows.Forms.Button();
             this.uiButton4 = new Sunny.UI.UIButton();
-            this.uiButton3 = new Sunny.UI.UIButton();
+            this.btnSaoLuuPhucHoi = new Sunny.UI.UIButton();
             this.btn_QuanLySanPham = new Sunny.UI.UIButton();
             this.btn_QuanLyTaiKhoam = new Sunny.UI.UIButton();
-            this.btn_DangXuat = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.menuStrip1.SuspendLayout();
             this.panel_body.SuspendLayout();
@@ -59,7 +59,7 @@
             this.toolStripMenuItem2});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1249, 30);
+            this.menuStrip1.Size = new System.Drawing.Size(1249, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -69,7 +69,7 @@
             this.toolStripMenuItem3,
             this.toolStripMenuItem4});
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(70, 26);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(70, 24);
             this.toolStripMenuItem1.Text = "Cài đặt";
             // 
             // toolStripMenuItem3
@@ -90,7 +90,7 @@
             this.toolStripMenuItem5,
             this.toolStripMenuItem6});
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(202, 26);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(202, 24);
             this.toolStripMenuItem2.Text = "Quản lý thông tin tài khoản";
             // 
             // toolStripMenuItem5
@@ -110,9 +110,9 @@
             this.panel_body.Controls.Add(this.uiPanel2);
             this.panel_body.Controls.Add(this.uiPanel1);
             this.panel_body.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_body.Location = new System.Drawing.Point(0, 30);
+            this.panel_body.Location = new System.Drawing.Point(0, 28);
             this.panel_body.Name = "panel_body";
-            this.panel_body.Size = new System.Drawing.Size(1249, 801);
+            this.panel_body.Size = new System.Drawing.Size(1249, 803);
             this.panel_body.TabIndex = 1;
             // 
             // uiPanel2
@@ -123,7 +123,7 @@
             this.uiPanel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.uiPanel2.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiPanel2.Name = "uiPanel2";
-            this.uiPanel2.Size = new System.Drawing.Size(818, 801);
+            this.uiPanel2.Size = new System.Drawing.Size(818, 803);
             this.uiPanel2.TabIndex = 1;
             this.uiPanel2.Text = null;
             this.uiPanel2.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
@@ -132,7 +132,7 @@
             // 
             this.uiPanel1.Controls.Add(this.btn_DangXuat);
             this.uiPanel1.Controls.Add(this.uiButton4);
-            this.uiPanel1.Controls.Add(this.uiButton3);
+            this.uiPanel1.Controls.Add(this.btnSaoLuuPhucHoi);
             this.uiPanel1.Controls.Add(this.btn_QuanLySanPham);
             this.uiPanel1.Controls.Add(this.btn_QuanLyTaiKhoam);
             this.uiPanel1.Controls.Add(this.panel1);
@@ -143,10 +143,24 @@
             this.uiPanel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.uiPanel1.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiPanel1.Name = "uiPanel1";
-            this.uiPanel1.Size = new System.Drawing.Size(431, 801);
+            this.uiPanel1.Size = new System.Drawing.Size(431, 803);
             this.uiPanel1.TabIndex = 0;
             this.uiPanel1.Text = null;
             this.uiPanel1.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btn_DangXuat
+            // 
+            this.btn_DangXuat.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_DangXuat.Image = global::DACN.Properties.Resources.icon_logout;
+            this.btn_DangXuat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_DangXuat.Location = new System.Drawing.Point(108, 606);
+            this.btn_DangXuat.Name = "btn_DangXuat";
+            this.btn_DangXuat.Size = new System.Drawing.Size(142, 52);
+            this.btn_DangXuat.TabIndex = 5;
+            this.btn_DangXuat.Text = "Đăng xuất";
+            this.btn_DangXuat.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btn_DangXuat.UseVisualStyleBackColor = true;
+            this.btn_DangXuat.Click += new System.EventHandler(this.btn_DangXuat_Click);
             // 
             // uiButton4
             // 
@@ -166,23 +180,25 @@
             this.uiButton4.Text = "uiButton4";
             this.uiButton4.TipsFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             // 
-            // uiButton3
+            // btnSaoLuuPhucHoi
             // 
-            this.uiButton3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.uiButton3.FillColor = System.Drawing.Color.Green;
-            this.uiButton3.FillHoverColor = System.Drawing.Color.Red;
-            this.uiButton3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.uiButton3.Location = new System.Drawing.Point(1, 438);
-            this.uiButton3.MinimumSize = new System.Drawing.Size(1, 1);
-            this.uiButton3.Name = "uiButton3";
-            this.uiButton3.RectColor = System.Drawing.Color.Lime;
-            this.uiButton3.RectHoverColor = System.Drawing.Color.Black;
-            this.uiButton3.RectPressColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.uiButton3.RectSelectedColor = System.Drawing.Color.Fuchsia;
-            this.uiButton3.Size = new System.Drawing.Size(330, 61);
-            this.uiButton3.TabIndex = 3;
-            this.uiButton3.Text = "uiButton3";
-            this.uiButton3.TipsFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.btnSaoLuuPhucHoi.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSaoLuuPhucHoi.FillColor = System.Drawing.Color.Green;
+            this.btnSaoLuuPhucHoi.FillHoverColor = System.Drawing.Color.Red;
+            this.btnSaoLuuPhucHoi.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.btnSaoLuuPhucHoi.ForeColor = System.Drawing.Color.Yellow;
+            this.btnSaoLuuPhucHoi.Location = new System.Drawing.Point(1, 438);
+            this.btnSaoLuuPhucHoi.MinimumSize = new System.Drawing.Size(1, 1);
+            this.btnSaoLuuPhucHoi.Name = "btnSaoLuuPhucHoi";
+            this.btnSaoLuuPhucHoi.RectColor = System.Drawing.Color.Lime;
+            this.btnSaoLuuPhucHoi.RectHoverColor = System.Drawing.Color.Black;
+            this.btnSaoLuuPhucHoi.RectPressColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.btnSaoLuuPhucHoi.RectSelectedColor = System.Drawing.Color.Fuchsia;
+            this.btnSaoLuuPhucHoi.Size = new System.Drawing.Size(330, 61);
+            this.btnSaoLuuPhucHoi.TabIndex = 3;
+            this.btnSaoLuuPhucHoi.Text = "Sao lưu phục hồi";
+            this.btnSaoLuuPhucHoi.TipsFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.btnSaoLuuPhucHoi.Click += new System.EventHandler(this.btnSaoLuuPhucHoi_Click);
             // 
             // btn_QuanLySanPham
             // 
@@ -224,20 +240,6 @@
             this.btn_QuanLyTaiKhoam.Text = "Quản lý tài khoản";
             this.btn_QuanLyTaiKhoam.TipsFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.btn_QuanLyTaiKhoam.Click += new System.EventHandler(this.btn_QuanLyTaiKhoam_Click_1);
-            // 
-            // btn_DangXuat
-            // 
-            this.btn_DangXuat.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_DangXuat.Image = global::DACN.Properties.Resources.icon_logout;
-            this.btn_DangXuat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_DangXuat.Location = new System.Drawing.Point(108, 606);
-            this.btn_DangXuat.Name = "btn_DangXuat";
-            this.btn_DangXuat.Size = new System.Drawing.Size(142, 52);
-            this.btn_DangXuat.TabIndex = 5;
-            this.btn_DangXuat.Text = "Đăng xuất";
-            this.btn_DangXuat.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_DangXuat.UseVisualStyleBackColor = true;
-            this.btn_DangXuat.Click += new System.EventHandler(this.btn_DangXuat_Click);
             // 
             // panel1
             // 
@@ -283,7 +285,7 @@
         private Sunny.UI.UIButton btn_QuanLyTaiKhoam;
         private System.Windows.Forms.Panel panel1;
         private Sunny.UI.UIButton uiButton4;
-        private Sunny.UI.UIButton uiButton3;
+        private Sunny.UI.UIButton btnSaoLuuPhucHoi;
         private Sunny.UI.UIButton btn_QuanLySanPham;
         private System.Windows.Forms.Button btn_DangXuat;
     }

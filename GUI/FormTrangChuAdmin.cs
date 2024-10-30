@@ -46,5 +46,10 @@ namespace DACN.GUI
         {
             this.Close();
         }
+
+        private void btnSaoLuuPhucHoi_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -38,6 +38,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.dvg_NguoiDung = new Sunny.UI.UIDataGridView();
             this.uiPanel2 = new Sunny.UI.UIPanel();
+            this.btnLuu = new System.Windows.Forms.Button();
             this.btnThem = new System.Windows.Forms.Button();
             this.btn_Sua = new System.Windows.Forms.Button();
             this.btn_Xoa = new System.Windows.Forms.Button();
@@ -53,7 +54,6 @@
             this.btn_reload = new Sunny.UI.UIButton();
             this.btn_Search = new Sunny.UI.UIButton();
             this.txt_Search = new Sunny.UI.UITextBox();
-            this.btnLuu = new System.Windows.Forms.Button();
             this.pane_body.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dvg_NguoiDung)).BeginInit();
@@ -166,8 +166,21 @@
             this.uiPanel2.Text = null;
             this.uiPanel2.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // btnLuu
+            // 
+            this.btnLuu.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLuu.Enabled = false;
+            this.btnLuu.Location = new System.Drawing.Point(662, 68);
+            this.btnLuu.Name = "btnLuu";
+            this.btnLuu.Size = new System.Drawing.Size(111, 60);
+            this.btnLuu.TabIndex = 51;
+            this.btnLuu.Text = "Lưu";
+            this.btnLuu.UseVisualStyleBackColor = true;
+            this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
+            // 
             // btnThem
             // 
+            this.btnThem.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnThem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnThem.Image = ((System.Drawing.Image)(resources.GetObject("btnThem.Image")));
             this.btnThem.Location = new System.Drawing.Point(458, 36);
@@ -182,6 +195,7 @@
             // 
             // btn_Sua
             // 
+            this.btn_Sua.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_Sua.Enabled = false;
             this.btn_Sua.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Sua.Image = ((System.Drawing.Image)(resources.GetObject("btn_Sua.Image")));
@@ -197,6 +211,7 @@
             // 
             // btn_Xoa
             // 
+            this.btn_Xoa.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_Xoa.Enabled = false;
             this.btn_Xoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Xoa.Image = ((System.Drawing.Image)(resources.GetObject("btn_Xoa.Image")));
@@ -214,7 +229,6 @@
             // txt_pass
             // 
             this.txt_pass.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txt_pass.Enabled = false;
             this.txt_pass.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.txt_pass.Location = new System.Drawing.Point(213, 89);
             this.txt_pass.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -233,7 +247,6 @@
             // txt_username
             // 
             this.txt_username.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txt_username.Enabled = false;
             this.txt_username.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.txt_username.Location = new System.Drawing.Point(213, 36);
             this.txt_username.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -250,7 +263,6 @@
             // cb_vitrilv
             // 
             this.cb_vitrilv.DataSource = null;
-            this.cb_vitrilv.Enabled = false;
             this.cb_vitrilv.FillColor = System.Drawing.Color.White;
             this.cb_vitrilv.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.cb_vitrilv.ItemHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(200)))), ((int)(((byte)(255)))));
@@ -270,7 +282,6 @@
             // cb_nhanvien
             // 
             this.cb_nhanvien.DataSource = null;
-            this.cb_nhanvien.Enabled = false;
             this.cb_nhanvien.FillColor = System.Drawing.Color.White;
             this.cb_nhanvien.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.cb_nhanvien.ItemHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(200)))), ((int)(((byte)(255)))));
@@ -392,16 +403,6 @@
             this.txt_Search.TabIndex = 0;
             this.txt_Search.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             this.txt_Search.Watermark = "";
-            // 
-            // btnLuu
-            // 
-            this.btnLuu.Location = new System.Drawing.Point(662, 68);
-            this.btnLuu.Name = "btnLuu";
-            this.btnLuu.Size = new System.Drawing.Size(111, 60);
-            this.btnLuu.TabIndex = 51;
-            this.btnLuu.Text = "Lưu";
-            this.btnLuu.UseVisualStyleBackColor = true;
-            this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
             // 
             // FormNguoiDung
             // 
