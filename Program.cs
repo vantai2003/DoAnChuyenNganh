@@ -18,7 +18,7 @@ namespace DACN
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            Application.Run(new FormNhanVienBanHang());
+            Application.Run(new FormDangNhap());
         }
     }
 }

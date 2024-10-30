@@ -41,5 +41,10 @@ namespace DACN.GUI
         {
             OpenChildForm(new FormQLHangHoa());
         }
+
+        private void btn_DangXuat_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

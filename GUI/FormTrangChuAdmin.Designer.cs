@@ -43,6 +43,7 @@
             this.uiButton3 = new Sunny.UI.UIButton();
             this.btn_QuanLySanPham = new Sunny.UI.UIButton();
             this.btn_QuanLyTaiKhoam = new Sunny.UI.UIButton();
+            this.btn_DangXuat = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.menuStrip1.SuspendLayout();
             this.panel_body.SuspendLayout();
@@ -58,7 +59,7 @@
             this.toolStripMenuItem2});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1249, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1249, 30);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -68,7 +69,7 @@
             this.toolStripMenuItem3,
             this.toolStripMenuItem4});
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(70, 24);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(70, 26);
             this.toolStripMenuItem1.Text = "Cài đặt";
             // 
             // toolStripMenuItem3
@@ -89,7 +90,7 @@
             this.toolStripMenuItem5,
             this.toolStripMenuItem6});
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(202, 24);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(202, 26);
             this.toolStripMenuItem2.Text = "Quản lý thông tin tài khoản";
             // 
             // toolStripMenuItem5
@@ -109,9 +110,9 @@
             this.panel_body.Controls.Add(this.uiPanel2);
             this.panel_body.Controls.Add(this.uiPanel1);
             this.panel_body.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_body.Location = new System.Drawing.Point(0, 28);
+            this.panel_body.Location = new System.Drawing.Point(0, 30);
             this.panel_body.Name = "panel_body";
-            this.panel_body.Size = new System.Drawing.Size(1249, 803);
+            this.panel_body.Size = new System.Drawing.Size(1249, 801);
             this.panel_body.TabIndex = 1;
             // 
             // uiPanel2
@@ -122,12 +123,14 @@
             this.uiPanel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.uiPanel2.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiPanel2.Name = "uiPanel2";
-            this.uiPanel2.Size = new System.Drawing.Size(818, 803);
+            this.uiPanel2.Size = new System.Drawing.Size(818, 801);
             this.uiPanel2.TabIndex = 1;
+            this.uiPanel2.Text = null;
             this.uiPanel2.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // uiPanel1
             // 
+            this.uiPanel1.Controls.Add(this.btn_DangXuat);
             this.uiPanel1.Controls.Add(this.uiButton4);
             this.uiPanel1.Controls.Add(this.uiButton3);
             this.uiPanel1.Controls.Add(this.btn_QuanLySanPham);
@@ -140,7 +143,7 @@
             this.uiPanel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.uiPanel1.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiPanel1.Name = "uiPanel1";
-            this.uiPanel1.Size = new System.Drawing.Size(431, 803);
+            this.uiPanel1.Size = new System.Drawing.Size(431, 801);
             this.uiPanel1.TabIndex = 0;
             this.uiPanel1.Text = null;
             this.uiPanel1.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
@@ -222,6 +225,20 @@
             this.btn_QuanLyTaiKhoam.TipsFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.btn_QuanLyTaiKhoam.Click += new System.EventHandler(this.btn_QuanLyTaiKhoam_Click_1);
             // 
+            // btn_DangXuat
+            // 
+            this.btn_DangXuat.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_DangXuat.Image = global::DACN.Properties.Resources.icon_logout;
+            this.btn_DangXuat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_DangXuat.Location = new System.Drawing.Point(108, 606);
+            this.btn_DangXuat.Name = "btn_DangXuat";
+            this.btn_DangXuat.Size = new System.Drawing.Size(142, 52);
+            this.btn_DangXuat.TabIndex = 5;
+            this.btn_DangXuat.Text = "Đăng xuất";
+            this.btn_DangXuat.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btn_DangXuat.UseVisualStyleBackColor = true;
+            this.btn_DangXuat.Click += new System.EventHandler(this.btn_DangXuat_Click);
+            // 
             // panel1
             // 
             this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
@@ -268,5 +285,6 @@
         private Sunny.UI.UIButton uiButton4;
         private Sunny.UI.UIButton uiButton3;
         private Sunny.UI.UIButton btn_QuanLySanPham;
+        private System.Windows.Forms.Button btn_DangXuat;
     }
 }

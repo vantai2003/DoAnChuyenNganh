@@ -203,6 +203,7 @@
     <Content Include="GUI\Icon_images\user.png" />
     <Content Include="GUI\Icon_images\Vat_lieu.png" />
     <Content Include="GUI\Icon_images\warehouse.png" />
+    <None Include="Resources\icon-logout.png" />
     <None Include="Resources\warehouse.png" />
     <None Include="Resources\Vat_lieu.png" />
     <None Include="Resources\user.png" />
