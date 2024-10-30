@@ -144,11 +144,7 @@ namespace DACN.GUI
            
             try
             {
-                if (txtTenKH.Text == null|| txtTenKH.Text==null|| txtEmail.Text == null || txtDiaChi.Text == null || txtSDT.Text == null)
-                {
-                    MessageBox.Show("Vui lòng nhập đầy đủ thông tin.");
-                    return;
-                }
+               
                 khDTO.MaKH = txtMK.Text;
                 khDTO.TenKH = txtTenKH.Text;
                 khDTO.Email = txtEmail.Text;
@@ -193,7 +189,8 @@ namespace DACN.GUI
                     txtEmail.Text = row.Cells["Email"].Value.ToString();
                     txtDiaChi.Text = row.Cells["DiaChi"].Value.ToString();
                     dtpNgayTao.Value = DateTime.Parse(row.Cells["NgayTao"].Value.ToString());
-
+                    cbbLoaiKH.Text = row.Cells["MaLoaiKH"].Value.ToString();
+                    
                 }
             }
             catch (Exception ex)
@@ -287,11 +284,7 @@ namespace DACN.GUI
            
             try
             {
-                if (txtMaNCC.Text ==null || txtTenNCC.Text == null || txt_EmailNCC.Text == null || txtThanhPho.Text == null || txt_DiaChiNCC.Text == null || txt_QuocGia.Text == null || txt_SDTNCC.Text == null )
-                {
-                    MessageBox.Show("Vui lòng nhập đầy đủ thông tin.");
-                    return;
-                }
+            
                 nccDTO.MaNCC = txtMaNCC.Text;
                 nccDTO.TenNCC = txtTenNCC.Text;
                 nccDTO.Email = txt_EmailNCC.Text;
@@ -424,11 +417,7 @@ namespace DACN.GUI
 
             try
             {
-                if (txt_MaLoaiKH.Text == null || txt_TenLoaiKH.Text == null)
-                {
-                    MessageBox.Show("Vui lòng nhập đầy đủ thông tin.");
-                    return;
-                }
+           
                 string maLoaiKH = txt_MaLoaiKH.Text;
                 string tenLoaiKH = txt_TenLoaiKH.Text;
 

@@ -94,17 +94,12 @@ namespace DACN.GUI
 
         private void tsbLuu_Click(object sender, EventArgs e)
         {
-            
+            KhoDTO.MaKho = txtMaKho.Text;
+            KhoDTO.TenKho = txtTenKho.Text;
+            KhoDTO.DiaChi = txtDiaChi.Text;
+
             try
             {
-                if (txtMaKho.Text == null || txtTenKho.Text == null || txtDiaChi.Text == null) ;
-                {
-                    MessageBox.Show("Vui lòng nhập đầy đủ thông tin.");
-                    return;
-                }
-                KhoDTO.MaKho = txtMaKho.Text;
-                KhoDTO.TenKho = txtTenKho.Text;
-                KhoDTO.DiaChi = txtDiaChi.Text;
                 if (IsInsert == true)
                 {
                     //Insert
