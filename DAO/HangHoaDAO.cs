@@ -32,10 +32,10 @@ namespace DACN.DAO
 
             return listSP;
         }
-        public int ThemSanPham(string masp, string tensp, string dvt, string makho, string maloai)
+        public int ThemSanPham(string masp, string tensp, string dvt, string maloai)
         {
-            string query = "SP_ThemSP @MaSP , @TenSP , @DVT , @MaKho , @MaLoai";
-            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { masp, tensp, dvt, makho, maloai });
+            string query = "SP_ThemSP @MaSP , @TenSP , @DVT , @MaLoai";
+            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { masp, tensp, dvt, maloai });
             return result;
         }
         public static string GenerateMaNV()
@@ -61,10 +61,10 @@ namespace DACN.DAO
             int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { masp });
             return result;
         }
-        public int SuaSP(string masp, string tensp, string dvt, string makho, string maloai)
+        public int SuaSP(string masp, string tensp, string dvt, string maloai)
         {
-            string query = "SP_SuaSP @MaSP , @TenSP , @DVT , @MaKho , @MaLoai";
-            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { masp, tensp, dvt, makho, maloai });
+            string query = "SP_SuaSP @MaSP , @TenSP , @DVT , @MaLoai";
+            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { masp, tensp, dvt, maloai });
             return result;
         }
         public List<HangHoaDTO> TimKiemHH(string searchValue)
@@ -78,6 +78,12 @@ namespace DACN.DAO
                 listHH.Add(hanghoa);
             }
             return listHH;
+        }
+        public DataTable GetSanPhamByNhaCungCap(string mancc)
+        {
+            string query = "SP_GetSanPhamByIdNCC @MaNCC";
+            return DataProvider.Instance.ExecuteQuery(query, new object[] { mancc });
+
         }
     }
 }

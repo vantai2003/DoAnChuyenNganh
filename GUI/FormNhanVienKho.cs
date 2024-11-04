@@ -1,5 +1,4 @@
-﻿using DACN.DTO;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,13 +10,11 @@ using System.Windows.Forms;
 
 namespace DACN.GUI
 {
-    public partial class FormTrangChuAdmin : Form
+    public partial class FormNhanVienKho : Form
     {
-        public FormTrangChuAdmin()
+        public FormNhanVienKho()
         {
             InitializeComponent();
-            Load();
-
         }
         private Form currentFormChild;
         private void OpenChildForm(Form childForm)
@@ -33,24 +30,24 @@ namespace DACN.GUI
             childForm.BringToFront();
             childForm.Show();
         }
-        private void Load()
+        private void btn_LapPhieuNH_Click(object sender, EventArgs e)
         {
-           txt_ThongTintt.Text = FormDangNhap.nhanvien;
+            OpenChildForm(new FormNhapHang());
         }
 
-        private void btn_QuanLyTaiKhoam_Click_1(object sender, EventArgs e)
+        private void tStripMenuItem_ThongTinTK_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new FormNguoiDung());
+            OpenChildForm(new FormTTNguoiDung());
         }
 
-        private void btn_QuanLySanPham_Click(object sender, EventArgs e)
+        private void btn_QLTonKho_Click(object sender, EventArgs e)
         {
-            OpenChildForm(new FormQLHangHoa());
+            OpenChildForm(new FormQLTonKho());
         }
 
-        private void btn_DangXuat_Click(object sender, EventArgs e)
+        private void btn_Logout_Click(object sender, EventArgs e)
         {
-            FormDangNhap.nhanvien = string.Empty;
+            FormDangNhap.nhanvien = string.Empty; 
             DialogResult dialogResult = MessageBox.Show("Bạn có chắc chắn muốn đăng xuất?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dialogResult == DialogResult.Yes)
             {
@@ -58,16 +55,6 @@ namespace DACN.GUI
                 FormDangNhap loginForm = new FormDangNhap();
                 loginForm.Show();
             }
-        }
-
-        private void btnSaoLuuPhucHoi_Click(object sender, EventArgs e)
-        {
-            OpenChildForm(new FormSaoLuuPhucHoi());
-        }
-
-        private void toolStripMenuItem5_Click(object sender, EventArgs e)
-        {
-            OpenChildForm(new FormTTNguoiDung());
         }
     }
 }

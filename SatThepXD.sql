@@ -33,13 +33,18 @@ CREATE TABLE SanPham (
     MaSP VARCHAR(50) PRIMARY KEY  NOT NULL,
     TenSP NVARCHAR(200),
     DVT NVARCHAR(20),
-    MaKho VARCHAR(50) NOT NULL,
     MaLoai VARCHAR(50) NOT NULL,
-    FOREIGN KEY (MaKho) REFERENCES Kho(MaKho),
     FOREIGN KEY (MaLoai) REFERENCES LoaiSanPham(MaLoai)
 );
+CREATE TABLE Kho_SanPham (
+    MaKho VARCHAR(50) NOT NULL,
+    MaSP VARCHAR(50) NOT NULL,
+    SoLuongTon DECIMAL(18, 2) DEFAULT 0,
+    PRIMARY KEY (MaKho, MaSP),
+    FOREIGN KEY (MaKho) REFERENCES Kho(MaKho),
+    FOREIGN KEY (MaSP) REFERENCES SanPham(MaSP)
+);
 
--- Bảng CT_SanPhamNCC (Bảng trung gian giữa Sản phẩm và Nhà cung cấp)
 CREATE TABLE CT_SanPhamNCC (
     NgayBatDauHopTac DATE,
     MaNCC VARCHAR(50) NOT NULL,
@@ -107,19 +112,28 @@ CREATE TABLE CT_HoaDon (
 CREATE TABLE PhieuNhapHang (
     MaPhieuNH VARCHAR(50) PRIMARY KEY NOT NULL,
     NgayDatHang DATE,
-    TongTien DECIMAL(18, 0),
+    TongTien DECIMAL(18, 0) CHECK (TongTien >= 0),
     TrangThai NVARCHAR(20),
     MaNCC VARCHAR(50) NOT NULL,
     MaKho VARCHAR(50) NOT NULL,
     FOREIGN KEY (MaNCC) REFERENCES NhaCungCap(MaNCC),
     FOREIGN KEY (MaKho) REFERENCES Kho(MaKho)
 );
+go
+alter table PhieuNhapHang
+add MaNV VARCHAR(50)
 
+go
+ALTER TABLE NhanVien
+ADD CONSTRAINT FK_PhieuNhanHang_NhanVien
+FOREIGN KEY (MaNV) REFERENCES NhanVien(MaNV)
+
+go
 -- Bảng CTPhieuNhapHang (Chi tiết phiếu nhập hàng)
 CREATE TABLE CTPhieuNhapHang (
     MaCTPhieuNH VARCHAR(50) PRIMARY KEY NOT NULL,
-    SoLuong DECIMAL(18, 2),
-    DonGia DECIMAL(18, 0),
+    SoLuong DECIMAL(18, 2) (SoLuong > 0),
+    DonGia DECIMAL(18, 0) (DonGia >= 0),
     NgayNhapHang DATE,
     MaSP VARCHAR(50) NOT NULL,
     MaPhieuNH VARCHAR(50) NOT NULL,
@@ -130,15 +144,35 @@ CREATE TABLE CTPhieuNhapHang (
 -- Bảng PhieuTraHangKH
 CREATE TABLE PhieuTraHangKH (
     MaPhieuTraHang VARCHAR(50) PRIMARY KEY NOT NULL,
-    SoLuong DECIMAL(18, 3),
     LyDo NVARCHAR(255),
-    MaKH VARCHAR(50) NOT NULL,
     MaNV VARCHAR(50) NOT NULL,
-    MaKho VARCHAR(50) NOT NULL,
-    FOREIGN KEY (MaKH) REFERENCES KhachHang(MaKH),
+    MaHoaDon VARCHAR(50) NOT NULL,
     FOREIGN KEY (MaNV) REFERENCES NhanVien(MaNV),
-    FOREIGN KEY (MaKho) REFERENCES Kho(MaKho)
+    FOREIGN KEY (MaHoaDon) REFERENCES HoaDon(MaHD)
 );
+
+--sửa lại bảng PhieuTraHangKH
+ALTER TABLE PhieuTraHangKH
+DROP COLUMN SoLuong;
+
+ALTER TABLE PhieuTraHangKH
+DROP COLUMN MaKH;
+go
+ALTER TABLE PhieuTraHangKH
+DROP CONSTRAINT FK__PhieuTraH__MaKho__5070F446;
+go
+
+ALTER TABLE PhieuTraHangKH
+DROP COLUMN MaKho;
+go
+ALTER TABLE PhieuTraHangKH
+ADD MaHD VARCHAR(50) NOT NULL;
+go
+
+----Lưu ý xóa khóa ngooaiji KH luôn
+ALTER TABLE PhieuTraHangKH
+ADD CONSTRAINT FK_PhieuTraHangKH_HoaDon
+FOREIGN KEY (MaHD) REFERENCES HoaDon(MaHD);
 
 -- Bảng PhieuTraHangNCC
 CREATE TABLE PhieuTraHangNCC (
@@ -633,10 +667,10 @@ GO
 
 
 CREATE PROC SP_ThemSP
-@MaSP varchar(50), @TenSP nvarchar(200), @DVT nvarchar(10), @MaKho varchar(10), @MaLoai varchar(10)
+@MaSP varchar(50), @TenSP nvarchar(200), @DVT nvarchar(10), @MaLoai varchar(10)
 AS 
 BEGIN
-	INSERT INTO SanPham VALUES(@MaSP , @TenSP , @DVT , @MaKho , @MaLoai)
+	INSERT INTO SanPham VALUES(@MaSP , @TenSP , @DVT , @MaLoai)
 END
 GO
 
@@ -661,11 +695,11 @@ GO
 
 --thủ tục sửa sản phẩm
 CREATE PROC SP_SuaSP
-@MaSP varchar(50), @TenSP nvarchar(200), @DVT nvarchar(10), @MaKho varchar(10), @MaLoai varchar(10)
+@MaSP varchar(50), @TenSP nvarchar(200), @DVT nvarchar(10), @MaLoai varchar(10)
 AS
 BEGIN
 	UPDATE SanPham
-	SET  TenSP = @TenSP, DVT = @DVT, MaKho = @MaKho, MaLoai = @MaLoai
+	SET  TenSP = @TenSP, DVT = @DVT, MaLoai = @MaLoai
 	WHERE SanPham.MaSP = @MaSP
 END
 
@@ -679,3 +713,205 @@ BEGIN
 END
 GO
 --lọc sản phẩm theo kho
+
+
+--thủ tục sao lưu
+CREATE PROCEDURE SP_BackupDatabase
+	@BackupPath nvarchar(200)
+AS
+BEGIN
+	BACKUP DATABASE QL_SatThepXD TO DISK = @BackupPath WITH FORMAT, INIT;
+END
+
+--THỦ TỤC PHỤC HỒI
+CREATE PROCEDURE SP_RestoreDatabase
+    @BackupPath NVARCHAR(200)
+AS
+BEGIN
+    -- Đặt database vào chế độ single-user để ngắt kết nối hiện tại
+    ALTER DATABASE QL_SatThepXD SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
+    
+    -- Thực hiện phục hồi
+    RESTORE DATABASE QL_SatThepXD FROM DISK = @BackupPath WITH REPLACE;
+    
+    -- Đặt lại chế độ multi-user sau khi hoàn tất
+    ALTER DATABASE QL_SatThepXD SET MULTI_USER;
+END
+
+
+----------------quản lý tồn kho
+--chạy lại cái này
+ALTER TABLE SanPham
+DROP CONSTRAINT FK__SanPham__MaKho__2C3393D0;
+ALTER TABLE SanPham
+DROP COLUMN MaKho;
+exec SP_GetListSP
+drop proc SP_GetProductsInStock
+--thủ tục lấy dữ liệu tồn
+CREATE PROCEDURE SP_GetProductsInStock
+AS
+BEGIN
+    SELECT sp.MaSP, sp.TenSP, sp.DVT, k.TenKho, ks.SoLuongTon, lp.TenLoai
+    FROM Kho_SanPham ks
+    JOIN SanPham sp ON ks.MaSP = sp.MaSP
+    JOIN Kho k ON ks.MaKho = k.MaKho
+    JOIN LoaiSanPham lp ON sp.MaLoai = lp.MaLoai; -- Kết nối với bảng LoaiSanPham
+END
+GO
+--Lấy thông tin người dùng 
+CREATE PROCEDURE SP_GetThongTinNguoiDung
+@TenDN varchar(50)
+AS
+BEGIN
+	SELECT nv.MaNV, nv.TenNV, nv.Email, nv.NgayTuyenDung, nv.SDT, nv.ChucVu
+	FROM NguoiDung nd
+	JOIN NhanVien nv ON nd.MaNV = nv.MaNV
+	WHERE nd.TenDN = @TenDN
+END
+GO
+-----------------------------------Nhaapj Hang
+CREATE PROC SP_TaoMaPN
+AS
+BEGIN
+    DECLARE @LastMaPN varchar(10);
+    DECLARE @NewNumber int;
+    DECLARE @NewMaPN varchar(10);
+    
+    -- Truy vấn mã PN lớn nhất hiện có
+    SELECT @LastMaPN = MAX(MaPhieuNH) FROM PhieuNhapHang;
+    
+    -- Nếu bảng chưa có thì bắt đầu từ NV001
+    IF @LastMaPN IS NULL
+    BEGIN
+        SET @NewNumber = 1;
+    END
+    ELSE
+    BEGIN
+        -- Lấy phần số của MaNV (bỏ đi 2 ký tự đầu "NV")
+        SET @NewNumber = CAST(SUBSTRING(@LastMaPN, 3, LEN(@LastMaPN) - 2) AS INT) + 1;
+    END
+    
+    -- Tạo mới với định dạng PN + số mới
+    SET @NewMaPN = 'PN' + RIGHT('000' + CAST(@NewNumber AS VARCHAR), 3);
+    
+    -- Trả về MaNV mới
+    SELECT @NewMaPN;
+END
+GO
+--thu tuc tao phieu nhap hang
+CREATE PROCEDURE SP_ThemPhieuNhapHang
+    @MaPhieuNH VARCHAR(50),
+    @NgayDatHang DATE,
+    @TongTien DECIMAL(18, 0),
+    @TrangThai NVARCHAR(20),
+	@MaNV VARCHAR(50),
+    @MaNCC VARCHAR(50),
+    @MaKho VARCHAR(50)
+AS
+BEGIN
+    INSERT INTO PhieuNhapHang (MaPhieuNH, NgayDatHang, TongTien, TrangThai, MaNV, MaNCC, MaKho)
+    VALUES (@MaPhieuNH, @NgayDatHang, @TongTien, @TrangThai, @MaNV, @MaNCC, @MaKho)
+END
+GO
+
+------thủ tục tăng mã ct phiếu nhập
+CREATE PROC SP_TaoMaCTPN
+AS
+BEGIN
+    DECLARE @LastMaCTPN varchar(10);
+    DECLARE @NewNumber int;
+    DECLARE @NewMaPN varchar(10);
+    SELECT @LastMaCTPN = MAX(MaCTPhieuNH) FROM CTPhieuNhapHang;
+    
+    -- Nếu bảng chưa có thì bắt đầu từ CTPN001
+    IF @LastMaCTPN IS NULL
+    BEGIN
+        SET @NewNumber = 1;
+    END
+    ELSE
+    BEGIN
+        IF LEN(@LastMaCTPN) >= 4 
+        BEGIN
+            SET @NewNumber = CAST(SUBSTRING(@LastMaCTPN, 5, LEN(@LastMaCTPN) - 4) AS INT) + 1;
+        END
+        ELSE
+        BEGIN
+            SET @NewNumber = 1;
+        END
+    END
+    SET @NewMaPN = 'CTPN' + RIGHT('00000' + CAST(@NewNumber AS VARCHAR), 3);
+    SELECT @NewMaPN AS NewMaCTPN;
+END
+GO
+
+--Thu tuc tao CTPhieuNhapHang
+CREATE PROCEDURE SP_ThemCTPhieuNhapHang
+    @MaCTPhieuNH VARCHAR(50),
+    @MaPhieuNH VARCHAR(50),
+    @MaSP VARCHAR(50),
+    @SoLuong DECIMAL(18, 2),
+    @DonGia DECIMAL(18, 0),
+    @NgayNhapHang DATE
+AS
+BEGIN
+    INSERT INTO CTPhieuNhapHang (MaCTPhieuNH, MaPhieuNH, MaSP, SoLuong, DonGia, NgayNhapHang)
+    VALUES (@MaCTPhieuNH, @MaPhieuNH, @MaSP, @SoLuong, @DonGia, @NgayNhapHang)
+END
+GO
+----------thủ tục cập nhật lại số lượng sản phẩm trong kho(QL tồn kho)
+CREATE PROCEDURE SP_CapNhatTonKho
+    @MaSP VARCHAR(10),
+    @MaKho VARCHAR(10),
+    @SoLuong INT
+AS
+BEGIN
+    IF EXISTS (SELECT 1 FROM Kho_SanPham WHERE MaSP = @MaSP AND MaKho = @MaKho)
+    BEGIN
+        UPDATE Kho_SanPham
+        SET SoLuongTon = SoLuongTon + @SoLuong
+        WHERE MaSP = @MaSP AND MaKho = @MaKho;
+    END
+    ELSE
+    BEGIN
+        -- Thêm mới sản phẩm vào kho nếu chưa tồn tại
+        INSERT INTO Kho_SanPham(MaSP, MaKho, SoLuongTon)
+        VALUES (@MaSP, @MaKho, @SoLuong);
+    END
+END
+GO
+---lay list san pham tu nha cung cap 
+CREATE PROCEDURE SP_GetSanPhamByIdNCC
+@MaNCC varchar(50)
+AS
+BEGIN
+	SELECT sp.MaSP, sp.TenSP, sp.DVT, lp.TenLoai
+	FROM CT_SanPhamNCC spncc
+	JOIN SanPham sp ON spncc.MaSP = sp.MaSP
+	JOIN LoaiSanPham lp ON sp.MaLoai = lp.MaLoai
+	WHERE spncc.MaNCC = @MaNCC
+END
+GO
+
+CREATE PROC SP_GetListPN
+AS
+BEGIN
+	SELECT MaPhieuNH, NgayDatHang, TongTien, TrangThai, ncc.TenNCC, k.TenKho, MaNV
+	FROM PhieuNhapHang pn
+	JOIN NhaCungCap ncc ON ncc.MaNCC = pn.MaNCC
+    JOIN Kho k ON k.MaKho = pn.MaKho
+END
+GO
+
+
+
+---Tạo thêm bảng CTPhieuTraHang
+create table CTPhieuTraHang
+(
+	IDCTPhieuTH varchar(50) primary key,
+	MaPhieuTraHang varchar(50),
+	MaSP varchar(50),
+	SoLuongTra DECIMAL(18, 3),
+	DonGiaTra DECIMAL(18, 0),
+	FOREIGN KEY (MaPhieuTraHang) REFERENCES PhieuTraHangKH(MaPhieuTraHang),
+    FOREIGN KEY (MaSP) REFERENCES SanPham(MaSP)
+)
