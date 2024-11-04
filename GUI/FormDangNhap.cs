@@ -20,6 +20,7 @@ namespace DACN.GUI
         {
             InitializeComponent();
         }
+        public static string nhanvien;
         private bool Login(string username, string password)
         {
             return LoginDAO.Instance.Login(username, password);
@@ -35,6 +36,7 @@ namespace DACN.GUI
 
             if (Login(userName, pass))
             {
+                nhanvien = txt_UserName.Text.Trim();
                 this.Hide();
                 switch (getRole(userName, pass))
                 {
@@ -56,7 +58,8 @@ namespace DACN.GUI
                         MessageBox.Show("Đăng nhập thành công với quyền giao hàng");
                         break;
                     case 5:
-                        MessageBox.Show("Đăng nhập thành công với quyền kho");
+                        FormNhanVienKho fnvkho = new FormNhanVienKho();
+                        fnvkho.Show();
                         break;
                 }
             }

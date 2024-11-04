@@ -27,6 +27,7 @@ namespace DACN.GUI
         {
             List<LoaiSanPhamDTO> listLoaiSanPham = LoaiSanPhamDAO.Instance.GetLoaiSanPham();
             dvg_LoaiSP.DataSource = listLoaiSanPham;
+            
             btn_Xoa.Enabled = btn_Sua.Enabled = false;
             btnThem.Enabled = true;
             txt_MaLoaiSP.Clear();
@@ -156,10 +157,9 @@ namespace DACN.GUI
         {
             List<HangHoaDTO> listSanPham = HangHoaDAO.Instance.GetSanPham();
             dvg_HangHoa.DataSource = listSanPham;
+            dvg_HangHoa.Columns["MaKho"].Visible = false;
+            dvg_HangHoa.Columns["TenLoai"].Visible = false;
             List<KhoDTO> listKho = KhoDAO.Instance.GetKho();
-            cb_Kho.DataSource = listKho;
-            cb_Kho.DisplayMember = "TenKho";
-            cb_Kho.ValueMember = "MaKho";
             List<LoaiSanPhamDTO> listLoaiSP = LoaiSanPhamDAO.Instance.GetLoaiSanPham();
             cb_LoaiHH.DataSource = listLoaiSP;
             cb_LoaiHH.DisplayMember = "TenLoai";
@@ -169,7 +169,6 @@ namespace DACN.GUI
             txt_MaHH.Clear();
             txt_TenHH.Clear();
             cb_DVT.SelectedIndex = 0;
-            cb_Kho.SelectedIndex = 0;
             cb_LoaiHH.SelectedIndex = 0;
         }
         private bool ktTrungMaSP(string masp)
@@ -182,7 +181,6 @@ namespace DACN.GUI
             string maSP = HangHoaDAO.GenerateMaNV();
             string tenSP = txt_TenHH.Text;
             string dvt = cb_DVT.SelectedItem.ToString();
-            string maKho = cb_Kho.SelectedValue.ToString();
             string loaiSP = cb_LoaiHH.SelectedValue.ToString();
 
             if (!string.IsNullOrEmpty(maSP))
@@ -195,7 +193,7 @@ namespace DACN.GUI
                 }
                 else
                 {
-                    HangHoaDAO.Instance.ThemSanPham(maSP, tenSP, dvt, maKho, loaiSP);
+                    HangHoaDAO.Instance.ThemSanPham(maSP, tenSP, dvt, loaiSP);
                     MessageBox.Show("Thêm sản phẩm thành công!");
                     LoadSanPham();
                     txt_MaHH.Clear();
@@ -218,7 +216,6 @@ namespace DACN.GUI
                 txt_MaHH.Text = Convert.ToString(row.Cells["MaSP"].Value);
                 txt_TenHH.Text = Convert.ToString(row.Cells["TenSP"].Value);
                 cb_DVT.SelectedItem = row.Cells["DVT"].Value.ToString();
-                cb_Kho.SelectedValue = Convert.ToString(row.Cells["MaKho"].Value);
                 cb_LoaiHH.SelectedValue = Convert.ToString(row.Cells["MaLoaiSP"].Value);
                 btn_XoaHH.Enabled = true;
                 btn_ThemHH.Enabled = false;
@@ -246,7 +243,6 @@ namespace DACN.GUI
                     txt_MaHH.Clear();
                     txt_TenHH.Clear();
                     cb_DVT.SelectedIndex = 0;
-                    cb_Kho.SelectedIndex = 0;
                     cb_LoaiHH.SelectedIndex = 0;
                     LoadSanPham();
                 }
@@ -272,7 +268,6 @@ namespace DACN.GUI
                 string mahh = txt_MaHH.Text;
                 string tenSP = txt_TenHH.Text;
                 string dvt = cb_DVT.SelectedItem.ToString();
-                string maKho = cb_Kho.SelectedValue.ToString();
                 string loaiSP = cb_LoaiHH.SelectedValue.ToString();
                 if (tenSP == "")
                 {
@@ -280,13 +275,12 @@ namespace DACN.GUI
                 }
                 else
                 {
-                    HangHoaDAO.Instance.SuaSP(mahh, tenSP, dvt, maKho, loaiSP);
+                    HangHoaDAO.Instance.SuaSP(mahh, tenSP, dvt, loaiSP);
                     MessageBox.Show("Sửa sản phẩm thành công!");
                     LoadSanPham();
                     txt_MaHH.Clear();
                     txt_TenHH.Clear();
                     cb_DVT.SelectedIndex = 0;
-                    cb_Kho.SelectedIndex = 0;
                     cb_LoaiHH.SelectedIndex = 0;
                 }
             }

@@ -21,7 +21,7 @@ namespace DACN.GUI
         {
             InitializeComponent();
             LoadLoaiKhachHang();
-           
+            tsbLuu.Enabled = false;
         }
         private void LoadLoaiKhachHang()
         {
@@ -36,28 +36,7 @@ namespace DACN.GUI
         {
             txt_MaLoaiKH.Text = txt_TenLoaiKH.Text = string.Empty;
         }
-        static string GenerateNewCode(List<LoaiKhachHangDTO> list)
-        {
-            // Nếu danh sách rỗng, trả về mã mặc định
-            if (list.Count == 0)
-            {
-                return "LK001";
-            }
-
-            // Lấy phần tử cuối cùng trong danh sách
-            string lastCode = list.Last().MaLoaiKH;
-
-            string prefix = lastCode.Substring(0, 2);
-            string numberPart = lastCode.Substring(2);
-
-            // Chuyển số thành số nguyên và tăng lên 1
-            int number = int.Parse(numberPart) + 1;
-
-            // Tạo mã mới
-            string newCode = $"{prefix}{number:D3}";
-
-            return newCode;
-        }
+    
         private void dgv_LoaiKhachHang_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
@@ -73,25 +52,28 @@ namespace DACN.GUI
 
         }
         private List<LoaiKhachHangDTO> listLKH = new List<LoaiKhachHangDTO>();
-        private void ktDK(string ma, string ten)
+        private bool ktDK(string ma, string ten)
         {
             
             if (string.IsNullOrWhiteSpace(ma) || string.IsNullOrWhiteSpace(ten))
             {
-                MessageBox.Show("Mã loại khách hàng và tên loại khách hàng không được để trống!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                return false;
             }
+            return true;
         }
         private void tsbThem_Click(object sender, EventArgs e)
         {
-            txt_MaLoaiKH.Enabled = false;
-            txt_MaLoaiKH.Text = GenerateNewCode(listLKH);
+           
             lkhDTO.MaLoaiKH = txt_MaLoaiKH.Text;
             lkhDTO.TenLoaiKH = txt_TenLoaiKH.Text;
-            ktDK(lkhDTO.MaLoaiKH, lkhDTO.TenLoaiKH);
-            loaiKhachHangDAO.Insert(lkhDTO.MaLoaiKH, lkhDTO.TenLoaiKH);
-            MessageBox.Show("Thêm thông tin thành công!");
-
+            if(ktDK(lkhDTO.MaLoaiKH, lkhDTO.TenLoaiKH))
+            {
+                loaiKhachHangDAO.Insert(lkhDTO.MaLoaiKH, lkhDTO.TenLoaiKH);
+                MessageBox.Show("Thêm thông tin thành công!");
+            }
+            else MessageBox.Show("Mã loại khách hàng và tên loại khách hàng không được để trống!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            LoadLoaiKhachHang();
+            xoaTxt();
         }
 
         private void tsbSua_Click(object sender, EventArgs e)
@@ -99,6 +81,7 @@ namespace DACN.GUI
             
             txt_MaLoaiKH.Enabled = false;
             IsUpdate = true;
+            tsbLuu.Enabled = true;
         }
 
         private void tsbXoa_Click(object sender, EventArgs e)
@@ -129,9 +112,8 @@ namespace DACN.GUI
             {
                 lkhDTO.MaLoaiKH = txt_MaLoaiKH.Text;
                 lkhDTO.TenLoaiKH = txt_TenLoaiKH.Text;
-                if (IsUpdate == true)
+                if (IsUpdate == true & ktDK(lkhDTO.MaLoaiKH, lkhDTO.TenLoaiKH))
                 {
-                    ktDK(lkhDTO.MaLoaiKH, lkhDTO.TenLoaiKH);
                     loaiKhachHangDAO.Update(lkhDTO);
                     MessageBox.Show("Sửa thông tin thành công!");
                 }
