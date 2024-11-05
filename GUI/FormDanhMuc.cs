@@ -193,6 +193,7 @@ namespace DACN.GUI
                     dtpNgayTao.Value = DateTime.Parse(row.Cells["NgayTao"].Value.ToString());
                     cbbLoaiKH.Text = row.Cells["MaLoaiKH"].Value.ToString();
                     
+
                 }
             }
             catch (Exception ex)
