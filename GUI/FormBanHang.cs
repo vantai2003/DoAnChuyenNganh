@@ -1,5 +1,6 @@
 ﻿using DACN.DAO;
 using DACN.DTO;
+using Sunny.UI;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -33,11 +34,14 @@ namespace DACN.GUI
 
         }
 
-      
+
 
         private void btnThanhToan_Click(object sender, EventArgs e)
         {
-
+            
+            FormThanhToan formThanhToan = new FormThanhToan();
+            formThanhToan.Show();
+            this.Close();
         }
 
         private void btn_lammoiHang_Click(object sender, EventArgs e)
@@ -47,7 +51,7 @@ namespace DACN.GUI
 
         private void btnLamMoiHD_Click(object sender, EventArgs e)
         {
-         
+
             LoadHoaDon();
         }
 
@@ -64,8 +68,8 @@ namespace DACN.GUI
                 {
                     DataGridViewRow row = dgv_Hang.Rows[e.RowIndex];
                     CTHoaDonDTO.DVT = row.Cells["DVT"].Value.ToString();
-                    CTHoaDonDTO.MaSP = row.Cells["MaSP"].Value.ToString();
                     
+                    txtHangHoa.Text = row.Cells["MaSP"].Value.ToString();
 
                 }
             }
@@ -91,10 +95,67 @@ namespace DACN.GUI
                 Console.WriteLine("Error: " + ex.Message);
             }
         }
-
-        private void btnThemVao_Click(object sender, EventArgs e)
+        private bool ktDKBanHang(string mahd, string masp, float dongia)
         {
+            if (string.IsNullOrWhiteSpace(mahd))
+            {
+                MessageBox.Show("Mã Hóa đơn không được để trống!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
 
+            if (string.IsNullOrWhiteSpace(masp))
+            {
+                MessageBox.Show("Mã Sản phẩm không được để trống!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            if (dongia <= 0)
+            {
+                MessageBox.Show("Đơn giá không được bé hơn không !", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            //kiêm tra xem số lượng thêm vào gio hàng có lớn hơn số lượng hàng hóa đang có ko
+            return true;
+
+        }
+      private void btnThemVao_Click(object sender, EventArgs e)
+        {
+            CTHoaDonDTO.MaHD = txtMaHD.Text;
+            CTHoaDonDTO.MaSP = txtHangHoa.Text;
+            CTHoaDonDTO.DonGia = float.Parse(txtDonGia.Text);
+        
+
+            try
+            {
+                if (ktDKBanHang(CTHoaDonDTO.MaHD,CTHoaDonDTO.MaSP, CTHoaDonDTO.DonGia))
+                {
+                    MessageBox.Show("Thêm hàng thành công");
+                    LoadSanPham();
+                }
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("thêm hàng thất bại");
+            }
+        }
+
+        private void txtDonGia_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
+            {
+                e.Handled = true;
+                return;
+            }
+
+            // Chỉ cho phép một dấu chấm thập phân
+            if (e.KeyChar == '.' && (sender as TextBox).Text.Contains('.'))
+            {
+                e.Handled = true;
+                return;
+            }
         }
     }
    

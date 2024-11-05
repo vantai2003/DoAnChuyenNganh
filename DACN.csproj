@@ -176,6 +176,9 @@
     <EmbeddedResource Include="GUI\FormSaoLuuPhucHoi.resx">
       <DependentUpon>FormSaoLuuPhucHoi.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FormThanhToan.resx">
+      <DependentUpon>FormThanhToan.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\FormTrangChuAdmin.resx">
       <DependentUpon>FormTrangChuAdmin.cs</DependentUpon>
     </EmbeddedResource>
