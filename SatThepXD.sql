@@ -212,6 +212,13 @@ INSERT INTO NhaCungCap(MaNCC,TenNCC,SDT,Email,DiaChi,ThanhPho,QuocGia,NgayTao) V
 GO
 INSERT INTO KHO VALUES('MK001',N'Kho Thép A','Lê trọng tấn TP.Hồ Chí Minh')
 
+Go
+INSERT INTO SanPham VALUES('SP001',N'Thép phi 6','kg','MK001','ML001')
+
+Go
+INSERT INTO HOADON VALUES('HD001','2024-11-1',null,'Chưa giao',null,null,null,'KH001','NV001')
+select * from HOADON
+
 
 -- Stored Procedures Login
 GO
@@ -679,3 +686,56 @@ BEGIN
 END
 GO
 --lọc sản phẩm theo kho
+
+
+---hóa đơn
+---------Lấy tất cả các cột trong bảng Kho----------------------
+CREATE PROC sp_SelectAll_HD
+AS
+BEGIN
+    SELECT * FROM HoaDon;
+END;
+GO
+---------------------Thêm Hóa đơn-------------------
+CREATE PROC sp_Insert_HD
+    @MaHD VARCHAR(50) ,
+    @NgayDatHang DATE,
+    @TongTien DECIMAL(18, 0),
+	@TrangThai NVARCHAR(20),
+    @DiaChiGiaoHang NVARCHAR(500),
+    @TienCoc DECIMAL(18, 0),
+    @ThanhToan DECIMAL(18, 0),
+    @MaKH VARCHAR(50),
+    @MaNV VARCHAR(50)
+AS
+BEGIN 
+	INSERT INTO HoaDon
+    VALUES (@MaHD,@NgayDatHang,@TongTien,@TrangThai,@DiaChiGiaoHang,@TienCoc,@ThanhToan,@MaKH,@MaNV);
+END;
+GO
+-----------Cập nhật Hóa đơn-------------------
+CREATE PROC sp_Update_HD
+	@MaHD VARCHAR(50),
+    @NgayDatHang DATE,
+    @TongTien DECIMAL(18, 0),
+	@TrangThai NVARCHAR(20),
+    @DiaChiGiaoHang NVARCHAR(500),
+    @TienCoc DECIMAL(18, 0),
+    @ThanhToan DECIMAL(18, 0),
+    @MaKH VARCHAR(50),
+    @MaNV VARCHAR(50)
+AS
+BEGIN
+    UPDATE HoaDon
+    SET 
+	NgayDatHang = @NgayDatHang,
+	TongTien=@TongTien,
+	TrangThai=@TrangThai,
+	DiaChiGiaoHang=@DiaChiGiaoHang,
+	TienCoc=@TienCoc,
+	ThanhToan=@ThanhToan,
+	MaKH=@MaKH,
+	MaNV=@MaNV
+    WHERE MaHD = @MaHD;
+END;
+GO
