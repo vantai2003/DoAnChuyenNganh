@@ -67,19 +67,27 @@
     <Compile Include="DAO\NguoiDungDAO.cs" />
     <Compile Include="DAO\NhaCungCapDAO.cs" />
     <Compile Include="DAO\NhanVienDAO.cs" />
+    <Compile Include="DAO\PhieuNhapHangDAO.cs" />
     <Compile Include="DAO\QuyenDAO.cs" />
     <Compile Include="DAO\SaoLuuPhucHoiDAO.cs" />
+<<<<<<< HEAD
     <Compile Include="DTO\CTHoaDonDTO.cs" />
+=======
+    <Compile Include="DAO\TonKhoDAO.cs" />
+    <Compile Include="DTO\CTPhieuNHDTO.cs" />
+>>>>>>> 662346d861775cb862bad284c6a14843eb273c83
     <Compile Include="DTO\HangHoaDTO.cs" />
     <Compile Include="DTO\HoaDonDTO.cs" />
     <Compile Include="DTO\KhachHangDTO.cs" />
     <Compile Include="DTO\KhoDTO.cs" />
+    <Compile Include="DTO\Kho_SanPhamDTO.cs" />
     <Compile Include="DTO\LoaiKhachHangDTO.cs" />
     <Compile Include="DTO\LoaiSanPhamDTO.cs" />
     <Compile Include="DTO\LoginDTO.cs" />
     <Compile Include="DTO\NguoiDungDTO.cs" />
     <Compile Include="DTO\NhaCungCapDTO.cs" />
     <Compile Include="DTO\NhanVienDTO.cs" />
+    <Compile Include="DTO\PhieuNhapHangDTO.cs" />
     <Compile Include="DTO\QuyenDTO.cs" />
     <Compile Include="GUI\FormBanHang.cs">
       <SubType>Form</SubType>
@@ -123,11 +131,35 @@
     <Compile Include="GUI\FormNhanVienBanHang.Designer.cs">
       <DependentUpon>FormNhanVienBanHang.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\FormNhanVienKho.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FormNhanVienKho.Designer.cs">
+      <DependentUpon>FormNhanVienKho.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FormNhapHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FormNhapHang.Designer.cs">
+      <DependentUpon>FormNhapHang.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\FormQLHangHoa.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUI\FormQLHangHoa.Designer.cs">
       <DependentUpon>FormQLHangHoa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FormQLTonKho.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FormQLTonKho.Designer.cs">
+      <DependentUpon>FormQLTonKho.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FormChonSanPham.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FormChonSanPham.Designer.cs">
+      <DependentUpon>FormChonSanPham.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\FormSaoLuuPhucHoi.cs">
       <SubType>Form</SubType>
@@ -146,6 +178,12 @@
     </Compile>
     <Compile Include="GUI\FormTrangChuAdmin.Designer.cs">
       <DependentUpon>FormTrangChuAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FormTTNguoiDung.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FormTTNguoiDung.Designer.cs">
+      <DependentUpon>FormTTNguoiDung.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -170,8 +208,20 @@
     <EmbeddedResource Include="GUI\FormNhanVienBanHang.resx">
       <DependentUpon>FormNhanVienBanHang.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FormNhanVienKho.resx">
+      <DependentUpon>FormNhanVienKho.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FormNhapHang.resx">
+      <DependentUpon>FormNhapHang.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\FormQLHangHoa.resx">
       <DependentUpon>FormQLHangHoa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FormQLTonKho.resx">
+      <DependentUpon>FormQLTonKho.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FormChonSanPham.resx">
+      <DependentUpon>FormChonSanPham.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FormSaoLuuPhucHoi.resx">
       <DependentUpon>FormSaoLuuPhucHoi.cs</DependentUpon>
@@ -181,6 +231,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FormTrangChuAdmin.resx">
       <DependentUpon>FormTrangChuAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FormTTNguoiDung.resx">
+      <DependentUpon>FormTTNguoiDung.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -235,6 +288,7 @@
     <Content Include="GUI\Icon_images\user.png" />
     <Content Include="GUI\Icon_images\Vat_lieu.png" />
     <Content Include="GUI\Icon_images\warehouse.png" />
+    <None Include="Resources\khosat.jpg" />
     <None Include="Resources\icon-logout.png" />
     <None Include="Resources\warehouse.png" />
     <None Include="Resources\Vat_lieu.png" />
