@@ -45,10 +45,5 @@ namespace DACN.GUI
         {
             this.Close();
         }
-
-        private void btn_LapPhieuBanHang_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
