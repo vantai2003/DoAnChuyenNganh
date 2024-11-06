@@ -32,5 +32,11 @@ namespace DACN.DAO
 
             return listSpKho;
         }
+        public int CapNhatTrangThai(string mapn)
+        {
+            string query = "SP_CapNhatTonKo @MaPN";
+            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { mapn });
+            return result;
+        }
     }
 }

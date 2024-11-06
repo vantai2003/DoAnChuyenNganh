@@ -53,10 +53,16 @@
             // 
             this.panel_body.Controls.Add(this.panel1);
             this.panel_body.Dock = System.Windows.Forms.DockStyle.Fill;
+<<<<<<< HEAD
             this.panel_body.Location = new System.Drawing.Point(0, 33);
             this.panel_body.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel_body.Name = "panel_body";
             this.panel_body.Size = new System.Drawing.Size(1487, 817);
+=======
+            this.panel_body.Location = new System.Drawing.Point(0, 28);
+            this.panel_body.Name = "panel_body";
+            this.panel_body.Size = new System.Drawing.Size(1322, 652);
+>>>>>>> 3446b68bcda7339df3ea60585e564d8959eacdf3
             this.panel_body.TabIndex = 0;
             // 
             // panel1
@@ -71,7 +77,11 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel1.Name = "panel1";
+<<<<<<< HEAD
             this.panel1.Size = new System.Drawing.Size(425, 817);
+=======
+            this.panel1.Size = new System.Drawing.Size(378, 652);
+>>>>>>> 3446b68bcda7339df3ea60585e564d8959eacdf3
             this.panel1.TabIndex = 0;
             // 
             // button3
@@ -129,8 +139,12 @@
             this.mn_tttk});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
+<<<<<<< HEAD
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(7, 2, 0, 2);
             this.menuStrip1.Size = new System.Drawing.Size(1487, 33);
+=======
+            this.menuStrip1.Size = new System.Drawing.Size(1322, 28);
+>>>>>>> 3446b68bcda7339df3ea60585e564d8959eacdf3
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -140,7 +154,11 @@
             this.toolStripMenuItem3,
             this.toolStripMenuItem4});
             this.mn_caidat.Name = "mn_caidat";
+<<<<<<< HEAD
             this.mn_caidat.Size = new System.Drawing.Size(83, 29);
+=======
+            this.mn_caidat.Size = new System.Drawing.Size(70, 24);
+>>>>>>> 3446b68bcda7339df3ea60585e564d8959eacdf3
             this.mn_caidat.Text = "Cài đặt";
             // 
             // toolStripMenuItem3
@@ -161,7 +179,11 @@
             this.tStripMenuItem_ThongTinTK,
             this.toolStripMenuItem_DoiMK});
             this.mn_tttk.Name = "mn_tttk";
+<<<<<<< HEAD
             this.mn_tttk.Size = new System.Drawing.Size(245, 29);
+=======
+            this.mn_tttk.Size = new System.Drawing.Size(202, 24);
+>>>>>>> 3446b68bcda7339df3ea60585e564d8959eacdf3
             this.mn_tttk.Text = "Quản lý thông tin tài khoản";
             // 
             // tStripMenuItem_ThongTinTK

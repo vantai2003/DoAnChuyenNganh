@@ -77,19 +77,31 @@
             this.toolStripMenuItem3,
             this.toolStripMenuItem4});
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+<<<<<<< HEAD
             this.toolStripMenuItem1.Size = new System.Drawing.Size(83, 29);
+=======
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(70, 24);
+>>>>>>> 3446b68bcda7339df3ea60585e564d8959eacdf3
             this.toolStripMenuItem1.Text = "Cài đặt";
             // 
             // toolStripMenuItem3
             // 
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
+<<<<<<< HEAD
             this.toolStripMenuItem3.Size = new System.Drawing.Size(216, 34);
+=======
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(177, 26);
+>>>>>>> 3446b68bcda7339df3ea60585e564d8959eacdf3
             this.toolStripMenuItem3.Text = "Đổi màu nền";
             // 
             // toolStripMenuItem4
             // 
             this.toolStripMenuItem4.Name = "toolStripMenuItem4";
+<<<<<<< HEAD
             this.toolStripMenuItem4.Size = new System.Drawing.Size(216, 34);
+=======
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(177, 26);
+>>>>>>> 3446b68bcda7339df3ea60585e564d8959eacdf3
             this.toolStripMenuItem4.Text = "Đổi màu chữ";
             // 
             // toolStripMenuItem2
@@ -98,7 +110,11 @@
             this.toolStripMenuItem5,
             this.toolStripMenuItem6});
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+<<<<<<< HEAD
             this.toolStripMenuItem2.Size = new System.Drawing.Size(245, 29);
+=======
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(202, 24);
+>>>>>>> 3446b68bcda7339df3ea60585e564d8959eacdf3
             this.toolStripMenuItem2.Text = "Quản lý thông tin tài khoản";
             // 
             // toolStripMenuItem5
@@ -324,7 +340,11 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
+<<<<<<< HEAD
             this.panel1.Size = new System.Drawing.Size(485, 218);
+=======
+            this.panel1.Size = new System.Drawing.Size(431, 218);
+>>>>>>> 3446b68bcda7339df3ea60585e564d8959eacdf3
             this.panel1.TabIndex = 0;
             // 
             // FormTrangChuAdmin

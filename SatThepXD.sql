@@ -892,7 +892,7 @@ BEGIN
 	WHERE spncc.MaNCC = @MaNCC
 END
 GO
-
+exec SP_GetListPN
 CREATE PROC SP_GetListPN
 AS
 BEGIN
@@ -903,8 +903,86 @@ BEGIN
 END
 GO
 
+-----Lấy danh sách phiếu nhập chưa phê duyệt
+CREATE PROC SP_GetListPNStatus
+AS
+BEGIN
+	SELECT MaPhieuNH, NgayDatHang, TongTien, TrangThai, ncc.TenNCC, k.TenKho, MaNV
+	FROM PhieuNhapHang pn
 
+	JOIN NhaCungCap ncc ON ncc.MaNCC = pn.MaNCC
+    JOIN Kho k ON k.MaKho = pn.MaKho
+	where pn.TrangThai = N'Chờ phê duyệt'
+END
+GO
+----Thủ tục phê duyệt phiếu nhập hàng
+CREATE PROC SP_PheDuyetPN
+@MaPN varchar(50)
+AS
+BEGIN
+	UPDATE PhieuNhapHang
+	SET TrangThai = N'Đã phê duyệt'
+	WHERE MaPhieuNH = @MaPN
+END
+GO
+----Thủ tục từ chối PN
+CREATE PROC SP_TuChoiPN
+@MaPN varchar(50)
+AS
+BEGIN
+	UPDATE PhieuNhapHang
+	SET TrangThai = N'Từ chối'
+	WHERE MaPhieuNH = @MaPN
+END
+GO
+drop proc SP_GetListCTPN
+exec SP_GetListCTPN 'PN005'
+----Thủ tục chi tiết phiếu nhập hàng
+CREATE PROC SP_GetListCTPN
+@MaPhieuNH varchar(50)
+AS
+BEGIN
+	SELECT MaCTPhieuNH, pnh.MaPhieuNH, NgayNhapHang, sp.MaSP,sp.TenSP , lsp.TenLoai, ncc.TenNCC, SoLuong, DonGia, sp.DVT, pnh.TongTien, pnh.TrangThai, pnh.MaNV
+	FROM CTPhieuNhapHang ctpn
+	JOIN PhieuNhapHang pnh ON pnh.MaPhieuNH = ctpn.MaPhieuNH
+	JOIN NhaCungCap ncc ON ncc.MaNCC = pnh.MaNCC
+    JOIN SanPham sp ON sp.MaSP = ctpn.MaSP
+	JOIN LoaiSanPham lsp ON lsp.MaLoai = sp.MaLoai
+	WHERE ctpn.MaPhieuNH = @MaPhieuNH
+END
+GO
+-----Lấy danh sách phiếu nhập đã phê duyệt
+CREATE PROC SP_ListPNDaDuyet
+AS
+BEGIN
+	SELECT MaPhieuNH, NgayDatHang, TongTien, TrangThai, ncc.TenNCC, k.TenKho, MaNV
+	FROM PhieuNhapHang pn
 
+	JOIN NhaCungCap ncc ON ncc.MaNCC = pn.MaNCC
+    JOIN Kho k ON k.MaKho = pn.MaKho
+	where pn.TrangThai = N'Đã phê duyệt'
+END
+GO
+----truy xuất ngược từ tên kho
+CREATE PROCEDURE SP_GetMaKhoByTenKho
+@TenKho NVARCHAR(400)
+AS
+BEGIN
+    SELECT MaKho
+    FROM Kho
+    WHERE TenKho = @TenKho
+END
+GO
+--chuyen trang thai ve đã cập nhật vào kho
+CREATE PROC SP_CapNhatTonKo
+@MaPN varchar(50)
+AS
+BEGIN
+	UPDATE PhieuNhapHang
+	SET TrangThai = N'Đã cập nhật vào kho'
+	WHERE MaPhieuNH = @MaPN
+END
+GO
 ---Tạo thêm bảng CTPhieuTraHang
 create table CTPhieuTraHang
 (

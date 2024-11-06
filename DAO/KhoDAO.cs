@@ -54,5 +54,16 @@ namespace DACN.DAO
             int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { ID });
             return result;
         }
+        public string GetMaKhoByTenKho(string tenKho)
+        {
+            string query = "EXEC SP_GetMaKhoByTenKho @TenKho";
+            DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] { tenKho });
+
+            if (data.Rows.Count > 0)
+            {
+                return data.Rows[0]["MaKho"].ToString();
+            }
+            return null;
+        }
     }
 }
