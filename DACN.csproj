@@ -109,6 +109,7 @@
     </Compile>
     <Compile Include="GUI\FormBanHang.Designer.cs">
       <DependentUpon>FormBanHang.cs</DependentUpon>
+	</Compile>
     <Compile Include="GUI\FormCapNhatKho.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -225,7 +226,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-<<<<<<< HEAD
+
     <EmbeddedResource Include="GUI\FormCTHoaDon.resx">
       <DependentUpon>FormCTHoaDon.cs</DependentUpon>
     </EmbeddedResource>
@@ -237,6 +238,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FormBanHang.resx">
       <DependentUpon>FormBanHang.cs</DependentUpon>
+	</EmbeddedResource>
     <EmbeddedResource Include="GUI\FormCapNhatKho.resx">
       <DependentUpon>FormCapNhatKho.cs</DependentUpon>
     </EmbeddedResource>
