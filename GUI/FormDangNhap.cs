@@ -45,7 +45,8 @@ namespace DACN.GUI
                         fTrangchuAdmin.Show();
                         break;
                     case 1:
-                        MessageBox.Show("Đang dăng nhập với quyền giám đốc");
+                        FormGiamDoc fGiamDoc = new FormGiamDoc();
+                        fGiamDoc.Show();
                         break;
                     case 2:
                         MessageBox.Show("Đăng nhập thành công với quyền kế toán");

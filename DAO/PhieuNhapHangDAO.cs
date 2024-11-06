@@ -72,5 +72,51 @@ namespace DACN.DAO
             }
             return listPN;
         }
-    }
+        public List<PhieuNhapHangDTO> GetPhieuNhapStatus()
+        {
+            List<PhieuNhapHangDTO> listPN = new List<PhieuNhapHangDTO>();
+            DataTable data = DataProvider.Instance.ExecuteQuery("SP_GetListPNStatus");
+            foreach (DataRow row in data.Rows)
+            {
+                PhieuNhapHangDTO phieunhap = new PhieuNhapHangDTO(row);
+                listPN.Add(phieunhap);
+            }
+            return listPN;
+        }
+        public int PheDuyetPN(string mapn)
+        {
+            string query = "SP_PheDuyetPN @MaPN";
+            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { mapn});
+            return result;
+        }
+        public int TuChoiPN(string mapn)
+        {
+            string query = "SP_TuChoiPN @MaPN";
+            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { mapn });
+            return result;
+        }
+        public List<CTPhieuNHDTO> GetCTPhieuNH(string mapn)
+        {
+            List<CTPhieuNHDTO> listCTPN = new List<CTPhieuNHDTO>();
+            string query = "SP_GetListCTPN @MaPhieuNH";
+            DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] {mapn});
+            foreach (DataRow row in data.Rows)
+            {
+                CTPhieuNHDTO phieunhap = new CTPhieuNHDTO(row);
+                listCTPN.Add(phieunhap);
+            }
+            return listCTPN;
+        }
+        public List<PhieuNhapHangDTO> DSPhieuNhapDaPD()
+        {
+            List<PhieuNhapHangDTO> listPN = new List<PhieuNhapHangDTO>();
+            DataTable data = DataProvider.Instance.ExecuteQuery("SP_ListPNDaDuyet");
+            foreach (DataRow row in data.Rows)
+            {
+                PhieuNhapHangDTO phieunhap = new PhieuNhapHangDTO(row);
+                listPN.Add(phieunhap);
+            }
+            return listPN;
+        }
+    }   
 }

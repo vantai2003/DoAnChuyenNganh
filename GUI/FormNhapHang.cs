@@ -17,10 +17,11 @@ namespace DACN.GUI
     {
         public static string mancc;
         public static string manv;
+        public static string mapn;
+        public static string makho;
         public FormNhapHang()
         {
             InitializeComponent();
-            LoadPhieuNhap();
             LoadDSPN();
         }
         private void LoadPhieuNhap()
@@ -97,7 +98,6 @@ namespace DACN.GUI
             if (dvg_TaoPN.Rows.Count == 0)
             {
                 MessageBox.Show("Vui lòng chọn ít nhất một sản phẩm trước khi tạo phiếu nhập.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
             }
 
             DataTable dt = NhanVienDAO.Instance.GetThongTinDN(FormDangNhap.nhanvien);
@@ -111,11 +111,11 @@ namespace DACN.GUI
             decimal tongTien = decimal.Parse(txtTongTien.Text);
             string trangThai = cb_TrangThai.SelectedItem.ToString();
             string maNCC = mancc;
-            string maKho = cb_TaoPNKho.SelectedValue.ToString();
+            makho = cb_TaoPNKho.SelectedValue.ToString();
 
             if (!string.IsNullOrEmpty(maPN))
             {
-                bool phieuNhapAdded = PhieuNhapHangDAO.Instance.ThemPhieuNhapHang(maPN, ngayDat, tongTien, trangThai, manv, maNCC, maKho);
+                bool phieuNhapAdded = PhieuNhapHangDAO.Instance.ThemPhieuNhapHang(maPN, ngayDat, tongTien, trangThai, manv, maNCC, makho);
 
                 if (phieuNhapAdded)
                 {
@@ -140,14 +140,7 @@ namespace DACN.GUI
                             bool detailAdded = PhieuNhapHangDAO.Instance.ThemCTPhieuNhapHang(ctPhieuNhap);
                             if (!detailAdded)
                             {
-                                allDetailsAdded = false;                            }
-                            else
-                            {
-                                bool tonKhoUpdated = PhieuNhapHangDAO.Instance.CapNhatTonKho(maSP, maKho, soLuong);
-                                if (!tonKhoUpdated)
-                                {
-                                    allDetailsAdded = false;
-                                }
+                                allDetailsAdded = false;                           
                             }
                         }
                     }
@@ -235,6 +228,54 @@ namespace DACN.GUI
         {
             List<PhieuNhapHangDTO> listPN = PhieuNhapHangDAO.Instance.GetPhieuNhap();
             dvg_DSPhieuNhap.DataSource = listPN;
+        }
+        private void LoadDSPNDaPheDuyet()
+        {
+            List<PhieuNhapHangDTO> listPN = PhieuNhapHangDAO.Instance.DSPhieuNhapDaPD();
+            dvg_DSPNDPD.DataSource = listPN;
+        }
+        private void tab_body_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int index = tab_body.SelectedIndex;
+
+            switch (index)
+            {
+                case 0:
+                    LoadDSPN();
+                    break;
+                case 1:
+
+                    LoadPhieuNhap();
+                    break;
+                case 2:
+
+                    LoadDSPNDaPheDuyet();
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private void btn_XemCT_Click(object sender, EventArgs e)
+        {
+            FormCapNhatKho fcnk = new FormCapNhatKho();
+            fcnk.ShowDialog();
+        }
+
+        private void dvg_DSPNDPD_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridViewRow row = new DataGridViewRow();
+            try
+            {
+                row = dvg_DSPNDPD.Rows[e.RowIndex];
+                mapn = Convert.ToString(row.Cells["MaPhieuNH"].Value);
+                string tenKho = row.Cells["TenKho"].Value.ToString();
+                makho = KhoDAO.Instance.GetMaKhoByTenKho(tenKho);
+            }
+            catch
+            {
+                MessageBox.Show("Vui lòng chọn phiếu nhập");
+            }
         }
     }
 }
