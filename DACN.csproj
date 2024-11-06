@@ -82,6 +82,18 @@
     <Compile Include="DTO\NhanVienDTO.cs" />
     <Compile Include="DTO\PhieuNhapHangDTO.cs" />
     <Compile Include="DTO\QuyenDTO.cs" />
+    <Compile Include="GUI\FormCapNhatKho.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FormCapNhatKho.Designer.cs">
+      <DependentUpon>FormCapNhatKho.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FormChiTietPhieuNhap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FormChiTietPhieuNhap.Designer.cs">
+      <DependentUpon>FormChiTietPhieuNhap.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\FormDangNhap.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -93,6 +105,18 @@
     </Compile>
     <Compile Include="GUI\FormDanhMuc.Designer.cs">
       <DependentUpon>FormDanhMuc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FormDuyetPhieuNhap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FormDuyetPhieuNhap.Designer.cs">
+      <DependentUpon>FormDuyetPhieuNhap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FormGiamDoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FormGiamDoc.Designer.cs">
+      <DependentUpon>FormGiamDoc.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\formKho.cs">
       <SubType>Form</SubType>
@@ -168,11 +192,23 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="GUI\FormCapNhatKho.resx">
+      <DependentUpon>FormCapNhatKho.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FormChiTietPhieuNhap.resx">
+      <DependentUpon>FormChiTietPhieuNhap.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\FormDangNhap.resx">
       <DependentUpon>FormDangNhap.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FormDanhMuc.resx">
       <DependentUpon>FormDanhMuc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FormDuyetPhieuNhap.resx">
+      <DependentUpon>FormDuyetPhieuNhap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FormGiamDoc.resx">
+      <DependentUpon>FormGiamDoc.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\formKho.resx">
       <DependentUpon>formKho.cs</DependentUpon>

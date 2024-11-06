@@ -53,9 +53,9 @@
             // 
             this.panel_body.Controls.Add(this.panel1);
             this.panel_body.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_body.Location = new System.Drawing.Point(0, 30);
+            this.panel_body.Location = new System.Drawing.Point(0, 28);
             this.panel_body.Name = "panel_body";
-            this.panel_body.Size = new System.Drawing.Size(1322, 650);
+            this.panel_body.Size = new System.Drawing.Size(1322, 652);
             this.panel_body.TabIndex = 0;
             // 
             // panel1
@@ -69,7 +69,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(378, 650);
+            this.panel1.Size = new System.Drawing.Size(378, 652);
             this.panel1.TabIndex = 0;
             // 
             // button3
@@ -122,7 +122,7 @@
             this.mn_tttk});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1322, 30);
+            this.menuStrip1.Size = new System.Drawing.Size(1322, 28);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -132,7 +132,7 @@
             this.toolStripMenuItem3,
             this.toolStripMenuItem4});
             this.mn_caidat.Name = "mn_caidat";
-            this.mn_caidat.Size = new System.Drawing.Size(70, 26);
+            this.mn_caidat.Size = new System.Drawing.Size(70, 24);
             this.mn_caidat.Text = "Cài đặt";
             // 
             // toolStripMenuItem3
@@ -153,7 +153,7 @@
             this.tStripMenuItem_ThongTinTK,
             this.toolStripMenuItem_DoiMK});
             this.mn_tttk.Name = "mn_tttk";
-            this.mn_tttk.Size = new System.Drawing.Size(202, 26);
+            this.mn_tttk.Size = new System.Drawing.Size(202, 24);
             this.mn_tttk.Text = "Quản lý thông tin tài khoản";
             // 
             // tStripMenuItem_ThongTinTK
