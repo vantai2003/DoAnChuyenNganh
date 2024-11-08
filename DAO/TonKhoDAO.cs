@@ -38,6 +38,14 @@ namespace DACN.DAO
             int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { mapn });
             return result;
         }
-      
+
+        public decimal CapNhatTonKho(string masp, string mapn)
+        {
+            string query = "SP_GetSoLuongNhapGoc @MaSP , @MaPN";
+            object result = DataProvider.Instance.ExecuteScalar(query, new object[] { masp, mapn });
+            return result != null ? Convert.ToDecimal(result) : 0;
+        }
+        
+
     }
 }
