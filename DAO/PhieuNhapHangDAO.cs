@@ -95,6 +95,13 @@ namespace DACN.DAO
             int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { mapn });
             return result;
         }
+        public int CapNhatTrangThaiTraHang(string mapn)
+        {
+            string query = "SP_CapNhatXuLyHang @MaPN";
+            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { mapn });
+            return result;
+        }
+
         public List<CTPhieuNHDTO> GetCTPhieuNH(string mapn)
         {
             List<CTPhieuNHDTO> listCTPN = new List<CTPhieuNHDTO>();

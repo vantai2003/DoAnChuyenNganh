@@ -277,5 +277,11 @@ namespace DACN.GUI
                 MessageBox.Show("Vui lòng chọn phiếu nhập");
             }
         }
+
+        private void btn_TaoPTH_Click(object sender, EventArgs e)
+        {
+            FormTaoPhieuTraHangNCC ftpth = new FormTaoPhieuTraHangNCC();
+            ftpth.ShowDialog();
+        }
     }
 }

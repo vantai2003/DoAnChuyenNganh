@@ -36,11 +36,6 @@ namespace DACN.GUI
 
         private void btn_Import_Click(object sender, EventArgs e)
         {
-            //if (dvg_ChonSP.SelectedRows.Count == 0)
-            //{
-            //    MessageBox.Show("Vui lòng chọn ít nhất một sản phẩm để nhập.");
-            //    return; // Không có hàng nào được chọn
-            //}
 
             if (this.Owner is FormNhapHang fNhapHang)
             {
@@ -49,23 +44,19 @@ namespace DACN.GUI
                     if (row.Cells["SoLuong"].Value != null && row.Cells["DonGia"].Value != null)
                     {
                         decimal soLuong, donGia;
-
-                        // Kiểm tra tính hợp lệ của SoLuong và DonGia
                         if (decimal.TryParse(row.Cells["SoLuong"].Value.ToString(), out soLuong) &&
                             decimal.TryParse(row.Cells["DonGia"].Value.ToString(), out donGia) &&
                             soLuong > 0)
                         {
-                            // Lấy thông tin sản phẩm
                             string maSP = row.Cells["MaSP"].Value.ToString();
                             string tenSP = row.Cells["TenSP"].Value.ToString();
                             string dvt = row.Cells["DVT"].Value.ToString();
                             string tenLoai = row.Cells["TenLoai"].Value.ToString();
-                            // Gọi phương thức trong FormNhapHang để thêm sản phẩm vào phiếu nhập
                             fNhapHang.AddProductToReceipt(maSP, dvt, tenSP, tenLoai ,soLuong, donGia);
                         }
                     }
                 }
-                this.Close(); // Đóng FormChonSanPham sau khi thêm sản phẩm
+                this.Close();
             }
             else
             {
@@ -82,8 +73,6 @@ namespace DACN.GUI
                 string maSP = selectedRow.Cells["MaSP"].Value.ToString();
                 string tenSP = selectedRow.Cells["TenSP"].Value.ToString();
                 string dvt = selectedRow.Cells["DVT"].Value.ToString();
-
-                // Kiểm tra nếu số lượng và đơn giá có sẵn
                 if (selectedRow.Cells["SoLuong"].Value != null)
                 {
                     selectedRow.Cells["SoLuong"].Value = 1;

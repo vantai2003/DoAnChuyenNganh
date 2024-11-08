@@ -66,10 +66,12 @@
     <Compile Include="DAO\NhaCungCapDAO.cs" />
     <Compile Include="DAO\NhanVienDAO.cs" />
     <Compile Include="DAO\PhieuNhapHangDAO.cs" />
+    <Compile Include="DAO\PhieuTraHangNCCDAO.cs" />
     <Compile Include="DAO\QuyenDAO.cs" />
     <Compile Include="DAO\SaoLuuPhucHoiDAO.cs" />
     <Compile Include="DAO\TonKhoDAO.cs" />
     <Compile Include="DTO\CTPhieuNHDTO.cs" />
+    <Compile Include="DTO\CTPhieuTraHangNCCDTO.cs" />
     <Compile Include="DTO\HangHoaDTO.cs" />
     <Compile Include="DTO\KhachHangDTO.cs" />
     <Compile Include="DTO\KhoDTO.cs" />
@@ -178,6 +180,12 @@
     <Compile Include="GUI\FormSaoLuuPhucHoi.Designer.cs">
       <DependentUpon>FormSaoLuuPhucHoi.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\FormTaoPhieuTraHangNCC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FormTaoPhieuTraHangNCC.Designer.cs">
+      <DependentUpon>FormTaoPhieuTraHangNCC.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\FormTrangChuAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -239,6 +247,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FormSaoLuuPhucHoi.resx">
       <DependentUpon>FormSaoLuuPhucHoi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FormTaoPhieuTraHangNCC.resx">
+      <DependentUpon>FormTaoPhieuTraHangNCC.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FormTrangChuAdmin.resx">
       <DependentUpon>FormTrangChuAdmin.cs</DependentUpon>
