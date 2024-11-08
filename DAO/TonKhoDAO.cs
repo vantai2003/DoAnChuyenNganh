@@ -38,5 +38,6 @@ namespace DACN.DAO
             int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { mapn });
             return result;
         }
+      
     }
 }

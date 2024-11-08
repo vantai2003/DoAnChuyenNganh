@@ -12,9 +12,7 @@ namespace DACN.DTO
         public string MaSP { get; set; }
         public string TenSP { get; set; }
         public string DVT { get; set; }
-        public string MaKho { get; set; }
         public string MaLoaiSP { get; set; }
-        public string TenLoai {  get; set; }
 
         public HangHoaDTO(DataRow row)
         {

@@ -10,7 +10,7 @@ namespace DACN.DTO
 {
     public class CTHoaDonDTO
     {
-      public string MaCTHD { get; set; }
+        public string MaCTHD { get; set; }
         public decimal SoLuong { get; set; }
         public string DVT { get; set; }
         public decimal DonGia { get; set; }
@@ -19,7 +19,7 @@ namespace DACN.DTO
         public decimal ThanhTien { get; set; } 
         public CTHoaDonDTO(DataRow row)
         {
-            this.MaCTHD = row["MaSP"].ToString();
+            this.MaCTHD = row["MaCTHD"].ToString();
             this.SoLuong = decimal.Parse(row["SoLuong"].ToString());
             this.DonGia = decimal.Parse(row["DonGia"].ToString());
             this.DVT = row["DVT"].ToString();

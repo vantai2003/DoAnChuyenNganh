@@ -16,23 +16,24 @@ namespace DACN.GUI
     public partial class FormBanHang : Form
     {
         CTHoaDonDTO CTHoaDonDTO = new CTHoaDonDTO();
-        
+        List<CTHoaDonDTO> listcthd = CTHoaDonDAO.Instance.GetCTHD();
+        List<Kho_SanPhamDTO> listkhsp = TonKhoDAO.Instance.GetTonKho();
+        Kho_SanPhamDTO khsp = new Kho_SanPhamDTO();
+        HangHoaDAO hangHoaDAO = new HangHoaDAO();
         public FormBanHang()
         {
             InitializeComponent();
             LoadSanPham();
-            LoadHoaDon();
         
         }
         public void LoadSanPham()
         {
-            List<HangHoaDTO> listSanPham = HangHoaDAO.Instance.GetSanPham();
-            dgv_Hang.DataSource = listSanPham;
+            dgv_Hang.DataSource = listkhsp;
+            txtMaCTHD.Text = GenerateNewCode(listcthd);
         }
         public void LoadHoaDon()
         {
             List<HoaDonDTO> listHoaDon = HoaDonDAO.Instance.GetHoaDon();
-            dgvHD.DataSource = listHoaDon;
 
         }
 
@@ -46,14 +47,10 @@ namespace DACN.GUI
 
         private void btn_lammoiHang_Click(object sender, EventArgs e)
         {
-            LoadSanPham();
+          dgv_Hang.Refresh();
         }
 
-        private void btnLamMoiHD_Click(object sender, EventArgs e)
-        {
-
-            LoadHoaDon();
-        }
+     
 
         private void FormBanHang_Load(object sender, EventArgs e)
         {
@@ -69,7 +66,7 @@ namespace DACN.GUI
                     DataGridViewRow row = dgv_Hang.Rows[e.RowIndex];
                     txtHangHoa.Text = row.Cells["MaSP"].Value.ToString();
                     txtDVT.Text = row.Cells["DVT"].Value.ToString();
-                    txtMaCTHD.Text = GenerateNewCode(CTHoaDonDAO.Instance.GetCTHD());
+                    khsp.SoLuongTon = decimal.Parse(row.Cells["SoLuongTon"].Value.ToString());
                 }
             }
             catch (Exception ex)
@@ -78,24 +75,20 @@ namespace DACN.GUI
             }
         }
 
-        private void dgvHD_CellClick(object sender, DataGridViewCellEventArgs e)
+        private bool ktDKBanHang(string mahd, string masp, decimal dongia, string macthd, decimal soluong , decimal soluongkho)
         {
-            try
+            
+            
+            if (dongia <= 0)
             {
-                if (e.RowIndex >= 0)
-                {
-                    DataGridViewRow row = dgvHD.Rows[e.RowIndex];
-                    txtMaHD.Text = row.Cells["MaHD"].Value.ToString();
-
-                }
+                MessageBox.Show("Đơn giá không được để trống!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
             }
-            catch (Exception ex)
+            if (soluong >= soluongkho)
             {
-                Console.WriteLine("Error: " + ex.Message);
+                MessageBox.Show("Số lượng không được lớn hơn số lượng trong kho", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
             }
-        }
-        private bool ktDKBanHang(string mahd, string masp, decimal dongia, string macthd, decimal soluong)
-        {
             if (string.IsNullOrWhiteSpace(mahd))
             {
                 MessageBox.Show("Mã Hóa đơn không được để trống!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -108,21 +101,18 @@ namespace DACN.GUI
                 return false;
             }
 
+            if (hangHoaDAO.KiemTraTrungMaSP(masp))
+            {
+                MessageBox.Show("Mã Sản phẩm không được trùng", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
             if (string.IsNullOrWhiteSpace(macthd))
             {
                 MessageBox.Show("Mã Chi tiết HD không được để trống!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-            if (dongia <=0)
-            {
-                MessageBox.Show("Đơn giá không được để trống!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-            if (soluong <= 0)
-            {
-                MessageBox.Show("Số lượng không được để trống!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
+        
             //kiêm tra xem số lượng thêm vào gio hàng có lớn hơn số lượng hàng hóa đang có ko
             return true;
 
@@ -139,7 +129,7 @@ namespace DACN.GUI
             string lastCode = list.Last().MaCTHD;
 
             string prefix = lastCode.Substring(0, 4);
-            string numberPart = lastCode.Substring(2);
+            string numberPart = lastCode.Substring(4);
 
             // Chuyển số thành số nguyên và tăng lên 1
             int number = int.Parse(numberPart) + 1;
@@ -156,19 +146,23 @@ namespace DACN.GUI
         private void btnThemVao_Click(object sender, EventArgs e)
         {
             
-            CTHoaDonDTO.MaHD = txtMaHD.Text;
-            CTHoaDonDTO.MaSP = txtHangHoa.Text;
-            CTHoaDonDTO.SoLuong = decimal.Parse(txtSoLuong.ToString());
-            CTHoaDonDTO.DonGia = decimal.Parse(txtDonGia.Text);
-            CTHoaDonDTO.MaCTHD = txtMaCTHD.Text;
-            CTHoaDonDTO.DVT = txtDVT.Text;
-            txtThanhTien.Text = tinhThanhTien(CTHoaDonDTO.DonGia,CTHoaDonDTO.SoLuong).ToString();
-            CTHoaDonDTO.ThanhTien = decimal.Parse(txtThanhTien.Text);
+           
             try
-            {         
-                if (ktDKBanHang(CTHoaDonDTO.MaHD,CTHoaDonDTO.MaSP, CTHoaDonDTO.DonGia, CTHoaDonDTO.MaCTHD,CTHoaDonDTO.SoLuong))
+            {
+                CTHoaDonDTO.MaHD = txtMaHD.Text;
+                CTHoaDonDTO.MaSP = txtHangHoa.Text;
+                CTHoaDonDTO.SoLuong = decimal.Parse(txtSoLuong.Text);
+                CTHoaDonDTO.DonGia = decimal.Parse(txtDonGia.Text);
+                CTHoaDonDTO.MaCTHD = txtMaCTHD.Text;
+                CTHoaDonDTO.DVT = txtDVT.Text;
+             
+                txtThanhTien.Text = tinhThanhTien(CTHoaDonDTO.DonGia, CTHoaDonDTO.SoLuong).ToString();
+                CTHoaDonDTO.ThanhTien = decimal.Parse(txtThanhTien.Text);
+                if (ktDKBanHang(CTHoaDonDTO.MaHD,CTHoaDonDTO.MaSP, CTHoaDonDTO.DonGia, CTHoaDonDTO.MaCTHD,CTHoaDonDTO.SoLuong, khsp.SoLuongTon))
                 {
+
                     CTHoaDonDAO.Instance.Insert(CTHoaDonDTO);
+                    
                     MessageBox.Show("Thêm hàng thành công");
                     LoadSanPham();
                 }
@@ -205,28 +199,22 @@ namespace DACN.GUI
         private void txtDonGia_TextChanged(object sender, EventArgs e)
         {
             TextBox txt = sender as TextBox;
-            txt.Focus();
-            if (string.IsNullOrWhiteSpace(txt.Text))
-            {
-                MessageBox.Show("Giá trị không được để trống!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txt.Text = "0";
-             
-                return;
-            }
-
+ 
+            
             if (txt.Text == ".")
             {
                 txt.Text = "0.";
                 txt.SelectionStart = txt.Text.Length;
                 return;
             }
-            if (double.TryParse(txt.Text, out double value))
+            if (decimal.TryParse(txt.Text, out decimal value))
             {
                 if (value < 0)
                 {
                     txt.Text = "0";
                 }
             }
+         
             else
             {
                 txt.Text = "0";
@@ -241,27 +229,20 @@ namespace DACN.GUI
         private void txtSoLuong_TextChanged(object sender, EventArgs e)
         {
             TextBox txt = sender as TextBox;
-            txt.Focus();
-            if (string.IsNullOrWhiteSpace(txt.Text))
-            {
-                MessageBox.Show("Giá trị không được để trống!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txt.Text = "0";
-
-                return;
-            }
-
+            
             if (txt.Text == ".")
             {
                 txt.Text = "0.";
                 txt.SelectionStart = txt.Text.Length;
                 return;
             }
-            if (double.TryParse(txt.Text, out double value))
+            if (decimal.TryParse(txt.Text, out decimal value))
             {
                 if (value < 0)
                 {
                     txt.Text = "0";
                 }
+            
             }
             else
             {
@@ -277,7 +258,6 @@ namespace DACN.GUI
                 return;
             }
 
-            // Chỉ cho phép một dấu chấm thập phân
             if (e.KeyChar == '.' && (sender as TextBox).Text.Contains('.'))
             {
                 e.Handled = true;
@@ -293,6 +273,16 @@ namespace DACN.GUI
         {
             List<HangHoaDTO> listHH = HangHoaDAO.Instance.TimKiemHH(tbTimKiemHang.Text);
             dgv_Hang.DataSource = listHH;
+        }
+        public void chonMaHD(string mahd)
+        {
+            txtMaHD.Text = mahd;
+        }
+        private void btnChonHD_Click(object sender, EventArgs e)
+        {
+            FormChonHoaDon formChonHD = new FormChonHoaDon();
+            formChonHD.Owner = this;
+            formChonHD.ShowDialog();
         }
     }
    

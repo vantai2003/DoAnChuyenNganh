@@ -31,14 +31,14 @@ namespace DACN.DAO
         }
         public int Insert(HoaDonDTO obj)
         {
-            string query = "sp_Insert_HD @NgayDatHang, @TongTien , @TrangThai , @DiaChiGiaoHang , @TienCoc , @ThanhToan , @MaKH , @MaNV";
-            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] {obj.NgayDatHang,obj.TongTien,obj.TrangThai,obj.DiaChiGiaoHang,obj.TienCoc,obj.ThanhToan,obj.MaKH,obj.MaNV });
+            string query = "sp_Insert_HD @MaHD , @NgayDatHang , @TongTien , @TrangThai , @DiaChiGiaoHang , @TienCoc , @ThanhToan , @MaKH , @MaNV";
+            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] {obj.MaHD, obj.NgayDatHang, obj.TongTien, obj.TrangThai, obj.DiaChiGiaoHang, obj.TienCoc, obj.ThanhToan, obj.MaKH, obj.MaNV });
             return result;
         }
         public int Update(HoaDonDTO obj)
         {
-            string query = "sp_Update_HD @NgayDatHang, @TongTien , @TrangThai , @DiaChiGiaoHang , @TienCoc , @ThanhToan , @MaKH , @MaNV";
-            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { obj.NgayDatHang, obj.TongTien, obj.TrangThai, obj.DiaChiGiaoHang, obj.TienCoc, obj.ThanhToan, obj.MaKH, obj.MaNV });
+            string query = "sp_Update_HD @MaHD , @NgayDatHang , @TongTien , @TrangThai , @DiaChiGiaoHang , @TienCoc , @ThanhToan , @MaKH , @MaNV";
+            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] {obj.MaHD, obj.NgayDatHang, obj.TongTien, obj.TrangThai, obj.DiaChiGiaoHang, obj.TienCoc, obj.ThanhToan, obj.MaKH, obj.MaNV });
             return result;
         }
         public int Delete(string ID)

@@ -43,7 +43,7 @@ namespace DACN.GUI
                     AddFormToTabPage(frm1, uiTabControl1.SelectedTab);
                     break;
                 case 1:
-                    FormThanhToan frm2 = new FormThanhToan();
+                    FormHoaDon frm2 = new FormHoaDon();
                     AddFormToTabPage(frm2, uiTabControl1.SelectedTab);
                     break;
             }

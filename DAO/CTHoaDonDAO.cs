@@ -45,10 +45,23 @@ namespace DACN.DAO
             int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { obj.MaCTHD, obj.SoLuong, obj.DonGia, obj.DVT, obj.ThanhTien, obj.MaSP, obj.MaHD });
             return result;
         }
-        public int GetCTHDTheoMHD(string ID)
+        public List<CTHoaDonDTO> GetCTHDTheoMHD(string ID)
         {
+            List<CTHoaDonDTO> list = new List<CTHoaDonDTO>();
             string query = "sp_SelectOne_CTHD @MaHD";
-            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { ID });
+            DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] { ID });
+            foreach (DataRow row in data.Rows)
+            {
+                CTHoaDonDTO CTHD = new CTHoaDonDTO(row);
+                list.Add(CTHD);
+            }
+
+            return list;
+        }
+        public int CapNhatTrangThai(string masp,string makho,decimal soluong)
+        {
+            string query = "SP_CapNhatTonKho @MaSP , @MaKho , @SoLuong";
+            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { masp, makho, soluong });
             return result;
         }
         public int Delete(string ID)

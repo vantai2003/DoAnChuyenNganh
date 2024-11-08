@@ -21,12 +21,13 @@ CREATE TABLE NhaCungCap (
     NgayTao DATE
 );
 
--- Bảng Kho
+----- Bảng Kho
 CREATE TABLE Kho (
     MaKho VARCHAR(50) PRIMARY KEY NOT NULL,
     TenKho NVARCHAR(100),
     DiaChi NVARCHAR(500)
 );
+
 
 -- Bảng SanPham
 CREATE TABLE SanPham (
@@ -244,10 +245,8 @@ INSERT INTO KhachHang(MaKH, TenKH, SoDienThoai, Email, DiaChi, NgayTao, MaLoaiKH
 
 GO
 INSERT INTO NhaCungCap(MaNCC,TenNCC,SDT,Email,DiaChi,ThanhPho,QuocGia,NgayTao) VALUES('NCC001',N'Công ty sắt thép Việt Phát','0988388111','info@VietPhat',N'66 Nguyễn Du, P. Nguyễn Du, Q. Hai Bà Trưng',N'Hà Nội',N'Việt Nam','2024-11-27')
-GO
-INSERT INTO KHO VALUES('MK001',N'Kho Thép A','Lê trọng tấn TP.Hồ Chí Minh')
 
-
+SELECT * FROM Kho_SanPham
 -- Stored Procedures Login
 GO
 CREATE PROC SP_Login
@@ -759,6 +758,7 @@ BEGIN
     JOIN LoaiSanPham lp ON sp.MaLoai = lp.MaLoai; -- Kết nối với bảng LoaiSanPham
 END
 GO
+exec SP_GetProductsInStock
 --Lấy thông tin người dùng 
 CREATE PROCEDURE SP_GetThongTinNguoiDung
 @TenDN varchar(50)
