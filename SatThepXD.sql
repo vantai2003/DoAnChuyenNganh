@@ -229,21 +229,9 @@ INSERT INTO Quyen VALUES(0,N'Admin'),
 (4, N'Nhân viên giao hàng'),
 (5, N'Nhân viên kho')
 GO
-INSERT INTO NhanVien VALUES('NV001',N'Nguyễn Văn Tài',N'Quản trị viên', '0326588524', 'banpro@gmail.com','2024-10-10', 20000000)
+INSERT INTO NhanVien VALUES('NV002',N'Nguyễn Văn Tài',N'Quản trị viên', '0326588524', 'banpro@gmail.com','2024-10-10', 20000000)
 GO
-INSERT INTO NguoiDung(TenDN, MatKhau, NgayTao ,QuyenID, MaNV) VALUES('admin', CONVERT(VARCHAR(32),HASHBYTES('MD5', 'admin@123'),2),GETDATE() ,0, 'NV001')
-
-GO 
-INSERT INTO LoaiKH (MaLoaiKH,TenLoaiKH) VALUES('LK001',N'Khách hàng thân thiết'),
-                                              ('LK002',N'Khách hàng thường')
-GO
-INSERT INTO LoaiSanPham(MaLoai,TenLoai)VALUES('ML001',N'Hòa Phát'),
-											 ('ML002',N'Việt Nhật')
-GO
-INSERT INTO KhachHang(MaKH, TenKH, SoDienThoai, Email, DiaChi, NgayTao, MaLoaiKH) VALUES('KH001',N'Trần Thế An','0981888213','tranan11@gmail.com',N'Thành phố Hồ Chí Minh','2024-11-23','LK002')
-
-GO
-INSERT INTO NhaCungCap(MaNCC,TenNCC,SDT,Email,DiaChi,ThanhPho,QuocGia,NgayTao) VALUES('NCC001',N'Công ty sắt thép Việt Phát','0988388111','info@VietPhat',N'66 Nguyễn Du, P. Nguyễn Du, Q. Hai Bà Trưng',N'Hà Nội',N'Việt Nam','2024-11-27')
+INSERT INTO NguoiDung(TenDN, MatKhau, NgayTao ,QuyenID, MaNV) VALUES('admin', CONVERT(VARCHAR(32),HASHBYTES('MD5', 'admin@123'),2),GETDATE() ,0, 'NV002')
 
 SELECT * FROM Kho_SanPham
 -- Stored Procedures Login
@@ -992,7 +980,7 @@ create table CTPhieuTraHangKH
 	DonGiaTra DECIMAL(18, 0),
 	FOREIGN KEY (MaPhieuTraHang) REFERENCES PhieuTraHangKH(MaPhieuTraHang),
     FOREIGN KEY (MaSP) REFERENCES SanPham(MaSP)
-<<<<<<< HEAD
+
 )---hóa đơn
 ---------Lấy tất cả các cột trong bảng Hóa đơn----------------------
 CREATE PROC sp_SelectAll_HD
@@ -1267,6 +1255,6 @@ BEGIN
 	UPDATE PhieuNhapHang
 	SET TrangThai = N'Đã xử lý hàng'
 	WHERE MaPhieuNH = @MaPN
->>>>>>> 2761377e170a911ed2f54237dca762f5108b2edc
+
 END
 GO

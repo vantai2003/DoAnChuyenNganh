@@ -25,6 +25,7 @@ namespace DACN.GUI
             InitializeComponent();
             LoadHoaDon();
             tsbLuu.Enabled = false;
+            this.AutoScroll = true;
         }
 
         private void uiButton1_Click(object sender, EventArgs e)
@@ -42,7 +43,7 @@ namespace DACN.GUI
         }
         public void loadCbbTrangThai()
         {
-
+         
         }
         static string GenerateNewCode(List<HoaDonDTO> list)
         {

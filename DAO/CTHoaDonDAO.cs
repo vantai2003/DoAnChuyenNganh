@@ -1,4 +1,5 @@
 ﻿using DACN.DTO;
+using Microsoft.SqlServer.Server;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -63,6 +64,17 @@ namespace DACN.DAO
             string query = "SP_CapNhatTonKho @MaSP , @MaKho , @SoLuong";
             int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { masp, makho, soluong });
             return result;
+        }
+        public DataTable GetSanPhamBan()
+        {
+            string query = "SP_GetProductsInStock";
+            return DataProvider.Instance.ExecuteQuery(query);
+
+        }
+        public int updateSL(String masp, int soluong,string makho)
+        {
+            String Query = String.Format("update Kho_SanPham set soluongcon='{0}' where mahh= '{1}' and makho ='{2}'", soluong, masp,makho);
+            return DataProvider.Instance.ExecuteNonQuery(Query);
         }
         public int Delete(string ID)
         {

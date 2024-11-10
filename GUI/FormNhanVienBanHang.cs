@@ -20,11 +20,29 @@ namespace DACN.GUI
         private void OpenChildForm(Form childForm)
         {
             if (currentFormChild != null)
+            {
                 currentFormChild.Close();
+            }
+
             currentFormChild = childForm;
             childForm.TopLevel = false;
             childForm.FormBorderStyle = FormBorderStyle.None;
+
+            childForm.AutoSize = true;
+            childForm.AutoScaleMode = AutoScaleMode.None;
+
+
+            childForm.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             childForm.Dock = DockStyle.Fill;
+
+            childForm.Size = panel_body.ClientSize;
+
+
+            panel_body.Resize += (s, e) =>
+            {
+                childForm.Size = panel_body.ClientSize;
+            };
+
             panel_body.Controls.Add(childForm);
             panel_body.Tag = childForm;
             childForm.BringToFront();
@@ -48,7 +66,7 @@ namespace DACN.GUI
 
         private void btn_LapPhieuBanHang_Click(object sender, EventArgs e)
         {
-            FormQLBanHang formQLBanHang = new FormQLBanHang();
+            FormQLBanHang formQLBanHang = new FormQLBanHang() {};
             OpenChildForm(formQLBanHang);
         }
     }

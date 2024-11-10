@@ -49,7 +49,7 @@ namespace DACN.GUI
                 foreach (DataGridViewRow row in dgvHoaDon.Rows)
                 {
                     string mahd = txtChonHD.Text;
-                    fbanhang.chonMaHD(mahd);
+                    fbanhang.chonMahd(mahd);
                 }
             }
             this.Close();

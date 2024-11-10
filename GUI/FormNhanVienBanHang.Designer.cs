@@ -31,6 +31,7 @@
             this.panel_body = new System.Windows.Forms.Panel();
             this.panel_right = new System.Windows.Forms.Panel();
             this.pane_left = new System.Windows.Forms.Panel();
+            this.btn_DangXuat = new System.Windows.Forms.Button();
             this.btn_QLHangHoa = new Sunny.UI.UIButton();
             this.btn_LapPhieuBanHang = new Sunny.UI.UIButton();
             this.btn_HuyDonHang = new Sunny.UI.UIButton();
@@ -39,7 +40,6 @@
             this.cậpNhậtThôngTinTàiKhoảnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.thôngTinTàiKhoảnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.đổiMậtKhẩuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.btn_DangXuat = new System.Windows.Forms.Button();
             this.panel_body.SuspendLayout();
             this.pane_left.SuspendLayout();
             this.menu_NhanVienBanHang.SuspendLayout();
@@ -53,7 +53,7 @@
             this.panel_body.Location = new System.Drawing.Point(0, 0);
             this.panel_body.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel_body.Name = "panel_body";
-            this.panel_body.Size = new System.Drawing.Size(1293, 732);
+            this.panel_body.Size = new System.Drawing.Size(1655, 1016);
             this.panel_body.TabIndex = 0;
             // 
             // panel_right
@@ -63,7 +63,7 @@
             this.panel_right.Location = new System.Drawing.Point(392, 0);
             this.panel_right.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel_right.Name = "panel_right";
-            this.panel_right.Size = new System.Drawing.Size(901, 732);
+            this.panel_right.Size = new System.Drawing.Size(1263, 1016);
             this.panel_right.TabIndex = 1;
             // 
             // pane_left
@@ -79,8 +79,23 @@
             this.pane_left.Location = new System.Drawing.Point(0, 0);
             this.pane_left.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pane_left.Name = "pane_left";
-            this.pane_left.Size = new System.Drawing.Size(392, 732);
+            this.pane_left.Size = new System.Drawing.Size(392, 1016);
             this.pane_left.TabIndex = 0;
+            // 
+            // btn_DangXuat
+            // 
+            this.btn_DangXuat.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_DangXuat.Image = global::DACN.Properties.Resources.icon_logout1;
+            this.btn_DangXuat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_DangXuat.Location = new System.Drawing.Point(102, 581);
+            this.btn_DangXuat.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btn_DangXuat.Name = "btn_DangXuat";
+            this.btn_DangXuat.Size = new System.Drawing.Size(184, 66);
+            this.btn_DangXuat.TabIndex = 5;
+            this.btn_DangXuat.Text = "Đăng xuất";
+            this.btn_DangXuat.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btn_DangXuat.UseVisualStyleBackColor = true;
+            this.btn_DangXuat.Click += new System.EventHandler(this.btn_DangXuat_Click);
             // 
             // btn_QLHangHoa
             // 
@@ -168,35 +183,20 @@
             // thôngTinTàiKhoảnToolStripMenuItem
             // 
             this.thôngTinTàiKhoảnToolStripMenuItem.Name = "thôngTinTàiKhoảnToolStripMenuItem";
-            this.thôngTinTàiKhoảnToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.thôngTinTàiKhoảnToolStripMenuItem.Size = new System.Drawing.Size(268, 34);
             this.thôngTinTàiKhoảnToolStripMenuItem.Text = "Thông tin tài khoản";
             // 
             // đổiMậtKhẩuToolStripMenuItem
             // 
             this.đổiMậtKhẩuToolStripMenuItem.Name = "đổiMậtKhẩuToolStripMenuItem";
-            this.đổiMậtKhẩuToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.đổiMậtKhẩuToolStripMenuItem.Size = new System.Drawing.Size(268, 34);
             this.đổiMậtKhẩuToolStripMenuItem.Text = "Đổi mật khẩu";
-            // 
-            // btn_DangXuat
-            // 
-            this.btn_DangXuat.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_DangXuat.Image = global::DACN.Properties.Resources.icon_logout1;
-            this.btn_DangXuat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_DangXuat.Location = new System.Drawing.Point(102, 581);
-            this.btn_DangXuat.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btn_DangXuat.Name = "btn_DangXuat";
-            this.btn_DangXuat.Size = new System.Drawing.Size(184, 66);
-            this.btn_DangXuat.TabIndex = 5;
-            this.btn_DangXuat.Text = "Đăng xuất";
-            this.btn_DangXuat.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_DangXuat.UseVisualStyleBackColor = true;
-            this.btn_DangXuat.Click += new System.EventHandler(this.btn_DangXuat_Click);
             // 
             // FormNhanVienBanHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1293, 732);
+            this.ClientSize = new System.Drawing.Size(1655, 1016);
             this.Controls.Add(this.panel_body);
             this.MainMenuStrip = this.menu_NhanVienBanHang;
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);

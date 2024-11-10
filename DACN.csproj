@@ -74,7 +74,6 @@
     <Compile Include="DAO\TonKhoDAO.cs" />
     <Compile Include="DTO\CTHoaDonDTO.cs" />
     <Compile Include="DTO\CTPhieuNHDTO.cs" />
-
     <Compile Include="GUI\FormBanHang.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -117,9 +116,7 @@
     <Compile Include="GUI\FormHoaDon.Designer.cs">
       <DependentUpon>FormHoaDon.cs</DependentUpon>
     </Compile>
-
     <Compile Include="DTO\CTPhieuTraHangNCCDTO.cs" />
-
     <Compile Include="DTO\HangHoaDTO.cs" />
     <Compile Include="DTO\HoaDonDTO.cs" />
     <Compile Include="DTO\KhachHangDTO.cs" />
@@ -217,6 +214,12 @@
     <Compile Include="GUI\FormChonSanPham.Designer.cs">
       <DependentUpon>FormChonSanPham.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\FormSanPhamBan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FormSanPhamBan.Designer.cs">
+      <DependentUpon>FormSanPhamBan.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\FormSaoLuuPhucHoi.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -311,6 +314,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FormChonSanPham.resx">
       <DependentUpon>FormChonSanPham.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FormSanPhamBan.resx">
+      <DependentUpon>FormSanPhamBan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FormSaoLuuPhucHoi.resx">
       <DependentUpon>FormSaoLuuPhucHoi.cs</DependentUpon>

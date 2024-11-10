@@ -36,11 +36,14 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.thêmToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.xóaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sửaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.inToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.thoátToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tab_body = new Sunny.UI.UITabControl();
             this.tab_DanhSach = new System.Windows.Forms.TabPage();
             this.panel_Body = new System.Windows.Forms.Panel();
@@ -81,11 +84,6 @@
             this.btn_XemCT = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dvg_DSPNDPD = new Sunny.UI.UIDataGridView();
-            this.thêmToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.xóaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sửaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.inToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.thoátToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.tab_body.SuspendLayout();
             this.tab_DanhSach.SuspendLayout();
@@ -120,7 +118,6 @@
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
-
             // thêmToolStripMenuItem
             // 
             this.thêmToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F);
@@ -161,7 +158,6 @@
             this.thoátToolStripMenuItem.Size = new System.Drawing.Size(111, 36);
             this.thoátToolStripMenuItem.Text = "Thoát";
             // 
-
             // tab_body
             // 
             this.tab_body.Controls.Add(this.tab_DanhSach);
@@ -237,24 +233,6 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dvg_DSPhieuNhap.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dvg_DSPhieuNhap.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dvg_DSPhieuNhap.DefaultCellStyle = dataGridViewCellStyle3;
-
-            this.dvg_DSPhieuNhap.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dvg_DSPhieuNhap.EnableHeadersVisualStyles = false;
-            this.dvg_DSPhieuNhap.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.dvg_DSPhieuNhap.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
-            this.dvg_DSPhieuNhap.Location = new System.Drawing.Point(0, 0);
-            this.dvg_DSPhieuNhap.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.dvg_DSPhieuNhap.Name = "dvg_DSPhieuNhap";
-
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
@@ -262,12 +240,14 @@
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dvg_DSPhieuNhap.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dvg_DSPhieuNhap.RowHeadersWidth = 51;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.dvg_DSPhieuNhap.RowsDefaultCellStyle = dataGridViewCellStyle4;
-
+            this.dvg_DSPhieuNhap.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dvg_DSPhieuNhap.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dvg_DSPhieuNhap.EnableHeadersVisualStyles = false;
+            this.dvg_DSPhieuNhap.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.dvg_DSPhieuNhap.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
+            this.dvg_DSPhieuNhap.Location = new System.Drawing.Point(0, 0);
+            this.dvg_DSPhieuNhap.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.dvg_DSPhieuNhap.Name = "dvg_DSPhieuNhap";
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
@@ -277,13 +257,13 @@
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dvg_DSPhieuNhap.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dvg_DSPhieuNhap.RowHeadersWidth = 51;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.dvg_DSPhieuNhap.RowsDefaultCellStyle = dataGridViewCellStyle5;
-
             this.dvg_DSPhieuNhap.RowTemplate.Height = 24;
             this.dvg_DSPhieuNhap.SelectedIndex = -1;
             this.dvg_DSPhieuNhap.Size = new System.Drawing.Size(1365, 303);
+            this.dvg_DSPhieuNhap.StripeEvenColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
             this.dvg_DSPhieuNhap.StripeOddColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
             this.dvg_DSPhieuNhap.TabIndex = 0;
             // 
@@ -325,7 +305,7 @@
             this.txt_SearchPN.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.txt_SearchPN.MinimumSize = new System.Drawing.Size(1, 20);
             this.txt_SearchPN.Name = "txt_SearchPN";
-            this.txt_SearchPN.Padding = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txt_SearchPN.Padding = new System.Windows.Forms.Padding(6);
             this.txt_SearchPN.ShowText = false;
             this.txt_SearchPN.Size = new System.Drawing.Size(169, 36);
             this.txt_SearchPN.TabIndex = 0;
@@ -709,51 +689,16 @@
             // 
             // dvg_DSPNDPD
             // 
-
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
-            this.dvg_DSPNDPD.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
-            this.dvg_DSPNDPD.BackgroundColor = System.Drawing.Color.White;
-            this.dvg_DSPNDPD.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dvg_DSPNDPD.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
-            this.dvg_DSPNDPD.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
             this.dvg_DSPNDPD.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dvg_DSPNDPD.BackgroundColor = System.Drawing.Color.White;
             this.dvg_DSPNDPD.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dvg_DSPNDPD.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
-            this.dvg_DSPNDPD.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dvg_DSPNDPD.DefaultCellStyle = dataGridViewCellStyle8;
-
-            this.dvg_DSPNDPD.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dvg_DSPNDPD.EnableHeadersVisualStyles = false;
-            this.dvg_DSPNDPD.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.dvg_DSPNDPD.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
-            this.dvg_DSPNDPD.Location = new System.Drawing.Point(0, 0);
-            this.dvg_DSPNDPD.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.dvg_DSPNDPD.Name = "dvg_DSPNDPD";
-
             dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
@@ -761,12 +706,23 @@
             dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dvg_DSPNDPD.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
-            this.dvg_DSPNDPD.RowHeadersWidth = 51;
+            this.dvg_DSPNDPD.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            this.dvg_DSPNDPD.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.dvg_DSPNDPD.RowsDefaultCellStyle = dataGridViewCellStyle8;
-
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dvg_DSPNDPD.DefaultCellStyle = dataGridViewCellStyle8;
+            this.dvg_DSPNDPD.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dvg_DSPNDPD.EnableHeadersVisualStyles = false;
+            this.dvg_DSPNDPD.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.dvg_DSPNDPD.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
+            this.dvg_DSPNDPD.Location = new System.Drawing.Point(0, 0);
+            this.dvg_DSPNDPD.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.dvg_DSPNDPD.Name = "dvg_DSPNDPD";
             dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
@@ -779,53 +735,12 @@
             dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.dvg_DSPNDPD.RowsDefaultCellStyle = dataGridViewCellStyle10;
-
             this.dvg_DSPNDPD.RowTemplate.Height = 24;
             this.dvg_DSPNDPD.SelectedIndex = -1;
             this.dvg_DSPNDPD.Size = new System.Drawing.Size(1365, 401);
             this.dvg_DSPNDPD.StripeOddColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
             this.dvg_DSPNDPD.TabIndex = 0;
             this.dvg_DSPNDPD.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dvg_DSPNDPD_CellClick);
-            // 
-            // thêmToolStripMenuItem
-            // 
-            this.thêmToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.thêmToolStripMenuItem.Image = global::DACN.Properties.Resources.Add;
-            this.thêmToolStripMenuItem.Name = "thêmToolStripMenuItem";
-            this.thêmToolStripMenuItem.Size = new System.Drawing.Size(94, 32);
-            this.thêmToolStripMenuItem.Text = "Thêm";
-            // 
-            // xóaToolStripMenuItem
-            // 
-            this.xóaToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.xóaToolStripMenuItem.Image = global::DACN.Properties.Resources.Delete;
-            this.xóaToolStripMenuItem.Name = "xóaToolStripMenuItem";
-            this.xóaToolStripMenuItem.Size = new System.Drawing.Size(80, 32);
-            this.xóaToolStripMenuItem.Text = "Xóa";
-            // 
-            // sửaToolStripMenuItem
-            // 
-            this.sửaToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.sửaToolStripMenuItem.Image = global::DACN.Properties.Resources.Edit;
-            this.sửaToolStripMenuItem.Name = "sửaToolStripMenuItem";
-            this.sửaToolStripMenuItem.Size = new System.Drawing.Size(79, 32);
-            this.sửaToolStripMenuItem.Text = "Sửa";
-            // 
-            // inToolStripMenuItem
-            // 
-            this.inToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.inToolStripMenuItem.Image = global::DACN.Properties.Resources.Print;
-            this.inToolStripMenuItem.Name = "inToolStripMenuItem";
-            this.inToolStripMenuItem.Size = new System.Drawing.Size(62, 32);
-            this.inToolStripMenuItem.Text = "In";
-            // 
-            // thoátToolStripMenuItem
-            // 
-            this.thoátToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.thoátToolStripMenuItem.Image = global::DACN.Properties.Resources.Close1;
-            this.thoátToolStripMenuItem.Name = "thoátToolStripMenuItem";
-            this.thoátToolStripMenuItem.Size = new System.Drawing.Size(96, 32);
-            this.thoátToolStripMenuItem.Text = "Thoát";
             // 
             // FormNhapHang
             // 
