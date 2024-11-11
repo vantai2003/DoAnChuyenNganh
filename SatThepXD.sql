@@ -74,8 +74,8 @@ CREATE TABLE NhanVien (
     MaNV VARCHAR(50) PRIMARY KEY NOT NULL,
     TenNV NVARCHAR(100),
     ChucVu NVARCHAR(100),
-    SDT VARCHAR(20) UNIQUE,
-    Email VARCHAR(100) UNIQUE,
+    SDT VARCHAR(20),
+    Email VARCHAR(100),
     NgayTuyenDung DATE,
     Luong DECIMAL(18, 0)
 );
@@ -1138,3 +1138,126 @@ BEGIN
 	WHERE MaPhieuNH = @MaPN
 END
 GO
+
+
+-------------thủ tục lọc số lượng tồn theo kho----------
+CREATE PROC SP_LocTonKhoTheoKho
+@MaKho nvarchar(200)
+AS
+BEGIN
+	SELECT * FROM Kho_SanPham
+	WHERE MaKho = @MaKho
+END
+
+GO
+CREATE PROCEDURE SP_LocTonKhoTheoKho
+@MaKho nvarchar(500)
+AS
+BEGIN
+    SELECT sp.MaSP, sp.TenSP, sp.DVT, k.TenKho, ks.SoLuongTon, lp.TenLoai
+    FROM Kho_SanPham ks
+    JOIN SanPham sp ON ks.MaSP = sp.MaSP
+    JOIN Kho k ON ks.MaKho = k.MaKho
+    JOIN LoaiSanPham lp ON sp.MaLoai = lp.MaLoai
+	WHERE ks.MaKho= @MaKho;-- Kết nối với bảng LoaiSanPham
+END
+GO
+----Lọc theo tên sản phẩm hoặc loại
+CREATE PROCEDURE SP_LocTonKhoTheoSanPham
+@ReSearch nvarchar(200)
+AS
+BEGIN
+    SELECT sp.MaSP, sp.TenSP, sp.DVT, k.TenKho, ks.SoLuongTon, lp.TenLoai
+    FROM Kho_SanPham ks
+    JOIN SanPham sp ON ks.MaSP = sp.MaSP
+    JOIN Kho k ON ks.MaKho = k.MaKho
+    JOIN LoaiSanPham lp ON sp.MaLoai = lp.MaLoai
+    WHERE (sp.TenSP LIKE '%' + @ReSearch + '%')
+		OR (lp.TenLoai LIKE '%' + @ReSearch + '%')
+END
+GO
+
+----thủ tục thêm nhân viên
+CREATE PROC SP_ThemNhanVien
+@MaNV varchar(50),
+@TenNV nvarchar(50),
+@ChucVu nvarchar(50),
+@SDT varchar(12),
+@Email varchar(70),
+@NgayTuyenDung date,
+@Luong decimal(18, 0)
+AS 
+BEGIN
+	INSERT INTO NhanVien VALUES(@MaNV, @TenNV, @ChucVu, @SDT, @Email, @NgayTuyenDung, @Luong)
+END
+GO
+drop proc SP_TaoMaNV
+exec SP_TaoMaNV
+------thủ tục tăng mã tạo nhân viên
+CREATE PROC SP_TaoMaNV
+AS
+BEGIN
+    DECLARE @LastMaNV varchar(10);
+    DECLARE @NewNumber int;
+    DECLARE @NewMaNV varchar(10);
+    
+    -- Truy vấn mã NV lớn nhất hiện có, bỏ qua phần "NV" và chỉ lấy số
+    SELECT @LastMaNV = MAX(MaNV) FROM NhanVien;
+    
+    -- Nếu bảng chưa có bản ghi nào thì bắt đầu từ NV001
+    IF @LastMaNV IS NULL
+    BEGIN
+        SET @NewNumber = 1;
+    END
+    ELSE
+    BEGIN
+        -- Lấy phần số của MaNV (bỏ đi 2 ký tự đầu "NV")
+        SET @NewNumber = CAST(SUBSTRING(@LastMaNV, 3, LEN(@LastMaNV) - 2) AS INT) + 1;
+    END
+    
+    -- Tạo MaNV mới với định dạng NV + số mới
+    SET @NewMaNV = 'NV' + RIGHT('000' + CAST(@NewNumber AS VARCHAR), 3);
+    
+    -- Trả về MaNV mới
+    SELECT @NewMaNV;
+END
+GO
+------thủ tục kiểm tra số điện thoại
+CREATE PROC SP_KiemTraTrungSDT
+@SDT varchar(12)
+AS
+BEGIN
+	SELECT * FROM NhanVien WHERE SDT = @SDT
+END
+GO
+
+CREATE PROC SP_KiemTraTrungEmail
+@email varchar(12)
+AS
+BEGIN
+	SELECT * FROM NhanVien WHERE Email = @email
+END
+
+------thủ tục Xóa nhân viên
+CREATE PROC SP_XoaNhanVien
+@MaNV varchar(50)
+AS
+BEGIN
+	DELETE FROM NhanVien WHERE MaNV = @MaNV
+END
+GO
+-----Thủ tục sửa nhân viên
+CREATE PROC SP_NhanVien
+@MaNV varchar(50), 
+@TenNV nvarchar(100), 
+@ChucVu nvarchar(50),
+@SDT varchar(12),
+@Email varchar(70),
+@NgayTuyenDung date,
+@Luong decimal(18, 0)
+AS
+BEGIN
+	UPDATE NhanVien
+	SET  TenNV = @TenNV, ChucVu = @ChucVu, SDT = @SDT, Email = @Email, NgayTuyenDung = @NgayTuyenDung, Luong = @Luong
+	WHERE NhanVien.MaNV = @MaNV
+END

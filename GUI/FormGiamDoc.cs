@@ -51,5 +51,10 @@ namespace DACN.GUI
         {
             OpenChildForm(new FormDuyetPhieuNhap());
         }
+
+        private void btn_QuanLyNV_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new FormQLNhanVien());
+        }
     }
 }

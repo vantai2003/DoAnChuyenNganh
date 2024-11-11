@@ -36,13 +36,13 @@
             this.tStripMenuItem_ThongTinTK = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem_DoiMK = new System.Windows.Forms.ToolStripMenuItem();
             this.panel_body = new System.Windows.Forms.Panel();
-            this.panel_left = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.button3 = new System.Windows.Forms.Button();
-            this.btn_LapPhieuNH = new System.Windows.Forms.Button();
-            this.btn_DuyetPNH = new System.Windows.Forms.Button();
+            this.panel_left = new System.Windows.Forms.Panel();
             this.btn_DangXuat = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.btn_QuanLyNV = new System.Windows.Forms.Button();
+            this.btn_DuyetPNH = new System.Windows.Forms.Button();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.menuStrip1.SuspendLayout();
             this.panel_body.SuspendLayout();
             this.panel_left.SuspendLayout();
@@ -50,14 +50,15 @@
             // 
             // menuStrip1
             // 
-            this.menuStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.menuStrip1.BackColor = System.Drawing.Color.LemonChiffon;
+            this.menuStrip1.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mn_caidat,
             this.mn_tttk});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1182, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1182, 33);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -94,14 +95,14 @@
             // tStripMenuItem_ThongTinTK
             // 
             this.tStripMenuItem_ThongTinTK.Name = "tStripMenuItem_ThongTinTK";
-            this.tStripMenuItem_ThongTinTK.Size = new System.Drawing.Size(224, 26);
+            this.tStripMenuItem_ThongTinTK.Size = new System.Drawing.Size(220, 26);
             this.tStripMenuItem_ThongTinTK.Text = "Thông tin tài khoản";
             this.tStripMenuItem_ThongTinTK.Click += new System.EventHandler(this.tStripMenuItem_ThongTinTK_Click);
             // 
             // toolStripMenuItem_DoiMK
             // 
             this.toolStripMenuItem_DoiMK.Name = "toolStripMenuItem_DoiMK";
-            this.toolStripMenuItem_DoiMK.Size = new System.Drawing.Size(224, 26);
+            this.toolStripMenuItem_DoiMK.Size = new System.Drawing.Size(220, 26);
             this.toolStripMenuItem_DoiMK.Text = "Đổi mật khẩu";
             // 
             // panel_body
@@ -109,71 +110,32 @@
             this.panel_body.Controls.Add(this.panel1);
             this.panel_body.Controls.Add(this.panel_left);
             this.panel_body.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_body.Location = new System.Drawing.Point(0, 28);
+            this.panel_body.Location = new System.Drawing.Point(0, 33);
             this.panel_body.Name = "panel_body";
-            this.panel_body.Size = new System.Drawing.Size(1182, 608);
+            this.panel_body.Size = new System.Drawing.Size(1182, 603);
             this.panel_body.TabIndex = 3;
-            // 
-            // panel_left
-            // 
-            this.panel_left.BackColor = System.Drawing.Color.MediumSpringGreen;
-            this.panel_left.Controls.Add(this.btn_DangXuat);
-            this.panel_left.Controls.Add(this.button3);
-            this.panel_left.Controls.Add(this.btn_LapPhieuNH);
-            this.panel_left.Controls.Add(this.btn_DuyetPNH);
-            this.panel_left.Controls.Add(this.panel2);
-            this.panel_left.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel_left.Location = new System.Drawing.Point(0, 0);
-            this.panel_left.Name = "panel_left";
-            this.panel_left.Size = new System.Drawing.Size(369, 608);
-            this.panel_left.TabIndex = 0;
             // 
             // panel1
             // 
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(369, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(813, 608);
+            this.panel1.Size = new System.Drawing.Size(813, 603);
             this.panel1.TabIndex = 1;
             // 
-            // panel2
+            // panel_left
             // 
-            this.panel2.BackgroundImage = global::DACN.Properties.Resources.khosat1;
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(369, 276);
-            this.panel2.TabIndex = 0;
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(-9, 404);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(389, 59);
-            this.button3.TabIndex = 5;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // btn_LapPhieuNH
-            // 
-            this.btn_LapPhieuNH.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_LapPhieuNH.Location = new System.Drawing.Point(-9, 351);
-            this.btn_LapPhieuNH.Name = "btn_LapPhieuNH";
-            this.btn_LapPhieuNH.Size = new System.Drawing.Size(389, 56);
-            this.btn_LapPhieuNH.TabIndex = 4;
-            this.btn_LapPhieuNH.Text = "Lập phiếu nhập hàng";
-            this.btn_LapPhieuNH.UseVisualStyleBackColor = true;
-            // 
-            // btn_DuyetPNH
-            // 
-            this.btn_DuyetPNH.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_DuyetPNH.Location = new System.Drawing.Point(-9, 295);
-            this.btn_DuyetPNH.Name = "btn_DuyetPNH";
-            this.btn_DuyetPNH.Size = new System.Drawing.Size(389, 59);
-            this.btn_DuyetPNH.TabIndex = 3;
-            this.btn_DuyetPNH.Text = "Duyệt phiếu nhập hàng";
-            this.btn_DuyetPNH.UseVisualStyleBackColor = true;
-            this.btn_DuyetPNH.Click += new System.EventHandler(this.btn_DuyetPNH_Click);
+            this.panel_left.BackColor = System.Drawing.Color.LemonChiffon;
+            this.panel_left.Controls.Add(this.btn_DangXuat);
+            this.panel_left.Controls.Add(this.button3);
+            this.panel_left.Controls.Add(this.btn_QuanLyNV);
+            this.panel_left.Controls.Add(this.btn_DuyetPNH);
+            this.panel_left.Controls.Add(this.panel2);
+            this.panel_left.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel_left.Location = new System.Drawing.Point(0, 0);
+            this.panel_left.Name = "panel_left";
+            this.panel_left.Size = new System.Drawing.Size(369, 603);
+            this.panel_left.TabIndex = 0;
             // 
             // btn_DangXuat
             // 
@@ -188,6 +150,46 @@
             this.btn_DangXuat.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btn_DangXuat.UseVisualStyleBackColor = true;
             this.btn_DangXuat.Click += new System.EventHandler(this.btn_DangXuat_Click);
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(-9, 404);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(389, 59);
+            this.button3.TabIndex = 5;
+            this.button3.Text = "button3";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // btn_QuanLyNV
+            // 
+            this.btn_QuanLyNV.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_QuanLyNV.Location = new System.Drawing.Point(-9, 351);
+            this.btn_QuanLyNV.Name = "btn_QuanLyNV";
+            this.btn_QuanLyNV.Size = new System.Drawing.Size(389, 56);
+            this.btn_QuanLyNV.TabIndex = 4;
+            this.btn_QuanLyNV.Text = "Quản lý nhân vên";
+            this.btn_QuanLyNV.UseVisualStyleBackColor = true;
+            this.btn_QuanLyNV.Click += new System.EventHandler(this.btn_QuanLyNV_Click);
+            // 
+            // btn_DuyetPNH
+            // 
+            this.btn_DuyetPNH.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_DuyetPNH.Location = new System.Drawing.Point(-9, 295);
+            this.btn_DuyetPNH.Name = "btn_DuyetPNH";
+            this.btn_DuyetPNH.Size = new System.Drawing.Size(389, 59);
+            this.btn_DuyetPNH.TabIndex = 3;
+            this.btn_DuyetPNH.Text = "Duyệt phiếu nhập hàng";
+            this.btn_DuyetPNH.UseVisualStyleBackColor = true;
+            this.btn_DuyetPNH.Click += new System.EventHandler(this.btn_DuyetPNH_Click);
+            // 
+            // panel2
+            // 
+            this.panel2.BackgroundImage = global::DACN.Properties.Resources.khosat1;
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(369, 276);
+            this.panel2.TabIndex = 0;
             // 
             // FormGiamDoc
             // 
@@ -221,7 +223,7 @@
         private System.Windows.Forms.Panel panel_left;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button btn_LapPhieuNH;
+        private System.Windows.Forms.Button btn_QuanLyNV;
         private System.Windows.Forms.Button btn_DuyetPNH;
         private System.Windows.Forms.Button btn_DangXuat;
     }
