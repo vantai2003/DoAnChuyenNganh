@@ -19,7 +19,7 @@ namespace DACN.GUI
         CTHoaDonDTO CTHoaDonDTO = new CTHoaDonDTO();
         private string mahd;
         List<HoaDonDTO> listHoaDon = new List<HoaDonDTO>();
-     
+        private Dictionary<string, DataGridViewRow> existingProducts = new Dictionary<string, DataGridViewRow>();
         public static string manv;
         public FormBanHang()
         {
@@ -47,10 +47,13 @@ namespace DACN.GUI
                     column.ReadOnly = true;
                 }
                 column.ReadOnly = false;
-
+                if(column.Name == "tenkho")
+                {
+                    column.Visible = false ;
+                }
             }
         }
-    public void chonMaKh(string ma)
+        public void chonMaKh(string ma)
         {
             txtMaKH.Text = ma;
         }
@@ -165,6 +168,8 @@ namespace DACN.GUI
                 dgv_BanHang.Columns.Add("SoLuong", "Số Lượng");
                 dgv_BanHang.Columns.Add("DonGia", "Đơn Giá");
                 dgv_BanHang.Columns.Add("ThanhTien", "Thành Tiền");
+                dgv_BanHang.Columns.Add("tenkho", "Tên kho");
+
             }
             SetupDataGridView();
             UpdateTongTien();
@@ -173,7 +178,7 @@ namespace DACN.GUI
         {
             decimal tongTien = 0;
             decimal tienCoc =0 ;
-
+        
             decimal.TryParse(txtTienCoc.Text, out tienCoc);
             foreach (DataGridViewRow row in dgv_BanHang.Rows)
             {
@@ -186,23 +191,32 @@ namespace DACN.GUI
             decimal thanhtoan = tongTien - tienCoc;
             txtThanhToan.Text = thanhtoan.ToString("N2");
         }
-        public void AddProductToReceipt(string maSP, string tenSP, string dvt, string tenloaisp, decimal soLuong, decimal donGia,decimal soLuongTon)
+        public void AddProductToReceipt(string maSP, string tenSP, string dvt, string tenloaisp,decimal soLuongTon,string tenkho)
         {
+            string productKey = maSP + tenkho;
+            decimal soLuong = 0;
+            decimal donGia = 0;
             decimal thanhTien = soLuong * donGia;
-            DataGridViewRow row = new DataGridViewRow();
-            row.CreateCells(dgv_BanHang);
-
-            row.Cells[0].Value = maSP;
-            row.Cells[1].Value = dvt;
-            row.Cells[2].Value = tenSP;
-            row.Cells[3].Value = tenloaisp;
-            row.Cells[4].Value = soLuongTon;
-            row.Cells[5].Value = soLuong;
-            row.Cells[6].Value = donGia;
-            row.Cells[7].Value = thanhTien;
-
-            dgv_BanHang.Rows.Add(row);
-
+            if (existingProducts.ContainsKey(productKey))
+            {
+                return;
+            }
+            else
+            {
+                DataGridViewRow row = new DataGridViewRow();
+                row.CreateCells(dgv_BanHang);
+                row.Cells[0].Value = maSP;
+                row.Cells[1].Value = tenSP;
+                row.Cells[2].Value = dvt;
+                row.Cells[3].Value = tenloaisp;
+                row.Cells[4].Value = soLuongTon;
+                row.Cells[5].Value = 0;
+                row.Cells[6].Value = 0;
+                row.Cells[7].Value = thanhTien;
+                row.Cells[8].Value = tenkho;
+                dgv_BanHang.Rows.Add(row);
+                existingProducts.Add(productKey, row);
+            }
             decimal tongTien = TinhTongThanhTien();
             txtTongTien.Text = tongTien.ToString("N2");
         }
@@ -266,9 +280,12 @@ namespace DACN.GUI
                                 string maSP = dgvRow.Cells["MaSP"].Value.ToString();
                                 decimal soLuong = Convert.ToDecimal(dgvRow.Cells["SoLuong"].Value);
                                 decimal donGia = Convert.ToDecimal(dgvRow.Cells["DonGia"].Value);
+                                decimal soLuongTon = Convert.ToDecimal(dgvRow.Cells["SoLuongTon"].Value);
                                 string DVT = dgvRow.Cells["DVT"].Value.ToString();
                                 decimal thanhTien = Convert.ToDecimal(dgvRow.Cells["ThanhTien"].Value);
-                             
+                                string tenkho = dgvRow.Cells["tenkho"].Value.ToString();
+                                string makho = KhoDAO.Instance.GetMaKhoByTenKho(tenkho); 
+                                CTHoaDonDAO.Instance.updateSL(maSP, soLuongTon - soLuong, makho);
                                 CTHoaDonDTO ctHoaDon = new CTHoaDonDTO
                                 {
                                     MaCTHD = GenerateNewCode(),
@@ -281,6 +298,7 @@ namespace DACN.GUI
                                     
                                 };
                                 int detailAdded = CTHoaDonDAO.Instance.Insert(ctHoaDon);
+
                                 if (detailAdded <=0)
                                 {
                                     allDetailsAdded = false;
@@ -291,6 +309,7 @@ namespace DACN.GUI
                         {
                             MessageBox.Show("Thêm phiếu nhập và chi tiết phiếu nhập thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             dgv_BanHang.Rows.Clear();
+                            
                             txtTongTien.Text = "0";
                         }
                         else
@@ -413,7 +432,17 @@ namespace DACN.GUI
 
         private void txtTienCoc_TextChanged(object sender, EventArgs e)
         {
-            
+            decimal tiencoc = 0;
+            if (string.IsNullOrEmpty(txtTienCoc.Text))
+            {
+                txtTienCoc.Text = "0";
+            }
+            tiencoc = decimal.Parse(txtTienCoc.Text);
+            decimal thanhtoan = decimal.Parse(txtThanhToan.Text);
+            if(tiencoc >= thanhtoan){
+                MessageBox.Show("Tiền cọc phải bé hơn tiền thanh toán");
+                txtTienCoc.Text = "0";
+            }
             UpdateTongTien() ;
         }
     }

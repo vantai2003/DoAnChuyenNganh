@@ -1,5 +1,6 @@
 ﻿using DACN.DAO;
 using DACN.DTO;
+using Sunny.UI;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -23,17 +24,27 @@ namespace DACN.GUI
         }
         private void LoadSanPhamBan()
         {
-            
+
             DataTable dtsanpham = CTHoaDonDAO.Instance.GetSanPhamBan();
-            dtsanpham.Columns.Add("SoLuong", typeof(decimal));
-            dtsanpham.Columns.Add("DonGia", typeof(decimal));
+            DataGridViewCheckBoxColumn chkColumn = uiDataGridView1.Columns["Chon"] as DataGridViewCheckBoxColumn;
+            if (chkColumn == null)
+            {
+                chkColumn = new DataGridViewCheckBoxColumn();
+                chkColumn.HeaderText = "Chọn";
+                chkColumn.Name = "Chon";
+                uiDataGridView1.Columns.Add(chkColumn);
+            }
+
+            uiDataGridView1.AllowUserToAddRows = false;
             uiDataGridView1.DataSource = dtsanpham;
+            uiDataGridView1.AutoSize = true;
+
             SetupDataGridView();
 
         }
         private void uiButton1_Click(object sender, EventArgs e)
         {
-     
+
         }
         private void SetupDataGridView()
         {
@@ -41,75 +52,97 @@ namespace DACN.GUI
             foreach (DataGridViewColumn column in uiDataGridView1.Columns)
             {
                 column.ReadOnly = true;
+                uiDataGridView1.Columns["Chon"].ReadOnly = false;
             }
+
         }
         private void uiDataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex >= 0)
-            {
-                DataGridViewRow selectedRow = uiDataGridView1.Rows[e.RowIndex];
-                string maSP = selectedRow.Cells["MaSP"].Value.ToString();
-                string tenSP = selectedRow.Cells["TenSP"].Value.ToString();
-                string dvt = selectedRow.Cells["DVT"].Value.ToString();
-                string tenKho = selectedRow.Cells["TenKho"].Value.ToString();
-                //decimal soLuongTon = decimal.Parse(selectedRow.Cells["soLuongTon"].Value.ToString());
-                if (selectedRow.Cells["SoLuong"].Value != null)
-                {
-                    selectedRow.Cells["SoLuong"].Value = 1;
-                }
-                if (selectedRow.Cells["DonGia"].Value != null)
-                {
-                    selectedRow.Cells["DonGia"].Value = 0;
-                }
 
-                decimal soluong = int.Parse(selectedRow.Cells["SoLuong"].Value.ToString());
-              
-                    selectedProducts.Add(new Kho_SanPhamDTO
-                    {
-                        MaSP = maSP,
-                        TenSP = tenSP,
-                        DVT = dvt,
-                        TenKho = tenKho,
-                    });
-                uiDataGridView1.Refresh();
-                
-            }
         }
 
         private void btnChonSP_Click(object sender, EventArgs e)
         {
             if (this.Owner is FormBanHang formBanHang)
             {
-                foreach (DataGridViewRow row in uiDataGridView1.Rows)
+                foreach (var product in selectedProducts)
                 {
-                    if (row.Cells["SoLuong"].Value != null && row.Cells["DonGia"].Value != null)
-                    {
-                        decimal soLuong, donGia =0;
-                        decimal soLuongTon = decimal.Parse(row.Cells["SoLuongTon"].Value.ToString());
-                        if (decimal.TryParse(row.Cells["SoLuong"].Value.ToString(), out soLuong) &&
-                            decimal.TryParse(row.Cells["DonGia"].Value.ToString(), out donGia) &&
-                            soLuong > 0)
-                        if (soLuong > soLuongTon)
-                            {
-                                MessageBox.Show($"Số lượng nhập không được vượt quá số lượng tồn ({soLuongTon})!",
-                                                "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                continue; 
-                            }
-
-                        {
-                            string maSP = row.Cells["MaSP"].Value.ToString();
-                            string tenSP = row.Cells["TenSP"].Value.ToString();
-                            string dvt = row.Cells["DVT"].Value.ToString();
-                            string tenLoai = row.Cells["TenLoai"].Value.ToString();
-                            string tenkho = row.Cells["TenKho"].Value.ToString();
-                            formBanHang.AddProductToReceipt(maSP, dvt, tenSP, tenLoai, soLuong, donGia, soLuongTon);
-                        }
-                    }
-                    
+                    formBanHang.AddProductToReceipt(product.MaSP, product.TenSP, product.DVT, product.TenLoaiSP, product.SoLuongTon, product.TenKho);
                 }
-
                 this.Close();
             }
         }
+
+        private void uiDataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == uiDataGridView1.Columns["Chon"].Index && e.RowIndex >= 0)
+            {
+                DataGridViewRow row = uiDataGridView1.Rows[e.RowIndex];
+                bool isChecked = row.Cells["Chon"].Selected; 
+
+                if (isChecked)
+                {
+                    try
+                    { 
+                        if (row.Cells["MaSP"].Value == null || row.Cells["TenSP"].Value == null || row.Cells["DVT"].Value == null || row.Cells["TenKho"].Value == null || row.Cells["SoLuongTon"].Value == null)
+                        {
+                            MessageBox.Show("Missing data in row!");
+                            return;
+                        }
+
+                        string maSP = row.Cells["MaSP"].Value.ToString();
+                        string tenSP = row.Cells["TenSP"].Value.ToString();
+                        string dvt = row.Cells["DVT"].Value.ToString();
+                        string tenKho = row.Cells["TenKho"].Value.ToString();
+                        decimal soLuongTon = decimal.Parse(row.Cells["SoLuongTon"].Value.ToString());
+                        string tenloaisp = row.Cells["TenLoai"].Value.ToString();
+                        selectedProducts.Add(new Kho_SanPhamDTO
+                        {
+                            MaSP = maSP,
+                            TenSP = tenSP,
+                            DVT = dvt,
+                            TenKho = tenKho,
+                            SoLuongTon = soLuongTon,
+                            TenLoaiSP = tenloaisp
+
+                        });
+                    }
+                    
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("An error occurred: " + ex.Message);
+                    }
+                }
+                else
+                {
+                    selectedProducts.RemoveAll(p => p.MaSP == row.Cells["MaSP"].Value.ToString());
+                }
+            }
+        }
+
+        private void btn_lammoiHang_Click(object sender, EventArgs e)
+        {
+            LoadSanPhamBan();
+        }
+
+        private void tbTimKiemHang_TextChanged(object sender, EventArgs e)
+        {
+            DataTable dtsanpham = CTHoaDonDAO.Instance.SearchSP(tbTimKiemHang.Text);
+            DataGridViewCheckBoxColumn chkColumn = uiDataGridView1.Columns["Chon"] as DataGridViewCheckBoxColumn;
+            if (chkColumn == null)
+            {
+                chkColumn = new DataGridViewCheckBoxColumn();
+                chkColumn.HeaderText = "Chọn";
+                chkColumn.Name = "Chon";
+                uiDataGridView1.Columns.Add(chkColumn);
+            }
+
+            uiDataGridView1.AllowUserToAddRows = false;
+            uiDataGridView1.DataSource = dtsanpham;
+            uiDataGridView1.AutoSize = true;
+
+            SetupDataGridView();
+
+        }
     }
-}
+    }

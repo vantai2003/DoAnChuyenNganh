@@ -735,6 +735,21 @@ DROP COLUMN MaKho;
 exec SP_GetListSP
 drop proc SP_GetProductsInStock
 --thủ tục lấy dữ liệu tồn
+--thủ tục tìm sản phẩm trong kho
+CREATE PROC SP_TimKiemSPKho
+@SearchValue varchar(50)
+AS
+BEGIN
+	SELECT  sp.MaSP, sp.TenSP, sp.DVT, k.TenKho, ks.SoLuongTon, lp.TenLoai  
+	FROM Kho_SanPham ks 
+	JOIN SanPham sp ON ks.MaSP = sp.MaSP
+    JOIN Kho k ON ks.MaKho = k.MaKho
+    JOIN LoaiSanPham lp ON sp.MaLoai = lp.MaLoai
+	WHERE sp.MaSP LIKE '%' + @SearchValue + '%'
+	OR sp.TenSP LIKE '%' + @SearchValue + '%';
+END
+GO
+--
 CREATE PROCEDURE SP_GetProductsInStock
 AS
 BEGIN
@@ -742,7 +757,7 @@ BEGIN
     FROM Kho_SanPham ks
     JOIN SanPham sp ON ks.MaSP = sp.MaSP
     JOIN Kho k ON ks.MaKho = k.MaKho
-    JOIN LoaiSanPham lp ON sp.MaLoai = lp.MaLoai; -- Kết nối với bảng LoaiSanPham
+    JOIN LoaiSanPham lp ON sp.MaLoai = lp.MaLoai;
 END
 GO
 exec SP_GetProductsInStock
@@ -1007,6 +1022,7 @@ BEGIN
     VALUES (@MaHD,@NgayDatHang,@TongTien,@TrangThai,@DiaChiGiaoHang,@TienCoc,@ThanhToan,@MaKH,@MaNV);
 END;
 GO
+select * from HoaDon
 -----------Cập nhật Hóa đơn-------------------
 CREATE PROC sp_Update_HD
 	@MaHD VARCHAR(50),
