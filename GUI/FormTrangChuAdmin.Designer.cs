@@ -133,8 +133,8 @@
             this.uiPanel2.Controls.Add(this.txt_ThongTintt);
             this.uiPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.uiPanel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.uiPanel2.Location = new System.Drawing.Point(431, 0);
-            this.uiPanel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.uiPanel2.Location = new System.Drawing.Point(485, 0);
+            this.uiPanel2.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.uiPanel2.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiPanel2.Name = "uiPanel2";
             this.uiPanel2.Size = new System.Drawing.Size(818, 798);
@@ -146,7 +146,7 @@
             // 
             this.txt_TestMaNV.Location = new System.Drawing.Point(145, 418);
             this.txt_TestMaNV.Name = "txt_TestMaNV";
-            this.txt_TestMaNV.Size = new System.Drawing.Size(100, 30);
+            this.txt_TestMaNV.Size = new System.Drawing.Size(100, 35);
             this.txt_TestMaNV.TabIndex = 3;
             // 
             // uiTextBox2
@@ -209,7 +209,7 @@
             this.uiPanel1.FillColor = System.Drawing.Color.Green;
             this.uiPanel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.uiPanel1.Location = new System.Drawing.Point(0, 0);
-            this.uiPanel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.uiPanel1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.uiPanel1.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiPanel1.Name = "uiPanel1";
             this.uiPanel1.Size = new System.Drawing.Size(431, 798);
@@ -316,7 +316,11 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
+
+            this.panel1.Size = new System.Drawing.Size(485, 218);
+
             this.panel1.Size = new System.Drawing.Size(431, 218);
+
             this.panel1.TabIndex = 0;
             // 
             // uiContextMenuStrip1
@@ -329,13 +333,14 @@
             // 
             // FormTrangChuAdmin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Moccasin;
-            this.ClientSize = new System.Drawing.Size(1249, 831);
+            this.ClientSize = new System.Drawing.Size(1405, 1039);
             this.Controls.Add(this.panel_body);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FormTrangChuAdmin";
             this.Text = "FormTrangChuAdmin";
             this.menuStrip1.ResumeLayout(false);

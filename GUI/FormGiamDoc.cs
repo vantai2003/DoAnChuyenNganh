@@ -56,5 +56,10 @@ namespace DACN.GUI
         {
             OpenChildForm(new FormQLNhanVien());
         }
+
+        private void btn_ĐuyetM_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new FormDuyetKhuyenMai());
+        }
     }
 }

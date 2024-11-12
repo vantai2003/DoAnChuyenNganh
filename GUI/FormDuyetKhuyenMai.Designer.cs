@@ -437,6 +437,7 @@
             this.tab_DuyetKM.SelectedIndex = 0;
             this.tab_DuyetKM.Size = new System.Drawing.Size(1054, 648);
             this.tab_DuyetKM.TabIndex = 1;
+            this.tab_DuyetKM.SelectedIndexChanged += new System.EventHandler(this.tab_DuyetKM_SelectedIndexChanged);
             // 
             // FormDuyetKhuyenMai
             // 

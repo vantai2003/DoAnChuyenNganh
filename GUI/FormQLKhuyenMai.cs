@@ -14,6 +14,7 @@ namespace DACN.GUI
 {
     public partial class FormQLKhuyenMai : Form
     {
+        public static string loaiDK;
         private int flag;
         public FormQLKhuyenMai()
         {
@@ -36,10 +37,18 @@ namespace DACN.GUI
                  ngayBD = null;
                  ngayKT = null;
             }
+            else if (flag == 3)
+            {
+                string loaiKH = cb_LoaiKH.SelectedValue.ToString();
+                tenKM = "Khuyến mãi dành cho khách hàng " + loaiKH;
+                ngayBD = null;
+                ngayKT = null;
+            }
             else
             {
                 ngayBD = dtp_NgayBD.Value;
                 ngayKT = dtp_NgayKT.Value;
+                
             }
             try
             {
@@ -56,19 +65,33 @@ namespace DACN.GUI
         private void rd_TheoKhoangTG_CheckedChanged(object sender, EventArgs e)
         {
             dtp_NgayBD.Enabled = dtp_NgayKT.Enabled = true;
+            lb_LoaiKH.Enabled = cb_LoaiKH.Enabled = false;
             flag = 1;
+            loaiDK = "Theo khoảng thời gian";
         }
 
         private void rd_TheoTongTien_CheckedChanged(object sender, EventArgs e)
         {
-            dtp_NgayBD.Enabled = dtp_NgayKT.Enabled = false;
+            dtp_NgayBD.Enabled = dtp_NgayKT.Enabled = lb_LoaiKH.Enabled = cb_LoaiKH.Enabled = false;
+            txt_TenKM.Enabled = true;
             flag = 2;
+            loaiDK = "Theo tổng tiền";
         }
-
+        private void LoadListLoaiKH()
+        {
+            List<LoaiKhachHangDTO> listLoaiKH = LoaiKhachHangDAO.Instance.GetLoaiKhachHang();
+            cb_LoaiKH.DataSource = listLoaiKH;
+            cb_LoaiKH.DisplayMember = "TenLoaiKH";
+            cb_LoaiKH.ValueMember = "TenLoaiKH";
+        }
         private void rd_TheoLoaiKH_CheckedChanged(object sender, EventArgs e)
         {
             dtp_NgayBD.Enabled = dtp_NgayKT.Enabled = false;
-            flag = 2;
+            lb_tenkm.Enabled = txt_TenKM.Enabled = false;
+            lb_LoaiKH.Enabled = cb_LoaiKH.Enabled = true;
+            flag = 3;
+            loaiDK = "Theo loại khách hàng";
+            LoadListLoaiKH();
         }
         private void LoadListKM()
         {

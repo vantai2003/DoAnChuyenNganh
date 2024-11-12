@@ -19,7 +19,7 @@ namespace DACN.GUI
         {
             InitializeComponent();
             LoadListDSKMCanPheDuyet();
-            LoadDSKhuyenMai();
+            
         }
         private void LoadListDSKMCanPheDuyet()
         {
@@ -74,6 +74,24 @@ namespace DACN.GUI
         {
             List<KhuyenMaiDTO> listKM = KhuyenMaiDAO.Instance.LoadListKM();
             dvg_DSKhuyenMai.DataSource = listKM;
+        }
+
+        private void tab_DuyetKM_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int index = tab_DuyetKM.SelectedIndex;
+
+            switch (index)
+            {
+                case 0:
+                    LoadListDSKMCanPheDuyet();
+                    break;
+                case 1:
+
+                    LoadDSKhuyenMai(); 
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }

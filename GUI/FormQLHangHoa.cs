@@ -207,7 +207,17 @@ namespace DACN.GUI
                 txt_MaHH.Text = Convert.ToString(row.Cells["MaSP"].Value);
                 txt_TenHH.Text = Convert.ToString(row.Cells["TenSP"].Value);
                 cb_DVT.SelectedItem = row.Cells["DVT"].Value.ToString();
-                cb_LoaiHH.SelectedValue = Convert.ToString(row.Cells["TenLoai"].Value);
+                //cb_LoaiHH.SelectedValue = Convert.ToString(row.Cells["TenLoai"].Value);
+                string tenLoai = row.Cells["TenLoai"].Value.ToString();
+
+                foreach (LoaiSanPhamDTO loaiSP in cb_LoaiHH.Items)
+                {
+                    if (loaiSP.TenLoai == tenLoai)
+                    {
+                        cb_LoaiHH.SelectedItem = loaiSP;
+                        break;
+                    }
+                }
                 btn_XoaHH.Enabled = true;
                 btn_ThemHH.Enabled = false;
                 btn_SuaHH.Enabled = true;

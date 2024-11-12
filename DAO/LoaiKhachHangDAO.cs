@@ -29,22 +29,48 @@ namespace DACN.DAO
 
             foreach (DataRow row in data.Rows)
             {
-                LoaiKhachHangDTO loaikh = new LoaiKhachHangDTO(row);
-                list.Add(loaikh);
+                LoaiKhachHangDTO lkh = new LoaiKhachHangDTO()
+                {
+                    MaLoaiKH = row["MaLoaiKH"].ToString(),
+                    TenLoaiKH = row["TenLoaiKH"].ToString(),
+                };
+                if (row["MucChiTieuToiThieu"] != DBNull.Value && row["MucChiTieuToiDa"] != DBNull.Value)
+                {
+                    lkh.MucChiTieuToiThieu = Convert.ToDecimal(row["MucChiTieuToiThieu"]);
+                    lkh.MucChiTieuToiDa = Convert.ToDecimal(row["MucChiTieuToiDa"]);
+                }
+                else
+                {
+                    lkh.MucChiTieuToiThieu = null;
+                    lkh.MucChiTieuToiDa = null;
+                }
+
+                list.Add(lkh);
             }
 
             return list;
         }
-        public int Insert(string maloai, string tenloai)
+        public static string GetLoaiKHById(string tenloai)
         {
-            string query = "sp_Insert_LoaiKhachHang @MaLKH , @TenLKH";
-            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { maloai, tenloai });
+            string query = "SP_GetTenLoaiKHById @TenLoaiKH";
+            DataTable result = DataProvider.Instance.ExecuteQuery(query, new object[] {tenloai});
+
+            if (result.Rows.Count > 0)
+            {
+                return result.Rows[0][0].ToString();
+            }
+            return null;
+        }
+        public int Insert(string maloai, string tenloai, object mucchitieutt, object mucchitieutd)
+        {
+            string query = "sp_Insert_LoaiKhachHang @MaLKH , @TenLKH , @MucChiTieuToiThieu , @MucChiTieuToiDa";
+            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { maloai, tenloai, mucchitieutt ?? DBNull.Value, mucchitieutd ?? DBNull.Value });
             return result;
         }
         public int Update(LoaiKhachHangDTO obj)
         {
-            string query = "sp_Update_LoaiKhachHang @MaLKH , @TenLKH";
-            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { obj.MaLoaiKH, obj.TenLoaiKH });
+            string query = "sp_Update_LoaiKhachHang @MaLKH , @TenLKH , @MucChiTieuToiThieu , @MucChiTieuToiDa";
+            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { obj.MaLoaiKH, obj.TenLoaiKH, obj.MucChiTieuToiThieu, obj.MucChiTieuToiDa });
             return result;
         }
         public int Delete(string ID)

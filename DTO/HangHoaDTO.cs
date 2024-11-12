@@ -14,7 +14,7 @@ namespace DACN.DTO
         public string DVT { get; set; }
         public string MaKho { get; set; }
         public string MaLoaiSP { get; set; }
-        public string TenLoai {  get; set; }
+        public string TenLoai { get; set; }
 
         public HangHoaDTO(DataRow row)
         {

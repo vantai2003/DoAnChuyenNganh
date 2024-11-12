@@ -23,6 +23,8 @@ namespace DACN.GUI
             InitializeComponent();
             mancc = FormNhapHang.mancc;
             LoadSanPham();
+
+     
         }
         private void LoadSanPham()
         {
@@ -33,7 +35,7 @@ namespace DACN.GUI
             dvg_ChonSP.DataSource = dtSanPham;
             textBox1.Text = mancc;
         }
-
+ 
         private void btn_Import_Click(object sender, EventArgs e)
         {
 
@@ -52,15 +54,11 @@ namespace DACN.GUI
                             string tenSP = row.Cells["TenSP"].Value.ToString();
                             string dvt = row.Cells["DVT"].Value.ToString();
                             string tenLoai = row.Cells["TenLoai"].Value.ToString();
-                            fNhapHang.AddProductToReceipt(maSP, dvt, tenSP, tenLoai ,soLuong, donGia);
+                            fNhapHang.AddProductToReceipt(maSP, dvt, tenSP, tenLoai, soLuong, donGia);
                         }
                     }
                 }
                 this.Close();
-            }
-            else
-            {
-                MessageBox.Show("Không thể truy cập đến FormNhapHang.");
             }
         
         }
