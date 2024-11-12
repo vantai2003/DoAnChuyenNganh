@@ -39,16 +39,22 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormQLHangHoa));
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.tab_body = new System.Windows.Forms.TabControl();
             this.tab_HangHoa = new System.Windows.Forms.TabPage();
             this.panel_body = new System.Windows.Forms.Panel();
             this.panel_left = new System.Windows.Forms.Panel();
             this.uiPanel1 = new Sunny.UI.UIPanel();
             this.dvg_HangHoa = new Sunny.UI.UIDataGridView();
             this.panel_topleft = new Sunny.UI.UIPanel();
+            this.btn_LocHH = new System.Windows.Forms.Button();
+            this.cb_LoaiSP = new System.Windows.Forms.ComboBox();
             this.grb_Loc = new Sunny.UI.UIGroupBox();
             this.rd_LoaiHH = new System.Windows.Forms.RadioButton();
-            this.rd_kho = new System.Windows.Forms.RadioButton();
             this.grb_search = new Sunny.UI.UIGroupBox();
             this.btn_SearchHH = new Sunny.UI.UIImageButton();
             this.txt_SearchHH = new Sunny.UI.UITextBox();
@@ -74,6 +80,7 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.dvg_LoaiSP = new Sunny.UI.UIDataGridView();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.btn_Luu = new System.Windows.Forms.Button();
             this.btnThem = new System.Windows.Forms.Button();
             this.btn_Sua = new System.Windows.Forms.Button();
             this.btn_Xoa = new System.Windows.Forms.Button();
@@ -82,10 +89,24 @@
             this.lb_TenLoai = new System.Windows.Forms.Label();
             this.lbMaLoai = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btn_Reload = new System.Windows.Forms.Button();
             this.uiGroupBox1 = new Sunny.UI.UIGroupBox();
             this.txt_Search = new Sunny.UI.UITextBox();
             this.btn_Search = new System.Windows.Forms.Button();
-            this.tabControl1.SuspendLayout();
+            this.tab_TonKho = new System.Windows.Forms.TabPage();
+            this.uiPanel2 = new Sunny.UI.UIPanel();
+            this.uiPanel3 = new Sunny.UI.UIPanel();
+            this.uiPanel4 = new Sunny.UI.UIPanel();
+            this.dvg_TonKho = new Sunny.UI.UIDataGridView();
+            this.uiPanel5 = new Sunny.UI.UIPanel();
+            this.btn_Loc = new System.Windows.Forms.Button();
+            this.cb_Kho = new System.Windows.Forms.ComboBox();
+            this.txt_SearchKho = new Sunny.UI.UITextBox();
+            this.rgb_Loc = new Sunny.UI.UIRadioButtonGroup();
+            this.rdb_Kho = new Sunny.UI.UIRadioButton();
+            this.rdb_SanPham = new Sunny.UI.UIRadioButton();
+            this.uiPanel6 = new Sunny.UI.UIPanel();
+            this.tab_body.SuspendLayout();
             this.tab_HangHoa.SuspendLayout();
             this.panel_body.SuspendLayout();
             this.panel_left.SuspendLayout();
@@ -108,27 +129,37 @@
             this.panel4.SuspendLayout();
             this.panel1.SuspendLayout();
             this.uiGroupBox1.SuspendLayout();
+            this.tab_TonKho.SuspendLayout();
+            this.uiPanel2.SuspendLayout();
+            this.uiPanel3.SuspendLayout();
+            this.uiPanel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dvg_TonKho)).BeginInit();
+            this.uiPanel5.SuspendLayout();
+            this.rgb_Loc.SuspendLayout();
             this.SuspendLayout();
             // 
-            // tabControl1
+            // tab_body
             // 
-            this.tabControl1.Controls.Add(this.tab_HangHoa);
-            this.tabControl1.Controls.Add(this.tab_LoaiHH);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(0, 0);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1286, 707);
-            this.tabControl1.TabIndex = 0;
+            this.tab_body.Controls.Add(this.tab_HangHoa);
+            this.tab_body.Controls.Add(this.tab_LoaiHH);
+            this.tab_body.Controls.Add(this.tab_TonKho);
+            this.tab_body.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tab_body.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tab_body.Location = new System.Drawing.Point(0, 0);
+            this.tab_body.Name = "tab_body";
+            this.tab_body.SelectedIndex = 0;
+            this.tab_body.Size = new System.Drawing.Size(1380, 707);
+            this.tab_body.TabIndex = 0;
+            this.tab_body.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
             // tab_HangHoa
             // 
             this.tab_HangHoa.Controls.Add(this.panel_body);
             this.tab_HangHoa.Controls.Add(this.panel_top);
-            this.tab_HangHoa.Location = new System.Drawing.Point(4, 25);
+            this.tab_HangHoa.Location = new System.Drawing.Point(4, 31);
             this.tab_HangHoa.Name = "tab_HangHoa";
             this.tab_HangHoa.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_HangHoa.Size = new System.Drawing.Size(1278, 678);
+            this.tab_HangHoa.Size = new System.Drawing.Size(1372, 672);
             this.tab_HangHoa.TabIndex = 0;
             this.tab_HangHoa.Text = "Hàng Hóa";
             this.tab_HangHoa.UseVisualStyleBackColor = true;
@@ -140,7 +171,7 @@
             this.panel_body.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_body.Location = new System.Drawing.Point(3, 67);
             this.panel_body.Name = "panel_body";
-            this.panel_body.Size = new System.Drawing.Size(1272, 608);
+            this.panel_body.Size = new System.Drawing.Size(1366, 602);
             this.panel_body.TabIndex = 2;
             // 
             // panel_left
@@ -151,7 +182,7 @@
             this.panel_left.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_left.Location = new System.Drawing.Point(0, 0);
             this.panel_left.Name = "panel_left";
-            this.panel_left.Size = new System.Drawing.Size(804, 608);
+            this.panel_left.Size = new System.Drawing.Size(943, 602);
             this.panel_left.TabIndex = 1;
             // 
             // uiPanel1
@@ -163,7 +194,7 @@
             this.uiPanel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.uiPanel1.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiPanel1.Name = "uiPanel1";
-            this.uiPanel1.Size = new System.Drawing.Size(804, 503);
+            this.uiPanel1.Size = new System.Drawing.Size(943, 497);
             this.uiPanel1.TabIndex = 2;
             this.uiPanel1.Text = null;
             this.uiPanel1.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
@@ -211,13 +242,15 @@
             this.dvg_HangHoa.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dvg_HangHoa.RowTemplate.Height = 24;
             this.dvg_HangHoa.SelectedIndex = -1;
-            this.dvg_HangHoa.Size = new System.Drawing.Size(804, 328);
+            this.dvg_HangHoa.Size = new System.Drawing.Size(943, 328);
             this.dvg_HangHoa.StripeOddColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
             this.dvg_HangHoa.TabIndex = 0;
             this.dvg_HangHoa.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dvg_HangHoa_CellClick);
             // 
             // panel_topleft
             // 
+            this.panel_topleft.Controls.Add(this.btn_LocHH);
+            this.panel_topleft.Controls.Add(this.cb_LoaiSP);
             this.panel_topleft.Controls.Add(this.grb_Loc);
             this.panel_topleft.Controls.Add(this.grb_search);
             this.panel_topleft.Dock = System.Windows.Forms.DockStyle.Top;
@@ -226,22 +259,39 @@
             this.panel_topleft.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel_topleft.MinimumSize = new System.Drawing.Size(1, 1);
             this.panel_topleft.Name = "panel_topleft";
-            this.panel_topleft.Size = new System.Drawing.Size(804, 105);
+            this.panel_topleft.Size = new System.Drawing.Size(943, 105);
             this.panel_topleft.TabIndex = 1;
             this.panel_topleft.Text = null;
             this.panel_topleft.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // btn_LocHH
+            // 
+            this.btn_LocHH.Location = new System.Drawing.Point(969, 30);
+            this.btn_LocHH.Name = "btn_LocHH";
+            this.btn_LocHH.Size = new System.Drawing.Size(115, 47);
+            this.btn_LocHH.TabIndex = 21;
+            this.btn_LocHH.Text = "Lọc";
+            this.btn_LocHH.UseVisualStyleBackColor = true;
+            this.btn_LocHH.Click += new System.EventHandler(this.btn_LocHH_Click);
+            // 
+            // cb_LoaiSP
+            // 
+            this.cb_LoaiSP.FormattingEnabled = true;
+            this.cb_LoaiSP.Location = new System.Drawing.Point(782, 38);
+            this.cb_LoaiSP.Name = "cb_LoaiSP";
+            this.cb_LoaiSP.Size = new System.Drawing.Size(155, 33);
+            this.cb_LoaiSP.TabIndex = 20;
+            // 
             // grb_Loc
             // 
             this.grb_Loc.Controls.Add(this.rd_LoaiHH);
-            this.grb_Loc.Controls.Add(this.rd_kho);
             this.grb_Loc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.grb_Loc.Location = new System.Drawing.Point(485, 8);
             this.grb_Loc.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.grb_Loc.MinimumSize = new System.Drawing.Size(1, 1);
             this.grb_Loc.Name = "grb_Loc";
             this.grb_Loc.Padding = new System.Windows.Forms.Padding(0, 32, 0, 0);
-            this.grb_Loc.Size = new System.Drawing.Size(315, 76);
+            this.grb_Loc.Size = new System.Drawing.Size(267, 76);
             this.grb_Loc.TabIndex = 1;
             this.grb_Loc.Text = "Lọc";
             this.grb_Loc.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
@@ -250,26 +300,14 @@
             // 
             this.rd_LoaiHH.AutoSize = true;
             this.rd_LoaiHH.BackColor = System.Drawing.Color.White;
-            this.rd_LoaiHH.Location = new System.Drawing.Point(143, 36);
+            this.rd_LoaiHH.Location = new System.Drawing.Point(57, 36);
             this.rd_LoaiHH.Name = "rd_LoaiHH";
             this.rd_LoaiHH.Size = new System.Drawing.Size(157, 29);
             this.rd_LoaiHH.TabIndex = 1;
             this.rd_LoaiHH.TabStop = true;
             this.rd_LoaiHH.Text = "Loại hàng hóa";
             this.rd_LoaiHH.UseVisualStyleBackColor = false;
-            // 
-            // rd_kho
-            // 
-            this.rd_kho.AutoSize = true;
-            this.rd_kho.BackColor = System.Drawing.Color.White;
-            this.rd_kho.Location = new System.Drawing.Point(17, 36);
-            this.rd_kho.Name = "rd_kho";
-            this.rd_kho.Size = new System.Drawing.Size(69, 29);
-            this.rd_kho.TabIndex = 0;
-            this.rd_kho.TabStop = true;
-            this.rd_kho.Text = "Kho";
-            this.rd_kho.UseVisualStyleBackColor = false;
-            this.rd_kho.CheckedChanged += new System.EventHandler(this.rd_kho_CheckedChanged);
+            this.rd_LoaiHH.CheckedChanged += new System.EventHandler(this.rd_LoaiHH_CheckedChanged);
             // 
             // grb_search
             // 
@@ -333,9 +371,9 @@
             this.panel_right.Controls.Add(this.lb_tenhh);
             this.panel_right.Controls.Add(this.lb_mahh);
             this.panel_right.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel_right.Location = new System.Drawing.Point(804, 0);
+            this.panel_right.Location = new System.Drawing.Point(943, 0);
             this.panel_right.Name = "panel_right";
-            this.panel_right.Size = new System.Drawing.Size(468, 608);
+            this.panel_right.Size = new System.Drawing.Size(423, 602);
             this.panel_right.TabIndex = 0;
             // 
             // btn_ReloadHH
@@ -528,7 +566,7 @@
             this.panel_top.Location = new System.Drawing.Point(3, 3);
             this.panel_top.Name = "panel_top";
             this.panel_top.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.panel_top.Size = new System.Drawing.Size(1272, 64);
+            this.panel_top.Size = new System.Drawing.Size(1366, 64);
             this.panel_top.TabIndex = 1;
             // 
             // label_qlhh
@@ -538,7 +576,7 @@
             this.label_qlhh.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_qlhh.ForeColor = System.Drawing.Color.White;
             this.label_qlhh.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label_qlhh.Location = new System.Drawing.Point(556, 23);
+            this.label_qlhh.Location = new System.Drawing.Point(603, 23);
             this.label_qlhh.Name = "label_qlhh";
             this.label_qlhh.Size = new System.Drawing.Size(203, 22);
             this.label_qlhh.TabIndex = 0;
@@ -548,10 +586,10 @@
             // tab_LoaiHH
             // 
             this.tab_LoaiHH.Controls.Add(this.pannel_Body);
-            this.tab_LoaiHH.Location = new System.Drawing.Point(4, 25);
+            this.tab_LoaiHH.Location = new System.Drawing.Point(4, 31);
             this.tab_LoaiHH.Name = "tab_LoaiHH";
             this.tab_LoaiHH.Padding = new System.Windows.Forms.Padding(3);
-            this.tab_LoaiHH.Size = new System.Drawing.Size(1278, 678);
+            this.tab_LoaiHH.Size = new System.Drawing.Size(1372, 672);
             this.tab_LoaiHH.TabIndex = 1;
             this.tab_LoaiHH.Text = "Loại Hàng Hóa";
             this.tab_LoaiHH.UseVisualStyleBackColor = true;
@@ -564,7 +602,7 @@
             this.pannel_Body.Location = new System.Drawing.Point(3, 3);
             this.pannel_Body.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pannel_Body.Name = "pannel_Body";
-            this.pannel_Body.Size = new System.Drawing.Size(1272, 672);
+            this.pannel_Body.Size = new System.Drawing.Size(1366, 666);
             this.pannel_Body.TabIndex = 4;
             // 
             // panel3
@@ -575,7 +613,7 @@
             this.panel3.Location = new System.Drawing.Point(0, 107);
             this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1272, 565);
+            this.panel3.Size = new System.Drawing.Size(1366, 559);
             this.panel3.TabIndex = 2;
             // 
             // panel5
@@ -586,7 +624,7 @@
             this.panel5.Location = new System.Drawing.Point(0, 0);
             this.panel5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(761, 565);
+            this.panel5.Size = new System.Drawing.Size(855, 559);
             this.panel5.TabIndex = 1;
             // 
             // dvg_LoaiSP
@@ -636,7 +674,7 @@
             this.dvg_LoaiSP.RowsDefaultCellStyle = dataGridViewCellStyle10;
             this.dvg_LoaiSP.RowTemplate.Height = 24;
             this.dvg_LoaiSP.SelectedIndex = -1;
-            this.dvg_LoaiSP.Size = new System.Drawing.Size(761, 453);
+            this.dvg_LoaiSP.Size = new System.Drawing.Size(855, 453);
             this.dvg_LoaiSP.StripeOddColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
             this.dvg_LoaiSP.TabIndex = 0;
             this.dvg_LoaiSP.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dvg_LoaiSP_CellClick);
@@ -644,6 +682,7 @@
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.RosyBrown;
+            this.panel4.Controls.Add(this.btn_Luu);
             this.panel4.Controls.Add(this.btnThem);
             this.panel4.Controls.Add(this.btn_Sua);
             this.panel4.Controls.Add(this.btn_Xoa);
@@ -652,11 +691,28 @@
             this.panel4.Controls.Add(this.lb_TenLoai);
             this.panel4.Controls.Add(this.lbMaLoai);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel4.Location = new System.Drawing.Point(761, 0);
+            this.panel4.Location = new System.Drawing.Point(855, 0);
             this.panel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(511, 565);
+            this.panel4.Size = new System.Drawing.Size(511, 559);
             this.panel4.TabIndex = 0;
+            // 
+            // btn_Luu
+            // 
+            this.btn_Luu.BackColor = System.Drawing.Color.OrangeRed;
+            this.btn_Luu.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_Luu.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Luu.ForeColor = System.Drawing.Color.White;
+            this.btn_Luu.Image = global::DACN.Properties.Resources.Save1;
+            this.btn_Luu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_Luu.Location = new System.Drawing.Point(257, 327);
+            this.btn_Luu.Name = "btn_Luu";
+            this.btn_Luu.Size = new System.Drawing.Size(105, 56);
+            this.btn_Luu.TabIndex = 54;
+            this.btn_Luu.Text = "Lưu";
+            this.btn_Luu.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btn_Luu.UseVisualStyleBackColor = false;
+            this.btn_Luu.Click += new System.EventHandler(this.btn_Luu_Click);
             // 
             // btnThem
             // 
@@ -758,13 +814,29 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.panel1.Controls.Add(this.btn_Reload);
             this.panel1.Controls.Add(this.uiGroupBox1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1272, 107);
+            this.panel1.Size = new System.Drawing.Size(1366, 107);
             this.panel1.TabIndex = 0;
+            // 
+            // btn_Reload
+            // 
+            this.btn_Reload.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btn_Reload.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Reload.Image = global::DACN.Properties.Resources.Loading;
+            this.btn_Reload.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_Reload.Location = new System.Drawing.Point(895, 24);
+            this.btn_Reload.Name = "btn_Reload";
+            this.btn_Reload.Size = new System.Drawing.Size(144, 59);
+            this.btn_Reload.TabIndex = 54;
+            this.btn_Reload.Text = "Làm mới";
+            this.btn_Reload.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btn_Reload.UseVisualStyleBackColor = false;
+            this.btn_Reload.Click += new System.EventHandler(this.btn_Reload_Click);
             // 
             // uiGroupBox1
             // 
@@ -813,15 +885,230 @@
             this.btn_Search.UseVisualStyleBackColor = false;
             this.btn_Search.Click += new System.EventHandler(this.btn_Search_Click);
             // 
+            // tab_TonKho
+            // 
+            this.tab_TonKho.Controls.Add(this.uiPanel2);
+            this.tab_TonKho.Location = new System.Drawing.Point(4, 31);
+            this.tab_TonKho.Name = "tab_TonKho";
+            this.tab_TonKho.Size = new System.Drawing.Size(1372, 672);
+            this.tab_TonKho.TabIndex = 2;
+            this.tab_TonKho.Text = "Tồn kho";
+            this.tab_TonKho.UseVisualStyleBackColor = true;
+            // 
+            // uiPanel2
+            // 
+            this.uiPanel2.Controls.Add(this.uiPanel3);
+            this.uiPanel2.Controls.Add(this.uiPanel6);
+            this.uiPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uiPanel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.uiPanel2.Location = new System.Drawing.Point(0, 0);
+            this.uiPanel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.uiPanel2.MinimumSize = new System.Drawing.Size(1, 1);
+            this.uiPanel2.Name = "uiPanel2";
+            this.uiPanel2.Size = new System.Drawing.Size(1372, 672);
+            this.uiPanel2.TabIndex = 1;
+            this.uiPanel2.Text = null;
+            this.uiPanel2.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // uiPanel3
+            // 
+            this.uiPanel3.Controls.Add(this.uiPanel4);
+            this.uiPanel3.Controls.Add(this.uiPanel5);
+            this.uiPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uiPanel3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.uiPanel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.uiPanel3.Location = new System.Drawing.Point(0, 98);
+            this.uiPanel3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.uiPanel3.MinimumSize = new System.Drawing.Size(1, 1);
+            this.uiPanel3.Name = "uiPanel3";
+            this.uiPanel3.Size = new System.Drawing.Size(1372, 574);
+            this.uiPanel3.TabIndex = 1;
+            this.uiPanel3.Text = null;
+            this.uiPanel3.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // uiPanel4
+            // 
+            this.uiPanel4.Controls.Add(this.dvg_TonKho);
+            this.uiPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uiPanel4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.uiPanel4.Location = new System.Drawing.Point(0, 108);
+            this.uiPanel4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.uiPanel4.MinimumSize = new System.Drawing.Size(1, 1);
+            this.uiPanel4.Name = "uiPanel4";
+            this.uiPanel4.Size = new System.Drawing.Size(1372, 466);
+            this.uiPanel4.TabIndex = 2;
+            this.uiPanel4.Text = "uiPanel4";
+            this.uiPanel4.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // dvg_TonKho
+            // 
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
+            this.dvg_TonKho.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle11;
+            this.dvg_TonKho.BackgroundColor = System.Drawing.Color.White;
+            this.dvg_TonKho.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dvg_TonKho.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            this.dvg_TonKho.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dvg_TonKho.DefaultCellStyle = dataGridViewCellStyle13;
+            this.dvg_TonKho.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dvg_TonKho.EnableHeadersVisualStyles = false;
+            this.dvg_TonKho.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.dvg_TonKho.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
+            this.dvg_TonKho.Location = new System.Drawing.Point(0, 0);
+            this.dvg_TonKho.Name = "dvg_TonKho";
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dvg_TonKho.RowHeadersDefaultCellStyle = dataGridViewCellStyle14;
+            this.dvg_TonKho.RowHeadersWidth = 51;
+            dataGridViewCellStyle15.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.dvg_TonKho.RowsDefaultCellStyle = dataGridViewCellStyle15;
+            this.dvg_TonKho.RowTemplate.Height = 24;
+            this.dvg_TonKho.SelectedIndex = -1;
+            this.dvg_TonKho.Size = new System.Drawing.Size(1372, 466);
+            this.dvg_TonKho.StripeOddColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
+            this.dvg_TonKho.TabIndex = 0;
+            // 
+            // uiPanel5
+            // 
+            this.uiPanel5.Controls.Add(this.btn_Loc);
+            this.uiPanel5.Controls.Add(this.cb_Kho);
+            this.uiPanel5.Controls.Add(this.txt_SearchKho);
+            this.uiPanel5.Controls.Add(this.rgb_Loc);
+            this.uiPanel5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.uiPanel5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.uiPanel5.Location = new System.Drawing.Point(0, 0);
+            this.uiPanel5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.uiPanel5.MinimumSize = new System.Drawing.Size(1, 1);
+            this.uiPanel5.Name = "uiPanel5";
+            this.uiPanel5.Size = new System.Drawing.Size(1372, 108);
+            this.uiPanel5.TabIndex = 1;
+            this.uiPanel5.Text = null;
+            this.uiPanel5.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btn_Loc
+            // 
+            this.btn_Loc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.btn_Loc.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_Loc.Enabled = false;
+            this.btn_Loc.Location = new System.Drawing.Point(1081, 28);
+            this.btn_Loc.Name = "btn_Loc";
+            this.btn_Loc.Size = new System.Drawing.Size(121, 41);
+            this.btn_Loc.TabIndex = 4;
+            this.btn_Loc.Text = "Lọc";
+            this.btn_Loc.UseVisualStyleBackColor = false;
+            this.btn_Loc.Click += new System.EventHandler(this.btn_Loc_Click);
+            // 
+            // cb_Kho
+            // 
+            this.cb_Kho.Enabled = false;
+            this.cb_Kho.FormattingEnabled = true;
+            this.cb_Kho.Location = new System.Drawing.Point(778, 33);
+            this.cb_Kho.Name = "cb_Kho";
+            this.cb_Kho.Size = new System.Drawing.Size(297, 33);
+            this.cb_Kho.TabIndex = 3;
+            // 
+            // txt_SearchKho
+            // 
+            this.txt_SearchKho.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txt_SearchKho.Enabled = false;
+            this.txt_SearchKho.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.txt_SearchKho.Location = new System.Drawing.Point(529, 33);
+            this.txt_SearchKho.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txt_SearchKho.MinimumSize = new System.Drawing.Size(1, 16);
+            this.txt_SearchKho.Name = "txt_SearchKho";
+            this.txt_SearchKho.Padding = new System.Windows.Forms.Padding(5);
+            this.txt_SearchKho.ShowText = false;
+            this.txt_SearchKho.Size = new System.Drawing.Size(197, 40);
+            this.txt_SearchKho.TabIndex = 2;
+            this.txt_SearchKho.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txt_SearchKho.Watermark = "";
+            // 
+            // rgb_Loc
+            // 
+            this.rgb_Loc.Controls.Add(this.rdb_Kho);
+            this.rgb_Loc.Controls.Add(this.rdb_SanPham);
+            this.rgb_Loc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.rgb_Loc.Location = new System.Drawing.Point(29, 0);
+            this.rgb_Loc.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.rgb_Loc.MinimumSize = new System.Drawing.Size(1, 1);
+            this.rgb_Loc.Name = "rgb_Loc";
+            this.rgb_Loc.Padding = new System.Windows.Forms.Padding(0, 32, 0, 0);
+            this.rgb_Loc.Size = new System.Drawing.Size(457, 84);
+            this.rgb_Loc.TabIndex = 1;
+            this.rgb_Loc.Text = "Lọc theo";
+            this.rgb_Loc.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // rdb_Kho
+            // 
+            this.rdb_Kho.BackColor = System.Drawing.Color.Transparent;
+            this.rdb_Kho.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.rdb_Kho.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.rdb_Kho.Location = new System.Drawing.Point(240, 35);
+            this.rdb_Kho.MinimumSize = new System.Drawing.Size(1, 1);
+            this.rdb_Kho.Name = "rdb_Kho";
+            this.rdb_Kho.Size = new System.Drawing.Size(150, 29);
+            this.rdb_Kho.TabIndex = 1;
+            this.rdb_Kho.Text = "Kho";
+            this.rdb_Kho.CheckedChanged += new System.EventHandler(this.rdb_Kho_CheckedChanged);
+            // 
+            // rdb_SanPham
+            // 
+            this.rdb_SanPham.BackColor = System.Drawing.Color.Transparent;
+            this.rdb_SanPham.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.rdb_SanPham.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.rdb_SanPham.Location = new System.Drawing.Point(19, 35);
+            this.rdb_SanPham.MinimumSize = new System.Drawing.Size(1, 1);
+            this.rdb_SanPham.Name = "rdb_SanPham";
+            this.rdb_SanPham.Size = new System.Drawing.Size(150, 29);
+            this.rdb_SanPham.TabIndex = 0;
+            this.rdb_SanPham.Text = "Sản phẩm";
+            this.rdb_SanPham.CheckedChanged += new System.EventHandler(this.rdb_SanPham_CheckedChanged);
+            // 
+            // uiPanel6
+            // 
+            this.uiPanel6.BackColor = System.Drawing.Color.Lime;
+            this.uiPanel6.Dock = System.Windows.Forms.DockStyle.Top;
+            this.uiPanel6.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.uiPanel6.FillColor2 = System.Drawing.Color.White;
+            this.uiPanel6.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
+            this.uiPanel6.ForeColor = System.Drawing.Color.Lime;
+            this.uiPanel6.Location = new System.Drawing.Point(0, 0);
+            this.uiPanel6.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.uiPanel6.MinimumSize = new System.Drawing.Size(1, 1);
+            this.uiPanel6.Name = "uiPanel6";
+            this.uiPanel6.Size = new System.Drawing.Size(1372, 98);
+            this.uiPanel6.TabIndex = 0;
+            this.uiPanel6.Text = "TỒN KHO";
+            this.uiPanel6.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // FormQLHangHoa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1286, 707);
-            this.Controls.Add(this.tabControl1);
+            this.ClientSize = new System.Drawing.Size(1380, 707);
+            this.Controls.Add(this.tab_body);
             this.Name = "FormQLHangHoa";
             this.Text = "FormQLHangHoa";
-            this.tabControl1.ResumeLayout(false);
+            this.tab_body.ResumeLayout(false);
             this.tab_HangHoa.ResumeLayout(false);
             this.panel_body.ResumeLayout(false);
             this.panel_left.ResumeLayout(false);
@@ -848,13 +1135,20 @@
             this.panel4.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.uiGroupBox1.ResumeLayout(false);
+            this.tab_TonKho.ResumeLayout(false);
+            this.uiPanel2.ResumeLayout(false);
+            this.uiPanel3.ResumeLayout(false);
+            this.uiPanel4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dvg_TonKho)).EndInit();
+            this.uiPanel5.ResumeLayout(false);
+            this.rgb_Loc.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabControl tab_body;
         private System.Windows.Forms.TabPage tab_HangHoa;
         private System.Windows.Forms.TabPage tab_LoaiHH;
         private System.Windows.Forms.Panel panel_top;
@@ -899,6 +1193,22 @@
         private Sunny.UI.UIButton btn_ReloadHH;
         private Sunny.UI.UIGroupBox grb_Loc;
         private System.Windows.Forms.RadioButton rd_LoaiHH;
-        private System.Windows.Forms.RadioButton rd_kho;
+        private System.Windows.Forms.Button btn_Reload;
+        private System.Windows.Forms.Button btn_Luu;
+        private System.Windows.Forms.ComboBox cb_LoaiSP;
+        private System.Windows.Forms.Button btn_LocHH;
+        private System.Windows.Forms.TabPage tab_TonKho;
+        private Sunny.UI.UIPanel uiPanel2;
+        private Sunny.UI.UIPanel uiPanel3;
+        private Sunny.UI.UIPanel uiPanel4;
+        private Sunny.UI.UIDataGridView dvg_TonKho;
+        private Sunny.UI.UIPanel uiPanel5;
+        private System.Windows.Forms.Button btn_Loc;
+        private System.Windows.Forms.ComboBox cb_Kho;
+        private Sunny.UI.UITextBox txt_SearchKho;
+        private Sunny.UI.UIRadioButtonGroup rgb_Loc;
+        private Sunny.UI.UIRadioButton rdb_Kho;
+        private Sunny.UI.UIRadioButton rdb_SanPham;
+        private Sunny.UI.UIPanel uiPanel6;
     }
 }

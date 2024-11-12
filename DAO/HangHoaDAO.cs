@@ -79,6 +79,18 @@ namespace DACN.DAO
             }
             return listHH;
         }
+        public List<HangHoaDTO> LocTheoTenLoaiSP(string searchValue)
+        {
+            List<HangHoaDTO> listHH = new List<HangHoaDTO>();
+            string query = "FilterHangHoa @TenLoai";
+            DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] { searchValue });
+            foreach (DataRow row in data.Rows)
+            {
+                HangHoaDTO hanghoa = new HangHoaDTO(row);
+                listHH.Add(hanghoa);
+            }
+            return listHH;
+        }
         public DataTable GetSanPhamByNhaCungCap(string mancc)
         {
             string query = "SP_GetSanPhamByIdNCC @MaNCC";

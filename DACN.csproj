@@ -55,10 +55,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAO\CTHoaDonDAO.cs" />
     <Compile Include="DAO\DataProvider.cs" />
     <Compile Include="DAO\HangHoaDAO.cs" />
+    <Compile Include="DAO\HoaDonDAO.cs" />
     <Compile Include="DAO\KhachHangDAO.cs" />
     <Compile Include="DAO\KhoDAO.cs" />
+    <Compile Include="DAO\KhuyenMaiDAO.cs" />
+    <Compile Include="DAO\KiemTraDuLieuDAO.cs" />
     <Compile Include="DAO\LoaiKhachHangDAO.cs" />
     <Compile Include="DAO\LoaiSanPhamDAO.cs" />
     <Compile Include="DAO\LoginDAO.cs" />
@@ -70,12 +74,57 @@
     <Compile Include="DAO\QuyenDAO.cs" />
     <Compile Include="DAO\SaoLuuPhucHoiDAO.cs" />
     <Compile Include="DAO\TonKhoDAO.cs" />
+    <Compile Include="DTO\CTHoaDonDTO.cs" />
     <Compile Include="DTO\CTPhieuNHDTO.cs" />
+    <Compile Include="GUI\FormBanHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FormBanHang.Designer.cs">
+      <DependentUpon>FormBanHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FormChonKH.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FormChonKH.Designer.cs">
+      <DependentUpon>FormChonKH.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FormCTHoaDon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FormCTHoaDon.Designer.cs">
+      <DependentUpon>FormCTHoaDon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FormChonHoaDon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FormChonHoaDon.Designer.cs">
+      <DependentUpon>FormChonHoaDon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FormNhapHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FormNhapHang.Designer.cs">
+      <DependentUpon>FormNhapHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FormQLBanHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FormQLBanHang.Designer.cs">
+      <DependentUpon>FormQLBanHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FormHoaDon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FormHoaDon.Designer.cs">
+      <DependentUpon>FormHoaDon.cs</DependentUpon>
+    </Compile>
     <Compile Include="DTO\CTPhieuTraHangNCCDTO.cs" />
     <Compile Include="DTO\HangHoaDTO.cs" />
+    <Compile Include="DTO\HoaDonDTO.cs" />
     <Compile Include="DTO\KhachHangDTO.cs" />
     <Compile Include="DTO\KhoDTO.cs" />
     <Compile Include="DTO\Kho_SanPhamDTO.cs" />
+    <Compile Include="DTO\KhuyenMaiDTO.cs" />
     <Compile Include="DTO\LoaiKhachHangDTO.cs" />
     <Compile Include="DTO\LoaiSanPhamDTO.cs" />
     <Compile Include="DTO\LoginDTO.cs" />
@@ -108,6 +157,12 @@
     <Compile Include="GUI\FormDanhMuc.Designer.cs">
       <DependentUpon>FormDanhMuc.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\FormDuyetKhuyenMai.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FormDuyetKhuyenMai.Designer.cs">
+      <DependentUpon>FormDuyetKhuyenMai.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\FormDuyetPhieuNhap.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -125,12 +180,6 @@
     </Compile>
     <Compile Include="GUI\formKho.Designer.cs">
       <DependentUpon>formKho.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GUI\FormLoaiKhachHang.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUI\FormLoaiKhachHang.Designer.cs">
-      <DependentUpon>FormLoaiKhachHang.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\FormNguoiDung.cs">
       <SubType>Form</SubType>
@@ -150,17 +199,23 @@
     <Compile Include="GUI\FormNhanVienKho.Designer.cs">
       <DependentUpon>FormNhanVienKho.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\FormNhapHang.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUI\FormNhapHang.Designer.cs">
-      <DependentUpon>FormNhapHang.cs</DependentUpon>
-    </Compile>
     <Compile Include="GUI\FormQLHangHoa.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUI\FormQLHangHoa.Designer.cs">
       <DependentUpon>FormQLHangHoa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FormQLKhuyenMai.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FormQLKhuyenMai.Designer.cs">
+      <DependentUpon>FormQLKhuyenMai.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FormQLNhanVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FormQLNhanVien.Designer.cs">
+      <DependentUpon>FormQLNhanVien.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\FormQLTonKho.cs">
       <SubType>Form</SubType>
@@ -173,6 +228,12 @@
     </Compile>
     <Compile Include="GUI\FormChonSanPham.Designer.cs">
       <DependentUpon>FormChonSanPham.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FormSanPhamBan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FormSanPhamBan.Designer.cs">
+      <DependentUpon>FormSanPhamBan.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\FormSaoLuuPhucHoi.cs">
       <SubType>Form</SubType>
@@ -198,8 +259,35 @@
     <Compile Include="GUI\FormTTNguoiDung.Designer.cs">
       <DependentUpon>FormTTNguoiDung.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\Icon_images\Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Icon_images\Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="GUI\FormBanHang.resx">
+      <DependentUpon>FormBanHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FormChonKH.resx">
+      <DependentUpon>FormChonKH.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FormCTHoaDon.resx">
+      <DependentUpon>FormCTHoaDon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FormChonHoaDon.resx">
+      <DependentUpon>FormChonHoaDon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FormNhapHang.resx">
+      <DependentUpon>FormNhapHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FormQLBanHang.resx">
+      <DependentUpon>FormQLBanHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FormHoaDon.resx">
+      <DependentUpon>FormHoaDon.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\FormCapNhatKho.resx">
       <DependentUpon>FormCapNhatKho.cs</DependentUpon>
     </EmbeddedResource>
@@ -212,6 +300,9 @@
     <EmbeddedResource Include="GUI\FormDanhMuc.resx">
       <DependentUpon>FormDanhMuc.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FormDuyetKhuyenMai.resx">
+      <DependentUpon>FormDuyetKhuyenMai.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\FormDuyetPhieuNhap.resx">
       <DependentUpon>FormDuyetPhieuNhap.cs</DependentUpon>
     </EmbeddedResource>
@@ -220,9 +311,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\formKho.resx">
       <DependentUpon>formKho.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GUI\FormLoaiKhachHang.resx">
-      <DependentUpon>FormLoaiKhachHang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FormNguoiDung.resx">
       <DependentUpon>FormNguoiDung.cs</DependentUpon>
@@ -233,17 +321,23 @@
     <EmbeddedResource Include="GUI\FormNhanVienKho.resx">
       <DependentUpon>FormNhanVienKho.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\FormNhapHang.resx">
-      <DependentUpon>FormNhapHang.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="GUI\FormQLHangHoa.resx">
       <DependentUpon>FormQLHangHoa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FormQLKhuyenMai.resx">
+      <DependentUpon>FormQLKhuyenMai.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FormQLNhanVien.resx">
+      <DependentUpon>FormQLNhanVien.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FormQLTonKho.resx">
       <DependentUpon>FormQLTonKho.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FormChonSanPham.resx">
       <DependentUpon>FormChonSanPham.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FormSanPhamBan.resx">
+      <DependentUpon>FormSanPhamBan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FormSaoLuuPhucHoi.resx">
       <DependentUpon>FormSaoLuuPhucHoi.cs</DependentUpon>
@@ -256,6 +350,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FormTTNguoiDung.resx">
       <DependentUpon>FormTTNguoiDung.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Icon_images\Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -310,6 +407,7 @@
     <Content Include="GUI\Icon_images\user.png" />
     <Content Include="GUI\Icon_images\Vat_lieu.png" />
     <Content Include="GUI\Icon_images\warehouse.png" />
+    <None Include="Resources\Loading.png" />
     <None Include="Resources\khosat.jpg" />
     <None Include="Resources\icon-logout.png" />
     <None Include="Resources\warehouse.png" />

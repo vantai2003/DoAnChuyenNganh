@@ -14,14 +14,14 @@ namespace DACN.DTO
         public string DVT { get; set; }
         public string MaKho { get; set; }
         public string MaLoaiSP { get; set; }
-        public string TenLoai {  get; set; }
+        public string TenLoai { get; set; }
 
         public HangHoaDTO(DataRow row)
         {
             this.MaSP = row["MaSP"].ToString();
             this.TenSP = row["TenSP"].ToString();
             this.DVT =row["DVT"].ToString();
-            this.MaLoaiSP = row["MaLoai"].ToString();
+            this.TenLoai = row["TenLoai"].ToString();
         }
         public HangHoaDTO() { }
     }

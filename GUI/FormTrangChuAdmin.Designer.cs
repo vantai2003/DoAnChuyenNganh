@@ -43,13 +43,13 @@
             this.uiTextBox1 = new Sunny.UI.UITextBox();
             this.txt_ThongTintt = new Sunny.UI.UITextBox();
             this.uiPanel1 = new Sunny.UI.UIPanel();
+            this.btn_DangXuat = new System.Windows.Forms.Button();
             this.uiButton4 = new Sunny.UI.UIButton();
             this.btnSaoLuuPhucHoi = new Sunny.UI.UIButton();
             this.btn_QuanLySanPham = new Sunny.UI.UIButton();
             this.btn_QuanLyTaiKhoam = new Sunny.UI.UIButton();
-            this.uiContextMenuStrip1 = new Sunny.UI.UIContextMenuStrip();
-            this.btn_DangXuat = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.uiContextMenuStrip1 = new Sunny.UI.UIContextMenuStrip();
             this.menuStrip1.SuspendLayout();
             this.panel_body.SuspendLayout();
             this.uiPanel2.SuspendLayout();
@@ -58,14 +58,15 @@
             // 
             // menuStrip1
             // 
-            this.menuStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.menuStrip1.BackColor = System.Drawing.Color.Green;
+            this.menuStrip1.Font = new System.Drawing.Font("Segoe UI", 11F);
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem1,
             this.toolStripMenuItem2});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1249, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1249, 33);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -74,20 +75,21 @@
             this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem3,
             this.toolStripMenuItem4});
+            this.toolStripMenuItem1.ForeColor = System.Drawing.Color.Gold;
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(70, 24);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(85, 29);
             this.toolStripMenuItem1.Text = "Cài đặt";
             // 
             // toolStripMenuItem3
             // 
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(177, 26);
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(224, 30);
             this.toolStripMenuItem3.Text = "Đổi màu nền";
             // 
             // toolStripMenuItem4
             // 
             this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(177, 26);
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(224, 30);
             this.toolStripMenuItem4.Text = "Đổi màu chữ";
             // 
             // toolStripMenuItem2
@@ -95,21 +97,22 @@
             this.toolStripMenuItem2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem5,
             this.toolStripMenuItem6});
+            this.toolStripMenuItem2.ForeColor = System.Drawing.Color.Gold;
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(202, 24);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(256, 29);
             this.toolStripMenuItem2.Text = "Quản lý thông tin tài khoản";
             // 
             // toolStripMenuItem5
             // 
             this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-            this.toolStripMenuItem5.Size = new System.Drawing.Size(224, 26);
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(262, 30);
             this.toolStripMenuItem5.Text = "Thông tin tài khoản";
             this.toolStripMenuItem5.Click += new System.EventHandler(this.toolStripMenuItem5_Click);
             // 
             // toolStripMenuItem6
             // 
             this.toolStripMenuItem6.Name = "toolStripMenuItem6";
-            this.toolStripMenuItem6.Size = new System.Drawing.Size(224, 26);
+            this.toolStripMenuItem6.Size = new System.Drawing.Size(262, 30);
             this.toolStripMenuItem6.Text = "Đổi mật khẩu";
             // 
             // panel_body
@@ -117,9 +120,9 @@
             this.panel_body.Controls.Add(this.uiPanel2);
             this.panel_body.Controls.Add(this.uiPanel1);
             this.panel_body.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_body.Location = new System.Drawing.Point(0, 28);
+            this.panel_body.Location = new System.Drawing.Point(0, 33);
             this.panel_body.Name = "panel_body";
-            this.panel_body.Size = new System.Drawing.Size(1249, 803);
+            this.panel_body.Size = new System.Drawing.Size(1249, 798);
             this.panel_body.TabIndex = 1;
             // 
             // uiPanel2
@@ -130,11 +133,11 @@
             this.uiPanel2.Controls.Add(this.txt_ThongTintt);
             this.uiPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.uiPanel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.uiPanel2.Location = new System.Drawing.Point(431, 0);
-            this.uiPanel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.uiPanel2.Location = new System.Drawing.Point(485, 0);
+            this.uiPanel2.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.uiPanel2.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiPanel2.Name = "uiPanel2";
-            this.uiPanel2.Size = new System.Drawing.Size(818, 803);
+            this.uiPanel2.Size = new System.Drawing.Size(818, 798);
             this.uiPanel2.TabIndex = 1;
             this.uiPanel2.Text = null;
             this.uiPanel2.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
@@ -143,7 +146,7 @@
             // 
             this.txt_TestMaNV.Location = new System.Drawing.Point(145, 418);
             this.txt_TestMaNV.Name = "txt_TestMaNV";
-            this.txt_TestMaNV.Size = new System.Drawing.Size(100, 30);
+            this.txt_TestMaNV.Size = new System.Drawing.Size(100, 35);
             this.txt_TestMaNV.TabIndex = 3;
             // 
             // uiTextBox2
@@ -206,13 +209,27 @@
             this.uiPanel1.FillColor = System.Drawing.Color.Green;
             this.uiPanel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.uiPanel1.Location = new System.Drawing.Point(0, 0);
-            this.uiPanel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.uiPanel1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.uiPanel1.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiPanel1.Name = "uiPanel1";
-            this.uiPanel1.Size = new System.Drawing.Size(431, 803);
+            this.uiPanel1.Size = new System.Drawing.Size(431, 798);
             this.uiPanel1.TabIndex = 0;
             this.uiPanel1.Text = null;
             this.uiPanel1.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btn_DangXuat
+            // 
+            this.btn_DangXuat.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_DangXuat.Image = global::DACN.Properties.Resources.icon_logout;
+            this.btn_DangXuat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_DangXuat.Location = new System.Drawing.Point(108, 606);
+            this.btn_DangXuat.Name = "btn_DangXuat";
+            this.btn_DangXuat.Size = new System.Drawing.Size(142, 52);
+            this.btn_DangXuat.TabIndex = 5;
+            this.btn_DangXuat.Text = "Đăng xuất";
+            this.btn_DangXuat.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btn_DangXuat.UseVisualStyleBackColor = true;
+            this.btn_DangXuat.Click += new System.EventHandler(this.btn_DangXuat_Click);
             // 
             // uiButton4
             // 
@@ -293,6 +310,19 @@
             this.btn_QuanLyTaiKhoam.TipsFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.btn_QuanLyTaiKhoam.Click += new System.EventHandler(this.btn_QuanLyTaiKhoam_Click_1);
             // 
+            // panel1
+            // 
+            this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+
+            this.panel1.Size = new System.Drawing.Size(485, 218);
+
+            this.panel1.Size = new System.Drawing.Size(431, 218);
+
+            this.panel1.TabIndex = 0;
+            // 
             // uiContextMenuStrip1
             // 
             this.uiContextMenuStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
@@ -301,38 +331,16 @@
             this.uiContextMenuStrip1.Name = "uiContextMenuStrip1";
             this.uiContextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
-            // btn_DangXuat
-            // 
-            this.btn_DangXuat.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_DangXuat.Image = global::DACN.Properties.Resources.icon_logout;
-            this.btn_DangXuat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_DangXuat.Location = new System.Drawing.Point(108, 606);
-            this.btn_DangXuat.Name = "btn_DangXuat";
-            this.btn_DangXuat.Size = new System.Drawing.Size(142, 52);
-            this.btn_DangXuat.TabIndex = 5;
-            this.btn_DangXuat.Text = "Đăng xuất";
-            this.btn_DangXuat.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_DangXuat.UseVisualStyleBackColor = true;
-            this.btn_DangXuat.Click += new System.EventHandler(this.btn_DangXuat_Click);
-            // 
-            // panel1
-            // 
-            this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(431, 218);
-            this.panel1.TabIndex = 0;
-            // 
             // FormTrangChuAdmin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Moccasin;
-            this.ClientSize = new System.Drawing.Size(1249, 831);
+            this.ClientSize = new System.Drawing.Size(1405, 1039);
             this.Controls.Add(this.panel_body);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FormTrangChuAdmin";
             this.Text = "FormTrangChuAdmin";
             this.menuStrip1.ResumeLayout(false);

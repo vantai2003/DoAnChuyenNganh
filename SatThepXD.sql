@@ -74,8 +74,8 @@ CREATE TABLE NhanVien (
     MaNV VARCHAR(50) PRIMARY KEY NOT NULL,
     TenNV NVARCHAR(100),
     ChucVu NVARCHAR(100),
-    SDT VARCHAR(20) UNIQUE,
-    Email VARCHAR(100) UNIQUE,
+    SDT VARCHAR(20),
+    Email VARCHAR(100),
     NgayTuyenDung DATE,
     Luong DECIMAL(18, 0)
 );
@@ -232,18 +232,6 @@ GO
 INSERT INTO NguoiDung(TenDN, MatKhau, NgayTao ,QuyenID, MaNV) VALUES('admin', CONVERT(VARCHAR(32),HASHBYTES('MD5', 'admin@123'),2),GETDATE() ,0, 'NV001')
 
 GO 
-INSERT INTO LoaiKH (MaLoaiKH,TenLoaiKH) VALUES('LK001',N'Khách hàng thân thiết'),
-                                              ('LK002',N'Khách hàng thường')
-GO
-INSERT INTO LoaiSanPham(MaLoai,TenLoai)VALUES('ML001',N'Hòa Phát'),
-											 ('ML002',N'Việt Nhật')
-GO
-INSERT INTO KhachHang(MaKH, TenKH, SoDienThoai, Email, DiaChi, NgayTao, MaLoaiKH) VALUES('KH001',N'Trần Thế An','0981888213','tranan11@gmail.com',N'Thành phố Hồ Chí Minh','2024-11-23','LK002')
-
-GO
-INSERT INTO NhaCungCap(MaNCC,TenNCC,SDT,Email,DiaChi,ThanhPho,QuocGia,NgayTao) VALUES('NCC001',N'Công ty sắt thép Việt Phát','0988388111','info@VietPhat',N'66 Nguyễn Du, P. Nguyễn Du, Q. Hai Bà Trưng',N'Hà Nội',N'Việt Nam','2024-11-27')
-GO
-INSERT INTO KHO VALUES('MK001',N'Kho Thép A','Lê trọng tấn TP.Hồ Chí Minh')
 
 
 -- Stored Procedures Login
@@ -392,13 +380,16 @@ BEGIN
 	SET  TenLoai = @TenLoai
 	WHERE LoaiSanPham.MaLoai = @Maloai
 END
-
+drop proc sp_SelectAll_KhachHang
+exec sp_SelectAll_KhachHang
 ---------Lấy tất cả các cột trong bảng Khách Hàng----------------------
 CREATE PROC sp_SelectAll_KhachHang
 AS
 BEGIN
-    SELECT * FROM KhachHang;
-END;
+    SELECT kh.MaKH, kh.TenKH, kh.DiaChi, kh.SoDienThoai, kh.Email, kh.NgayTao, lkh.TenLoaiKH
+	FROM KhachHang kh
+	JOIN LoaiKH lkh ON lkh.MaLoaiKH = kh.MaLoaiKH
+END
 GO
 
 ----------Insert Khách Hàng----------------
@@ -497,24 +488,31 @@ BEGIN
     SELECT * FROM LoaiKH;
 END;
 GO
+
 ---------------------Thêm Loại Khách Hàng-------------------
 CREATE PROC sp_Insert_LoaiKhachHang
 	@MaLKH VARCHAR(50),
-	@TenLKH NVARCHAR(50)
+	@TenLKH NVARCHAR(50),
+	@MucChiTieuToiThieu DECIMAL(18,0),
+	@MucChiTieuToiDa DECIMAL(18, 0)
 AS
 BEGIN 
-	INSERT INTO LoaiKH(MaLoaiKH, TenLoaiKH)
-    VALUES (@MaLKH,@TenLKH);
+	INSERT INTO LoaiKH
+    VALUES (@MaLKH,@TenLKH, @MucChiTieuToiThieu, @MucChiTieuToiDa);
 END;
 GO
+
+drop proc sp_Update_LoaiKhachHang
 -----------Cập nhật Loại Khách Hàng-------------------
 CREATE PROC sp_Update_LoaiKhachHang
     @MaLKH VARCHAR(50),
-	@TenLKH NVARCHAR(50)
+	@TenLKH NVARCHAR(50),
+	@MucChiTieuToiThieu DECIMAL(18,0),
+	@MucChiTieuToiDa DECIMAL(18, 0)
 AS
 BEGIN
     UPDATE LoaiKH
-    SET TenLoaiKH = @TenLKH
+    SET TenLoaiKH = @TenLKH , MucChiTieuToiThieu = @MucChiTieuToiThieu, MucChiTieuToiDa = @MucChiTieuToiDa
     WHERE MaLoaiKH = @MaLKH;
 END;
 GO
@@ -625,13 +623,16 @@ BEGIN
     WHERE MaKho = @MaKho;
 END;
 GO
-
+drop proc SP_GetListSP
 ----------------------------------Sản phẩm-----------------------------
 --thủ tục getlist Loại sản phẩm
+exec SP_GetListSP
 CREATE PROC SP_GetListSP
 AS
 BEGIN
-	SELECT * FROM SanPham
+	SELECT sp.MaSP, sp.TenSP, sp.DVT, lsp.TenLoai
+	FROM SanPham sp
+	JOIN LoaiSanPham lsp on lsp.MaLoai = sp.MaLoai
 END
 GO
 ---thur tuc them loai sp
@@ -701,13 +702,16 @@ BEGIN
 	SET  TenSP = @TenSP, DVT = @DVT, MaLoai = @MaLoai
 	WHERE SanPham.MaSP = @MaSP
 END
-
+drop proc SP_TimKiemSP
 --thủ tục tìm sản phẩm
 CREATE PROC SP_TimKiemSP
 @SearchValue varchar(50)
 AS
 BEGIN
-	SELECT * FROM SanPham WHERE MaSP LIKE '%' + @SearchValue + '%'
+	SELECT sp.MaSP, sp.TenSP, sp.DVT, lsp.TenLoai
+	FROM SanPham sp
+	JOIN LoaiSanPham lsp on lsp.MaLoai = sp.MaLoai
+	WHERE MaSP LIKE '%' + @SearchValue + '%'
 	or TenSP LIKE '%' + @SearchValue + '%'
 END
 GO
@@ -1137,4 +1141,423 @@ BEGIN
 	SET TrangThai = N'Đã xử lý hàng'
 	WHERE MaPhieuNH = @MaPN
 END
+GO
+
+
+-------------thủ tục lọc số lượng tồn theo kho----------
+CREATE PROC SP_LocTonKhoTheoKho
+@MaKho nvarchar(200)
+AS
+BEGIN
+	SELECT * FROM Kho_SanPham
+	WHERE MaKho = @MaKho
+END
+
+GO
+CREATE PROCEDURE SP_LocTonKhoTheoKho
+@MaKho nvarchar(500)
+AS
+BEGIN
+    SELECT sp.MaSP, sp.TenSP, sp.DVT, k.TenKho, ks.SoLuongTon, lp.TenLoai
+    FROM Kho_SanPham ks
+    JOIN SanPham sp ON ks.MaSP = sp.MaSP
+    JOIN Kho k ON ks.MaKho = k.MaKho
+    JOIN LoaiSanPham lp ON sp.MaLoai = lp.MaLoai
+	WHERE ks.MaKho= @MaKho;-- Kết nối với bảng LoaiSanPham
+END
+GO
+----Lọc theo tên sản phẩm hoặc loại
+CREATE PROCEDURE SP_LocTonKhoTheoSanPham
+@ReSearch nvarchar(200)
+AS
+BEGIN
+    SELECT sp.MaSP, sp.TenSP, sp.DVT, k.TenKho, ks.SoLuongTon, lp.TenLoai
+    FROM Kho_SanPham ks
+    JOIN SanPham sp ON ks.MaSP = sp.MaSP
+    JOIN Kho k ON ks.MaKho = k.MaKho
+    JOIN LoaiSanPham lp ON sp.MaLoai = lp.MaLoai
+    WHERE (sp.TenSP LIKE '%' + @ReSearch + '%')
+		OR (lp.TenLoai LIKE '%' + @ReSearch + '%')
+END
+GO
+
+----thủ tục thêm nhân viên
+CREATE PROC SP_ThemNhanVien
+@MaNV varchar(50),
+@TenNV nvarchar(50),
+@ChucVu nvarchar(50),
+@SDT varchar(12),
+@Email varchar(70),
+@NgayTuyenDung date,
+@Luong decimal(18, 0)
+AS 
+BEGIN
+	INSERT INTO NhanVien VALUES(@MaNV, @TenNV, @ChucVu, @SDT, @Email, @NgayTuyenDung, @Luong)
+END
+GO
+drop proc SP_TaoMaNV
+exec SP_TaoMaNV
+------thủ tục tăng mã tạo nhân viên
+CREATE PROC SP_TaoMaNV
+AS
+BEGIN
+    DECLARE @LastMaNV varchar(10);
+    DECLARE @NewNumber int;
+    DECLARE @NewMaNV varchar(10);
+    
+    -- Truy vấn mã NV lớn nhất hiện có, bỏ qua phần "NV" và chỉ lấy số
+    SELECT @LastMaNV = MAX(MaNV) FROM NhanVien;
+    
+    -- Nếu bảng chưa có bản ghi nào thì bắt đầu từ NV001
+    IF @LastMaNV IS NULL
+    BEGIN
+        SET @NewNumber = 1;
+    END
+    ELSE
+    BEGIN
+        -- Lấy phần số của MaNV (bỏ đi 2 ký tự đầu "NV")
+        SET @NewNumber = CAST(SUBSTRING(@LastMaNV, 3, LEN(@LastMaNV) - 2) AS INT) + 1;
+    END
+    
+    -- Tạo MaNV mới với định dạng NV + số mới
+    SET @NewMaNV = 'NV' + RIGHT('000' + CAST(@NewNumber AS VARCHAR), 3);
+    
+    -- Trả về MaNV mới
+    SELECT @NewMaNV;
+END
+GO
+------thủ tục kiểm tra số điện thoại
+CREATE PROC SP_KiemTraTrungSDT
+@SDT varchar(12)
+AS
+BEGIN
+	SELECT * FROM NhanVien WHERE SDT = @SDT
+END
+GO
+
+CREATE PROC SP_KiemTraTrungEmail
+@email varchar(12)
+AS
+BEGIN
+	SELECT * FROM NhanVien WHERE Email = @email
+END
+
+------thủ tục Xóa nhân viên
+CREATE PROC SP_XoaNhanVien
+@MaNV varchar(50)
+AS
+BEGIN
+	DELETE FROM NhanVien WHERE MaNV = @MaNV
+END
+GO
+-----Thủ tục sửa nhân viên
+CREATE PROC SP_NhanVien
+@MaNV varchar(50), 
+@TenNV nvarchar(100), 
+@ChucVu nvarchar(50),
+@SDT varchar(12),
+@Email varchar(70),
+@NgayTuyenDung date,
+@Luong decimal(18, 0)
+AS
+BEGIN
+	UPDATE NhanVien
+	SET  TenNV = @TenNV, ChucVu = @ChucVu, SDT = @SDT, Email = @Email, NgayTuyenDung = @NgayTuyenDung, Luong = @Luong
+	WHERE NhanVien.MaNV = @MaNV
+END
+GO
+
+--thủ tục tìm nhân viên
+CREATE PROC SP_TimKiemNhanVien
+@SearchValue varchar(50)
+AS
+BEGIN
+	SELECT * FROM NhanVien WHERE MaNV LIKE '%' + @SearchValue + '%'
+	or TenNV LIKE '%' + @SearchValue + '%'
+	or SDT LIKE '%' + @SearchValue + '%'
+	or Email LIKE '%' + @SearchValue + '%'
+END
+GO
+---Lọc Sản phẩm theo Kho, theo loại
+CREATE PROCEDURE FilterHangHoa
+    @TenLoai NVARCHAR(500)
+AS
+BEGIN
+	SELECT sp.MaSP, sp.TenSP, sp.DVT, lsp.TenLoai
+	FROM SanPham sp
+	JOIN LoaiSanPham lsp on lsp.MaLoai = sp.MaLoai
+	WHERE TenLoai = @TenLoai
+END
+GO
+select * from KhuyenMai
+drop proc SP_ThemKM
+-----------------------Khuyến mãi---------------
+----thủ tục thêm khuyến mãi
+CREATE PROC SP_ThemKM
+@MaKM varchar(50),
+@TenKM nvarchar(50),
+@NgayBatDau date,
+@NgayKetThuc date,
+@MoTa nvarchar(500),
+@TrangThai nvarchar(50),
+@GiaTriKM decimal (18, 2)
+AS 
+BEGIN
+	INSERT INTO KhuyenMai(MaKM, TenKM, NgayBatDau, NgayKetThuc, MoTa, TrangThai, GiaTriKM) VALUES(@MaKM, @TenKM, @NgayBatDau, @NgayKetThuc, @MoTa, @TrangThai, @GiaTriKM)
+END
+GO
+
+------thủ tục tăng mã tạo nhân viên
+CREATE PROC SP_TaoMaKM
+AS
+BEGIN
+    DECLARE @LastMaKM varchar(10);
+    DECLARE @NewNumber int;
+    DECLARE @NewMaKM varchar(10);
+
+    SELECT @LastMaKM = MAX(MaKM) FROM KhuyenMai;
+    
+    IF @LastMaKM IS NULL
+    BEGIN
+        SET @NewNumber = 1;
+    END
+    ELSE
+    BEGIN
+        -- Lấy phần số của MaNV (bỏ đi 2 ký tự đầu "NV")
+        SET @NewNumber = CAST(SUBSTRING(@LastMaKM, 3, LEN(@LastMaKM) - 2) AS INT) + 1;
+    END
+    
+    -- Tạo MaNV mới với định dạng NV + số mới
+    SET @NewMaKM = 'KM' + RIGHT('000' + CAST(@NewNumber AS VARCHAR), 3);
+    
+    -- Trả về MaNV mới
+    SELECT @NewMaKM;
+END
+GO
+
+
+--loadlist Danh sách khuyến mãi
+CREATE PROC SP_ListKM
+AS
+BEGIN
+	SELECT * FROM KhuyenMai
+END
+exec SP_ListKMCanPheDuyet
+---list khuyến mãi cần phê duyệt
+CREATE PROC SP_ListKMCanPheDuyet
+AS
+BEGIN
+	SELECT * FROM KhuyenMai
+	WHERE TrangThai = N'Chờ phê duyệt'
+END
+
+----thủ tục duyệt khuyến mãi
+CREATE PROC SP_DuyetKhuyenMai
+@MaKM varchar(50)
+AS
+BEGIN
+	UPDATE KhuyenMai SET TrangThai = N'Đã phê duyệt'
+	WHERE MaKM = @MaKM
+END
+
+----thủ tục từ chối khuyến mãi
+CREATE PROC SP_TuChoiKhuyenMai
+@MaKM varchar(50)
+AS
+BEGIN
+	UPDATE KhuyenMai SET TrangThai = N'Đã từ chối'
+	WHERE MaKM = @MaKM
+END
+-----------------------------------------------------------Của minh--------------
+CREATE PROC sp_SelectAll_HD
+AS
+BEGIN
+    SELECT * FROM HoaDon;
+END;
+GO
+drop proc sp_Insert_HD
+---------------------Thêm Hóa đơn------------------
+
+CREATE PROC sp_Insert_HD
+    @MaHD VARCHAR(50) ,
+    @NgayDatHang DATE,
+    @TongTien DECIMAL(18, 0),
+	@TrangThai NVARCHAR(20),
+    @DiaChiGiaoHang NVARCHAR(500),
+    @TienCoc DECIMAL(18, 0),
+    @ThanhToan DECIMAL(18, 0),
+    @MaKH VARCHAR(50),
+    @MaNV VARCHAR(50)
+AS
+BEGIN 
+	INSERT INTO HoaDon(MaHD, NgayDatHang, TongTien, TrangThai, DiaChiGiaoHang, TienCoc, ThanhToan, MaKH, MaNV)
+    VALUES (@MaHD,@NgayDatHang,@TongTien,@TrangThai,@DiaChiGiaoHang,@TienCoc,@ThanhToan,@MaKH,@MaNV);
+END;
+GO
+-----------Cập nhật Hóa đơn-------------------
+CREATE PROC sp_Update_HD
+	@MaHD VARCHAR(50),
+    @NgayDatHang DATE,
+    @TongTien DECIMAL(18, 0),
+	@TrangThai NVARCHAR(20),
+    @DiaChiGiaoHang NVARCHAR(500),
+    @TienCoc DECIMAL(18, 0),
+    @ThanhToan DECIMAL(18, 0),
+    @MaKH VARCHAR(50),
+    @MaNV VARCHAR(50)
+AS
+BEGIN
+    UPDATE HoaDon
+    SET 
+	NgayDatHang = @NgayDatHang,
+	TongTien=@TongTien,
+	TrangThai=@TrangThai,
+	DiaChiGiaoHang=@DiaChiGiaoHang,
+	TienCoc=@TienCoc,
+	ThanhToan=@ThanhToan,
+	MaKH=@MaKH,
+	MaNV=@MaNV
+    WHERE MaHD = @MaHD;
+END;
+GO
+--thu tuc xoa sp
+CREATE PROC SP_Delete_HD
+@MaHD varchar(50)
+AS
+BEGIN
+    DELETE FROM CT_HoaDon 
+    WHERE MaHD = @MaHD;
+
+    DELETE FROM HoaDon 
+    WHERE MaHD = @MaHD;
+END
+GO
+-- Bảng CT_HoaDon (Chi tiết hóa đơn)
+CREATE PROC sp_SelectAll_CTHD
+AS
+BEGIN
+    SELECT * FROM CT_HoaDon;
+END;
+GO
+
+CREATE PROC sp_SelectOne_CTHD
+@MaHD VARCHAR(50) 
+AS
+BEGIN
+    SELECT * FROM CT_HoaDon
+	WHERE MaHD = @MaHD
+END;
+GO
+
+---------------------Thêm CT Hóa đơn-------------------
+
+CREATE PROC sp_Insert_CTHD
+	@MaCTHD VARCHAR(50),
+    @SoLuong DECIMAL(18, 3),
+    @DonGia DECIMAL(18, 0),
+    @DVT VARCHAR(20),
+    @ThanhTien DECIMAL(18, 0),
+	@MaSP VARCHAR(50),
+    @MaHD VARCHAR(50)
+AS
+BEGIN 
+	INSERT INTO CT_HoaDon(MaCTHD, SoLuong, DonGia, DVT, ThanhTien, MaSP, MaHD)
+    VALUES (@MaCTHD, @SoLuong, @DonGia, @DVT, @ThanhTien, @MaSP, @MaHD);
+END;
+
+GO
+-----------Cập nhật CT Hóa đơn-------------------
+CREATE PROC sp_Update_CTHD
+	@MaCTHD VARCHAR(50),
+    @SoLuong DECIMAL(18, 3),
+    @DonGia DECIMAL(18, 0),
+    @DVT VARCHAR(20),
+    @ThanhTien DECIMAL(18, 0),
+	@MaSP VARCHAR(50),
+    @MaHD VARCHAR(50)
+AS
+BEGIN
+    UPDATE CT_HoaDon
+    SET 
+	MaCTHD= @MaCTHD,
+	SoLuong=@SoLuong,
+	DonGia=@DonGia,
+	DVT=@DVT,
+	ThanhTien=@ThanhTien,
+	MaSP=@MaSP,
+	MaHD=@MaHD
+    WHERE MaCTHD = @MaCTHD;
+END;
+GO
+--thu tuc xoa cthd
+CREATE PROC SP_Delete_CTHD
+@MaCTHD varchar(50)
+AS
+BEGIN
+    DELETE FROM CT_HoaDon 
+    WHERE MaCTHD = @MaCTHD;
+end
+go
+----------------Thêm cột vào Loại khách hàng để quản lý khuyến mãi theo loại khách hàng
+ALTER TABLE LoaiKH
+ADD MucChiTieuToiThieu decimal(18, 0)
+
+ALTER TABLE LoaiKH
+ADD MucChiTieuToiDa decimal(18, 0)
+
+select *From LoaiKH
+drop proc SP_GetTenLoaiKHById
+CREATE PROC SP_GetTenLoaiKHById
+@TenLoaiKH nvarchar(50)
+as
+BEGIN
+	select MaLoaiKH
+	from LoaiKH
+	where TenLoaiKH = @TenLoaiKH
+END
+-----------------trigger cập nhật loại khách hàng
+ng tiền của các hóa đơn. Trigger sẽ tự động cập nhật khi có một bản ghi mới được thêm vào hoặc cập nhật trong bảng HoaDon.
+
+DROP TRIGGER trg_UpdateLoaiKH
+CREATE TRIGGER trg_UpdateLoaiKH
+ON HoaDon
+AFTER INSERT, UPDATE
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    DECLARE @MaKH varchar(50);
+    DECLARE @TongThanhToan DECIMAL(18, 2);
+
+    -- Con trỏ để duyệt qua từng khách hàng có hóa đơn mới hoặc cập nhật
+    DECLARE cur CURSOR FOR
+    SELECT DISTINCT MaKH
+    FROM inserted;
+
+    OPEN cur;
+    FETCH NEXT FROM cur INTO @MaKH;
+
+    WHILE @@FETCH_STATUS = 0
+    BEGIN
+        -- Tính tổng số tiền thanh toán của khách hàng từ tất cả các hóa đơn
+        SELECT @TongThanhToan = SUM(TongTien)
+        FROM HoaDon
+        WHERE MaKH = @MaKH;
+
+        -- Cập nhật loại khách hàng nếu tổng tiền thanh toán nằm trong khoảng
+        UPDATE KhachHang
+        SET MaLoaiKH = (
+            SELECT TOP 1 MaLoaiKH
+            FROM LoaiKH
+            WHERE @TongThanhToan BETWEEN MucChiTieuToiThieu AND MucChiTieuToiDa
+            ORDER BY MucChiTieuToiThieu -- Sắp xếp để chọn khoảng phù hợp nhất
+        )
+        WHERE MaKH = @MaKH;
+
+        FETCH NEXT FROM cur INTO @MaKH;
+    END;
+
+    CLOSE cur;
+    DEALLOCATE cur;
+END;
 GO
