@@ -1300,10 +1300,11 @@ CREATE PROC SP_ThemKM
 @NgayKetThuc date,
 @MoTa nvarchar(500),
 @TrangThai nvarchar(50),
-@GiaTriKM decimal (18, 2)
+@GiaTriKM decimal (18, 2),
+@LoaiDK nvarchar(50)
 AS 
 BEGIN
-	INSERT INTO KhuyenMai(MaKM, TenKM, NgayBatDau, NgayKetThuc, MoTa, TrangThai, GiaTriKM) VALUES(@MaKM, @TenKM, @NgayBatDau, @NgayKetThuc, @MoTa, @TrangThai, @GiaTriKM)
+	INSERT INTO KhuyenMai(MaKM, TenKM, NgayBatDau, NgayKetThuc, MoTa, TrangThai, GiaTriKM, LoaiDieuKien) VALUES(@MaKM, @TenKM, @NgayBatDau, @NgayKetThuc, @MoTa, @TrangThai, @GiaTriKM, @LoaiDK)
 END
 GO
 
@@ -1561,3 +1562,57 @@ BEGIN
     DEALLOCATE cur;
 END;
 GO
+
+ALTER TABLE KhuyenMai
+ADD LoaiDieuKien nvarchar(200)
+
+ALTER TABLE CTDieuKienKM
+DROP COLUMN LoaiDieuKien
+
+ALTER TABLE CTDieuKienKM
+ADD SoTienKM decimal(18, 0)
+
+--------------test thủ tục áp dụng khuyến mãi
+drop proc SP_KM_TheoThoiGian
+exec SP_KM_TheoThoiGian 'HD004'
+CREATE PROCEDURE SP_KM_TheoThoiGian
+    @MaHD VARCHAR(50)
+AS
+BEGIN
+    DECLARE @TongTien DECIMAL(18, 2)
+    DECLARE @NgayDatHang DATE
+    DECLARE @MaKH VARCHAR(50)
+    DECLARE @MaKM VARCHAR(50)
+    DECLARE @GiaTriKM DECIMAL(18, 2)
+    DECLARE @LoaiDieuKien VARCHAR(50)
+
+    -- Lấy thông tin hóa đơn và khách hàng
+    SELECT @TongTien = TongTien, @NgayDatHang = NgayDatHang, @MaKH = MaKH
+    FROM HoaDon
+    WHERE MaHD = @MaHD
+
+    -- Kiểm tra khuyến mãi theo thời gian
+    SELECT TOP 1 @MaKM = MaKM, @GiaTriKM = GiaTriKM, @LoaiDieuKien = LoaiDieuKien
+    FROM KhuyenMai
+    WHERE LoaiDieuKien = N'Theo khoảng thời gian'
+      AND @NgayDatHang BETWEEN NgayBatDau AND NgayKetThuc
+      AND TrangThai = N'Đang hoạt động'
+
+    IF @MaKM IS NOT NULL
+    BEGIN
+        -- Lưu thông tin khuyến mãi vào bảng CTDieuKienKM
+        INSERT INTO CTDieuKienKM (MaKM, MaHD)
+        VALUES (@MaKM, @MaHD)
+
+        -- Cập nhật thông tin giảm giá cho hóa đơn
+        UPDATE HoaDon
+        SET ThanhToan = ThanhToan - (ThanhToan * @GiaTriKM)
+        WHERE MaHD = @MaHD
+
+        SELECT @GiaTriKM AS MucGiamDaApDung, @LoaiDieuKien AS LoaiKMDaApDung
+    END
+    ELSE
+    BEGIN
+        SELECT 'Không có khuyến mãi nào được áp dụng theo thời gian' AS KetQua
+    END
+END

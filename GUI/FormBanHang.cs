@@ -256,6 +256,9 @@ namespace DACN.GUI
                         ThanhToan=ThanhToan,
                     };
                     int HoaDonAdded = HoaDonDAO.Instance.Insert(hd);
+                    int kmtg = KhuyenMaiDAO.Instance.KhuyenMaiTheoThoiGian(MaHD);
+                MessageBox.Show("Biến km theo thời gian có giá trị " + kmtg.ToString());
+                    KhuyenMaiDAO.Instance.KhuyenMaiTheoTongTien(MaHD);
                     if (HoaDonAdded != 0)
                     {
                         bool allDetailsAdded = true;

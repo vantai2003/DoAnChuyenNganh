@@ -29,31 +29,35 @@ namespace DACN.GUI
            
             string moTa = txt_MoTa.Text;
             string trangThai = cb_TrangThai.SelectedItem.ToString();
-            decimal giaTriKM = txt_GiaTriKM.Value;
+            decimal giaTriKM = decimal.Parse(txt_GiaTriKM.Text);
             DateTime? ngayBD = null;
             DateTime? ngayKT = null;
+            decimal? dieuKienTongTien = null;
+            string loaiDieuKien = loaiDK;
             if (flag == 2)
             {
                  ngayBD = null;
                  ngayKT = null;
+                dieuKienTongTien =decimal.Parse(txt_DieuKienTongTien.Text);
             }
             else if (flag == 3)
             {
                 string loaiKH = cb_LoaiKH.SelectedValue.ToString();
-                tenKM = "Khuyến mãi dành cho khách hàng " + loaiKH;
+                tenKM = loaiKH;
                 ngayBD = null;
                 ngayKT = null;
+                dieuKienTongTien = null;
             }
             else
             {
                 ngayBD = dtp_NgayBD.Value;
                 ngayKT = dtp_NgayKT.Value;
-                
+                dieuKienTongTien = null;
             }
             try
             {
                 
-                KhuyenMaiDAO.Instance.ThemKM(maKM, tenKM, ngayBD, ngayKT, moTa, trangThai, giaTriKM);
+                KhuyenMaiDAO.Instance.ThemKM(maKM, tenKM, ngayBD, ngayKT, moTa, trangThai, giaTriKM, loaiDieuKien, dieuKienTongTien);
                 MessageBox.Show("Thêm thành công");
             }
             catch (Exception ex)

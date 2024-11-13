@@ -42,6 +42,9 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.uiPanel1 = new Sunny.UI.UIPanel();
             this.tab_TaoKM = new System.Windows.Forms.TabPage();
+            this.txt_DieuKienTongTien = new Sunny.UI.UITextBox();
+            this.lb_LoaiKH = new System.Windows.Forms.Label();
+            this.cb_LoaiKH = new System.Windows.Forms.ComboBox();
             this.btn_TaoKM = new Sunny.UI.UIButton();
             this.lb_mota = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -51,7 +54,6 @@
             this.dtp_NgayKT = new System.Windows.Forms.DateTimePicker();
             this.dtp_NgayBD = new System.Windows.Forms.DateTimePicker();
             this.cb_TrangThai = new System.Windows.Forms.ComboBox();
-            this.txt_GiaTriKM = new System.Windows.Forms.NumericUpDown();
             this.txt_TenKM = new Sunny.UI.UITextBox();
             this.lb_trangthai = new System.Windows.Forms.Label();
             this.lb_gtkm = new System.Windows.Forms.Label();
@@ -59,8 +61,7 @@
             this.lb_ngaykt = new System.Windows.Forms.Label();
             this.lb_ngaybd = new System.Windows.Forms.Label();
             this.lb_tenkm = new System.Windows.Forms.Label();
-            this.cb_LoaiKH = new System.Windows.Forms.ComboBox();
-            this.lb_LoaiKH = new System.Windows.Forms.Label();
+            this.txt_GiaTriKM = new Sunny.UI.UITextBox();
             this.tab_Body.SuspendLayout();
             this.tab_DS.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -69,7 +70,6 @@
             this.panel2.SuspendLayout();
             this.tab_TaoKM.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_GiaTriKM)).BeginInit();
             this.SuspendLayout();
             // 
             // tab_Body
@@ -204,6 +204,8 @@
             // tab_TaoKM
             // 
             this.tab_TaoKM.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(243)))), ((int)(((byte)(243)))));
+            this.tab_TaoKM.Controls.Add(this.txt_GiaTriKM);
+            this.tab_TaoKM.Controls.Add(this.txt_DieuKienTongTien);
             this.tab_TaoKM.Controls.Add(this.lb_LoaiKH);
             this.tab_TaoKM.Controls.Add(this.cb_LoaiKH);
             this.tab_TaoKM.Controls.Add(this.btn_TaoKM);
@@ -212,7 +214,6 @@
             this.tab_TaoKM.Controls.Add(this.dtp_NgayKT);
             this.tab_TaoKM.Controls.Add(this.dtp_NgayBD);
             this.tab_TaoKM.Controls.Add(this.cb_TrangThai);
-            this.tab_TaoKM.Controls.Add(this.txt_GiaTriKM);
             this.tab_TaoKM.Controls.Add(this.txt_TenKM);
             this.tab_TaoKM.Controls.Add(this.lb_trangthai);
             this.tab_TaoKM.Controls.Add(this.lb_gtkm);
@@ -225,6 +226,38 @@
             this.tab_TaoKM.Size = new System.Drawing.Size(1248, 667);
             this.tab_TaoKM.TabIndex = 1;
             this.tab_TaoKM.Text = "Tạo khuyến mãi";
+            // 
+            // txt_DieuKienTongTien
+            // 
+            this.txt_DieuKienTongTien.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txt_DieuKienTongTien.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.txt_DieuKienTongTien.Location = new System.Drawing.Point(626, 446);
+            this.txt_DieuKienTongTien.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txt_DieuKienTongTien.MinimumSize = new System.Drawing.Size(1, 16);
+            this.txt_DieuKienTongTien.Name = "txt_DieuKienTongTien";
+            this.txt_DieuKienTongTien.Padding = new System.Windows.Forms.Padding(5);
+            this.txt_DieuKienTongTien.ShowText = false;
+            this.txt_DieuKienTongTien.Size = new System.Drawing.Size(150, 29);
+            this.txt_DieuKienTongTien.TabIndex = 20;
+            this.txt_DieuKienTongTien.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txt_DieuKienTongTien.Watermark = "";
+            // 
+            // lb_LoaiKH
+            // 
+            this.lb_LoaiKH.AutoSize = true;
+            this.lb_LoaiKH.Location = new System.Drawing.Point(640, 141);
+            this.lb_LoaiKH.Name = "lb_LoaiKH";
+            this.lb_LoaiKH.Size = new System.Drawing.Size(156, 25);
+            this.lb_LoaiKH.TabIndex = 19;
+            this.lb_LoaiKH.Text = "Loại khách hàng";
+            // 
+            // cb_LoaiKH
+            // 
+            this.cb_LoaiKH.FormattingEnabled = true;
+            this.cb_LoaiKH.Location = new System.Drawing.Point(821, 141);
+            this.cb_LoaiKH.Name = "cb_LoaiKH";
+            this.cb_LoaiKH.Size = new System.Drawing.Size(211, 33);
+            this.cb_LoaiKH.TabIndex = 18;
             // 
             // btn_TaoKM
             // 
@@ -323,13 +356,6 @@
             this.cb_TrangThai.Size = new System.Drawing.Size(155, 33);
             this.cb_TrangThai.TabIndex = 9;
             // 
-            // txt_GiaTriKM
-            // 
-            this.txt_GiaTriKM.Location = new System.Drawing.Point(323, 505);
-            this.txt_GiaTriKM.Name = "txt_GiaTriKM";
-            this.txt_GiaTriKM.Size = new System.Drawing.Size(154, 30);
-            this.txt_GiaTriKM.TabIndex = 8;
-            // 
             // txt_TenKM
             // 
             this.txt_TenKM.Cursor = System.Windows.Forms.Cursors.IBeam;
@@ -404,22 +430,20 @@
             this.lb_tenkm.TabIndex = 0;
             this.lb_tenkm.Text = "Tên khuyến mãi";
             // 
-            // cb_LoaiKH
+            // txt_GiaTriKM
             // 
-            this.cb_LoaiKH.FormattingEnabled = true;
-            this.cb_LoaiKH.Location = new System.Drawing.Point(821, 141);
-            this.cb_LoaiKH.Name = "cb_LoaiKH";
-            this.cb_LoaiKH.Size = new System.Drawing.Size(211, 33);
-            this.cb_LoaiKH.TabIndex = 18;
-            // 
-            // lb_LoaiKH
-            // 
-            this.lb_LoaiKH.AutoSize = true;
-            this.lb_LoaiKH.Location = new System.Drawing.Point(640, 141);
-            this.lb_LoaiKH.Name = "lb_LoaiKH";
-            this.lb_LoaiKH.Size = new System.Drawing.Size(156, 25);
-            this.lb_LoaiKH.TabIndex = 19;
-            this.lb_LoaiKH.Text = "Loại khách hàng";
+            this.txt_GiaTriKM.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txt_GiaTriKM.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.txt_GiaTriKM.Location = new System.Drawing.Point(298, 498);
+            this.txt_GiaTriKM.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txt_GiaTriKM.MinimumSize = new System.Drawing.Size(1, 16);
+            this.txt_GiaTriKM.Name = "txt_GiaTriKM";
+            this.txt_GiaTriKM.Padding = new System.Windows.Forms.Padding(5);
+            this.txt_GiaTriKM.ShowText = false;
+            this.txt_GiaTriKM.Size = new System.Drawing.Size(150, 29);
+            this.txt_GiaTriKM.TabIndex = 21;
+            this.txt_GiaTriKM.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txt_GiaTriKM.Watermark = "";
             // 
             // FormQLKhuyenMai
             // 
@@ -439,7 +463,6 @@
             this.tab_TaoKM.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txt_GiaTriKM)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -457,7 +480,6 @@
         private System.Windows.Forms.Label lb_gtkm;
         private System.Windows.Forms.DateTimePicker dtp_NgayBD;
         private System.Windows.Forms.ComboBox cb_TrangThai;
-        private System.Windows.Forms.NumericUpDown txt_GiaTriKM;
         private Sunny.UI.UITextBox txt_TenKM;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.RadioButton rd_TheoKhoangTG;
@@ -474,5 +496,7 @@
         private Sunny.UI.UIDataGridView dvg_DSKM;
         private System.Windows.Forms.Label lb_LoaiKH;
         private System.Windows.Forms.ComboBox cb_LoaiKH;
+        private Sunny.UI.UITextBox txt_DieuKienTongTien;
+        private Sunny.UI.UITextBox txt_GiaTriKM;
     }
 }
