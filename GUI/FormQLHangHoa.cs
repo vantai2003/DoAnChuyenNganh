@@ -20,15 +20,15 @@ namespace DACN.GUI
         public FormQLHangHoa()
         {
             InitializeComponent();
-            LoadLoaiSanPham();
             LoadSanPham();
         }
         private void LoadLoaiSanPham()
         {
             List<LoaiSanPhamDTO> listLoaiSanPham = LoaiSanPhamDAO.Instance.GetLoaiSanPham();
             dvg_LoaiSP.DataSource = listLoaiSanPham;
-            
-            btn_Xoa.Enabled = btn_Sua.Enabled = false;
+            dvg_LoaiSP.Columns["MaLoai"].HeaderText = "Mã loại";
+            dvg_LoaiSP.Columns["TenLoai"].HeaderText = "Tên loại";
+            btn_Xoa.Enabled = btn_Sua.Enabled = btn_Luu.Enabled = false;
             btnThem.Enabled = true;
             txt_MaLoaiSP.Clear();
             txt_TenLoaiSP.Clear();
@@ -37,7 +37,6 @@ namespace DACN.GUI
         {
             return LoaiSanPhamDAO.Instance.KiemTraTrungMaLoai(maloai);
         }
-        // Kiểm tra chuỗi không chứa khoảng trắng và không có chữ có dấu dùng Regex
         public bool IsValidInput(string input)
         {
             string pattern = @"^[a-zA-Z0-9]+$";
@@ -93,6 +92,7 @@ namespace DACN.GUI
                 txt_TenLoaiSP.Text = Convert.ToString(row.Cells["TenLoai"].Value);
                 btnThem.Enabled = false;
                 btn_Xoa.Enabled = btn_Sua.Enabled = true;
+                txt_MaLoaiSP.Enabled = false;
             }
             catch (Exception ex)
             {
@@ -135,37 +135,28 @@ namespace DACN.GUI
 
         private void btn_Sua_Click(object sender, EventArgs e)
         {
-            string maLoai = "";
-            maLoai = txt_MaLoaiSP.Text;
-
-            if (maLoai == "")
-            {
-                MessageBox.Show("Vui lòng chọn loại sản phẩm muốn sửa");
-            }
-            else
-            {
-                string tenLoai = txt_TenLoaiSP.Text;
-                LoaiSanPhamDAO.Instance.SuaLoaiSP(maLoai, tenLoai);
-                txt_MaLoaiSP.Clear();
-                txt_TenLoaiSP.Clear();
-                MessageBox.Show("Sửa loai sản phẩm thành công");
-                LoadLoaiSanPham();
-            }
+            btn_Luu.Enabled = true;
+            btn_Sua.Enabled = btn_Xoa.Enabled = false;
         }
 
         private void LoadSanPham()
         {
             List<HangHoaDTO> listSanPham = HangHoaDAO.Instance.GetSanPham();
             dvg_HangHoa.DataSource = listSanPham;
+            dvg_HangHoa.Columns["MaSP"].HeaderText = "Mã sản phẩm";
+            dvg_HangHoa.Columns["TenSP"].HeaderText = "Tên sản phẩm";
+            dvg_HangHoa.Columns["DVT"].HeaderText = "ĐVT";
+            dvg_HangHoa.Columns["TenLoai"].HeaderText = "Tên Loại";
             dvg_HangHoa.Columns["MaKho"].Visible = false;
-            dvg_HangHoa.Columns["TenLoai"].Visible = false;
+            dvg_HangHoa.Columns["MaLoaiSP"].Visible = false;
             List<KhoDTO> listKho = KhoDAO.Instance.GetKho();
             List<LoaiSanPhamDTO> listLoaiSP = LoaiSanPhamDAO.Instance.GetLoaiSanPham();
             cb_LoaiHH.DataSource = listLoaiSP;
             cb_LoaiHH.DisplayMember = "TenLoai";
             cb_LoaiHH.ValueMember = "MaLoai";
             btn_ThemHH.Enabled = true;
-            btn_XoaHH.Enabled = btn_SuaHH.Enabled = btn_LuuHH.Enabled =false;
+            btn_XoaHH.Enabled = btn_SuaHH.Enabled = btn_LuuHH.Enabled = cb_LoaiSP.Enabled =false;
+            cb_LoaiSP.SelectedItem = null;
             txt_MaHH.Clear();
             txt_TenHH.Clear();
             cb_DVT.SelectedIndex = 0;
@@ -216,7 +207,17 @@ namespace DACN.GUI
                 txt_MaHH.Text = Convert.ToString(row.Cells["MaSP"].Value);
                 txt_TenHH.Text = Convert.ToString(row.Cells["TenSP"].Value);
                 cb_DVT.SelectedItem = row.Cells["DVT"].Value.ToString();
-                cb_LoaiHH.SelectedValue = Convert.ToString(row.Cells["MaLoaiSP"].Value);
+                //cb_LoaiHH.SelectedValue = Convert.ToString(row.Cells["TenLoai"].Value);
+                string tenLoai = row.Cells["TenLoai"].Value.ToString();
+
+                foreach (LoaiSanPhamDTO loaiSP in cb_LoaiHH.Items)
+                {
+                    if (loaiSP.TenLoai == tenLoai)
+                    {
+                        cb_LoaiHH.SelectedItem = loaiSP;
+                        break;
+                    }
+                }
                 btn_XoaHH.Enabled = true;
                 btn_ThemHH.Enabled = false;
                 btn_SuaHH.Enabled = true;
@@ -282,6 +283,7 @@ namespace DACN.GUI
                     txt_TenHH.Clear();
                     cb_DVT.SelectedIndex = 0;
                     cb_LoaiHH.SelectedIndex = 0;
+                    flag = 0;
                 }
             }
             else
@@ -296,9 +298,115 @@ namespace DACN.GUI
             dvg_HangHoa.DataSource = listHH;
         }
 
-        private void rd_kho_CheckedChanged(object sender, EventArgs e)
-        {
 
+        private void btn_Reload_Click(object sender, EventArgs e)
+        {
+            LoadLoaiSanPham();
+            txt_MaLoaiSP.Enabled = true;
+        }
+
+        private void btn_Luu_Click(object sender, EventArgs e)
+        {
+            string maLoai = "";
+            maLoai = txt_MaLoaiSP.Text;
+
+            if (maLoai == "")
+            {
+                MessageBox.Show("Vui lòng chọn loại sản phẩm muốn sửa");
+            }
+            else
+            {
+                string tenLoai = txt_TenLoaiSP.Text;
+                LoaiSanPhamDAO.Instance.SuaLoaiSP(maLoai, tenLoai);
+                txt_MaLoaiSP.Clear();
+                txt_TenLoaiSP.Clear();
+                MessageBox.Show("Sửa loai sản phẩm thành công");
+                LoadLoaiSanPham();
+            }
+        }
+
+        private void rd_LoaiHH_CheckedChanged(object sender, EventArgs e)
+        {
+            cb_LoaiSP.Enabled = true;
+            List<LoaiSanPhamDTO> listLoaiSP = LoaiSanPhamDAO.Instance.GetLoaiSanPham();
+            cb_LoaiSP.DataSource = listLoaiSP;
+            cb_LoaiSP.DisplayMember = "TenLoai";
+            cb_LoaiSP.ValueMember = "TenLoai";
+        }
+
+        private void btn_LocHH_Click(object sender, EventArgs e)
+        {
+            string value = cb_LoaiSP.SelectedValue.ToString();
+            List<HangHoaDTO> listHH = HangHoaDAO.Instance.LocTheoTenLoaiSP(value);
+            dvg_HangHoa.DataSource = listHH;
+        }
+
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int index = tab_body.SelectedIndex;
+
+            switch (index)
+            {
+                case 0:
+                    LoadLoaiSanPham();
+                    break;
+                case 1:
+
+                    LoadLoaiSanPham();
+                    break;
+                case 2:
+
+                    LoadTonKho();
+                    break;
+                default:
+                    break;
+            }
+        }
+        private void LoadTonKho()
+        {
+            List<Kho_SanPhamDTO> listkhosp = TonKhoDAO.Instance.GetTonKho();
+            dvg_TonKho.DataSource = listkhosp;
+            dvg_TonKho.Columns["MaSP"].HeaderText = "Mã sản phẩm";
+            dvg_TonKho.Columns["TenSP"].HeaderText = "Tên sản phẩm";
+            dvg_TonKho.Columns["TenLoaiSP"].HeaderText = "Loại sản phẩm";
+            dvg_TonKho.Columns["DVT"].HeaderText = "Đơn vị tính";
+            dvg_TonKho.Columns["SoLuongTon"].HeaderText = "Số lượng tồn";
+            dvg_TonKho.Columns["TenKho"].HeaderText = "Tên kho";
+        }
+
+        private void rdb_Kho_CheckedChanged(object sender, EventArgs e)
+        {
+            cb_Kho.Enabled = btn_Loc.Enabled = true;
+            txt_SearchKho.Enabled = false;
+            List<KhoDTO> listKHo = KhoDAO.Instance.GetKho();
+            cb_Kho.DataSource = listKHo;
+            cb_Kho.DisplayMember = "TenKho";
+            cb_Kho.ValueMember = "MaKho";
+            flag = 1;
+        }
+
+        private void rdb_SanPham_CheckedChanged(object sender, EventArgs e)
+        {
+            txt_SearchKho.Enabled = btn_Loc.Enabled = true;
+            cb_Kho.Enabled = false;
+            cb_Kho.Text = null;
+            flag = 0;
+        }
+
+        private void btn_Loc_Click(object sender, EventArgs e)
+        {
+            if (flag == 1)
+            {
+                string maKho = cb_Kho.SelectedValue.ToString();
+                List<Kho_SanPhamDTO> listTonKho = TonKhoDAO.Instance.LocTheoKho(maKho);
+                dvg_TonKho.DataSource = listTonKho;
+            }
+            else
+            {
+                string searchValue = txt_SearchKho.Text;
+                List<Kho_SanPhamDTO> listTonKho = TonKhoDAO.Instance.LocTheoSP(searchValue);
+                dvg_TonKho.DataSource = listTonKho;
+            }
         }
     }
 }

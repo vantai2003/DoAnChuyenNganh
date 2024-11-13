@@ -61,6 +61,8 @@
     <Compile Include="DAO\HoaDonDAO.cs" />
     <Compile Include="DAO\KhachHangDAO.cs" />
     <Compile Include="DAO\KhoDAO.cs" />
+    <Compile Include="DAO\KhuyenMaiDAO.cs" />
+    <Compile Include="DAO\KiemTraDuLieuDAO.cs" />
     <Compile Include="DAO\LoaiKhachHangDAO.cs" />
     <Compile Include="DAO\LoaiSanPhamDAO.cs" />
     <Compile Include="DAO\LoginDAO.cs" />
@@ -122,6 +124,7 @@
     <Compile Include="DTO\KhachHangDTO.cs" />
     <Compile Include="DTO\KhoDTO.cs" />
     <Compile Include="DTO\Kho_SanPhamDTO.cs" />
+    <Compile Include="DTO\KhuyenMaiDTO.cs" />
     <Compile Include="DTO\LoaiKhachHangDTO.cs" />
     <Compile Include="DTO\LoaiSanPhamDTO.cs" />
     <Compile Include="DTO\LoginDTO.cs" />
@@ -154,6 +157,12 @@
     <Compile Include="GUI\FormDanhMuc.Designer.cs">
       <DependentUpon>FormDanhMuc.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\FormDuyetKhuyenMai.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FormDuyetKhuyenMai.Designer.cs">
+      <DependentUpon>FormDuyetKhuyenMai.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\FormDuyetPhieuNhap.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -171,12 +180,6 @@
     </Compile>
     <Compile Include="GUI\formKho.Designer.cs">
       <DependentUpon>formKho.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GUI\FormLoaiKhachHang.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUI\FormLoaiKhachHang.Designer.cs">
-      <DependentUpon>FormLoaiKhachHang.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\FormNguoiDung.cs">
       <SubType>Form</SubType>
@@ -201,6 +204,18 @@
     </Compile>
     <Compile Include="GUI\FormQLHangHoa.Designer.cs">
       <DependentUpon>FormQLHangHoa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FormQLKhuyenMai.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FormQLKhuyenMai.Designer.cs">
+      <DependentUpon>FormQLKhuyenMai.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FormQLNhanVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FormQLNhanVien.Designer.cs">
+      <DependentUpon>FormQLNhanVien.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\FormQLTonKho.cs">
       <SubType>Form</SubType>
@@ -285,6 +300,9 @@
     <EmbeddedResource Include="GUI\FormDanhMuc.resx">
       <DependentUpon>FormDanhMuc.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FormDuyetKhuyenMai.resx">
+      <DependentUpon>FormDuyetKhuyenMai.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\FormDuyetPhieuNhap.resx">
       <DependentUpon>FormDuyetPhieuNhap.cs</DependentUpon>
     </EmbeddedResource>
@@ -293,9 +311,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\formKho.resx">
       <DependentUpon>formKho.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GUI\FormLoaiKhachHang.resx">
-      <DependentUpon>FormLoaiKhachHang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FormNguoiDung.resx">
       <DependentUpon>FormNguoiDung.cs</DependentUpon>
@@ -308,6 +323,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FormQLHangHoa.resx">
       <DependentUpon>FormQLHangHoa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FormQLKhuyenMai.resx">
+      <DependentUpon>FormQLKhuyenMai.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FormQLNhanVien.resx">
+      <DependentUpon>FormQLNhanVien.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FormQLTonKho.resx">
       <DependentUpon>FormQLTonKho.cs</DependentUpon>
@@ -386,6 +407,7 @@
     <Content Include="GUI\Icon_images\user.png" />
     <Content Include="GUI\Icon_images\Vat_lieu.png" />
     <Content Include="GUI\Icon_images\warehouse.png" />
+    <None Include="Resources\Loading.png" />
     <None Include="Resources\khosat.jpg" />
     <None Include="Resources\icon-logout.png" />
     <None Include="Resources\warehouse.png" />

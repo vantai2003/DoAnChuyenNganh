@@ -17,10 +17,7 @@ namespace DACN.GUI
         public FormDanhMuc()
         {
             InitializeComponent();
-            HienThiKH();
-            LoadLoaiKhachHang();
             LoadNCC();
-            
         }
         private KhachHangDTO khDTO = new KhachHangDTO();
         bool IsUpdate = false;
@@ -31,31 +28,25 @@ namespace DACN.GUI
         private LoaiKhachHangDTO lkhDTO = new LoaiKhachHangDTO();
         public void HienThiKH()
         {
-            listKH = KhachHangDAO.Instance.GetKhachHang();
-            dgv_KH.Columns["MAKH"].DataPropertyName = "MAKH";
-            dgv_KH.Columns["TENKH"].DataPropertyName = "TENKH";
-            dgv_KH.Columns["DIACHI"].DataPropertyName = "DIACHI";
-            dgv_KH.Columns["SDT"].DataPropertyName = "SoDienThoai";
-            dgv_KH.Columns["EMAIL"].DataPropertyName = "EMAIL";
-            dgv_KH.Columns["NgayTao"].DataPropertyName = "NGAYTAO";
+            List<KhachHangDTO>listKH = KhachHangDAO.Instance.GetKhachHang();
             dgv_KH.DataSource = listKH;
-            tsbLuu.Enabled = false;
-            loadCBBLoaiKH();
-           
-        }
-        public void loadCBBLoaiKH()
-        {
-            cbbLoaiKH.Items.Clear();
+            dgv_KH.Columns["MaKH"].HeaderText = "Mã khách hàng";
+            dgv_KH.Columns["TenKH"].HeaderText = "Tên khách hàng";
+            dgv_KH.Columns["DiaChi"].HeaderText = "Địa chỉ";
+            dgv_KH.Columns["SoDienThoai"].HeaderText = "Số điện thoại";
+            dgv_KH.Columns["Email"].HeaderText = "Email";
+            dgv_KH.Columns["NgayTao"].HeaderText = "Ngày tạo";
+            dgv_KH.Columns["MaLoaiKH"].Visible = false;
+            dgv_KH.Columns["TenLoaiKH"].HeaderText = "Loại khách hàng";
             List<LoaiKhachHangDTO> listLoaiKH = LoaiKhachHangDAO.Instance.GetLoaiKhachHang();
-            var bindingList = new BindingList<LoaiKhachHangDTO>(listLoaiKH);
-            cbbLoaiKH.DataSource = new BindingSource(bindingList, null);
+            cbbLoaiKH.DataSource = listLoaiKH;
             cbbLoaiKH.DisplayMember = "TenLoaiKH";
             cbbLoaiKH.ValueMember = "MaLoaiKH";
-            if (cbbLoaiKH.Items.Count > 0)
-            {
-                cbbLoaiKH.SelectedIndex = 0;
-            }
+            tsbLuu.Enabled = false;
+            
+           
         }
+       
       
         private List<KhachHangDTO> listKH = new List<KhachHangDTO>();
         private bool ktDKKhachHang(string ma, string ten, string sdt, string email)
@@ -88,16 +79,6 @@ namespace DACN.GUI
         public void xoaTxt()
         {
             txtMK.Text = txtTenKH.Text = txtSDT.Text = txtEmail.Text = txtDiaChi.Text = string.Empty;
-        }
-
- 
-
-        private void panel_top_Resize(object sender, EventArgs e)
-        {
-            label_qlhh.Location = new Point(
-            (panel_top.Width - label_qlhh.Width) / 2,  
-            (panel_top.Height - label_qlhh.Height) / 2  
-            );
         }
 
         private void tsbThem_Click(object sender, EventArgs e)
@@ -188,12 +169,22 @@ namespace DACN.GUI
                     DataGridViewRow row = dgv_KH.Rows[e.RowIndex];
                     txtMK.Text = row.Cells["MaKH"].Value.ToString();
                     txtTenKH.Text = row.Cells["TenKH"].Value.ToString();
-                    txtSDT.Text = row.Cells["SDT"].Value.ToString();
+                    txtSDT.Text = row.Cells["SoDienThoai"].Value.ToString();
                     txtEmail.Text = row.Cells["Email"].Value.ToString();
                     txtDiaChi.Text = row.Cells["DiaChi"].Value.ToString();
                     dtpNgayTao.Value = DateTime.Parse(row.Cells["NgayTao"].Value.ToString());
-                    cbbLoaiKH.Text = row.Cells["MaLoaiKH"].Value.ToString();
-                    
+
+
+                    string tenLoaiKH = row.Cells["TenLoaiKH"].Value.ToString();
+
+                    foreach (LoaiKhachHangDTO loaiKH in cbbLoaiKH.Items)
+                    {
+                        if (loaiKH.TenLoaiKH == tenLoaiKH)
+                        {
+                            cbbLoaiKH.SelectedItem = loaiKH;
+                            break;
+                        }
+                    }
                 }
             }
             catch (Exception ex)
@@ -346,16 +337,19 @@ namespace DACN.GUI
             }
         }
         //Loại khách hàng
+        private List<LoaiKhachHangDTO> listLKH = new List<LoaiKhachHangDTO>();
         private void LoadLoaiKhachHang()
         {
             listLKH = LoaiKhachHangDAO.Instance.GetLoaiKhachHang();
-            dgv_LoaiKhachHang.Columns["LoaiKH"].DataPropertyName = "MaLoaiKH";
-            dgv_LoaiKhachHang.Columns["TenLoaiKH"].DataPropertyName = "TenLoaiKH";
             dgv_LoaiKhachHang.DataSource = listLKH;
+            dgv_LoaiKhachHang.Columns["MaLoaiKH"].HeaderText = "Mã loại khách hàng";
+            dgv_LoaiKhachHang.Columns["TenLoaiKH"].HeaderText = "Tên loại khách hàng";
+            dgv_LoaiKhachHang.Columns["MucChiTieuToiThieu"].HeaderText = "Mức chi tiêu tối thiểu";
+            dgv_LoaiKhachHang.Columns["MucChiTieuToiDa"].HeaderText = "Mức chi tiêu tối đa";
             btn_LuuLoaiKH.Enabled = false;
         }
   
-        private List<LoaiKhachHangDTO> listLKH = new List<LoaiKhachHangDTO>();
+        
         private bool ktDKLoaiKH(string ma, string ten)
         {
 
@@ -369,13 +363,52 @@ namespace DACN.GUI
         {
             lkhDTO.MaLoaiKH = txt_MaLoaiKH.Text;
             lkhDTO.TenLoaiKH = txt_TenLoaiKH.Text;
-            if (ktDKLoaiKH(lkhDTO.MaLoaiKH, lkhDTO.TenLoaiKH))
+            if(txt_MucChiTieuTD.Text == "" || txt_MucChiTieuToiThieu.Text == "")
             {
-                loaiKhachHangDAO.Insert(lkhDTO.MaLoaiKH, lkhDTO.TenLoaiKH);
-                MessageBox.Show("Thêm thông tin thành công!");
+                lkhDTO.MucChiTieuToiThieu = null;
+                lkhDTO.MucChiTieuToiDa = null;
             }
-            else MessageBox.Show("Mã loại khách hàng và tên loại khách hàng không được để trống!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            LoadLoaiKhachHang();
+            else
+            {
+                lkhDTO.MucChiTieuToiThieu = decimal.Parse(txt_MucChiTieuToiThieu.Text);
+                lkhDTO.MucChiTieuToiDa = decimal.Parse(txt_MucChiTieuTD.Text);
+            }
+            decimal toithieu, toida;
+            if (!decimal.TryParse(txt_MucChiTieuToiThieu.Text, out toithieu)|| !decimal.TryParse(txt_MucChiTieuTD.Text, out toida)) 
+            {
+                MessageBox.Show("Vui lòng nhập vào một số hợp lệ.", "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txt_MucChiTieuToiThieu.Focus();
+            }
+            else
+            {
+                if(toithieu < 0)
+                {
+                    MessageBox.Show("Mức tối thiểu không được âm");
+                    txt_MucChiTieuToiThieu.Focus();
+                    return;
+                }
+                if (toida < 0)
+                {
+                    MessageBox.Show("Mức tối đa không được âm");
+                    txt_MucChiTieuTD.Focus();
+                    return;
+                }
+                if (toithieu > toida)
+                {
+                    MessageBox.Show("Mức tối đa không được nhỏ hơn mức tối thiểu");
+                    txt_MucChiTieuTD.Focus();
+                    return;
+                }
+                if (ktDKLoaiKH(lkhDTO.MaLoaiKH, lkhDTO.TenLoaiKH))
+                {
+                    loaiKhachHangDAO.Insert(lkhDTO.MaLoaiKH, lkhDTO.TenLoaiKH, lkhDTO.MucChiTieuToiThieu, lkhDTO.MucChiTieuToiDa);
+                    MessageBox.Show("Thêm thông tin thành công!");
+                }
+                else MessageBox.Show("Mã loại khách hàng và tên loại khách hàng không được để trống!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                LoadLoaiKhachHang();
+            }
+            
+
 
         }
 
@@ -396,7 +429,6 @@ namespace DACN.GUI
                     loaiKhachHangDAO.Delete(txt_MaLoaiKH.Text);
                     MessageBox.Show("Đã xóa thông tin thành công!");
                     xoaTxt();
-                  
 
                 }
                 catch (Exception ex)
@@ -414,9 +446,18 @@ namespace DACN.GUI
             try
             {
            
-                string maLoaiKH = txt_MaLoaiKH.Text;
-                string tenLoaiKH = txt_TenLoaiKH.Text;
-
+                lkhDTO.MaLoaiKH = txt_MaLoaiKH.Text;
+                lkhDTO.TenLoaiKH = txt_TenLoaiKH.Text;
+                if (txt_MucChiTieuTD.Text == "" || txt_MucChiTieuToiThieu.Text == "")
+                {
+                    lkhDTO.MucChiTieuToiThieu = null;
+                    lkhDTO.MucChiTieuToiDa = null;
+                }
+                else
+                {
+                    lkhDTO.MucChiTieuToiThieu = decimal.Parse(txt_MucChiTieuToiThieu.Text);
+                    lkhDTO.MucChiTieuToiDa = decimal.Parse(txt_MucChiTieuTD.Text);
+                }
                 if (IsUpdate == true)
                 {
                     
@@ -430,6 +471,50 @@ namespace DACN.GUI
             catch (Exception ex)
             {
                 MessageBox.Show("Trùng tên loại khách hàng");
+            }
+        }
+
+        private void dgv_LoaiKhachHang_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridViewRow row = new DataGridViewRow();
+            try
+            {
+                row = dgv_LoaiKhachHang.Rows[e.RowIndex];
+                txt_MaLoaiKH.Text = Convert.ToString(row.Cells["MaLoaiKH"].Value);
+                txt_TenLoaiKH.Text = Convert.ToString(row.Cells["TenLoaiKH"].Value);
+                txt_MucChiTieuToiThieu.Text = Convert.ToString(row.Cells["MucChiTieuToiThieu"].Value);
+                txt_MucChiTieuTD.Text = Convert.ToString(row.Cells["MucChiTieuToiDa"].Value);
+                btn_ThemLoaiKH.Enabled = false;
+                btn_XoaLoaiKH.Enabled = btn_SuaLoaiKH.Enabled = true;
+                txt_MaLoaiKH.Enabled = false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi" + ex.ToString());
+                txt_MaLoaiKH.Clear();
+                txt_TenLoaiKH.Clear();
+                txt_MucChiTieuToiThieu.Clear();
+                txt_MucChiTieuTD.Clear();
+            }
+        }
+
+        private void tab_DanhMuc_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int index = tab_DanhMuc.SelectedIndex;
+
+            switch (index)
+            {
+                case 0:
+                    LoadNCC();
+                    break;
+                case 1:
+                    HienThiKH();
+                    break;
+                case 2:
+                    LoadLoaiKhachHang();
+                    break;
+                default:
+                    break;
             }
         }
     }

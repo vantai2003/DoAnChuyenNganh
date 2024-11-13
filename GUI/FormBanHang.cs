@@ -223,8 +223,7 @@ namespace DACN.GUI
         private void btnThemVao_Click(object sender, EventArgs e)
         {
 
-            try
-            {
+            
                 if (dgv_BanHang.Rows.Count == 0)
                 {
                     MessageBox.Show("Vui lòng chọn ít nhất một sản phẩm trước.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -248,7 +247,8 @@ namespace DACN.GUI
                     mahd = MaHD;
                 
                  string MaNV = manv;
-                 string MaKH = txtMaKH.Text;
+            //string MaKH = txtMaKH.Text;
+                string MaKH = FormChonKH.makh;
                  DateTime NgayDatHang = DateTime.Now;
                  string TrangThai = cb_TrangThai.Text;
                  string DiaChiGiaoHang = txtDiaChi.Text;
@@ -323,12 +323,7 @@ namespace DACN.GUI
                         MessageBox.Show("Lỗi khi thêm Hóa đơn", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
-            }
-
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message);
-            }
+           
         }
 
         private void label9_Click(object sender, EventArgs e)

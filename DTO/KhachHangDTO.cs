@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
@@ -19,15 +20,18 @@ namespace DACN.DTO
 
         public DateTime NgayTao { get; set; }
         public string MaLoaiKH { get; set; }
+        public string TenLoaiKH { get; set; }
         public KhachHangDTO(DataRow row)
         {
-            this.MaKH = row["MAKH"].ToString();
-            this.TenKH = row["TENKH"].ToString();
-            this.Diachi = row["DIACHI"].ToString();
+            this.MaKH = row["MaKH"].ToString();
+            this.TenKH = row["TenKH"].ToString();
+            this.Diachi = row["DiaChi"].ToString();
             this.SoDienThoai = row["SoDienThoai"].ToString();
-            this.Email = row["EMAIL"].ToString();
-            this.MaLoaiKH = row["MaLoaiKH"].ToString();
+            this.Email = row["Email"].ToString();
             this.NgayTao = DateTime.Parse(row["NgayTao"].ToString());
+            this.TenLoaiKH = row["TenLoaiKH"].ToString();
+           // this.MaLoaiKH = row["MaLoaiKH"].ToString();
+            
         }
         public KhachHangDTO (){ }
     }

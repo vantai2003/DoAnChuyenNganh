@@ -11,10 +11,14 @@ namespace DACN.DTO
     {
         public string MaLoaiKH { get; set; }
         public string TenLoaiKH { get; set; }
+        public decimal? MucChiTieuToiThieu { get; set; }
+        public decimal? MucChiTieuToiDa {  get; set; }
         public LoaiKhachHangDTO(DataRow row)
         {
             this.MaLoaiKH = row["MaLoaiKH"].ToString();
             this.TenLoaiKH = row["TenLoaiKH"].ToString();
+            this.MucChiTieuToiThieu =decimal.Parse(row["MucChiTieuToiThieu"].ToString());
+            this.MucChiTieuToiDa =decimal.Parse(row["MucChiTieuToiDa"].ToString());
         }
         public LoaiKhachHangDTO()
         {

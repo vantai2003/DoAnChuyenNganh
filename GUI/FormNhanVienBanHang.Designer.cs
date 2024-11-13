@@ -34,7 +34,6 @@
             this.btn_DangXuat = new System.Windows.Forms.Button();
             this.btn_QLHangHoa = new Sunny.UI.UIButton();
             this.btn_LapPhieuBanHang = new Sunny.UI.UIButton();
-            this.btn_HuyDonHang = new Sunny.UI.UIButton();
             this.btn_CapNhatDanhMuc = new Sunny.UI.UIButton();
             this.menu_NhanVienBanHang = new System.Windows.Forms.MenuStrip();
             this.cậpNhậtThôngTinTàiKhoảnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -72,7 +71,6 @@
             this.pane_left.Controls.Add(this.btn_DangXuat);
             this.pane_left.Controls.Add(this.btn_QLHangHoa);
             this.pane_left.Controls.Add(this.btn_LapPhieuBanHang);
-            this.pane_left.Controls.Add(this.btn_HuyDonHang);
             this.pane_left.Controls.Add(this.btn_CapNhatDanhMuc);
             this.pane_left.Controls.Add(this.menu_NhanVienBanHang);
             this.pane_left.Dock = System.Windows.Forms.DockStyle.Left;
@@ -119,7 +117,7 @@
             this.btn_LapPhieuBanHang.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_LapPhieuBanHang.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.btn_LapPhieuBanHang.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btn_LapPhieuBanHang.Location = new System.Drawing.Point(2, 216);
+            this.btn_LapPhieuBanHang.Location = new System.Drawing.Point(3, 148);
             this.btn_LapPhieuBanHang.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btn_LapPhieuBanHang.MinimumSize = new System.Drawing.Size(1, 1);
             this.btn_LapPhieuBanHang.Name = "btn_LapPhieuBanHang";
@@ -128,20 +126,6 @@
             this.btn_LapPhieuBanHang.Text = "Lập phiếu bán hàng";
             this.btn_LapPhieuBanHang.TipsFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.btn_LapPhieuBanHang.Click += new System.EventHandler(this.btn_LapPhieuBanHang_Click);
-            // 
-            // btn_HuyDonHang
-            // 
-            this.btn_HuyDonHang.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_HuyDonHang.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.btn_HuyDonHang.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btn_HuyDonHang.Location = new System.Drawing.Point(3, 159);
-            this.btn_HuyDonHang.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btn_HuyDonHang.MinimumSize = new System.Drawing.Size(1, 1);
-            this.btn_HuyDonHang.Name = "btn_HuyDonHang";
-            this.btn_HuyDonHang.Size = new System.Drawing.Size(392, 60);
-            this.btn_HuyDonHang.TabIndex = 2;
-            this.btn_HuyDonHang.Text = "Hủy đơn hàng";
-            this.btn_HuyDonHang.TipsFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             // 
             // btn_CapNhatDanhMuc
             // 
@@ -222,7 +206,6 @@
         private System.Windows.Forms.ToolStripMenuItem thôngTinTàiKhoảnToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem đổiMậtKhẩuToolStripMenuItem;
         private Sunny.UI.UIButton btn_LapPhieuBanHang;
-        private Sunny.UI.UIButton btn_HuyDonHang;
         private Sunny.UI.UIButton btn_QLHangHoa;
         private System.Windows.Forms.Button btn_DangXuat;
     }

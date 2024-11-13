@@ -20,8 +20,8 @@ namespace DACN.DTO
         {
             this.MaSP = row["MaSP"].ToString();
             this.TenSP = row["TenSP"].ToString();
-            this.DVT = row["DVT"].ToString();
-            this.MaLoaiSP = row["MaLoai"].ToString();
+            this.DVT =row["DVT"].ToString();
+            this.TenLoai = row["TenLoai"].ToString();
         }
         public HangHoaDTO() { }
     }

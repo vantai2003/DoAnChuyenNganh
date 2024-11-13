@@ -16,6 +16,7 @@ namespace DACN.GUI
     {
         private KhachHangDTO khDTO = new KhachHangDTO();
         private KhachHangDAO khDAO = new KhachHangDAO();
+        public static string makh;
         public FormChonKH()
         {
             InitializeComponent();
@@ -24,7 +25,12 @@ namespace DACN.GUI
         public void LoadKH()
         {
             List<KhachHangDTO> listkh = KhachHangDAO.Instance.GetKhachHang();
+
             dgvKhachHang.DataSource = listkh; 
+
+            dgvKhachHang.DataSource = listkh; cbbLoaiKH.Items.Clear();
+            dgvKhachHang.Columns["MaLoaiKH"].Visible = false;
+
             List<LoaiKhachHangDTO> listLoaiKH = LoaiKhachHangDAO.Instance.GetLoaiKhachHang();
             var bindingList = new BindingList<LoaiKhachHangDTO>(listLoaiKH);
             cbbLoaiKH.DataSource = new BindingSource(bindingList, null);
@@ -111,12 +117,21 @@ namespace DACN.GUI
                 if (e.RowIndex >= 0)
                 {
                     DataGridViewRow row = dgvKhachHang.Rows[e.RowIndex];
-                    txtMK.Text = row.Cells["MaKH"].Value.ToString();
+                    makh = txtMK.Text = row.Cells["MaKH"].Value.ToString();
                     txtTenKH.Text = row.Cells["TenKH"].Value.ToString();
                     txtSDT.Text = row.Cells["SoDienThoai"].Value.ToString();
                     txtEmail.Text = row.Cells["Email"].Value.ToString();
                     txtDiaChi.Text = row.Cells["DiaChi"].Value.ToString();
-                    cbbLoaiKH.Text = row.Cells["MaLoaiKH"].Value.ToString();
+                    string tenLoaiKH = row.Cells["TenLoaiKH"].Value.ToString();
+
+                    foreach (LoaiKhachHangDTO loaiKH in cbbLoaiKH.Items)
+                    {
+                        if (loaiKH.TenLoaiKH == tenLoaiKH)
+                        {
+                            cbbLoaiKH.SelectedItem = loaiKH;
+                            break;
+                        }
+                    }
 
                 }
             }
