@@ -83,6 +83,7 @@ namespace DACN.GUI
 
         private void tsbThem_Click(object sender, EventArgs e)
         {
+            
             khDTO.MaKH = txtMK.Text;
             khDTO.TenKH = txtTenKH.Text;
             khDTO.Email = txtEmail.Text;
@@ -97,7 +98,6 @@ namespace DACN.GUI
 
             }
             HienThiKH();
-           
         }
 
         private void tsbXoa_Click(object sender, EventArgs e)
@@ -117,7 +117,8 @@ namespace DACN.GUI
                     Console.WriteLine("Error: " + ex.Message);
                 }
             }
-            HienThiKH();
+            xoaTxt();
+            dgv_KH.Refresh();
         }
 
         private void tsbSua_Click(object sender, EventArgs e)

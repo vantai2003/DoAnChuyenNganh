@@ -28,6 +28,7 @@ namespace DACN.DTO
             this.TrangThai = row["TrangThai"].ToString();
             this.DiaChiGiaoHang = row["DiaChiGiaoHang"].ToString();
             this.TienCoc = decimal.Parse(row["TienCoc"].ToString());
+            this.ThanhToan = decimal.Parse(row["ThanhToan"].ToString());
             this.TongTien = decimal.Parse(row["TongTien"].ToString());
         }
         public HoaDonDTO() { }

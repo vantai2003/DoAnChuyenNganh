@@ -25,17 +25,46 @@ namespace DACN.GUI
         public void LoadKH()
         {
             List<KhachHangDTO> listkh = KhachHangDAO.Instance.GetKhachHang();
+
+            dgvKhachHang.DataSource = listkh; 
+
             dgvKhachHang.DataSource = listkh; cbbLoaiKH.Items.Clear();
             dgvKhachHang.Columns["MaLoaiKH"].Visible = false;
+
             List<LoaiKhachHangDTO> listLoaiKH = LoaiKhachHangDAO.Instance.GetLoaiKhachHang();
             var bindingList = new BindingList<LoaiKhachHangDTO>(listLoaiKH);
             cbbLoaiKH.DataSource = new BindingSource(bindingList, null);
+            
             cbbLoaiKH.DisplayMember = "TenLoaiKH";
             cbbLoaiKH.ValueMember = "MaLoaiKH";
             if (cbbLoaiKH.Items.Count > 0)
             {
                 cbbLoaiKH.SelectedIndex = 0;
             }
+        }
+        static string GenerateNewCodeKH()
+        {
+            List<KhachHangDTO> list = new List<KhachHangDTO>();
+            list = KhachHangDAO.Instance.GetKhachHang();
+            // Nếu danh sách rỗng, trả về mã mặc định
+            if (list.Count == 0)
+            {
+                return "KH001";
+            }
+
+            // Lấy phần tử cuối cùng trong danh sách
+            string lastCode = list.Last().MaKH;
+
+            string prefix = lastCode.Substring(0, 2);
+            string numberPart = lastCode.Substring(2);
+
+            // Chuyển số thành số nguyên và tăng lên 1
+            int number = int.Parse(numberPart) + 1;
+
+            // Tạo mã mới
+            string newCode = $"{prefix}{number:D3}";
+
+            return newCode;
         }
         public void xoaTxt()
         {
@@ -114,6 +143,7 @@ namespace DACN.GUI
 
         private void tsbThem_Click(object sender, EventArgs e)
         {
+            txtMK.Text = GenerateNewCodeKH();
             khDTO.MaKH = txtMK.Text;
             khDTO.TenKH = txtTenKH.Text;
             khDTO.Email = txtEmail.Text;

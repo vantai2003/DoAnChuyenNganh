@@ -751,6 +751,21 @@ DROP COLUMN MaKho;
 exec SP_GetListSP
 drop proc SP_GetProductsInStock
 --thủ tục lấy dữ liệu tồn
+--thủ tục tìm sản phẩm trong kho
+CREATE PROC SP_TimKiemSPKho
+@SearchValue varchar(50)
+AS
+BEGIN
+	SELECT  sp.MaSP, sp.TenSP, sp.DVT, k.TenKho, ks.SoLuongTon, lp.TenLoai  
+	FROM Kho_SanPham ks 
+	JOIN SanPham sp ON ks.MaSP = sp.MaSP
+    JOIN Kho k ON ks.MaKho = k.MaKho
+    JOIN LoaiSanPham lp ON sp.MaLoai = lp.MaLoai
+	WHERE sp.MaSP LIKE '%' + @SearchValue + '%'
+	OR sp.TenSP LIKE '%' + @SearchValue + '%';
+END
+GO
+--
 CREATE PROCEDURE SP_GetProductsInStock
 AS
 BEGIN
@@ -758,7 +773,7 @@ BEGIN
     FROM Kho_SanPham ks
     JOIN SanPham sp ON ks.MaSP = sp.MaSP
     JOIN Kho k ON ks.MaKho = k.MaKho
-    JOIN LoaiSanPham lp ON sp.MaLoai = lp.MaLoai; -- Kết nối với bảng LoaiSanPham
+    JOIN LoaiSanPham lp ON sp.MaLoai = lp.MaLoai;
 END
 GO
 --Lấy thông tin người dùng 
@@ -995,6 +1010,140 @@ create table CTPhieuTraHangKH
 	DonGiaTra DECIMAL(18, 0),
 	FOREIGN KEY (MaPhieuTraHang) REFERENCES PhieuTraHangKH(MaPhieuTraHang),
     FOREIGN KEY (MaSP) REFERENCES SanPham(MaSP)
+<<<<<<< HEAD
+
+)---hóa đơn
+---------Lấy tất cả các cột trong bảng Hóa đơn----------------------
+CREATE PROC sp_SelectAll_HD
+AS
+BEGIN
+    SELECT * FROM HoaDon;
+END;
+GO
+---------------------Thêm Hóa đơn------------------
+
+CREATE PROC sp_Insert_HD
+    @MaHD VARCHAR(50) ,
+    @NgayDatHang DATE,
+    @TongTien DECIMAL(18, 0),
+	@TrangThai NVARCHAR(20),
+    @DiaChiGiaoHang NVARCHAR(500),
+    @TienCoc DECIMAL(18, 0),
+    @ThanhToan DECIMAL(18, 0),
+    @MaKH VARCHAR(50),
+    @MaNV VARCHAR(50)
+AS
+BEGIN 
+	INSERT INTO HoaDon(MaHD, NgayDatHang, TongTien, TrangThai, DiaChiGiaoHang, TienCoc, ThanhToan, MaKH, MaNV)
+    VALUES (@MaHD,@NgayDatHang,@TongTien,@TrangThai,@DiaChiGiaoHang,@TienCoc,@ThanhToan,@MaKH,@MaNV);
+END;
+GO
+select * from HoaDon
+-----------Cập nhật Hóa đơn-------------------
+CREATE PROC sp_Update_HD
+	@MaHD VARCHAR(50),
+    @NgayDatHang DATE,
+    @TongTien DECIMAL(18, 0),
+	@TrangThai NVARCHAR(20),
+    @DiaChiGiaoHang NVARCHAR(500),
+    @TienCoc DECIMAL(18, 0),
+    @ThanhToan DECIMAL(18, 0),
+    @MaKH VARCHAR(50),
+    @MaNV VARCHAR(50)
+AS
+BEGIN
+    UPDATE HoaDon
+    SET 
+	NgayDatHang = @NgayDatHang,
+	TongTien=@TongTien,
+	TrangThai=@TrangThai,
+	DiaChiGiaoHang=@DiaChiGiaoHang,
+	TienCoc=@TienCoc,
+	ThanhToan=@ThanhToan,
+	MaKH=@MaKH,
+	MaNV=@MaNV
+    WHERE MaHD = @MaHD;
+END;
+GO
+--thu tuc xoa sp
+CREATE PROC SP_Delete_HD
+@MaHD varchar(50)
+AS
+BEGIN
+    DELETE FROM CT_HoaDon 
+    WHERE MaHD = @MaHD;
+
+    DELETE FROM HoaDon 
+    WHERE MaHD = @MaHD;
+END
+GO
+-- Bảng CT_HoaDon (Chi tiết hóa đơn)
+CREATE PROC sp_SelectAll_CTHD
+AS
+BEGIN
+    SELECT * FROM CT_HoaDon;
+END;
+GO
+
+CREATE PROC sp_SelectOne_CTHD
+@MaHD VARCHAR(50) 
+AS
+BEGIN
+    SELECT * FROM CT_HoaDon
+	WHERE MaHD = @MaHD
+END;
+GO
+
+---------------------Thêm CT Hóa đơn-------------------
+
+CREATE PROC sp_Insert_CTHD
+	@MaCTHD VARCHAR(50),
+    @SoLuong DECIMAL(18, 3),
+    @DonGia DECIMAL(18, 0),
+    @DVT VARCHAR(20),
+    @ThanhTien DECIMAL(18, 0),
+	@MaSP VARCHAR(50),
+    @MaHD VARCHAR(50)
+AS
+BEGIN 
+	INSERT INTO CT_HoaDon(MaCTHD, SoLuong, DonGia, DVT, ThanhTien, MaSP, MaHD)
+    VALUES (@MaCTHD, @SoLuong, @DonGia, @DVT, @ThanhTien, @MaSP, @MaHD);
+END;
+
+GO
+-----------Cập nhật CT Hóa đơn-------------------
+CREATE PROC sp_Update_CTHD
+	@MaCTHD VARCHAR(50),
+    @SoLuong DECIMAL(18, 3),
+    @DonGia DECIMAL(18, 0),
+    @DVT VARCHAR(20),
+    @ThanhTien DECIMAL(18, 0),
+	@MaSP VARCHAR(50),
+    @MaHD VARCHAR(50)
+AS
+BEGIN
+    UPDATE CT_HoaDon
+    SET 
+	MaCTHD= @MaCTHD,
+	SoLuong=@SoLuong,
+	DonGia=@DonGia,
+	DVT=@DVT,
+	ThanhTien=@ThanhTien,
+	MaSP=@MaSP,
+	MaHD=@MaHD
+    WHERE MaCTHD = @MaCTHD;
+END;
+GO
+--thu tuc xoa cthd
+CREATE PROC SP_Delete_CTHD
+@MaCTHD varchar(50)
+AS
+BEGIN
+    DELETE FROM CT_HoaDon 
+    WHERE MaCTHD = @MaCTHD;
+=======
+=======
+>>>>>>> 5ab091315f0f8ff6e264a08931883adad14fda13
 )
 GO
 ----Tạo thêm bảng CTPhieuTraHangNCC
