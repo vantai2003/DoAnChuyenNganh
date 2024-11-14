@@ -1010,7 +1010,6 @@ create table CTPhieuTraHangKH
 	DonGiaTra DECIMAL(18, 0),
 	FOREIGN KEY (MaPhieuTraHang) REFERENCES PhieuTraHangKH(MaPhieuTraHang),
     FOREIGN KEY (MaSP) REFERENCES SanPham(MaSP)
-<<<<<<< HEAD
 
 )---hóa đơn
 ---------Lấy tất cả các cột trong bảng Hóa đơn----------------------
@@ -1141,9 +1140,7 @@ AS
 BEGIN
     DELETE FROM CT_HoaDon 
     WHERE MaCTHD = @MaCTHD;
-=======
-=======
->>>>>>> 5ab091315f0f8ff6e264a08931883adad14fda13
+
 )
 GO
 ----Tạo thêm bảng CTPhieuTraHangNCC
@@ -1710,3 +1707,181 @@ BEGIN
     DEALLOCATE cur;
 END;
 GO
+----------------Nhan vien giao hang va tra hang-------------------
+create table CTPhieuTraHangKH
+(
+	IDCTPhieuTH varchar(50) primary key,
+	MaPhieuTraHang varchar(50),
+	MaSP varchar(50),
+	SoLuongTra DECIMAL(18, 3),
+	DonGiaTra DECIMAL(18, 0),
+	FOREIGN KEY (MaPhieuTraHang) REFERENCES PhieuTraHangKH(MaPhieuTraHang),
+    FOREIGN KEY (MaSP) REFERENCES SanPham(MaSP)
+)
+
+ALTER TABLE PhieuTraHangKH
+ADD TongTienNhan DECIMAL(18, 0)
+ALTER TABLE PhieuTraHangKH
+ADD NgayTao Date
+ALTER TABLE PhieuTraHangKH
+ADD MaKho varchar(50)
+
+drop proc SP_ThemPhieuTraHang_KH
+CREATE PROCEDURE SP_ThemPhieuTraHang_KH
+    @MaPhieuTH VARCHAR(50),
+    @TongTienNhan DECIMAL(18,0),
+    @LyDo NVARCHAR(500),
+    @NgayTao DATE,
+	@MaNV VARCHAR(50),
+    @MaHD VARCHAR(50),
+	@MaKho VARCHAR(50)
+AS
+BEGIN
+    INSERT INTO PhieuTraHangKH(MaPhieuTraHang, TongTienNhan, LyDo, NgayTao, MaNV, MaHD, MaKho)
+    VALUES (@MaPhieuTH, @TongTienNhan, @LyDo, @NgayTao, @MaNV, @MaHD, @MaKho)
+	-- Kiểm tra kết quả thêm
+    IF @@ROWCOUNT = 0
+    BEGIN
+        RAISERROR('Thêm phiếu trả hàng không thành công', 16, 1);
+    END
+
+END
+GO
+
+drop proc SP_ThemPhieuTraHang_KH
+drop proc SP_TaoMaCTPTra_KH
+------thủ tục tăng mã phiếu trả
+CREATE PROC SP_TaoMaPTra_KH
+AS
+BEGIN
+    DECLARE @LastMaCTPT varchar(10);
+    DECLARE @NewNumber int;
+    DECLARE @NewMaPT varchar(10);
+    SELECT @LastMaCTPT = MAX(MaPhieuTraHang) FROM PhieuTraHangKH;
+    
+    IF @LastMaCTPT IS NULL
+    BEGIN
+        SET @NewNumber = 1;
+    END
+    ELSE
+    BEGIN
+        IF LEN(@LastMaCTPT) >= 4 
+        BEGIN
+            SET @NewNumber = CAST(SUBSTRING(@LastMaCTPT, 5, LEN(@LastMaCTPT) - 4) AS INT) + 1;
+        END
+        ELSE
+        BEGIN
+            SET @NewNumber = 1;
+        END
+    END
+    SET @NewMaPT = 'PTRH' + RIGHT('00000' + CAST(@NewNumber AS VARCHAR), 3);
+    SELECT @NewMaPT AS NewMaPhieuTra
+END
+GO
+------thủ tục tăng mã phiếu ct trả
+drop PROC SP_TaoMaCTPTra_KH
+CREATE PROC SP_TaoMaCTPTra_KH
+AS
+BEGIN
+    DECLARE @LastMaCTPT varchar(10);
+    DECLARE @NewNumber int;
+    DECLARE @NewMaPT varchar(10);
+    SELECT @LastMaCTPT = MAX(IDCTPhieuTH) FROM CTPhieuTraHangKH;
+    
+    IF @LastMaCTPT IS NULL
+    BEGIN
+        SET @NewNumber = 1;
+    END
+    ELSE
+    BEGIN
+        IF LEN(@LastMaCTPT) >= 4 
+        BEGIN
+            SET @NewNumber = CAST(SUBSTRING(@LastMaCTPT, 7, LEN(@LastMaCTPT) - 4) AS INT) + 1;
+        END
+        ELSE
+        BEGIN
+            SET @NewNumber = 1;
+        END
+    END
+    SET @NewMaPT = 'CTPTRH' + RIGHT('00000' + CAST(@NewNumber AS VARCHAR), 3);
+    SELECT @NewMaPT AS NewMaPhieuTra
+END
+
+
+exec SP_TaoMaCTPTra_KH
+GO
+select * from CTPhieuTraHangKH
+
+select * from CTPhieuTraHangKH
+select * from Kho_SanPham
+--Thu tuc tao CTPhieuNhapHang
+CREATE PROCEDURE SP_ThemCTPhieuTraHang_KH
+    @MaCTPT VARCHAR(50),
+    @MaPhieuTH VARCHAR(50),
+    @MaSP VARCHAR(50),
+    @SoLuongTra DECIMAL(18, 2),
+    @DonGiaTra DECIMAL(18, 0)
+   
+AS
+BEGIN
+    INSERT INTO CTPhieuTraHangKH(IDCTPhieuTH, MaPhieuTraHang, MaSP, SoLuongTra, DonGiaTra)
+    VALUES (@MaCTPT, @MaPhieuTH, @MaSP, @SoLuongTra, @DonGiaTra)
+END
+go
+
+drop proc SP_ThemCTPhieuTraHang_KH
+
+------thủ tục tăng mã ct phiếu trả
+CREATE PROC SP_TaoMaCTPTraHang_KH
+AS
+BEGIN
+    DECLARE @LastMaCTPT varchar(10);
+    DECLARE @NewNumber int;
+    DECLARE @NewMaPT varchar(10);
+    SELECT @LastMaCTPT = MAX(IDCTPhieuTH) FROM CTPhieuTraHangKH;
+    
+    -- Nếu bảng chưa có thì bắt đầu từ CTPN001
+    IF @LastMaCTPT IS NULL
+    BEGIN
+        SET @NewNumber = 1;
+    END
+    ELSE
+    BEGIN
+        IF LEN(@LastMaCTPT) >= 4 
+        BEGIN
+            SET @NewNumber = CAST(SUBSTRING(@LastMaCTPT, 5, LEN(@LastMaCTPT) - 4) AS INT) + 1;
+        END
+        ELSE
+        BEGIN
+            SET @NewNumber = 1;
+        END
+    END
+    SET @NewMaPT = 'CTPT' + RIGHT('00000' + CAST(@NewNumber AS VARCHAR), 3);
+    SELECT @NewMaPT AS NewMaPhieuTra
+END
+GO
+
+drop proc SP_CapNhatKho_KHTraHang
+CREATE PROCEDURE SP_CapNhatKho_KHTraHang
+    @MaSP VARCHAR(10),
+    @MaKho VARCHAR(10),
+    @SoLuong INT
+AS
+BEGIN
+    -- Kiểm tra sản phẩm đã tồn tại trong kho
+    IF EXISTS (SELECT 1 FROM Kho_SanPham WHERE MaSP = @MaSP AND MaKho = @MaKho)
+    BEGIN
+        -- Cập nhật số lượng tồn
+        UPDATE Kho_SanPham
+        SET SoLuongTon = SoLuongTon + @SoLuong
+        WHERE MaSP = @MaSP AND MaKho = @MaKho;
+    END
+    ELSE
+    BEGIN
+        -- Chèn sản phẩm mới vào kho
+        INSERT INTO Kho_SanPham(MaSP, MaKho, SoLuongTon)
+        VALUES (@MaSP, @MaKho, @SoLuong);
+    END
+END;
+
+
