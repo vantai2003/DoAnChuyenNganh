@@ -29,14 +29,41 @@ namespace DACN.DAO
         public int KhuyenMaiTheoThoiGian(string mahd)
         {
             string query = "SP_KM_TheoThoiGian @MaHD";
-            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { mahd });
-            return result;
+            object result = DataProvider.Instance.ExecuteScalar(query, new object[] { mahd });
+            if (result != null && int.TryParse(result.ToString(), out int parsedResult))
+            {
+                return parsedResult;
+            }
+            else
+            {
+                return 0;
+            }
         }
         public int KhuyenMaiTheoTongTien(string mahd)
         {
             string query = "SP_KM_TheoTongTien @MaHD";
-            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { mahd });
-            return result;
+            object result = DataProvider.Instance.ExecuteScalar(query, new object[] { mahd });
+            if (result != null && int.TryParse(result.ToString(), out int parsedResult))
+            {
+                return parsedResult;
+            }
+            else
+            {
+                return 0;
+            }
+        }
+        public int KhuyenMaiTheoLoaiKH(string mahd)
+        {
+            string query = "Sp_ApDungKhuyenMai @MaHD";
+            object result = DataProvider.Instance.ExecuteScalar(query, new object[] { mahd });
+            if (result != null && int.TryParse(result.ToString(), out int parsedResult))
+            {
+                return parsedResult;
+            }
+            else
+            {
+                return 0;
+            }
         }
         public static string GenerateMaKM()
         {
@@ -112,6 +139,14 @@ namespace DACN.DAO
                     km.NgayBatDau = null;
                     km.NgayKetThuc = null;
                 }
+                if (row["DieuKienTongTien"] != DBNull.Value)
+                {
+                    km.DieuKienTongTien = Convert.ToDecimal(row["DieuKienTongTien"]);
+                }
+                else
+                {
+                    km.DieuKienTongTien = null;
+                }
 
                 listKhuyenMai.Add(km);
             }
@@ -120,6 +155,12 @@ namespace DACN.DAO
         public int PheDuyetKM(string makm)
         {
             string query = "SP_DuyetKhuyenMai @MaKM";
+            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { makm });
+            return result;
+        }
+        public int TatKhuyenMai(string makm)
+        {
+            string query = "SP_NgungKhuyenMai @MaKM";
             int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { makm });
             return result;
         }

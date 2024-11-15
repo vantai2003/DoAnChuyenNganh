@@ -39,7 +39,18 @@ namespace DACN.GUI
         {
             List<HoaDonDTO> listHoaDon = HoaDonDAO.Instance.GetHoaDon();
             dgvHoaDon.DataSource = listHoaDon;
-            
+            dgvHoaDon.Columns["MaHD"].HeaderText = "Mã hóa đơn";
+            dgvHoaDon.Columns["NgayDatHang"].HeaderText = "Ngày đặt hàng";
+            dgvHoaDon.Columns["TongTien"].HeaderText = "Tổng tiền";
+            dgvHoaDon.Columns["TrangThai"].HeaderText = "Trạng thái";
+            dgvHoaDon.Columns["DiaChiGiaoHang"].HeaderText = "Địa chỉ giao hàng";
+            dgvHoaDon.Columns["TienCoc"].HeaderText = "Tiền cọc";
+            dgvHoaDon.Columns["ThanhToan"].HeaderText = "Thanh toán";
+            dgvHoaDon.Columns["MaKH"].HeaderText = "Mã khách hàng";
+            dgvHoaDon.Columns["TenKH"].HeaderText = "Tên khách hàng";
+            dgvHoaDon.Columns["TenNV"].HeaderText = "Tên nhân viên tạo phiếu";
+            dgvHoaDon.Columns["MaNV"].Visible = false;
+            dgvHoaDon.Columns["SoTienKM"].HeaderText = "Số tiền khuyến mãi";
         }
         public void loadCbbTrangThai()
         {

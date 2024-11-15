@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormBanHang));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btLamMoi = new System.Windows.Forms.Button();
             this.tbTimKiemHang = new System.Windows.Forms.TextBox();
             this.btn_lammoiHang = new System.Windows.Forms.Button();
@@ -96,7 +96,7 @@
             this.btn_lammoiHang.TabIndex = 12;
             this.btn_lammoiHang.Text = "Làm Mới";
             this.btn_lammoiHang.UseVisualStyleBackColor = false;
-            this.btn_lammoiHang.Click += new System.EventHandler(this.btn_lammoiHang_Click);
+
             // 
             // label3
             // 
@@ -131,7 +131,6 @@
             this.pcSearch.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pcSearch.TabIndex = 14;
             this.pcSearch.TabStop = false;
-            this.pcSearch.Click += new System.EventHandler(this.pcSearch_Click);
             // 
             // btnChonSP
             // 
@@ -266,47 +265,48 @@
             // 
             // dgv_BanHang
             // 
-            dataGridViewCellStyle21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
-            this.dgv_BanHang.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
+            this.dgv_BanHang.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgv_BanHang.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
             this.dgv_BanHang.BackgroundColor = System.Drawing.Color.White;
             this.dgv_BanHang.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle22.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            dataGridViewCellStyle22.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_BanHang.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_BanHang.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgv_BanHang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle23.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle23.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            dataGridViewCellStyle23.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_BanHang.DefaultCellStyle = dataGridViewCellStyle23;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_BanHang.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgv_BanHang.EnableHeadersVisualStyles = false;
             this.dgv_BanHang.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.dgv_BanHang.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
-            this.dgv_BanHang.Location = new System.Drawing.Point(-2, 392);
+            this.dgv_BanHang.Location = new System.Drawing.Point(8, 376);
             this.dgv_BanHang.Name = "dgv_BanHang";
-            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle24.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle24.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            dataGridViewCellStyle24.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
-            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_BanHang.RowHeadersDefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_BanHang.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dgv_BanHang.RowHeadersWidth = 62;
-            dataGridViewCellStyle25.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle25.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.dgv_BanHang.RowsDefaultCellStyle = dataGridViewCellStyle25;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.dgv_BanHang.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dgv_BanHang.RowTemplate.Height = 28;
             this.dgv_BanHang.SelectedIndex = -1;
-            this.dgv_BanHang.Size = new System.Drawing.Size(1460, 292);
+            this.dgv_BanHang.Size = new System.Drawing.Size(1318, 336);
             this.dgv_BanHang.StripeOddColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
             this.dgv_BanHang.TabIndex = 72;
             this.dgv_BanHang.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_BanHang_CellEndEdit);
@@ -314,7 +314,7 @@
             // txtThanhToan
             // 
             this.txtThanhToan.Enabled = false;
-            this.txtThanhToan.Location = new System.Drawing.Point(430, 723);
+            this.txtThanhToan.Location = new System.Drawing.Point(425, 765);
             this.txtThanhToan.Name = "txtThanhToan";
             this.txtThanhToan.Size = new System.Drawing.Size(139, 26);
             this.txtThanhToan.TabIndex = 64;
@@ -323,19 +323,18 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label9.Location = new System.Drawing.Point(254, 723);
+            this.label9.Location = new System.Drawing.Point(249, 765);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(143, 29);
             this.label9.TabIndex = 65;
             this.label9.Text = "Thanh Toán";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label2.Location = new System.Drawing.Point(621, 723);
+            this.label2.Location = new System.Drawing.Point(616, 765);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(115, 29);
             this.label2.TabIndex = 74;
@@ -345,7 +344,7 @@
             // txtTongTien
             // 
             this.txtTongTien.Enabled = false;
-            this.txtTongTien.Location = new System.Drawing.Point(756, 723);
+            this.txtTongTien.Location = new System.Drawing.Point(751, 765);
             this.txtTongTien.Name = "txtTongTien";
             this.txtTongTien.Size = new System.Drawing.Size(139, 26);
             this.txtTongTien.TabIndex = 73;
@@ -355,7 +354,7 @@
             this.btnThemVao.BackColor = System.Drawing.Color.OrangeRed;
             this.btnThemVao.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnThemVao.ForeColor = System.Drawing.Color.White;
-            this.btnThemVao.Location = new System.Drawing.Point(13, 703);
+            this.btnThemVao.Location = new System.Drawing.Point(8, 745);
             this.btnThemVao.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnThemVao.Name = "btnThemVao";
             this.btnThemVao.Size = new System.Drawing.Size(219, 69);
@@ -377,7 +376,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1284, 832);
+            this.ClientSize = new System.Drawing.Size(1531, 841);
             this.Controls.Add(this.dgv_BanHang);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtTongTien);
@@ -399,7 +398,6 @@
             this.Controls.Add(this.btLamMoi);
             this.Name = "FormBanHang";
             this.Text = "FormBanHang";
-            this.Load += new System.EventHandler(this.FormBanHang_Load);
             this.pndata.ResumeLayout(false);
             this.pndata.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcSearch)).EndInit();

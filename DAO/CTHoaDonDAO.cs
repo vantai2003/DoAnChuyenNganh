@@ -59,6 +59,14 @@ namespace DACN.DAO
 
             return list;
         }
+        public DataTable SearchSP(string searchquery)
+        {
+            List<CTHoaDonDTO> list = new List<CTHoaDonDTO>();
+            string query = "SP_TimKiemSPKho @SearchValue";
+            DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] { searchquery });
+
+            return data;
+        }
         public int CapNhatTrangThai(string masp,string makho,decimal soluong)
         {
             string query = "SP_CapNhatTonKho @MaSP , @MaKho , @SoLuong";
@@ -71,9 +79,9 @@ namespace DACN.DAO
             return DataProvider.Instance.ExecuteQuery(query);
 
         }
-        public int updateSL(String masp, int soluong,string makho)
+        public int updateSL(String masp, decimal soluong,string makho)
         {
-            String Query = String.Format("update Kho_SanPham set soluongcon='{0}' where mahh= '{1}' and makho ='{2}'", soluong, masp,makho);
+            String Query = String.Format("update Kho_SanPham set SoLuongTon='{0}' where MaSP= '{1}' and MaKho ='{2}'", soluong, masp, makho);
             return DataProvider.Instance.ExecuteNonQuery(Query);
         }
         public int Delete(string ID)
