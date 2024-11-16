@@ -33,7 +33,7 @@ namespace DACN.DTO
             this.TrangThai = row["TrangThai"].ToString();
             this.DiaChiGiaoHang = row["DiaChiGiaoHang"].ToString();
             this.TienCoc = decimal.Parse(row["TienCoc"].ToString());
-            this.ThanhToan = decimal.Parse(row["ThanhToan"].ToString());
+            this.ThanhToan = decimal.TryParse(row["ThanhToan"]?.ToString(), out decimal thanhToan) ? thanhToan : 0;
             this.TongTien = decimal.Parse(row["TongTien"].ToString());
             this.SoTienKM = row["TienKM"].ToString();
         }

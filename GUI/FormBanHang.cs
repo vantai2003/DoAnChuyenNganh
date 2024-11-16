@@ -258,24 +258,10 @@ namespace DACN.GUI
                     int HoaDonAdded = HoaDonDAO.Instance.Insert(hd);
                     string appliedPromotions = string.Empty;
 
-                    int kmtg = KhuyenMaiDAO.Instance.KhuyenMaiTheoThoiGian(MaHD);
-                    if (kmtg > 0)
-                    {
-                        appliedPromotions += "Khuyến mãi theo thời gian được áp dụng.\n";
-                    }
-
-                    int kmtt = KhuyenMaiDAO.Instance.KhuyenMaiTheoTongTien(MaHD);
-                    if (kmtt > 0)
-                    {
-                        appliedPromotions += "Khuyến mãi theo tổng tiền được áp dụng.\n";
-                    }
-
-                    int kmlkh = KhuyenMaiDAO.Instance.KhuyenMaiTheoLoaiKH(MaHD);
-                    if (kmlkh > 0)
-                    {
-                        appliedPromotions += "Khuyến mãi theo loại khách hàng được áp dụng.\n";
-                    }
-
+                //KhuyenMaiDAO.Instance.KhuyenMaiTheoThoiGian(MaHD);
+                //KhuyenMaiDAO.Instance.KhuyenMaiTheoTongTien(MaHD);
+                //KhuyenMaiDAO.Instance.KhuyenMaiTheoLoaiKH(MaHD);
+                KhuyenMaiDAO.Instance.ApDungKhuyenMaiChung(MaHD);
                     if (!string.IsNullOrEmpty(appliedPromotions))
                     {
                         MessageBox.Show(appliedPromotions, "Thông báo khuyến mãi", MessageBoxButtons.OK, MessageBoxIcon.Information);

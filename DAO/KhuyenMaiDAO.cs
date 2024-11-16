@@ -54,15 +54,37 @@ namespace DACN.DAO
         }
         public int KhuyenMaiTheoLoaiKH(string mahd)
         {
-            string query = "Sp_ApDungKhuyenMai @MaHD";
-            object result = DataProvider.Instance.ExecuteScalar(query, new object[] { mahd });
-            if (result != null && int.TryParse(result.ToString(), out int parsedResult))
+            string query = "SP_ApDungKhuyenMai @MaHD";
+            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { mahd });
+            return result;
+        }
+        public DataTable ApDungKhuyenMaiChung(string maHD)
+        {
+            try
             {
-                return parsedResult;
+                string query = "SP_ApDungKhuyenMaiChung @MaHD";
+                DataTable result = DataProvider.Instance.ExecuteQuery(query, new object[] { maHD });
+
+                if (result.Rows.Count > 0)
+                {
+                    // Hiển thị thông báo về khuyến mãi được áp dụng
+                    Console.WriteLine("Khuyến mãi đã được áp dụng thành công.");
+                    foreach (DataRow row in result.Rows)
+                    {
+                        Console.WriteLine($"Mã HD: {row["MaHD"]}, Tổng Tiền: {row["TongTien"]}, Thanh Toán: {row["ThanhToan"]}, Tiền KM: {row["TienKM"]}");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Không có khuyến mãi nào được áp dụng.");
+                }
+
+                return result;
             }
-            else
+            catch (Exception ex)
             {
-                return 0;
+                Console.WriteLine("Đã xảy ra lỗi: " + ex.Message);
+                return null;
             }
         }
         public static string GenerateMaKM()
