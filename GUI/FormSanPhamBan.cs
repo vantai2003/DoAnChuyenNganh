@@ -21,6 +21,7 @@ namespace DACN.GUI
         {
             InitializeComponent();
             LoadSanPhamBan();
+
         }
         private void LoadSanPhamBan()
         {
@@ -53,6 +54,7 @@ namespace DACN.GUI
             {
                 column.ReadOnly = true;
                 uiDataGridView1.Columns["Chon"].ReadOnly = false;
+
             }
 
         }
@@ -65,9 +67,27 @@ namespace DACN.GUI
         {
             if (this.Owner is FormBanHang formBanHang)
             {
-                foreach (var product in selectedProducts)
+                foreach (DataGridViewRow row in uiDataGridView1.Rows)
                 {
-                    formBanHang.AddProductToReceipt(product.MaSP, product.TenSP, product.DVT, product.TenLoaiSP, product.SoLuongTon, product.TenKho);
+                    if (Convert.ToBoolean(row.Cells["Chon"].Value))
+                    {
+                        try
+                        {
+                            string maSP = row.Cells["MaSP"].Value.ToString();
+                            string tenSP = row.Cells["TenSP"].Value.ToString();
+                            string dvt = row.Cells["DVT"].Value.ToString();
+                            string tenloaisp = row.Cells["TenLoai"].Value.ToString();
+                            decimal soLuongTon = decimal.Parse(row.Cells["SoLuongTon"].Value.ToString());
+                            string tenKho = row.Cells["TenKho"].Value.ToString();
+
+
+                            formBanHang.AddProductToReceipt(maSP, tenSP, dvt, tenloaisp, soLuongTon, tenKho);
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Error adding product: " + ex.Message);
+                        }
+                    }
                 }
                 this.Close();
             }
@@ -115,7 +135,11 @@ namespace DACN.GUI
                 }
                 else
                 {
-                    selectedProducts.RemoveAll(p => p.MaSP == row.Cells["MaSP"].Value.ToString());
+                    Kho_SanPhamDTO productToRemove = selectedProducts.FirstOrDefault(p => p.MaSP == row.Cells["MaSP"].Value.ToString());
+                    if (productToRemove != null)
+                    {
+                        selectedProducts.Remove(productToRemove);
+                    }
                 }
             }
         }

@@ -21,6 +21,7 @@ namespace DACN.GUI
         List<HoaDonDTO> listHoaDon = new List<HoaDonDTO>();
         private Dictionary<string, DataGridViewRow> existingProducts = new Dictionary<string, DataGridViewRow>();
         public static string manv;
+        public static string masp;
         public FormBanHang()
         {
             InitializeComponent();
@@ -84,6 +85,8 @@ namespace DACN.GUI
             {
                 if (e.RowIndex >= 0)
                 {
+                    DataGridViewRow row = dgv_BanHang.Rows[e.RowIndex];
+                    masp = row.Cells["MaSP"].Value.ToString();
                 }
             }
             catch (Exception ex)
@@ -252,8 +255,9 @@ namespace DACN.GUI
                  DateTime NgayDatHang = DateTime.Now;
                  string TrangThai = cb_TrangThai.Text;
                  string DiaChiGiaoHang = txtDiaChi.Text;
-                 decimal TienCoc = Convert.ToDecimal(txtTienCoc.Text);
-                 decimal TongTien = Convert.ToDecimal(txtTongTien.Text);
+                decimal TienCoc = string.IsNullOrEmpty(txtTienCoc.Text) ? 0 : Convert.ToDecimal(txtTienCoc.Text);
+
+                decimal TongTien = Convert.ToDecimal(txtTongTien.Text);
                  decimal ThanhToan = Convert.ToDecimal(txtThanhToan.Text);
 
                 if (!string.IsNullOrEmpty(mahd))
@@ -439,6 +443,11 @@ namespace DACN.GUI
                 txtTienCoc.Text = "0";
             }
             UpdateTongTien() ;
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
    

@@ -57,6 +57,7 @@
             this.txtTongTien = new System.Windows.Forms.TextBox();
             this.btnThemVao = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnXoaSP = new System.Windows.Forms.Button();
             this.pndata.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcSearch)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_BanHang)).BeginInit();
@@ -374,11 +375,26 @@
             this.panel2.Size = new System.Drawing.Size(0, 0);
             this.panel2.TabIndex = 86;
             // 
+            // btnXoaSP
+            // 
+            this.btnXoaSP.BackColor = System.Drawing.Color.OrangeRed;
+            this.btnXoaSP.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnXoaSP.ForeColor = System.Drawing.Color.White;
+            this.btnXoaSP.Location = new System.Drawing.Point(855, 275);
+            this.btnXoaSP.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnXoaSP.Name = "btnXoaSP";
+            this.btnXoaSP.Size = new System.Drawing.Size(219, 69);
+            this.btnXoaSP.TabIndex = 87;
+            this.btnXoaSP.Text = "Xóa Sản Phẩm";
+            this.btnXoaSP.UseVisualStyleBackColor = false;
+            this.btnXoaSP.Click += new System.EventHandler(this.button1_Click_1);
+            // 
             // FormBanHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1531, 841);
+            this.Controls.Add(this.btnXoaSP);
             this.Controls.Add(this.dgv_BanHang);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtTongTien);
@@ -434,5 +450,6 @@
         private System.Windows.Forms.TextBox txtTongTien;
         private System.Windows.Forms.Button btnThemVao;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button btnXoaSP;
     }
 }
