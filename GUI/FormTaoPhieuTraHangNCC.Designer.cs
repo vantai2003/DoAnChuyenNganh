@@ -28,20 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.uiPanel1 = new Sunny.UI.UIPanel();
             this.uiPanel4 = new Sunny.UI.UIPanel();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.rtb_LyDo = new Sunny.UI.UIRichTextBox();
             this.btn_TaoPhieu = new System.Windows.Forms.Button();
             this.uiPanel3 = new Sunny.UI.UIPanel();
-            this.dvg_TaoPTH = new Sunny.UI.UIDataGridView();
             this.uiPanel2 = new Sunny.UI.UIPanel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.dvg_TaoPTH = new System.Windows.Forms.DataGridView();
             this.uiPanel1.SuspendLayout();
             this.uiPanel4.SuspendLayout();
             this.uiPanel3.SuspendLayout();
@@ -80,6 +75,13 @@
             this.uiPanel4.TabIndex = 2;
             this.uiPanel4.Text = null;
             this.uiPanel4.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(606, 56);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 30);
+            this.textBox1.TabIndex = 3;
             // 
             // label1
             // 
@@ -128,53 +130,6 @@
             this.uiPanel3.Text = null;
             this.uiPanel3.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // dvg_TaoPTH
-            // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
-            this.dvg_TaoPTH.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dvg_TaoPTH.BackgroundColor = System.Drawing.Color.White;
-            this.dvg_TaoPTH.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dvg_TaoPTH.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dvg_TaoPTH.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dvg_TaoPTH.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dvg_TaoPTH.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dvg_TaoPTH.EnableHeadersVisualStyles = false;
-            this.dvg_TaoPTH.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.dvg_TaoPTH.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
-            this.dvg_TaoPTH.Location = new System.Drawing.Point(0, 0);
-            this.dvg_TaoPTH.Name = "dvg_TaoPTH";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dvg_TaoPTH.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            this.dvg_TaoPTH.RowHeadersWidth = 51;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.dvg_TaoPTH.RowsDefaultCellStyle = dataGridViewCellStyle5;
-            this.dvg_TaoPTH.RowTemplate.Height = 24;
-            this.dvg_TaoPTH.SelectedIndex = -1;
-            this.dvg_TaoPTH.Size = new System.Drawing.Size(1165, 463);
-            this.dvg_TaoPTH.StripeOddColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
-            this.dvg_TaoPTH.TabIndex = 0;
-            // 
             // uiPanel2
             // 
             this.uiPanel2.Dock = System.Windows.Forms.DockStyle.Top;
@@ -188,12 +143,16 @@
             this.uiPanel2.Text = "TẠO PHIẾU TRẢ HÀNG ";
             this.uiPanel2.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // textBox1
+            // dvg_TaoPTH
             // 
-            this.textBox1.Location = new System.Drawing.Point(606, 56);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 30);
-            this.textBox1.TabIndex = 3;
+            this.dvg_TaoPTH.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dvg_TaoPTH.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dvg_TaoPTH.Location = new System.Drawing.Point(0, 0);
+            this.dvg_TaoPTH.Name = "dvg_TaoPTH";
+            this.dvg_TaoPTH.RowHeadersWidth = 51;
+            this.dvg_TaoPTH.RowTemplate.Height = 24;
+            this.dvg_TaoPTH.Size = new System.Drawing.Size(1165, 463);
+            this.dvg_TaoPTH.TabIndex = 0;
             // 
             // FormTaoPhieuTraHangNCC
             // 
@@ -217,11 +176,11 @@
         private Sunny.UI.UIPanel uiPanel1;
         private Sunny.UI.UIPanel uiPanel4;
         private Sunny.UI.UIPanel uiPanel3;
-        private Sunny.UI.UIDataGridView dvg_TaoPTH;
         private Sunny.UI.UIPanel uiPanel2;
         private System.Windows.Forms.Label label1;
         private Sunny.UI.UIRichTextBox rtb_LyDo;
         private System.Windows.Forms.Button btn_TaoPhieu;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.DataGridView dvg_TaoPTH;
     }
 }

@@ -57,6 +57,8 @@ namespace DACN.GUI
                         break;
                     case 4:
                         MessageBox.Show("Đăng nhập thành công với quyền giao hàng");
+                        FormNhanVienGiaoHang fnvgh = new FormNhanVienGiaoHang();
+                        fnvgh.Show();
                         break;
                     case 5:
                         FormNhanVienKho fnvkho = new FormNhanVienKho();

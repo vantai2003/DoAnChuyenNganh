@@ -96,7 +96,7 @@
             this.btn_lammoiHang.TabIndex = 12;
             this.btn_lammoiHang.Text = "Làm Mới";
             this.btn_lammoiHang.UseVisualStyleBackColor = false;
-            this.btn_lammoiHang.Click += new System.EventHandler(this.btn_lammoiHang_Click);
+
             // 
             // label3
             // 
@@ -131,7 +131,6 @@
             this.pcSearch.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pcSearch.TabIndex = 14;
             this.pcSearch.TabStop = false;
-            this.pcSearch.Click += new System.EventHandler(this.pcSearch_Click);
             // 
             // btnChonSP
             // 
@@ -330,7 +329,6 @@
             this.label9.TabIndex = 65;
             this.label9.Text = "Thanh Toán";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
             // label2
             // 
@@ -400,7 +398,6 @@
             this.Controls.Add(this.btLamMoi);
             this.Name = "FormBanHang";
             this.Text = "FormBanHang";
-            this.Load += new System.EventHandler(this.FormBanHang_Load);
             this.pndata.ResumeLayout(false);
             this.pndata.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcSearch)).EndInit();

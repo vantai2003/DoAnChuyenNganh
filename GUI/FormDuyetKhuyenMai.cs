@@ -25,6 +25,16 @@ namespace DACN.GUI
         {
             List<KhuyenMaiDTO> listKM = KhuyenMaiDAO.Instance.LoadListKMCanPheDuyet();
             dvg_DSKM.DataSource = listKM;
+            dvg_DSKM.Columns["MaKM"].HeaderText = "Mã khuyến mãi";
+            dvg_DSKM.Columns["TenKM"].HeaderText = "Tên khuyến mãi";
+            dvg_DSKM.Columns["NgayBatDau"].HeaderText = "Ngày bắt đầu";
+            dvg_DSKM.Columns["NgayKetThuc"].HeaderText = "Ngày kết thúc";
+            dvg_DSKM.Columns["MoTa"].HeaderText = "Mô tả";
+            dvg_DSKM.Columns["TrangThai"].HeaderText = "Trạng thái";
+            dvg_DSKM.Columns["GiaTriKM"].HeaderText = "Giá trị khuyến mãi";
+            dvg_DSKM.Columns["LoaiDK"].HeaderText = "Loại điều kiện";
+            dvg_DSKM.Columns["DieuKienTongTien"].HeaderText = "Điều kiện của tổng tiền";
+
         }
 
         private void dvg_DSKM_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -74,6 +84,15 @@ namespace DACN.GUI
         {
             List<KhuyenMaiDTO> listKM = KhuyenMaiDAO.Instance.LoadListKM();
             dvg_DSKhuyenMai.DataSource = listKM;
+            dvg_DSKhuyenMai.Columns["MaKM"].HeaderText = "Mã khuyến mãi";
+            dvg_DSKhuyenMai.Columns["TenKM"].HeaderText = "Tên khuyến mãi";
+            dvg_DSKhuyenMai.Columns["NgayBatDau"].HeaderText = "Ngày bắt đầu";
+            dvg_DSKhuyenMai.Columns["NgayKetThuc"].HeaderText = "Ngày kết thúc";
+            dvg_DSKhuyenMai.Columns["MoTa"].HeaderText = "Mô tả";
+            dvg_DSKhuyenMai.Columns["TrangThai"].HeaderText = "Trạng thái";
+            dvg_DSKhuyenMai.Columns["GiaTriKM"].HeaderText = "Giá trị khuyến mãi";
+            dvg_DSKhuyenMai.Columns["LoaiDK"].HeaderText = "Loại điều kiện";
+            dvg_DSKhuyenMai.Columns["DieuKienTongTien"].HeaderText = "Điều kiện của tổng tiền";
         }
 
         private void tab_DuyetKM_SelectedIndexChanged(object sender, EventArgs e)

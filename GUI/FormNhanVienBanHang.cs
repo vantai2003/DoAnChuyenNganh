@@ -69,5 +69,10 @@ namespace DACN.GUI
             FormQLBanHang formQLBanHang = new FormQLBanHang() {};
             OpenChildForm(formQLBanHang);
         }
+
+        private void btn_QLKhuyenMai_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new FormQLKhuyenMai());
+        }
     }
 }

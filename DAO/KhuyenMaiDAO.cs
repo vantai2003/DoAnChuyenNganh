@@ -20,11 +20,72 @@ namespace DACN.DAO
         {
 
         }
-        public int ThemKM(string makm, string tenkm, object ngaybd, object ngaykt, string mota, string trangthai, decimal giatridk)
+        public int ThemKM(string makm, string tenkm, object ngaybd, object ngaykt, string mota, string trangthai, decimal giatridk, string loaidk, object dieukientongtien)
         {
-            string query = "SP_ThemKM @MaKM , @TenKM , @NgayBatDau , @NgayKetThuc , @MoTa , @TrangThai , @GiaTriKM";
-            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { makm, tenkm, ngaybd ?? DBNull.Value, ngaykt ?? DBNull.Value, mota, trangthai, giatridk });
+            string query = "SP_ThemKM @MaKM , @TenKM , @NgayBatDau , @NgayKetThuc , @MoTa , @TrangThai , @GiaTriKM , @LoaiDK , @DieuKienTongTien";
+            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { makm, tenkm, ngaybd ?? DBNull.Value, ngaykt ?? DBNull.Value, mota, trangthai, giatridk, loaidk,dieukientongtien ?? DBNull.Value });
             return result;
+        }
+        public int KhuyenMaiTheoThoiGian(string mahd)
+        {
+            string query = "SP_KM_TheoThoiGian @MaHD";
+            object result = DataProvider.Instance.ExecuteScalar(query, new object[] { mahd });
+            if (result != null && int.TryParse(result.ToString(), out int parsedResult))
+            {
+                return parsedResult;
+            }
+            else
+            {
+                return 0;
+            }
+        }
+        public int KhuyenMaiTheoTongTien(string mahd)
+        {
+            string query = "SP_KM_TheoTongTien @MaHD";
+            object result = DataProvider.Instance.ExecuteScalar(query, new object[] { mahd });
+            if (result != null && int.TryParse(result.ToString(), out int parsedResult))
+            {
+                return parsedResult;
+            }
+            else
+            {
+                return 0;
+            }
+        }
+        public int KhuyenMaiTheoLoaiKH(string mahd)
+        {
+            string query = "SP_ApDungKhuyenMai @MaHD";
+            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { mahd });
+            return result;
+        }
+        public DataTable ApDungKhuyenMaiChung(string maHD)
+        {
+            try
+            {
+                string query = "SP_ApDungKhuyenMaiChung @MaHD";
+                DataTable result = DataProvider.Instance.ExecuteQuery(query, new object[] { maHD });
+
+                if (result.Rows.Count > 0)
+                {
+                    // Hiển thị thông báo về khuyến mãi được áp dụng
+                    Console.WriteLine("Khuyến mãi đã được áp dụng thành công.");
+                    foreach (DataRow row in result.Rows)
+                    {
+                        Console.WriteLine($"Mã HD: {row["MaHD"]}, Tổng Tiền: {row["TongTien"]}, Thanh Toán: {row["ThanhToan"]}, Tiền KM: {row["TienKM"]}");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Không có khuyến mãi nào được áp dụng.");
+                }
+
+                return result;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Đã xảy ra lỗi: " + ex.Message);
+                return null;
+            }
         }
         public static string GenerateMaKM()
         {
@@ -49,7 +110,8 @@ namespace DACN.DAO
                     TenKM = row["TenKM"].ToString(),
                     MoTa = row["MoTa"].ToString(),
                     TrangThai = row["TrangThai"].ToString(),
-                    GiaTriKM = Convert.ToDecimal(row["GiaTriKM"])
+                    GiaTriKM = Convert.ToDecimal(row["GiaTriKM"]),
+                    LoaiDK = row["LoaiDieuKien"].ToString()
                 };
                 if (row["NgayBatDau"] != DBNull.Value && row["NgayKetThuc"] != DBNull.Value)
                 {
@@ -60,6 +122,14 @@ namespace DACN.DAO
                 {
                     km.NgayBatDau = null;
                     km.NgayKetThuc = null;
+                }
+                if (row["DieuKienTongTien"] != DBNull.Value)
+                {
+                    km.DieuKienTongTien = Convert.ToDecimal(row["DieuKienTongTien"]);
+                }
+                else
+                {
+                    km.DieuKienTongTien= null;
                 }
 
                 listKhuyenMai.Add(km);
@@ -78,7 +148,8 @@ namespace DACN.DAO
                     TenKM = row["TenKM"].ToString(),
                     MoTa = row["MoTa"].ToString(),
                     TrangThai = row["TrangThai"].ToString(),
-                    GiaTriKM = Convert.ToDecimal(row["GiaTriKM"])
+                    GiaTriKM = Convert.ToDecimal(row["GiaTriKM"]),
+                    LoaiDK = row["LoaiDieuKien"].ToString()
                 };
                 if (row["NgayBatDau"] != DBNull.Value && row["NgayKetThuc"] != DBNull.Value)
                 {
@@ -90,6 +161,14 @@ namespace DACN.DAO
                     km.NgayBatDau = null;
                     km.NgayKetThuc = null;
                 }
+                if (row["DieuKienTongTien"] != DBNull.Value)
+                {
+                    km.DieuKienTongTien = Convert.ToDecimal(row["DieuKienTongTien"]);
+                }
+                else
+                {
+                    km.DieuKienTongTien = null;
+                }
 
                 listKhuyenMai.Add(km);
             }
@@ -98,6 +177,12 @@ namespace DACN.DAO
         public int PheDuyetKM(string makm)
         {
             string query = "SP_DuyetKhuyenMai @MaKM";
+            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { makm });
+            return result;
+        }
+        public int TatKhuyenMai(string makm)
+        {
+            string query = "SP_NgungKhuyenMai @MaKM";
             int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { makm });
             return result;
         }
