@@ -17,11 +17,12 @@ namespace DACN.GUI
         List<HoaDonDTO> listHoaDon = HoaDonDAO.Instance.GetHoaDon();
         HoaDonDAO hoaDonDAO = new HoaDonDAO();
         HoaDonDTO hoaDonDTO = new HoaDonDTO();
-        
+        public static string mahd;
+
         bool sua = false;
         public FormHoaDon()
         {
-            
+
             InitializeComponent();
             LoadHoaDon();
             tsbLuu.Enabled = false;
@@ -30,7 +31,7 @@ namespace DACN.GUI
 
         private void uiButton1_Click(object sender, EventArgs e)
         {
-            
+
             FormCTHoaDon formCTHoaDon = new FormCTHoaDon(txtMaHD.Text);
             formCTHoaDon.Owner = this;
             formCTHoaDon.ShowDialog();
@@ -39,11 +40,38 @@ namespace DACN.GUI
         {
             List<HoaDonDTO> listHoaDon = HoaDonDAO.Instance.GetHoaDon();
             dgvHoaDon.DataSource = listHoaDon;
-            
+            dgvHoaDon.Columns["MaHD"].HeaderText = "Mã hóa đơn";
+            dgvHoaDon.Columns["NgayDatHang"].HeaderText = "Ngày đặt hàng";
+            dgvHoaDon.Columns["TongTien"].HeaderText = "Tổng tiền";
+            dgvHoaDon.Columns["TrangThai"].HeaderText = "Trạng thái";
+            dgvHoaDon.Columns["DiaChiGiaoHang"].HeaderText = "Địa chỉ giao hàng";
+            dgvHoaDon.Columns["TienCoc"].HeaderText = "Tiền cọc";
+            dgvHoaDon.Columns["ThanhToan"].HeaderText = "Thanh toán";
+            dgvHoaDon.Columns["MaKH"].HeaderText = "Mã khách hàng";
+            dgvHoaDon.Columns["TenKH"].HeaderText = "Tên khách hàng";
+            dgvHoaDon.Columns["TenNV"].HeaderText = "Tên nhân viên tạo phiếu";
+            dgvHoaDon.Columns["MaNV"].Visible = false;
+            dgvHoaDon.Columns["SoTienKM"].HeaderText = "Số tiền khuyến mãi";
+            loadCbbTrangThai();
+
+        }
+        public void SetGiaoHangMode()
+        {
+            tsbThem.Visible = tsbXoa.Visible = false;
+            txtMaNV.Enabled = txtTienCoc.Enabled = txtDiaChi.Enabled = dtpNgayTao.Enabled = false;
+        }
+        public void LoadHoaDonGiaoHang()
+        {
+            List<HoaDonDTO> listHoaDon = HoaDonDAO.Instance.GetHoaDon();
+            dgvHoaDon.DataSource = listHoaDon;
         }
         public void loadCbbTrangThai()
         {
-         
+            cbbTrangThai.Items.Add("Chưa giao hàng");
+            cbbTrangThai.Items.Add("Đã giao");
+
+            cbbTrangThai.SelectedIndex = 0;
+
         }
         static string GenerateNewCode(List<HoaDonDTO> list)
         {
@@ -74,13 +102,14 @@ namespace DACN.GUI
             FormChonKH formChonkh = new FormChonKH();
             formChonkh.Owner = this;
             formChonkh.ShowDialog();
+
         }
 
         private void pcSearch_Click(object sender, EventArgs e)
         {
-            
+
         }
-    
+
         private void btn_lammoiHang_Click(object sender, EventArgs e)
         {
             LoadHoaDon();
@@ -95,11 +124,14 @@ namespace DACN.GUI
                     DataGridViewRow row = dgvHoaDon.Rows[e.RowIndex];
                     txtMaKH.Text = row.Cells["MaKH"].Value.ToString();
                     txtMaHD.Text = row.Cells["MaHD"].Value.ToString();
-                    txtMaNV.Text = row.Cells["MaNV"].Value.ToString();
+                    txtMaNV.Text = row.Cells["TenNV"].Value.ToString();
                     txtDiaChi.Text = row.Cells["DiaChiGiaoHang"].Value.ToString();
                     txtTienCoc.Text = row.Cells["TienCoc"].Value.ToString();
                     txtThanhToan.Text = row.Cells["ThanhToan"].Value.ToString();
                     dtpNgayTao.Value = DateTime.Parse(row.Cells["NgayDatHang"].Value.ToString());
+                    txtTongTien.Text = row.Cells["TongTien"].Value.ToString();
+                    txt_TienKM.Text = row.Cells["SoTienKM"].Value.ToString();
+                    mahd = txtMaHD.Text;
                 }
             }
             catch (Exception ex)
@@ -107,9 +139,9 @@ namespace DACN.GUI
                 Console.WriteLine("Error: " + ex.Message);
             }
         }
-      
-        public bool dkHoaDon(string makh,string Diachi,string manv)
-        { 
+
+        public bool dkHoaDon(string makh, string Diachi, string manv)
+        {
             if (string.IsNullOrWhiteSpace(makh))
             {
                 MessageBox.Show(" khách hàng không được để trống!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -140,16 +172,16 @@ namespace DACN.GUI
                 hoaDonDTO.ThanhToan = 0;
                 hoaDonDTO.TienCoc = 0;
                 hoaDonDTO.TongTien = 0;
-                hoaDonDTO.TrangThai ="Chưa giao";
+                hoaDonDTO.TrangThai = "Chưa giao hàng";
                 hoaDonDTO.NgayDatHang = DateTime.Now;
                 if (dkHoaDon(hoaDonDTO.MaKH, hoaDonDTO.DiaChiGiaoHang, hoaDonDTO.MaNV))
                 {
                     hoaDonDAO.Insert(hoaDonDTO);
                     MessageBox.Show("Thêm thông tin thành công!");
                 }
-               
+
             }
-             catch (Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show("Error: " + ex.Message);
             }
@@ -193,8 +225,8 @@ namespace DACN.GUI
                     hoaDonDTO.ThanhToan = decimal.Parse(txtThanhToan.Text);
                     hoaDonDTO.TienCoc = decimal.Parse(txtTienCoc.Text);
                     hoaDonDTO.TongTien = decimal.Parse(txtTongTien.Text);
-                    hoaDonDTO.TrangThai = cbbThanhToan.SelectedItem.ToString();
-                    hoaDonDTO.NgayDatHang = DateTime.Parse(dtpNgayTao.Value.ToString()); 
+                    hoaDonDTO.TrangThai = cbbTrangThai.SelectedItem.ToString();
+                    hoaDonDTO.NgayDatHang = DateTime.Parse(dtpNgayTao.Value.ToString());
                     hoaDonDAO.Update(hoaDonDTO);
                     MessageBox.Show("Sửa thông tin thành công!");
 
@@ -210,5 +242,21 @@ namespace DACN.GUI
         {
 
         }
+
+        private void FormHoaDon_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvHoaDon_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void cbbTrangThai_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

@@ -33,9 +33,8 @@ namespace DACN.GUI
         {
             cb_TrangThai.Items.Clear();
 
-            cb_TrangThai.Items.Add("chưa giao hàng"); 
-            cb_TrangThai.Items.Add("đã giao hàng ");  
-
+            cb_TrangThai.Items.Add("Chưa giao hàng"); 
+            cb_TrangThai.Items.Add("Đã giao hàng ");  
             cb_TrangThai.SelectedIndex = 0;
         }
         private void SetupDataGridView()
@@ -62,22 +61,9 @@ namespace DACN.GUI
         {
            
         }
-        private void btnThanhToan_Click(object sender, EventArgs e)
-        {
-            
-            
-        }
+ 
 
-        private void btn_lammoiHang_Click(object sender, EventArgs e)
-        {
-        }
 
-     
-
-        private void FormBanHang_Load(object sender, EventArgs e)
-        {
-
-        }
 
         private void dgv_Hang_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -274,7 +260,17 @@ namespace DACN.GUI
                         ThanhToan=ThanhToan,
                     };
                     int HoaDonAdded = HoaDonDAO.Instance.Insert(hd);
-                    if (HoaDonAdded != 0)
+                    string appliedPromotions = string.Empty;
+
+                //KhuyenMaiDAO.Instance.KhuyenMaiTheoThoiGian(MaHD);
+                //KhuyenMaiDAO.Instance.KhuyenMaiTheoTongTien(MaHD);
+                //KhuyenMaiDAO.Instance.KhuyenMaiTheoLoaiKH(MaHD);
+                KhuyenMaiDAO.Instance.ApDungKhuyenMaiChung(MaHD);
+                    if (!string.IsNullOrEmpty(appliedPromotions))
+                    {
+                        MessageBox.Show(appliedPromotions, "Thông báo khuyến mãi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                if (HoaDonAdded != 0)
                     {
                         bool allDetailsAdded = true;
                         foreach (DataGridViewRow dgvRow in dgv_BanHang.Rows)
@@ -311,7 +307,7 @@ namespace DACN.GUI
                         }
                         if (allDetailsAdded)
                         {
-                            MessageBox.Show("Thêm phiếu nhập và chi tiết phiếu nhập thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show("Tạo hóa đơn thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             dgv_BanHang.Rows.Clear();
                             
                             txtTongTien.Text = "0";
@@ -330,19 +326,6 @@ namespace DACN.GUI
            
         }
 
-        private void label9_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
-        private void pcSearch_Click(object sender, EventArgs e)
-        {
-
-        }
-  
-        
-     
         private void btnChonHD_Click(object sender, EventArgs e)
         {
             FormChonHoaDon fChonHD = new FormChonHoaDon();

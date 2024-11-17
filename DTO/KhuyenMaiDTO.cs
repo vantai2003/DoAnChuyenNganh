@@ -17,7 +17,8 @@ namespace DACN.DTO
         public string MoTa {  get; set; }
         public string TrangThai {  get; set; }
         public decimal GiaTriKM {  get; set; }
-
+        public string LoaiDK { get; set; }
+        public decimal? DieuKienTongTien { get; set; }
         public KhuyenMaiDTO(DataRow row)
         {
             this.MaKM = row["MaKM"].ToString();
@@ -27,6 +28,8 @@ namespace DACN.DTO
             this.MoTa = row["MoTa"].ToString();
             this.TrangThai = row["TrangThai"].ToString();
             this.GiaTriKM =Decimal.Parse(row["GiaTriKM"].ToString());
+            this.LoaiDK = row["LoaiDieuKien"].ToString();
+            this.DieuKienTongTien =decimal.Parse(row["DieuKienTongTien"].ToString());
         }
         public KhuyenMaiDTO() { }
     }

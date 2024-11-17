@@ -185,6 +185,7 @@ CREATE TABLE PhieuTraHangNCC (
 );
 
 -- Bảng KhuyenMai
+
 CREATE TABLE KhuyenMai (
     MaKM VARCHAR(50) PRIMARY KEY NOT NULL,
     TenKM NVARCHAR(100),
@@ -194,6 +195,7 @@ CREATE TABLE KhuyenMai (
     TrangThai NVARCHAR(20),
     GiaTriKM DECIMAL(18, 2)
 );
+
 
 -- Bảng CTDieuKienKM
 CREATE TABLE CTDieuKienKM (
@@ -1010,14 +1012,17 @@ create table CTPhieuTraHangKH
 	DonGiaTra DECIMAL(18, 0),
 	FOREIGN KEY (MaPhieuTraHang) REFERENCES PhieuTraHangKH(MaPhieuTraHang),
     FOREIGN KEY (MaSP) REFERENCES SanPham(MaSP)
-<<<<<<< HEAD
 
 )---hóa đơn
 ---------Lấy tất cả các cột trong bảng Hóa đơn----------------------
+drop PROC sp_SelectAll_HD
 CREATE PROC sp_SelectAll_HD
 AS
 BEGIN
-    SELECT * FROM HoaDon;
+    SELECT hd.MaHD, hd.NgayDatHang, hd.TongTien, hd.TrangThai, hd.DiaChiGiaoHang, hd.TienCoc, hd.ThanhToan, hd.MaKH, kh.TenKH, nv.TenNV, hd.TienKM 
+	FROM HoaDon hd
+	JOIN KhachHang kh ON hd.MaKH = kh.MaKH
+	JOIN NhanVien nv ON hd.MaNV = nv.MaNV
 END;
 GO
 ---------------------Thêm Hóa đơn------------------
@@ -1094,6 +1099,8 @@ BEGIN
 END;
 GO
 
+exec sp_SelectOne_CTHD 'HD006'
+
 ---------------------Thêm CT Hóa đơn-------------------
 
 CREATE PROC sp_Insert_CTHD
@@ -1141,9 +1148,7 @@ AS
 BEGIN
     DELETE FROM CT_HoaDon 
     WHERE MaCTHD = @MaCTHD;
-=======
-=======
->>>>>>> 5ab091315f0f8ff6e264a08931883adad14fda13
+
 )
 GO
 ----Tạo thêm bảng CTPhieuTraHangNCC
@@ -1449,10 +1454,11 @@ CREATE PROC SP_ThemKM
 @NgayKetThuc date,
 @MoTa nvarchar(500),
 @TrangThai nvarchar(50),
-@GiaTriKM decimal (18, 2)
+@GiaTriKM decimal (18, 2),
+@LoaiDK nvarchar(50)
 AS 
 BEGIN
-	INSERT INTO KhuyenMai(MaKM, TenKM, NgayBatDau, NgayKetThuc, MoTa, TrangThai, GiaTriKM) VALUES(@MaKM, @TenKM, @NgayBatDau, @NgayKetThuc, @MoTa, @TrangThai, @GiaTriKM)
+	INSERT INTO KhuyenMai(MaKM, TenKM, NgayBatDau, NgayKetThuc, MoTa, TrangThai, GiaTriKM, LoaiDieuKien) VALUES(@MaKM, @TenKM, @NgayBatDau, @NgayKetThuc, @MoTa, @TrangThai, @GiaTriKM, @LoaiDK)
 END
 GO
 
@@ -1670,18 +1676,23 @@ ng tiền của các hóa đơn. Trigger sẽ tự động cập nhật khi có 
 DROP TRIGGER trg_UpdateLoaiKH
 CREATE TRIGGER trg_UpdateLoaiKH
 ON HoaDon
-AFTER INSERT, UPDATE
+AFTER INSERT, UPDATE, DELETE
 AS
 BEGIN
     SET NOCOUNT ON;
 
     DECLARE @MaKH varchar(50);
     DECLARE @TongThanhToan DECIMAL(18, 2);
+    DECLARE @LoaiKHCurrent varchar(50);
+    DECLARE @LoaiKHNew varchar(50);
 
-    -- Con trỏ để duyệt qua từng khách hàng có hóa đơn mới hoặc cập nhật
+    -- Con trỏ để duyệt qua từng khách hàng có hóa đơn mới, sửa hoặc xóa
     DECLARE cur CURSOR FOR
     SELECT DISTINCT MaKH
-    FROM inserted;
+    FROM inserted
+    UNION
+    SELECT DISTINCT MaKH
+    FROM deleted;
 
     OPEN cur;
     FETCH NEXT FROM cur INTO @MaKH;
@@ -1693,15 +1704,37 @@ BEGIN
         FROM HoaDon
         WHERE MaKH = @MaKH;
 
-        -- Cập nhật loại khách hàng nếu tổng tiền thanh toán nằm trong khoảng
-        UPDATE KhachHang
-        SET MaLoaiKH = (
-            SELECT TOP 1 MaLoaiKH
-            FROM LoaiKH
-            WHERE @TongThanhToan BETWEEN MucChiTieuToiThieu AND MucChiTieuToiDa
-            ORDER BY MucChiTieuToiThieu -- Sắp xếp để chọn khoảng phù hợp nhất
-        )
+        -- Lấy loại khách hàng hiện tại
+        SELECT @LoaiKHCurrent = MaLoaiKH
+        FROM KhachHang
         WHERE MaKH = @MaKH;
+
+        -- Tìm loại khách hàng mới dựa trên tổng tiền thanh toán
+        SELECT @LoaiKHNew = MaLoaiKH
+        FROM LoaiKH
+        WHERE @TongThanhToan BETWEEN MucChiTieuToiThieu AND MucChiTieuToiDa
+        ORDER BY MucChiTieuToiThieu DESC; -- Chọn loại khách hàng phù hợp nhất
+
+        -- Chỉ cập nhật nếu loại khách hàng mới không thấp hơn loại hiện tại
+        IF @LoaiKHCurrent <> @LoaiKHNew
+        BEGIN
+            -- Chỉ nâng cấp (không hạ cấp), kiểm tra nếu loại mới có mức chi tiêu tối thiểu cao hơn loại cũ
+            IF (
+                SELECT MucChiTieuToiThieu 
+                FROM LoaiKH 
+                WHERE MaLoaiKH = @LoaiKHNew
+            ) >= (
+                SELECT MucChiTieuToiThieu 
+                FROM LoaiKH 
+                WHERE MaLoaiKH = @LoaiKHCurrent
+            )
+            BEGIN
+                -- Cập nhật loại khách hàng nếu điều kiện nâng cấp thỏa mãn
+                UPDATE KhachHang
+                SET MaLoaiKH = @LoaiKHNew
+                WHERE MaKH = @MaKH;
+            END
+        END
 
         FETCH NEXT FROM cur INTO @MaKH;
     END;
@@ -1710,3 +1743,337 @@ BEGIN
     DEALLOCATE cur;
 END;
 GO
+
+ALTER TABLE HOADON 
+ADD TienKM DECIMAL(18, 2)
+
+ALTER TABLE KhuyenMai
+ADD LoaiDieuKien nvarchar(200)
+ALTER TABLE KhuyenMai
+ADD DieuKienTongTien decimal(18, 0)
+ALTER TABLE CTDieuKienKM
+DROP COLUMN LoaiDieuKien
+
+ALTER TABLE CTDieuKienKM
+ADD SoTienKM decimal(18, 0)
+
+------------------thủ tục áp dụng khuyến mãi
+Drop proc SP_ApDungKhuyenMaiChung
+CREATE PROCEDURE SP_ApDungKhuyenMaiChung
+    @MaHD VARCHAR(50)
+AS
+BEGIN
+    DECLARE @TongTien DECIMAL(18, 2);
+    DECLARE @NgayDatHang DATE;
+    DECLARE @MaKH VARCHAR(50);
+    DECLARE @MaKM VARCHAR(50);
+    DECLARE @GiaTriKM DECIMAL(18, 2);
+    DECLARE @LoaiDieuKien NVARCHAR(50);
+    DECLARE @SoTienGiam DECIMAL(18, 2);
+    DECLARE @TongTienSauKhuyenMai DECIMAL(18, 2);
+	DECLARE @TienCoc DECIMAL(18, 2);
+    DECLARE @TienKM DECIMAL(18, 2) = 0; -- Mặc định là 0 nếu không có khuyến mãi
+
+    -- Lấy thông tin hóa đơn và khách hàng
+    SELECT @TongTien = TongTien, @NgayDatHang = NgayDatHang, @MaKH = MaKH, @TienCoc = TienCoc
+    FROM HoaDon
+    WHERE MaHD = @MaHD;
+
+    -- Kiểm tra khuyến mãi theo thời gian
+    SELECT TOP 1 @MaKM = MaKM, @GiaTriKM = GiaTriKM, @LoaiDieuKien = LoaiDieuKien
+    FROM KhuyenMai
+    WHERE LoaiDieuKien = N'Theo khoảng thời gian'
+      AND @NgayDatHang BETWEEN NgayBatDau AND NgayKetThuc
+      AND TrangThai = N'Đang hoạt động';
+
+    IF @MaKM IS NOT NULL
+    BEGIN
+        -- Tính số tiền giảm
+        SET @SoTienGiam = @TongTien * @GiaTriKM;
+        SET @TienKM = @TienKM + @SoTienGiam;
+
+        -- Lưu thông tin khuyến mãi vào bảng CTDieuKienKM
+        INSERT INTO CTDieuKienKM (MaKM, MaHD, SoTienKM)
+        VALUES (@MaKM, @MaHD, @SoTienGiam);
+    END
+
+    -- Kiểm tra khuyến mãi theo tổng tiền hóa đơn
+    SELECT TOP 1 @MaKM = MaKM, @GiaTriKM = GiaTriKM, @LoaiDieuKien = LoaiDieuKien
+    FROM KhuyenMai
+    WHERE LoaiDieuKien = N'Theo tổng tiền'
+      AND @TongTien >= DieuKienTongTien
+      AND TrangThai = N'Đang hoạt động';
+
+    IF @MaKM IS NOT NULL
+    BEGIN
+        -- Tính số tiền giảm
+        SET @SoTienGiam = @TongTien * @GiaTriKM;
+        SET @TienKM = @TienKM + @SoTienGiam;
+
+        -- Lưu thông tin khuyến mãi vào bảng CTDieuKienKM
+        INSERT INTO CTDieuKienKM (MaKM, MaHD, SoTienKM)
+        VALUES (@MaKM, @MaHD, @SoTienGiam);
+    END
+
+    -- Kiểm tra khuyến mãi theo loại khách hàng
+    SELECT TOP 1 @MaKM = km.MaKM, @GiaTriKM = km.GiaTriKM, @LoaiDieuKien = km.LoaiDieuKien
+    FROM KhuyenMai km
+    JOIN KhachHang kh ON kh.MaKH = @MaKH
+    JOIN LoaiKH lkh ON kh.MaLoaiKH = lkh.MaLoaiKH
+    WHERE km.LoaiDieuKien = N'Theo loại khách hàng'
+      AND km.TenKM = lkh.TenLoaiKH
+      AND km.TrangThai = N'Đang hoạt động';
+
+    IF @MaKM IS NOT NULL
+    BEGIN
+        -- Tính số tiền giảm
+        SET @SoTienGiam = @TongTien * @GiaTriKM;
+        SET @TienKM = @TienKM + @SoTienGiam;
+
+        -- Lưu thông tin khuyến mãi vào bảng CTDieuKienKM
+        INSERT INTO CTDieuKienKM (MaKM, MaHD, SoTienKM)
+        VALUES (@MaKM, @MaHD, @SoTienGiam);
+    END
+
+    -- Cập nhật cột TienKM từ tổng các SoTienKM trong bảng CTDieuKienKM
+		SELECT @TienKM = ISNULL(SUM(SoTienKM), 0)
+		FROM CTDieuKienKM
+		WHERE MaHD = @MaHD;
+
+    -- Cập nhật cột ThanhToan và TienKM trong bảng HoaDon
+    SET @TongTienSauKhuyenMai = @TongTien - @TienKM - @TienCoc;
+
+    UPDATE HoaDon
+    SET ThanhToan = @TongTienSauKhuyenMai,
+        TienKM = @TienKM
+    WHERE MaHD = @MaHD;
+
+    -- Trả về thông tin chi tiết
+    SELECT MaHD, TongTien, ThanhToan, TienKM
+    FROM HoaDon
+    WHERE MaHD = @MaHD;
+END
+
+CREATE PROC SP_SuaKMLoaiTongTien
+@MaKM varchar(50),
+@TenKM nvarchar(500),
+@GiaTriKM decimal(18, 2),
+@MoTa nvarchar(1000),
+@DieuKienTongTien decimal(18, 2)
+AS
+BEGIN
+	UPDATE KhuyenMai SET TenKM = @TenKM, GiaTriKM = @GiaTriKM, MoTa = @MoTa, DieuKienTongTien = @DieuKienTongTien
+	WHERE MaKM = @MaKM
+END
+
+CREATE PROC SP_SuaKMLoaiKhachHang
+@MaKM varchar(50),
+@GiaTriKM decimal(18, 2),
+@MoTa nvarchar(1000)
+AS
+BEGIN
+	UPDATE KhuyenMai SET GiaTriKM = @GiaTriKM, MoTa = @MoTa
+	WHERE MaKM = @MaKM
+END
+
+CREATE PROC SP_TimKiemKhuyenMai
+@SearchValue nvarchar(100)
+AS
+BEGIN
+    SELECT * FROM KhuyenMai
+    WHERE TenKM LIKE '%' + LTRIM(RTRIM(@SearchValue)) + '%'
+    OR MaKM LIKE '%' + LTRIM(RTRIM(@SearchValue)) + '%'
+END
+GO
+CREATE PROC SP_TimKiemKhuyenMaiTheoTrangThai
+@SearchValue nvarchar(100)
+AS
+BEGIN
+    SELECT * FROM KhuyenMai
+    WHERE TrangThai = @SearchValue
+    
+END
+GO
+
+
+----------------Nhan vien giao hang va tra hang-------------------
+create table CTPhieuTraHangKH
+(
+	IDCTPhieuTH varchar(50) primary key,
+	MaPhieuTraHang varchar(50),
+	MaSP varchar(50),
+	SoLuongTra DECIMAL(18, 3),
+	DonGiaTra DECIMAL(18, 0),
+	FOREIGN KEY (MaPhieuTraHang) REFERENCES PhieuTraHangKH(MaPhieuTraHang),
+    FOREIGN KEY (MaSP) REFERENCES SanPham(MaSP)
+)
+
+ALTER TABLE PhieuTraHangKH
+ADD TongTienNhan DECIMAL(18, 0)
+ALTER TABLE PhieuTraHangKH
+ADD NgayTao Date
+ALTER TABLE PhieuTraHangKH
+ADD MaKho varchar(50)
+ALTER TABLE PhieuTraHangKH
+ADD CONSTRAINT FK_PhieuNhanHangKH_Kho
+FOREIGN KEY (MaKho) REFERENCES Kho(MaKho)
+
+drop proc SP_ThemPhieuTraHang_KH
+CREATE PROCEDURE SP_ThemPhieuTraHang_KH
+    @MaPhieuTH VARCHAR(50),
+    @TongTienNhan DECIMAL(18,0),
+    @LyDo NVARCHAR(500),
+    @NgayTao DATE,
+	@MaNV VARCHAR(50),
+    @MaHD VARCHAR(50),
+	@MaKho VARCHAR(50)
+AS
+BEGIN
+    INSERT INTO PhieuTraHangKH(MaPhieuTraHang, TongTienNhan, LyDo, NgayTao, MaNV, MaHD, MaKho)
+    VALUES (@MaPhieuTH, @TongTienNhan, @LyDo, @NgayTao, @MaNV, @MaHD, @MaKho)
+	-- Kiểm tra kết quả thêm
+    IF @@ROWCOUNT = 0
+    BEGIN
+        RAISERROR('Thêm phiếu trả hàng không thành công', 16, 1);
+    END
+
+END
+GO
+
+drop proc SP_ThemPhieuTraHang_KH
+drop proc SP_TaoMaCTPTra_KH
+------thủ tục tăng mã phiếu trả
+CREATE PROC SP_TaoMaPTra_KH
+AS
+BEGIN
+    DECLARE @LastMaCTPT varchar(10);
+    DECLARE @NewNumber int;
+    DECLARE @NewMaPT varchar(10);
+    SELECT @LastMaCTPT = MAX(MaPhieuTraHang) FROM PhieuTraHangKH;
+    
+    IF @LastMaCTPT IS NULL
+    BEGIN
+        SET @NewNumber = 1;
+    END
+    ELSE
+    BEGIN
+        IF LEN(@LastMaCTPT) >= 4 
+        BEGIN
+            SET @NewNumber = CAST(SUBSTRING(@LastMaCTPT, 5, LEN(@LastMaCTPT) - 4) AS INT) + 1;
+        END
+        ELSE
+        BEGIN
+            SET @NewNumber = 1;
+        END
+    END
+    SET @NewMaPT = 'PTRH' + RIGHT('00000' + CAST(@NewNumber AS VARCHAR), 3);
+    SELECT @NewMaPT AS NewMaPhieuTra
+END
+GO
+------thủ tục tăng mã phiếu ct trả
+drop PROC SP_TaoMaCTPTra_KH
+CREATE PROC SP_TaoMaCTPTra_KH
+AS
+BEGIN
+    DECLARE @LastMaCTPT varchar(10);
+    DECLARE @NewNumber int;
+    DECLARE @NewMaPT varchar(10);
+    SELECT @LastMaCTPT = MAX(IDCTPhieuTH) FROM CTPhieuTraHangKH;
+    
+    IF @LastMaCTPT IS NULL
+    BEGIN
+        SET @NewNumber = 1;
+    END
+    ELSE
+    BEGIN
+        IF LEN(@LastMaCTPT) >= 4 
+        BEGIN
+            SET @NewNumber = CAST(SUBSTRING(@LastMaCTPT, 7, LEN(@LastMaCTPT) - 4) AS INT) + 1;
+        END
+        ELSE
+        BEGIN
+            SET @NewNumber = 1;
+        END
+    END
+    SET @NewMaPT = 'CTPTRH' + RIGHT('00000' + CAST(@NewNumber AS VARCHAR), 3);
+    SELECT @NewMaPT AS NewMaPhieuTra
+END
+
+
+exec SP_TaoMaCTPTra_KH
+GO
+select * from CTPhieuTraHangKH
+
+select * from CTPhieuTraHangKH
+select * from Kho_SanPham
+--Thu tuc tao CTPhieuNhapHang
+CREATE PROCEDURE SP_ThemCTPhieuTraHang_KH
+    @MaCTPT VARCHAR(50),
+    @MaPhieuTH VARCHAR(50),
+    @MaSP VARCHAR(50),
+    @SoLuongTra DECIMAL(18, 2),
+    @DonGiaTra DECIMAL(18, 0)
+   
+AS
+BEGIN
+    INSERT INTO CTPhieuTraHangKH(IDCTPhieuTH, MaPhieuTraHang, MaSP, SoLuongTra, DonGiaTra)
+    VALUES (@MaCTPT, @MaPhieuTH, @MaSP, @SoLuongTra, @DonGiaTra)
+END
+go
+
+drop proc SP_ThemCTPhieuTraHang_KH
+
+------thủ tục tăng mã ct phiếu trả
+CREATE PROC SP_TaoMaCTPTraHang_KH
+AS
+BEGIN
+    DECLARE @LastMaCTPT varchar(10);
+    DECLARE @NewNumber int;
+    DECLARE @NewMaPT varchar(10);
+    SELECT @LastMaCTPT = MAX(IDCTPhieuTH) FROM CTPhieuTraHangKH;
+    
+    -- Nếu bảng chưa có thì bắt đầu từ CTPN001
+    IF @LastMaCTPT IS NULL
+    BEGIN
+        SET @NewNumber = 1;
+    END
+    ELSE
+    BEGIN
+        IF LEN(@LastMaCTPT) >= 4 
+        BEGIN
+            SET @NewNumber = CAST(SUBSTRING(@LastMaCTPT, 5, LEN(@LastMaCTPT) - 4) AS INT) + 1;
+        END
+        ELSE
+        BEGIN
+            SET @NewNumber = 1;
+        END
+    END
+    SET @NewMaPT = 'CTPT' + RIGHT('00000' + CAST(@NewNumber AS VARCHAR), 3);
+    SELECT @NewMaPT AS NewMaPhieuTra
+END
+GO
+
+drop proc SP_CapNhatKho_KHTraHang
+CREATE PROCEDURE SP_CapNhatKho_KHTraHang
+    @MaSP VARCHAR(10),
+    @MaKho VARCHAR(10),
+    @SoLuong INT
+AS
+BEGIN
+    -- Kiểm tra sản phẩm đã tồn tại trong kho
+    IF EXISTS (SELECT 1 FROM Kho_SanPham WHERE MaSP = @MaSP AND MaKho = @MaKho)
+    BEGIN
+        -- Cập nhật số lượng tồn
+        UPDATE Kho_SanPham
+        SET SoLuongTon = SoLuongTon + @SoLuong
+        WHERE MaSP = @MaSP AND MaKho = @MaKho;
+    END
+    ELSE
+    BEGIN
+        -- Chèn sản phẩm mới vào kho
+        INSERT INTO Kho_SanPham(MaSP, MaKho, SoLuongTon)
+        VALUES (@MaSP, @MaKho, @SoLuong);
+    END
+END;
+
+
