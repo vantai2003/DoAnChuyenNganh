@@ -61,7 +61,14 @@ namespace DACN.GUI
 
         private void btn_DangXuat_Click(object sender, EventArgs e)
         {
-            this.Close();
+            FormDangNhap.nhanvien = string.Empty;
+            DialogResult dialogResult = MessageBox.Show("Bạn có chắc chắn muốn đăng xuất?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dialogResult == DialogResult.Yes)
+            {
+                this.Close();
+                FormDangNhap loginForm = new FormDangNhap();
+                loginForm.Show();
+            }
         }
 
         private void btn_LapPhieuBanHang_Click(object sender, EventArgs e)

@@ -32,9 +32,9 @@ namespace DACN.GUI
             this.panel_right = new System.Windows.Forms.Panel();
             this.panel_body = new System.Windows.Forms.Panel();
             this.pane_left = new System.Windows.Forms.Panel();
+            this.btn_lappth = new Sunny.UI.UIButton();
             this.btn_DangXuat = new System.Windows.Forms.Button();
             this.btn_QLDonhang = new Sunny.UI.UIButton();
-            this.btn_lappth = new Sunny.UI.UIButton();
             this.panel_body.SuspendLayout();
             this.pane_left.SuspendLayout();
             this.SuspendLayout();
@@ -71,6 +71,22 @@ namespace DACN.GUI
             this.pane_left.Size = new System.Drawing.Size(348, 576);
             this.pane_left.TabIndex = 0;
             // 
+            // btn_lappth
+            // 
+            this.btn_lappth.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.btn_lappth.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_lappth.FillColor = System.Drawing.Color.Snow;
+            this.btn_lappth.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.btn_lappth.ForeColor = System.Drawing.Color.Black;
+            this.btn_lappth.Location = new System.Drawing.Point(0, 57);
+            this.btn_lappth.MinimumSize = new System.Drawing.Size(1, 1);
+            this.btn_lappth.Name = "btn_lappth";
+            this.btn_lappth.Size = new System.Drawing.Size(348, 50);
+            this.btn_lappth.TabIndex = 6;
+            this.btn_lappth.Text = "Lập phiếu trả hàng ";
+            this.btn_lappth.TipsFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.btn_lappth.Click += new System.EventHandler(this.btn_lappth_Click);
+            // 
             // btn_DangXuat
             // 
             this.btn_DangXuat.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -101,22 +117,6 @@ namespace DACN.GUI
             this.btn_QLDonhang.Text = "Quản lý đơn hàng";
             this.btn_QLDonhang.TipsFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.btn_QLDonhang.Click += new System.EventHandler(this.btn_QLDonHang_Click);
-            // 
-            // btn_lappth
-            // 
-            this.btn_lappth.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.btn_lappth.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_lappth.FillColor = System.Drawing.Color.Snow;
-            this.btn_lappth.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btn_lappth.ForeColor = System.Drawing.Color.Black;
-            this.btn_lappth.Location = new System.Drawing.Point(0, 57);
-            this.btn_lappth.MinimumSize = new System.Drawing.Size(1, 1);
-            this.btn_lappth.Name = "btn_lappth";
-            this.btn_lappth.Size = new System.Drawing.Size(348, 50);
-            this.btn_lappth.TabIndex = 6;
-            this.btn_lappth.Text = "Lập phiếu trả hàng ";
-            this.btn_lappth.TipsFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.btn_lappth.Click += new System.EventHandler(this.btn_lappth_Click);
             // 
             // FormNhanVienGiaoHang
             // 

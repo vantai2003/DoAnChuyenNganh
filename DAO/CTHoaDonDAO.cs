@@ -79,10 +79,12 @@ namespace DACN.DAO
             return DataProvider.Instance.ExecuteQuery(query);
 
         }
-        public int updateSL(String masp, decimal soluong,string makho)
+        public int updateSL(string masp, string makho, decimal soluong)
         {
-            String Query = String.Format("update Kho_SanPham set SoLuongTon='{0}' where MaSP= '{1}' and MaKho ='{2}'", soluong, masp, makho);
-            return DataProvider.Instance.ExecuteNonQuery(Query);
+            string query = "SP_CapNhatSoLuongSP @MaSP , @MaKho , @SoLuong";
+            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { masp, makho, soluong });
+            return result;
+
         }
         public int Delete(string ID)
         {

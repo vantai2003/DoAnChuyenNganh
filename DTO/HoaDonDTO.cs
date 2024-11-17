@@ -25,7 +25,7 @@ namespace DACN.DTO
         public HoaDonDTO(DataRow row)
         {
             this.MaHD = row["MaHD"].ToString();
-           // this.MaNV = row["MANV"].ToString();
+            //this.MaNV = row["MANV"].ToString();
             this.TenNV = row["TenNV"].ToString();
             this.MaKH = row["MaKH"].ToString();
             this.TenKH = row["TenKH"].ToString();
