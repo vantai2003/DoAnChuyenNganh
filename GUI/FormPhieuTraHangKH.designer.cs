@@ -38,10 +38,10 @@ namespace DACN.GUI
             this.btn_TaoPhieu = new System.Windows.Forms.Button();
             this.uiPanel2 = new Sunny.UI.UIPanel();
             this.uiPanel4 = new Sunny.UI.UIPanel();
+            this.cbbKho = new Sunny.UI.UIComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.rtb_lydo = new Sunny.UI.UIRichTextBox();
             this.btn_taophieuKH = new System.Windows.Forms.Button();
-            this.cbbKho = new Sunny.UI.UIComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dvg_TaoPTH)).BeginInit();
             this.uiPanel4.SuspendLayout();
             this.SuspendLayout();
@@ -85,6 +85,7 @@ namespace DACN.GUI
             this.dvg_TaoPTH.StripeOddColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
             this.dvg_TaoPTH.TabIndex = 4;
             this.dvg_TaoPTH.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dvg_TaoPTH_CellContentClick);
+            this.dvg_TaoPTH.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dvg_TaoPTH_CellEndEdit);
             // 
             // textBox1
             // 
@@ -133,6 +134,24 @@ namespace DACN.GUI
             this.uiPanel4.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             this.uiPanel4.Click += new System.EventHandler(this.uiPanel4_Click);
             // 
+            // cbbKho
+            // 
+            this.cbbKho.DataSource = null;
+            this.cbbKho.FillColor = System.Drawing.Color.White;
+            this.cbbKho.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.cbbKho.ItemHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(200)))), ((int)(((byte)(255)))));
+            this.cbbKho.ItemSelectForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
+            this.cbbKho.Location = new System.Drawing.Point(577, 89);
+            this.cbbKho.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cbbKho.MinimumSize = new System.Drawing.Size(63, 0);
+            this.cbbKho.Name = "cbbKho";
+            this.cbbKho.Padding = new System.Windows.Forms.Padding(0, 0, 30, 2);
+            this.cbbKho.Size = new System.Drawing.Size(150, 29);
+            this.cbbKho.SymbolSize = 24;
+            this.cbbKho.TabIndex = 3;
+            this.cbbKho.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.cbbKho.Watermark = "";
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -165,24 +184,6 @@ namespace DACN.GUI
             this.btn_taophieuKH.Text = "Tạo phiếu";
             this.btn_taophieuKH.UseVisualStyleBackColor = true;
             this.btn_taophieuKH.Click += new System.EventHandler(this.btn_taophieuKH_Click);
-            // 
-            // cbbKho
-            // 
-            this.cbbKho.DataSource = null;
-            this.cbbKho.FillColor = System.Drawing.Color.White;
-            this.cbbKho.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.cbbKho.ItemHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(200)))), ((int)(((byte)(255)))));
-            this.cbbKho.ItemSelectForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
-            this.cbbKho.Location = new System.Drawing.Point(577, 89);
-            this.cbbKho.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.cbbKho.MinimumSize = new System.Drawing.Size(63, 0);
-            this.cbbKho.Name = "cbbKho";
-            this.cbbKho.Padding = new System.Windows.Forms.Padding(0, 0, 30, 2);
-            this.cbbKho.Size = new System.Drawing.Size(150, 29);
-            this.cbbKho.SymbolSize = 24;
-            this.cbbKho.TabIndex = 3;
-            this.cbbKho.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
-            this.cbbKho.Watermark = "";
             // 
             // FormPhieuTraHangKH
             // 

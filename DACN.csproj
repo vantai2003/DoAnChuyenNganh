@@ -8,7 +8,7 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>DACN</RootNamespace>
     <AssemblyName>DACN</AssemblyName>
-    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
@@ -269,6 +269,12 @@
     <Compile Include="GUI\FormTaoPhieuTraHangNCC.Designer.cs">
       <DependentUpon>FormTaoPhieuTraHangNCC.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\FormThanhToan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FormThanhToan.Designer.cs">
+      <DependentUpon>FormThanhToan.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\FormThongKeDoanhThu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -378,6 +384,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FormTaoPhieuTraHangNCC.resx">
       <DependentUpon>FormTaoPhieuTraHangNCC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FormThanhToan.resx">
+      <DependentUpon>FormThanhToan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FormThongKeDoanhThu.resx">
       <DependentUpon>FormThongKeDoanhThu.cs</DependentUpon>

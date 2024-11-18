@@ -78,6 +78,11 @@ namespace DACN.GUI
                             string dvt = row.Cells["DVT"].Value.ToString();
                             string tenloaisp = row.Cells["TenLoai"].Value.ToString();
                             decimal soLuongTon = decimal.Parse(row.Cells["SoLuongTon"].Value.ToString());
+                            if(soLuongTon<=0)
+                            {
+                                MessageBox.Show("Không thể chọn sản phẩm hết hàng!!!");
+                                return;
+                            }    
                             string tenKho = row.Cells["TenKho"].Value.ToString();
 
 

@@ -899,6 +899,9 @@ BEGIN
     END
 END
 GO
+
+
+
 ---lay list san pham tu nha cung cap 
 CREATE PROCEDURE SP_GetSanPhamByIdNCC
 @MaNCC varchar(50)
@@ -1081,6 +1084,20 @@ BEGIN
     DELETE FROM HoaDon 
     WHERE MaHD = @MaHD;
 END
+GO
+
+---Cap nhat so tien thanh toan hoa don
+CREATE PROC sp_Update_HD_ThanhToan
+	@MaHD VARCHAR(50),
+    @ThanhToan DECIMAL(18, 0)
+AS
+BEGIN
+    UPDATE HoaDon
+    SET 
+	TrangThai=N'Đã giao',
+	ThanhToan=@ThanhToan
+    WHERE MaHD = @MaHD;
+END;
 GO
 -- Bảng CT_HoaDon (Chi tiết hóa đơn)
 CREATE PROC sp_SelectAll_CTHD
@@ -2077,3 +2094,19 @@ BEGIN
 END;
 
 
+----------thủ tục cập nhật lại số lượng sản phẩm trong kho()
+drop PROC SP_CapNhatSoLuongSP
+CREATE PROCEDURE SP_CapNhatSoLuongSP
+    @MaSP VARCHAR(10),
+    @MaKho VARCHAR(10),
+    @SoLuong decimal(18,2)
+AS
+BEGIN
+    IF EXISTS (SELECT 1 FROM Kho_SanPham WHERE MaSP = @MaSP AND MaKho = @MaKho)
+    BEGIN
+        UPDATE Kho_SanPham
+        SET SoLuongTon = @SoLuong
+        WHERE MaSP = @MaSP AND MaKho = @MaKho;
+    END
+END
+GO
