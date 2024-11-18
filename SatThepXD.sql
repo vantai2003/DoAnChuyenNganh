@@ -2110,3 +2110,29 @@ BEGIN
     END
 END
 GO
+
+----------------
+CREATE PROC SP_GetTienBanHang
+@NgayTu Date,
+@NgayDen Date
+AS
+BEGIN
+    SELECT SUM(TongTien), SUM(ThanhToan)
+	FROM Hoadon 
+    WHERE NgayDatHang >=@NgayTu 
+	AND NgayDatHang <=@NgayDen
+END
+GO
+--------------
+CREATE PROC SP_GetTienNhapHang
+@NgayTu Date,
+@NgayDen Date
+AS
+BEGIN
+    SELECT Sum(TongTien)
+	FROM PhieuNhapHang 
+    WHERE NgayDatHang >=@NgayTu 
+	AND NgayDatHang <=@NgayDen
+
+END
+GO

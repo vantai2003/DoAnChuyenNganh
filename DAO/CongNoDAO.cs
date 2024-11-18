@@ -1,4 +1,5 @@
 ﻿using DACN.DTO;
+using Microsoft.SqlServer.Server;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -17,15 +18,40 @@ namespace DACN.DAO
             private set { CongNoDAO.instance = value; }
         }
         public CongNoDAO() { }
-
-        public DataTable (DateTime tungay, DateTime denngay)
+     
+        public decimal GetTienNhapHang(DateTime tungay, DateTime denngay)
         {
             string tungay1 = tungay.ToString("yyyy-MM-dd");
-            string denngay1 = tungay.ToString("yyyy-MM-dd");
-            string query = "sp_SelectAll_HD_ByTime @ngayTu , @ngayDen ";
-            DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] { tungay1, denngay1 });
-            return data;
-        }
+            string denngay1 = denngay.ToString("yyyy-MM-dd");
+            decimal tongtien = 0;
+            string Query = "SP_GetTienNhapHang @NgayTu , @NgayDen"; 
+            DataTable data = DataProvider.Instance.ExecuteQuery(Query, new object[] { tungay,denngay });
 
+            if (data.Rows.Count > 0 && data.Rows[0][0] != DBNull.Value)
+            {
+                tongtien = Convert.ToDecimal(data.Rows[0][0]);
+            }
+
+            return tongtien;
+        }
+        public decimal GetTienBanHang(DateTime tungay, DateTime denngay)
+        {
+            string tungay1 = tungay.ToString("yyyy-MM-dd");
+            string denngay1 = denngay.ToString("yyyy-MM-dd");
+            decimal tongtien = 0;
+            decimal thanhtoan =0;
+            string Query = "SP_GetTienBanHang @NgayTu , @NgayDen";
+            DataTable data = DataProvider.Instance.ExecuteQuery(Query, new object[] { tungay, denngay });
+            if (data.Rows.Count > 0 && data.Rows[0][0] != DBNull.Value)
+            {
+                tongtien = Convert.ToDecimal(data.Rows[0][0]);
+            
+            }
+            if (data.Rows[0][1] != DBNull.Value)
+            {
+                thanhtoan = Convert.ToDecimal(data.Rows[0][1]);
+            }
+            return tongtien - thanhtoan;
+        }
     }
 }
