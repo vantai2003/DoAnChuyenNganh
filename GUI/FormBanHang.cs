@@ -21,6 +21,7 @@ namespace DACN.GUI
         List<HoaDonDTO> listHoaDon = new List<HoaDonDTO>();
         private Dictionary<string, DataGridViewRow> existingProducts = new Dictionary<string, DataGridViewRow>();
         public static string manv;
+        public static string masp;
         public FormBanHang()
         {
             InitializeComponent();
@@ -70,6 +71,8 @@ namespace DACN.GUI
             {
                 if (e.RowIndex >= 0)
                 {
+                    DataGridViewRow row = dgv_BanHang.Rows[e.RowIndex];
+                    masp = row.Cells["MaSP"].Value.ToString();
                 }
             }
             catch (Exception ex)
@@ -209,110 +212,111 @@ namespace DACN.GUI
         private void btnThemVao_Click(object sender, EventArgs e)
         {
 
-            
-                if (dgv_BanHang.Rows.Count == 0)
-                {
-                    MessageBox.Show("Vui lòng chọn ít nhất một sản phẩm trước.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-                if(string.IsNullOrEmpty(txtMaKH.Text))
-                {
-                    MessageBox.Show("Vui lòng chọn Khách hàng.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    return;
-                }
-               
-                DataTable dt = NhanVienDAO.Instance.GetThongTinDN(FormDangNhap.nhanvien);
-                string manv = string.Empty;
-                if (dt.Rows.Count > 0)
-                {
-                    DataRow row = dt.Rows[0];
-                    manv = row["MaNV"].ToString();
-                }
-               
-                    string MaHD = GenerateNewCodeHD();
-                    mahd = MaHD;
-                
-                 string MaNV = manv;
-            //string MaKH = txtMaKH.Text;
-                string MaKH = FormChonKH.makh;
-                 DateTime NgayDatHang = DateTime.Now;
-                 string TrangThai = cb_TrangThai.Text;
-                 string DiaChiGiaoHang = txtDiaChi.Text;
-                 decimal TienCoc = Convert.ToDecimal(txtTienCoc.Text);
-                 decimal TongTien = Convert.ToDecimal(txtTongTien.Text);
-                 decimal ThanhToan = Convert.ToDecimal(txtThanhToan.Text);
 
-                if (!string.IsNullOrEmpty(mahd))
+            if (dgv_BanHang.Rows.Count == 0)
+            {
+                MessageBox.Show("Vui lòng chọn ít nhất một sản phẩm trước.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (string.IsNullOrEmpty(txtMaKH.Text))
+            {
+                MessageBox.Show("Vui lòng chọn Khách hàng.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            DataTable dt = NhanVienDAO.Instance.GetThongTinDN(FormDangNhap.nhanvien);
+            string manv = string.Empty;
+            if (dt.Rows.Count > 0)
+            {
+                DataRow row = dt.Rows[0];
+                manv = row["MaNV"].ToString();
+            }
+
+            string MaHD = GenerateNewCodeHD();
+            mahd = MaHD;
+
+            string MaNV = manv;
+            //string MaKH = txtMaKH.Text;
+            string MaKH = FormChonKH.makh;
+            DateTime NgayDatHang = DateTime.Now;
+            string TrangThai = cb_TrangThai.Text;
+            string DiaChiGiaoHang = txtDiaChi.Text;
+            decimal TienCoc = decimal.TryParse(txtTienCoc.Text, out decimal temp) ? temp : 0;
+            decimal TongTien = Convert.ToDecimal(txtTongTien.Text);
+            decimal ThanhToan = Convert.ToDecimal(txtThanhToan.Text);
+
+            if (!string.IsNullOrEmpty(mahd))
+            {
+                HoaDonDTO hd = new HoaDonDTO()
                 {
-                    HoaDonDTO hd = new HoaDonDTO() { 
-                        MaHD =mahd,
-                        MaNV =MaNV,
-                        MaKH =MaKH,
-                        NgayDatHang=NgayDatHang,
-                        TrangThai=TrangThai,
-                        DiaChiGiaoHang=DiaChiGiaoHang,
-                        TienCoc=TienCoc,
-                        TongTien=TongTien,
-                        ThanhToan=ThanhToan,
-                    };
-                    int HoaDonAdded = HoaDonDAO.Instance.Insert(hd);
-                    string appliedPromotions = string.Empty;
+                    MaHD = mahd,
+                    MaNV = MaNV,
+                    MaKH = MaKH,
+                    NgayDatHang = NgayDatHang,
+                    TrangThai = TrangThai,
+                    DiaChiGiaoHang = DiaChiGiaoHang,
+                    TienCoc = TienCoc,
+                    TongTien = TongTien,
+                    ThanhToan = ThanhToan,
+                };
+                int HoaDonAdded = HoaDonDAO.Instance.Insert(hd);
+                string appliedPromotions = string.Empty;
                 KhuyenMaiDAO.Instance.ApDungKhuyenMaiChung(MaHD);
 
                 if (HoaDonAdded != 0)
+                {
+                    bool allDetailsAdded = true;
+                    foreach (DataGridViewRow dgvRow in dgv_BanHang.Rows)
                     {
-                        bool allDetailsAdded = true;
-                        foreach (DataGridViewRow dgvRow in dgv_BanHang.Rows)
+                        if (dgvRow.Cells["MaSP"].Value != null)
                         {
-                            if (dgvRow.Cells["MaSP"].Value != null)
+                            string maSP = dgvRow.Cells["MaSP"].Value.ToString();
+                            decimal soLuong = Convert.ToDecimal(dgvRow.Cells["SoLuong"].Value);
+                            decimal donGia = Convert.ToDecimal(dgvRow.Cells["DonGia"].Value);
+                            decimal soLuongTon = Convert.ToDecimal(dgvRow.Cells["SoLuongTon"].Value);
+                            string DVT = dgvRow.Cells["DVT"].Value.ToString();
+                            decimal thanhTien = Convert.ToDecimal(dgvRow.Cells["ThanhTien"].Value);
+                            string tenkho = dgvRow.Cells["tenkho"].Value.ToString();
+                            string makho = KhoDAO.Instance.GetMaKhoByTenKho(tenkho);
+                            CTHoaDonDAO.Instance.updateSL(maSP,makho,soLuongTon-soLuong);
+                            CTHoaDonDTO ctHoaDon = new CTHoaDonDTO
                             {
-                                string maSP = dgvRow.Cells["MaSP"].Value.ToString();
-                                decimal soLuong = Convert.ToDecimal(dgvRow.Cells["SoLuong"].Value);
-                                decimal donGia = Convert.ToDecimal(dgvRow.Cells["DonGia"].Value);
-                                decimal soLuongTon = Convert.ToDecimal(dgvRow.Cells["SoLuongTon"].Value);
-                                string DVT = dgvRow.Cells["DVT"].Value.ToString();
-                                decimal thanhTien = Convert.ToDecimal(dgvRow.Cells["ThanhTien"].Value);
-                                string tenkho = dgvRow.Cells["tenkho"].Value.ToString();
-                                string makho = KhoDAO.Instance.GetMaKhoByTenKho(tenkho); 
-                                CTHoaDonDAO.Instance.updateSL(maSP, soLuongTon - soLuong, makho);
-                                CTHoaDonDTO ctHoaDon = new CTHoaDonDTO
-                                {
-                                    MaCTHD = GenerateNewCode(),
-                                    SoLuong = soLuong,
-                                    DonGia = donGia,
-                                    ThanhTien = thanhTien,
-                                    MaSP = maSP,
-                                    MaHD = hd.MaHD,
-                                    DVT = DVT,
-                                    
-                                };
-                                int detailAdded = CTHoaDonDAO.Instance.Insert(ctHoaDon);
+                                MaCTHD = GenerateNewCode(),
+                                SoLuong = soLuong,
+                                DonGia = donGia,
+                                ThanhTien = thanhTien,
+                                MaSP = maSP,
+                                MaHD = hd.MaHD,
+                                DVT = DVT,
 
-                                if (detailAdded <=0)
-                                {
-                                    allDetailsAdded = false;
-                                }
+                            };
+                            int detailAdded = CTHoaDonDAO.Instance.Insert(ctHoaDon);
+
+                            if (detailAdded <= 0)
+                            {
+                                allDetailsAdded = false;
                             }
                         }
-                        if (allDetailsAdded)
-                        {
-                            MessageBox.Show("Tạo hóa đơn thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            dgv_BanHang.Rows.Clear();
-                            
-                            txtTongTien.Text = "0";
-                        }
-                        else
-                        {
-                            MessageBox.Show("Có lỗi khi thêm một số chi tiết hóa đơn.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        }
+                    }
+                    if (allDetailsAdded)
+                    {
+                        MessageBox.Show("Tạo hóa đơn thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        dgv_BanHang.Rows.Clear();
 
+                        txtTongTien.Text = "0";
                     }
                     else
                     {
-                        MessageBox.Show("Lỗi khi thêm Hóa đơn", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Có lỗi khi thêm một số chi tiết hóa đơn.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
+
                 }
-           
+                else
+                {
+                    MessageBox.Show("Lỗi khi thêm Hóa đơn", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+
         }
 
         private void btnChonHD_Click(object sender, EventArgs e)
@@ -404,17 +408,24 @@ namespace DACN.GUI
         private void txtTienCoc_TextChanged(object sender, EventArgs e)
         {
             decimal tiencoc = 0;
-            if (string.IsNullOrEmpty(txtTienCoc.Text))
-            {
-                txtTienCoc.Text = "0";
-            }
+        
             tiencoc = decimal.Parse(txtTienCoc.Text);
             decimal thanhtoan = decimal.Parse(txtThanhToan.Text);
-            if(tiencoc >= thanhtoan){
-                MessageBox.Show("Tiền cọc phải bé hơn tiền thanh toán");
+            if(tiencoc > thanhtoan){
+                MessageBox.Show("Tiền cọc phải nhỏ hơn hoặc bằng tiền thanh toán");
                 txtTienCoc.Text = "0";
             }
             UpdateTongTien() ;
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtTongTien_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
    

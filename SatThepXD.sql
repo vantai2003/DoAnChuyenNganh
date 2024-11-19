@@ -185,6 +185,7 @@ CREATE TABLE PhieuTraHangNCC (
 );
 
 -- Bảng KhuyenMai
+
 CREATE TABLE KhuyenMai (
     MaKM VARCHAR(50) PRIMARY KEY NOT NULL,
     TenKM NVARCHAR(100),
@@ -194,6 +195,7 @@ CREATE TABLE KhuyenMai (
     TrangThai NVARCHAR(20),
     GiaTriKM DECIMAL(18, 2)
 );
+
 
 -- Bảng CTDieuKienKM
 CREATE TABLE CTDieuKienKM (
@@ -948,6 +950,9 @@ BEGIN
     END
 END
 GO
+
+
+
 ---lay list san pham tu nha cung cap 
 CREATE PROCEDURE SP_GetSanPhamByIdNCC
 @MaNCC varchar(50)
@@ -1093,10 +1098,14 @@ create table CTPhieuTraHangKH
 
 )---hóa đơn
 ---------Lấy tất cả các cột trong bảng Hóa đơn----------------------
+drop PROC sp_SelectAll_HD
 CREATE PROC sp_SelectAll_HD
 AS
 BEGIN
-    SELECT * FROM HoaDon;
+    SELECT hd.MaHD, hd.NgayDatHang, hd.TongTien, hd.TrangThai, hd.DiaChiGiaoHang, hd.TienCoc, hd.ThanhToan, hd.MaKH, kh.TenKH, nv.TenNV, hd.TienKM 
+	FROM HoaDon hd
+	JOIN KhachHang kh ON hd.MaKH = kh.MaKH
+	JOIN NhanVien nv ON hd.MaNV = nv.MaNV
 END;
 GO
 ---------------------Thêm Hóa đơn------------------
@@ -1155,6 +1164,20 @@ BEGIN
     DELETE FROM HoaDon 
     WHERE MaHD = @MaHD;
 END
+GO
+
+---Cap nhat so tien thanh toan hoa don
+CREATE PROC sp_Update_HD_ThanhToan
+	@MaHD VARCHAR(50),
+    @ThanhToan DECIMAL(18, 0)
+AS
+BEGIN
+    UPDATE HoaDon
+    SET 
+	TrangThai=N'Đã giao',
+	ThanhToan=@ThanhToan
+    WHERE MaHD = @MaHD;
+END;
 GO
 -- Bảng CT_HoaDon (Chi tiết hóa đơn)
 CREATE PROC sp_SelectAll_CTHD
@@ -1911,10 +1934,13 @@ BEGIN
 END;
 GO
 
+ALTER TABLE HOADON 
+ADD TienKM DECIMAL(18, 2)
 
 ALTER TABLE KhuyenMai
 ADD LoaiDieuKien nvarchar(200)
-
+ALTER TABLE KhuyenMai
+ADD DieuKienTongTien decimal(18, 0)
 ALTER TABLE CTDieuKienKM
 DROP COLUMN LoaiDieuKien
 
@@ -2017,6 +2043,47 @@ BEGIN
     FROM HoaDon
     WHERE MaHD = @MaHD;
 END
+
+CREATE PROC SP_SuaKMLoaiTongTien
+@MaKM varchar(50),
+@TenKM nvarchar(500),
+@GiaTriKM decimal(18, 2),
+@MoTa nvarchar(1000),
+@DieuKienTongTien decimal(18, 2)
+AS
+BEGIN
+	UPDATE KhuyenMai SET TenKM = @TenKM, GiaTriKM = @GiaTriKM, MoTa = @MoTa, DieuKienTongTien = @DieuKienTongTien
+	WHERE MaKM = @MaKM
+END
+
+CREATE PROC SP_SuaKMLoaiKhachHang
+@MaKM varchar(50),
+@GiaTriKM decimal(18, 2),
+@MoTa nvarchar(1000)
+AS
+BEGIN
+	UPDATE KhuyenMai SET GiaTriKM = @GiaTriKM, MoTa = @MoTa
+	WHERE MaKM = @MaKM
+END
+
+CREATE PROC SP_TimKiemKhuyenMai
+@SearchValue nvarchar(100)
+AS
+BEGIN
+    SELECT * FROM KhuyenMai
+    WHERE TenKM LIKE '%' + LTRIM(RTRIM(@SearchValue)) + '%'
+    OR MaKM LIKE '%' + LTRIM(RTRIM(@SearchValue)) + '%'
+END
+GO
+CREATE PROC SP_TimKiemKhuyenMaiTheoTrangThai
+@SearchValue nvarchar(100)
+AS
+BEGIN
+    SELECT * FROM KhuyenMai
+    WHERE TrangThai = @SearchValue
+    
+END
+GO
 
 
 ----------------Nhan vien giao hang va tra hang-------------------
@@ -2200,3 +2267,45 @@ BEGIN
 END;
 
 
+----------thủ tục cập nhật lại số lượng sản phẩm trong kho()
+drop PROC SP_CapNhatSoLuongSP
+CREATE PROCEDURE SP_CapNhatSoLuongSP
+    @MaSP VARCHAR(10),
+    @MaKho VARCHAR(10),
+    @SoLuong decimal(18,2)
+AS
+BEGIN
+    IF EXISTS (SELECT 1 FROM Kho_SanPham WHERE MaSP = @MaSP AND MaKho = @MaKho)
+    BEGIN
+        UPDATE Kho_SanPham
+        SET SoLuongTon = @SoLuong
+        WHERE MaSP = @MaSP AND MaKho = @MaKho;
+    END
+END
+GO
+
+----------------
+CREATE PROC SP_GetTienBanHang
+@NgayTu Date,
+@NgayDen Date
+AS
+BEGIN
+    SELECT SUM(TongTien), SUM(ThanhToan)
+	FROM Hoadon 
+    WHERE NgayDatHang >=@NgayTu 
+	AND NgayDatHang <=@NgayDen
+END
+GO
+--------------
+CREATE PROC SP_GetTienNhapHang
+@NgayTu Date,
+@NgayDen Date
+AS
+BEGIN
+    SELECT Sum(TongTien)
+	FROM PhieuNhapHang 
+    WHERE NgayDatHang >=@NgayTu 
+	AND NgayDatHang <=@NgayDen
+
+END
+GO

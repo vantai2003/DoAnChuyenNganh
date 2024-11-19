@@ -17,6 +17,7 @@ namespace DACN.GUI
         List<HoaDonDTO> listHoaDon = HoaDonDAO.Instance.GetHoaDon();
         HoaDonDAO hoaDonDAO = new HoaDonDAO();
         HoaDonDTO hoaDonDTO = new HoaDonDTO();
+       
         public static string mahd;
 
         bool sua = false;
@@ -40,25 +41,28 @@ namespace DACN.GUI
         {
             List<HoaDonDTO> listHoaDon = HoaDonDAO.Instance.GetHoaDon();
             dgvHoaDon.DataSource = listHoaDon;
+            
             dgvHoaDon.Columns["MaHD"].HeaderText = "Mã hóa đơn";
             dgvHoaDon.Columns["NgayDatHang"].HeaderText = "Ngày đặt hàng";
-            dgvHoaDon.Columns["TongTien"].HeaderText = "Tổng tiền";
-            dgvHoaDon.Columns["TrangThai"].HeaderText = "Trạng thái";
             dgvHoaDon.Columns["DiaChiGiaoHang"].HeaderText = "Địa chỉ giao hàng";
+            dgvHoaDon.Columns["TongTien"].HeaderText = "Tổng tiền";
             dgvHoaDon.Columns["TienCoc"].HeaderText = "Tiền cọc";
             dgvHoaDon.Columns["ThanhToan"].HeaderText = "Thanh toán";
+            dgvHoaDon.Columns["TrangThai"].HeaderText = "Trạng thái";
             dgvHoaDon.Columns["MaKH"].HeaderText = "Mã khách hàng";
             dgvHoaDon.Columns["TenKH"].HeaderText = "Tên khách hàng";
             dgvHoaDon.Columns["TenNV"].HeaderText = "Tên nhân viên tạo phiếu";
             dgvHoaDon.Columns["MaNV"].Visible = false;
             dgvHoaDon.Columns["SoTienKM"].HeaderText = "Số tiền khuyến mãi";
             loadCbbTrangThai();
-
+            tsbSua.Enabled = false;
         }
+   
         public void SetGiaoHangMode()
         {
-            tsbThem.Visible = tsbXoa.Visible = false;
-            txtMaNV.Enabled = txtTienCoc.Enabled = txtDiaChi.Enabled = dtpNgayTao.Enabled = false;
+            tsbThem.Visible = tsbXoa.Visible = tsbSua.Visible = tsbLuu.Visible =false;
+            txtMaNV.Enabled = txtTienCoc.Enabled = txtDiaChi.Enabled = dtpNgayTao.Enabled = txtMaHD.Enabled = false;
+            
         }
         public void LoadHoaDonGiaoHang()
         {
@@ -67,6 +71,7 @@ namespace DACN.GUI
         }
         public void loadCbbTrangThai()
         {
+            cbbTrangThai.Items.Clear();
             cbbTrangThai.Items.Add("Chưa giao hàng");
             cbbTrangThai.Items.Add("Đã giao");
 
@@ -132,6 +137,7 @@ namespace DACN.GUI
                     txtTongTien.Text = row.Cells["TongTien"].Value.ToString();
                     txt_TienKM.Text = row.Cells["SoTienKM"].Value.ToString();
                     mahd = txtMaHD.Text;
+                    tsbSua.Enabled = true;
                 }
             }
             catch (Exception ex)
@@ -217,7 +223,7 @@ namespace DACN.GUI
             {
                 try
                 {
-                    txtMaHD.Text = GenerateNewCode(listHoaDon);
+                    txtMaHD.Text = txtMaHD.Text;
                     hoaDonDTO.MaHD = txtMaHD.Text;
                     hoaDonDTO.MaNV = txtMaNV.Text;
                     hoaDonDTO.MaKH = txtMaKH.Text;
@@ -240,6 +246,9 @@ namespace DACN.GUI
 
         private void btnThanhToan_Click(object sender, EventArgs e)
         {
+            FormThanhToan frmThanhtoan = new FormThanhToan(txtTongTien.Text,txtTienCoc.Text,txt_TienKM.Text, txtThanhToan.Text);
+            frmThanhtoan.FormClosed += (s, args) => LoadHoaDon();
+            frmThanhtoan.ShowDialog();
 
         }
 

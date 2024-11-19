@@ -81,15 +81,22 @@ namespace DACN.GUI
 
         private void btn_lappth_Click(object sender, EventArgs e)
         {
-            
-            FormPhieuTraHangKH fpthkh = new FormPhieuTraHangKH();
-            mahd = FormHoaDon.mahd;
-            if(String.IsNullOrEmpty(mahd))
+            try
             {
-                MessageBox.Show("Bạn phải chọn hóa đơn trước khi trả ? ", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                return;
+                mahd = FormHoaDon.mahd;
+                if (string.IsNullOrEmpty(mahd))
+                {
+                    MessageBox.Show("Vui lòng chọn hóa đơn trước khi tạo phiếu trả hàng.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                FormPhieuTraHangKH fpthkh = new FormPhieuTraHangKH();
+                fpthkh.ShowDialog();
             }
-            fpthkh.ShowDialog();
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Đã xảy ra lỗi: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

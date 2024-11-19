@@ -82,12 +82,13 @@
             // btn_QLKhuyenMai
             // 
             this.btn_QLKhuyenMai.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_QLKhuyenMai.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.btn_QLKhuyenMai.FillColor = System.Drawing.Color.White;
             this.btn_QLKhuyenMai.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btn_QLKhuyenMai.Location = new System.Drawing.Point(-1, 127);
+            this.btn_QLKhuyenMai.ForeColor = System.Drawing.Color.Black;
+            this.btn_QLKhuyenMai.Location = new System.Drawing.Point(1, 126);
             this.btn_QLKhuyenMai.MinimumSize = new System.Drawing.Size(1, 1);
             this.btn_QLKhuyenMai.Name = "btn_QLKhuyenMai";
-            this.btn_QLKhuyenMai.Size = new System.Drawing.Size(348, 50);
+            this.btn_QLKhuyenMai.Size = new System.Drawing.Size(347, 50);
             this.btn_QLKhuyenMai.TabIndex = 6;
             this.btn_QLKhuyenMai.Text = "Quản lý khuyến mãi";
             this.btn_QLKhuyenMai.TipsFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
@@ -96,11 +97,12 @@
             // btn_DangXuat
             // 
             this.btn_DangXuat.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_DangXuat.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btn_DangXuat.Image = global::DACN.Properties.Resources.icon_logout1;
             this.btn_DangXuat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_DangXuat.Location = new System.Drawing.Point(91, 465);
             this.btn_DangXuat.Name = "btn_DangXuat";
-            this.btn_DangXuat.Size = new System.Drawing.Size(164, 53);
+            this.btn_DangXuat.Size = new System.Drawing.Size(172, 53);
             this.btn_DangXuat.TabIndex = 5;
             this.btn_DangXuat.Text = "Đăng xuất";
             this.btn_DangXuat.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -114,7 +116,7 @@
             this.btn_QLHangHoa.FillColor = System.Drawing.Color.Snow;
             this.btn_QLHangHoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.btn_QLHangHoa.ForeColor = System.Drawing.Color.Black;
-            this.btn_QLHangHoa.Location = new System.Drawing.Point(3, 30);
+            this.btn_QLHangHoa.Location = new System.Drawing.Point(0, 30);
             this.btn_QLHangHoa.MinimumSize = new System.Drawing.Size(1, 1);
             this.btn_QLHangHoa.Name = "btn_QLHangHoa";
             this.btn_QLHangHoa.Size = new System.Drawing.Size(348, 50);
@@ -125,13 +127,15 @@
             // 
             // btn_LapPhieuBanHang
             // 
+            this.btn_LapPhieuBanHang.BackColor = System.Drawing.Color.Black;
             this.btn_LapPhieuBanHang.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_LapPhieuBanHang.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.btn_LapPhieuBanHang.FillColor = System.Drawing.Color.White;
             this.btn_LapPhieuBanHang.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btn_LapPhieuBanHang.Location = new System.Drawing.Point(-1, 177);
+            this.btn_LapPhieuBanHang.ForeColor = System.Drawing.Color.Black;
+            this.btn_LapPhieuBanHang.Location = new System.Drawing.Point(0, 176);
             this.btn_LapPhieuBanHang.MinimumSize = new System.Drawing.Size(1, 1);
             this.btn_LapPhieuBanHang.Name = "btn_LapPhieuBanHang";
-            this.btn_LapPhieuBanHang.Size = new System.Drawing.Size(348, 50);
+            this.btn_LapPhieuBanHang.Size = new System.Drawing.Size(347, 50);
             this.btn_LapPhieuBanHang.TabIndex = 3;
             this.btn_LapPhieuBanHang.Text = "Lập phiếu bán hàng";
             this.btn_LapPhieuBanHang.TipsFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
@@ -140,9 +144,10 @@
             // btn_CapNhatDanhMuc
             // 
             this.btn_CapNhatDanhMuc.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_CapNhatDanhMuc.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.btn_CapNhatDanhMuc.FillColor = System.Drawing.Color.White;
             this.btn_CapNhatDanhMuc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btn_CapNhatDanhMuc.Location = new System.Drawing.Point(3, 78);
+            this.btn_CapNhatDanhMuc.ForeColor = System.Drawing.Color.Black;
+            this.btn_CapNhatDanhMuc.Location = new System.Drawing.Point(0, 78);
             this.btn_CapNhatDanhMuc.MinimumSize = new System.Drawing.Size(1, 1);
             this.btn_CapNhatDanhMuc.Name = "btn_CapNhatDanhMuc";
             this.btn_CapNhatDanhMuc.Size = new System.Drawing.Size(348, 50);
@@ -183,6 +188,7 @@
             this.đổiMậtKhẩuToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.đổiMậtKhẩuToolStripMenuItem.Text = "Đổi mật khẩu";
             this.đổiMậtKhẩuToolStripMenuItem.Click += new System.EventHandler(this.đổiMậtKhẩuToolStripMenuItem_Click);
+
             // 
             // FormNhanVienBanHang
             // 
