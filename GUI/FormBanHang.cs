@@ -257,15 +257,8 @@ namespace DACN.GUI
                     };
                     int HoaDonAdded = HoaDonDAO.Instance.Insert(hd);
                     string appliedPromotions = string.Empty;
-
-                //KhuyenMaiDAO.Instance.KhuyenMaiTheoThoiGian(MaHD);
-                //KhuyenMaiDAO.Instance.KhuyenMaiTheoTongTien(MaHD);
-                //KhuyenMaiDAO.Instance.KhuyenMaiTheoLoaiKH(MaHD);
                 KhuyenMaiDAO.Instance.ApDungKhuyenMaiChung(MaHD);
-                    if (!string.IsNullOrEmpty(appliedPromotions))
-                    {
-                        MessageBox.Show(appliedPromotions, "Thông báo khuyến mãi", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
+
                 if (HoaDonAdded != 0)
                     {
                         bool allDetailsAdded = true;

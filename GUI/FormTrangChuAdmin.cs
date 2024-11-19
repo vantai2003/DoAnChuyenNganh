@@ -69,5 +69,10 @@ namespace DACN.GUI
         {
             OpenChildForm(new FormTTNguoiDung());
         }
+
+        private void toolStripMenuItem6_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new FormDoiMatKhau());
+        }
     }
 }

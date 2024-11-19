@@ -66,6 +66,7 @@
             this.toolStripMenuItem2});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
             this.menuStrip1.Size = new System.Drawing.Size(1249, 33);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
@@ -114,6 +115,7 @@
             this.toolStripMenuItem6.Name = "toolStripMenuItem6";
             this.toolStripMenuItem6.Size = new System.Drawing.Size(262, 30);
             this.toolStripMenuItem6.Text = "Đổi mật khẩu";
+            this.toolStripMenuItem6.Click += new System.EventHandler(this.toolStripMenuItem6_Click);
             // 
             // panel_body
             // 
@@ -121,6 +123,7 @@
             this.panel_body.Controls.Add(this.uiPanel1);
             this.panel_body.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_body.Location = new System.Drawing.Point(0, 33);
+            this.panel_body.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel_body.Name = "panel_body";
             this.panel_body.Size = new System.Drawing.Size(1249, 798);
             this.panel_body.TabIndex = 1;
@@ -133,11 +136,11 @@
             this.uiPanel2.Controls.Add(this.txt_ThongTintt);
             this.uiPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.uiPanel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.uiPanel2.Location = new System.Drawing.Point(485, 0);
-            this.uiPanel2.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.uiPanel2.Location = new System.Drawing.Point(383, 0);
+            this.uiPanel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.uiPanel2.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiPanel2.Name = "uiPanel2";
-            this.uiPanel2.Size = new System.Drawing.Size(818, 798);
+            this.uiPanel2.Size = new System.Drawing.Size(866, 798);
             this.uiPanel2.TabIndex = 1;
             this.uiPanel2.Text = null;
             this.uiPanel2.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
@@ -146,7 +149,7 @@
             // 
             this.txt_TestMaNV.Location = new System.Drawing.Point(145, 418);
             this.txt_TestMaNV.Name = "txt_TestMaNV";
-            this.txt_TestMaNV.Size = new System.Drawing.Size(100, 35);
+            this.txt_TestMaNV.Size = new System.Drawing.Size(100, 30);
             this.txt_TestMaNV.TabIndex = 3;
             // 
             // uiTextBox2
@@ -209,10 +212,10 @@
             this.uiPanel1.FillColor = System.Drawing.Color.Green;
             this.uiPanel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.uiPanel1.Location = new System.Drawing.Point(0, 0);
-            this.uiPanel1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.uiPanel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.uiPanel1.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiPanel1.Name = "uiPanel1";
-            this.uiPanel1.Size = new System.Drawing.Size(431, 798);
+            this.uiPanel1.Size = new System.Drawing.Size(383, 798);
             this.uiPanel1.TabIndex = 0;
             this.uiPanel1.Text = null;
             this.uiPanel1.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
@@ -316,11 +319,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-
-            this.panel1.Size = new System.Drawing.Size(485, 218);
-
-            this.panel1.Size = new System.Drawing.Size(431, 218);
-
+            this.panel1.Size = new System.Drawing.Size(383, 218);
             this.panel1.TabIndex = 0;
             // 
             // uiContextMenuStrip1
@@ -333,14 +332,13 @@
             // 
             // FormTrangChuAdmin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Moccasin;
-            this.ClientSize = new System.Drawing.Size(1405, 1039);
+            this.ClientSize = new System.Drawing.Size(1249, 831);
             this.Controls.Add(this.panel_body);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FormTrangChuAdmin";
             this.Text = "FormTrangChuAdmin";
             this.menuStrip1.ResumeLayout(false);

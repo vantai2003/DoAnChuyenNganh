@@ -244,18 +244,43 @@ BEGIN
 END
 GO
 --thủ tục getlist người dùng
+drop proc SP_GetListNguoiDung
 GO
 CREATE PROC SP_GetListNguoiDung
 AS
 BEGIN
-	SELECT * FROM NguoiDung
+	SELECT TenDN, NgayTao, nd.MaNV, nv.TenNV,nd.QuyenID ,q.TenQuyen
+	FROM NguoiDung nd
+	join NhanVien nv ON nd.MaNV = nv.MaNV
+	Join Quyen q ON nd.QuyenID = q.Id
 END
 GO
+CREATE PROC SP_DoiMK
+@TenDN varchar(400),
+@MatKhau varchar(500)
+as
+begin
+	UPDATE NguoiDung SET MatKhau = @MatKhau
+	WHERE TenDN
+end
+select * from NguoiDung
 
+
+CREATE PROCEDURE SP_DoiMatKhau
+    @TenDN NVARCHAR(500),        
+    @MatKhauCu NVARCHAR(500),   
+    @MatKhauMoi NVARCHAR(500)   
+AS
+BEGIN
+        UPDATE NguoiDung
+        SET MatKhau = @MatKhauMoi
+        WHERE TenDN = @TenDN AND MatKhau = @MatKhauCu
+END
 ----------------------------------Người dùng-----------------------------
 --thủ tục tìm người dùng
+
 CREATE PROC SP_TimKiemNguoiDung
-@SearchValue varchar(50)
+@SearchValue nvarchar(50)
 AS
 BEGIN
 	SELECT * FROM NguoiDung WHERE TenDN LIKE '%' + @SearchValue + '%'
@@ -832,6 +857,32 @@ BEGIN
 END
 GO
 
+--------sửa phiếu nhập
+CREATE PROCEDURE SP_SuaPhieuNhapHang
+    @MaPhieuNH VARCHAR(50),
+    @TongTien DECIMAL(18, 0),
+	@TrangThai NVARCHAR(50),
+	@MaNV VARCHAR(50),
+    @MaNCC VARCHAR(50),
+    @MaKho VARCHAR(50)
+AS
+BEGIN
+     UPDATE PhieuNhapHang SET TongTien = @TongTien,TrangThai = @TrangThai, MaNV = @MaNV, MaNCC = @MaNCC, MaKho = @MaKho
+	 WHERE MaPhieuNH = @MaPhieuNH
+END
+GO
+---------sửa chi tiết phiếu nhập
+drop proc SP_SuaCTPhieuNhapHang
+CREATE PROCEDURE SP_SuaCTPhieuNhapHang
+    @MaCTPhieuNH VARCHAR(50),
+    @SoLuong DECIMAL(18, 2),
+    @DonGia DECIMAL(18, 0)
+AS
+BEGIN
+    UPDATE CTPhieuNhapHang SET SoLuong = @SoLuong, DonGia = @DonGia
+    WHERE MaCTPhieuNH = @MaCTPhieuNH
+END
+GO
 ------thủ tục tăng mã ct phiếu nhập
 CREATE PROC SP_TaoMaCTPN
 AS
@@ -909,6 +960,7 @@ BEGIN
 	WHERE spncc.MaNCC = @MaNCC
 END
 GO
+
 exec SP_GetListPN
 CREATE PROC SP_GetListPN
 AS
@@ -920,6 +972,34 @@ BEGIN
 END
 GO
 
+----tìm phiếu nhập
+CREATE PROC SP_SearchPN
+@MaPN varchar(50)
+AS
+BEGIN
+	SELECT MaPhieuNH, NgayDatHang, TongTien, TrangThai, ncc.TenNCC, k.TenKho, MaNV
+	FROM PhieuNhapHang pn
+	JOIN NhaCungCap ncc ON ncc.MaNCC = pn.MaNCC
+    JOIN Kho k ON k.MaKho = pn.MaKho
+	WHERE MaPhieuNH = @MaPN
+END
+GO
+--------thủ tục lọc phieus nhập theo kho, theo ncc
+exec SP_LocPN N'Kho Sắt Việt Nhật 1'
+drop proc SP_LocPN
+CREATE PROCEDURE SP_LocPN
+    @Kho NVARCHAR(255) = NULL,           
+    @NhaCungCap NVARCHAR(255) = NULL     
+AS
+BEGIN
+    SELECT MaPhieuNH, NgayDatHang, TongTien, TrangThai, ncc.TenNCC, k.TenKho, MaNV
+    FROM PhieuNhapHang pn
+    JOIN NhaCungCap ncc ON ncc.MaNCC = pn.MaNCC
+    JOIN Kho k ON k.MaKho = pn.MaKho
+    WHERE 
+        (@Kho IS NULL OR k.TenKho = @Kho) AND
+        (@NhaCungCap IS NULL OR ncc.TenNCC = @NhaCungCap)
+END
 -----Lấy danh sách phiếu nhập chưa phê duyệt
 CREATE PROC SP_GetListPNStatus
 AS
@@ -1329,6 +1409,7 @@ BEGIN
 END
 GO
 
+
 ----thủ tục thêm nhân viên
 CREATE PROC SP_ThemNhanVien
 @MaNV varchar(50),
@@ -1483,8 +1564,28 @@ BEGIN
     SELECT @NewMaKM;
 END
 GO
+--tìm kiếm khuyến mãi
+exec SP_TimKiemKhuyenMai 'Khuyến mãi cho hóa đơn trên 50'
+drop proc SP_TimKiemKhuyenMai
+CREATE PROC SP_TimKiemKhuyenMai
+@SearchValue nvarchar(100)
+AS
+BEGIN
+    SELECT * FROM KhuyenMai
+    WHERE TenKM LIKE '%' + LTRIM(RTRIM(@SearchValue)) + '%'
+    OR MaKM LIKE '%' + LTRIM(RTRIM(@SearchValue)) + '%'
+END
+GO
 
-
+CREATE PROC SP_TimKiemKhuyenMaiTheoTrangThai
+@SearchValue nvarchar(100)
+AS
+BEGIN
+    SELECT * FROM KhuyenMai
+    WHERE TrangThai = @SearchValue
+    
+END
+GO
 --loadlist Danh sách khuyến mãi
 CREATE PROC SP_ListKM
 AS
@@ -1505,7 +1606,7 @@ CREATE PROC SP_DuyetKhuyenMai
 @MaKM varchar(50)
 AS
 BEGIN
-	UPDATE KhuyenMai SET TrangThai = N'Đã phê duyệt'
+	UPDATE KhuyenMai SET TrangThai = N'Đang hoạt động'
 	WHERE MaKM = @MaKM
 END
 
@@ -1515,6 +1616,60 @@ CREATE PROC SP_TuChoiKhuyenMai
 AS
 BEGIN
 	UPDATE KhuyenMai SET TrangThai = N'Đã từ chối'
+	WHERE MaKM = @MaKM
+END
+----NGƯNG KHUYẾN MÃI
+CREATE PROC SP_NgungKhuyenMai
+@MaKM varchar(50)
+AS
+BEGIN
+	UPDATE KhuyenMai SET TrangThai = N'Ngưng hoạt động'
+	WHERE MaKM = @MaKM
+END
+
+---thủ tục bật khuyến mãi (với điều kiện là trạng thái phải  là ngưng hoạt động)
+
+CREATE PROC SP_BatKhuyenMai
+@MaKM varchar(50)
+AS
+BEGIN
+	UPDATE KhuyenMai SET TrangThai = N'Đang hoạt động'
+	WHERE TrangThai = N'Ngưng hoạt động' AND MaKM = @MaKM
+END
+----sửa khuyến mãi
+CREATE PROC SP_SuaKM
+@MaKM varchar(50),
+@TenKM nvarchar(500),
+@NgayDB date,
+@NgayKT date,
+@GiaTriKM decimal(18, 2),
+@MoTa nvarchar(1000)
+AS
+BEGIN
+	UPDATE KhuyenMai SET TenKM = @TenKM, NgayBatDau = @NgayDB, NgayKetThuc = @NgayKT, GiaTriKM = @GiaTriKM, MoTa = @MoTa
+	WHERE MaKM = @MaKM
+END
+-----------sủa khuyến mãi với loại tổng tiền
+CREATE PROC SP_SuaKMLoaiTongTien
+@MaKM varchar(50),
+@TenKM nvarchar(500),
+@GiaTriKM decimal(18, 2),
+@MoTa nvarchar(1000),
+@DieuKienTongTien decimal(18, 2)
+AS
+BEGIN
+	UPDATE KhuyenMai SET TenKM = @TenKM, GiaTriKM = @GiaTriKM, MoTa = @MoTa, DieuKienTongTien = @DieuKienTongTien
+	WHERE MaKM = @MaKM
+END
+
+-----------sửa khuyến mãi theo loại kh
+CREATE PROC SP_SuaKMLoaiKhachHang
+@MaKM varchar(50),
+@GiaTriKM decimal(18, 2),
+@MoTa nvarchar(1000)
+AS
+BEGIN
+	UPDATE KhuyenMai SET GiaTriKM = @GiaTriKM, MoTa = @MoTa
 	WHERE MaKM = @MaKM
 END
 -----------------------------------------------------------Của minh--------------
@@ -1568,6 +1723,21 @@ BEGIN
 	MaNV=@MaNV
     WHERE MaHD = @MaHD;
 END;
+GO
+
+CREATE PROCEDURE SP_CapNhatSoLuongSP
+    @MaSP VARCHAR(10),
+    @MaKho VARCHAR(10),
+    @SoLuong decimal(18,2)
+AS
+BEGIN
+    IF EXISTS (SELECT 1 FROM Kho_SanPham WHERE MaSP = @MaSP AND MaKho = @MaKho)
+    BEGIN
+        UPDATE Kho_SanPham
+        SET SoLuongTon = @SoLuong
+        WHERE MaSP = @MaSP AND MaKho = @MaKho;
+    END
+END
 GO
 --thu tuc xoa sp
 CREATE PROC SP_Delete_HD
@@ -1648,6 +1818,9 @@ BEGIN
 end
 go
 ----------------Thêm cột vào Loại khách hàng để quản lý khuyến mãi theo loại khách hàng
+ALTER TABLE KhuyenMai
+ADD DieuKienTongTien decimal(18, 0)
+
 ALTER TABLE LoaiKH
 ADD MucChiTieuToiThieu decimal(18, 0)
 

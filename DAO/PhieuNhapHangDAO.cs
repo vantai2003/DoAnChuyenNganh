@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Security;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -72,6 +73,29 @@ namespace DACN.DAO
             }
             return listPN;
         }
+        
+        public List<PhieuNhapHangDTO> TimPhieuNhap(string searchValue)
+        {
+            List<PhieuNhapHangDTO> listPN = new List<PhieuNhapHangDTO>();
+            DataTable data = DataProvider.Instance.ExecuteQuery("SP_SearchPN @MaPN", new object[] {searchValue});
+            foreach (DataRow row in data.Rows)
+            {
+                PhieuNhapHangDTO phieunhap = new PhieuNhapHangDTO(row);
+                listPN.Add(phieunhap);
+            }
+            return listPN;
+        }
+        public List<PhieuNhapHangDTO> LocPhieuNhap(object tenncc, object tenkho)
+        {
+            List<PhieuNhapHangDTO> listPN = new List<PhieuNhapHangDTO>();
+            DataTable data = DataProvider.Instance.ExecuteQuery("SP_LocPN @Kho , @NhaCungCap", new object[] { tenncc ?? DBNull.Value, tenkho ?? DBNull.Value });
+            foreach (DataRow row in data.Rows)
+            {
+                PhieuNhapHangDTO phieunhap = new PhieuNhapHangDTO(row);
+                listPN.Add(phieunhap);
+            }
+            return listPN; 
+        }
         public List<PhieuNhapHangDTO> GetPhieuNhapStatus()
         {
             List<PhieuNhapHangDTO> listPN = new List<PhieuNhapHangDTO>();
@@ -124,6 +148,18 @@ namespace DACN.DAO
                 listPN.Add(phieunhap);
             }
             return listPN;
+        }
+        public bool UpdatePhieuNhap(string mapn, decimal tongtien, string trangthai, string manv, string mancc, string makho)
+        {
+            string query = "SP_SuaPhieuNhapHang @MaCTPhieuNH @MaPhieuNH , @TongTien , @TrangThai , @MaNV , @MaNCC , @MaKho";
+            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { mapn, tongtien, trangthai, manv, mancc, makho });
+            return result > 0;
+        }
+        public bool UpdateCTPhieuNhap(string mactpn, string masp, decimal soluong, decimal dongia)
+        {
+            string query = "SP_SuaPhieuNhapHang @MaCTPhieuNH @MaPhieuNH , @TongTien , @TrangThai , @MaNV , @MaNCC , @MaKho";
+            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { mactpn, masp, soluong, dongia });
+            return result > 0;
         }
     }   
 }

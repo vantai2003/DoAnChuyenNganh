@@ -19,6 +19,7 @@ namespace DACN.GUI
         public static string manv;
         public static string mapn;
         public static string makho;
+        public static decimal tongtien;
         public FormNhapHang()
         {
             InitializeComponent();
@@ -228,6 +229,22 @@ namespace DACN.GUI
         {
             List<PhieuNhapHangDTO> listPN = PhieuNhapHangDAO.Instance.GetPhieuNhap();
             dvg_DSPhieuNhap.DataSource = listPN;
+            dvg_DSPhieuNhap.Columns["MaPhieuNH"].HeaderText = "Mã phiếu nhập hàng";
+            dvg_DSPhieuNhap.Columns["NgayDatHang"].HeaderText = "Ngày đặt hàng";
+            dvg_DSPhieuNhap.Columns["TongTien"].HeaderText = "Tổng tiền";
+            dvg_DSPhieuNhap.Columns["TrangThai"].HeaderText = "Trạng thái";
+            dvg_DSPhieuNhap.Columns["MaNV"].HeaderText = "Mã nhân viên";
+            dvg_DSPhieuNhap.Columns["TenNCC"].HeaderText = "Tên nhà cung cấp";
+            dvg_DSPhieuNhap.Columns["TenKho"].HeaderText = "Tên kho";
+            List<KhoDTO> listkho = KhoDAO.Instance.GetKho();
+            cbkho.DataSource = listkho;
+            cbkho.DisplayMember = "TenKho";
+            cbkho.ValueMember = "TenKho";
+            List<NhaCungCapDTO> listncc = NhaCungCapDAO.Instance.GetNhaCungCap();
+            cbncc.DataSource = listncc;
+            cbncc.DisplayMember = "TenNCC";
+            cbncc.ValueMember = "TenNCC";
+
         }
         private void LoadDSPNDaPheDuyet()
         {
@@ -248,7 +265,10 @@ namespace DACN.GUI
                     LoadPhieuNhap();
                     break;
                 case 2:
-
+                    LoadPNDangPD();
+                    
+                    break;
+                case 3:
                     LoadDSPNDaPheDuyet();
                     break;
                 default:
@@ -282,6 +302,53 @@ namespace DACN.GUI
         {
             FormTaoPhieuTraHangNCC ftpth = new FormTaoPhieuTraHangNCC();
             ftpth.ShowDialog();
+        }
+
+        private void btn_TimPN_Click(object sender, EventArgs e)
+        {
+            string searchValue = txt_SearchPN.Text;
+            List<PhieuNhapHangDTO> listPN = PhieuNhapHangDAO.Instance.TimPhieuNhap(searchValue);
+            dvg_DSPhieuNhap.DataSource= listPN;
+
+        }
+
+        private void btn_Loc_Click(object sender, EventArgs e)
+        {
+            // Kiểm tra giá trị từ combobox Kho, nếu trống thì truyền null
+            string tenNCC = string.IsNullOrEmpty(cbncc.SelectedValue?.ToString()) ? null : cbncc.SelectedValue.ToString();
+            string tenKho = string.IsNullOrEmpty(cbkho.SelectedValue?.ToString()) ? null : cbkho.SelectedValue.ToString();
+            List<PhieuNhapHangDTO> listPN = PhieuNhapHangDAO.Instance.LocPhieuNhap(tenKho, tenNCC);
+            dvg_DSPhieuNhap.DataSource = listPN;
+        }
+        private void LoadPNDangPD()
+        {
+            List<PhieuNhapHangDTO> listPN = PhieuNhapHangDAO.Instance.GetPhieuNhapStatus();
+            dvg_PhieuNhapCoTheSua.DataSource = listPN;
+        }
+
+        private void dvg_PhieuNhapCoTheSua_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridViewRow row = new DataGridViewRow();
+            try
+            {
+                row = dvg_PhieuNhapCoTheSua.Rows[e.RowIndex];
+                string maPN = Convert.ToString(row.Cells["MaPhieuNH"].Value);
+                decimal tongTien= Convert.ToDecimal(row.Cells["TongTien"].Value);
+                mancc = Convert.ToString(row.Cells["TenNCC"].Value);
+                makho = Convert.ToString(row.Cells["TenKho"].Value);
+                mapn = maPN;
+                tongtien = Convert.ToDecimal(row.Cells["TongTien"].Value);
+            }
+            catch
+            {
+                MessageBox.Show("Vui lòng chọn phiếu nhập");
+            }
+        }
+
+        private void btn_SuaPN_Click(object sender, EventArgs e)
+        {
+            FormSuaPhieuNhap fSuaPN = new FormSuaPhieuNhap();
+            fSuaPN.ShowDialog();
         }
     }
 }

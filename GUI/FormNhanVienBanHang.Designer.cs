@@ -31,6 +31,7 @@
             this.panel_body = new System.Windows.Forms.Panel();
             this.panel_right = new System.Windows.Forms.Panel();
             this.pane_left = new System.Windows.Forms.Panel();
+            this.btn_QLKhuyenMai = new Sunny.UI.UIButton();
             this.btn_DangXuat = new System.Windows.Forms.Button();
             this.btn_QLHangHoa = new Sunny.UI.UIButton();
             this.btn_LapPhieuBanHang = new Sunny.UI.UIButton();
@@ -39,7 +40,6 @@
             this.cậpNhậtThôngTinTàiKhoảnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.thôngTinTàiKhoảnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.đổiMậtKhẩuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.btn_QLKhuyenMai = new Sunny.UI.UIButton();
             this.panel_body.SuspendLayout();
             this.pane_left.SuspendLayout();
             this.menu_NhanVienBanHang.SuspendLayout();
@@ -78,6 +78,20 @@
             this.pane_left.Name = "pane_left";
             this.pane_left.Size = new System.Drawing.Size(348, 813);
             this.pane_left.TabIndex = 0;
+            // 
+            // btn_QLKhuyenMai
+            // 
+            this.btn_QLKhuyenMai.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_QLKhuyenMai.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.btn_QLKhuyenMai.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.btn_QLKhuyenMai.Location = new System.Drawing.Point(-1, 127);
+            this.btn_QLKhuyenMai.MinimumSize = new System.Drawing.Size(1, 1);
+            this.btn_QLKhuyenMai.Name = "btn_QLKhuyenMai";
+            this.btn_QLKhuyenMai.Size = new System.Drawing.Size(348, 50);
+            this.btn_QLKhuyenMai.TabIndex = 6;
+            this.btn_QLKhuyenMai.Text = "Quản lý khuyến mãi";
+            this.btn_QLKhuyenMai.TipsFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.btn_QLKhuyenMai.Click += new System.EventHandler(this.btn_QLKhuyenMai_Click);
             // 
             // btn_DangXuat
             // 
@@ -144,7 +158,6 @@
             this.cậpNhậtThôngTinTàiKhoảnToolStripMenuItem});
             this.menu_NhanVienBanHang.Location = new System.Drawing.Point(0, 0);
             this.menu_NhanVienBanHang.Name = "menu_NhanVienBanHang";
-            this.menu_NhanVienBanHang.Padding = new System.Windows.Forms.Padding(6, 2, 0, 2);
             this.menu_NhanVienBanHang.Size = new System.Drawing.Size(348, 28);
             this.menu_NhanVienBanHang.TabIndex = 0;
             this.menu_NhanVienBanHang.Text = "menuStrip1";
@@ -161,28 +174,15 @@
             // thôngTinTàiKhoảnToolStripMenuItem
             // 
             this.thôngTinTàiKhoảnToolStripMenuItem.Name = "thôngTinTàiKhoảnToolStripMenuItem";
-            this.thôngTinTàiKhoảnToolStripMenuItem.Size = new System.Drawing.Size(220, 26);
+            this.thôngTinTàiKhoảnToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.thôngTinTàiKhoảnToolStripMenuItem.Text = "Thông tin tài khoản";
             // 
             // đổiMậtKhẩuToolStripMenuItem
             // 
             this.đổiMậtKhẩuToolStripMenuItem.Name = "đổiMậtKhẩuToolStripMenuItem";
-            this.đổiMậtKhẩuToolStripMenuItem.Size = new System.Drawing.Size(220, 26);
+            this.đổiMậtKhẩuToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.đổiMậtKhẩuToolStripMenuItem.Text = "Đổi mật khẩu";
-            // 
-            // btn_QLKhuyenMai
-            // 
-            this.btn_QLKhuyenMai.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_QLKhuyenMai.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.btn_QLKhuyenMai.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btn_QLKhuyenMai.Location = new System.Drawing.Point(-1, 127);
-            this.btn_QLKhuyenMai.MinimumSize = new System.Drawing.Size(1, 1);
-            this.btn_QLKhuyenMai.Name = "btn_QLKhuyenMai";
-            this.btn_QLKhuyenMai.Size = new System.Drawing.Size(348, 50);
-            this.btn_QLKhuyenMai.TabIndex = 6;
-            this.btn_QLKhuyenMai.Text = "Quản lý khuyến mãi";
-            this.btn_QLKhuyenMai.TipsFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.btn_QLKhuyenMai.Click += new System.EventHandler(this.btn_QLKhuyenMai_Click);
+            this.đổiMậtKhẩuToolStripMenuItem.Click += new System.EventHandler(this.đổiMậtKhẩuToolStripMenuItem_Click);
             // 
             // FormNhanVienBanHang
             // 

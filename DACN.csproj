@@ -102,6 +102,12 @@
     <Compile Include="GUI\FormChonHoaDon.Designer.cs">
       <DependentUpon>FormChonHoaDon.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\FormDoiMatKhau.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FormDoiMatKhau.Designer.cs">
+      <DependentUpon>FormDoiMatKhau.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\FormNhanVienGiaoHang.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -255,6 +261,12 @@
     <Compile Include="GUI\FormSaoLuuPhucHoi.Designer.cs">
       <DependentUpon>FormSaoLuuPhucHoi.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\FormSuaPhieuNhap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FormSuaPhieuNhap.Designer.cs">
+      <DependentUpon>FormSuaPhieuNhap.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\FormTaoPhieuTraHangNCC.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -292,6 +304,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FormChonHoaDon.resx">
       <DependentUpon>FormChonHoaDon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FormDoiMatKhau.resx">
+      <DependentUpon>FormDoiMatKhau.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FormNhanVienGiaoHang.resx">
       <DependentUpon>FormNhanVienGiaoHang.cs</DependentUpon>
@@ -361,6 +376,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FormSaoLuuPhucHoi.resx">
       <DependentUpon>FormSaoLuuPhucHoi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FormSuaPhieuNhap.resx">
+      <DependentUpon>FormSuaPhieuNhap.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FormTaoPhieuTraHangNCC.resx">
       <DependentUpon>FormTaoPhieuTraHangNCC.cs</DependentUpon>
