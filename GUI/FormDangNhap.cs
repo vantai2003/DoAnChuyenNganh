@@ -49,7 +49,8 @@ namespace DACN.GUI
                         fGiamDoc.Show();
                         break;
                     case 2:
-                        MessageBox.Show("Đăng nhập thành công với quyền kế toán");
+                        FormThongKeDoanhThu fThongKe = new FormThongKeDoanhThu();
+                        fThongKe.Show();
                         break;
                     case 3:
                         FormNhanVienBanHang fnvbh = new FormNhanVienBanHang();

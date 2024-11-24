@@ -18,6 +18,10 @@ namespace DACN.GUI
         private decimal tongtien;
         private string makho;
         private string mancc;
+        private string manv;
+        private List<string> deletedRows = new List<string>();
+        //sử dụng BindinSource để cập nhật lại dvg khi xóa 1 dòng
+        private BindingSource bindingSource = new BindingSource();
         public FormSuaPhieuNhap()
         {
             InitializeComponent();
@@ -26,14 +30,28 @@ namespace DACN.GUI
             makho = FormNhapHang.makho;
             mancc = FormNhapHang.mancc;
             Load();
+            manv = FormDangNhap.nhanvien;
         }
         private void Load()
         {
             List<CTPhieuNHDTO> listctpn = PhieuNhapHangDAO.Instance.GetCTPhieuNH(mapn);
-            dvg_SuaPN.DataSource = listctpn;
+            bindingSource.DataSource = listctpn; 
+            dvg_SuaPN.DataSource = bindingSource;
+            dvg_SuaPN.Columns["MaCTPhieuNH"].HeaderText = "Mã chi tiết phiếu nhập";
+            dvg_SuaPN.Columns["MaSP"].HeaderText = "Mã sản phẩm";
+            dvg_SuaPN.Columns["TenSP"].HeaderText = "Tên sản phẩm";
+            dvg_SuaPN.Columns["TenLoai"].HeaderText = "Tên loại";
+            dvg_SuaPN.Columns["TenNCC"].HeaderText = "Tên nhà cung cấp";
+            dvg_SuaPN.Columns["MaPhieuNH"].HeaderText = "Mã phiếu nhập";
+            dvg_SuaPN.Columns["DVT"].HeaderText = "DVT";
+            dvg_SuaPN.Columns["TrangThai"].HeaderText = "Trạng thái";
+            dvg_SuaPN.Columns["MaNV"].HeaderText = "Mã nhân viên";
+            dvg_SuaPN.Columns["SoLuong"].HeaderText = "Số lượng";
+            dvg_SuaPN.Columns["DonGia"].HeaderText = "Đơn giá";
+            dvg_SuaPN.Columns["NgayNhapHang"].HeaderText = "Ngày nhập hàng";
+            dvg_SuaPN.Columns["ThanhTien"].HeaderText = "Thành tiền";
             dvg_SuaPN.Columns["TongTien"].Visible = false;
             txttongtien.Text = tongtien.ToString();
-            cbtrangthai.SelectedIndex = 0;
             List<KhoDTO> listKho = KhoDAO.Instance.GetKho();
             cbkho.DataSource = listKho;
             cbkho.DisplayMember = "TenKho";
@@ -58,6 +76,19 @@ namespace DACN.GUI
                     break;
                 }
             }
+            //gắn cờ
+            if (!dvg_SuaPN.Columns.Contains("IsModified"))
+            {
+                DataGridViewTextBoxColumn isModifiedColumn = new DataGridViewTextBoxColumn
+                {
+                    Name = "IsModified",
+                    Visible = false //ẩn
+                };
+                dvg_SuaPN.Columns.Add(isModifiedColumn);
+            }
+
+            dvg_SuaPN.Columns["TongTien"].Visible = false;
+            txttongtien.Text = tongtien.ToString();
         }
 
         private void dvg_SuaPN_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -119,6 +150,8 @@ namespace DACN.GUI
                 row.Cells["Dongia"].Value = txt_DonGia.Text;
                 row.Cells["Soluong"].Value = txt_SoLuong.Text;
                 row.Cells["Thanhtien"].Value = txt_ThanhTien.Text;
+                //đặt cờ bằng true
+                row.Cells["IsModified"].Value = true;
                 TinhTongThanhTien();
                 MessageBox.Show("Cập nhật thành công!");
             }
@@ -132,13 +165,75 @@ namespace DACN.GUI
             decimal tongTien = 0;
             foreach (DataGridViewRow row in dvg_SuaPN.Rows)
             {
-                if (row.Cells["Thanhtien"].Value != null)
+                if (row.Cells["ThanhTien"].Value != null)
                 {
-                    decimal thanhtien = Convert.ToDecimal(row.Cells["Thanhtien"].Value);
+                    decimal thanhtien = Convert.ToDecimal(row.Cells["ThanhTien"].Value);
                     tongTien += thanhtien;
                 }
             }
             txttongtien.Text = tongTien.ToString(); 
+        }
+
+        private void btn_Xoa_Click(object sender, EventArgs e)
+        {
+            if (dvg_SuaPN.SelectedCells.Count > 0)
+            {
+                int rowIndex = dvg_SuaPN.SelectedCells[0].RowIndex;
+                DataGridViewRow row = dvg_SuaPN.Rows[rowIndex];
+                string maCTPN = row.Cells["MaCTPhieuNH"].Value.ToString();
+                //add vào list
+                deletedRows.Add(maCTPN);
+                //xóa khỏi dvg
+                bindingSource.RemoveAt(rowIndex);
+                TinhTongThanhTien();
+                MessageBox.Show("Đã xóa dòng!");
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn dòng để xóa!");
+            }
+        }
+
+        private void btn_Luu_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                foreach (DataGridViewRow row in dvg_SuaPN.Rows)
+                {
+                    if (row.Cells["IsModified"].Value != null && (bool)row.Cells["IsModified"].Value == true)
+                    {
+                        string maCTPN = row.Cells["MaCTPhieuNH"].Value.ToString();
+                        decimal soLuong = Convert.ToDecimal(row.Cells["Soluong"].Value);
+                        decimal donGia = Convert.ToDecimal(row.Cells["Dongia"].Value);
+                        
+                        bool success = PhieuNhapHangDAO.Instance.UpdateCTPhieuNhap(maCTPN, soLuong, donGia);
+                        
+                        // Optional: Reset the IsModified flag if the update was successful
+                        if (success)
+                        {
+                            row.Cells["IsModified"].Value = false;
+                        }
+
+                    }
+                }
+                foreach (string maCTPN in deletedRows)
+                {
+                    PhieuNhapHangDAO.Instance.XoaCTPN(maCTPN);
+                }
+                deletedRows.Clear();
+                decimal tongTien = Convert.ToDecimal(txttongtien.Text);
+                
+                bool capNhatPN = PhieuNhapHangDAO.Instance.UpdatePhieuNhap(mapn, tongTien, manv);
+                if (capNhatPN)
+                {
+                    MessageBox.Show("sửa phiếu nhập thành công");
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Sửa thất bại");
+                throw;
+            }
         }
     }
 }

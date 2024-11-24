@@ -53,6 +53,11 @@ CREATE TABLE CT_SanPhamNCC (
     FOREIGN KEY (MaNCC) REFERENCES NhaCungCap(MaNCC),
     FOREIGN KEY (MaSP) REFERENCES SanPham(MaSP)
 );
+alter table CT_SanPhamNCC
+drop column NgayBatDauHopTac
+select * from CT_SanPhamNCC
+alter table CT_SanPhamNCC
+add GiaNhap decimal(18, 0), NgayCapNhat date
 CREATE TABLE LoaiKH (
     MaLoaiKH VARCHAR(50) PRIMARY KEY NOT NULL,
     TenLoaiKH NVARCHAR(200) UNIQUE,
@@ -195,7 +200,17 @@ CREATE TABLE KhuyenMai (
     TrangThai NVARCHAR(20),
     GiaTriKM DECIMAL(18, 2)
 );
-
+drop table BangBaoGia
+-- Bảng Báo giá
+CREATE TABLE BangBaoGiaTuNCC (
+    MaSP VARCHAR(50) NOT NULL,
+    MaNCC VARCHAR(50) NOT NULL,
+    DonGia decimal(18, 2) DEFAULT 0,
+	NgayCapNhat date,
+	PRIMARY KEY (MaSP, MaNCC),
+    FOREIGN KEY (MaSP) REFERENCES SanPham(MaSP),
+    FOREIGN KEY (MaNCC) REFERENCES NhaCungCap(MaNCC)
+);
 
 -- Bảng CTDieuKienKM
 CREATE TABLE CTDieuKienKM (
@@ -858,18 +873,18 @@ BEGIN
     VALUES (@MaPhieuNH, @NgayDatHang, @TongTien, @TrangThai, @MaNV, @MaNCC, @MaKho)
 END
 GO
-
+alter table CTPhieuNhapHang
+drop column DVT
+select * from CTPhieuNhapHang
 --------sửa phiếu nhập
+drop proc SP_SuaPhieuNhapHang
 CREATE PROCEDURE SP_SuaPhieuNhapHang
     @MaPhieuNH VARCHAR(50),
     @TongTien DECIMAL(18, 0),
-	@TrangThai NVARCHAR(50),
-	@MaNV VARCHAR(50),
-    @MaNCC VARCHAR(50),
-    @MaKho VARCHAR(50)
+	@MaNV VARCHAR(50)
 AS
 BEGIN
-     UPDATE PhieuNhapHang SET TongTien = @TongTien,TrangThai = @TrangThai, MaNV = @MaNV, MaNCC = @MaNCC, MaKho = @MaKho
+     UPDATE PhieuNhapHang SET TongTien = @TongTien, MaNV = @MaNV
 	 WHERE MaPhieuNH = @MaPhieuNH
 END
 GO
@@ -885,6 +900,15 @@ BEGIN
     WHERE MaCTPhieuNH = @MaCTPhieuNH
 END
 GO
+
+-----xóa CT phiếu nhập
+CREATE PROC SP_XoaCTPN
+@MaCTPhieuNH VARCHAR(50)
+as
+begin
+	DELETE FROM CTPhieuNhapHang
+	WHERE MaCTPhieuNH = @MaCTPhieuNH
+end
 ------thủ tục tăng mã ct phiếu nhập
 CREATE PROC SP_TaoMaCTPN
 AS
@@ -951,8 +975,6 @@ BEGIN
 END
 GO
 
-
-
 ---lay list san pham tu nha cung cap 
 CREATE PROCEDURE SP_GetSanPhamByIdNCC
 @MaNCC varchar(50)
@@ -965,7 +987,116 @@ BEGIN
 	WHERE spncc.MaNCC = @MaNCC
 END
 GO
+---Lọc bảng giá
+CREATE PROCEDURE SP_LocBangGia
+    @SanPham NVARCHAR(255) = NULL,           
+    @NhaCungCap NVARCHAR(255) = NULL     
+AS
+BEGIN
+    SELECT spncc.MaNCC, ncc.TenNCC, sp.MaSP, sp.TenSP, lp.TenLoai, sp.DVT, spncc.GiaNhap, spncc.NgayCapNhat
+	FROM CT_SanPhamNCC spncc
+	JOIN NhaCungCap ncc ON spncc.MaNCC = ncc.MaNCC
+	JOIN SanPham sp ON spncc.MaSP = sp.MaSP
+	JOIN LoaiSanPham lp ON sp.MaLoai = lp.MaLoai
+    WHERE 
+        (@SanPham IS NULL OR sp.TenSP = @SanPham) AND
+        (@NhaCungCap IS NULL OR ncc.TenNCC = @NhaCungCap)
+END
+-------list Bảng giá
+CREATE PROCEDURE SP_ListBangGia
+AS
+BEGIN
+	SELECT spncc.MaNCC, ncc.TenNCC, sp.MaSP, sp.TenSP, lp.TenLoai, sp.DVT, spncc.GiaNhap, spncc.NgayCapNhat
+	FROM CT_SanPhamNCC spncc
+	JOIN NhaCungCap ncc ON spncc.MaNCC = ncc.MaNCC
+	JOIN SanPham sp ON spncc.MaSP = sp.MaSP
+	JOIN LoaiSanPham lp ON sp.MaLoai = lp.MaLoai
+END
+GO
+---------cập nhật giá
+CREATE PROC SP_CapNhatGia
+@MaSP varchar(50),
+@MaNCC varchar(50),
+@GiaNhap decimal(18, 0),
+@NgayCapNhat date
+as
+begin
+	UPDATE CT_SanPhamNCC SET GiaNhap = @GiaNhap, NgayCapNhat = @NgayCapNhat
+	WHERE MaNCC = @MaNCC AND MaSP = @MaSP
+end
 
+------list nahf cung ứng
+Drop proc SP_GetListSanPhamNCC
+exec SP_GetListSanPhamNCC
+CREATE PROCEDURE SP_GetListSanPhamNCC
+AS
+BEGIN
+	SELECT spncc.MaNCC, ncc.TenNCC, sp.MaSP, sp.TenSP, lp.TenLoai, sp.DVT
+	FROM CT_SanPhamNCC spncc
+	JOIN NhaCungCap ncc ON spncc.MaNCC = ncc.MaNCC
+	JOIN SanPham sp ON spncc.MaSP = sp.MaSP
+	JOIN LoaiSanPham lp ON sp.MaLoai = lp.MaLoai
+END
+GO
+
+---------Lọc nahf cung ứng theo nhà cung cấp
+drop proc SP_GetListSanPhamNCCByIdNCC
+CREATE PROCEDURE SP_GetListSanPhamNCCByIdNCC
+@MaNCC varchar(50)
+AS
+BEGIN
+	SELECT spncc.MaNCC, ncc.TenNCC, sp.MaSP, sp.TenSP, lp.TenLoai, sp.DVT
+	FROM CT_SanPhamNCC spncc
+	JOIN NhaCungCap ncc ON spncc.MaNCC = ncc.MaNCC
+	JOIN SanPham sp ON spncc.MaSP = sp.MaSP
+	JOIN LoaiSanPham lp ON sp.MaLoai = lp.MaLoai
+	WHERE spncc.MaNCC = @MaNCC
+END
+GO
+
+---------Lọc nhà cung ứng theo sản phẩm
+drop proc SP_GetListSanPhamNCCBySP
+CREATE PROCEDURE SP_GetListSanPhamNCCBySP
+@SearchValues nvarchar(500)
+AS
+BEGIN
+	SELECT spncc.MaNCC, ncc.TenNCC, sp.MaSP, sp.TenSP, lp.TenLoai, sp.DVT
+	FROM CT_SanPhamNCC spncc
+	JOIN NhaCungCap ncc ON spncc.MaNCC = ncc.MaNCC
+	JOIN SanPham sp ON spncc.MaSP = sp.MaSP
+	JOIN LoaiSanPham lp ON sp.MaLoai = lp.MaLoai
+	 WHERE (sp.TenSP LIKE '%' + @SearchValues + '%')
+		OR (spncc.MaSP LIKE '%' + @SearchValues + '%')
+END
+GO
+---------------lọc ra những sản phẩm mà nhà cung cấp đó đã cung cấp rồi
+
+drop proc GetSanPhamChuaCungCap
+CREATE PROCEDURE GetSanPhamChuaCungCap
+    @MaNCC VARCHAR(50)
+AS
+BEGIN
+    -- Chỉ hiển thị các sản phẩm mà nhà cung cấp chưa cung cấp
+    SELECT SP.MaSP, SP.TenSP, SP.DVT,lsp.TenLoai
+    FROM SanPham SP
+	JOIN LoaiSanPham lsp ON sp.MaLoai = lsp.MaLoai
+    WHERE NOT EXISTS (
+        SELECT 1 
+        FROM CT_SanPhamNCC CTSN
+        WHERE CTSN.MaSP = SP.MaSP 
+          AND CTSN.MaNCC = @MaNCC
+    );
+END;
+select * from CT_SanPhamNCC
+---------thủ tục thêm SanPham_NhaCungCap\
+drop proc SP_ThemSanPhamNNCC
+CREATE PROC SP_ThemSanPhamNNCC
+@MaNCC varchar(50),
+@MaSP varchar(50)
+AS
+BEGIN
+	INSERT INTO CT_SanPhamNCC(MaNCC, MaSP) VALUES(@MaNCC, @MaSP)
+END
 exec SP_GetListPN
 CREATE PROC SP_GetListPN
 AS
@@ -1005,7 +1136,30 @@ BEGIN
         (@Kho IS NULL OR k.TenKho = @Kho) AND
         (@NhaCungCap IS NULL OR ncc.TenNCC = @NhaCungCap)
 END
+
+-----Lọc phiếu nhập theo ngày
+exec SP_LocTheoNgay '11/5/2024', '11/7/2024'
+CREATE PROC SP_LocTheoNgay
+@TuNgay date,
+@DenNgay date
+AS
+BEGIN
+	SELECT MaPhieuNH, NgayDatHang, TongTien, TrangThai, ncc.TenNCC, k.TenKho, MaNV
+    FROM PhieuNhapHang pn
+    JOIN NhaCungCap ncc ON ncc.MaNCC = pn.MaNCC
+    JOIN Kho k ON k.MaKho = pn.MaKho
+    WHERE NgayDatHang BETWEEN @TuNgay AND @DenNgay
+END;
+----Xóa phiếu nhập chờ duyệt
+CREATE PROC SP_XoaChoDuyetPN
+@MaPN varchar(50)
+as
+begin
+	UPDATE PhieuNhapHang SET TrangThai = N'Chờ phê duyệt xóa'
+	where MaPhieuNH = @MaPN
+end
 -----Lấy danh sách phiếu nhập chưa phê duyệt
+drop proc SP_GetListPNStatus
 CREATE PROC SP_GetListPNStatus
 AS
 BEGIN
@@ -1014,26 +1168,48 @@ BEGIN
 
 	JOIN NhaCungCap ncc ON ncc.MaNCC = pn.MaNCC
     JOIN Kho k ON k.MaKho = pn.MaKho
-	where pn.TrangThai = N'Chờ phê duyệt'
+	where pn.TrangThai = N'Chờ phê duyệt nhập' or pn.TrangThai = N'Chờ phê duyệt xóa'
+END
+GO
+----thủ tục phê duyệt xóa
+CREATE PROC SP_PheDuyetXoaPN
+@MaPN varchar(50)
+AS
+BEGIN
+	UPDATE PhieuNhapHang
+	SET TrangThai = N'Đã phê duyệt xóa'
+	WHERE MaPhieuNH = @MaPN
+END
+GO
+------------từ chối yêu cầu xóa
+CREATE PROC SP_TuChoiYeuCauXoa
+@MaPN varchar(50)
+AS
+BEGIN
+	UPDATE PhieuNhapHang
+	SET TrangThai = N'Đã từ chối yêu cầu xóa'
+	WHERE MaPhieuNH = @MaPN
 END
 GO
 ----Thủ tục phê duyệt phiếu nhập hàng
+
 CREATE PROC SP_PheDuyetPN
 @MaPN varchar(50)
 AS
 BEGIN
 	UPDATE PhieuNhapHang
-	SET TrangThai = N'Đã phê duyệt'
+	SET TrangThai = N'Đã phê duyệt nhập'
 	WHERE MaPhieuNH = @MaPN
 END
 GO
 ----Thủ tục từ chối PN
+
 CREATE PROC SP_TuChoiPN
 @MaPN varchar(50)
 AS
 BEGIN
 	UPDATE PhieuNhapHang
-	SET TrangThai = N'Từ chối'
+	SET TrangThai = N'Đã từ chối phiếu nhập hàng'
 	WHERE MaPhieuNH = @MaPN
 END
 GO
@@ -1164,8 +1340,10 @@ BEGIN
     DELETE FROM HoaDon 
     WHERE MaHD = @MaHD;
 END
+select * from NguoiDung
 GO
-
+select * from PhieuTraHangKH
+select * from CTPhieuTraHangKH
 ---Cap nhat so tien thanh toan hoa don
 CREATE PROC sp_Update_HD_ThanhToan
 	@MaHD VARCHAR(50),
@@ -2283,7 +2461,7 @@ BEGIN
     END
 END
 GO
-
+select * from CTDieuKienKM
 ----------------
 CREATE PROC SP_GetTienBanHang
 @NgayTu Date,

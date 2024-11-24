@@ -111,6 +111,7 @@ namespace DACN.GUI
         private void rd_TheoKhoangTG_CheckedChanged(object sender, EventArgs e)
         {
             dtp_NgayBD.Enabled = dtp_NgayKT.Enabled = true;
+            lb_tenkm.Enabled= txt_TenKM.Enabled = true;
             lb_LoaiKH.Enabled = cb_LoaiKH.Enabled = lb_gtdktt.Enabled = txt_DieuKienTongTien.Enabled = false;
             flag = 1;
             loaiDK = "Theo khoảng thời gian";

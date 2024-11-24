@@ -16,8 +16,7 @@ namespace DACN.GUI
         public FormTrangChuAdmin()
         {
             InitializeComponent();
-            Load();
-
+            OpenChildForm(new FormNguoiDung());
         }
         private Form currentFormChild;
         private void OpenChildForm(Form childForm)
@@ -33,10 +32,7 @@ namespace DACN.GUI
             childForm.BringToFront();
             childForm.Show();
         }
-        private void Load()
-        {
-           txt_ThongTintt.Text = FormDangNhap.nhanvien;
-        }
+        
 
         private void btn_QuanLyTaiKhoam_Click_1(object sender, EventArgs e)
         {

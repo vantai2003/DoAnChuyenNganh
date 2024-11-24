@@ -55,6 +55,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAO\BangBaoGiaTuNCCDAO.cs" />
     <Compile Include="DAO\CongNoDAO.cs" />
     <Compile Include="DAO\CTHoaDonDAO.cs" />
     <Compile Include="DAO\DataProvider.cs" />
@@ -74,12 +75,14 @@
     <Compile Include="DAO\PhieuTraHangKHDAO.cs" />
     <Compile Include="DAO\PhieuTraHangNCCDAO.cs" />
     <Compile Include="DAO\QuyenDAO.cs" />
+    <Compile Include="DAO\SanPham_NhaCCDAO.cs" />
     <Compile Include="DAO\SaoLuuPhucHoiDAO.cs" />
     <Compile Include="DAO\TonKhoDAO.cs" />
     <Compile Include="DTO\CongNoDTO.cs" />
     <Compile Include="DTO\CTHoaDonDTO.cs" />
     <Compile Include="DTO\CTPhieuNHDTO.cs" />
     <Compile Include="DTO\CTPhieuTraHangKHDTO.cs" />
+    <Compile Include="DTO\SanPham_NhaCungCapDTO.cs" />
     <Compile Include="GUI\FormBanHang.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -98,6 +101,12 @@
     <Compile Include="GUI\FormChonKH.Designer.cs">
       <DependentUpon>FormChonKH.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\FormChonSP_NCC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FormChonSP_NCC.Designer.cs">
+      <DependentUpon>FormChonSP_NCC.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\FormCTHoaDon.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,6 +118,18 @@
     </Compile>
     <Compile Include="GUI\FormChonHoaDon.Designer.cs">
       <DependentUpon>FormChonHoaDon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FormCTPhieuNhap_ChoNVKho.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FormCTPhieuNhap_ChoNVKho.Designer.cs">
+      <DependentUpon>FormCTPhieuNhap_ChoNVKho.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FormCT_SanPham_NCC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FormCT_SanPham_NCC.Designer.cs">
+      <DependentUpon>FormCT_SanPham_NCC.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\FormDoiMatKhau.cs">
       <SubType>Form</SubType>
@@ -227,6 +248,12 @@
     <Compile Include="GUI\FormNhanVienKho.Designer.cs">
       <DependentUpon>FormNhanVienKho.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\FormQLGiaNhapTuNCC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FormQLGiaNhapTuNCC.Designer.cs">
+      <DependentUpon>FormQLGiaNhapTuNCC.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\FormQLHangHoa.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -319,11 +346,20 @@
     <EmbeddedResource Include="GUI\FormChonKH.resx">
       <DependentUpon>FormChonKH.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FormChonSP_NCC.resx">
+      <DependentUpon>FormChonSP_NCC.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\FormCTHoaDon.resx">
       <DependentUpon>FormCTHoaDon.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FormChonHoaDon.resx">
       <DependentUpon>FormChonHoaDon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FormCTPhieuNhap_ChoNVKho.resx">
+      <DependentUpon>FormCTPhieuNhap_ChoNVKho.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FormCT_SanPham_NCC.resx">
+      <DependentUpon>FormCT_SanPham_NCC.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FormDoiMatKhau.resx">
       <DependentUpon>FormDoiMatKhau.cs</DependentUpon>
@@ -375,6 +411,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FormNhanVienKho.resx">
       <DependentUpon>FormNhanVienKho.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FormQLGiaNhapTuNCC.resx">
+      <DependentUpon>FormQLGiaNhapTuNCC.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FormQLHangHoa.resx">
       <DependentUpon>FormQLHangHoa.cs</DependentUpon>
@@ -471,6 +510,8 @@
     <Content Include="GUI\Icon_images\user.png" />
     <Content Include="GUI\Icon_images\Vat_lieu.png" />
     <Content Include="GUI\Icon_images\warehouse.png" />
+    <None Include="Resources\add1.jpg" />
+    <None Include="Resources\remove.png" />
     <None Include="Resources\Loading.png" />
     <None Include="Resources\khosat.jpg" />
     <None Include="Resources\icon-logout.png" />

@@ -113,9 +113,21 @@ namespace DACN.DAO
             int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { mapn});
             return result;
         }
+        public int PheDuyetXoa(string mapn)
+        {
+            string query = "SP_PheDuyetXoaPN @MaPN";
+            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { mapn });
+            return result;
+        }
         public int TuChoiPN(string mapn)
         {
             string query = "SP_TuChoiPN @MaPN";
+            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { mapn });
+            return result;
+        }
+        public int TuChoiYeuCauXoa(string mapn)
+        {
+            string query = "SP_TuChoiYeuCauXoa @MaPN";
             int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { mapn });
             return result;
         }
@@ -149,17 +161,51 @@ namespace DACN.DAO
             }
             return listPN;
         }
-        public bool UpdatePhieuNhap(string mapn, decimal tongtien, string trangthai, string manv, string mancc, string makho)
+        public bool UpdatePhieuNhap(string mapn, decimal tongtien, string manv)
         {
-            string query = "SP_SuaPhieuNhapHang @MaCTPhieuNH @MaPhieuNH , @TongTien , @TrangThai , @MaNV , @MaNCC , @MaKho";
-            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { mapn, tongtien, trangthai, manv, mancc, makho });
+            string query = "SP_SuaPhieuNhapHang @MaPhieuNH , @TongTien , @MaNV";
+            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { mapn, tongtien, manv});
             return result > 0;
         }
-        public bool UpdateCTPhieuNhap(string mactpn, string masp, decimal soluong, decimal dongia)
+        public bool UpdateCTPhieuNhap(string mactpn, decimal soluong, decimal dongia)
         {
-            string query = "SP_SuaPhieuNhapHang @MaCTPhieuNH @MaPhieuNH , @TongTien , @TrangThai , @MaNV , @MaNCC , @MaKho";
-            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { mactpn, masp, soluong, dongia });
+            string query = "SP_SuaCTPhieuNhapHang @MaCTPhieuNH , @SoLuong , @DonGia";
+            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { mactpn, soluong, dongia });
             return result > 0;
+        }
+        
+        public bool XoaCTPN(string mactpn)
+        {
+            string query = "SP_XoaCTPN @MaCTPhieuNH";
+            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { mactpn});
+            return result > 0;
+        }
+        public List<PhieuNhapHangDTO> LocTheoNgay(string tungay, string denngay)
+        {
+            List<PhieuNhapHangDTO> listPN = new List<PhieuNhapHangDTO>();
+            DataTable data = DataProvider.Instance.ExecuteQuery("SP_LocTheoNgay @TuNgay , @DenNgay", new object[] {tungay, denngay});
+            foreach (DataRow row in data.Rows)
+            {
+                PhieuNhapHangDTO phieunhap = new PhieuNhapHangDTO(row);
+                listPN.Add(phieunhap);
+            }
+            return listPN;
+        }
+        public bool XoaPN(string mapn)
+        {
+            string query = "SP_XoaChoDuyetPN @MaPN";
+            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { mapn});
+            return result > 0;
+        }
+        public decimal GetDonGiaNhap(string masp, string mancc)
+        {
+            string query = "SP_LayDonGiaNhap @MaSP , @MaNCC";
+            object result = DataProvider.Instance.ExecuteScalar(query, new object[] {masp, mancc});
+            if (result != DBNull.Value && result != null)
+            {
+                return Convert.ToDecimal(result);
+            }
+            return 0;
         }
     }   
 }

@@ -26,19 +26,5 @@ namespace DACN.GUI
             List<CTPhieuNHDTO> listctpn = PhieuNhapHangDAO.Instance.GetCTPhieuNH(mapn); 
             dvg_CTPN.DataSource = listctpn;
         }
-
-        private void btn_PheDuyet_Click(object sender, EventArgs e)
-        {
-             PhieuNhapHangDAO.Instance.PheDuyetPN(mapn);
-             MessageBox.Show("Đã phê duyệt!");
-             this.Close();
-        }
-
-        private void btn_TuChoi_Click(object sender, EventArgs e)
-        {
-            PhieuNhapHangDAO.Instance.TuChoiPN(mapn);
-            MessageBox.Show("Đã từ chối!");
-            this.Close();
-        }
     }
 }

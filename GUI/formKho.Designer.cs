@@ -32,7 +32,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvKho = new Sunny.UI.UIDataGridView();
             this.MaKho = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TenKho = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -76,34 +75,27 @@
             this.MaKho,
             this.TenKho,
             this.DiaChi});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvKho.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvKho.EnableHeadersVisualStyles = false;
             this.dgvKho.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.dgvKho.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
-            this.dgvKho.Location = new System.Drawing.Point(12, 202);
+            this.dgvKho.Location = new System.Drawing.Point(11, 162);
+            this.dgvKho.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvKho.Name = "dgvKho";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvKho.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvKho.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvKho.RowHeadersWidth = 62;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.dgvKho.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.dgvKho.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvKho.RowTemplate.Height = 28;
             this.dgvKho.SelectedIndex = -1;
-            this.dgvKho.Size = new System.Drawing.Size(762, 236);
+            this.dgvKho.Size = new System.Drawing.Size(677, 189);
             this.dgvKho.StripeOddColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
             this.dgvKho.TabIndex = 0;
             this.dgvKho.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvKho_CellClick);
@@ -133,13 +125,13 @@
             // 
             this.txtMaKho.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtMaKho.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txtMaKho.Location = new System.Drawing.Point(110, 77);
-            this.txtMaKho.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtMaKho.MinimumSize = new System.Drawing.Size(1, 16);
+            this.txtMaKho.Location = new System.Drawing.Point(98, 62);
+            this.txtMaKho.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtMaKho.MinimumSize = new System.Drawing.Size(1, 13);
             this.txtMaKho.Name = "txtMaKho";
-            this.txtMaKho.Padding = new System.Windows.Forms.Padding(5);
+            this.txtMaKho.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtMaKho.ShowText = false;
-            this.txtMaKho.Size = new System.Drawing.Size(150, 29);
+            this.txtMaKho.Size = new System.Drawing.Size(133, 23);
             this.txtMaKho.TabIndex = 1;
             this.txtMaKho.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             this.txtMaKho.Watermark = "";
@@ -148,13 +140,13 @@
             // 
             this.txtTenKho.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtTenKho.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txtTenKho.Location = new System.Drawing.Point(110, 141);
-            this.txtTenKho.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtTenKho.MinimumSize = new System.Drawing.Size(1, 16);
+            this.txtTenKho.Location = new System.Drawing.Point(98, 113);
+            this.txtTenKho.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtTenKho.MinimumSize = new System.Drawing.Size(1, 13);
             this.txtTenKho.Name = "txtTenKho";
-            this.txtTenKho.Padding = new System.Windows.Forms.Padding(5);
+            this.txtTenKho.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtTenKho.ShowText = false;
-            this.txtTenKho.Size = new System.Drawing.Size(150, 29);
+            this.txtTenKho.Size = new System.Drawing.Size(133, 23);
             this.txtTenKho.TabIndex = 3;
             this.txtTenKho.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             this.txtTenKho.Watermark = "";
@@ -163,13 +155,13 @@
             // 
             this.txtDiaChi.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtDiaChi.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txtDiaChi.Location = new System.Drawing.Point(447, 77);
-            this.txtDiaChi.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtDiaChi.MinimumSize = new System.Drawing.Size(1, 16);
+            this.txtDiaChi.Location = new System.Drawing.Point(397, 62);
+            this.txtDiaChi.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtDiaChi.MinimumSize = new System.Drawing.Size(1, 13);
             this.txtDiaChi.Name = "txtDiaChi";
-            this.txtDiaChi.Padding = new System.Windows.Forms.Padding(5);
+            this.txtDiaChi.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtDiaChi.ShowText = false;
-            this.txtDiaChi.Size = new System.Drawing.Size(150, 29);
+            this.txtDiaChi.Size = new System.Drawing.Size(133, 23);
             this.txtDiaChi.TabIndex = 3;
             this.txtDiaChi.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             this.txtDiaChi.Watermark = "";
@@ -177,27 +169,27 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(30, 86);
+            this.label1.Location = new System.Drawing.Point(27, 69);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(63, 20);
+            this.label1.Size = new System.Drawing.Size(52, 16);
             this.label1.TabIndex = 4;
             this.label1.Text = "Mã Kho";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(25, 150);
+            this.label2.Location = new System.Drawing.Point(22, 120);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(68, 20);
+            this.label2.Size = new System.Drawing.Size(57, 16);
             this.label2.TabIndex = 5;
             this.label2.Text = "Tên Kho";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(346, 86);
+            this.label3.Location = new System.Drawing.Point(308, 69);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(60, 20);
+            this.label3.Size = new System.Drawing.Size(49, 16);
             this.label3.TabIndex = 6;
             this.label3.Text = "Địa Chỉ";
             // 
@@ -219,7 +211,7 @@
             this.tsCTPN.Location = new System.Drawing.Point(0, 0);
             this.tsCTPN.Name = "tsCTPN";
             this.tsCTPN.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.tsCTPN.Size = new System.Drawing.Size(800, 40);
+            this.tsCTPN.Size = new System.Drawing.Size(912, 38);
             this.tsCTPN.TabIndex = 12;
             this.tsCTPN.Text = "tsNCC";
             // 
@@ -231,14 +223,14 @@
             this.tsbThem.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
             this.tsbThem.Name = "tsbThem";
             this.tsbThem.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.tsbThem.Size = new System.Drawing.Size(119, 36);
+            this.tsbThem.Size = new System.Drawing.Size(104, 34);
             this.tsbThem.Text = "Thêm";
             this.tsbThem.Click += new System.EventHandler(this.tsbThem_Click);
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 40);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 38);
             // 
             // tsbSua
             // 
@@ -248,14 +240,14 @@
             this.tsbSua.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
             this.tsbSua.Name = "tsbSua";
             this.tsbSua.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.tsbSua.Size = new System.Drawing.Size(97, 36);
+            this.tsbSua.Size = new System.Drawing.Size(89, 34);
             this.tsbSua.Text = "Sửa";
             this.tsbSua.Click += new System.EventHandler(this.tsbSua_Click);
             // 
             // toolStripSeparator6
             // 
             this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(6, 40);
+            this.toolStripSeparator6.Size = new System.Drawing.Size(6, 38);
             // 
             // tsbXoa
             // 
@@ -265,14 +257,14 @@
             this.tsbXoa.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
             this.tsbXoa.Name = "tsbXoa";
             this.tsbXoa.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.tsbXoa.Size = new System.Drawing.Size(98, 36);
+            this.tsbXoa.Size = new System.Drawing.Size(90, 34);
             this.tsbXoa.Text = "Xóa";
             this.tsbXoa.Click += new System.EventHandler(this.tsbXoa_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 40);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 38);
             // 
             // tsbLuu
             // 
@@ -282,20 +274,20 @@
             this.tsbLuu.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
             this.tsbLuu.Name = "tsbLuu";
             this.tsbLuu.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.tsbLuu.Size = new System.Drawing.Size(97, 36);
+            this.tsbLuu.Size = new System.Drawing.Size(88, 34);
             this.tsbLuu.Text = "Lưu";
             this.tsbLuu.Click += new System.EventHandler(this.tsbLuu_Click);
             // 
             // toolStripSeparator8
             // 
             this.toolStripSeparator8.Name = "toolStripSeparator8";
-            this.toolStripSeparator8.Size = new System.Drawing.Size(6, 40);
+            this.toolStripSeparator8.Size = new System.Drawing.Size(6, 38);
             // 
             // formKho
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(912, 515);
             this.Controls.Add(this.tsCTPN);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -304,6 +296,7 @@
             this.Controls.Add(this.txtDiaChi);
             this.Controls.Add(this.txtMaKho);
             this.Controls.Add(this.dgvKho);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "formKho";
             this.Text = "formKho";
             ((System.ComponentModel.ISupportInitialize)(this.dgvKho)).EndInit();

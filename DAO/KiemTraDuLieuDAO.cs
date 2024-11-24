@@ -9,6 +9,19 @@ namespace DACN.DAO
 {
     public class KiemTraDuLieuDAO
     {
+        public static bool KiemTraDuLieuSo(string input)
+        {
+            if (string.IsNullOrWhiteSpace(input))
+            {
+                return false;
+            }
+            if (double.TryParse(input, out _))
+            {
+                return true;
+            }
+
+            return false;
+        }
         public static bool KTSoDienThoai(string phoneNumber)
         {
             string pattern = @"^(0|\+84)(3|5|7|8|9)\d{8}$";

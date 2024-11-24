@@ -45,7 +45,7 @@ namespace DACN.GUI
             this.panel_right.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_right.Location = new System.Drawing.Point(348, 0);
             this.panel_right.Name = "panel_right";
-            this.panel_right.Size = new System.Drawing.Size(630, 576);
+            this.panel_right.Size = new System.Drawing.Size(838, 576);
             this.panel_right.TabIndex = 1;
             this.panel_right.Paint += new System.Windows.Forms.PaintEventHandler(this.panel_right_Paint);
             // 
@@ -56,7 +56,7 @@ namespace DACN.GUI
             this.panel_body.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_body.Location = new System.Drawing.Point(0, 0);
             this.panel_body.Name = "panel_body";
-            this.panel_body.Size = new System.Drawing.Size(978, 576);
+            this.panel_body.Size = new System.Drawing.Size(1186, 576);
             this.panel_body.TabIndex = 1;
             // 
             // pane_left
@@ -78,7 +78,7 @@ namespace DACN.GUI
             this.btn_lappth.FillColor = System.Drawing.Color.Snow;
             this.btn_lappth.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.btn_lappth.ForeColor = System.Drawing.Color.Black;
-            this.btn_lappth.Location = new System.Drawing.Point(0, 57);
+            this.btn_lappth.Location = new System.Drawing.Point(0, 48);
             this.btn_lappth.MinimumSize = new System.Drawing.Size(1, 1);
             this.btn_lappth.Name = "btn_lappth";
             this.btn_lappth.Size = new System.Drawing.Size(348, 50);
@@ -122,7 +122,7 @@ namespace DACN.GUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(978, 576);
+            this.ClientSize = new System.Drawing.Size(1186, 576);
             this.Controls.Add(this.panel_body);
             this.Name = "FormNhanVienGiaoHang";
             this.Text = "FormNhanVienGiaoHang";

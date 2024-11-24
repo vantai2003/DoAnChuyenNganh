@@ -39,21 +39,21 @@
             this.dvg_NguoiDung = new Sunny.UI.UIDataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnLuu = new System.Windows.Forms.Button();
+            this.pcSearch = new System.Windows.Forms.PictureBox();
             this.btn_reload = new Sunny.UI.UIButton();
+            this.btnThem = new System.Windows.Forms.Button();
             this.btn_Search = new Sunny.UI.UIButton();
             this.lb_userName = new System.Windows.Forms.Label();
             this.txt_Search = new Sunny.UI.UITextBox();
+            this.btn_Sua = new System.Windows.Forms.Button();
             this.txt_pass = new Sunny.UI.UITextBox();
             this.lb_pass = new System.Windows.Forms.Label();
             this.cb_vitrilv = new Sunny.UI.UIComboBox();
+            this.btn_Xoa = new System.Windows.Forms.Button();
             this.cb_nhanvien = new Sunny.UI.UIComboBox();
             this.lb_nhanvien = new System.Windows.Forms.Label();
             this.txt_username = new Sunny.UI.UITextBox();
             this.lb_vtlv = new System.Windows.Forms.Label();
-            this.pcSearch = new System.Windows.Forms.PictureBox();
-            this.btnThem = new System.Windows.Forms.Button();
-            this.btn_Sua = new System.Windows.Forms.Button();
-            this.btn_Xoa = new System.Windows.Forms.Button();
             this.pane_body.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dvg_NguoiDung)).BeginInit();
@@ -174,6 +174,17 @@
             this.btnLuu.UseVisualStyleBackColor = true;
             this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
             // 
+            // pcSearch
+            // 
+            this.pcSearch.Image = ((System.Drawing.Image)(resources.GetObject("pcSearch.Image")));
+            this.pcSearch.Location = new System.Drawing.Point(31, 314);
+            this.pcSearch.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pcSearch.Name = "pcSearch";
+            this.pcSearch.Size = new System.Drawing.Size(35, 35);
+            this.pcSearch.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pcSearch.TabIndex = 15;
+            this.pcSearch.TabStop = false;
+            // 
             // btn_reload
             // 
             this.btn_reload.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -188,6 +199,21 @@
             this.btn_reload.Text = "Làm mới";
             this.btn_reload.TipsFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.btn_reload.Click += new System.EventHandler(this.btn_reload_Click);
+            // 
+            // btnThem
+            // 
+            this.btnThem.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnThem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnThem.Image = ((System.Drawing.Image)(resources.GetObject("btnThem.Image")));
+            this.btnThem.Location = new System.Drawing.Point(237, 201);
+            this.btnThem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnThem.Name = "btnThem";
+            this.btnThem.Size = new System.Drawing.Size(129, 59);
+            this.btnThem.TabIndex = 50;
+            this.btnThem.Text = "Thêm";
+            this.btnThem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnThem.UseVisualStyleBackColor = true;
+            this.btnThem.Click += new System.EventHandler(this.btnThem_Click_1);
             // 
             // btn_Search
             // 
@@ -239,10 +265,25 @@
             this.txt_Search.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             this.txt_Search.Watermark = "";
             // 
+            // btn_Sua
+            // 
+            this.btn_Sua.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_Sua.Enabled = false;
+            this.btn_Sua.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Sua.Image = ((System.Drawing.Image)(resources.GetObject("btn_Sua.Image")));
+            this.btn_Sua.Location = new System.Drawing.Point(572, 199);
+            this.btn_Sua.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_Sua.Name = "btn_Sua";
+            this.btn_Sua.Size = new System.Drawing.Size(120, 58);
+            this.btn_Sua.TabIndex = 49;
+            this.btn_Sua.Text = "Sửa";
+            this.btn_Sua.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btn_Sua.UseVisualStyleBackColor = true;
+            this.btn_Sua.Click += new System.EventHandler(this.btn_Sua_Click);
+            // 
             // txt_pass
             // 
             this.txt_pass.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txt_pass.Enabled = false;
             this.txt_pass.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.txt_pass.Location = new System.Drawing.Point(271, 117);
             this.txt_pass.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -288,6 +329,23 @@
             this.cb_vitrilv.TabIndex = 7;
             this.cb_vitrilv.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             this.cb_vitrilv.Watermark = "";
+            // 
+            // btn_Xoa
+            // 
+            this.btn_Xoa.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_Xoa.Enabled = false;
+            this.btn_Xoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Xoa.Image = ((System.Drawing.Image)(resources.GetObject("btn_Xoa.Image")));
+            this.btn_Xoa.Location = new System.Drawing.Point(410, 199);
+            this.btn_Xoa.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_Xoa.Name = "btn_Xoa";
+            this.btn_Xoa.Size = new System.Drawing.Size(120, 61);
+            this.btn_Xoa.TabIndex = 48;
+            this.btn_Xoa.Text = "Xóa";
+            this.btn_Xoa.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btn_Xoa.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btn_Xoa.UseVisualStyleBackColor = true;
+            this.btn_Xoa.Click += new System.EventHandler(this.btn_Xoa_Click);
             // 
             // cb_nhanvien
             // 
@@ -343,65 +401,6 @@
             this.lb_vtlv.Size = new System.Drawing.Size(126, 25);
             this.lb_vtlv.TabIndex = 3;
             this.lb_vtlv.Text = "Vị trí làm việc";
-            // 
-            // pcSearch
-            // 
-            this.pcSearch.Image = ((System.Drawing.Image)(resources.GetObject("pcSearch.Image")));
-            this.pcSearch.Location = new System.Drawing.Point(31, 314);
-            this.pcSearch.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.pcSearch.Name = "pcSearch";
-            this.pcSearch.Size = new System.Drawing.Size(35, 35);
-            this.pcSearch.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pcSearch.TabIndex = 15;
-            this.pcSearch.TabStop = false;
-            // 
-            // btnThem
-            // 
-            this.btnThem.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnThem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnThem.Image = ((System.Drawing.Image)(resources.GetObject("btnThem.Image")));
-            this.btnThem.Location = new System.Drawing.Point(237, 201);
-            this.btnThem.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnThem.Name = "btnThem";
-            this.btnThem.Size = new System.Drawing.Size(129, 59);
-            this.btnThem.TabIndex = 50;
-            this.btnThem.Text = "Thêm";
-            this.btnThem.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnThem.UseVisualStyleBackColor = true;
-            this.btnThem.Click += new System.EventHandler(this.btnThem_Click_1);
-            // 
-            // btn_Sua
-            // 
-            this.btn_Sua.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_Sua.Enabled = false;
-            this.btn_Sua.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Sua.Image = ((System.Drawing.Image)(resources.GetObject("btn_Sua.Image")));
-            this.btn_Sua.Location = new System.Drawing.Point(572, 199);
-            this.btn_Sua.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_Sua.Name = "btn_Sua";
-            this.btn_Sua.Size = new System.Drawing.Size(120, 58);
-            this.btn_Sua.TabIndex = 49;
-            this.btn_Sua.Text = "Sửa";
-            this.btn_Sua.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btn_Sua.UseVisualStyleBackColor = true;
-            this.btn_Sua.Click += new System.EventHandler(this.btn_Sua_Click);
-            // 
-            // btn_Xoa
-            // 
-            this.btn_Xoa.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_Xoa.Enabled = false;
-            this.btn_Xoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Xoa.Image = ((System.Drawing.Image)(resources.GetObject("btn_Xoa.Image")));
-            this.btn_Xoa.Location = new System.Drawing.Point(410, 199);
-            this.btn_Xoa.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_Xoa.Name = "btn_Xoa";
-            this.btn_Xoa.Size = new System.Drawing.Size(120, 61);
-            this.btn_Xoa.TabIndex = 48;
-            this.btn_Xoa.Text = "Xóa";
-            this.btn_Xoa.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_Xoa.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btn_Xoa.UseVisualStyleBackColor = true;
-            this.btn_Xoa.Click += new System.EventHandler(this.btn_Xoa_Click);
             // 
             // FormNguoiDung
             // 
