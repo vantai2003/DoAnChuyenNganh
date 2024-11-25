@@ -65,6 +65,7 @@
             this.cb_Kho = new Sunny.UI.UIComboBox();
             this.btn_Tim = new System.Windows.Forms.Button();
             this.panelTop = new Sunny.UI.UIPanel();
+            this.btn_In = new System.Windows.Forms.Button();
             this.tab_DuyetPN.SuspendLayout();
             this.tab_PheDuyet.SuspendLayout();
             this.uiPanel2.SuspendLayout();
@@ -97,7 +98,7 @@
             this.tab_PheDuyet.Controls.Add(this.uiPanel1);
             this.tab_PheDuyet.Location = new System.Drawing.Point(4, 25);
             this.tab_PheDuyet.Name = "tab_PheDuyet";
-            this.tab_PheDuyet.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tab_PheDuyet.Padding = new System.Windows.Forms.Padding(3);
             this.tab_PheDuyet.Size = new System.Drawing.Size(1324, 669);
             this.tab_PheDuyet.TabIndex = 0;
             this.tab_PheDuyet.Text = "Phiếu duyệt cần xử lý";
@@ -105,6 +106,7 @@
             // 
             // uiPanel2
             // 
+            this.uiPanel2.Controls.Add(this.btn_In);
             this.uiPanel2.Controls.Add(this.btn_TuChoi);
             this.uiPanel2.Controls.Add(this.btn_PheDuyet);
             this.uiPanel2.Controls.Add(this.uiPanel3);
@@ -480,6 +482,16 @@
             this.panelTop.Text = "DANH SÁCH PHIẾU NHẬP";
             this.panelTop.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // btn_In
+            // 
+            this.btn_In.Location = new System.Drawing.Point(98, 315);
+            this.btn_In.Name = "btn_In";
+            this.btn_In.Size = new System.Drawing.Size(212, 115);
+            this.btn_In.TabIndex = 4;
+            this.btn_In.Text = "In";
+            this.btn_In.UseVisualStyleBackColor = true;
+            this.btn_In.Click += new System.EventHandler(this.btn_In_Click);
+            // 
             // FormDuyetPhieuNhap
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -534,5 +546,6 @@
         private System.Windows.Forms.Button btn_LocNgay;
         private System.Windows.Forms.Button btn_XemCT;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button btn_In;
     }
 }

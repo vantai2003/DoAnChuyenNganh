@@ -939,6 +939,18 @@ BEGIN
 END
 GO
 
+------------thủ tục lấy đơn giá
+
+create proc SP_LayDonGiaNhap
+@MaSP varchar(50),
+@MaNCC varchar(50)
+as
+begin
+	select GiaNhap
+	from CT_SanPhamNCC
+	WHERE MaSP = @MaSP AND MaNCC = @MaNCC
+end
+go
 --Thu tuc tao CTPhieuNhapHang
 CREATE PROCEDURE SP_ThemCTPhieuNhapHang
     @MaCTPhieuNH VARCHAR(50),
@@ -1097,26 +1109,30 @@ AS
 BEGIN
 	INSERT INTO CT_SanPhamNCC(MaNCC, MaSP) VALUES(@MaNCC, @MaSP)
 END
+drop proc SP_GetListPN
 exec SP_GetListPN
 CREATE PROC SP_GetListPN
 AS
 BEGIN
-	SELECT MaPhieuNH, NgayDatHang, TongTien, TrangThai, ncc.TenNCC, k.TenKho, MaNV
+	SELECT MaPhieuNH, NgayDatHang, TrangThai, ncc.TenNCC, k.TenKho, pn.MaNV, nv.TenNV, TongTien
 	FROM PhieuNhapHang pn
 	JOIN NhaCungCap ncc ON ncc.MaNCC = pn.MaNCC
     JOIN Kho k ON k.MaKho = pn.MaKho
+	JOIN NhanVien nv ON nv.MaNV = pn.MaNV
 END
 GO
 
 ----tìm phiếu nhập
+drop proc SP_SearchPN
 CREATE PROC SP_SearchPN
 @MaPN varchar(50)
 AS
 BEGIN
-	SELECT MaPhieuNH, NgayDatHang, TongTien, TrangThai, ncc.TenNCC, k.TenKho, MaNV
+	SELECT MaPhieuNH, NgayDatHang, TrangThai, ncc.TenNCC, k.TenKho, pn.MaNV, nv.TenNV, TongTien
 	FROM PhieuNhapHang pn
 	JOIN NhaCungCap ncc ON ncc.MaNCC = pn.MaNCC
     JOIN Kho k ON k.MaKho = pn.MaKho
+	JOIN NhanVien nv ON nv.MaNV = pn.MaNV
 	WHERE MaPhieuNH = @MaPN
 END
 GO
@@ -1128,26 +1144,28 @@ CREATE PROCEDURE SP_LocPN
     @NhaCungCap NVARCHAR(255) = NULL     
 AS
 BEGIN
-    SELECT MaPhieuNH, NgayDatHang, TongTien, TrangThai, ncc.TenNCC, k.TenKho, MaNV
+    SELECT MaPhieuNH, NgayDatHang, TrangThai, ncc.TenNCC, k.TenKho, pn.MaNV, nv.TenNV, TongTien
     FROM PhieuNhapHang pn
     JOIN NhaCungCap ncc ON ncc.MaNCC = pn.MaNCC
     JOIN Kho k ON k.MaKho = pn.MaKho
+	JOIN NhanVien nv ON nv.MaNV = pn.MaNV
     WHERE 
         (@Kho IS NULL OR k.TenKho = @Kho) AND
         (@NhaCungCap IS NULL OR ncc.TenNCC = @NhaCungCap)
 END
 
 -----Lọc phiếu nhập theo ngày
-exec SP_LocTheoNgay '11/5/2024', '11/7/2024'
+drop proc SP_LocTheoNgay
 CREATE PROC SP_LocTheoNgay
 @TuNgay date,
 @DenNgay date
 AS
 BEGIN
-	SELECT MaPhieuNH, NgayDatHang, TongTien, TrangThai, ncc.TenNCC, k.TenKho, MaNV
+	SELECT MaPhieuNH, NgayDatHang, TrangThai, ncc.TenNCC, k.TenKho, pn.MaNV, nv.TenNV, TongTien
     FROM PhieuNhapHang pn
     JOIN NhaCungCap ncc ON ncc.MaNCC = pn.MaNCC
     JOIN Kho k ON k.MaKho = pn.MaKho
+	JOIN NhanVien nv ON nv.MaNV = pn.MaNV
     WHERE NgayDatHang BETWEEN @TuNgay AND @DenNgay
 END;
 ----Xóa phiếu nhập chờ duyệt
@@ -1163,11 +1181,12 @@ drop proc SP_GetListPNStatus
 CREATE PROC SP_GetListPNStatus
 AS
 BEGIN
-	SELECT MaPhieuNH, NgayDatHang, TongTien, TrangThai, ncc.TenNCC, k.TenKho, MaNV
+	SELECT MaPhieuNH, NgayDatHang, TrangThai, ncc.TenNCC, k.TenKho, pn.MaNV, nv.TenNV, TongTien
 	FROM PhieuNhapHang pn
 
 	JOIN NhaCungCap ncc ON ncc.MaNCC = pn.MaNCC
     JOIN Kho k ON k.MaKho = pn.MaKho
+	JOIN NhanVien nv ON nv.MaNV = pn.MaNV
 	where pn.TrangThai = N'Chờ phê duyệt nhập' or pn.TrangThai = N'Chờ phê duyệt xóa'
 END
 GO
@@ -1220,25 +1239,29 @@ CREATE PROC SP_GetListCTPN
 @MaPhieuNH varchar(50)
 AS
 BEGIN
-	SELECT MaCTPhieuNH, pnh.MaPhieuNH, NgayNhapHang, sp.MaSP,sp.TenSP , lsp.TenLoai, ncc.TenNCC, SoLuong, DonGia, sp.DVT, pnh.TongTien, pnh.TrangThai, pnh.MaNV
+	SELECT MaCTPhieuNH, pnh.MaPhieuNH, NgayNhapHang, sp.MaSP,sp.TenSP , lsp.TenLoai, ncc.TenNCC, SoLuong, DonGia, sp.DVT, pnh.TongTien, pnh.TrangThai, pnh.MaNV, nv.TenNV
 	FROM CTPhieuNhapHang ctpn
 	JOIN PhieuNhapHang pnh ON pnh.MaPhieuNH = ctpn.MaPhieuNH
 	JOIN NhaCungCap ncc ON ncc.MaNCC = pnh.MaNCC
     JOIN SanPham sp ON sp.MaSP = ctpn.MaSP
 	JOIN LoaiSanPham lsp ON lsp.MaLoai = sp.MaLoai
+	JOIN NhanVien nv ON nv.MaNV = pnh.MaNV
 	WHERE ctpn.MaPhieuNH = @MaPhieuNH
 END
 GO
+select * from NhaCungCap
 -----Lấy danh sách phiếu nhập đã phê duyệt
+drop proc SP_ListPNDaDuyet
 CREATE PROC SP_ListPNDaDuyet
 AS
 BEGIN
-	SELECT MaPhieuNH, NgayDatHang, TongTien, TrangThai, ncc.TenNCC, k.TenKho, MaNV
+	SELECT MaPhieuNH, NgayDatHang, TrangThai, ncc.TenNCC, k.TenKho, pn.MaNV, nv.TenNV, TongTien
 	FROM PhieuNhapHang pn
 
 	JOIN NhaCungCap ncc ON ncc.MaNCC = pn.MaNCC
     JOIN Kho k ON k.MaKho = pn.MaKho
-	where pn.TrangThai = N'Đã phê duyệt'
+	JOIN NhanVien nv ON nv.MaNV = pn.MaNV
+	where pn.TrangThai = N'Đã phê duyệt nhập'
 END
 GO
 ----truy xuất ngược từ tên kho

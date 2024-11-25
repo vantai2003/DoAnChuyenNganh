@@ -153,5 +153,11 @@ namespace DACN.GUI
             FormChiTietPhieuNhap fctpn = new FormChiTietPhieuNhap();
             fctpn.ShowDialog();
         }
+
+        private void btn_In_Click(object sender, EventArgs e)
+        {
+            FormInPhieuNhap formInPhieuNhap = new FormInPhieuNhap();
+            formInPhieuNhap.ShowDialog();
+        }
     }
 }

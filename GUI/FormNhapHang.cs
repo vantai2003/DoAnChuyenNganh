@@ -440,7 +440,8 @@ namespace DACN.GUI
 
         private void dvg_DSPhieuNhap_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if(e.ColumnIndex == dvg_DSPhieuNhap.Columns["btnDelete"].Index && e.RowIndex >= 0)
+            
+            if (e.ColumnIndex == dvg_DSPhieuNhap.Columns["btnDelete"].Index && e.RowIndex >= 0)
             {
                 string id = dvg_DSPhieuNhap.Rows[e.RowIndex].Cells["MaPhieuNH"].Value.ToString();
                 DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xóa phiếu nhập", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -502,6 +503,12 @@ namespace DACN.GUI
             {
                 MessageBox.Show("Vui lòng chọn phiếu nhập");
             }
+        }
+
+        private void btn_In_Click(object sender, EventArgs e)
+        {
+            FormInPhieuNhap formInPhieuNhap = new FormInPhieuNhap();
+            formInPhieuNhap.ShowDialog();
         }
     }
 }
