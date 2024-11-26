@@ -322,8 +322,8 @@
             this.tsbThem.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
             this.tsbThem.Name = "tsbThem";
             this.tsbThem.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.tsbThem.Size = new System.Drawing.Size(119, 36);
-            this.tsbThem.Text = "Thêm";
+            this.tsbThem.Size = new System.Drawing.Size(168, 36);
+            this.tsbThem.Text = "Thêm Mới";
             this.tsbThem.Click += new System.EventHandler(this.tsbThem_Click);
             // 
             // toolStripSeparator4

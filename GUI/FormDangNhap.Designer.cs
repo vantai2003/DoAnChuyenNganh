@@ -49,12 +49,12 @@
             this.uiPanel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("uiPanel1.BackgroundImage")));
             this.uiPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.uiPanel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.uiPanel1.Location = new System.Drawing.Point(13, 3);
-            this.uiPanel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.uiPanel1.Location = new System.Drawing.Point(15, 4);
+            this.uiPanel1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.uiPanel1.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiPanel1.Name = "uiPanel1";
             this.uiPanel1.RectColor = System.Drawing.Color.White;
-            this.uiPanel1.Size = new System.Drawing.Size(371, 484);
+            this.uiPanel1.Size = new System.Drawing.Size(582, 606);
             this.uiPanel1.TabIndex = 0;
             this.uiPanel1.Text = null;
             this.uiPanel1.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
@@ -72,12 +72,12 @@
             this.uiPanel2.Controls.Add(this.uiLabel1);
             this.uiPanel2.FillColor = System.Drawing.Color.Transparent;
             this.uiPanel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.uiPanel2.Location = new System.Drawing.Point(392, 0);
-            this.uiPanel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.uiPanel2.Location = new System.Drawing.Point(606, 0);
+            this.uiPanel2.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.uiPanel2.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiPanel2.Name = "uiPanel2";
             this.uiPanel2.RectColor = System.Drawing.Color.White;
-            this.uiPanel2.Size = new System.Drawing.Size(410, 488);
+            this.uiPanel2.Size = new System.Drawing.Size(461, 611);
             this.uiPanel2.TabIndex = 1;
             this.uiPanel2.Text = null;
             this.uiPanel2.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
@@ -88,7 +88,7 @@
             this.btn_Login.FillColor = System.Drawing.Color.Green;
             this.btn_Login.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.btn_Login.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btn_Login.Location = new System.Drawing.Point(127, 315);
+            this.btn_Login.Location = new System.Drawing.Point(152, 315);
             this.btn_Login.MinimumSize = new System.Drawing.Size(1, 1);
             this.btn_Login.Name = "btn_Login";
             this.btn_Login.Radius = 20;
@@ -96,7 +96,7 @@
             this.btn_Login.RectHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.btn_Login.RectPressColor = System.Drawing.Color.Green;
             this.btn_Login.RectSelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.btn_Login.Size = new System.Drawing.Size(126, 38);
+            this.btn_Login.Size = new System.Drawing.Size(161, 41);
             this.btn_Login.TabIndex = 5;
             this.btn_Login.Text = "Đăng Nhập";
             this.btn_Login.TipsFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
@@ -143,7 +143,7 @@
             this.txt_PassWord.Padding = new System.Windows.Forms.Padding(5);
             this.txt_PassWord.PasswordChar = '*';
             this.txt_PassWord.ShowText = false;
-            this.txt_PassWord.Size = new System.Drawing.Size(188, 29);
+            this.txt_PassWord.Size = new System.Drawing.Size(287, 29);
             this.txt_PassWord.TabIndex = 2;
             this.txt_PassWord.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             this.txt_PassWord.Watermark = "";
@@ -158,7 +158,7 @@
             this.txt_UserName.Name = "txt_UserName";
             this.txt_UserName.Padding = new System.Windows.Forms.Padding(5);
             this.txt_UserName.ShowText = false;
-            this.txt_UserName.Size = new System.Drawing.Size(188, 29);
+            this.txt_UserName.Size = new System.Drawing.Size(287, 29);
             this.txt_UserName.TabIndex = 1;
             this.txt_UserName.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             this.txt_UserName.Watermark = "";
@@ -167,20 +167,21 @@
             // 
             this.uiLabel1.BackColor = System.Drawing.SystemColors.Control;
             this.uiLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
-            this.uiLabel1.ForeColor = System.Drawing.Color.Fuchsia;
-            this.uiLabel1.Location = new System.Drawing.Point(102, 71);
+            this.uiLabel1.ForeColor = System.Drawing.Color.MediumSlateBlue;
+            this.uiLabel1.Location = new System.Drawing.Point(146, 67);
             this.uiLabel1.Name = "uiLabel1";
-            this.uiLabel1.Size = new System.Drawing.Size(151, 36);
+            this.uiLabel1.Size = new System.Drawing.Size(206, 36);
             this.uiLabel1.TabIndex = 0;
             this.uiLabel1.Text = "Đăng Nhập";
             // 
             // FormDangNhap
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(802, 488);
+            this.ClientSize = new System.Drawing.Size(1067, 611);
             this.Controls.Add(this.uiPanel2);
             this.Controls.Add(this.uiPanel1);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FormDangNhap";
             this.Text = "FormDangNhap";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormDangNhap_FormClosing);
