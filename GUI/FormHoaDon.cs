@@ -64,6 +64,13 @@ namespace DACN.GUI
             txtMaNV.Enabled = txtTienCoc.Enabled = txtDiaChi.Enabled = dtpNgayTao.Enabled = txtMaHD.Enabled = false;
             
         }
+        public void SetBanHangMode()
+        {
+            tsbThem.Visible = tsbXoa.Visible = tsbSua.Visible = tsbLuu.Visible = false;
+            txtMaNV.Enabled = txtTienCoc.Enabled = txtDiaChi.Enabled = dtpNgayTao.Enabled = txtMaHD.Enabled = false;
+            btnThanhToan.Visible = btn_pth.Visible = false;
+
+        }
         public void LoadHoaDonGiaoHang()
         {
             List<HoaDonDTO> listHoaDon = HoaDonDAO.Instance.GetHoaDon();
@@ -118,6 +125,17 @@ namespace DACN.GUI
         private void btn_lammoiHang_Click(object sender, EventArgs e)
         {
             LoadHoaDon();
+            txtMaKH.Clear();
+            txtMaHD.Clear();
+            txtMaNV.Clear();
+            txtDiaChi.Clear();
+            txtTienCoc.Clear();
+            txtThanhToan.Clear();
+            dtpNgayTao.Value = DateTime.Now;
+            txtTongTien.Clear();
+            txt_TienKM.Clear();
+            mahd = txtMaHD.Text;
+
         }
 
         private void dgvHoaDon_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -267,5 +285,24 @@ namespace DACN.GUI
 
         }
 
+        private void btn_pth_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string mahd = FormHoaDon.mahd;
+                if (string.IsNullOrEmpty(mahd))
+                {
+                    MessageBox.Show("Vui lòng chọn hóa đơn trước khi tạo phiếu trả hàng.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                FormPhieuTraHangKH fpthkh = new FormPhieuTraHangKH();
+                fpthkh.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Đã xảy ra lỗi: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

@@ -70,6 +70,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.uiLabel1 = new Sunny.UI.UILabel();
             this.txt_TienKM = new Sunny.UI.UITextBox();
+            this.btn_pth = new System.Windows.Forms.Button();
             this.tsCTPN.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHoaDon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcSearch)).BeginInit();
@@ -80,10 +81,10 @@
             this.btnThanhToan.BackColor = System.Drawing.Color.OrangeRed;
             this.btnThanhToan.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnThanhToan.ForeColor = System.Drawing.Color.White;
-            this.btnThanhToan.Location = new System.Drawing.Point(15, 310);
+            this.btnThanhToan.Location = new System.Drawing.Point(47, 720);
             this.btnThanhToan.Margin = new System.Windows.Forms.Padding(4);
             this.btnThanhToan.Name = "btnThanhToan";
-            this.btnThanhToan.Size = new System.Drawing.Size(195, 55);
+            this.btnThanhToan.Size = new System.Drawing.Size(251, 55);
             this.btnThanhToan.TabIndex = 50;
             this.btnThanhToan.Text = "Thanh Toán";
             this.btnThanhToan.UseVisualStyleBackColor = false;
@@ -544,11 +545,26 @@
             this.txt_TienKM.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             this.txt_TienKM.Watermark = "";
             // 
+            // btn_pth
+            // 
+            this.btn_pth.BackColor = System.Drawing.Color.OrangeRed;
+            this.btn_pth.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_pth.ForeColor = System.Drawing.Color.White;
+            this.btn_pth.Location = new System.Drawing.Point(702, 720);
+            this.btn_pth.Margin = new System.Windows.Forms.Padding(4);
+            this.btn_pth.Name = "btn_pth";
+            this.btn_pth.Size = new System.Drawing.Size(283, 55);
+            this.btn_pth.TabIndex = 85;
+            this.btn_pth.Text = "Lập phiếu trả hàng";
+            this.btn_pth.UseVisualStyleBackColor = false;
+            this.btn_pth.Click += new System.EventHandler(this.btn_pth_Click);
+            // 
             // FormHoaDon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1095, 714);
+            this.ClientSize = new System.Drawing.Size(1095, 788);
+            this.Controls.Add(this.btn_pth);
             this.Controls.Add(this.txt_TienKM);
             this.Controls.Add(this.uiLabel1);
             this.Controls.Add(this.label8);
@@ -627,5 +643,6 @@
         private System.Windows.Forms.Label label8;
         private Sunny.UI.UILabel uiLabel1;
         private Sunny.UI.UITextBox txt_TienKM;
+        private System.Windows.Forms.Button btn_pth;
     }
 }
