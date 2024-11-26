@@ -1264,6 +1264,19 @@ BEGIN
 	where pn.TrangThai = N'Đã phê duyệt nhập'
 END
 GO
+--------------Lấy thông tin Nhà cung cấp từ phiếu nhập
+drop proc SP_TTNhaCCDeInPhieuNhap
+exec SP_TTNhaCCDeInPhieuNhap 'PN005'
+CREATE PROC SP_TTNhaCCDeInPhieuNhap
+	@MaPN varchar(50)
+AS
+BEGIN
+	SELECT MaPhieuNH, NgayDatHang, ncc.TenNCC, ncc.DiaChi, ncc.SDT, TongTien
+	FROM PhieuNhapHang pn
+	JOIN NhaCungCap ncc ON ncc.MaNCC = pn.MaNCC
+	where pn.MaPhieuNH = @MaPN
+END
+GO
 ----truy xuất ngược từ tên kho
 CREATE PROCEDURE SP_GetMaKhoByTenKho
 @TenKho NVARCHAR(400)

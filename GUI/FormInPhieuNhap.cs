@@ -24,12 +24,15 @@ namespace DACN.GUI
 
         private void FormInPhieuNhap_Load(object sender, EventArgs e)
         {
+            rp_PhieuNhap.LocalReport.ReportPath = @"D:\DACN\Project\DACN\Dataset\ReportPhieuNhap.rdlc";
+
             string maPhieuNhap = mapn;
 
-            
+
+
+            // Lấy dữ liệu chi tiết phiếu nhập
             List<CTPhieuNHDTO> chiTietPhieuNhap = PhieuNhapHangDAO.Instance.GetCTPhieuNH(maPhieuNhap);
             DataTable dtChiTiet = ConvertToDataTable(chiTietPhieuNhap);
-            //DataTable dtPhieuNhap = Conver
 
             // Thiết lập nguồn dữ liệu cho báo cáo
             ReportDataSource reportDataSource = new ReportDataSource("DataSetPhieuNhap", dtChiTiet);
@@ -48,15 +51,9 @@ namespace DACN.GUI
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Lỗi khi thiết lập tham số: " + ex.Message);
+                Console.Write("Lỗi khi thiết lập tham số: " + ex.Message);
                 return;
             }
-
-            // Đặt đường dẫn tới file báo cáo .rdlc
-            rp_PhieuNhap.LocalReport.ReportPath = @"D:\DACN\Project\DACN\Dataset\ReportPhieuNhap.rdlc";
-
-            // Hiển thị mã phiếu nhập trên một TextBox (nếu cần)
-            //this.txtMaPhieuNhap.Text = maPhieuNhap;
 
             // Làm mới báo cáo
             this.rp_PhieuNhap.RefreshReport();

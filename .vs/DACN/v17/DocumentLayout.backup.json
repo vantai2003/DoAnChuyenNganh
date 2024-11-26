@@ -3,23 +3,31 @@
   "WorkspaceRootPath": "D:\\DACN\\Project\\DACN\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{4F1A8495-6106-49A1-BE90-8583B62283CC}|DACN.csproj|D:\\DACN\\Project\\DACN\\gui\\forminphieunhap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4F1A8495-6106-49A1-BE90-8583B62283CC}|DACN.csproj|solutionrelative:gui\\forminphieunhap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{4F1A8495-6106-49A1-BE90-8583B62283CC}|DACN.csproj|d:\\dacn\\project\\dacn\\dataset\\reportphieunhap.rdlc||{46F6D2A1-5E86-4080-A799-01F3D0E23796}",
       "RelativeMoniker": "D:0:0:{4F1A8495-6106-49A1-BE90-8583B62283CC}|DACN.csproj|solutionrelative:dataset\\reportphieunhap.rdlc||{46F6D2A1-5E86-4080-A799-01F3D0E23796}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4F1A8495-6106-49A1-BE90-8583B62283CC}|DACN.csproj|d:\\dacn\\project\\dacn\\gui\\forminphieunhap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{4F1A8495-6106-49A1-BE90-8583B62283CC}|DACN.csproj|solutionrelative:gui\\forminphieunhap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{4F1A8495-6106-49A1-BE90-8583B62283CC}|DACN.csproj|D:\\DACN\\Project\\DACN\\dataset\\dsphieunhap.xsd||{07AC752B-D2B0-4DCD-AD9C-237BF561A30A}",
+      "RelativeMoniker": "D:0:0:{4F1A8495-6106-49A1-BE90-8583B62283CC}|DACN.csproj|solutionrelative:dataset\\dsphieunhap.xsd||{07AC752B-D2B0-4DCD-AD9C-237BF561A30A}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{4F1A8495-6106-49A1-BE90-8583B62283CC}|DACN.csproj|D:\\DACN\\Project\\DACN\\gui\\forminphieunhap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{4F1A8495-6106-49A1-BE90-8583B62283CC}|DACN.csproj|solutionrelative:gui\\forminphieunhap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4F1A8495-6106-49A1-BE90-8583B62283CC}|DACN.csproj|d:\\dacn\\project\\dacn\\gui\\formduyetphieunhap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{4F1A8495-6106-49A1-BE90-8583B62283CC}|DACN.csproj|D:\\DACN\\Project\\DACN\\gui\\formduyetphieunhap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{4F1A8495-6106-49A1-BE90-8583B62283CC}|DACN.csproj|solutionrelative:gui\\formduyetphieunhap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4F1A8495-6106-49A1-BE90-8583B62283CC}|DACN.csproj|d:\\dacn\\project\\dacn\\gui\\formduyetphieunhap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{4F1A8495-6106-49A1-BE90-8583B62283CC}|DACN.csproj|D:\\DACN\\Project\\DACN\\gui\\formtrangchuadmin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{4F1A8495-6106-49A1-BE90-8583B62283CC}|DACN.csproj|solutionrelative:gui\\formtrangchuadmin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4F1A8495-6106-49A1-BE90-8583B62283CC}|DACN.csproj|D:\\DACN\\Project\\DACN\\gui\\formduyetphieunhap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4F1A8495-6106-49A1-BE90-8583B62283CC}|DACN.csproj|solutionrelative:gui\\formduyetphieunhap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -27,7 +35,7 @@
       "RelativeMoniker": "D:0:0:{4F1A8495-6106-49A1-BE90-8583B62283CC}|DACN.csproj|solutionrelative:gui\\formnhaphang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4F1A8495-6106-49A1-BE90-8583B62283CC}|DACN.csproj|d:\\dacn\\project\\dacn\\gui\\formnhaphang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{4F1A8495-6106-49A1-BE90-8583B62283CC}|DACN.csproj|D:\\DACN\\Project\\DACN\\gui\\formnhaphang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{4F1A8495-6106-49A1-BE90-8583B62283CC}|DACN.csproj|solutionrelative:gui\\formnhaphang.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
@@ -35,11 +43,7 @@
       "RelativeMoniker": "D:0:0:{4F1A8495-6106-49A1-BE90-8583B62283CC}|DACN.csproj|solutionrelative:dao\\phieunhaphangdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{4F1A8495-6106-49A1-BE90-8583B62283CC}|DACN.csproj|d:\\dacn\\project\\dacn\\dataset\\dsphieunhap.xsd||{07AC752B-D2B0-4DCD-AD9C-237BF561A30A}",
-      "RelativeMoniker": "D:0:0:{4F1A8495-6106-49A1-BE90-8583B62283CC}|DACN.csproj|solutionrelative:dataset\\dsphieunhap.xsd||{07AC752B-D2B0-4DCD-AD9C-237BF561A30A}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{4F1A8495-6106-49A1-BE90-8583B62283CC}|DACN.csproj|d:\\dacn\\project\\dacn\\gui\\formchitietphieunhap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{4F1A8495-6106-49A1-BE90-8583B62283CC}|DACN.csproj|D:\\DACN\\Project\\DACN\\gui\\formchitietphieunhap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{4F1A8495-6106-49A1-BE90-8583B62283CC}|DACN.csproj|solutionrelative:gui\\formchitietphieunhap.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -130,8 +134,22 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 0,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "FormInPhieuNhap.cs",
+              "DocumentMoniker": "D:\\DACN\\Project\\DACN\\GUI\\FormInPhieuNhap.cs",
+              "RelativeDocumentMoniker": "GUI\\FormInPhieuNhap.cs",
+              "ToolTip": "D:\\DACN\\Project\\DACN\\GUI\\FormInPhieuNhap.cs",
+              "RelativeToolTip": "GUI\\FormInPhieuNhap.cs",
+              "ViewState": "AgIAADYAAAAAAAAAAAAkwFYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-25T04:13:27.257Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
@@ -139,31 +157,6 @@
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "FormDuyetPhieuNhap.cs [Design]",
-              "DocumentMoniker": "D:\\DACN\\Project\\DACN\\GUI\\FormDuyetPhieuNhap.cs",
-              "RelativeDocumentMoniker": "GUI\\FormDuyetPhieuNhap.cs",
-              "ToolTip": "D:\\DACN\\Project\\DACN\\GUI\\FormDuyetPhieuNhap.cs [Design]",
-              "RelativeToolTip": "GUI\\FormDuyetPhieuNhap.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-25T04:48:56.176Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "FormInPhieuNhap.cs",
-              "DocumentMoniker": "D:\\DACN\\Project\\DACN\\GUI\\FormInPhieuNhap.cs",
-              "RelativeDocumentMoniker": "GUI\\FormInPhieuNhap.cs",
-              "ToolTip": "D:\\DACN\\Project\\DACN\\GUI\\FormInPhieuNhap.cs",
-              "RelativeToolTip": "GUI\\FormInPhieuNhap.cs",
-              "ViewState": "AgIAABMAAAAAAAAAAAAswBoAAAAmAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-25T04:13:27.257Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
               "Title": "FormInPhieuNhap.cs [Design]",
               "DocumentMoniker": "D:\\DACN\\Project\\DACN\\GUI\\FormInPhieuNhap.cs",
               "RelativeDocumentMoniker": "GUI\\FormInPhieuNhap.cs",
@@ -175,19 +168,52 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "ReportPhieuNhap.rdlc [Design]",
               "DocumentMoniker": "D:\\DACN\\Project\\DACN\\Dataset\\ReportPhieuNhap.rdlc",
               "RelativeDocumentMoniker": "Dataset\\ReportPhieuNhap.rdlc",
-              "ToolTip": "D:\\DACN\\Project\\DACN\\Dataset\\ReportPhieuNhap.rdlc [Design]",
-              "RelativeToolTip": "Dataset\\ReportPhieuNhap.rdlc [Design]",
+              "ToolTip": "D:\\DACN\\Project\\DACN\\Dataset\\ReportPhieuNhap.rdlc [Design]*",
+              "RelativeToolTip": "Dataset\\ReportPhieuNhap.rdlc [Design]*",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001755|",
               "WhenOpened": "2024-11-24T17:33:09.067Z",
               "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "dsPhieuNhap.xsd",
+              "DocumentMoniker": "D:\\DACN\\Project\\DACN\\Dataset\\dsPhieuNhap.xsd",
+              "RelativeDocumentMoniker": "Dataset\\dsPhieuNhap.xsd",
+              "ToolTip": "D:\\DACN\\Project\\DACN\\Dataset\\dsPhieuNhap.xsd",
+              "RelativeToolTip": "Dataset\\dsPhieuNhap.xsd",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003579|",
+              "WhenOpened": "2024-11-24T17:09:10.397Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 4,
+              "Title": "FormDuyetPhieuNhap.cs [Design]",
+              "DocumentMoniker": "D:\\DACN\\Project\\DACN\\GUI\\FormDuyetPhieuNhap.cs",
+              "RelativeDocumentMoniker": "GUI\\FormDuyetPhieuNhap.cs",
+              "ToolTip": "D:\\DACN\\Project\\DACN\\GUI\\FormDuyetPhieuNhap.cs [Design]",
+              "RelativeToolTip": "GUI\\FormDuyetPhieuNhap.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-25T04:48:56.176Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "FormTrangChuAdmin.cs [Design]",
+              "DocumentMoniker": "D:\\DACN\\Project\\DACN\\GUI\\FormTrangChuAdmin.cs",
+              "RelativeDocumentMoniker": "GUI\\FormTrangChuAdmin.cs",
+              "ToolTip": "D:\\DACN\\Project\\DACN\\GUI\\FormTrangChuAdmin.cs [Design]",
+              "RelativeToolTip": "GUI\\FormTrangChuAdmin.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-25T12:35:08.727Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "FormDuyetPhieuNhap.cs",
               "DocumentMoniker": "D:\\DACN\\Project\\DACN\\GUI\\FormDuyetPhieuNhap.cs",
               "RelativeDocumentMoniker": "GUI\\FormDuyetPhieuNhap.cs",
@@ -195,24 +221,22 @@
               "RelativeToolTip": "GUI\\FormDuyetPhieuNhap.cs",
               "ViewState": "AgIAAIQAAAAAAAAAAAAhwJ8AAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-25T04:49:09.931Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-25T04:49:09.931Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 8,
               "Title": "FormNhapHang.cs [Design]",
               "DocumentMoniker": "D:\\DACN\\Project\\DACN\\GUI\\FormNhapHang.cs",
               "RelativeDocumentMoniker": "GUI\\FormNhapHang.cs",
               "ToolTip": "D:\\DACN\\Project\\DACN\\GUI\\FormNhapHang.cs [Design]",
               "RelativeToolTip": "GUI\\FormNhapHang.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-25T04:39:13.742Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2024-11-25T04:39:13.742Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 9,
               "Title": "PhieuNhapHangDAO.cs",
               "DocumentMoniker": "D:\\DACN\\Project\\DACN\\DAO\\PhieuNhapHangDAO.cs",
               "RelativeDocumentMoniker": "DAO\\PhieuNhapHangDAO.cs",
@@ -220,12 +244,11 @@
               "RelativeToolTip": "DAO\\PhieuNhapHangDAO.cs",
               "ViewState": "AgIAALUAAAAAAAAAAAAYwNMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-24T07:53:15.502Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-24T07:53:15.502Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "FormNhapHang.cs",
               "DocumentMoniker": "D:\\DACN\\Project\\DACN\\GUI\\FormNhapHang.cs",
               "RelativeDocumentMoniker": "GUI\\FormNhapHang.cs",
@@ -233,24 +256,11 @@
               "RelativeToolTip": "GUI\\FormNhapHang.cs",
               "ViewState": "AgIAALMBAAAAAAAAAAAawLoBAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-24T12:27:51.457Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-24T12:27:51.457Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "dsPhieuNhap.xsd",
-              "DocumentMoniker": "D:\\DACN\\Project\\DACN\\Dataset\\dsPhieuNhap.xsd",
-              "RelativeDocumentMoniker": "Dataset\\dsPhieuNhap.xsd",
-              "ToolTip": "D:\\DACN\\Project\\DACN\\Dataset\\dsPhieuNhap.xsd",
-              "RelativeToolTip": "Dataset\\dsPhieuNhap.xsd",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003579|",
-              "WhenOpened": "2024-11-24T17:09:10.397Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "FormChiTietPhieuNhap.cs",
               "DocumentMoniker": "D:\\DACN\\Project\\DACN\\GUI\\FormChiTietPhieuNhap.cs",
               "RelativeDocumentMoniker": "GUI\\FormChiTietPhieuNhap.cs",
@@ -258,12 +268,11 @@
               "RelativeToolTip": "GUI\\FormChiTietPhieuNhap.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAABQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-25T03:04:29.09Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-25T03:04:29.09Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "FormQLTonKho.cs [Design]",
               "DocumentMoniker": "D:\\DACN\\Project\\DACN\\GUI\\FormQLTonKho.cs",
               "RelativeDocumentMoniker": "GUI\\FormQLTonKho.cs",
@@ -274,7 +283,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 12,
               "Title": "FormCapNhatKho.cs",
               "DocumentMoniker": "D:\\DACN\\Project\\DACN\\GUI\\FormCapNhatKho.cs",
               "RelativeDocumentMoniker": "GUI\\FormCapNhatKho.cs",
@@ -286,7 +295,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 13,
               "Title": "FormCapNhatKho.cs [Design]",
               "DocumentMoniker": "D:\\DACN\\Project\\DACN\\GUI\\FormCapNhatKho.cs",
               "RelativeDocumentMoniker": "GUI\\FormCapNhatKho.cs",
@@ -297,7 +306,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 14,
               "Title": "FormChonSanPham.cs",
               "DocumentMoniker": "D:\\DACN\\Project\\DACN\\GUI\\FormChonSanPham.cs",
               "RelativeDocumentMoniker": "GUI\\FormChonSanPham.cs",
@@ -309,7 +318,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 16,
               "Title": "FormChonSanPham.cs [Design]",
               "DocumentMoniker": "D:\\DACN\\Project\\DACN\\GUI\\FormChonSanPham.cs",
               "RelativeDocumentMoniker": "GUI\\FormChonSanPham.cs",
@@ -320,19 +329,18 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 15,
               "Title": "FormTaoPhieuTraHangNCC.cs [Design]",
               "DocumentMoniker": "D:\\DACN\\Project\\DACN\\GUI\\FormTaoPhieuTraHangNCC.cs",
               "RelativeDocumentMoniker": "GUI\\FormTaoPhieuTraHangNCC.cs",
               "ToolTip": "D:\\DACN\\Project\\DACN\\GUI\\FormTaoPhieuTraHangNCC.cs [Design]",
               "RelativeToolTip": "GUI\\FormTaoPhieuTraHangNCC.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-24T08:41:03.262Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2024-11-24T08:41:03.262Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 17,
               "Title": "FormNhanVienKho.cs",
               "DocumentMoniker": "D:\\DACN\\Project\\DACN\\GUI\\FormNhanVienKho.cs",
               "RelativeDocumentMoniker": "GUI\\FormNhanVienKho.cs",
@@ -344,7 +352,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 19,
               "Title": "PhieuNhapHangDTO.cs",
               "DocumentMoniker": "D:\\DACN\\Project\\DACN\\DTO\\PhieuNhapHangDTO.cs",
               "RelativeDocumentMoniker": "DTO\\PhieuNhapHangDTO.cs",
@@ -356,7 +364,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 18,
               "Title": "FormSuaPhieuNhap.cs",
               "DocumentMoniker": "D:\\DACN\\Project\\DACN\\GUI\\FormSuaPhieuNhap.cs",
               "RelativeDocumentMoniker": "GUI\\FormSuaPhieuNhap.cs",
@@ -368,7 +376,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 20,
               "Title": "FormSuaPhieuNhap.cs [Design]",
               "DocumentMoniker": "D:\\DACN\\Project\\DACN\\GUI\\FormSuaPhieuNhap.cs",
               "RelativeDocumentMoniker": "GUI\\FormSuaPhieuNhap.cs",
@@ -379,7 +387,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 21,
               "Title": "FormDangNhap.cs",
               "DocumentMoniker": "D:\\DACN\\Project\\DACN\\GUI\\FormDangNhap.cs",
               "RelativeDocumentMoniker": "GUI\\FormDangNhap.cs",
@@ -391,7 +399,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 22,
               "Title": "FormQLGiaNhapTuNCC.cs",
               "DocumentMoniker": "D:\\DACN\\Project\\DACN\\GUI\\FormQLGiaNhapTuNCC.cs",
               "RelativeDocumentMoniker": "GUI\\FormQLGiaNhapTuNCC.cs",
@@ -403,7 +411,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 23,
               "Title": "KiemTraDuLieuDAO.cs",
               "DocumentMoniker": "D:\\DACN\\Project\\DACN\\DAO\\KiemTraDuLieuDAO.cs",
               "RelativeDocumentMoniker": "DAO\\KiemTraDuLieuDAO.cs",
@@ -415,7 +423,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 24,
               "Title": "CTHoaDonDAO.cs",
               "DocumentMoniker": "D:\\DACN\\Project\\DACN\\DAO\\CTHoaDonDAO.cs",
               "RelativeDocumentMoniker": "DAO\\CTHoaDonDAO.cs",
@@ -427,7 +435,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 25,
               "Title": "FormDoiMatKhau.cs [Design]",
               "DocumentMoniker": "D:\\DACN\\Project\\DACN\\GUI\\FormDoiMatKhau.cs",
               "RelativeDocumentMoniker": "GUI\\FormDoiMatKhau.cs",
@@ -438,7 +446,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 27,
               "Title": "FormNhanVienBanHang.cs [Design]",
               "DocumentMoniker": "D:\\DACN\\Project\\DACN\\GUI\\FormNhanVienBanHang.cs",
               "RelativeDocumentMoniker": "GUI\\FormNhanVienBanHang.cs",
@@ -449,7 +457,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 26,
               "Title": "FormNhanVienBanHang.cs",
               "DocumentMoniker": "D:\\DACN\\Project\\DACN\\GUI\\FormNhanVienBanHang.cs",
               "RelativeDocumentMoniker": "GUI\\FormNhanVienBanHang.cs",
@@ -461,7 +469,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 28,
               "Title": "FormDoiMatKhau.cs",
               "DocumentMoniker": "D:\\DACN\\Project\\DACN\\GUI\\FormDoiMatKhau.cs",
               "RelativeDocumentMoniker": "GUI\\FormDoiMatKhau.cs",
@@ -473,7 +481,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 29,
               "Title": "LoginDAO.cs",
               "DocumentMoniker": "D:\\DACN\\Project\\DACN\\DAO\\LoginDAO.cs",
               "RelativeDocumentMoniker": "DAO\\LoginDAO.cs",
@@ -485,7 +493,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 30,
               "Title": "FormHoaDon.cs",
               "DocumentMoniker": "D:\\DACN\\Project\\DACN\\GUI\\FormHoaDon.cs",
               "RelativeDocumentMoniker": "GUI\\FormHoaDon.cs",
