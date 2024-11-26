@@ -81,5 +81,10 @@ namespace DACN.GUI
         {
             OpenChildForm(new FormQLKhuyenMai());
         }
+
+        private void đổiMậtKhẩuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new FormDoiMatKhau());
+        }
     }
 }

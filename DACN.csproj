@@ -34,6 +34,24 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1652.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1652.0\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1652.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1652.0\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1652.0\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
     <Reference Include="SunnyUI, Version=3.7.2.0, Culture=neutral, PublicKeyToken=27d7d2e821d97aeb, processorArchitecture=MSIL">
       <HintPath>packages\SunnyUI.3.7.2\lib\net40\SunnyUI.dll</HintPath>
     </Reference>
@@ -55,6 +73,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAO\BangBaoGiaTuNCCDAO.cs" />
+    <Compile Include="DAO\CongNoDAO.cs" />
     <Compile Include="DAO\CTHoaDonDAO.cs" />
     <Compile Include="DAO\DataProvider.cs" />
     <Compile Include="DAO\HangHoaDAO.cs" />
@@ -73,11 +93,22 @@
     <Compile Include="DAO\PhieuTraHangKHDAO.cs" />
     <Compile Include="DAO\PhieuTraHangNCCDAO.cs" />
     <Compile Include="DAO\QuyenDAO.cs" />
+    <Compile Include="DAO\SanPham_NhaCCDAO.cs" />
     <Compile Include="DAO\SaoLuuPhucHoiDAO.cs" />
     <Compile Include="DAO\TonKhoDAO.cs" />
+    <Compile Include="Dataset\dsPhieuNhap.cs">
+      <DependentUpon>dsPhieuNhap.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Dataset\dsPhieuNhap.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsPhieuNhap.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DTO\CongNoDTO.cs" />
     <Compile Include="DTO\CTHoaDonDTO.cs" />
     <Compile Include="DTO\CTPhieuNHDTO.cs" />
     <Compile Include="DTO\CTPhieuTraHangKHDTO.cs" />
+    <Compile Include="DTO\SanPham_NhaCungCapDTO.cs" />
     <Compile Include="GUI\FormBanHang.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,6 +127,12 @@
     <Compile Include="GUI\FormChonKH.Designer.cs">
       <DependentUpon>FormChonKH.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\FormChonSP_NCC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FormChonSP_NCC.Designer.cs">
+      <DependentUpon>FormChonSP_NCC.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\FormCTHoaDon.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -113,6 +150,30 @@
     </Compile>
     <Compile Include="GUI\FormCTPhieuTraHangKH.Designer.cs">
       <DependentUpon>FormCTPhieuTraHangKH.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FormCTPhieuNhap_ChoNVKho.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FormCTPhieuNhap_ChoNVKho.Designer.cs">
+      <DependentUpon>FormCTPhieuNhap_ChoNVKho.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FormCT_SanPham_NCC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FormCT_SanPham_NCC.Designer.cs">
+      <DependentUpon>FormCT_SanPham_NCC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FormDoiMatKhau.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FormDoiMatKhau.Designer.cs">
+      <DependentUpon>FormDoiMatKhau.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FormInPhieuNhap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FormInPhieuNhap.Designer.cs">
+      <DependentUpon>FormInPhieuNhap.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\FormNhanVienGiaoHang.cs">
       <SubType>Form</SubType>
@@ -225,6 +286,12 @@
     <Compile Include="GUI\FormNhanVienKho.Designer.cs">
       <DependentUpon>FormNhanVienKho.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\FormQLGiaNhapTuNCC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FormQLGiaNhapTuNCC.Designer.cs">
+      <DependentUpon>FormQLGiaNhapTuNCC.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\FormQLHangHoa.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -267,6 +334,12 @@
     <Compile Include="GUI\FormSaoLuuPhucHoi.Designer.cs">
       <DependentUpon>FormSaoLuuPhucHoi.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\FormSuaPhieuNhap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FormSuaPhieuNhap.Designer.cs">
+      <DependentUpon>FormSuaPhieuNhap.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\FormTaoPhieuTraHangNCC.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -305,11 +378,16 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SqlServerTypes\Loader.cs" />
+    <EmbeddedResource Include="Dataset\ReportPhieuNhap.rdlc" />
     <EmbeddedResource Include="GUI\FormBanHang.resx">
       <DependentUpon>FormBanHang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FormChonKH.resx">
       <DependentUpon>FormChonKH.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FormChonSP_NCC.resx">
+      <DependentUpon>FormChonSP_NCC.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FormCTHoaDon.resx">
       <DependentUpon>FormCTHoaDon.cs</DependentUpon>
@@ -319,6 +397,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FormCTPhieuTraHangKH.resx">
       <DependentUpon>FormCTPhieuTraHangKH.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FormCTPhieuNhap_ChoNVKho.resx">
+      <DependentUpon>FormCTPhieuNhap_ChoNVKho.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FormCT_SanPham_NCC.resx">
+      <DependentUpon>FormCT_SanPham_NCC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FormDoiMatKhau.resx">
+      <DependentUpon>FormDoiMatKhau.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FormInPhieuNhap.resx">
+      <DependentUpon>FormInPhieuNhap.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FormNhanVienGiaoHang.resx">
       <DependentUpon>FormNhanVienGiaoHang.cs</DependentUpon>
@@ -368,6 +458,9 @@
     <EmbeddedResource Include="GUI\FormNhanVienKho.resx">
       <DependentUpon>FormNhanVienKho.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FormQLGiaNhapTuNCC.resx">
+      <DependentUpon>FormQLGiaNhapTuNCC.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\FormQLHangHoa.resx">
       <DependentUpon>FormQLHangHoa.cs</DependentUpon>
     </EmbeddedResource>
@@ -388,6 +481,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FormSaoLuuPhucHoi.resx">
       <DependentUpon>FormSaoLuuPhucHoi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FormSuaPhieuNhap.resx">
+      <DependentUpon>FormSuaPhieuNhap.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FormTaoPhieuTraHangNCC.resx">
       <DependentUpon>FormTaoPhieuTraHangNCC.cs</DependentUpon>
@@ -417,6 +513,17 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="Dataset\dsPhieuNhap.xsc">
+      <DependentUpon>dsPhieuNhap.xsd</DependentUpon>
+    </None>
+    <None Include="Dataset\dsPhieuNhap.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsPhieuNhap.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Dataset\dsPhieuNhap.xss">
+      <DependentUpon>dsPhieuNhap.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -460,6 +567,21 @@
     <Content Include="GUI\Icon_images\user.png" />
     <Content Include="GUI\Icon_images\Vat_lieu.png" />
     <Content Include="GUI\Icon_images\warehouse.png" />
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="Resources\add1.jpg" />
+    <None Include="Resources\remove.png" />
     <None Include="Resources\Loading.png" />
     <None Include="Resources\khosat.jpg" />
     <None Include="Resources\icon-logout.png" />

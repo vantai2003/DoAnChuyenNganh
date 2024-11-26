@@ -22,6 +22,8 @@ namespace DACN.DTO
         public string MaNV { get; set; }
         public string TenNV { get; set; }
         public string SoTienKM { get; set; }
+        public decimal SoTienDaThanhToan => TongTien - ThanhToan;
+
         public HoaDonDTO(DataRow row)
         {
             this.MaHD = row["MaHD"].ToString();

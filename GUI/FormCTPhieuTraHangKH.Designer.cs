@@ -42,6 +42,8 @@ namespace DACN.GUI
             // 
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
             this.dgvCTHD.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvCTHD.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvCTHD.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllHeaders;
             this.dgvCTHD.BackgroundColor = System.Drawing.Color.White;
             this.dgvCTHD.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -81,7 +83,7 @@ namespace DACN.GUI
             this.dgvCTHD.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvCTHD.RowTemplate.Height = 28;
             this.dgvCTHD.SelectedIndex = -1;
-            this.dgvCTHD.Size = new System.Drawing.Size(1195, 418);
+            this.dgvCTHD.Size = new System.Drawing.Size(1359, 418);
             this.dgvCTHD.StripeOddColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
             this.dgvCTHD.TabIndex = 2;
             // 
@@ -89,7 +91,7 @@ namespace DACN.GUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1219, 582);
+            this.ClientSize = new System.Drawing.Size(1383, 582);
             this.Controls.Add(this.dgvCTHD);
             this.Name = "FormCTPhieuTraHangKH";
             this.Text = "FormCTPhieuTraHangKH";

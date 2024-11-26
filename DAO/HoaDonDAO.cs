@@ -30,22 +30,6 @@ namespace DACN.DAO
             return list;
         }
        
-
-        public List<HoaDonDTO> GetHoaDonByTime(DateTime tungay, DateTime denngay)
-        {
-            string tungay1 = tungay.ToString("yyyy-MM-dd");
-            string denngay1 = tungay.ToString("yyyy-MM-dd");
-            List<HoaDonDTO> list = new List<HoaDonDTO>();
-            string query = "sp_SelectAll_HD_ByTime @ngayTu , @ngayDen ";
-            DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] { tungay1, denngay1});
-            foreach (DataRow row in data.Rows)
-            {
-                HoaDonDTO hd = new HoaDonDTO(row);
-                list.Add(hd);
-            }
-            return list;
-        }
-
         public int Insert(HoaDonDTO obj)
         {
             string query = "sp_Insert_HD @MaHD , @NgayDatHang , @TongTien , @TrangThai , @DiaChiGiaoHang , @TienCoc , @ThanhToan , @MaKH , @MaNV";

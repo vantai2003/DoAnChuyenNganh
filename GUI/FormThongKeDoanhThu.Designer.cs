@@ -33,14 +33,13 @@
             this.dtTuNgay = new System.Windows.Forms.DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
             this.dtDenNgay = new System.Windows.Forms.DateTimePicker();
-            this.xemThongKe = new System.Windows.Forms.Button();
-            this.btLamMoi = new System.Windows.Forms.Button();
-            this.gvdata = new System.Windows.Forms.DataGridView();
             this.uiLabel2 = new Sunny.UI.UILabel();
             this.uiLabel3 = new Sunny.UI.UILabel();
             this.label2 = new System.Windows.Forms.Label();
+            this.txtTienNhapHang = new System.Windows.Forms.TextBox();
+            this.txtTienBanHang = new System.Windows.Forms.TextBox();
+            this.txtTienLoi = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gvdata)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -74,6 +73,7 @@
             this.dtTuNgay.Name = "dtTuNgay";
             this.dtTuNgay.Size = new System.Drawing.Size(338, 35);
             this.dtTuNgay.TabIndex = 36;
+            this.dtTuNgay.ValueChanged += new System.EventHandler(this.dtTuNgay_ValueChanged);
             // 
             // label6
             // 
@@ -95,53 +95,13 @@
             this.dtDenNgay.Name = "dtDenNgay";
             this.dtDenNgay.Size = new System.Drawing.Size(330, 35);
             this.dtDenNgay.TabIndex = 37;
-            // 
-            // xemThongKe
-            // 
-            this.xemThongKe.BackColor = System.Drawing.Color.OrangeRed;
-            this.xemThongKe.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xemThongKe.ForeColor = System.Drawing.Color.White;
-            this.xemThongKe.Location = new System.Drawing.Point(100, 288);
-            this.xemThongKe.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.xemThongKe.Name = "xemThongKe";
-            this.xemThongKe.Size = new System.Drawing.Size(228, 74);
-            this.xemThongKe.TabIndex = 40;
-            this.xemThongKe.Text = "Xem Thống Kê";
-            this.xemThongKe.UseVisualStyleBackColor = false;
-            this.xemThongKe.Click += new System.EventHandler(this.xemThongKe_Click);
-            // 
-            // btLamMoi
-            // 
-            this.btLamMoi.BackColor = System.Drawing.Color.OrangeRed;
-            this.btLamMoi.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btLamMoi.ForeColor = System.Drawing.Color.White;
-            this.btLamMoi.Location = new System.Drawing.Point(731, 288);
-            this.btLamMoi.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btLamMoi.Name = "btLamMoi";
-            this.btLamMoi.Size = new System.Drawing.Size(216, 74);
-            this.btLamMoi.TabIndex = 41;
-            this.btLamMoi.Text = "Làm Mới";
-            this.btLamMoi.UseVisualStyleBackColor = false;
-            this.btLamMoi.Click += new System.EventHandler(this.btLamMoi_Click);
-            // 
-            // gvdata
-            // 
-            this.gvdata.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.gvdata.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gvdata.Location = new System.Drawing.Point(2, 391);
-            this.gvdata.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.gvdata.Name = "gvdata";
-            this.gvdata.ReadOnly = true;
-            this.gvdata.RowHeadersWidth = 51;
-            this.gvdata.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gvdata.Size = new System.Drawing.Size(1586, 645);
-            this.gvdata.TabIndex = 42;
+            this.dtDenNgay.ValueChanged += new System.EventHandler(this.dtTuNgay_ValueChanged);
             // 
             // uiLabel2
             // 
             this.uiLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.uiLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
-            this.uiLabel2.Location = new System.Drawing.Point(142, 197);
+            this.uiLabel2.Location = new System.Drawing.Point(340, 243);
             this.uiLabel2.Name = "uiLabel2";
             this.uiLabel2.Size = new System.Drawing.Size(235, 38);
             this.uiLabel2.TabIndex = 44;
@@ -151,38 +111,61 @@
             // 
             this.uiLabel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.uiLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
-            this.uiLabel3.Location = new System.Drawing.Point(383, 197);
+            this.uiLabel3.Location = new System.Drawing.Point(340, 310);
             this.uiLabel3.Name = "uiLabel3";
             this.uiLabel3.Size = new System.Drawing.Size(235, 38);
             this.uiLabel3.TabIndex = 45;
-            this.uiLabel3.Text = "Tiền Bán";
+            this.uiLabel3.Text = "Tiền Bán Hàng";
+            this.uiLabel3.Click += new System.EventHandler(this.uiLabel3_Click);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(634, 204);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label2.Location = new System.Drawing.Point(340, 390);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(64, 20);
+            this.label2.Size = new System.Drawing.Size(101, 29);
             this.label2.TabIndex = 46;
             this.label2.Text = "Tiền Lời";
+            // 
+            // txtTienNhapHang
+            // 
+            this.txtTienNhapHang.Location = new System.Drawing.Point(683, 247);
+            this.txtTienNhapHang.Name = "txtTienNhapHang";
+            this.txtTienNhapHang.Size = new System.Drawing.Size(230, 26);
+            this.txtTienNhapHang.TabIndex = 47;
+            // 
+            // txtTienBanHang
+            // 
+            this.txtTienBanHang.Location = new System.Drawing.Point(683, 314);
+            this.txtTienBanHang.Name = "txtTienBanHang";
+            this.txtTienBanHang.Size = new System.Drawing.Size(230, 26);
+            this.txtTienBanHang.TabIndex = 48;
+            // 
+            // txtTienLoi
+            // 
+            this.txtTienLoi.Location = new System.Drawing.Point(683, 394);
+            this.txtTienLoi.Name = "txtTienLoi";
+            this.txtTienLoi.Size = new System.Drawing.Size(230, 26);
+            this.txtTienLoi.TabIndex = 49;
             // 
             // FormThongKeDoanhThu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1601, 1050);
+            this.ClientSize = new System.Drawing.Size(1303, 634);
+            this.Controls.Add(this.txtTienLoi);
+            this.Controls.Add(this.txtTienBanHang);
+            this.Controls.Add(this.txtTienNhapHang);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.uiLabel3);
             this.Controls.Add(this.uiLabel2);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.gvdata);
-            this.Controls.Add(this.xemThongKe);
-            this.Controls.Add(this.btLamMoi);
             this.Name = "FormThongKeDoanhThu";
             this.Text = "FormThongKeDoanhThu";
+            this.Load += new System.EventHandler(this.FormThongKeDoanhThu_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gvdata)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -195,11 +178,11 @@
         private System.Windows.Forms.DateTimePicker dtTuNgay;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DateTimePicker dtDenNgay;
-        private System.Windows.Forms.Button xemThongKe;
-        private System.Windows.Forms.Button btLamMoi;
-        private System.Windows.Forms.DataGridView gvdata;
         private Sunny.UI.UILabel uiLabel2;
         private Sunny.UI.UILabel uiLabel3;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtTienNhapHang;
+        private System.Windows.Forms.TextBox txtTienBanHang;
+        private System.Windows.Forms.TextBox txtTienLoi;
     }
 }

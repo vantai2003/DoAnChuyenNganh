@@ -229,14 +229,71 @@ INSERT INTO Quyen VALUES(0,N'Admin'),
 (4, N'Nhân viên giao hàng'),
 (5, N'Nhân viên kho')
 GO
+
 INSERT INTO NhanVien VALUES('NV001',N'Nguyễn Văn Tài',N'Quản trị viên', '0326588524', 'banpro@gmail.com','2024-10-10', 20000000)
 GO
 INSERT INTO NguoiDung(TenDN, MatKhau, NgayTao ,QuyenID, MaNV) VALUES('admin', CONVERT(VARCHAR(32),HASHBYTES('MD5', 'admin@123'),2),GETDATE() ,0, 'NV001')
 
 GO 
+-------------------------tạo role, người dùng------------------------------------------------
+-- Tạo role Admin
+CREATE ROLE Admin_Role;
+-- Tạo role Giám đốc
+CREATE ROLE GiamDoc_Role;
+-- Tạo role Kế toán 
+CREATE ROLE KeToan_Role;
+-- Tạo role Nhân viên bán hàng
+CREATE ROLE NVBanHang_Role;
+-- Tạo role Nhân viên giao hàng
+CREATE ROLE NVGiaoHang_Role;
+-- Tạo role Nhân viên kho
+CREATE ROLE NVKho_Role;
+
+-- Admin 
+GRANT SELECT, INSERT, UPDATE, DELETE ON [LoaiSanPham] TO Admin_Role;
+GRANT SELECT, INSERT, UPDATE, DELETE ON [SanPham] TO Admin_Role;
+GRANT SELECT, INSERT, UPDATE, DELETE ON [NhanVien] TO Admin_Role;
+GRANT SELECT, INSERT, UPDATE, DELETE ON [NguoiDung] TO Admin_Role;
+GRANT SELECT, INSERT, UPDATE, DELETE ON [Kho] TO Admin_Role;
+GRANT SELECT, INSERT, UPDATE, DELETE ON [Kho_SanPham] TO Admin_Role;
+
+GRANT BACKUP DATABASE TO Admin_Role;
+GRANT RESTORE DATABASE TO Admin_Role;
+
+---------------xem quyền đã câp----------------------
+SELECT 
+    dp.name AS UserName,
+    dp.type_desc AS UserType,
+    o.name AS ObjectName,
+    p.permission_name AS Permission,
+    p.state_desc AS PermissionState
+FROM 
+    sys.database_permissions p
+JOIN 
+    sys.objects o ON p.major_id = o.object_id
+JOIN 
+    sys.database_principals dp ON p.grantee_principal_id = dp.principal_id
+WHERE 
+    dp.name = 'Admin_Role';
 
 
--- Stored Procedures Login
+-- Giám đốc có quyền xem tất cả và chỉnh sửa một số bảng
+GRANT SELECT, INSERT, UPDATE, DELETE ON [QL_SatThepXD] TO GiamDoc_Role;
+
+-- Kế toán có quyền với bảng liên quan đến tài chính
+GRANT SELECT, INSERT, UPDATE ON [HoaDon], [ChiTietHoaDon] TO KeToan_Role;
+
+-- Nhân viên bán hàng
+GRANT SELECT, INSERT ON [DonHang], [KhachHang] TO NVBanHang_Role;
+
+-- Nhân viên giao hàng
+GRANT SELECT, UPDATE ON [DonHang] TO NVGiaoHang_Role;
+
+-- Nhân viên kho
+GRANT SELECT, UPDATE ON [Kho], [SanPham] TO NVKho_Role;
+
+
+------------------------- Stored Procedures Login-----------------------
 GO
 CREATE PROC SP_Login
 @TenDN varchar(100), @MatKhau varchar(50)
@@ -245,6 +302,8 @@ BEGIN
 	SELECT * FROM NguoiDung WHERE TenDN = @TenDN AND MatKhau = @MatKhau
 END
 GO
+------------
+
 --thủ tục getlist người dùng
 GO
 CREATE PROC SP_GetListNguoiDung
@@ -915,13 +974,15 @@ BEGIN
 END
 GO
 exec SP_GetListPN
+drop proc SP_GetListPN
 CREATE PROC SP_GetListPN
 AS
 BEGIN
-	SELECT MaPhieuNH, NgayDatHang, TongTien, TrangThai, ncc.TenNCC, k.TenKho, MaNV
+	SELECT MaPhieuNH, NgayDatHang, TrangThai, ncc.TenNCC, k.TenKho, pn.MaNV, nv.TenNV, TongTien
 	FROM PhieuNhapHang pn
 	JOIN NhaCungCap ncc ON ncc.MaNCC = pn.MaNCC
     JOIN Kho k ON k.MaKho = pn.MaKho
+	JOIN NhanVien nv ON nv.MaNV = pn.MaNV
 END
 GO
 
@@ -1015,8 +1076,8 @@ create table CTPhieuTraHangKH
 	DonGiaTra DECIMAL(18, 0),
 	FOREIGN KEY (MaPhieuTraHang) REFERENCES PhieuTraHangKH(MaPhieuTraHang),
     FOREIGN KEY (MaSP) REFERENCES SanPham(MaSP)
-
-)---hóa đơn
+)
+---hóa đơn
 ---------Lấy tất cả các cột trong bảng Hóa đơn----------------------
 drop PROC sp_SelectAll_HD
 CREATE PROC sp_SelectAll_HD
@@ -1106,7 +1167,7 @@ BEGIN
     SELECT * FROM CT_HoaDon;
 END;
 GO
-
+drop proc sp_SelectOne_CTHD
 CREATE PROC sp_SelectOne_CTHD
 @MaHD VARCHAR(50) 
 AS
@@ -2110,3 +2171,16 @@ BEGIN
     END
 END
 GO
+-------------------------thu tuc xem ct phiếu trả---------------------
+drop PROC sp_ChiTietPhieuTraHangKH
+CREATE PROC sp_ChiTietPhieuTraHangKH
+@MaHD nvarchar(50)
+AS BEGIN
+    SELECT ct.IDCTPhieuTH, pt.NgayTao, ct.MaSP,sp.TenSP , ct.SoLuongTra, 
+			ct.DonGiaTra, pt.TongTienNhan, pt.LyDo
+  
+    FROM PhieuTraHangKH pt
+    INNER JOIN CTPhieuTraHangKH ct ON pt.MaPhieuTraHang = ct.MaPhieuTraHang  
+	INNER JOIN SanPham sp ON ct.MaSP = sp.MaSP
+    WHERE pt.MaHD = @MaHD
+END

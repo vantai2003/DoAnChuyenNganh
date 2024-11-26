@@ -33,5 +33,11 @@ namespace DACN.DAO
             DataRow role = result.Rows[0];
             return (int)role["QuyenID"];
         }
+        public int DoiMatKhau(string tendn, string matkhaucu, string matkhaumoi)
+        {
+            string query = "SP_DoiMatKhau @TenDN , @MatKhauCu , @MatKhauMoi";
+            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { tendn, matkhaucu, matkhaumoi });
+            return result;
+        }
     }
 }

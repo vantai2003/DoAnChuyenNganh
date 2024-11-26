@@ -23,7 +23,7 @@ namespace DACN.DTO
 
         public CTPhieuTraHangKHDTO(DataRow row)
         {
-            MaPhieuTraHang = row["MaPhieuTraHang"].ToString();
+            MaCTPhieuTraHang = row["IDCTPhieuTH"].ToString();
             NgayTao = Convert.ToDateTime(row["NgayTao"]);
             MaSP = row["MaSP"].ToString();
             TenSP = row["TenSP"].ToString();

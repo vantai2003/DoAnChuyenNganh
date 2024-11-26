@@ -111,6 +111,7 @@ namespace DACN.GUI
         private void rd_TheoKhoangTG_CheckedChanged(object sender, EventArgs e)
         {
             dtp_NgayBD.Enabled = dtp_NgayKT.Enabled = true;
+            lb_tenkm.Enabled= txt_TenKM.Enabled = true;
             lb_LoaiKH.Enabled = cb_LoaiKH.Enabled = lb_gtdktt.Enabled = txt_DieuKienTongTien.Enabled = false;
             flag = 1;
             loaiDK = "Theo khoảng thời gian";
@@ -144,7 +145,20 @@ namespace DACN.GUI
         {
             List<KhuyenMaiDTO> listKM = KhuyenMaiDAO.Instance.LoadListKM();
             dvg_DSKM.DataSource = listKM;
+            dvg_DSKM.Columns["MaKM"].HeaderText = "Mã khuyến mãi";
+            dvg_DSKM.Columns["TenKM"].HeaderText = "Tên khuyến mãi";
+            dvg_DSKM.Columns["NgayBatDau"].HeaderText = "Ngày bắt đầu";
+            dvg_DSKM.Columns["NgayKetThuc"].HeaderText = "Ngày kết thúc";
+            dvg_DSKM.Columns["MoTa"].HeaderText = "Mô tả";
+            dvg_DSKM.Columns["TrangThai"].HeaderText = "Trạng thái";
+            dvg_DSKM.Columns["GiaTriKM"].HeaderText = "Giá trị khuyến mãi";
+            dvg_DSKM.Columns["LoaiDK"].HeaderText = "Loại điều kiện";
+            dvg_DSKM.Columns["DieuKienTongTien"].HeaderText = "Điều kiện tổng tiền";
             cb_TrangThai.SelectedIndex = 0;
+            txttenkm.Clear();
+            txtmota.Clear();
+            txtgtkm.Clear();
+            txtdktt.Clear();
         }
 
         private void tab_Body_SelectedIndexChanged(object sender, EventArgs e)
@@ -203,6 +217,7 @@ namespace DACN.GUI
                 dpNgayKT.Text =Convert.ToString(row.Cells["NgayKetThuc"].Value);
                 txtgtkm.Text =Convert.ToString(row.Cells["GiaTriKM"].Value);
                 txtdktt.Text = Convert.ToString(row.Cells["DieuKienTongTien"].Value);
+                txtmota.Text = Convert.ToString(row.Cells["MoTa"].Value);
                 string loaiDK = Convert.ToString(row.Cells["LoaiDK"].Value);
                 if(loaiDK == "Theo khoảng thời gian")
                 {
@@ -232,12 +247,129 @@ namespace DACN.GUI
                 {
                     txttenkm.Enabled = true;
                 }
-                uiTextBox1.Text = loaiDK;
+                
             }
             catch
             {
                 MessageBox.Show("Vui lòng chọn khuyến mãi");
             }
+        }
+
+        private void btn_BatKM_Click(object sender, EventArgs e)
+        {
+            if (maKM == null)
+            {
+                MessageBox.Show("Vui lòng chọn Khuyến mãi muốn bật");
+            }
+            else
+            {
+                try
+                {
+                    DialogResult r;
+                    r = MessageBox.Show("Bạn có chắc muốn bật khuyến mãi?", "Thoát", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
+                    if (r == DialogResult.Yes)
+                    {
+                        int dongAnhHuong = KhuyenMaiDAO.Instance.BatKM(maKM);
+                        if (dongAnhHuong > 0)
+                        {
+                            MessageBox.Show("Đã bật khuyến mãi thành công");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Khuyến mãi đang hoạt động");
+                        }
+                        maKM = null;
+                        LoadListKM();
+                    }
+                }
+                catch
+                {
+                    MessageBox.Show("Bật khuyến mãi thất bại");
+                }
+
+            }
+            
+            
+        }
+
+        private void btn_Sua_Click(object sender, EventArgs e)
+        {
+            if (maKM == null)
+            {
+                MessageBox.Show("Vui lòng chọn Khuyến mãi muốn sửa");
+            }
+            else
+            {
+                string tenKM = txttenkm.Text;
+
+                string moTa = txtmota.Text;
+
+
+                if (string.IsNullOrWhiteSpace(txtgtkm.Text))
+                {
+                    MessageBox.Show("Giá trị khuyến mãi không được để trống!", "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtgtkm.Focus();
+                }
+                else if (!decimal.TryParse(txtgtkm.Text, out _))
+                {
+                    MessageBox.Show("Giá trị khuyến mãi phải là một số hợp lệ!", "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtgtkm.Focus();
+                }
+                else
+                {
+                    decimal giaTriKM = decimal.Parse(txtgtkm.Text);
+
+                    if (temp == 1)
+                    {
+                        DateTime ngayBD = dpNgayBD.Value;
+                        DateTime ngayKT = dpNgayKT.Value;
+                        KhuyenMaiDAO.Instance.SuaKMThoiGian(maKM, tenKM, ngayBD, ngayKT, giaTriKM, moTa);
+                    }
+                    if (temp == 2)
+                    {
+                        if (string.IsNullOrWhiteSpace(txtdktt.Text))
+                        {
+                            MessageBox.Show("Giá trị điều kiện tổng tiền không được để trống!", "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            txtdktt.Focus();
+                            return;
+                        }
+                        else if (!decimal.TryParse(txtdktt.Text, out _))
+                        {
+                            MessageBox.Show("Giá trị điều kiện tổng tiền phải là một số hợp lệ!", "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            txtdktt.Focus();
+                            return;
+                        }
+                        else
+                        {
+                            decimal dieuKienTongTien = decimal.Parse(txtdktt.Text);
+                            KhuyenMaiDAO.Instance.SuaKMTongTien(maKM, tenKM, giaTriKM, moTa, dieuKienTongTien);
+                        }
+
+                    }
+                    else
+                    {
+                        KhuyenMaiDAO.Instance.SuaKMLoaiKH(maKM, giaTriKM, moTa);
+                    }
+                    MessageBox.Show("Sửa khuyến mãi thành công");
+                    LoadListKM();
+                    
+                }
+                
+            }
+        }
+
+        private void btn_Search_Click(object sender, EventArgs e)
+        {
+            string searchValue = txt_search.Text;
+            List<KhuyenMaiDTO> listKM = KhuyenMaiDAO.Instance.TimKiemKM(searchValue);
+            dvg_DSKM.DataSource = listKM;
+        }
+
+        private void btn_Loc_Click(object sender, EventArgs e)
+        {
+            string searchValue = cbtrangthai.SelectedItem.ToString();
+            List<KhuyenMaiDTO> listKM = KhuyenMaiDAO.Instance.LocKMTrangThai(searchValue);
+            dvg_DSKM.DataSource=listKM;
         }
     }
 }
