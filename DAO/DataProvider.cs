@@ -16,7 +16,7 @@ namespace DACN.DAO
      //   private string conStr = "Data Source=LAPTOP-70K25FBU\\NGUYENVANTAI;Initial Catalog=QL_SatThepXD;User ID=sa;Password = 123;Encrypt=False";
 
 
-        private string conStr = "Data Source=localhost;Initial Catalog=QL_SatThepXD;User ID=sa;Password = 123456;Encrypt=False";
+        private string conStr = "Data Source=localhost;Initial Catalog=QL_SatThepXD;User ID=sa;Password = 123;Encrypt=False";
 
         public static DataProvider Instance
         {
@@ -25,15 +25,11 @@ namespace DACN.DAO
         }
         private DataProvider()
         {
-            // Chuỗi kết nối mặc định
-            conStr = "Data Source=localhost;Initial Catalog=QL_SatThepXD;User ID=sa;Password=123456;Encrypt=False";
+
         }
 
         // Hàm thay đổi chuỗi kết nối
-        public void ChangeConnectionString(string username, string password)
-        {
-            conStr = $"Data Source=localhost;Initial Catalog=QL_SatThepXD;User ID={username};Password={password};Encrypt=False";
-        }
+     
         public DataTable ExecuteQuery(string query, object[] parameter = null)
         {
             DataTable dt = new DataTable();

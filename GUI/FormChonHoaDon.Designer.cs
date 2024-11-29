@@ -97,6 +97,7 @@
             // btnChon
             // 
             this.btnChon.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnChon.FillColor = System.Drawing.Color.OrangeRed;
             this.btnChon.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnChon.Location = new System.Drawing.Point(823, 17);
             this.btnChon.MinimumSize = new System.Drawing.Size(1, 1);

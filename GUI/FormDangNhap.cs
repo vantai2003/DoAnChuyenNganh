@@ -37,7 +37,6 @@ namespace DACN.GUI
             if (Login(userName, pass))
             {
                 nhanvien = txt_UserName.Text.Trim();
-                DataProvider.Instance.ChangeConnectionString(userName.Trim(), pass.Trim());
 
                 this.Hide();
                 switch (getRole(userName, pass))
@@ -59,7 +58,7 @@ namespace DACN.GUI
                         fnvbh.Show();
                         break;
                     case 4:
-                        MessageBox.Show("Đăng nhập thành công với quyền giao hàng");
+                     
                         FormNhanVienGiaoHang fnvgh = new FormNhanVienGiaoHang();
                         fnvgh.Show();
                         break;

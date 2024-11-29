@@ -46,8 +46,79 @@ namespace DACN.GUI
             
            
         }
-       
-      
+        static string GenerateNewCodeNCC()
+        {
+            List<NhaCungCapDTO> listNCC = new List<NhaCungCapDTO>();
+            listNCC = NhaCungCapDAO.Instance.GetNhaCungCap();
+          
+            if (listNCC.Count == 0)
+            {
+                return "NCC001";
+            }
+
+            // Lấy phần tử cuối cùng trong danh sách
+            string lastCode = listNCC.Last().MaNCC;
+
+            string prefix = lastCode.Substring(0, 3);
+            string numberPart = lastCode.Substring(2);
+
+            // Chuyển số thành số nguyên và tăng lên 1
+            int number = int.Parse(numberPart) + 1;
+
+            // Tạo mã mới
+            string newCode = $"{prefix}{number:D3}";
+
+            return newCode;
+        }
+        static string GenerateNewCodeKH()
+        {
+            List<KhachHangDTO> listKh = new List<KhachHangDTO>();
+            listKh = KhachHangDAO.Instance.GetKhachHang();
+
+            if (listKh.Count == 0)
+            {
+                return "KH001";
+            }
+
+            // Lấy phần tử cuối cùng trong danh sách
+            string lastCode = listKh.Last().MaKH;
+
+            string prefix = lastCode.Substring(0, 2);
+            string numberPart = lastCode.Substring(2);
+
+            // Chuyển số thành số nguyên và tăng lên 1
+            int number = int.Parse(numberPart) + 1;
+
+            // Tạo mã mới
+            string newCode = $"{prefix}{number:D3}";
+
+            return newCode;
+        }
+        static string GenerateNewCodeLKH()
+        {
+            List<LoaiKhachHangDTO> listLKH = new List<LoaiKhachHangDTO>();
+            listLKH = LoaiKhachHangDAO.Instance.GetLoaiKhachHang();
+
+            if (listLKH.Count == 0)
+            {
+                return "LKH001";
+            }
+
+            // Lấy phần tử cuối cùng trong danh sách
+            string lastCode = listLKH.Last().MaLoaiKH;
+
+            string prefix = lastCode.Substring(0, 3);
+            string numberPart = lastCode.Substring(2);
+
+            // Chuyển số thành số nguyên và tăng lên 1
+            int number = int.Parse(numberPart) + 1;
+
+            // Tạo mã mới
+            string newCode = $"{prefix}{number:D3}";
+
+            return newCode;
+        }
+
         private List<KhachHangDTO> listKH = new List<KhachHangDTO>();
         private bool ktDKKhachHang(string ma, string ten, string sdt, string email)
         {
@@ -83,8 +154,8 @@ namespace DACN.GUI
 
         private void tsbThem_Click(object sender, EventArgs e)
         {
-            
-            khDTO.MaKH = txtMK.Text;
+
+            khDTO.MaKH = GenerateNewCodeKH();
             khDTO.TenKH = txtTenKH.Text;
             khDTO.Email = txtEmail.Text;
             khDTO.Diachi = txtDiaChi.Text;
@@ -235,7 +306,7 @@ namespace DACN.GUI
         }
         private void btnThem_Click(object sender, EventArgs e)
         {
-            nccDTO.MaNCC = txtMaNCC.Text;
+            nccDTO.MaNCC = GenerateNewCodeNCC();
             nccDTO.TenNCC = txtTenNCC.Text;
             nccDTO.Email = txt_EmailNCC.Text;
             nccDTO.ThanhPho = txtThanhPho.Text;
@@ -361,7 +432,7 @@ namespace DACN.GUI
         }
         private void btn_ThemLoaiKH_Click(object sender, EventArgs e)
         {
-            lkhDTO.MaLoaiKH = txt_MaLoaiKH.Text;
+            lkhDTO.MaLoaiKH = GenerateNewCodeLKH();
             lkhDTO.TenLoaiKH = txt_TenLoaiKH.Text;
             if(txt_MucChiTieuTD.Text == "" || txt_MucChiTieuToiThieu.Text == "")
             {

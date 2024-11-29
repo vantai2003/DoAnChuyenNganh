@@ -8,7 +8,7 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>DACN</RootNamespace>
     <AssemblyName>DACN</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
@@ -567,6 +567,13 @@
     <Content Include="GUI\Icon_images\user.png" />
     <Content Include="GUI\Icon_images\Vat_lieu.png" />
     <Content Include="GUI\Icon_images\warehouse.png" />
+    <None Include="Resources\coupon1.png" />
+    <None Include="Resources\order1.png" />
+    <None Include="Resources\document.png" />
+    <None Include="Resources\window.png" />
+    <None Include="Resources\employee.png" />
+    <None Include="Resources\pricing.png" />
+    <None Include="Resources\supply-chain.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

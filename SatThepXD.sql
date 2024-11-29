@@ -132,8 +132,8 @@ go
 -- Bảng CTPhieuNhapHang (Chi tiết phiếu nhập hàng)
 CREATE TABLE CTPhieuNhapHang (
     MaCTPhieuNH VARCHAR(50) PRIMARY KEY NOT NULL,
-    SoLuong DECIMAL(18, 2) (SoLuong > 0),
-    DonGia DECIMAL(18, 0) (DonGia >= 0),
+    SoLuong DECIMAL(18, 2) CHECK (SoLuong > 0),
+    DonGia DECIMAL(18, 0) CHECK (DonGia >= 0),
     NgayNhapHang DATE,
     MaSP VARCHAR(50) NOT NULL,
     MaPhieuNH VARCHAR(50) NOT NULL,
@@ -248,7 +248,8 @@ CREATE ROLE NVBanHang_Role;
 CREATE ROLE NVGiaoHang_Role;
 -- Tạo role Nhân viên kho
 CREATE ROLE NVKho_Role;
-
+drop role Admin_Role
+drop user [admin]
 -- Admin 
 GRANT SELECT, INSERT, UPDATE, DELETE ON [LoaiSanPham] TO Admin_Role;
 GRANT SELECT, INSERT, UPDATE, DELETE ON [SanPham] TO Admin_Role;
@@ -259,6 +260,38 @@ GRANT SELECT, INSERT, UPDATE, DELETE ON [Kho_SanPham] TO Admin_Role;
 
 GRANT BACKUP DATABASE TO Admin_Role;
 GRANT RESTORE DATABASE TO Admin_Role;
+
+	-- Cấp quyền cơ bản cho Admin Role
+
+GRANT CREATE PROCEDURE TO Admin_Role;
+GRANT EXECUTE TO Admin_Role;
+GRANT ALTER ON SCHEMA::dbo TO Admin_Role; 
+GRANT CONTROL ON DATABASE::QL_SatThepXD TO Admin_Role; 
+GRANT ALTER ANY USER TO Admin_Role;
+
+
+CREATE LOGIN [admin] WITH PASSWORD = 'E6E061838856BF47E1DE730719FB2609';
+GO
+CREATE USER [admin] FOR LOGIN [admin];
+GO
+ALTER ROLE Admin_Role ADD MEMBER [admin];
+GO
+
+
+-- Giám Đốc
+GRANT SELECT, INSERT, UPDATE, DELETE ON [PhieuNhapHang] TO GiamDoc_Role;
+GRANT SELECT, INSERT, UPDATE, DELETE ON [KhuyenMai] TO GiamDoc_Role;
+GRANT SELECT, INSERT, UPDATE, DELETE ON [NhanVien] TO GiamDoc_Role;
+GRANT SELECT, INSERT, UPDATE, DELETE ON [CTPhieuNhapHang] TO GiamDoc_Role;
+GRANT SELECT, INSERT, UPDATE, DELETE ON [Kho] TO GiamDoc_Role;
+GRANT SELECT, INSERT, UPDATE, DELETE ON [Kho_SanPham] TO GiamDoc_Role;
+GRANT SELECT, INSERT, UPDATE, DELETE ON [NhaCungCap] TO GiamDoc_Role;
+-- Cấp quyền cơ bản cho GiamDoc Role
+GRANT CREATE PROCEDURE TO GiamDoc_Role;
+GRANT EXECUTE TO GiamDoc_Role;
+GRANT ALTER TO GiamDoc_Role;
+GRANT CONTROL TO GiamDoc_Role
+
 
 ---------------xem quyền đã câp----------------------
 SELECT 
@@ -278,20 +311,6 @@ WHERE
 
 
 -- Giám đốc có quyền xem tất cả và chỉnh sửa một số bảng
-GRANT SELECT, INSERT, UPDATE, DELETE ON [QL_SatThepXD] TO GiamDoc_Role;
-
--- Kế toán có quyền với bảng liên quan đến tài chính
-GRANT SELECT, INSERT, UPDATE ON [HoaDon], [ChiTietHoaDon] TO KeToan_Role;
-
--- Nhân viên bán hàng
-GRANT SELECT, INSERT ON [DonHang], [KhachHang] TO NVBanHang_Role;
-
--- Nhân viên giao hàng
-GRANT SELECT, UPDATE ON [DonHang] TO NVGiaoHang_Role;
-
--- Nhân viên kho
-GRANT SELECT, UPDATE ON [Kho], [SanPham] TO NVKho_Role;
-
 
 ------------------------- Stored Procedures Login-----------------------
 GO
@@ -303,16 +322,74 @@ BEGIN
 END
 GO
 ------------
+CREATE PROC SP_CreateNewUser
+    @TenDN varchar(100), 
+    @MatKhau varchar(50),
+    @QuyenID int
+AS 
+BEGIN
+    -- Check for existing username
+    IF EXISTS (SELECT 1 FROM Users WHERE TenDN = @TenDN)
+    BEGIN
+        RAISERROR('Username already exists.', 16, 1)
+        RETURN
+    END
 
+    -- Input validation
+    IF @QuyenID < 0 OR @QuyenID > 5
+    BEGIN
+        RAISERROR('Invalid QuyenID.', 16, 1)
+        RETURN
+    END
+
+    -- Begin transaction for atomicity
+    BEGIN TRANSACTION
+    
+    BEGIN TRY
+        
+        INSERT INTO Users (TenDN, MatKhau) VALUES (@TenDN, @MatKhau);
+
+        -- Assign the role based on QuyenID
+        DECLARE @RoleName VARCHAR(50);
+        SET @RoleName = CASE @QuyenID
+                            WHEN 0 THEN 'Admin_Role'
+                            WHEN 1 THEN 'GiamDoc_Role'
+                            WHEN 2 THEN 'KeToan_Role'
+                            WHEN 3 THEN 'NVBanHang_Role'
+                            WHEN 4 THEN 'NVGiaoHang_Role'
+                            WHEN 5 THEN 'NVKho_Role'
+                            ELSE NULL  -- Should not reach here due to earlier check
+                        END;
+
+        IF @RoleName IS NOT NULL
+        BEGIN
+            EXEC sp_addrolemember @RoleName, @TenDN;
+        END
+
+        COMMIT TRANSACTION
+    END TRY
+    BEGIN CATCH
+        IF @@TRANCOUNT > 0
+            ROLLBACK TRANSACTION
+        THROW;
+    END CATCH
+END
+GO
+
+
+-------------
 --thủ tục getlist người dùng
+drop proc SP_GetListNguoiDung
 GO
 CREATE PROC SP_GetListNguoiDung
 AS
 BEGIN
-	SELECT * FROM NguoiDung
+	SELECT TenDN, NgayTao, nd.MaNV, nv.TenNV,nd.QuyenID ,q.TenQuyen
+	FROM NguoiDung nd
+	join NhanVien nv ON nd.MaNV = nv.MaNV
+	Join Quyen q ON nd.QuyenID = q.Id
 END
 GO
-
 ----------------------------------Người dùng-----------------------------
 --thủ tục tìm người dùng
 CREATE PROC SP_TimKiemNguoiDung

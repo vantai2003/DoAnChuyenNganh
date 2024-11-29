@@ -37,12 +37,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.txtTongTien = new Sunny.UI.UITextBox();
             this.btnOK = new Sunny.UI.UIButton();
-            this.tsCTPN = new System.Windows.Forms.ToolStrip();
-            this.tsbXoa = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
-            this.tsbXoaAll = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCTHD)).BeginInit();
-            this.tsCTPN.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvCTHD
@@ -96,7 +91,9 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label8.Location = new System.Drawing.Point(19, 52);
+
+            this.label8.Location = new System.Drawing.Point(36, 38);
+
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(100, 25);
             this.label8.TabIndex = 78;
@@ -106,9 +103,10 @@
             // 
             this.txtTongTien.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtTongTien.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txtTongTien.Location = new System.Drawing.Point(132, 52);
-            this.txtTongTien.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.txtTongTien.MinimumSize = new System.Drawing.Size(1, 13);
+
+            this.txtTongTien.Location = new System.Drawing.Point(164, 38);
+            this.txtTongTien.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtTongTien.MinimumSize = new System.Drawing.Size(1, 16);
             this.txtTongTien.Name = "txtTongTien";
             this.txtTongTien.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtTongTien.ShowText = false;
@@ -133,56 +131,10 @@
             this.btnOK.TipsFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
-            // tsCTPN
-            // 
-            this.tsCTPN.BackColor = System.Drawing.Color.White;
-            this.tsCTPN.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tsCTPN.ImageScalingSize = new System.Drawing.Size(24, 24);
-            this.tsCTPN.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsbXoa,
-            this.toolStripSeparator8,
-            this.tsbXoaAll});
-            this.tsCTPN.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
-            this.tsCTPN.Location = new System.Drawing.Point(0, 0);
-            this.tsCTPN.Name = "tsCTPN";
-            this.tsCTPN.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.tsCTPN.Size = new System.Drawing.Size(986, 38);
-            this.tsCTPN.TabIndex = 80;
-            this.tsCTPN.Text = "tsNCC";
-            // 
-            // tsbXoa
-            // 
-            this.tsbXoa.Image = global::DACN.Properties.Resources.Delete;
-            this.tsbXoa.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.tsbXoa.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbXoa.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
-            this.tsbXoa.Name = "tsbXoa";
-            this.tsbXoa.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.tsbXoa.Size = new System.Drawing.Size(90, 34);
-            this.tsbXoa.Text = "Xóa";
-            // 
-            // toolStripSeparator8
-            // 
-            this.toolStripSeparator8.Name = "toolStripSeparator8";
-            this.toolStripSeparator8.Size = new System.Drawing.Size(6, 38);
-            // 
-            // tsbXoaAll
-            // 
-            this.tsbXoaAll.Image = global::DACN.Properties.Resources.Delete;
-            this.tsbXoaAll.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.tsbXoaAll.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbXoaAll.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
-            this.tsbXoaAll.Name = "tsbXoaAll";
-            this.tsbXoaAll.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.tsbXoaAll.Size = new System.Drawing.Size(118, 34);
-            this.tsbXoaAll.Text = "Xóa All";
-            // 
             // FormCTHoaDon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(986, 719);
-            this.Controls.Add(this.tsCTPN);
             this.Controls.Add(this.btnOK);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.txtTongTien);
@@ -191,8 +143,6 @@
             this.Name = "FormCTHoaDon";
             this.Text = "CTHoaDon";
             ((System.ComponentModel.ISupportInitialize)(this.dgvCTHD)).EndInit();
-            this.tsCTPN.ResumeLayout(false);
-            this.tsCTPN.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -203,9 +153,5 @@
         private System.Windows.Forms.Label label8;
         private Sunny.UI.UITextBox txtTongTien;
         private Sunny.UI.UIButton btnOK;
-        private System.Windows.Forms.ToolStrip tsCTPN;
-        private System.Windows.Forms.ToolStripButton tsbXoa;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator8;
-        private System.Windows.Forms.ToolStripButton tsbXoaAll;
     }
 }
