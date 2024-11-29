@@ -35,19 +35,13 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1652.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1652.0\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1400.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1652.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1652.0\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1400.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1652.0\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1400.0\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
@@ -74,6 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAO\BangBaoGiaTuNCCDAO.cs" />
+    <Compile Include="DAO\ChuyenTienThanhChu.cs" />
     <Compile Include="DAO\CongNoDAO.cs" />
     <Compile Include="DAO\CTHoaDonDAO.cs" />
     <Compile Include="DAO\DataProvider.cs" />
@@ -150,6 +145,12 @@
     </Compile>
     <Compile Include="GUI\FormCTPhieuNhap_ChoNVKho.Designer.cs">
       <DependentUpon>FormCTPhieuNhap_ChoNVKho.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FormCTPhieuTraHangNCC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FormCTPhieuTraHangNCC.Designer.cs">
+      <DependentUpon>FormCTPhieuTraHangNCC.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\FormCT_SanPham_NCC.cs">
       <SubType>Form</SubType>
@@ -316,6 +317,12 @@
     <Compile Include="GUI\FormChonSanPham.Designer.cs">
       <DependentUpon>FormChonSanPham.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\FormQLTraHangNCC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FormQLTraHangNCC.Designer.cs">
+      <DependentUpon>FormQLTraHangNCC.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\FormSanPhamBan.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -392,6 +399,9 @@
     <EmbeddedResource Include="GUI\FormCTPhieuNhap_ChoNVKho.resx">
       <DependentUpon>FormCTPhieuNhap_ChoNVKho.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FormCTPhieuTraHangNCC.resx">
+      <DependentUpon>FormCTPhieuTraHangNCC.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\FormCT_SanPham_NCC.resx">
       <DependentUpon>FormCT_SanPham_NCC.cs</DependentUpon>
     </EmbeddedResource>
@@ -466,6 +476,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FormChonSanPham.resx">
       <DependentUpon>FormChonSanPham.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FormQLTraHangNCC.resx">
+      <DependentUpon>FormQLTraHangNCC.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FormSanPhamBan.resx">
       <DependentUpon>FormSanPhamBan.cs</DependentUpon>

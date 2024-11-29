@@ -82,6 +82,12 @@ namespace DACN.DAO
 
             return listSPNCC;
         }
+        public bool XoaNhaCungUng(string mancc,string masp)
+        {
+            string query = "SP_XoaCungUng @MaNCC , @MaSP";
+            int resule = DataProvider.Instance.ExecuteNonQuery(query, new object[] { mancc, masp });
+            return resule > 0;
+        }
         public List<SanPham_NhaCungCapDTO> ListBangGia()
         {
             List<SanPham_NhaCungCapDTO> listBangGia = new List<SanPham_NhaCungCapDTO>();

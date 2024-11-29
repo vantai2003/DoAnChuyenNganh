@@ -260,6 +260,18 @@ BEGIN
 	SELECT * FROM NguoiDung WHERE TenDN = @TenDN AND MatKhau = @MatKhau
 END
 GO
+----------thủ tục hiển thị danh sách phiếu trả hàng
+select * from PhieuTraHangNCC
+exec SP_ListPhieuTraHangNCC
+drop proc SP_ListPhieuTraHangNCC
+CREATE PROC SP_ListPhieuTraHangNCC
+AS
+BEGIN
+	SELECT MaPhieuTraHang, TongTienNhan, LyDo, pthncc.MaNV,nv.TenNV, MaPhieuNH, NgayTao
+	FROM PhieuTraHangNCC pthncc
+	join NhanVien nv ON pthncc.MaNV = nv.MaNV
+END
+GO
 --thủ tục getlist người dùng
 drop proc SP_GetListNguoiDung
 GO
@@ -293,6 +305,15 @@ BEGIN
         SET MatKhau = @MatKhauMoi
         WHERE TenDN = @TenDN AND MatKhau = @MatKhauCu
 END
+
+------tìm kiếm phiếu trả hàng ncc
+CREATE PROC SP_TraHangNCC
+@SearchValue nvarchar(500)
+AS
+BEGIN
+	SELECT * FROM PhieuTraHangNCC WHERE MaPhieuTraHang LIKE '%' + @SearchValue + '%'
+END
+GO
 ----------------------------------Người dùng-----------------------------
 --thủ tục tìm người dùng
 
@@ -300,6 +321,10 @@ CREATE PROC SP_TimKiemNguoiDung
 @SearchValue nvarchar(50)
 AS
 BEGIN
+SELECT TenDN, NgayTao, nd.MaNV, nv.TenNV,nd.QuyenID ,q.TenQuyen
+	FROM NguoiDung nd
+	join NhanVien nv ON nd.MaNV = nv.MaNV
+	Join Quyen q ON nd.QuyenID = q.Id
 	SELECT * FROM NguoiDung WHERE TenDN LIKE '%' + @SearchValue + '%'
 	or MaNV LIKE '%' + @SearchValue + '%'
 END
@@ -1000,6 +1025,7 @@ BEGIN
 END
 GO
 ---Lọc bảng giá
+
 CREATE PROCEDURE SP_LocBangGia
     @SanPham NVARCHAR(255) = NULL,           
     @NhaCungCap NVARCHAR(255) = NULL     
@@ -1014,6 +1040,29 @@ BEGIN
         (@SanPham IS NULL OR sp.TenSP = @SanPham) AND
         (@NhaCungCap IS NULL OR ncc.TenNCC = @NhaCungCap)
 END
+go
+-------------listCCT phiếu trả hàng NCC
+CREATE PROC SP_ListCTPhieuTH_NCC
+@MaPNH varchar(50)
+as
+begin
+	select IDCTPhieuTHNCC, MaPhieuTraHang, ctpthncc.MaSP, sp.TenSP, SoLuong, DonGiaTra, ThanhTien
+	from CTPhieuTraHangNCC ctpthncc
+	join SanPham sp ON sp.MaSP = ctpthncc.MaSP
+	where MaPhieuTraHang = @MaPNH
+end
+go
+---------thủ tục xóa phiếu trả hàng ncc
+create proc SP_DeletePhieuTH_NCC
+@MaPhieuTH varchar(50)
+as
+begin
+	delete from CTPhieuTraHangNCC
+	where MaPhieuTraHang = @MaPhieuTH
+	delete from PhieuTraHangNCC
+	where MaPhieuTraHang = @MaPhieuTH
+	
+end
 -------list Bảng giá
 CREATE PROCEDURE SP_ListBangGia
 AS
@@ -1081,6 +1130,14 @@ BEGIN
 		OR (spncc.MaSP LIKE '%' + @SearchValues + '%')
 END
 GO
+----------xóa nhà cung ứng
+create proc SP_XoaCungUng
+@MaNCC varchar(50),
+@MaSP varchar(50)
+as
+begin
+	delete from CT_SanPhamNCC where MaNCC = @MaNCC and MaSP = @MaSP
+end
 ---------------lọc ra những sản phẩm mà nhà cung cấp đó đã cung cấp rồi
 
 drop proc GetSanPhamChuaCungCap
@@ -1265,18 +1322,19 @@ BEGIN
 END
 GO
 --------------Lấy thông tin Nhà cung cấp từ phiếu nhập
-drop proc SP_TTNhaCCDeInPhieuNhap
-exec SP_TTNhaCCDeInPhieuNhap 'PN005'
-CREATE PROC SP_TTNhaCCDeInPhieuNhap
-	@MaPN varchar(50)
-AS
-BEGIN
-	SELECT MaPhieuNH, NgayDatHang, ncc.TenNCC, ncc.DiaChi, ncc.SDT, TongTien
-	FROM PhieuNhapHang pn
-	JOIN NhaCungCap ncc ON ncc.MaNCC = pn.MaNCC
-	where pn.MaPhieuNH = @MaPN
-END
-GO
+exec SP_TTNhaCCDeinPhieuPhap 'PN032'
+drop proc SP_TTNhaCCDeinPhieuPhap
+CREATE PROC SP_TTNhaCCDeinPhieuPhap
+@MaPN varchar(50)
+as
+begin 
+	SELECT pn.NgayDatHang,pn.TongTien , ncc.TenNCC, ncc.DiaChi, ncc.ThanhPho, ncc.QuocGia, ncc.SDT
+	FROM  PhieuNhapHang pn
+	JOIN NhaCungCap ncc ON pn.MaNCC = ncc.MaNCC
+	WHERE pn.MaPhieuNH = @MaPN
+end;
+go
+
 ----truy xuất ngược từ tên kho
 CREATE PROCEDURE SP_GetMaKhoByTenKho
 @TenKho NVARCHAR(400)

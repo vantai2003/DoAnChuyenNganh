@@ -207,5 +207,11 @@ namespace DACN.DAO
             }
             return 0;
         }
+        public DataTable GetNhaCungCapInfo(string maPhieuNhap)
+        {
+            string query = "SP_TTNhaCCDeinPhieuPhap @MaPN";
+        
+            return DataProvider.Instance.ExecuteQuery(query, new object[] { maPhieuNhap });
+        }
     }   
 }

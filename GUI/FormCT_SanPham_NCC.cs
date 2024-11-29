@@ -16,6 +16,7 @@ namespace DACN.GUI
     public partial class FormCT_SanPham_NCC : Form
     {
         public static string mancc;
+        public static string masp;
         private int flag;
         public FormCT_SanPham_NCC()
         {
@@ -80,8 +81,15 @@ namespace DACN.GUI
             FormDanhMuc formDanhMuc = new FormDanhMuc();
             formDanhMuc.ShowDialog();
         }
-        public void AddProductToReceipt(string maSP, string tenSP, string dvt, string tenloaisp)
+        public bool AddProductToReceipt(string maSP, string tenSP, string dvt, string tenloaisp)
         {
+            foreach (DataGridViewRow existingRow in dvg_SanPham.Rows)
+            {
+                if (existingRow.Cells[0].Value?.ToString() == maSP)
+                {
+                    return false;
+                }
+            }
             DataGridViewRow row = new DataGridViewRow();
             row.CreateCells(dvg_SanPham);
             row.Cells[0].Value = maSP;
@@ -89,6 +97,7 @@ namespace DACN.GUI
             row.Cells[2].Value = dvt;
             row.Cells[3].Value = tenloaisp;
             dvg_SanPham.Rows.Add(row);
+            return true;
         }
 
 
@@ -103,9 +112,19 @@ namespace DACN.GUI
         {
             if (flag == 1)
             {
-                string maKho = cb_NCC.SelectedValue.ToString();
-                List<SanPham_NhaCungCapDTO> listSPNCC = SanPham_NhaCCDAO.Instance.LocTheoNCC(maKho);
-                dvg_SanPhamNCC.DataSource = listSPNCC;
+                
+                string maNCC = cb_NCC.SelectedValue.ToString();
+                if(maNCC == "ALL")
+                {
+                    List<SanPham_NhaCungCapDTO> listSPNCC = SanPham_NhaCCDAO.Instance.GetDSSanPhamNCC();
+                    dvg_SanPhamNCC.DataSource = listSPNCC;
+                }
+                else
+                {
+                    List<SanPham_NhaCungCapDTO> listSPNCC = SanPham_NhaCCDAO.Instance.LocTheoNCC(maNCC);
+                    dvg_SanPhamNCC.DataSource = listSPNCC;
+                }
+                
             }
             else
             {
@@ -120,6 +139,7 @@ namespace DACN.GUI
             cb_NCC.Enabled = btn_Loc.Enabled = true;
             txt_search.Enabled = false;
             List<NhaCungCapDTO> listNCC = NhaCungCapDAO.Instance.GetNhaCungCap();
+            listNCC.Insert(0, new NhaCungCapDTO { MaNCC = "ALL", TenNCC = "Chọn tất cả" });
             cb_NCC.DataSource = listNCC;
             cb_NCC.DisplayMember = "TenNCC";
             cb_NCC.ValueMember = "MaNCC";
@@ -128,7 +148,7 @@ namespace DACN.GUI
 
         private void btn_Them_Click_1(object sender, EventArgs e)
         {
-            if (dvg_SanPham.Rows.Count == 0)
+            if (dvg_SanPham.SelectedRows.Count == 0)
             {
                 MessageBox.Show("Vui lòng chọn ít nhất một sản phẩm trước khi tạo phiếu nhập.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
@@ -150,21 +170,64 @@ namespace DACN.GUI
 
         private void btn_Remove_Click(object sender, EventArgs e)
         {
-            if (dvg_SanPham.SelectedRows.Count > 0)
+            try
             {
-                DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xóa các dòng đã chọn?", "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (result == DialogResult.Yes)
+                if (dvg_SanPham.SelectedRows.Count > 0)
                 {
-                    for (int i = dvg_SanPham.SelectedRows.Count - 1; i >= 0; i--)
+                    DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xóa các dòng đã chọn?", "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (result == DialogResult.Yes)
                     {
-                        DataGridViewRow row = dvg_SanPham.SelectedRows[i];
-                        dvg_SanPham.Rows.Remove(row);
+                        for (int i = dvg_SanPham.SelectedRows.Count - 1; i >= 0; i--)
+                        {
+                            DataGridViewRow row = dvg_SanPham.SelectedRows[i];
+                            dvg_SanPham.Rows.Remove(row);
+                        }
                     }
+                }
+                else
+                {
+                    MessageBox.Show("Vui lòng chọn dòng cần xóa.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            catch { MessageBox.Show("Xóa thành công"); }
+            
+        }
+
+        private void dvg_SanPhamNCC_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridViewRow row = new DataGridViewRow();
+            try
+            {
+                row = dvg_SanPhamNCC.Rows[e.RowIndex];
+                masp = Convert.ToString(row.Cells["MaSP"].Value);
+                mancc = Convert.ToString(row.Cells["MaNCC"].Value);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi" + ex.ToString());
+            }
+        }
+
+        private void btn_XoaHH_Click(object sender, EventArgs e)
+        {
+            if(masp != null)
+            {
+                bool kq = SanPham_NhaCCDAO.Instance.XoaNhaCungUng(mancc, masp);
+                if (kq)
+                {
+                    MessageBox.Show("Xóa thành công");
+                    mancc = null;
+                    masp = null;
+                    LoadDS();
+                }
+                else
+                {
+                    MessageBox.Show("Xóa thất bại");
                 }
             }
             else
             {
-                MessageBox.Show("Vui lòng chọn dòng cần xóa.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Vui lòng chọn dòng muốn xóa");
             }
         }
     }

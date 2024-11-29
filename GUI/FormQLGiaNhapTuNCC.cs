@@ -62,6 +62,9 @@ namespace DACN.GUI
                 mancc = Convert.ToString(row.Cells["MaNCC"].Value);
                 txt_GiaNhap.Text = Convert.ToString(row.Cells["GiaNhap"].Value);
                 dp_NgayCapNhat.Text = Convert.ToString(row.Cells["NgayCapNhat"].Value);
+                txtNCC.Text = Convert.ToString(row.Cells["TenNCC"].Value);
+                txtSP.Text = Convert.ToString(row.Cells["TenSP"].Value);
+                txt_GiaNhap.Focus();
             }
             catch (Exception ex)
             {
@@ -91,8 +94,14 @@ namespace DACN.GUI
         {
             string tenSP = string.IsNullOrEmpty(cb_SanPham.SelectedValue?.ToString()) ? null : cb_SanPham.SelectedValue.ToString();
             string tenNCC = string.IsNullOrEmpty(cb_NCC.SelectedValue?.ToString()) ? null : cb_NCC.SelectedValue.ToString();
+            
             List<SanPham_NhaCungCapDTO> listBG = BangBaoGiaTuNCCDAO.Instance.LocBangBaoGia(tenSP, tenNCC);
             dvg_BangGia.DataSource = listBG;
+        }
+
+        private void btn_Load_Click(object sender, EventArgs e)
+        {
+            LoadBaoGia();
         }
     }
 }

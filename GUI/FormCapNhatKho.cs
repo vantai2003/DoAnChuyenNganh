@@ -77,5 +77,18 @@ namespace DACN.GUI
             mapn = "";
             makho = "";
         }
+
+        private void btn_TaoPhieuTH_Click(object sender, EventArgs e)
+        {
+            if (mapn == null)
+            {
+                MessageBox.Show("Vui lòng chọn phiếu nhâp");
+            }
+            else
+            {
+                FormTaoPhieuTraHangNCC ftpth = new FormTaoPhieuTraHangNCC();
+                ftpth.ShowDialog();
+            }
+        }
     }
 }

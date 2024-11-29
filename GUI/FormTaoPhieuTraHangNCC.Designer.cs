@@ -36,14 +36,14 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormTaoPhieuTraHangNCC));
             this.uiPanel1 = new Sunny.UI.UIPanel();
             this.uiPanel4 = new Sunny.UI.UIPanel();
+            this.label2 = new System.Windows.Forms.Label();
             this.txt_TongTien = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.rtb_LyDo = new Sunny.UI.UIRichTextBox();
             this.btn_TaoPhieu = new System.Windows.Forms.Button();
             this.uiPanel3 = new Sunny.UI.UIPanel();
-            this.uiPanel2 = new Sunny.UI.UIPanel();
-            this.label2 = new System.Windows.Forms.Label();
             this.dvg_TaoPTH = new Sunny.UI.UIDataGridView();
+            this.uiPanel2 = new Sunny.UI.UIPanel();
             this.uiPanel1.SuspendLayout();
             this.uiPanel4.SuspendLayout();
             this.uiPanel3.SuspendLayout();
@@ -84,11 +84,20 @@
             this.uiPanel4.Text = null;
             this.uiPanel4.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(568, 40);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(94, 25);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Tổng tiền";
+            // 
             // txt_TongTien
             // 
             this.txt_TongTien.Location = new System.Drawing.Point(693, 37);
             this.txt_TongTien.Name = "txt_TongTien";
-            this.txt_TongTien.Size = new System.Drawing.Size(100, 30);
+            this.txt_TongTien.Size = new System.Drawing.Size(179, 30);
             this.txt_TongTien.TabIndex = 3;
             // 
             // label1
@@ -116,12 +125,15 @@
             // 
             // btn_TaoPhieu
             // 
-            this.btn_TaoPhieu.Location = new System.Drawing.Point(764, 76);
+            this.btn_TaoPhieu.BackColor = System.Drawing.Color.DarkOrange;
+            this.btn_TaoPhieu.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_TaoPhieu.ForeColor = System.Drawing.Color.White;
+            this.btn_TaoPhieu.Location = new System.Drawing.Point(693, 108);
             this.btn_TaoPhieu.Name = "btn_TaoPhieu";
             this.btn_TaoPhieu.Size = new System.Drawing.Size(214, 50);
             this.btn_TaoPhieu.TabIndex = 0;
             this.btn_TaoPhieu.Text = "Tạo phiếu";
-            this.btn_TaoPhieu.UseVisualStyleBackColor = true;
+            this.btn_TaoPhieu.UseVisualStyleBackColor = false;
             this.btn_TaoPhieu.Click += new System.EventHandler(this.btn_TaoPhieu_Click);
             // 
             // uiPanel3
@@ -138,34 +150,11 @@
             this.uiPanel3.Text = null;
             this.uiPanel3.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // uiPanel2
-            // 
-            this.uiPanel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.uiPanel2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.uiPanel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.uiPanel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.uiPanel2.Location = new System.Drawing.Point(0, 0);
-            this.uiPanel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.uiPanel2.MinimumSize = new System.Drawing.Size(1, 1);
-            this.uiPanel2.Name = "uiPanel2";
-            this.uiPanel2.Size = new System.Drawing.Size(1165, 87);
-            this.uiPanel2.TabIndex = 0;
-            this.uiPanel2.Text = "TẠO PHIẾU TRẢ HÀNG ";
-            this.uiPanel2.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(568, 40);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(94, 25);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Tổng tiền";
-            // 
             // dvg_TaoPTH
             // 
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
             this.dvg_TaoPTH.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dvg_TaoPTH.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dvg_TaoPTH.BackgroundColor = System.Drawing.Color.White;
             this.dvg_TaoPTH.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -211,6 +200,21 @@
             this.dvg_TaoPTH.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dvg_TaoPTH_CellClick_1);
             this.dvg_TaoPTH.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dvg_TaoPTH_CellContentClick);
             this.dvg_TaoPTH.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dvg_TaoPTH_CellEndEdit_1);
+            // 
+            // uiPanel2
+            // 
+            this.uiPanel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.uiPanel2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.uiPanel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.uiPanel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.uiPanel2.Location = new System.Drawing.Point(0, 0);
+            this.uiPanel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.uiPanel2.MinimumSize = new System.Drawing.Size(1, 1);
+            this.uiPanel2.Name = "uiPanel2";
+            this.uiPanel2.Size = new System.Drawing.Size(1165, 87);
+            this.uiPanel2.TabIndex = 0;
+            this.uiPanel2.Text = "TẠO PHIẾU TRẢ HÀNG ";
+            this.uiPanel2.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // FormTaoPhieuTraHangNCC
             // 

@@ -28,22 +28,34 @@ namespace DACN.GUI
 
             string maPhieuNhap = mapn;
 
+            //List<PhieuNhapHangDTO> phieuNH = PhieuNhapHangDAO.Instance.GetPhieuNhap();
+            //DataTable dtPhieuNhap = ConvertPhieuNhap(phieuNH);
+
+            DataTable dtNCC = PhieuNhapHangDAO.Instance.GetNhaCungCapInfo(maPhieuNhap);
+            decimal tongTien = Convert.ToDecimal(dtNCC.Rows[0]["TongTien"]);
+            string tienChu = ChuyenTienThanhChu.ToWords((long)tongTien);
 
 
             // Lấy dữ liệu chi tiết phiếu nhập
             List<CTPhieuNHDTO> chiTietPhieuNhap = PhieuNhapHangDAO.Instance.GetCTPhieuNH(maPhieuNhap);
             DataTable dtChiTiet = ConvertToDataTable(chiTietPhieuNhap);
 
+
+
             // Thiết lập nguồn dữ liệu cho báo cáo
             ReportDataSource reportDataSource = new ReportDataSource("DataSetPhieuNhap", dtChiTiet);
             ReportDataSource reportDataSource2 = new ReportDataSource("DataSetCTPhieuNhap", dtChiTiet);
+            ReportDataSource reportDataSource3 = new ReportDataSource("DataSetNhaCungCap", dtNCC);
             rp_PhieuNhap.LocalReport.DataSources.Clear();
             rp_PhieuNhap.LocalReport.DataSources.Add(reportDataSource);
             rp_PhieuNhap.LocalReport.DataSources.Add(reportDataSource2);
-
+            rp_PhieuNhap.LocalReport.DataSources.Add(reportDataSource3);
+            //
             // Thiết lập tham số cho mã phiếu nhập
-            ReportParameter[] reportParameters = new ReportParameter[1];
+            ReportParameter[] reportParameters = new ReportParameter[2];
             reportParameters[0] = new ReportParameter("MaPhieuNH", maPhieuNhap);
+            reportParameters[1] = new ReportParameter("TienBangChu", tienChu);
+       
 
             try
             {
@@ -59,11 +71,17 @@ namespace DACN.GUI
             this.rp_PhieuNhap.RefreshReport();
 
         }
-        //private DataTable ConvertPhieuNhap(List<PhieuNhapHangDTO> listPN)
-        //{
-        //    DataTable dtPN = new DataTable();
-        //    dtPN.Columns.Add("MaPhieuNH");
-        //}
+        private DataTable ConvertPhieuNhap(List<PhieuNhapHangDTO> listPN)
+        {
+            DataTable dtPN = new DataTable();
+            dtPN.Columns.Add("MaPhieuNH");
+            dtPN.Columns.Add("NgayDatHang");
+            foreach(var item in listPN)
+            {
+                dtPN.Rows.Add(item.MaPhieuNH, item.NgayDatHang);
+            }
+            return dtPN;
+        }
         private DataTable ConvertToDataTable(List<CTPhieuNHDTO> list)
         {
             DataTable dt = new DataTable();

@@ -256,9 +256,10 @@
             this.ClientSize = new System.Drawing.Size(1249, 831);
             this.Controls.Add(this.panel_body);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FormTrangChuAdmin";
-            this.Text = "FormTrangChuAdmin";
+            this.Text = "Admin";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.panel_body.ResumeLayout(false);

@@ -31,6 +31,8 @@ namespace DACN.GUI
             mancc = FormNhapHang.mancc;
             Load();
             manv = FormDangNhap.nhanvien;
+            this.Width = 1200;
+            this.Height = 900;
         }
         private void Load()
         {
@@ -48,6 +50,7 @@ namespace DACN.GUI
             dvg_SuaPN.Columns["MaNV"].HeaderText = "Mã nhân viên";
             dvg_SuaPN.Columns["SoLuong"].HeaderText = "Số lượng";
             dvg_SuaPN.Columns["DonGia"].HeaderText = "Đơn giá";
+            dvg_SuaPN.Columns["DonGia"].ReadOnly = true;
             dvg_SuaPN.Columns["NgayNhapHang"].HeaderText = "Ngày nhập hàng";
             dvg_SuaPN.Columns["ThanhTien"].HeaderText = "Thành tiền";
             dvg_SuaPN.Columns["TongTien"].Visible = false;
@@ -145,15 +148,23 @@ namespace DACN.GUI
         {
             if (dvg_SuaPN.SelectedCells.Count > 0) 
             {
-                int rowIndex = dvg_SuaPN.SelectedCells[0].RowIndex; 
-                DataGridViewRow row = dvg_SuaPN.Rows[rowIndex];
-                row.Cells["Dongia"].Value = txt_DonGia.Text;
-                row.Cells["Soluong"].Value = txt_SoLuong.Text;
-                row.Cells["Thanhtien"].Value = txt_ThanhTien.Text;
-                //đặt cờ bằng true
-                row.Cells["IsModified"].Value = true;
-                TinhTongThanhTien();
-                MessageBox.Show("Cập nhật thành công!");
+                if(KiemTraDuLieuDAO.KiemTraDuLieuSo(txt_DonGia.Text) !=true || KiemTraDuLieuDAO.KiemTraDuLieuSo(txt_SoLuong.Text)!=true) 
+                {
+                    MessageBox.Show("Dữ liệu không hợp lệ!");
+                }
+                else
+                {
+                    int rowIndex = dvg_SuaPN.SelectedCells[0].RowIndex;
+                    DataGridViewRow row = dvg_SuaPN.Rows[rowIndex];
+                    row.Cells["Dongia"].Value = txt_DonGia.Text;
+                    row.Cells["Soluong"].Value = txt_SoLuong.Text;
+                    row.Cells["Thanhtien"].Value = txt_ThanhTien.Text;
+                    //đặt cờ bằng true
+                    row.Cells["IsModified"].Value = true;
+                    TinhTongThanhTien();
+                    MessageBox.Show("Cập nhật thành công!");
+                }
+                
             }
             else
             {

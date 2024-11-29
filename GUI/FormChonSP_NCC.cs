@@ -21,7 +21,8 @@ namespace DACN.GUI
             InitializeComponent();
             mancc = FormCT_SanPham_NCC.mancc;
             LoadSP();
-            
+            this.Width = 1000;
+            this.Height = 700;
         }
         private void LoadSP()
         {
@@ -81,7 +82,11 @@ namespace DACN.GUI
                             string tenSP = row.Cells["TenSP"].Value.ToString();
                             string dvt = row.Cells["DVT"].Value.ToString();
                             string tenloaisp = row.Cells["TenLoai"].Value.ToString();
-                            fSanPhamNCC.AddProductToReceipt(maSP, tenSP, dvt, tenloaisp);
+                            bool isAdded = fSanPhamNCC.AddProductToReceipt(maSP, tenSP, dvt, tenloaisp);
+                            if (!isAdded)
+                            {
+                                MessageBox.Show($"Sản phẩm {maSP} đã tồn tại trong danh sách!");
+                            }
                         }
                         catch
                         {
