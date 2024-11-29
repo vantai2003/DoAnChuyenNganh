@@ -25,10 +25,9 @@ namespace DACN.DAO
         }
         private DataProvider()
         {
-
+        
         }
 
-        // Hàm thay đổi chuỗi kết nối
      
         public DataTable ExecuteQuery(string query, object[] parameter = null)
         {

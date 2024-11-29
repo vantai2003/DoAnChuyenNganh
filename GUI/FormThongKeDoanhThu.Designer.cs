@@ -39,6 +39,8 @@
             this.txtTienNhapHang = new System.Windows.Forms.TextBox();
             this.txtTienBanHang = new System.Windows.Forms.TextBox();
             this.txtTienLoi = new System.Windows.Forms.TextBox();
+            this.btnCTNhap = new System.Windows.Forms.Button();
+            this.btnCTBan = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -101,7 +103,7 @@
             // 
             this.uiLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.uiLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
-            this.uiLabel2.Location = new System.Drawing.Point(340, 243);
+            this.uiLabel2.Location = new System.Drawing.Point(143, 253);
             this.uiLabel2.Name = "uiLabel2";
             this.uiLabel2.Size = new System.Drawing.Size(235, 38);
             this.uiLabel2.TabIndex = 44;
@@ -111,7 +113,7 @@
             // 
             this.uiLabel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.uiLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
-            this.uiLabel3.Location = new System.Drawing.Point(340, 310);
+            this.uiLabel3.Location = new System.Drawing.Point(143, 367);
             this.uiLabel3.Name = "uiLabel3";
             this.uiLabel3.Size = new System.Drawing.Size(235, 38);
             this.uiLabel3.TabIndex = 45;
@@ -122,7 +124,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label2.Location = new System.Drawing.Point(340, 390);
+            this.label2.Location = new System.Drawing.Point(143, 486);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(101, 29);
             this.label2.TabIndex = 46;
@@ -130,30 +132,52 @@
             // 
             // txtTienNhapHang
             // 
-            this.txtTienNhapHang.Location = new System.Drawing.Point(683, 247);
+            this.txtTienNhapHang.Location = new System.Drawing.Point(486, 257);
             this.txtTienNhapHang.Name = "txtTienNhapHang";
             this.txtTienNhapHang.Size = new System.Drawing.Size(230, 26);
             this.txtTienNhapHang.TabIndex = 47;
             // 
             // txtTienBanHang
             // 
-            this.txtTienBanHang.Location = new System.Drawing.Point(683, 314);
+            this.txtTienBanHang.Location = new System.Drawing.Point(486, 371);
             this.txtTienBanHang.Name = "txtTienBanHang";
             this.txtTienBanHang.Size = new System.Drawing.Size(230, 26);
             this.txtTienBanHang.TabIndex = 48;
             // 
             // txtTienLoi
             // 
-            this.txtTienLoi.Location = new System.Drawing.Point(683, 394);
+            this.txtTienLoi.Location = new System.Drawing.Point(486, 490);
             this.txtTienLoi.Name = "txtTienLoi";
             this.txtTienLoi.Size = new System.Drawing.Size(230, 26);
             this.txtTienLoi.TabIndex = 49;
+            // 
+            // btnCTNhap
+            // 
+            this.btnCTNhap.Location = new System.Drawing.Point(791, 245);
+            this.btnCTNhap.Name = "btnCTNhap";
+            this.btnCTNhap.Size = new System.Drawing.Size(197, 46);
+            this.btnCTNhap.TabIndex = 50;
+            this.btnCTNhap.Text = "CT Phiếu Nhập";
+            this.btnCTNhap.UseVisualStyleBackColor = true;
+            this.btnCTNhap.Click += new System.EventHandler(this.btnCTNhap_Click);
+            // 
+            // btnCTBan
+            // 
+            this.btnCTBan.Location = new System.Drawing.Point(791, 360);
+            this.btnCTBan.Name = "btnCTBan";
+            this.btnCTBan.Size = new System.Drawing.Size(197, 45);
+            this.btnCTBan.TabIndex = 51;
+            this.btnCTBan.Text = "CT Phiếu bán";
+            this.btnCTBan.UseVisualStyleBackColor = true;
+            this.btnCTBan.Click += new System.EventHandler(this.btnCTBan_Click);
             // 
             // FormThongKeDoanhThu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1303, 634);
+            this.Controls.Add(this.btnCTBan);
+            this.Controls.Add(this.btnCTNhap);
             this.Controls.Add(this.txtTienLoi);
             this.Controls.Add(this.txtTienBanHang);
             this.Controls.Add(this.txtTienNhapHang);
@@ -184,5 +208,7 @@
         private System.Windows.Forms.TextBox txtTienNhapHang;
         private System.Windows.Forms.TextBox txtTienBanHang;
         private System.Windows.Forms.TextBox txtTienLoi;
+        private System.Windows.Forms.Button btnCTNhap;
+        private System.Windows.Forms.Button btnCTBan;
     }
 }

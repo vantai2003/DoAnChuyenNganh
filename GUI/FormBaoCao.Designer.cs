@@ -28,12 +28,35 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.dgvBaoCao = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBaoCao)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // dgvBaoCao
+            // 
+            this.dgvBaoCao.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvBaoCao.Location = new System.Drawing.Point(12, 29);
+            this.dgvBaoCao.Name = "dgvBaoCao";
+            this.dgvBaoCao.RowHeadersWidth = 62;
+            this.dgvBaoCao.RowTemplate.Height = 28;
+            this.dgvBaoCao.Size = new System.Drawing.Size(1138, 399);
+            this.dgvBaoCao.TabIndex = 2;
+            this.dgvBaoCao.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView3_CellContentClick);
+            // 
+            // FormBaoCao
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1162, 450);
+            this.Controls.Add(this.dgvBaoCao);
+            this.Name = "FormBaoCao";
             this.Text = "FormBaoCao";
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBaoCao)).EndInit();
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+        private System.Windows.Forms.DataGridView dgvBaoCao;
     }
 }

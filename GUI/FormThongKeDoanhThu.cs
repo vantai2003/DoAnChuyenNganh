@@ -66,6 +66,20 @@ namespace DACN.GUI
         {
             ReLoadThongKe();
         }
+
+        private void btnCTNhap_Click(object sender, EventArgs e)
+        {
+            FormBaoCao fbc = new FormBaoCao(dtTuNgay.Value,dtDenNgay.Value);
+            fbc.LoadBaoCaoPN();
+            fbc.Show();
+        }
+
+        private void btnCTBan_Click(object sender, EventArgs e)
+        {
+            FormBaoCao fbc = new FormBaoCao(dtTuNgay.Value, dtDenNgay.Value);
+            fbc.LoadBaoCaoHD();
+            fbc.Show();
+        }
     }
  }
 

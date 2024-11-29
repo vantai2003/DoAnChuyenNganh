@@ -49,14 +49,36 @@ namespace DACN.GUI
             dvg_LoaiSP.DataSource=listloaisp;
 
         }
+        static string GenerateNewCodeLHH()
+        {
+            List<LoaiSanPhamDTO> listLSP = new List<LoaiSanPhamDTO>();
+            listLSP = LoaiSanPhamDAO.Instance.GetLoaiSanPham();
+            if (listLSP.Count == 0)
+            {
+                return "LSP001";
+            }
 
+            // Lấy phần tử cuối cùng trong danh sách
+            string lastCode = listLSP.Last().MaLoai;
+
+            string prefix = lastCode.Substring(0, 2);
+            string numberPart = lastCode.Substring(2);
+
+            // Chuyển số thành số nguyên và tăng lên 1
+            int number = int.Parse(numberPart) + 1;
+
+            // Tạo mã mới
+            string newCode = $"{prefix}{number:D3}";
+
+            return newCode;
+        }
         private void btnThem_Click(object sender, EventArgs e)
         {
-            string maLoai = txt_MaLoaiSP.Text;
+            string maLoai = GenerateNewCodeLHH();
             string tenLoai = txt_TenLoaiSP.Text;
-            if (maLoai == "" || tenLoai == "")
+            if ( tenLoai == "")
             {
-                MessageBox.Show("Mã loại hoặc tên loại không được để trống");
+                MessageBox.Show("Tên loại không được để trống");
             }
             else
             {

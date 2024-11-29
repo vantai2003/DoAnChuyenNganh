@@ -383,6 +383,9 @@
     <EmbeddedResource Include="GUI\FormBanHang.resx">
       <DependentUpon>FormBanHang.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FormBaoCao.resx">
+      <DependentUpon>FormBaoCao.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\FormChonKH.resx">
       <DependentUpon>FormChonKH.cs</DependentUpon>
     </EmbeddedResource>
@@ -574,6 +577,7 @@
     <None Include="Resources\employee.png" />
     <None Include="Resources\pricing.png" />
     <None Include="Resources\supply-chain.png" />
+    <None Include="Resources\delivery-man.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

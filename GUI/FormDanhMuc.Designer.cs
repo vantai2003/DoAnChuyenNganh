@@ -30,13 +30,14 @@ namespace DACN.GUI
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tab_DanhMuc = new System.Windows.Forms.TabControl();
             this.tab_NhaCC = new System.Windows.Forms.TabPage();
+            this.label15 = new System.Windows.Forms.Label();
             this.txt_EmailNCC = new Sunny.UI.UITextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.txtThanhPho = new Sunny.UI.UITextBox();
@@ -63,6 +64,7 @@ namespace DACN.GUI
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.dgv_NCC = new Sunny.UI.UIDataGridView();
             this.tab_KhachHang = new System.Windows.Forms.TabPage();
+            this.label16 = new System.Windows.Forms.Label();
             this.cbbLoaiKH = new Sunny.UI.UIComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -88,6 +90,7 @@ namespace DACN.GUI
             this.dtpNgayTao = new System.Windows.Forms.DateTimePicker();
             this.dgv_KH = new System.Windows.Forms.DataGridView();
             this.tab_LoaiKH = new System.Windows.Forms.TabPage();
+            this.label17 = new System.Windows.Forms.Label();
             this.txt_MucChiTieuTD = new Sunny.UI.UITextBox();
             this.txt_MucChiTieuToiThieu = new Sunny.UI.UITextBox();
             this.lb_muccttd = new System.Windows.Forms.Label();
@@ -103,12 +106,9 @@ namespace DACN.GUI
             this.btn_XoaLoaiKH = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator11 = new System.Windows.Forms.ToolStripSeparator();
             this.btn_LuuLoaiKH = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
             this.lb_MaLoai = new System.Windows.Forms.Label();
             this.dgv_LoaiKhachHang = new System.Windows.Forms.DataGridView();
-            this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
             this.tab_DanhMuc.SuspendLayout();
             this.tab_NhaCC.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -159,10 +159,23 @@ namespace DACN.GUI
             this.tab_NhaCC.Location = new System.Drawing.Point(4, 31);
             this.tab_NhaCC.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tab_NhaCC.Name = "tab_NhaCC";
-            this.tab_NhaCC.Size = new System.Drawing.Size(1323, 878);
+            this.tab_NhaCC.Size = new System.Drawing.Size(1519, 787);
             this.tab_NhaCC.TabIndex = 2;
             this.tab_NhaCC.Text = "Nhà Cung Cấp";
             this.tab_NhaCC.UseVisualStyleBackColor = true;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.BackColor = System.Drawing.Color.White;
+            this.label15.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.label15.Location = new System.Drawing.Point(374, 71);
+            this.label15.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(624, 56);
+            this.label15.TabIndex = 103;
+            this.label15.Text = "QUẢN LÝ NHÀ CUNG CẤP";
             // 
             // txt_EmailNCC
             // 
@@ -370,7 +383,7 @@ namespace DACN.GUI
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.toolStrip1.Size = new System.Drawing.Size(1323, 40);
+            this.toolStrip1.Size = new System.Drawing.Size(1519, 40);
             this.toolStrip1.TabIndex = 35;
             this.toolStrip1.Text = "tsNCC";
             // 
@@ -444,46 +457,47 @@ namespace DACN.GUI
             // 
             // dgv_NCC
             // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
-            this.dgv_NCC.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
+            this.dgv_NCC.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
+            this.dgv_NCC.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_NCC.BackgroundColor = System.Drawing.Color.White;
             this.dgv_NCC.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_NCC.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_NCC.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dgv_NCC.ColumnHeadersHeight = 32;
             this.dgv_NCC.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_NCC.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_NCC.DefaultCellStyle = dataGridViewCellStyle8;
             this.dgv_NCC.EnableHeadersVisualStyles = false;
             this.dgv_NCC.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.dgv_NCC.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
             this.dgv_NCC.Location = new System.Drawing.Point(0, 418);
             this.dgv_NCC.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgv_NCC.Name = "dgv_NCC";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_NCC.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_NCC.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dgv_NCC.RowHeadersWidth = 62;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.dgv_NCC.RowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.dgv_NCC.RowsDefaultCellStyle = dataGridViewCellStyle10;
             this.dgv_NCC.RowTemplate.Height = 28;
             this.dgv_NCC.SelectedIndex = -1;
             this.dgv_NCC.Size = new System.Drawing.Size(1340, 460);
@@ -517,6 +531,19 @@ namespace DACN.GUI
             this.tab_KhachHang.TabIndex = 3;
             this.tab_KhachHang.Text = "Khách Hàng";
             this.tab_KhachHang.UseVisualStyleBackColor = true;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.BackColor = System.Drawing.Color.White;
+            this.label16.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.label16.Location = new System.Drawing.Point(374, 66);
+            this.label16.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(581, 56);
+            this.label16.TabIndex = 104;
+            this.label16.Text = "QUẢN LÝ KHÁCH HÀNG";
             // 
             // cbbLoaiKH
             // 
@@ -748,6 +775,7 @@ namespace DACN.GUI
             // 
             // dgv_KH
             // 
+            this.dgv_KH.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_KH.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_KH.Location = new System.Drawing.Point(9, 362);
             this.dgv_KH.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -779,6 +807,19 @@ namespace DACN.GUI
             this.tab_LoaiKH.Text = "Loại khách hàng";
             this.tab_LoaiKH.UseVisualStyleBackColor = true;
             // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.BackColor = System.Drawing.Color.White;
+            this.label17.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.label17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.label17.Location = new System.Drawing.Point(307, 59);
+            this.label17.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(706, 56);
+            this.label17.TabIndex = 105;
+            this.label17.Text = "QUẢN LÝ LOẠI KHÁCH HÀNG";
+            // 
             // txt_MucChiTieuTD
             // 
             this.txt_MucChiTieuTD.Cursor = System.Windows.Forms.Cursors.IBeam;
@@ -787,7 +828,7 @@ namespace DACN.GUI
             this.txt_MucChiTieuTD.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.txt_MucChiTieuTD.MinimumSize = new System.Drawing.Size(1, 20);
             this.txt_MucChiTieuTD.Name = "txt_MucChiTieuTD";
-            this.txt_MucChiTieuTD.Padding = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txt_MucChiTieuTD.Padding = new System.Windows.Forms.Padding(6);
             this.txt_MucChiTieuTD.ShowText = false;
             this.txt_MucChiTieuTD.Size = new System.Drawing.Size(307, 36);
             this.txt_MucChiTieuTD.TabIndex = 25;
@@ -802,7 +843,7 @@ namespace DACN.GUI
             this.txt_MucChiTieuToiThieu.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.txt_MucChiTieuToiThieu.MinimumSize = new System.Drawing.Size(1, 20);
             this.txt_MucChiTieuToiThieu.Name = "txt_MucChiTieuToiThieu";
-            this.txt_MucChiTieuToiThieu.Padding = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txt_MucChiTieuToiThieu.Padding = new System.Windows.Forms.Padding(6);
             this.txt_MucChiTieuToiThieu.ShowText = false;
             this.txt_MucChiTieuToiThieu.Size = new System.Drawing.Size(283, 36);
             this.txt_MucChiTieuToiThieu.TabIndex = 24;
@@ -837,7 +878,7 @@ namespace DACN.GUI
             this.txt_TenLoaiKH.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.txt_TenLoaiKH.MinimumSize = new System.Drawing.Size(1, 20);
             this.txt_TenLoaiKH.Name = "txt_TenLoaiKH";
-            this.txt_TenLoaiKH.Padding = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txt_TenLoaiKH.Padding = new System.Windows.Forms.Padding(6);
             this.txt_TenLoaiKH.ShowText = false;
             this.txt_TenLoaiKH.Size = new System.Drawing.Size(359, 36);
             this.txt_TenLoaiKH.TabIndex = 21;
@@ -955,6 +996,11 @@ namespace DACN.GUI
             this.btn_LuuLoaiKH.Text = "Lưu";
             this.btn_LuuLoaiKH.Click += new System.EventHandler(this.btn_LuuLoaiKH_Click);
             // 
+            // toolStripSeparator9
+            // 
+            this.toolStripSeparator9.Name = "toolStripSeparator9";
+            this.toolStripSeparator9.Size = new System.Drawing.Size(6, 40);
+            // 
             // lb_MaLoai
             // 
             this.lb_MaLoai.AutoSize = true;
@@ -967,6 +1013,7 @@ namespace DACN.GUI
             // 
             // dgv_LoaiKhachHang
             // 
+            this.dgv_LoaiKhachHang.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgv_LoaiKhachHang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_LoaiKhachHang.Location = new System.Drawing.Point(12, 289);
             this.dgv_LoaiKhachHang.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -976,50 +1023,6 @@ namespace DACN.GUI
             this.dgv_LoaiKhachHang.Size = new System.Drawing.Size(1504, 502);
             this.dgv_LoaiKhachHang.TabIndex = 15;
             this.dgv_LoaiKhachHang.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_LoaiKhachHang_CellClick);
-            // 
-            // toolStripSeparator9
-            // 
-            this.toolStripSeparator9.Name = "toolStripSeparator9";
-            this.toolStripSeparator9.Size = new System.Drawing.Size(6, 40);
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.BackColor = System.Drawing.Color.White;
-            this.label15.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
-            this.label15.Location = new System.Drawing.Point(374, 71);
-            this.label15.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(624, 56);
-            this.label15.TabIndex = 103;
-            this.label15.Text = "QUẢN LÝ NHÀ CUNG CẤP";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.BackColor = System.Drawing.Color.White;
-            this.label16.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
-            this.label16.Location = new System.Drawing.Point(374, 66);
-            this.label16.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(581, 56);
-            this.label16.TabIndex = 104;
-            this.label16.Text = "QUẢN LÝ KHÁCH HÀNG";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.BackColor = System.Drawing.Color.White;
-            this.label17.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
-            this.label17.Location = new System.Drawing.Point(307, 59);
-            this.label17.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(706, 56);
-            this.label17.TabIndex = 105;
-            this.label17.Text = "QUẢN LÝ LOẠI KHÁCH HÀNG";
             // 
             // FormDanhMuc
             // 

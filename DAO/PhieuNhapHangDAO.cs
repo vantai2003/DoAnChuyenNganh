@@ -107,6 +107,7 @@ namespace DACN.DAO
             }
             return listPN;
         }
+
         public int PheDuyetPN(string mapn)
         {
             string query = "SP_PheDuyetPN @MaPN";

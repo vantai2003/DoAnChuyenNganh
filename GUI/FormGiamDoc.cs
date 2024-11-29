@@ -66,5 +66,10 @@ namespace DACN.GUI
         {
             OpenChildForm(new FormDoiMatKhau());
         }
+
+        private void btn_ThongKe_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new FormThongKeDoanhThu());
+        }
     }
 }

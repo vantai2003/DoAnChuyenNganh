@@ -53,12 +53,12 @@
             this.uiPanel2.Controls.Add(this.uiLabel1);
             this.uiPanel2.FillColor = System.Drawing.Color.Transparent;
             this.uiPanel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.uiPanel2.Location = new System.Drawing.Point(333, 3);
-            this.uiPanel2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.uiPanel2.MinimumSize = new System.Drawing.Size(1, 1);
+            this.uiPanel2.Location = new System.Drawing.Point(500, 5);
+            this.uiPanel2.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.uiPanel2.MinimumSize = new System.Drawing.Size(2, 2);
             this.uiPanel2.Name = "uiPanel2";
             this.uiPanel2.RectColor = System.Drawing.Color.White;
-            this.uiPanel2.Size = new System.Drawing.Size(500, 438);
+            this.uiPanel2.Size = new System.Drawing.Size(750, 674);
             this.uiPanel2.TabIndex = 1;
             this.uiPanel2.Text = null;
             this.uiPanel2.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
@@ -68,24 +68,24 @@
             this.label3.ForeColor = System.Drawing.Color.Black;
             this.label3.Image = global::DACN.Properties.Resources.password_login;
             this.label3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label3.Location = new System.Drawing.Point(127, 239);
+            this.label3.Location = new System.Drawing.Point(106, 239);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(134, 32);
+            this.label3.Size = new System.Drawing.Size(131, 32);
             this.label3.TabIndex = 7;
             this.label3.Text = "Mật khẩu";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label2
             // 
             this.label2.ForeColor = System.Drawing.Color.Black;
             this.label2.Image = global::DACN.Properties.Resources.account_login;
             this.label2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label2.Location = new System.Drawing.Point(127, 118);
+            this.label2.Location = new System.Drawing.Point(106, 120);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(179, 45);
+            this.label2.Size = new System.Drawing.Size(158, 30);
             this.label2.TabIndex = 6;
             this.label2.Text = "Tên tài khoản";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btn_Login
             // 
@@ -158,24 +158,24 @@
             this.uiPanel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("uiPanel1.BackgroundImage")));
             this.uiPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.uiPanel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.uiPanel1.Location = new System.Drawing.Point(10, 3);
-            this.uiPanel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.uiPanel1.MinimumSize = new System.Drawing.Size(1, 1);
+            this.uiPanel1.Location = new System.Drawing.Point(15, 5);
+            this.uiPanel1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.uiPanel1.MinimumSize = new System.Drawing.Size(2, 2);
             this.uiPanel1.Name = "uiPanel1";
             this.uiPanel1.RectColor = System.Drawing.Color.White;
-            this.uiPanel1.Size = new System.Drawing.Size(330, 438);
+            this.uiPanel1.Size = new System.Drawing.Size(495, 674);
             this.uiPanel1.TabIndex = 0;
             this.uiPanel1.Text = null;
             this.uiPanel1.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // FormDangNhap
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(835, 441);
+            this.ClientSize = new System.Drawing.Size(1252, 678);
             this.Controls.Add(this.uiPanel2);
             this.Controls.Add(this.uiPanel1);
-            this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.Name = "FormDangNhap";
             this.Text = "FormDangNhap";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormDangNhap_FormClosing);

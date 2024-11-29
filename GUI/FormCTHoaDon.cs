@@ -20,8 +20,6 @@ namespace DACN.GUI
         {
             InitializeComponent();
             LoadCTHDTheoMHD(mahd);
-      
-
 
         }
         public string GetTongTien()
@@ -48,7 +46,11 @@ namespace DACN.GUI
             dgvCTHD.DataSource = listHoaDon;
             UpdateTongTien(dgvCTHD);
         }
-
+        public void LoadCTPN(string mapn)
+        {
+            List<CTPhieuNHDTO> listctpn = PhieuNhapHangDAO.Instance.GetCTPhieuNH(mapn);
+            dgvCTHD.DataSource = listctpn;
+        }
         private void txtTongTien_TextChanged(object sender, EventArgs e)
         {
 

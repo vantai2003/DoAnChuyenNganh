@@ -53,5 +53,71 @@ namespace DACN.DAO
             }
             return tongtien - thanhtoan;
         }
+        public decimal GetTienTraHangNCC(DateTime tungay, DateTime denngay)
+        {
+            string tungay1 = tungay.ToString("yyyy-MM-dd");
+            string denngay1 = denngay.ToString("yyyy-MM-dd");
+            decimal tongtien = 0;
+            decimal thanhtoan = 0;
+            string Query = "SP_GetTienTraHangNCC @NgayTu , @NgayDen";
+            DataTable data = DataProvider.Instance.ExecuteQuery(Query, new object[] { tungay, denngay });
+            if (data.Rows.Count > 0 && data.Rows[0][0] != DBNull.Value)
+            {
+                tongtien = Convert.ToDecimal(data.Rows[0][0]);
+
+            }
+            if (data.Rows[0][1] != DBNull.Value)
+            {
+                thanhtoan = Convert.ToDecimal(data.Rows[0][1]);
+            }
+            return tongtien - thanhtoan;
+        }
+        public decimal GetTienTraHangKH(DateTime tungay, DateTime denngay)
+        {
+            string tungay1 = tungay.ToString("yyyy-MM-dd");
+            string denngay1 = denngay.ToString("yyyy-MM-dd");
+            decimal tongtien = 0;
+            decimal thanhtoan = 0;
+            string Query = "SP_GetTienTraHangKH @NgayTu , @NgayDen";
+            DataTable data = DataProvider.Instance.ExecuteQuery(Query, new object[] { tungay, denngay });
+            if (data.Rows.Count > 0 && data.Rows[0][0] != DBNull.Value)
+            {
+                tongtien = Convert.ToDecimal(data.Rows[0][0]);
+
+            }
+            if (data.Rows[0][1] != DBNull.Value)
+            {
+                thanhtoan = Convert.ToDecimal(data.Rows[0][1]);
+            }
+            return tongtien - thanhtoan;
+        }
+        public List<PhieuNhapHangDTO> GetPhieuNhapStatusByTime(DateTime tungay, DateTime denngay)
+        {
+            List<PhieuNhapHangDTO> listPN = new List<PhieuNhapHangDTO>();
+            string tungay1 = tungay.ToString("yyyy-MM-dd");
+            string denngay1 = denngay.ToString("yyyy-MM-dd");
+            string Query = "SP_GetListPNStatusByTime @NgayTu , @NgayDen";
+            DataTable data = DataProvider.Instance.ExecuteQuery(Query, new object[] { tungay, denngay });
+            foreach (DataRow row in data.Rows)
+            {
+                PhieuNhapHangDTO phieunhap = new PhieuNhapHangDTO(row);
+                listPN.Add(phieunhap);
+            }
+            return listPN;
+        }
+        public List<PhieuNhapHangDTO> GetHoaDonStatusByTime(DateTime tungay, DateTime denngay)
+        {
+            List<PhieuNhapHangDTO> listPN = new List<PhieuNhapHangDTO>();
+            string tungay1 = tungay.ToString("yyyy-MM-dd");
+            string denngay1 = denngay.ToString("yyyy-MM-dd");
+            string Query = "SP_GetListHDStatusByTime @NgayTu , @NgayDen";
+            DataTable data = DataProvider.Instance.ExecuteQuery(Query, new object[] { tungay, denngay });
+            foreach (DataRow row in data.Rows)
+            {
+                PhieuNhapHangDTO phieunhap = new PhieuNhapHangDTO(row);
+                listPN.Add(phieunhap);
+            }
+            return listPN;
+        }
     }
 }

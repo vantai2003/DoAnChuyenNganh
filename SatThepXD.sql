@@ -235,82 +235,7 @@ GO
 INSERT INTO NguoiDung(TenDN, MatKhau, NgayTao ,QuyenID, MaNV) VALUES('admin', CONVERT(VARCHAR(32),HASHBYTES('MD5', 'admin@123'),2),GETDATE() ,0, 'NV001')
 
 GO 
--------------------------tạo role, người dùng------------------------------------------------
--- Tạo role Admin
-CREATE ROLE Admin_Role;
--- Tạo role Giám đốc
-CREATE ROLE GiamDoc_Role;
--- Tạo role Kế toán 
-CREATE ROLE KeToan_Role;
--- Tạo role Nhân viên bán hàng
-CREATE ROLE NVBanHang_Role;
--- Tạo role Nhân viên giao hàng
-CREATE ROLE NVGiaoHang_Role;
--- Tạo role Nhân viên kho
-CREATE ROLE NVKho_Role;
-drop role Admin_Role
-drop user [admin]
--- Admin 
-GRANT SELECT, INSERT, UPDATE, DELETE ON [LoaiSanPham] TO Admin_Role;
-GRANT SELECT, INSERT, UPDATE, DELETE ON [SanPham] TO Admin_Role;
-GRANT SELECT, INSERT, UPDATE, DELETE ON [NhanVien] TO Admin_Role;
-GRANT SELECT, INSERT, UPDATE, DELETE ON [NguoiDung] TO Admin_Role;
-GRANT SELECT, INSERT, UPDATE, DELETE ON [Kho] TO Admin_Role;
-GRANT SELECT, INSERT, UPDATE, DELETE ON [Kho_SanPham] TO Admin_Role;
 
-GRANT BACKUP DATABASE TO Admin_Role;
-GRANT RESTORE DATABASE TO Admin_Role;
-
-	-- Cấp quyền cơ bản cho Admin Role
-
-GRANT CREATE PROCEDURE TO Admin_Role;
-GRANT EXECUTE TO Admin_Role;
-GRANT ALTER ON SCHEMA::dbo TO Admin_Role; 
-GRANT CONTROL ON DATABASE::QL_SatThepXD TO Admin_Role; 
-GRANT ALTER ANY USER TO Admin_Role;
-
-
-CREATE LOGIN [admin] WITH PASSWORD = 'E6E061838856BF47E1DE730719FB2609';
-GO
-CREATE USER [admin] FOR LOGIN [admin];
-GO
-ALTER ROLE Admin_Role ADD MEMBER [admin];
-GO
-
-
--- Giám Đốc
-GRANT SELECT, INSERT, UPDATE, DELETE ON [PhieuNhapHang] TO GiamDoc_Role;
-GRANT SELECT, INSERT, UPDATE, DELETE ON [KhuyenMai] TO GiamDoc_Role;
-GRANT SELECT, INSERT, UPDATE, DELETE ON [NhanVien] TO GiamDoc_Role;
-GRANT SELECT, INSERT, UPDATE, DELETE ON [CTPhieuNhapHang] TO GiamDoc_Role;
-GRANT SELECT, INSERT, UPDATE, DELETE ON [Kho] TO GiamDoc_Role;
-GRANT SELECT, INSERT, UPDATE, DELETE ON [Kho_SanPham] TO GiamDoc_Role;
-GRANT SELECT, INSERT, UPDATE, DELETE ON [NhaCungCap] TO GiamDoc_Role;
--- Cấp quyền cơ bản cho GiamDoc Role
-GRANT CREATE PROCEDURE TO GiamDoc_Role;
-GRANT EXECUTE TO GiamDoc_Role;
-GRANT ALTER TO GiamDoc_Role;
-GRANT CONTROL TO GiamDoc_Role
-
-
----------------xem quyền đã câp----------------------
-SELECT 
-    dp.name AS UserName,
-    dp.type_desc AS UserType,
-    o.name AS ObjectName,
-    p.permission_name AS Permission,
-    p.state_desc AS PermissionState
-FROM 
-    sys.database_permissions p
-JOIN 
-    sys.objects o ON p.major_id = o.object_id
-JOIN 
-    sys.database_principals dp ON p.grantee_principal_id = dp.principal_id
-WHERE 
-    dp.name = 'Admin_Role';
-
-
--- Giám đốc có quyền xem tất cả và chỉnh sửa một số bảng
 
 ------------------------- Stored Procedures Login-----------------------
 GO
@@ -319,60 +244,6 @@ CREATE PROC SP_Login
 AS 
 BEGIN
 	SELECT * FROM NguoiDung WHERE TenDN = @TenDN AND MatKhau = @MatKhau
-END
-GO
-------------
-CREATE PROC SP_CreateNewUser
-    @TenDN varchar(100), 
-    @MatKhau varchar(50),
-    @QuyenID int
-AS 
-BEGIN
-    -- Check for existing username
-    IF EXISTS (SELECT 1 FROM Users WHERE TenDN = @TenDN)
-    BEGIN
-        RAISERROR('Username already exists.', 16, 1)
-        RETURN
-    END
-
-    -- Input validation
-    IF @QuyenID < 0 OR @QuyenID > 5
-    BEGIN
-        RAISERROR('Invalid QuyenID.', 16, 1)
-        RETURN
-    END
-
-    -- Begin transaction for atomicity
-    BEGIN TRANSACTION
-    
-    BEGIN TRY
-        
-        INSERT INTO Users (TenDN, MatKhau) VALUES (@TenDN, @MatKhau);
-
-        -- Assign the role based on QuyenID
-        DECLARE @RoleName VARCHAR(50);
-        SET @RoleName = CASE @QuyenID
-                            WHEN 0 THEN 'Admin_Role'
-                            WHEN 1 THEN 'GiamDoc_Role'
-                            WHEN 2 THEN 'KeToan_Role'
-                            WHEN 3 THEN 'NVBanHang_Role'
-                            WHEN 4 THEN 'NVGiaoHang_Role'
-                            WHEN 5 THEN 'NVKho_Role'
-                            ELSE NULL  -- Should not reach here due to earlier check
-                        END;
-
-        IF @RoleName IS NOT NULL
-        BEGIN
-            EXEC sp_addrolemember @RoleName, @TenDN;
-        END
-
-        COMMIT TRANSACTION
-    END TRY
-    BEGIN CATCH
-        IF @@TRANCOUNT > 0
-            ROLLBACK TRANSACTION
-        THROW;
-    END CATCH
 END
 GO
 
@@ -2261,3 +2132,60 @@ AS BEGIN
 	INNER JOIN SanPham sp ON ct.MaSP = sp.MaSP
     WHERE pt.MaHD = @MaHD
 END
+-----------------------thu tuc lay tien phieu nhap
+DROP PROC SP_GetTienNhapHang 
+CREATE PROC SP_GetTienNhapHang 
+@NgayTu DATE, @NgayDen DATE
+AS BEGIN
+select 
+SUM(Tongtien) from PhieuNhapHang 
+where NgayDatHang >= @NgayTu and NgayDatHang <= @NgayDen
+AND TrangThai = N'Đã phê duyệt'
+end;
+-----------------------thu tuc lay tien phieu nhap
+DROP PROC SP_GetTienBanHang 
+CREATE PROC SP_GetTienBanHang 
+@NgayTu DATE, @NgayDen DATE
+AS BEGIN
+select 
+SUM(TongTien), SUM(ThanhToan) from HoaDon 
+where NgayDatHang >= @NgayTu and NgayDatHang <= @NgayDen
+AND TrangThai = N'Đã giao'
+end;
+
+-----------------------thu tuc lay tien tra hang NCC
+CREATE PROC SP_GetTienTraHangNCC
+@NgayTu DATE, @NgayDen DATE
+AS BEGIN
+select 
+SUM(TongTienNhan) from PhieuTraHangNCC 
+where NgayTao >= @NgayTu and NgayTao <= @NgayDen
+end;
+-----------------------thu tuc lay tien tra hang KH
+
+CREATE PROC SP_GetTienTraHangKH
+@NgayTu DATE, @NgayDen DATE
+AS BEGIN
+select 
+SUM(TongTienNhan) from PhieuTraHangNCC 
+where NgayTao >= @NgayTu and NgayTao <= @NgayDen
+end;
+-----------------------thu tuc getListPN theo TG
+
+CREATE PROC SP_GetListPNStatusByTime
+@NgayTu DATE, @NgayDen DATE
+AS BEGIN
+select 
+* from PhieuNhapHang 
+where NgayDatHang >= @NgayTu and NgayDatHang <= @NgayDen
+AND TrangThai = N'Đã phê duyệt'
+end;
+-----------------------thu tuc getListHD theo TG
+CREATE PROC SP_GetListHDStatusByTime
+@NgayTu DATE, @NgayDen DATE
+AS BEGIN
+select 
+* from PhieuNhapHang 
+where NgayDatHang >= @NgayTu and NgayDatHang <= @NgayDen
+AND TrangThai = N'Đã giao'
+end;

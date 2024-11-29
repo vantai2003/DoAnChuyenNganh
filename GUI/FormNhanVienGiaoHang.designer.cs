@@ -32,16 +32,16 @@ namespace DACN.GUI
             this.panel_right = new System.Windows.Forms.Panel();
             this.panel_body = new System.Windows.Forms.Panel();
             this.pane_left = new System.Windows.Forms.Panel();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pn0 = new System.Windows.Forms.Panel();
             this.lbUserName = new System.Windows.Forms.Label();
+            this.btn_QLDonhang = new Sunny.UI.UIButton();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btn_DangXuat = new System.Windows.Forms.Button();
-            this.btn_QLDonhang = new Sunny.UI.UIButton();
             this.panel_body.SuspendLayout();
             this.pane_left.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.pn0.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -82,20 +82,6 @@ namespace DACN.GUI
             this.pane_left.Size = new System.Drawing.Size(261, 541);
             this.pane_left.TabIndex = 0;
             // 
-            // pictureBox3
-            // 
-            this.pictureBox3.BackColor = System.Drawing.Color.Teal;
-            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox3.Image = global::DACN.Properties.Resources.order1;
-            this.pictureBox3.Location = new System.Drawing.Point(11, 165);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(29, 25);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox3.TabIndex = 10;
-            this.pictureBox3.TabStop = false;
-            // 
             // pn0
             // 
             this.pn0.BackColor = System.Drawing.Color.Teal;
@@ -103,16 +89,16 @@ namespace DACN.GUI
             this.pn0.Controls.Add(this.pictureBox1);
             this.pn0.Dock = System.Windows.Forms.DockStyle.Top;
             this.pn0.Location = new System.Drawing.Point(0, 0);
-            this.pn0.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pn0.Margin = new System.Windows.Forms.Padding(2);
             this.pn0.Name = "pn0";
-            this.pn0.Size = new System.Drawing.Size(261, 140);
+            this.pn0.Size = new System.Drawing.Size(261, 161);
             this.pn0.TabIndex = 9;
             // 
             // lbUserName
             // 
             this.lbUserName.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbUserName.ForeColor = System.Drawing.Color.White;
-            this.lbUserName.Location = new System.Drawing.Point(22, 99);
+            this.lbUserName.Location = new System.Drawing.Point(25, 122);
             this.lbUserName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbUserName.Name = "lbUserName";
             this.lbUserName.Size = new System.Drawing.Size(199, 29);
@@ -120,15 +106,47 @@ namespace DACN.GUI
             this.lbUserName.Text = "Nhân viên Giao Hàng";
             this.lbUserName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // btn_QLDonhang
+            // 
+            this.btn_QLDonhang.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.btn_QLDonhang.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_QLDonhang.FillColor = System.Drawing.Color.Teal;
+            this.btn_QLDonhang.FillColor2 = System.Drawing.Color.Teal;
+            this.btn_QLDonhang.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.btn_QLDonhang.Location = new System.Drawing.Point(2, 195);
+            this.btn_QLDonhang.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.btn_QLDonhang.MinimumSize = new System.Drawing.Size(1, 1);
+            this.btn_QLDonhang.Name = "btn_QLDonhang";
+            this.btn_QLDonhang.RectColor = System.Drawing.Color.Teal;
+            this.btn_QLDonhang.Size = new System.Drawing.Size(261, 71);
+            this.btn_QLDonhang.TabIndex = 4;
+            this.btn_QLDonhang.Text = "Quản lý đơn hàng";
+            this.btn_QLDonhang.TipsFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.btn_QLDonhang.Click += new System.EventHandler(this.btn_QLDonHang_Click);
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackColor = System.Drawing.Color.Teal;
+            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox3.Image = global::DACN.Properties.Resources.order1;
+            this.pictureBox3.Location = new System.Drawing.Point(11, 216);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(29, 25);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox3.TabIndex = 10;
+            this.pictureBox3.TabStop = false;
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox1.Image = global::DACN.Properties.Resources.Image_NV;
-            this.pictureBox1.Location = new System.Drawing.Point(67, -22);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Image = global::DACN.Properties.Resources.delivery_man;
+            this.pictureBox1.Location = new System.Drawing.Point(73, 11);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(106, 150);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox1.Size = new System.Drawing.Size(101, 94);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
@@ -147,24 +165,6 @@ namespace DACN.GUI
             this.btn_DangXuat.UseVisualStyleBackColor = true;
             this.btn_DangXuat.Click += new System.EventHandler(this.btn_DangXuat_Click);
             // 
-            // btn_QLDonhang
-            // 
-            this.btn_QLDonhang.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.btn_QLDonhang.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_QLDonhang.FillColor = System.Drawing.Color.Teal;
-            this.btn_QLDonhang.FillColor2 = System.Drawing.Color.Teal;
-            this.btn_QLDonhang.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btn_QLDonhang.Location = new System.Drawing.Point(2, 145);
-            this.btn_QLDonhang.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
-            this.btn_QLDonhang.MinimumSize = new System.Drawing.Size(1, 1);
-            this.btn_QLDonhang.Name = "btn_QLDonhang";
-            this.btn_QLDonhang.RectColor = System.Drawing.Color.Teal;
-            this.btn_QLDonhang.Size = new System.Drawing.Size(261, 71);
-            this.btn_QLDonhang.TabIndex = 4;
-            this.btn_QLDonhang.Text = "Quản lý đơn hàng";
-            this.btn_QLDonhang.TipsFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.btn_QLDonhang.Click += new System.EventHandler(this.btn_QLDonHang_Click);
-            // 
             // FormNhanVienGiaoHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -177,8 +177,8 @@ namespace DACN.GUI
             this.Load += new System.EventHandler(this.FormNhanVienGiaoHang_Load);
             this.panel_body.ResumeLayout(false);
             this.pane_left.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.pn0.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 

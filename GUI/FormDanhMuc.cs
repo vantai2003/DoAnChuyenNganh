@@ -290,15 +290,25 @@ namespace DACN.GUI
 
             return true;
         }
+
         private void LoadNCC()
         {
-            listncc = NhaCungCapDAO.Instance.GetNhaCungCap();
+
+            List<NhaCungCapDTO> listncc = NhaCungCapDAO.Instance.GetNhaCungCap();
             dgv_NCC.DataSource = listncc;
+            dgv_NCC.Columns["MaNCC"].HeaderText = "Mã NCC";
+            dgv_NCC.Columns["TenNCC"].HeaderText = "Tên NCC";
+            dgv_NCC.Columns["DiaChi"].HeaderText = "Địa chỉ";
+            dgv_NCC.Columns["SDT"].HeaderText = "Số điện thoại";
+            dgv_NCC.Columns["Email"].HeaderText = "Email";
+            dgv_NCC.Columns["ThanhPho"].HeaderText = "Thành phố";
+            dgv_NCC.Columns["QuocGia"].HeaderText = "Quốc gia";
+            dgv_NCC.Columns["NgayTao"].HeaderText = "Ngày tạo";
             btnLuu.Enabled = false;
         }
  
 
-        private List<NhaCungCapDTO> listncc = new List<NhaCungCapDTO>();
+     
 
         public void clearTxt()
         {
