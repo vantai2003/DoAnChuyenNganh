@@ -54,6 +54,7 @@ namespace DACN.GUI
                     break;
                 case 1:
                     FormHoaDon formHoaDon = new FormHoaDon();
+                    formHoaDon.SetBanHangMode();
                     AddFormToTabPage(formHoaDon, uiTabControl1.SelectedTab);
                     break;
 

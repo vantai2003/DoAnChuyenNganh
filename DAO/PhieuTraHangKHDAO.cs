@@ -70,5 +70,18 @@ namespace DACN.DAO
             int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { mahoadon });
             return result;
         }
+        public List<CTPhieuTraHangKHDTO> GetCTPThieuTra_KH(string ID)
+        {
+            List<CTPhieuTraHangKHDTO> list = new List<CTPhieuTraHangKHDTO>();
+            string query = "sp_ChiTietPhieuTraHangKH @MaHD";
+            DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] { ID });
+            foreach (DataRow row in data.Rows)
+            {
+                CTPhieuTraHangKHDTO CTPT = new CTPhieuTraHangKHDTO(row);
+                list.Add(CTPT);
+            }
+
+            return list;
+        }
     }
 }

@@ -37,6 +37,7 @@ namespace DACN.GUI
             if (Login(userName, pass))
             {
                 nhanvien = txt_UserName.Text.Trim();
+
                 this.Hide();
                 switch (getRole(userName, pass))
                 {
@@ -49,14 +50,15 @@ namespace DACN.GUI
                         fGiamDoc.Show();
                         break;
                     case 2:
-                        MessageBox.Show("Đăng nhập thành công với quyền kế toán");
+                        FormThongKeDoanhThu fThongKe = new FormThongKeDoanhThu();
+                        fThongKe.Show();
                         break;
                     case 3:
                         FormNhanVienBanHang fnvbh = new FormNhanVienBanHang();
                         fnvbh.Show();
                         break;
                     case 4:
-                        MessageBox.Show("Đăng nhập thành công với quyền giao hàng");
+                     
                         FormNhanVienGiaoHang fnvgh = new FormNhanVienGiaoHang();
                         fnvgh.Show();
                         break;

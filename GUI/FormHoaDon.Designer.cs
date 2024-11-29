@@ -36,19 +36,14 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormHoaDon));
             this.btnThanhToan = new System.Windows.Forms.Button();
             this.tsCTPN = new System.Windows.Forms.ToolStrip();
-            this.tsbThem = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.tsbSua = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
-            this.tsbXoa = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.tsbLuu = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
             this.dgvHoaDon = new Sunny.UI.UIDataGridView();
             this.txtMaHD = new Sunny.UI.UITextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.uiButton1 = new Sunny.UI.UIButton();
-            this.pcSearch = new System.Windows.Forms.PictureBox();
             this.btn_lammoiHang = new System.Windows.Forms.Button();
             this.tbTimKiem = new System.Windows.Forms.TextBox();
             this.uiButton2 = new Sunny.UI.UIButton();
@@ -70,6 +65,12 @@
             this.label8 = new System.Windows.Forms.Label();
             this.uiLabel1 = new Sunny.UI.UILabel();
             this.txt_TienKM = new Sunny.UI.UITextBox();
+            this.btn_pth = new System.Windows.Forms.Button();
+            this.pcSearch = new System.Windows.Forms.PictureBox();
+            this.tsbThem = new System.Windows.Forms.ToolStripButton();
+            this.tsbSua = new System.Windows.Forms.ToolStripButton();
+            this.tsbXoa = new System.Windows.Forms.ToolStripButton();
+            this.tsbLuu = new System.Windows.Forms.ToolStripButton();
             this.tsCTPN.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHoaDon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcSearch)).BeginInit();
@@ -107,72 +108,24 @@
             this.tsCTPN.Location = new System.Drawing.Point(0, 0);
             this.tsCTPN.Name = "tsCTPN";
             this.tsCTPN.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.tsCTPN.Size = new System.Drawing.Size(1232, 40);
+            this.tsCTPN.Size = new System.Drawing.Size(1376, 40);
             this.tsCTPN.TabIndex = 51;
             this.tsCTPN.Text = "tsNCC";
-            // 
-            // tsbThem
-            // 
-            this.tsbThem.Image = global::DACN.Properties.Resources.Add;
-            this.tsbThem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.tsbThem.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbThem.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
-            this.tsbThem.Name = "tsbThem";
-            this.tsbThem.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.tsbThem.Size = new System.Drawing.Size(119, 36);
-            this.tsbThem.Text = "Thêm";
-            this.tsbThem.Click += new System.EventHandler(this.tsbThem_Click);
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
             this.toolStripSeparator4.Size = new System.Drawing.Size(6, 40);
             // 
-            // tsbSua
-            // 
-            this.tsbSua.Image = global::DACN.Properties.Resources.Edit;
-            this.tsbSua.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.tsbSua.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbSua.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
-            this.tsbSua.Name = "tsbSua";
-            this.tsbSua.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.tsbSua.Size = new System.Drawing.Size(97, 36);
-            this.tsbSua.Text = "Sửa";
-            this.tsbSua.Click += new System.EventHandler(this.tsbSua_Click);
-            // 
             // toolStripSeparator6
             // 
             this.toolStripSeparator6.Name = "toolStripSeparator6";
             this.toolStripSeparator6.Size = new System.Drawing.Size(6, 40);
             // 
-            // tsbXoa
-            // 
-            this.tsbXoa.Image = global::DACN.Properties.Resources.Delete;
-            this.tsbXoa.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.tsbXoa.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbXoa.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
-            this.tsbXoa.Name = "tsbXoa";
-            this.tsbXoa.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.tsbXoa.Size = new System.Drawing.Size(98, 36);
-            this.tsbXoa.Text = "Xóa";
-            this.tsbXoa.Click += new System.EventHandler(this.tsbXoa_Click);
-            // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(6, 40);
-            // 
-            // tsbLuu
-            // 
-            this.tsbLuu.Image = global::DACN.Properties.Resources.Save;
-            this.tsbLuu.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.tsbLuu.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbLuu.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
-            this.tsbLuu.Name = "tsbLuu";
-            this.tsbLuu.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.tsbLuu.Size = new System.Drawing.Size(97, 36);
-            this.tsbLuu.Text = "Lưu";
-            this.tsbLuu.Click += new System.EventHandler(this.tsbLuu_Click);
             // 
             // toolStripSeparator8
             // 
@@ -181,8 +134,10 @@
             // 
             // dgvHoaDon
             // 
+            this.dgvHoaDon.AllowUserToAddRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
             this.dgvHoaDon.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvHoaDon.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvHoaDon.BackgroundColor = System.Drawing.Color.White;
             this.dgvHoaDon.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -222,7 +177,7 @@
             this.dgvHoaDon.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvHoaDon.RowTemplate.Height = 28;
             this.dgvHoaDon.SelectedIndex = -1;
-            this.dgvHoaDon.Size = new System.Drawing.Size(1220, 412);
+            this.dgvHoaDon.Size = new System.Drawing.Size(1364, 330);
             this.dgvHoaDon.StripeOddColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
             this.dgvHoaDon.TabIndex = 53;
             this.dgvHoaDon.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHoaDon_CellClick);
@@ -266,18 +221,6 @@
             this.uiButton1.Text = "Xem chi tiết";
             this.uiButton1.TipsFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.uiButton1.Click += new System.EventHandler(this.uiButton1_Click);
-            // 
-            // pcSearch
-            // 
-            this.pcSearch.Image = ((System.Drawing.Image)(resources.GetObject("pcSearch.Image")));
-            this.pcSearch.Location = new System.Drawing.Point(313, 402);
-            this.pcSearch.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.pcSearch.Name = "pcSearch";
-            this.pcSearch.Size = new System.Drawing.Size(35, 38);
-            this.pcSearch.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pcSearch.TabIndex = 14;
-            this.pcSearch.TabStop = false;
-            this.pcSearch.Click += new System.EventHandler(this.pcSearch_Click);
             // 
             // btn_lammoiHang
             // 
@@ -352,16 +295,18 @@
             this.label6.Size = new System.Drawing.Size(111, 29);
             this.label6.TabIndex = 65;
             this.label6.Text = "Ngày Đặt";
+            this.label6.Visible = false;
             // 
             // dtpNgayTao
             // 
             this.dtpNgayTao.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dtpNgayTao.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpNgayTao.Location = new System.Drawing.Point(886, 58);
+            this.dtpNgayTao.Location = new System.Drawing.Point(889, 58);
             this.dtpNgayTao.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtpNgayTao.Name = "dtpNgayTao";
             this.dtpNgayTao.Size = new System.Drawing.Size(138, 26);
             this.dtpNgayTao.TabIndex = 66;
+            this.dtpNgayTao.Visible = false;
             // 
             // label2
             // 
@@ -537,18 +482,93 @@
             this.txt_TienKM.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.txt_TienKM.MinimumSize = new System.Drawing.Size(1, 20);
             this.txt_TienKM.Name = "txt_TienKM";
-            this.txt_TienKM.Padding = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.txt_TienKM.Padding = new System.Windows.Forms.Padding(6);
             this.txt_TienKM.ShowText = false;
             this.txt_TienKM.Size = new System.Drawing.Size(169, 36);
             this.txt_TienKM.TabIndex = 84;
             this.txt_TienKM.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             this.txt_TienKM.Watermark = "";
             // 
+            // btn_pth
+            // 
+            this.btn_pth.BackColor = System.Drawing.Color.OrangeRed;
+            this.btn_pth.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_pth.ForeColor = System.Drawing.Color.White;
+            this.btn_pth.Location = new System.Drawing.Point(470, 832);
+            this.btn_pth.Margin = new System.Windows.Forms.Padding(4);
+            this.btn_pth.Name = "btn_pth";
+            this.btn_pth.Size = new System.Drawing.Size(283, 55);
+            this.btn_pth.TabIndex = 85;
+            this.btn_pth.Text = "Lập phiếu trả hàng";
+            this.btn_pth.UseVisualStyleBackColor = false;
+            this.btn_pth.Click += new System.EventHandler(this.btn_pth_Click);
+            // 
+            // pcSearch
+            // 
+            this.pcSearch.Image = ((System.Drawing.Image)(resources.GetObject("pcSearch.Image")));
+            this.pcSearch.Location = new System.Drawing.Point(313, 402);
+            this.pcSearch.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pcSearch.Name = "pcSearch";
+            this.pcSearch.Size = new System.Drawing.Size(35, 38);
+            this.pcSearch.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pcSearch.TabIndex = 14;
+            this.pcSearch.TabStop = false;
+            this.pcSearch.Click += new System.EventHandler(this.pcSearch_Click);
+            // 
+            // tsbThem
+            // 
+            this.tsbThem.Image = global::DACN.Properties.Resources.Add;
+            this.tsbThem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsbThem.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbThem.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
+            this.tsbThem.Name = "tsbThem";
+            this.tsbThem.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.tsbThem.Size = new System.Drawing.Size(119, 36);
+            this.tsbThem.Text = "Thêm";
+            this.tsbThem.Click += new System.EventHandler(this.tsbThem_Click);
+            // 
+            // tsbSua
+            // 
+            this.tsbSua.Image = global::DACN.Properties.Resources.Edit;
+            this.tsbSua.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsbSua.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbSua.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
+            this.tsbSua.Name = "tsbSua";
+            this.tsbSua.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.tsbSua.Size = new System.Drawing.Size(97, 36);
+            this.tsbSua.Text = "Sửa";
+            this.tsbSua.Click += new System.EventHandler(this.tsbSua_Click);
+            // 
+            // tsbXoa
+            // 
+            this.tsbXoa.Image = global::DACN.Properties.Resources.Delete;
+            this.tsbXoa.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsbXoa.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbXoa.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
+            this.tsbXoa.Name = "tsbXoa";
+            this.tsbXoa.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.tsbXoa.Size = new System.Drawing.Size(98, 36);
+            this.tsbXoa.Text = "Xóa";
+            this.tsbXoa.Click += new System.EventHandler(this.tsbXoa_Click);
+            // 
+            // tsbLuu
+            // 
+            this.tsbLuu.Image = global::DACN.Properties.Resources.Save;
+            this.tsbLuu.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.tsbLuu.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbLuu.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
+            this.tsbLuu.Name = "tsbLuu";
+            this.tsbLuu.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.tsbLuu.Size = new System.Drawing.Size(97, 36);
+            this.tsbLuu.Text = "Lưu";
+            this.tsbLuu.Click += new System.EventHandler(this.tsbLuu_Click);
+            // 
             // FormHoaDon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1232, 892);
+            this.ClientSize = new System.Drawing.Size(1376, 900);
+            this.Controls.Add(this.btn_pth);
             this.Controls.Add(this.txt_TienKM);
             this.Controls.Add(this.uiLabel1);
             this.Controls.Add(this.label8);
@@ -627,5 +647,6 @@
         private System.Windows.Forms.Label label8;
         private Sunny.UI.UILabel uiLabel1;
         private Sunny.UI.UITextBox txt_TienKM;
+        private System.Windows.Forms.Button btn_pth;
     }
 }

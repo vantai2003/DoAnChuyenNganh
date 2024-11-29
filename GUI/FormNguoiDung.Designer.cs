@@ -36,23 +36,23 @@
             this.pane_body = new Sunny.UI.UIPanel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dvg_NguoiDung = new Sunny.UI.UIDataGridView();
-            this.btnLuu = new System.Windows.Forms.Button();
-            this.txt_pass = new Sunny.UI.UITextBox();
-            this.txt_username = new Sunny.UI.UITextBox();
-            this.cb_vitrilv = new Sunny.UI.UIComboBox();
-            this.cb_nhanvien = new Sunny.UI.UIComboBox();
-            this.lb_vtlv = new System.Windows.Forms.Label();
-            this.lb_nhanvien = new System.Windows.Forms.Label();
-            this.lb_pass = new System.Windows.Forms.Label();
-            this.lb_userName = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnLuu = new System.Windows.Forms.Button();
             this.btn_reload = new Sunny.UI.UIButton();
             this.btn_Search = new Sunny.UI.UIButton();
+            this.lb_userName = new System.Windows.Forms.Label();
             this.txt_Search = new Sunny.UI.UITextBox();
+            this.txt_pass = new Sunny.UI.UITextBox();
+            this.lb_pass = new System.Windows.Forms.Label();
+            this.cb_vitrilv = new Sunny.UI.UIComboBox();
+            this.cb_nhanvien = new Sunny.UI.UIComboBox();
+            this.lb_nhanvien = new System.Windows.Forms.Label();
+            this.txt_username = new Sunny.UI.UITextBox();
+            this.lb_vtlv = new System.Windows.Forms.Label();
+            this.pcSearch = new System.Windows.Forms.PictureBox();
             this.btnThem = new System.Windows.Forms.Button();
             this.btn_Sua = new System.Windows.Forms.Button();
             this.btn_Xoa = new System.Windows.Forms.Button();
-            this.pcSearch = new System.Windows.Forms.PictureBox();
             this.pane_body.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dvg_NguoiDung)).BeginInit();
@@ -128,6 +128,31 @@
             this.dvg_NguoiDung.TabIndex = 0;
             this.dvg_NguoiDung.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dvg_NguoiDung_CellClick);
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Snow;
+            this.panel1.Controls.Add(this.btnLuu);
+            this.panel1.Controls.Add(this.pcSearch);
+            this.panel1.Controls.Add(this.btn_reload);
+            this.panel1.Controls.Add(this.btnThem);
+            this.panel1.Controls.Add(this.btn_Search);
+            this.panel1.Controls.Add(this.lb_userName);
+            this.panel1.Controls.Add(this.txt_Search);
+            this.panel1.Controls.Add(this.btn_Sua);
+            this.panel1.Controls.Add(this.txt_pass);
+            this.panel1.Controls.Add(this.lb_pass);
+            this.panel1.Controls.Add(this.cb_vitrilv);
+            this.panel1.Controls.Add(this.btn_Xoa);
+            this.panel1.Controls.Add(this.cb_nhanvien);
+            this.panel1.Controls.Add(this.lb_nhanvien);
+            this.panel1.Controls.Add(this.txt_username);
+            this.panel1.Controls.Add(this.lb_vtlv);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1358, 369);
+            this.panel1.TabIndex = 0;
+            // 
             // btnLuu
             // 
             this.btnLuu.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -140,6 +165,75 @@
             this.btnLuu.UseVisualStyleBackColor = true;
             this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
             // 
+            // btn_reload
+            // 
+            this.btn_reload.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_reload.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.btn_reload.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.btn_reload.Location = new System.Drawing.Point(1251, 261);
+            this.btn_reload.MinimumSize = new System.Drawing.Size(1, 1);
+            this.btn_reload.Name = "btn_reload";
+            this.btn_reload.Radius = 25;
+            this.btn_reload.Size = new System.Drawing.Size(115, 35);
+            this.btn_reload.TabIndex = 2;
+            this.btn_reload.Text = "Làm mới";
+            this.btn_reload.TipsFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.btn_reload.Click += new System.EventHandler(this.btn_reload_Click);
+            // 
+            // btn_Search
+            // 
+            this.btn_Search.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.btn_Search.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_Search.FillColor = System.Drawing.Color.OrangeRed;
+            this.btn_Search.FillDisableColor = System.Drawing.Color.Cyan;
+            this.btn_Search.FillHoverColor = System.Drawing.Color.Fuchsia;
+            this.btn_Search.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.btn_Search.ForeColor = System.Drawing.Color.Sienna;
+            this.btn_Search.ForeDisableColor = System.Drawing.Color.White;
+            this.btn_Search.LightColor = System.Drawing.Color.Brown;
+            this.btn_Search.Location = new System.Drawing.Point(409, 314);
+            this.btn_Search.MinimumSize = new System.Drawing.Size(1, 1);
+            this.btn_Search.Name = "btn_Search";
+            this.btn_Search.Radius = 15;
+            this.btn_Search.RadiusSides = Sunny.UI.UICornerRadiusSides.RightTop;
+            this.btn_Search.RectColor = System.Drawing.Color.MidnightBlue;
+            this.btn_Search.RectDisableColor = System.Drawing.Color.Black;
+            this.btn_Search.RectHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.btn_Search.Size = new System.Drawing.Size(120, 35);
+            this.btn_Search.TabIndex = 1;
+            this.btn_Search.Text = "Tìm";
+            this.btn_Search.TipsColor = System.Drawing.Color.LightGray;
+            this.btn_Search.TipsFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.btn_Search.TipsForeColor = System.Drawing.Color.Yellow;
+            this.btn_Search.Click += new System.EventHandler(this.btn_Search_Click);
+            // 
+            // lb_userName
+            // 
+            this.lb_userName.AutoSize = true;
+            this.lb_userName.BackColor = System.Drawing.Color.White;
+            this.lb_userName.Location = new System.Drawing.Point(45, 42);
+            this.lb_userName.Name = "lb_userName";
+            this.lb_userName.Size = new System.Drawing.Size(175, 29);
+            this.lb_userName.TabIndex = 0;
+            this.lb_userName.Text = "Tên đăng nhập";
+            // 
+            // txt_Search
+            // 
+            this.txt_Search.ButtonRectHoverColor = System.Drawing.Color.Gray;
+            this.txt_Search.ButtonStyleInherited = false;
+            this.txt_Search.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txt_Search.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.txt_Search.Location = new System.Drawing.Point(104, 314);
+            this.txt_Search.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txt_Search.MinimumSize = new System.Drawing.Size(1, 16);
+            this.txt_Search.Name = "txt_Search";
+            this.txt_Search.Padding = new System.Windows.Forms.Padding(5);
+            this.txt_Search.ShowText = false;
+            this.txt_Search.Size = new System.Drawing.Size(298, 35);
+            this.txt_Search.TabIndex = 0;
+            this.txt_Search.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txt_Search.Watermark = "";
+            // 
             // txt_pass
             // 
             this.txt_pass.Cursor = System.Windows.Forms.Cursors.IBeam;
@@ -149,6 +243,7 @@
             this.txt_pass.MinimumSize = new System.Drawing.Size(1, 16);
             this.txt_pass.Name = "txt_pass";
             this.txt_pass.Padding = new System.Windows.Forms.Padding(5);
+            this.txt_pass.PasswordChar = '*';
             this.txt_pass.RectColor = System.Drawing.Color.Red;
             this.txt_pass.ScrollBarColor = System.Drawing.Color.Fuchsia;
             this.txt_pass.ScrollBarStyleInherited = false;
@@ -158,21 +253,16 @@
             this.txt_pass.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             this.txt_pass.Watermark = "";
             // 
-            // txt_username
+            // lb_pass
             // 
-            this.txt_username.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txt_username.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.txt_username.Location = new System.Drawing.Point(271, 42);
-            this.txt_username.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txt_username.MinimumSize = new System.Drawing.Size(1, 16);
-            this.txt_username.Name = "txt_username";
-            this.txt_username.Padding = new System.Windows.Forms.Padding(5);
-            this.txt_username.RectColor = System.Drawing.Color.Red;
-            this.txt_username.ShowText = false;
-            this.txt_username.Size = new System.Drawing.Size(185, 29);
-            this.txt_username.TabIndex = 8;
-            this.txt_username.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
-            this.txt_username.Watermark = "";
+            this.lb_pass.AutoSize = true;
+            this.lb_pass.BackColor = System.Drawing.Color.White;
+            this.lb_pass.Enabled = false;
+            this.lb_pass.Location = new System.Drawing.Point(45, 117);
+            this.lb_pass.Name = "lb_pass";
+            this.lb_pass.Size = new System.Drawing.Size(109, 29);
+            this.lb_pass.TabIndex = 1;
+            this.lb_pass.Text = "Mật khẩu";
             // 
             // cb_vitrilv
             // 
@@ -212,16 +302,6 @@
             this.cb_nhanvien.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             this.cb_nhanvien.Watermark = "";
             // 
-            // lb_vtlv
-            // 
-            this.lb_vtlv.AutoSize = true;
-            this.lb_vtlv.BackColor = System.Drawing.Color.White;
-            this.lb_vtlv.Location = new System.Drawing.Point(542, 117);
-            this.lb_vtlv.Name = "lb_vtlv";
-            this.lb_vtlv.Size = new System.Drawing.Size(154, 29);
-            this.lb_vtlv.TabIndex = 3;
-            this.lb_vtlv.Text = "Vị trí làm việc";
-            // 
             // lb_nhanvien
             // 
             this.lb_nhanvien.AutoSize = true;
@@ -232,105 +312,42 @@
             this.lb_nhanvien.TabIndex = 2;
             this.lb_nhanvien.Text = "Nhân viên";
             // 
-            // lb_pass
+            // txt_username
             // 
-            this.lb_pass.AutoSize = true;
-            this.lb_pass.BackColor = System.Drawing.Color.White;
-            this.lb_pass.Location = new System.Drawing.Point(45, 117);
-            this.lb_pass.Name = "lb_pass";
-            this.lb_pass.Size = new System.Drawing.Size(109, 29);
-            this.lb_pass.TabIndex = 1;
-            this.lb_pass.Text = "Mật khẩu";
+            this.txt_username.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txt_username.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.txt_username.Location = new System.Drawing.Point(271, 42);
+            this.txt_username.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txt_username.MinimumSize = new System.Drawing.Size(1, 16);
+            this.txt_username.Name = "txt_username";
+            this.txt_username.Padding = new System.Windows.Forms.Padding(5);
+            this.txt_username.RectColor = System.Drawing.Color.Red;
+            this.txt_username.ShowText = false;
+            this.txt_username.Size = new System.Drawing.Size(185, 29);
+            this.txt_username.TabIndex = 8;
+            this.txt_username.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txt_username.Watermark = "";
             // 
-            // lb_userName
+            // lb_vtlv
             // 
-            this.lb_userName.AutoSize = true;
-            this.lb_userName.BackColor = System.Drawing.Color.White;
-            this.lb_userName.Location = new System.Drawing.Point(45, 42);
-            this.lb_userName.Name = "lb_userName";
-            this.lb_userName.Size = new System.Drawing.Size(175, 29);
-            this.lb_userName.TabIndex = 0;
-            this.lb_userName.Text = "Tên đăng nhập";
+            this.lb_vtlv.AutoSize = true;
+            this.lb_vtlv.BackColor = System.Drawing.Color.White;
+            this.lb_vtlv.Location = new System.Drawing.Point(542, 117);
+            this.lb_vtlv.Name = "lb_vtlv";
+            this.lb_vtlv.Size = new System.Drawing.Size(154, 29);
+            this.lb_vtlv.TabIndex = 3;
+            this.lb_vtlv.Text = "Vị trí làm việc";
             // 
-            // panel1
+            // pcSearch
             // 
-            this.panel1.BackColor = System.Drawing.Color.Snow;
-            this.panel1.Controls.Add(this.btnLuu);
-            this.panel1.Controls.Add(this.pcSearch);
-            this.panel1.Controls.Add(this.btn_reload);
-            this.panel1.Controls.Add(this.btnThem);
-            this.panel1.Controls.Add(this.btn_Search);
-            this.panel1.Controls.Add(this.lb_userName);
-            this.panel1.Controls.Add(this.txt_Search);
-            this.panel1.Controls.Add(this.btn_Sua);
-            this.panel1.Controls.Add(this.txt_pass);
-            this.panel1.Controls.Add(this.lb_pass);
-            this.panel1.Controls.Add(this.cb_vitrilv);
-            this.panel1.Controls.Add(this.btn_Xoa);
-            this.panel1.Controls.Add(this.cb_nhanvien);
-            this.panel1.Controls.Add(this.lb_nhanvien);
-            this.panel1.Controls.Add(this.txt_username);
-            this.panel1.Controls.Add(this.lb_vtlv);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1358, 369);
-            this.panel1.TabIndex = 0;
-            // 
-            // btn_reload
-            // 
-            this.btn_reload.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_reload.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.btn_reload.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btn_reload.Location = new System.Drawing.Point(1251, 261);
-            this.btn_reload.MinimumSize = new System.Drawing.Size(1, 1);
-            this.btn_reload.Name = "btn_reload";
-            this.btn_reload.Radius = 25;
-            this.btn_reload.Size = new System.Drawing.Size(115, 35);
-            this.btn_reload.TabIndex = 2;
-            this.btn_reload.Text = "Làm mới";
-            this.btn_reload.TipsFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.btn_reload.Click += new System.EventHandler(this.btn_reload_Click);
-            // 
-            // btn_Search
-            // 
-            this.btn_Search.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.btn_Search.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_Search.FillColor = System.Drawing.Color.OrangeRed;
-            this.btn_Search.FillDisableColor = System.Drawing.Color.Cyan;
-            this.btn_Search.FillHoverColor = System.Drawing.Color.Fuchsia;
-            this.btn_Search.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btn_Search.ForeColor = System.Drawing.Color.Sienna;
-            this.btn_Search.ForeDisableColor = System.Drawing.Color.White;
-            this.btn_Search.LightColor = System.Drawing.Color.Brown;
-            this.btn_Search.Location = new System.Drawing.Point(409, 314);
-            this.btn_Search.MinimumSize = new System.Drawing.Size(1, 1);
-            this.btn_Search.Name = "btn_Search";
-            this.btn_Search.Radius = 15;
-            this.btn_Search.RectColor = System.Drawing.Color.Blue;
-            this.btn_Search.RectHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.btn_Search.Size = new System.Drawing.Size(120, 35);
-            this.btn_Search.TabIndex = 1;
-            this.btn_Search.Text = "Tìm";
-            this.btn_Search.TipsFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.btn_Search.Click += new System.EventHandler(this.btn_Search_Click);
-            // 
-            // txt_Search
-            // 
-            this.txt_Search.ButtonRectHoverColor = System.Drawing.Color.Gray;
-            this.txt_Search.ButtonStyleInherited = false;
-            this.txt_Search.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txt_Search.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.txt_Search.Location = new System.Drawing.Point(104, 314);
-            this.txt_Search.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txt_Search.MinimumSize = new System.Drawing.Size(1, 16);
-            this.txt_Search.Name = "txt_Search";
-            this.txt_Search.Padding = new System.Windows.Forms.Padding(5);
-            this.txt_Search.ShowText = false;
-            this.txt_Search.Size = new System.Drawing.Size(298, 35);
-            this.txt_Search.TabIndex = 0;
-            this.txt_Search.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
-            this.txt_Search.Watermark = "";
+            this.pcSearch.Image = ((System.Drawing.Image)(resources.GetObject("pcSearch.Image")));
+            this.pcSearch.Location = new System.Drawing.Point(31, 314);
+            this.pcSearch.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pcSearch.Name = "pcSearch";
+            this.pcSearch.Size = new System.Drawing.Size(35, 35);
+            this.pcSearch.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pcSearch.TabIndex = 15;
+            this.pcSearch.TabStop = false;
             // 
             // btnThem
             // 
@@ -379,17 +396,6 @@
             this.btn_Xoa.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_Xoa.UseVisualStyleBackColor = true;
             this.btn_Xoa.Click += new System.EventHandler(this.btn_Xoa_Click);
-            // 
-            // pcSearch
-            // 
-            this.pcSearch.Image = ((System.Drawing.Image)(resources.GetObject("pcSearch.Image")));
-            this.pcSearch.Location = new System.Drawing.Point(31, 314);
-            this.pcSearch.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.pcSearch.Name = "pcSearch";
-            this.pcSearch.Size = new System.Drawing.Size(35, 35);
-            this.pcSearch.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pcSearch.TabIndex = 15;
-            this.pcSearch.TabStop = false;
             // 
             // FormNguoiDung
             // 

@@ -48,10 +48,11 @@ namespace DACN.GUI
             childForm.BringToFront();
             childForm.Show();
         }
-
+        
         private void btn_CapNhatDanhMuc_Click(object sender, EventArgs e)
         {
             OpenChildForm(new FormDanhMuc());
+            
         }
 
         private void btn_QLHangHoa_Click(object sender, EventArgs e)
@@ -81,5 +82,19 @@ namespace DACN.GUI
         {
             OpenChildForm(new FormQLKhuyenMai());
         }
+
+        private void đổiMậtKhẩuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new FormDoiMatKhau());
+        }
+
+        private void pn0_Paint(object sender, PaintEventArgs e)
+        {
+            using (Pen pen = new Pen(Color.White, 5)) 
+            {
+                e.Graphics.DrawRectangle(pen, 0, 0, this.pn0.ClientRectangle.Width - 1, this.pn0.ClientRectangle.Height - 1);
+            }
+        }
+
     }
 }

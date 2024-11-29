@@ -26,6 +26,13 @@ namespace DACN.GUI
         {
             List<NguoiDungDTO> listNguoiDung = NguoiDungDAO.Instance.GetNguoiDung();
             dvg_NguoiDung.DataSource = listNguoiDung;
+            dvg_NguoiDung.Columns["TenDN"].HeaderText = "Tên đăng nhập";
+            dvg_NguoiDung.Columns["NgayTao"].HeaderText = "Ngày tạo";
+            dvg_NguoiDung.Columns["MaNV"].HeaderText = "Mã nhân viên";
+            dvg_NguoiDung.Columns["TenNV"].HeaderText = "Tên nhân viên";
+            dvg_NguoiDung.Columns["QuyenID"].Visible = false;
+            
+            dvg_NguoiDung.Columns["TenQuyen"].HeaderText = "Quyền";
             List<NhanVienDTO> listNhanVien = NhanVienDAO.Instance.LoadListNV();
             cb_nhanvien.DataSource = listNhanVien;
             cb_nhanvien.DisplayMember = "MaNV";
@@ -54,7 +61,6 @@ namespace DACN.GUI
             {
                 row = dvg_NguoiDung.Rows[e.RowIndex];
                 txt_username.Text = Convert.ToString(row.Cells["TenDN"].Value);
-                txt_pass.Text = Convert.ToString(row.Cells["MatKhau"].Value);
                 cb_nhanvien.SelectedValue = Convert.ToString(row.Cells["MaNV"].Value);
                 cb_vitrilv.SelectedValue = Convert.ToInt32(row.Cells["QuyenID"].Value);
                 btn_Xoa.Enabled = true;

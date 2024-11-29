@@ -25,39 +25,7 @@ namespace DACN.DAO
             string query = "SP_ThemKM @MaKM , @TenKM , @NgayBatDau , @NgayKetThuc , @MoTa , @TrangThai , @GiaTriKM , @LoaiDK , @DieuKienTongTien";
             int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { makm, tenkm, ngaybd ?? DBNull.Value, ngaykt ?? DBNull.Value, mota, trangthai, giatridk, loaidk,dieukientongtien ?? DBNull.Value });
             return result;
-        }
-        public int KhuyenMaiTheoThoiGian(string mahd)
-        {
-            string query = "SP_KM_TheoThoiGian @MaHD";
-            object result = DataProvider.Instance.ExecuteScalar(query, new object[] { mahd });
-            if (result != null && int.TryParse(result.ToString(), out int parsedResult))
-            {
-                return parsedResult;
-            }
-            else
-            {
-                return 0;
-            }
-        }
-        public int KhuyenMaiTheoTongTien(string mahd)
-        {
-            string query = "SP_KM_TheoTongTien @MaHD";
-            object result = DataProvider.Instance.ExecuteScalar(query, new object[] { mahd });
-            if (result != null && int.TryParse(result.ToString(), out int parsedResult))
-            {
-                return parsedResult;
-            }
-            else
-            {
-                return 0;
-            }
-        }
-        public int KhuyenMaiTheoLoaiKH(string mahd)
-        {
-            string query = "SP_ApDungKhuyenMai @MaHD";
-            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { mahd });
-            return result;
-        }
+        }      
         public DataTable ApDungKhuyenMaiChung(string maHD)
         {
             try
@@ -186,11 +154,113 @@ namespace DACN.DAO
             int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { makm });
             return result;
         }
+        public int BatKM(string makm)
+        {
+            string query = "SP_BatKhuyenMai @MaKM";
+            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { makm });
+            return result;
+        }
         public int TuChoiKM(string makm)
         {
             string query = "SP_TuChoiKhuyenMai @MaKM";
             int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { makm });
             return result;
+        }
+        public int SuaKMThoiGian(string makm, string tenkm, DateTime ngaybd, DateTime ngaykt, decimal giatrikm, string mota)
+        {
+            string query = "SP_SuaKM @MaKM , @TenKM , @NgayDB , @NgayKT , @GiaTriKM , @MoTa";
+            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { makm, tenkm, ngaybd , ngaykt, giatrikm, mota });
+            return result;
+        }
+        public int SuaKMTongTien(string makm, string tenkm, decimal giatrikm, string mota, decimal dieukientt)
+        {
+            string query = "SP_SuaKMLoaiTongTien @MaKM , @TenKM , @GiaTriKM , @MoTa , @DieuKienTongTien";
+            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { makm, tenkm, giatrikm, mota,dieukientt });
+            return result;
+        }
+        public int SuaKMLoaiKH(string makm, decimal giatrikm, string mota)
+        {
+            string query = "SP_SuaKMLoaiKhachHang @MaKM , @GiaTriKM , @MoTa";
+            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { makm, giatrikm, mota});
+            return result;
+        }
+        public List<KhuyenMaiDTO> TimKiemKM(string searchValue)
+        {
+            List<KhuyenMaiDTO> listKhuyenMai = new List<KhuyenMaiDTO>();
+            string query = "SP_TimKiemKhuyenMai @SearchValue";
+            DataTable data = DataProvider.Instance.ExecuteQuery(query,new object[] { searchValue });
+            foreach (DataRow row in data.Rows)
+            {
+                KhuyenMaiDTO km = new KhuyenMaiDTO
+                {
+                    MaKM = row["MaKM"].ToString(),
+                    TenKM = row["TenKM"].ToString(),
+                    MoTa = row["MoTa"].ToString(),
+                    TrangThai = row["TrangThai"].ToString(),
+                    GiaTriKM = Convert.ToDecimal(row["GiaTriKM"]),
+                    LoaiDK = row["LoaiDieuKien"].ToString()
+                };
+                if (row["NgayBatDau"] != DBNull.Value && row["NgayKetThuc"] != DBNull.Value)
+                {
+                    km.NgayBatDau = Convert.ToDateTime(row["NgayBatDau"]);
+                    km.NgayKetThuc = Convert.ToDateTime(row["NgayKetThuc"]);
+                }
+                else
+                {
+                    km.NgayBatDau = null;
+                    km.NgayKetThuc = null;
+                }
+                if (row["DieuKienTongTien"] != DBNull.Value)
+                {
+                    km.DieuKienTongTien = Convert.ToDecimal(row["DieuKienTongTien"]);
+                }
+                else
+                {
+                    km.DieuKienTongTien = null;
+                }
+
+                listKhuyenMai.Add(km);
+            }
+            return listKhuyenMai;
+        }
+        public List<KhuyenMaiDTO> LocKMTrangThai(string searchValue)
+        {
+            List<KhuyenMaiDTO> listKhuyenMai = new List<KhuyenMaiDTO>();
+            string query = "SP_TimKiemKhuyenMaiTheoTrangThai @SearchValue";
+            DataTable data = DataProvider.Instance.ExecuteQuery(query, new object[] { searchValue });
+            foreach (DataRow row in data.Rows)
+            {
+                KhuyenMaiDTO km = new KhuyenMaiDTO
+                {
+                    MaKM = row["MaKM"].ToString(),
+                    TenKM = row["TenKM"].ToString(),
+                    MoTa = row["MoTa"].ToString(),
+                    TrangThai = row["TrangThai"].ToString(),
+                    GiaTriKM = Convert.ToDecimal(row["GiaTriKM"]),
+                    LoaiDK = row["LoaiDieuKien"].ToString()
+                };
+                if (row["NgayBatDau"] != DBNull.Value && row["NgayKetThuc"] != DBNull.Value)
+                {
+                    km.NgayBatDau = Convert.ToDateTime(row["NgayBatDau"]);
+                    km.NgayKetThuc = Convert.ToDateTime(row["NgayKetThuc"]);
+                }
+                else
+                {
+                    km.NgayBatDau = null;
+                    km.NgayKetThuc = null;
+                }
+                if (row["DieuKienTongTien"] != DBNull.Value)
+                {
+                    km.DieuKienTongTien = Convert.ToDecimal(row["DieuKienTongTien"]);
+                }
+                else
+                {
+                    km.DieuKienTongTien = null;
+                }
+
+                listKhuyenMai.Add(km);
+            }
+            return listKhuyenMai;
         }
     }
 }

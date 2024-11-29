@@ -66,7 +66,8 @@
             this.dgvCTHD.EnableHeadersVisualStyles = false;
             this.dgvCTHD.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.dgvCTHD.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
-            this.dgvCTHD.Location = new System.Drawing.Point(-8, 118);
+            this.dgvCTHD.Location = new System.Drawing.Point(-7, 94);
+            this.dgvCTHD.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvCTHD.Name = "dgvCTHD";
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
@@ -82,7 +83,7 @@
             this.dgvCTHD.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvCTHD.RowTemplate.Height = 28;
             this.dgvCTHD.SelectedIndex = -1;
-            this.dgvCTHD.Size = new System.Drawing.Size(1114, 402);
+            this.dgvCTHD.Size = new System.Drawing.Size(981, 494);
             this.dgvCTHD.StripeOddColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
             this.dgvCTHD.TabIndex = 1;
             // 
@@ -90,9 +91,11 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+
             this.label8.Location = new System.Drawing.Point(36, 38);
+
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(121, 29);
+            this.label8.Size = new System.Drawing.Size(100, 25);
             this.label8.TabIndex = 78;
             this.label8.Text = "Tổng tiền:";
             // 
@@ -100,13 +103,14 @@
             // 
             this.txtTongTien.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtTongTien.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+
             this.txtTongTien.Location = new System.Drawing.Point(164, 38);
             this.txtTongTien.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtTongTien.MinimumSize = new System.Drawing.Size(1, 16);
             this.txtTongTien.Name = "txtTongTien";
-            this.txtTongTien.Padding = new System.Windows.Forms.Padding(5);
+            this.txtTongTien.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtTongTien.ShowText = false;
-            this.txtTongTien.Size = new System.Drawing.Size(150, 29);
+            this.txtTongTien.Size = new System.Drawing.Size(133, 23);
             this.txtTongTien.TabIndex = 77;
             this.txtTongTien.Text = "Tong Tien";
             this.txtTongTien.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
@@ -117,10 +121,11 @@
             // 
             this.btnOK.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnOK.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.btnOK.Location = new System.Drawing.Point(390, 59);
+            this.btnOK.Location = new System.Drawing.Point(347, 47);
+            this.btnOK.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnOK.MinimumSize = new System.Drawing.Size(1, 1);
             this.btnOK.Name = "btnOK";
-            this.btnOK.Size = new System.Drawing.Size(100, 35);
+            this.btnOK.Size = new System.Drawing.Size(89, 28);
             this.btnOK.TabIndex = 79;
             this.btnOK.Text = "OK";
             this.btnOK.TipsFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
@@ -128,13 +133,13 @@
             // 
             // FormCTHoaDon
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1107, 515);
             this.Controls.Add(this.btnOK);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.txtTongTien);
             this.Controls.Add(this.dgvCTHD);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormCTHoaDon";
             this.Text = "CTHoaDon";
             ((System.ComponentModel.ISupportInitialize)(this.dgvCTHD)).EndInit();

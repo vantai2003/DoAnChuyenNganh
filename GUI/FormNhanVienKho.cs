@@ -56,5 +56,25 @@ namespace DACN.GUI
                 loginForm.Show();
             }
         }
+
+        private void btn_QLGiaNhap_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new FormCT_SanPham_NCC());
+        }
+
+        private void btn_QLGiaNhap_Click_1(object sender, EventArgs e)
+        {
+            OpenChildForm(new FormQLGiaNhapTuNCC());
+        }
+
+        private void panel_body_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

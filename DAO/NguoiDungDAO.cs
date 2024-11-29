@@ -56,6 +56,7 @@ namespace DACN.DAO
             int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { tenDN, matKhau, ngayTao, maNV, quyenId });
             return result;
         }
+        
         public static string Hash(string text)
         {
             MD5 md5 = MD5.Create();
@@ -79,5 +80,6 @@ namespace DACN.DAO
             int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { tendn, matkhau, manv, quyenid });
             return result;
         }
+        
     }
 }
