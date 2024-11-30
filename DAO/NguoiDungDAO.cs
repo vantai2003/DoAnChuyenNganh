@@ -35,7 +35,7 @@ namespace DACN.DAO
         }
         public bool KiemTraTrungTenDN(string tenDN)
         {
-            string query = "SP_KiemTraTrungten @TenDN";
+            string query = "SP_KiemTraTrungten @MaNV";
             DataTable result = DataProvider.Instance.ExecuteQuery(query, new object[] { tenDN });
             return result.Rows.Count > 0;
         }
@@ -50,10 +50,10 @@ namespace DACN.DAO
             }
             return listNguoiDung;
         }
-        public int ThemNguoiDung(string tenDN, string matKhau, DateTime ngayTao, string maNV, int quyenId)
+        public int ThemNguoiDung(string maNV, string matKhau, DateTime ngayTao,  int quyenId)
         {
-            string query = "SP_ThemNguoiDung @TenDN , @MatKhau , @NgayTao , @MaNV , @QuyenID";
-            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { tenDN, matKhau, ngayTao, maNV, quyenId });
+            string query = "SP_ThemNguoiDung @MaNV , @MatKhau , @NgayTao , @QuyenID";
+            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { maNV, matKhau, ngayTao, quyenId });
             return result;
         }
         public static string Hash(string text)
@@ -73,10 +73,11 @@ namespace DACN.DAO
             int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { tenDN });
             return result;
         }
-        public int SuaNguoiDung(string tendn, string matkhau, string manv, int quyenid)
+        public int SuaNguoiDung(string maNV, object matkhau, int quyenId)
         {
-            string query = "SP_SuaNguoiDung @TenDN , @MatKhau , @MaNV , @QuyenId";
-            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { tendn, matkhau, manv, quyenid });
+            string query = "SP_SuaNguoiDung @MaNV , @MatKhau , @QuyenId";
+           // object matKhauValue = string.IsNullOrEmpty(matkhau) ? DBNull.Value : matkhau; // Xử lý null nếu không sửa mật khẩu
+            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { maNV, matkhau ?? DBNull.Value, quyenId });
             return result;
         }
     }

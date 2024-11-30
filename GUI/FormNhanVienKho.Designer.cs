@@ -237,6 +237,7 @@
             this.toolStripMenuItem_DoiMK.Name = "toolStripMenuItem_DoiMK";
             this.toolStripMenuItem_DoiMK.Size = new System.Drawing.Size(268, 32);
             this.toolStripMenuItem_DoiMK.Text = "Đổi mật khẩu";
+            this.toolStripMenuItem_DoiMK.Click += new System.EventHandler(this.toolStripMenuItem_DoiMK_Click);
             // 
             // FormNhanVienKho
             // 

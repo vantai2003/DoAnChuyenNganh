@@ -237,6 +237,16 @@ CREATE TABLE NguoiDung (
     FOREIGN KEY (MaNV) REFERENCES NhanVien(MaNV)
 );
 GO
+SELECT name 
+FROM sys.key_constraints 
+WHERE parent_object_id = OBJECT_ID('NguoiDung');
+
+ALTER TABLE NguoiDung DROP CONSTRAINT [FK__NguoiDung__MaNV__5FB337D6];
+
+ALTER TABLE NguoiDung ADD CONSTRAINT PK_NguoiDung PRIMARY KEY (MaNV);
+
+ALTER TABLE NguoiDung ADD CONSTRAINT FK_NguoiDung FOREIGN KEY (MaNV) REFERENCES NhanVien(MaNV)
+alter table NguoiDung Drop column TenDN
 INSERT INTO Quyen VALUES(0,N'Admin'),
 (1, N'Giám đốc'),
 (2, N'kế toán'),
@@ -246,18 +256,19 @@ INSERT INTO Quyen VALUES(0,N'Admin'),
 GO
 INSERT INTO NhanVien VALUES('NV001',N'Nguyễn Văn Tài',N'Quản trị viên', '0326588524', 'banpro@gmail.com','2024-10-10', 20000000)
 GO
-INSERT INTO NguoiDung(TenDN, MatKhau, NgayTao ,QuyenID, MaNV) VALUES('admin', CONVERT(VARCHAR(32),HASHBYTES('MD5', 'admin@123'),2),GETDATE() ,0, 'NV001')
+INSERT INTO NguoiDung(MaNV ,MatKhau, NgayTao ,QuyenID) VALUES('NV001', CONVERT(VARCHAR(32),HASHBYTES('MD5', 'admin@123'),2),GETDATE() ,0)
 
 GO 
 
 
 -- Stored Procedures Login
+drop proc SP_Login
 GO
 CREATE PROC SP_Login
-@TenDN varchar(100), @MatKhau varchar(50)
+@MaNV varchar(50), @MatKhau varchar(50)
 AS 
 BEGIN
-	SELECT * FROM NguoiDung WHERE TenDN = @TenDN AND MatKhau = @MatKhau
+	SELECT * FROM NguoiDung WHERE MaNV = @MaNV AND MatKhau = @MatKhau
 END
 GO
 ----------thủ tục hiển thị danh sách phiếu trả hàng
@@ -278,7 +289,7 @@ GO
 CREATE PROC SP_GetListNguoiDung
 AS
 BEGIN
-	SELECT TenDN, NgayTao, nd.MaNV, nv.TenNV,nd.QuyenID ,q.TenQuyen
+	SELECT nd.MaNV, nv.TenNV, NgayTao ,q.TenQuyen
 	FROM NguoiDung nd
 	join NhanVien nv ON nd.MaNV = nv.MaNV
 	Join Quyen q ON nd.QuyenID = q.Id
@@ -293,17 +304,17 @@ begin
 	WHERE TenDN
 end
 select * from NguoiDung
-
-
+go
+drop proc SP_DoiMatKhau
 CREATE PROCEDURE SP_DoiMatKhau
-    @TenDN NVARCHAR(500),        
+    @MaNV NVARCHAR(500),        
     @MatKhauCu NVARCHAR(500),   
     @MatKhauMoi NVARCHAR(500)   
 AS
 BEGIN
         UPDATE NguoiDung
         SET MatKhau = @MatKhauMoi
-        WHERE TenDN = @TenDN AND MatKhau = @MatKhauCu
+        WHERE MaNV = @MaNV AND MatKhau = @MatKhauCu
 END
 
 ------tìm kiếm phiếu trả hàng ncc
@@ -316,12 +327,12 @@ END
 GO
 ----------------------------------Người dùng-----------------------------
 --thủ tục tìm người dùng
-
+drop proc SP_TimKiemNguoiDung
 CREATE PROC SP_TimKiemNguoiDung
 @SearchValue nvarchar(50)
 AS
 BEGIN
-SELECT TenDN, NgayTao, nd.MaNV, nv.TenNV,nd.QuyenID ,q.TenQuyen
+SELECT  nd.MaNV, nv.TenNV, NgayTao, q.TenQuyen
 	FROM NguoiDung nd
 	join NhanVien nv ON nd.MaNV = nv.MaNV
 	Join Quyen q ON nd.QuyenID = q.Id
@@ -331,43 +342,54 @@ END
 GO
 
 --thủ tục thêm người dùng
+drop proc SP_ThemNguoiDung
 CREATE PROC SP_ThemNguoiDung
-@TenDN varchar(50),
+@MaNV varchar(10),
 @MatKhau varchar(50),
 @NgayTao date,
-@MaNV varchar(10),
 @QuyenID int
 AS 
 BEGIN
-	INSERT INTO NguoiDung VALUES(@TenDN, @MatKhau, @NgayTao, @MaNV, @QuyenID)
+	INSERT INTO NguoiDung (MaNV, MatKhau, NgayTao, QuyenID) VALUES(@MaNV, @MatKhau, @NgayTao, @QuyenID)
 END
 GO
 
 --thủ tục kiểm tra trùng tên
+drop proc SP_KiemTraTrungten
 CREATE PROC SP_KiemTraTrungten
-@TenDN varchar(50)
+@MaNV varchar(50)
 AS
 BEGIN
-	SELECT * FROM NguoiDung WHERE TenDN = @TenDN
+	SELECT * FROM NguoiDung WHERE MaNV = @MaNV
 END
 GO
 --thu tuc xoa nguoi dung
+drop proc SP_XoaNguoiDung
 CREATE PROC SP_XoaNguoiDung
-@TenDN varchar(50)
+@MaNV varchar(50)
 AS
 BEGIN
-	DELETE FROM NguoiDung WHERE TenDN = @TenDN
+	DELETE FROM NguoiDung WHERE MaNV = @MaNV
 END
 GO
 --thủ tục sửa người dùng
+drop proc SP_SuaNguoiDung
 CREATE PROC SP_SuaNguoiDung
-@TenDN varchar(50), @MatKhau varchar(50), @MaNV varchar(50), @QuyenId int
+    @MaNV VARCHAR(50),
+    @MatKhau VARCHAR(50) = NULL, -- Cho phép NULL nếu không sửa mật khẩu
+    @QuyenId INT
 AS
 BEGIN
-	UPDATE NguoiDung
-	SET  MatKhau = @MatKhau, MaNV = @MaNV, QuyenID = @QuyenId
-	WHERE NguoiDung.TenDN = @TenDN
+    UPDATE NguoiDung
+    SET  
+        MatKhau = CASE 
+                    WHEN @MatKhau IS NOT NULL THEN @MatKhau
+                    ELSE MatKhau
+                  END,
+        QuyenID = @QuyenId
+    WHERE NguoiDung.MaNV = @MaNV;
 END
+GO
 GO
 
 
@@ -844,14 +866,15 @@ BEGIN
 END
 GO
 --Lấy thông tin người dùng 
+drop proc SP_GetThongTinNguoiDung
 CREATE PROCEDURE SP_GetThongTinNguoiDung
-@TenDN varchar(50)
+@MaNV varchar(50)
 AS
 BEGIN
 	SELECT nv.MaNV, nv.TenNV, nv.Email, nv.NgayTuyenDung, nv.SDT, nv.ChucVu
 	FROM NguoiDung nd
 	JOIN NhanVien nv ON nd.MaNV = nv.MaNV
-	WHERE nd.TenDN = @TenDN
+	WHERE nd.MaNV = @MaNV
 END
 GO
 -----------------------------------Nhaapj Hang

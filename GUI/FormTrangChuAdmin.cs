@@ -17,6 +17,8 @@ namespace DACN.GUI
         {
             InitializeComponent();
             OpenChildForm(new FormNguoiDung());
+            this.Width = 1250;
+            this.Height = 700;
         }
         private Form currentFormChild;
         private void OpenChildForm(Form childForm)
@@ -39,20 +41,16 @@ namespace DACN.GUI
             OpenChildForm(new FormNguoiDung());
         }
 
-        private void btn_QuanLySanPham_Click(object sender, EventArgs e)
-        {
-            OpenChildForm(new FormQLHangHoa());
-        }
-
         private void btn_DangXuat_Click(object sender, EventArgs e)
         {
             FormDangNhap.nhanvien = string.Empty;
             DialogResult dialogResult = MessageBox.Show("Bạn có chắc chắn muốn đăng xuất?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dialogResult == DialogResult.Yes)
             {
-                this.Close();
+                this.Hide();
                 FormDangNhap loginForm = new FormDangNhap();
                 loginForm.Show();
+                this.Close();
             }
         }
 

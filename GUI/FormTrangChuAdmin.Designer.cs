@@ -41,7 +41,6 @@
             this.uiPanel1 = new Sunny.UI.UIPanel();
             this.btn_DangXuat = new System.Windows.Forms.Button();
             this.btnSaoLuuPhucHoi = new Sunny.UI.UIButton();
-            this.btn_QuanLySanPham = new Sunny.UI.UIButton();
             this.btn_QuanLyTaiKhoam = new Sunny.UI.UIButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.uiContextMenuStrip1 = new Sunny.UI.UIContextMenuStrip();
@@ -141,7 +140,6 @@
             // 
             this.uiPanel1.Controls.Add(this.btn_DangXuat);
             this.uiPanel1.Controls.Add(this.btnSaoLuuPhucHoi);
-            this.uiPanel1.Controls.Add(this.btn_QuanLySanPham);
             this.uiPanel1.Controls.Add(this.btn_QuanLyTaiKhoam);
             this.uiPanel1.Controls.Add(this.panel1);
             this.uiPanel1.Dock = System.Windows.Forms.DockStyle.Left;
@@ -177,7 +175,7 @@
             this.btnSaoLuuPhucHoi.FillHoverColor = System.Drawing.Color.Red;
             this.btnSaoLuuPhucHoi.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.btnSaoLuuPhucHoi.ForeColor = System.Drawing.Color.Yellow;
-            this.btnSaoLuuPhucHoi.Location = new System.Drawing.Point(1, 438);
+            this.btnSaoLuuPhucHoi.Location = new System.Drawing.Point(1, 383);
             this.btnSaoLuuPhucHoi.MinimumSize = new System.Drawing.Size(1, 1);
             this.btnSaoLuuPhucHoi.Name = "btnSaoLuuPhucHoi";
             this.btnSaoLuuPhucHoi.RectColor = System.Drawing.Color.Lime;
@@ -189,26 +187,6 @@
             this.btnSaoLuuPhucHoi.Text = "Sao lưu phục hồi";
             this.btnSaoLuuPhucHoi.TipsFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.btnSaoLuuPhucHoi.Click += new System.EventHandler(this.btnSaoLuuPhucHoi_Click);
-            // 
-            // btn_QuanLySanPham
-            // 
-            this.btn_QuanLySanPham.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_QuanLySanPham.FillColor = System.Drawing.Color.Green;
-            this.btn_QuanLySanPham.FillHoverColor = System.Drawing.Color.Red;
-            this.btn_QuanLySanPham.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btn_QuanLySanPham.ForeColor = System.Drawing.Color.Yellow;
-            this.btn_QuanLySanPham.Location = new System.Drawing.Point(1, 380);
-            this.btn_QuanLySanPham.MinimumSize = new System.Drawing.Size(1, 1);
-            this.btn_QuanLySanPham.Name = "btn_QuanLySanPham";
-            this.btn_QuanLySanPham.RectColor = System.Drawing.Color.Lime;
-            this.btn_QuanLySanPham.RectHoverColor = System.Drawing.Color.Black;
-            this.btn_QuanLySanPham.RectPressColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.btn_QuanLySanPham.RectSelectedColor = System.Drawing.Color.Fuchsia;
-            this.btn_QuanLySanPham.Size = new System.Drawing.Size(330, 61);
-            this.btn_QuanLySanPham.TabIndex = 2;
-            this.btn_QuanLySanPham.Text = "Quản lý sản phẩm";
-            this.btn_QuanLySanPham.TipsFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.btn_QuanLySanPham.Click += new System.EventHandler(this.btn_QuanLySanPham_Click);
             // 
             // btn_QuanLyTaiKhoam
             // 
@@ -284,7 +262,6 @@
         private Sunny.UI.UIButton btn_QuanLyTaiKhoam;
         private System.Windows.Forms.Panel panel1;
         private Sunny.UI.UIButton btnSaoLuuPhucHoi;
-        private Sunny.UI.UIButton btn_QuanLySanPham;
         private System.Windows.Forms.Button btn_DangXuat;
         private Sunny.UI.UIContextMenuStrip uiContextMenuStrip1;
     }

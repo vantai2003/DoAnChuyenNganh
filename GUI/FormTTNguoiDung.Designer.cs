@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lb_manv = new System.Windows.Forms.Label();
             this.lb_tennv = new System.Windows.Forms.Label();
             this.lb_email = new System.Windows.Forms.Label();
             this.lb_sdt = new System.Windows.Forms.Label();
@@ -40,16 +39,8 @@
             this.lbSDT = new System.Windows.Forms.Label();
             this.lbChucVu = new System.Windows.Forms.Label();
             this.lbNgayVaoLam = new System.Windows.Forms.Label();
+            this.lb_manv = new System.Windows.Forms.Label();
             this.SuspendLayout();
-            // 
-            // lb_manv
-            // 
-            this.lb_manv.AutoSize = true;
-            this.lb_manv.Location = new System.Drawing.Point(360, 119);
-            this.lb_manv.Name = "lb_manv";
-            this.lb_manv.Size = new System.Drawing.Size(91, 16);
-            this.lb_manv.TabIndex = 0;
-            this.lb_manv.Text = "Mã Nhân Viên";
             // 
             // lb_tennv
             // 
@@ -144,6 +135,15 @@
             this.lbNgayVaoLam.Size = new System.Drawing.Size(0, 16);
             this.lbNgayVaoLam.TabIndex = 11;
             // 
+            // lb_manv
+            // 
+            this.lb_manv.AutoSize = true;
+            this.lb_manv.Location = new System.Drawing.Point(360, 119);
+            this.lb_manv.Name = "lb_manv";
+            this.lb_manv.Size = new System.Drawing.Size(91, 16);
+            this.lb_manv.TabIndex = 0;
+            this.lb_manv.Text = "Mã Nhân Viên";
+            // 
             // FormTTNguoiDung
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -169,8 +169,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Label lb_manv;
         private System.Windows.Forms.Label lb_tennv;
         private System.Windows.Forms.Label lb_email;
         private System.Windows.Forms.Label lb_sdt;
@@ -182,5 +180,6 @@
         private System.Windows.Forms.Label lbSDT;
         private System.Windows.Forms.Label lbChucVu;
         private System.Windows.Forms.Label lbNgayVaoLam;
+        private System.Windows.Forms.Label lb_manv;
     }
 }

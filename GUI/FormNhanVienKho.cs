@@ -75,5 +75,10 @@ namespace DACN.GUI
         {
             OpenChildForm(new FormQLTraHangNCC());
         }
+
+        private void toolStripMenuItem_DoiMK_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new FormDoiMatKhau());
+        }
     }
 }

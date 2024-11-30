@@ -44,10 +44,13 @@
             this.uiPanel3 = new Sunny.UI.UIPanel();
             this.dvg_TaoPTH = new Sunny.UI.UIDataGridView();
             this.uiPanel2 = new Sunny.UI.UIPanel();
+            this.uiPanel5 = new Sunny.UI.UIPanel();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.uiPanel1.SuspendLayout();
             this.uiPanel4.SuspendLayout();
             this.uiPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dvg_TaoPTH)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // uiPanel1
@@ -75,11 +78,11 @@
             this.uiPanel4.Controls.Add(this.btn_TaoPhieu);
             this.uiPanel4.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.uiPanel4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.uiPanel4.Location = new System.Drawing.Point(0, 366);
+            this.uiPanel4.Location = new System.Drawing.Point(0, 394);
             this.uiPanel4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.uiPanel4.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiPanel4.Name = "uiPanel4";
-            this.uiPanel4.Size = new System.Drawing.Size(1165, 184);
+            this.uiPanel4.Size = new System.Drawing.Size(1165, 156);
             this.uiPanel4.TabIndex = 2;
             this.uiPanel4.Text = null;
             this.uiPanel4.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
@@ -87,7 +90,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(568, 40);
+            this.label2.Location = new System.Drawing.Point(622, 42);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(94, 25);
             this.label2.TabIndex = 4;
@@ -138,7 +141,8 @@
             // 
             // uiPanel3
             // 
-            this.uiPanel3.Controls.Add(this.dvg_TaoPTH);
+            this.uiPanel3.Controls.Add(this.panel1);
+            this.uiPanel3.Controls.Add(this.uiPanel5);
             this.uiPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.uiPanel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.uiPanel3.Location = new System.Drawing.Point(0, 87);
@@ -194,7 +198,7 @@
             this.dvg_TaoPTH.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dvg_TaoPTH.RowTemplate.Height = 24;
             this.dvg_TaoPTH.SelectedIndex = -1;
-            this.dvg_TaoPTH.Size = new System.Drawing.Size(1165, 463);
+            this.dvg_TaoPTH.Size = new System.Drawing.Size(1125, 299);
             this.dvg_TaoPTH.StripeOddColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
             this.dvg_TaoPTH.TabIndex = 0;
             this.dvg_TaoPTH.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dvg_TaoPTH_CellClick_1);
@@ -216,6 +220,27 @@
             this.uiPanel2.Text = "TẠO PHIẾU TRẢ HÀNG ";
             this.uiPanel2.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // uiPanel5
+            // 
+            this.uiPanel5.Dock = System.Windows.Forms.DockStyle.Right;
+            this.uiPanel5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.uiPanel5.Location = new System.Drawing.Point(1125, 0);
+            this.uiPanel5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.uiPanel5.MinimumSize = new System.Drawing.Size(1, 1);
+            this.uiPanel5.Name = "uiPanel5";
+            this.uiPanel5.Size = new System.Drawing.Size(40, 463);
+            this.uiPanel5.TabIndex = 1;
+            this.uiPanel5.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.dvg_TaoPTH);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1125, 299);
+            this.panel1.TabIndex = 2;
+            // 
             // FormTaoPhieuTraHangNCC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -230,6 +255,7 @@
             this.uiPanel4.PerformLayout();
             this.uiPanel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dvg_TaoPTH)).EndInit();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -246,5 +272,7 @@
         private System.Windows.Forms.TextBox txt_TongTien;
         private System.Windows.Forms.Label label2;
         private Sunny.UI.UIDataGridView dvg_TaoPTH;
+        private System.Windows.Forms.Panel panel1;
+        private Sunny.UI.UIPanel uiPanel5;
     }
 }
