@@ -91,9 +91,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-
             this.label8.Location = new System.Drawing.Point(36, 38);
-
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(100, 25);
             this.label8.TabIndex = 78;
@@ -103,12 +101,11 @@
             // 
             this.txtTongTien.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtTongTien.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-
             this.txtTongTien.Location = new System.Drawing.Point(164, 38);
             this.txtTongTien.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtTongTien.MinimumSize = new System.Drawing.Size(1, 16);
             this.txtTongTien.Name = "txtTongTien";
-            this.txtTongTien.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtTongTien.Padding = new System.Windows.Forms.Padding(4);
             this.txtTongTien.ShowText = false;
             this.txtTongTien.Size = new System.Drawing.Size(133, 23);
             this.txtTongTien.TabIndex = 77;
@@ -135,6 +132,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(813, 441);
             this.Controls.Add(this.btnOK);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.txtTongTien);
