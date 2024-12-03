@@ -360,7 +360,7 @@
             this.ClientSize = new System.Drawing.Size(1128, 687);
             this.Controls.Add(this.uiPanel1);
             this.Name = "FormChonSP_NCC";
-            this.Text = "FormChonSP_NCC";
+            this.Text = "CHỌN SẢN PHẨM";
             this.uiPanel1.ResumeLayout(false);
             this.uiPanel6.ResumeLayout(false);
             this.uiPanel8.ResumeLayout(false);

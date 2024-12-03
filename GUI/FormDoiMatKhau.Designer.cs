@@ -30,14 +30,14 @@
         {
             this.panel_body = new Sunny.UI.UIPanel();
             this.uiPanel2 = new Sunny.UI.UIPanel();
+            this.uiLabel3 = new Sunny.UI.UILabel();
+            this.txt_MkMoi = new Sunny.UI.UITextBox();
+            this.uiLabel2 = new Sunny.UI.UILabel();
+            this.uiLabel1 = new Sunny.UI.UILabel();
+            this.btn_DoiMK = new Sunny.UI.UIButton();
             this.txt_MatKhauCu = new Sunny.UI.UITextBox();
             this.txt_TenDN = new Sunny.UI.UITextBox();
             this.uiPanel1 = new Sunny.UI.UIPanel();
-            this.btn_DoiMK = new Sunny.UI.UIButton();
-            this.uiLabel1 = new Sunny.UI.UILabel();
-            this.uiLabel2 = new Sunny.UI.UILabel();
-            this.uiLabel3 = new Sunny.UI.UILabel();
-            this.txt_MkMoi = new Sunny.UI.UITextBox();
             this.panel_body.SuspendLayout();
             this.uiPanel2.SuspendLayout();
             this.SuspendLayout();
@@ -67,7 +67,7 @@
             this.uiPanel2.Controls.Add(this.txt_TenDN);
             this.uiPanel2.Controls.Add(this.uiPanel1);
             this.uiPanel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.uiPanel2.Location = new System.Drawing.Point(214, 28);
+            this.uiPanel2.Location = new System.Drawing.Point(345, 28);
             this.uiPanel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.uiPanel2.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiPanel2.Name = "uiPanel2";
@@ -75,6 +75,71 @@
             this.uiPanel2.TabIndex = 1;
             this.uiPanel2.Text = null;
             this.uiPanel2.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // uiLabel3
+            // 
+            this.uiLabel3.BackColor = System.Drawing.Color.Transparent;
+            this.uiLabel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.uiLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
+            this.uiLabel3.Location = new System.Drawing.Point(61, 286);
+            this.uiLabel3.Name = "uiLabel3";
+            this.uiLabel3.Size = new System.Drawing.Size(162, 23);
+            this.uiLabel3.TabIndex = 7;
+            this.uiLabel3.Text = "Mật khẩu mới";
+            // 
+            // txt_MkMoi
+            // 
+            this.txt_MkMoi.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txt_MkMoi.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.txt_MkMoi.Location = new System.Drawing.Point(61, 328);
+            this.txt_MkMoi.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txt_MkMoi.MinimumSize = new System.Drawing.Size(1, 16);
+            this.txt_MkMoi.Name = "txt_MkMoi";
+            this.txt_MkMoi.Padding = new System.Windows.Forms.Padding(5);
+            this.txt_MkMoi.PasswordChar = '*';
+            this.txt_MkMoi.ShowText = false;
+            this.txt_MkMoi.Size = new System.Drawing.Size(324, 29);
+            this.txt_MkMoi.TabIndex = 6;
+            this.txt_MkMoi.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txt_MkMoi.Watermark = "";
+            // 
+            // uiLabel2
+            // 
+            this.uiLabel2.BackColor = System.Drawing.Color.Transparent;
+            this.uiLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.uiLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
+            this.uiLabel2.Location = new System.Drawing.Point(61, 185);
+            this.uiLabel2.Name = "uiLabel2";
+            this.uiLabel2.Size = new System.Drawing.Size(162, 23);
+            this.uiLabel2.TabIndex = 5;
+            this.uiLabel2.Text = "Mật khẩu cũ";
+            // 
+            // uiLabel1
+            // 
+            this.uiLabel1.BackColor = System.Drawing.Color.Transparent;
+            this.uiLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.uiLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
+            this.uiLabel1.Location = new System.Drawing.Point(56, 81);
+            this.uiLabel1.Name = "uiLabel1";
+            this.uiLabel1.Size = new System.Drawing.Size(232, 36);
+            this.uiLabel1.TabIndex = 4;
+            this.uiLabel1.Text = "Tên đăng nhập";
+            // 
+            // btn_DoiMK
+            // 
+            this.btn_DoiMK.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_DoiMK.FillColor = System.Drawing.Color.Green;
+            this.btn_DoiMK.FillHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btn_DoiMK.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.btn_DoiMK.ForeHoverColor = System.Drawing.Color.Black;
+            this.btn_DoiMK.Location = new System.Drawing.Point(135, 422);
+            this.btn_DoiMK.MinimumSize = new System.Drawing.Size(1, 1);
+            this.btn_DoiMK.Name = "btn_DoiMK";
+            this.btn_DoiMK.Size = new System.Drawing.Size(140, 35);
+            this.btn_DoiMK.TabIndex = 3;
+            this.btn_DoiMK.Text = "Đổi mật khẩu";
+            this.btn_DoiMK.TipsFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.btn_DoiMK.Click += new System.EventHandler(this.btn_DoiMK_Click);
             // 
             // txt_MatKhauCu
             // 
@@ -121,71 +186,6 @@
             this.uiPanel1.TabIndex = 0;
             this.uiPanel1.Text = "Đổi mật khẩu";
             this.uiPanel1.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // btn_DoiMK
-            // 
-            this.btn_DoiMK.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_DoiMK.FillColor = System.Drawing.Color.Green;
-            this.btn_DoiMK.FillHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.btn_DoiMK.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btn_DoiMK.ForeHoverColor = System.Drawing.Color.Black;
-            this.btn_DoiMK.Location = new System.Drawing.Point(135, 422);
-            this.btn_DoiMK.MinimumSize = new System.Drawing.Size(1, 1);
-            this.btn_DoiMK.Name = "btn_DoiMK";
-            this.btn_DoiMK.Size = new System.Drawing.Size(140, 35);
-            this.btn_DoiMK.TabIndex = 3;
-            this.btn_DoiMK.Text = "Đổi mật khẩu";
-            this.btn_DoiMK.TipsFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.btn_DoiMK.Click += new System.EventHandler(this.btn_DoiMK_Click);
-            // 
-            // uiLabel1
-            // 
-            this.uiLabel1.BackColor = System.Drawing.Color.Transparent;
-            this.uiLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.uiLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
-            this.uiLabel1.Location = new System.Drawing.Point(56, 81);
-            this.uiLabel1.Name = "uiLabel1";
-            this.uiLabel1.Size = new System.Drawing.Size(167, 23);
-            this.uiLabel1.TabIndex = 4;
-            this.uiLabel1.Text = "Tên đăng nhập";
-            // 
-            // uiLabel2
-            // 
-            this.uiLabel2.BackColor = System.Drawing.Color.Transparent;
-            this.uiLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.uiLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
-            this.uiLabel2.Location = new System.Drawing.Point(61, 185);
-            this.uiLabel2.Name = "uiLabel2";
-            this.uiLabel2.Size = new System.Drawing.Size(162, 23);
-            this.uiLabel2.TabIndex = 5;
-            this.uiLabel2.Text = "Mật khẩu cũ";
-            // 
-            // uiLabel3
-            // 
-            this.uiLabel3.BackColor = System.Drawing.Color.Transparent;
-            this.uiLabel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.uiLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
-            this.uiLabel3.Location = new System.Drawing.Point(61, 286);
-            this.uiLabel3.Name = "uiLabel3";
-            this.uiLabel3.Size = new System.Drawing.Size(162, 23);
-            this.uiLabel3.TabIndex = 7;
-            this.uiLabel3.Text = "Mật khẩu mới";
-            // 
-            // txt_MkMoi
-            // 
-            this.txt_MkMoi.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txt_MkMoi.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.txt_MkMoi.Location = new System.Drawing.Point(61, 328);
-            this.txt_MkMoi.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txt_MkMoi.MinimumSize = new System.Drawing.Size(1, 16);
-            this.txt_MkMoi.Name = "txt_MkMoi";
-            this.txt_MkMoi.Padding = new System.Windows.Forms.Padding(5);
-            this.txt_MkMoi.PasswordChar = '*';
-            this.txt_MkMoi.ShowText = false;
-            this.txt_MkMoi.Size = new System.Drawing.Size(324, 29);
-            this.txt_MkMoi.TabIndex = 6;
-            this.txt_MkMoi.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
-            this.txt_MkMoi.Watermark = "";
             // 
             // FormDoiMatKhau
             // 

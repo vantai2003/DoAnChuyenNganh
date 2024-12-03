@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 {"CustomColumnOrderings":{"name":0,"file-path":1,"file-name":2,"neutral-value":3,"neutral-comment":4,"type":5},"ShowValidationErrors":true,"SelectedResourceGroups":["D:\\DACN\\Project\\DACN\\GUI\\FormDuyetKhuyenMai.resx","D:\\DACN\\Project\\DACN\\GUI\\FormQLHangHoa.resx"],"VisibleColumnKeys":["name","neutral-value"]}
+=======
+{"CustomColumnOrderings":{"name":0,"file-path":1,"file-name":2,"neutral-value":3,"neutral-comment":4,"type":5},"ShowValidationErrors":true,"SelectedResourceGroups":[],"VisibleColumnKeys":["name","neutral-value"]}
+>>>>>>> 083b4ffc4de20326f3c28303c2f114f1c2999732

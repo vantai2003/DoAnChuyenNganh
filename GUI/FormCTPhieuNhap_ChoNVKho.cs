@@ -25,6 +25,10 @@ namespace DACN.GUI
         }
         private void LoadCTPN()
         {
+            if(mapn == null)
+            {
+                mapn = FormInHoaDon.maPN;
+            }
             List<CTPhieuNHDTO> listctpn = PhieuNhapHangDAO.Instance.GetCTPhieuNH(mapn);
             dvg_CTPN.DataSource = listctpn;
             dvg_CTPN.Columns["MaCTPhieuNH"].HeaderText = "Mã chi tiết phiếu nhập";

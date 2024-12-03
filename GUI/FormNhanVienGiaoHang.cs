@@ -16,6 +16,8 @@ namespace DACN.GUI
         public FormNhanVienGiaoHang()
         {
             InitializeComponent();
+            this.Width = 1200;
+            this.Height = 900;
         }
 
 
@@ -76,7 +78,7 @@ namespace DACN.GUI
 
         private void btn_pth_Click_1(object sender, EventArgs e)
         {
-           
+            
         }
 
         private void btn_lappth_Click(object sender, EventArgs e)
@@ -90,7 +92,7 @@ namespace DACN.GUI
                     return;
                 }
 
-                FormPhieuTraHangKH fpthkh = new FormPhieuTraHangKH();
+                FormCTPhieuTraHangKH fpthkh = new FormCTPhieuTraHangKH();
                 fpthkh.ShowDialog();
             }
             catch (Exception ex)

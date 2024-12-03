@@ -28,41 +28,48 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormQLKhuyenMai));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tab_Body = new Sunny.UI.UITabControl();
             this.tab_DS = new System.Windows.Forms.TabPage();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.label8 = new System.Windows.Forms.Label();
-            this.txtmota = new Sunny.UI.UIRichTextBox();
-            this.btn_BatKM = new System.Windows.Forms.Button();
-            this.txtdktt = new Sunny.UI.UITextBox();
+            this.panel17 = new System.Windows.Forms.Panel();
             this.txttenkm = new Sunny.UI.UITextBox();
-            this.txtgtkm = new Sunny.UI.UITextBox();
-            this.dpNgayKT = new System.Windows.Forms.DateTimePicker();
-            this.dpNgayBD = new System.Windows.Forms.DateTimePicker();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtgtkm = new Sunny.UI.UITextBox();
+            this.txtmota = new Sunny.UI.UIRichTextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtdktt = new Sunny.UI.UITextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.panel16 = new System.Windows.Forms.Panel();
             this.btn_TatKM = new System.Windows.Forms.Button();
+            this.btn_BatKM = new System.Windows.Forms.Button();
             this.btn_Sua = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.panel12 = new System.Windows.Forms.Panel();
             this.dvg_DSKM = new Sunny.UI.UIDataGridView();
+            this.panel15 = new System.Windows.Forms.Panel();
+            this.panel14 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.panel13 = new System.Windows.Forms.Panel();
+            this.rgb_Loc = new Sunny.UI.UIRadioButtonGroup();
+            this.txt_search = new Sunny.UI.UITextBox();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.panel7 = new System.Windows.Forms.Panel();
             this.uiRadioButtonGroup1 = new Sunny.UI.UIRadioButtonGroup();
             this.cbtrangthai = new System.Windows.Forms.ComboBox();
             this.btn_Loc = new System.Windows.Forms.Button();
-            this.rgb_Loc = new Sunny.UI.UIRadioButtonGroup();
-            this.btn_Search = new System.Windows.Forms.PictureBox();
-            this.txt_search = new Sunny.UI.UITextBox();
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.panel8 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.uiPanel1 = new Sunny.UI.UIPanel();
             this.tab_TaoKM = new System.Windows.Forms.TabPage();
@@ -89,37 +96,28 @@
             this.lb_ngaykt = new System.Windows.Forms.Label();
             this.lb_ngaybd = new System.Windows.Forms.Label();
             this.lb_tenkm = new System.Windows.Forms.Label();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.panel10 = new System.Windows.Forms.Panel();
-            this.panel11 = new System.Windows.Forms.Panel();
-            this.panel13 = new System.Windows.Forms.Panel();
-            this.panel14 = new System.Windows.Forms.Panel();
-            this.panel15 = new System.Windows.Forms.Panel();
-            this.panel12 = new System.Windows.Forms.Panel();
-            this.panel16 = new System.Windows.Forms.Panel();
-            this.panel17 = new System.Windows.Forms.Panel();
+            this.dpNgayBD = new System.Windows.Forms.DateTimePicker();
+            this.dpNgayKT = new System.Windows.Forms.DateTimePicker();
+            this.uiButton1 = new Sunny.UI.UIButton();
             this.tab_Body.SuspendLayout();
             this.tab_DS.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
+            this.panel17.SuspendLayout();
+            this.panel16.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel6.SuspendLayout();
+            this.panel12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dvg_DSKM)).BeginInit();
             this.panel5.SuspendLayout();
-            this.uiRadioButtonGroup1.SuspendLayout();
+            this.panel9.SuspendLayout();
+            this.panel13.SuspendLayout();
             this.rgb_Loc.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btn_Search)).BeginInit();
+            this.panel7.SuspendLayout();
+            this.uiRadioButtonGroup1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tab_TaoKM.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            this.panel7.SuspendLayout();
-            this.panel9.SuspendLayout();
-            this.panel13.SuspendLayout();
-            this.panel12.SuspendLayout();
-            this.panel16.SuspendLayout();
-            this.panel17.SuspendLayout();
             this.SuspendLayout();
             // 
             // tab_Body
@@ -175,56 +173,25 @@
             this.panel4.Size = new System.Drawing.Size(1303, 290);
             this.panel4.TabIndex = 2;
             // 
-            // label8
+            // panel17
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(612, 139);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(61, 25);
-            this.label8.TabIndex = 16;
-            this.label8.Text = "Mô tả";
-            // 
-            // txtmota
-            // 
-            this.txtmota.FillColor = System.Drawing.Color.White;
-            this.txtmota.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.txtmota.Location = new System.Drawing.Point(617, 184);
-            this.txtmota.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtmota.MinimumSize = new System.Drawing.Size(1, 1);
-            this.txtmota.Name = "txtmota";
-            this.txtmota.Padding = new System.Windows.Forms.Padding(2);
-            this.txtmota.ShowText = false;
-            this.txtmota.Size = new System.Drawing.Size(277, 69);
-            this.txtmota.TabIndex = 15;
-            this.txtmota.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // btn_BatKM
-            // 
-            this.btn_BatKM.BackColor = System.Drawing.Color.Green;
-            this.btn_BatKM.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_BatKM.ForeColor = System.Drawing.Color.LightCyan;
-            this.btn_BatKM.Location = new System.Drawing.Point(22, 80);
-            this.btn_BatKM.Name = "btn_BatKM";
-            this.btn_BatKM.Size = new System.Drawing.Size(203, 44);
-            this.btn_BatKM.TabIndex = 14;
-            this.btn_BatKM.Text = "Bật khuyến mãi";
-            this.btn_BatKM.UseVisualStyleBackColor = false;
-            this.btn_BatKM.Click += new System.EventHandler(this.btn_BatKM_Click);
-            // 
-            // txtdktt
-            // 
-            this.txtdktt.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtdktt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.txtdktt.Location = new System.Drawing.Point(285, 224);
-            this.txtdktt.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtdktt.MinimumSize = new System.Drawing.Size(1, 16);
-            this.txtdktt.Name = "txtdktt";
-            this.txtdktt.Padding = new System.Windows.Forms.Padding(5);
-            this.txtdktt.ShowText = false;
-            this.txtdktt.Size = new System.Drawing.Size(280, 29);
-            this.txtdktt.TabIndex = 12;
-            this.txtdktt.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
-            this.txtdktt.Watermark = "";
+            this.panel17.Controls.Add(this.dpNgayKT);
+            this.panel17.Controls.Add(this.dpNgayBD);
+            this.panel17.Controls.Add(this.txttenkm);
+            this.panel17.Controls.Add(this.label5);
+            this.panel17.Controls.Add(this.label8);
+            this.panel17.Controls.Add(this.txtgtkm);
+            this.panel17.Controls.Add(this.txtmota);
+            this.panel17.Controls.Add(this.label4);
+            this.panel17.Controls.Add(this.label6);
+            this.panel17.Controls.Add(this.txtdktt);
+            this.panel17.Controls.Add(this.label7);
+            this.panel17.Controls.Add(this.label3);
+            this.panel17.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel17.Location = new System.Drawing.Point(0, 0);
+            this.panel17.Name = "panel17";
+            this.panel17.Size = new System.Drawing.Size(916, 290);
+            this.panel17.TabIndex = 18;
             // 
             // txttenkm
             // 
@@ -241,6 +208,24 @@
             this.txttenkm.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             this.txttenkm.Watermark = "";
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(457, 90);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(131, 25);
+            this.label5.TabIndex = 4;
+            this.label5.Text = "Ngày kết thúc";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(612, 139);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(61, 25);
+            this.label8.TabIndex = 16;
+            this.label8.Text = "Mô tả";
+            // 
             // txtgtkm
             // 
             this.txtgtkm.Cursor = System.Windows.Forms.Cursors.IBeam;
@@ -256,48 +241,19 @@
             this.txtgtkm.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             this.txtgtkm.Watermark = "";
             // 
-            // dpNgayKT
+            // txtmota
             // 
-            this.dpNgayKT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.dpNgayKT.Location = new System.Drawing.Point(602, 92);
-            this.dpNgayKT.Name = "dpNgayKT";
-            this.dpNgayKT.Size = new System.Drawing.Size(271, 24);
-            this.dpNgayKT.TabIndex = 8;
-            // 
-            // dpNgayBD
-            // 
-            this.dpNgayBD.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.dpNgayBD.Location = new System.Drawing.Point(192, 90);
-            this.dpNgayBD.Name = "dpNgayBD";
-            this.dpNgayBD.Size = new System.Drawing.Size(259, 24);
-            this.dpNgayBD.TabIndex = 7;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(34, 224);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(224, 25);
-            this.label7.TabIndex = 6;
-            this.label7.Text = "Giá trị điều kiện tổng tiền";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(34, 165);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(167, 25);
-            this.label6.TabIndex = 5;
-            this.label6.Text = "Giá trị khuyến mãi";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(457, 90);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(131, 25);
-            this.label5.TabIndex = 4;
-            this.label5.Text = "Ngày kết thúc";
+            this.txtmota.FillColor = System.Drawing.Color.White;
+            this.txtmota.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.txtmota.Location = new System.Drawing.Point(617, 184);
+            this.txtmota.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtmota.MinimumSize = new System.Drawing.Size(1, 1);
+            this.txtmota.Name = "txtmota";
+            this.txtmota.Padding = new System.Windows.Forms.Padding(2);
+            this.txtmota.ShowText = false;
+            this.txtmota.Size = new System.Drawing.Size(277, 69);
+            this.txtmota.TabIndex = 15;
+            this.txtmota.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label4
             // 
@@ -308,6 +264,39 @@
             this.label4.TabIndex = 3;
             this.label4.Text = "Ngày bắt đầu";
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(34, 165);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(167, 25);
+            this.label6.TabIndex = 5;
+            this.label6.Text = "Giá trị khuyến mãi";
+            // 
+            // txtdktt
+            // 
+            this.txtdktt.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtdktt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.txtdktt.Location = new System.Drawing.Point(285, 224);
+            this.txtdktt.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtdktt.MinimumSize = new System.Drawing.Size(1, 16);
+            this.txtdktt.Name = "txtdktt";
+            this.txtdktt.Padding = new System.Windows.Forms.Padding(5);
+            this.txtdktt.ShowText = false;
+            this.txtdktt.Size = new System.Drawing.Size(280, 29);
+            this.txtdktt.TabIndex = 12;
+            this.txtdktt.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txtdktt.Watermark = "";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(34, 224);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(224, 25);
+            this.label7.TabIndex = 6;
+            this.label7.Text = "Giá trị điều kiện tổng tiền";
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -316,6 +305,17 @@
             this.label3.Size = new System.Drawing.Size(152, 25);
             this.label3.TabIndex = 2;
             this.label3.Text = "Tên khuyến mãi";
+            // 
+            // panel16
+            // 
+            this.panel16.Controls.Add(this.btn_TatKM);
+            this.panel16.Controls.Add(this.btn_BatKM);
+            this.panel16.Controls.Add(this.btn_Sua);
+            this.panel16.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel16.Location = new System.Drawing.Point(916, 0);
+            this.panel16.Name = "panel16";
+            this.panel16.Size = new System.Drawing.Size(387, 290);
+            this.panel16.TabIndex = 17;
             // 
             // btn_TatKM
             // 
@@ -329,6 +329,19 @@
             this.btn_TatKM.Text = "Tắt khuyến mãi";
             this.btn_TatKM.UseVisualStyleBackColor = false;
             this.btn_TatKM.Click += new System.EventHandler(this.btn_TatKM_Click);
+            // 
+            // btn_BatKM
+            // 
+            this.btn_BatKM.BackColor = System.Drawing.Color.Green;
+            this.btn_BatKM.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_BatKM.ForeColor = System.Drawing.Color.LightCyan;
+            this.btn_BatKM.Location = new System.Drawing.Point(22, 80);
+            this.btn_BatKM.Name = "btn_BatKM";
+            this.btn_BatKM.Size = new System.Drawing.Size(203, 44);
+            this.btn_BatKM.TabIndex = 14;
+            this.btn_BatKM.Text = "Bật khuyến mãi";
+            this.btn_BatKM.UseVisualStyleBackColor = false;
+            this.btn_BatKM.Click += new System.EventHandler(this.btn_BatKM_Click);
             // 
             // btn_Sua
             // 
@@ -367,54 +380,79 @@
             this.panel6.Size = new System.Drawing.Size(1303, 195);
             this.panel6.TabIndex = 2;
             // 
+            // panel12
+            // 
+            this.panel12.Controls.Add(this.dvg_DSKM);
+            this.panel12.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel12.Location = new System.Drawing.Point(44, 0);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(1223, 195);
+            this.panel12.TabIndex = 4;
+            // 
             // dvg_DSKM
             // 
-            dataGridViewCellStyle21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
-            this.dvg_DSKM.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
+            this.dvg_DSKM.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dvg_DSKM.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dvg_DSKM.BackgroundColor = System.Drawing.Color.White;
             this.dvg_DSKM.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle22.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            dataGridViewCellStyle22.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dvg_DSKM.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dvg_DSKM.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dvg_DSKM.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle23.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle23.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            dataGridViewCellStyle23.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dvg_DSKM.DefaultCellStyle = dataGridViewCellStyle23;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dvg_DSKM.DefaultCellStyle = dataGridViewCellStyle8;
             this.dvg_DSKM.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dvg_DSKM.EnableHeadersVisualStyles = false;
             this.dvg_DSKM.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.dvg_DSKM.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
             this.dvg_DSKM.Location = new System.Drawing.Point(0, 0);
             this.dvg_DSKM.Name = "dvg_DSKM";
-            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle24.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle24.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            dataGridViewCellStyle24.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
-            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dvg_DSKM.RowHeadersDefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dvg_DSKM.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dvg_DSKM.RowHeadersWidth = 51;
-            dataGridViewCellStyle25.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle25.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.dvg_DSKM.RowsDefaultCellStyle = dataGridViewCellStyle25;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.dvg_DSKM.RowsDefaultCellStyle = dataGridViewCellStyle10;
             this.dvg_DSKM.RowTemplate.Height = 24;
             this.dvg_DSKM.SelectedIndex = -1;
             this.dvg_DSKM.Size = new System.Drawing.Size(1223, 195);
             this.dvg_DSKM.StripeOddColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
             this.dvg_DSKM.TabIndex = 0;
             this.dvg_DSKM.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dvg_DSKM_CellClick);
+            // 
+            // panel15
+            // 
+            this.panel15.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel15.Location = new System.Drawing.Point(0, 0);
+            this.panel15.Name = "panel15";
+            this.panel15.Size = new System.Drawing.Size(44, 195);
+            this.panel15.TabIndex = 3;
+            // 
+            // panel14
+            // 
+            this.panel14.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel14.Location = new System.Drawing.Point(1267, 0);
+            this.panel14.Name = "panel14";
+            this.panel14.Size = new System.Drawing.Size(36, 195);
+            this.panel14.TabIndex = 2;
             // 
             // panel5
             // 
@@ -425,6 +463,80 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(1303, 103);
             this.panel5.TabIndex = 1;
+            // 
+            // panel9
+            // 
+            this.panel9.Controls.Add(this.panel13);
+            this.panel9.Controls.Add(this.panel10);
+            this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel9.Location = new System.Drawing.Point(0, 0);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(617, 103);
+            this.panel9.TabIndex = 7;
+            // 
+            // panel13
+            // 
+            this.panel13.Controls.Add(this.rgb_Loc);
+            this.panel13.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel13.Location = new System.Drawing.Point(0, 0);
+            this.panel13.Name = "panel13";
+            this.panel13.Size = new System.Drawing.Size(1141, 85);
+            this.panel13.TabIndex = 2;
+            // 
+            // rgb_Loc
+            // 
+            this.rgb_Loc.BackColor = System.Drawing.Color.Transparent;
+            this.rgb_Loc.Controls.Add(this.uiButton1);
+            this.rgb_Loc.Controls.Add(this.txt_search);
+            this.rgb_Loc.Dock = System.Windows.Forms.DockStyle.Left;
+            this.rgb_Loc.FillColor = System.Drawing.Color.Transparent;
+            this.rgb_Loc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.rgb_Loc.Location = new System.Drawing.Point(0, 0);
+            this.rgb_Loc.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.rgb_Loc.MinimumSize = new System.Drawing.Size(1, 1);
+            this.rgb_Loc.Name = "rgb_Loc";
+            this.rgb_Loc.Padding = new System.Windows.Forms.Padding(0, 32, 0, 0);
+            this.rgb_Loc.Size = new System.Drawing.Size(535, 85);
+            this.rgb_Loc.TabIndex = 5;
+            this.rgb_Loc.Text = "Tìm kiếm";
+            this.rgb_Loc.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // txt_search
+            // 
+            this.txt_search.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txt_search.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.txt_search.Location = new System.Drawing.Point(82, 27);
+            this.txt_search.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txt_search.MinimumSize = new System.Drawing.Size(1, 16);
+            this.txt_search.Name = "txt_search";
+            this.txt_search.Padding = new System.Windows.Forms.Padding(5);
+            this.txt_search.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.txt_search.ScrollBarColor = System.Drawing.Color.Blue;
+            this.txt_search.ScrollBarStyleInherited = false;
+            this.txt_search.ShowText = false;
+            this.txt_search.Size = new System.Drawing.Size(197, 33);
+            this.txt_search.TabIndex = 6;
+            this.txt_search.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txt_search.Watermark = "";
+            // 
+            // panel10
+            // 
+            this.panel10.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel10.Location = new System.Drawing.Point(0, 85);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(617, 18);
+            this.panel10.TabIndex = 0;
+            // 
+            // panel7
+            // 
+            this.panel7.Controls.Add(this.uiRadioButtonGroup1);
+            this.panel7.Controls.Add(this.panel11);
+            this.panel7.Controls.Add(this.panel8);
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel7.Location = new System.Drawing.Point(617, 0);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(686, 103);
+            this.panel7.TabIndex = 6;
             // 
             // uiRadioButtonGroup1
             // 
@@ -468,54 +580,21 @@
             this.btn_Loc.UseVisualStyleBackColor = false;
             this.btn_Loc.Click += new System.EventHandler(this.btn_Loc_Click);
             // 
-            // rgb_Loc
+            // panel11
             // 
-            this.rgb_Loc.BackColor = System.Drawing.Color.Transparent;
-            this.rgb_Loc.Controls.Add(this.btn_Search);
-            this.rgb_Loc.Controls.Add(this.txt_search);
-            this.rgb_Loc.Dock = System.Windows.Forms.DockStyle.Left;
-            this.rgb_Loc.FillColor = System.Drawing.Color.Transparent;
-            this.rgb_Loc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.rgb_Loc.Location = new System.Drawing.Point(0, 0);
-            this.rgb_Loc.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.rgb_Loc.MinimumSize = new System.Drawing.Size(1, 1);
-            this.rgb_Loc.Name = "rgb_Loc";
-            this.rgb_Loc.Padding = new System.Windows.Forms.Padding(0, 32, 0, 0);
-            this.rgb_Loc.Size = new System.Drawing.Size(547, 85);
-            this.rgb_Loc.TabIndex = 5;
-            this.rgb_Loc.Text = "Tìm kiếm";
-            this.rgb_Loc.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.panel11.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel11.Location = new System.Drawing.Point(676, 0);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(10, 85);
+            this.panel11.TabIndex = 1;
             // 
-            // btn_Search
+            // panel8
             // 
-            this.btn_Search.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_Search.Image = ((System.Drawing.Image)(resources.GetObject("btn_Search.Image")));
-            this.btn_Search.Location = new System.Drawing.Point(320, 22);
-            this.btn_Search.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btn_Search.Name = "btn_Search";
-            this.btn_Search.Size = new System.Drawing.Size(62, 44);
-            this.btn_Search.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.btn_Search.TabIndex = 16;
-            this.btn_Search.TabStop = false;
-            this.btn_Search.Click += new System.EventHandler(this.btn_Search_Click);
-            // 
-            // txt_search
-            // 
-            this.txt_search.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txt_search.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.txt_search.Location = new System.Drawing.Point(82, 27);
-            this.txt_search.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txt_search.MinimumSize = new System.Drawing.Size(1, 16);
-            this.txt_search.Name = "txt_search";
-            this.txt_search.Padding = new System.Windows.Forms.Padding(5);
-            this.txt_search.RectColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.txt_search.ScrollBarColor = System.Drawing.Color.Blue;
-            this.txt_search.ScrollBarStyleInherited = false;
-            this.txt_search.ShowText = false;
-            this.txt_search.Size = new System.Drawing.Size(197, 33);
-            this.txt_search.TabIndex = 6;
-            this.txt_search.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
-            this.txt_search.Watermark = "";
+            this.panel8.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel8.Location = new System.Drawing.Point(0, 85);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(686, 18);
+            this.panel8.TabIndex = 0;
             // 
             // panel2
             // 
@@ -817,115 +896,39 @@
             this.lb_tenkm.TabIndex = 0;
             this.lb_tenkm.Text = "Tên khuyến mãi";
             // 
-            // panel7
+            // dpNgayBD
             // 
-            this.panel7.Controls.Add(this.uiRadioButtonGroup1);
-            this.panel7.Controls.Add(this.panel11);
-            this.panel7.Controls.Add(this.panel8);
-            this.panel7.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel7.Location = new System.Drawing.Point(617, 0);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(686, 103);
-            this.panel7.TabIndex = 6;
+            this.dpNgayBD.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dpNgayBD.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dpNgayBD.Location = new System.Drawing.Point(230, 85);
+            this.dpNgayBD.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dpNgayBD.Name = "dpNgayBD";
+            this.dpNgayBD.Size = new System.Drawing.Size(167, 30);
+            this.dpNgayBD.TabIndex = 44;
             // 
-            // panel8
+            // dpNgayKT
             // 
-            this.panel8.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel8.Location = new System.Drawing.Point(0, 85);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(686, 18);
-            this.panel8.TabIndex = 0;
+            this.dpNgayKT.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dpNgayKT.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dpNgayKT.Location = new System.Drawing.Point(594, 90);
+            this.dpNgayKT.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dpNgayKT.Name = "dpNgayKT";
+            this.dpNgayKT.Size = new System.Drawing.Size(164, 30);
+            this.dpNgayKT.TabIndex = 45;
             // 
-            // panel9
+            // uiButton1
             // 
-            this.panel9.Controls.Add(this.panel13);
-            this.panel9.Controls.Add(this.panel10);
-            this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel9.Location = new System.Drawing.Point(0, 0);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(617, 103);
-            this.panel9.TabIndex = 7;
-            // 
-            // panel10
-            // 
-            this.panel10.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel10.Location = new System.Drawing.Point(0, 85);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(617, 18);
-            this.panel10.TabIndex = 0;
-            // 
-            // panel11
-            // 
-            this.panel11.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel11.Location = new System.Drawing.Point(676, 0);
-            this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(10, 85);
-            this.panel11.TabIndex = 1;
-            // 
-            // panel13
-            // 
-            this.panel13.Controls.Add(this.rgb_Loc);
-            this.panel13.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel13.Location = new System.Drawing.Point(0, 0);
-            this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(1141, 85);
-            this.panel13.TabIndex = 2;
-            // 
-            // panel14
-            // 
-            this.panel14.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel14.Location = new System.Drawing.Point(1267, 0);
-            this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(36, 195);
-            this.panel14.TabIndex = 2;
-            // 
-            // panel15
-            // 
-            this.panel15.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel15.Location = new System.Drawing.Point(0, 0);
-            this.panel15.Name = "panel15";
-            this.panel15.Size = new System.Drawing.Size(44, 195);
-            this.panel15.TabIndex = 3;
-            // 
-            // panel12
-            // 
-            this.panel12.Controls.Add(this.dvg_DSKM);
-            this.panel12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel12.Location = new System.Drawing.Point(44, 0);
-            this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(1223, 195);
-            this.panel12.TabIndex = 4;
-            // 
-            // panel16
-            // 
-            this.panel16.Controls.Add(this.btn_TatKM);
-            this.panel16.Controls.Add(this.btn_BatKM);
-            this.panel16.Controls.Add(this.btn_Sua);
-            this.panel16.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel16.Location = new System.Drawing.Point(916, 0);
-            this.panel16.Name = "panel16";
-            this.panel16.Size = new System.Drawing.Size(387, 290);
-            this.panel16.TabIndex = 17;
-            // 
-            // panel17
-            // 
-            this.panel17.Controls.Add(this.txttenkm);
-            this.panel17.Controls.Add(this.label5);
-            this.panel17.Controls.Add(this.label8);
-            this.panel17.Controls.Add(this.txtgtkm);
-            this.panel17.Controls.Add(this.dpNgayKT);
-            this.panel17.Controls.Add(this.txtmota);
-            this.panel17.Controls.Add(this.label4);
-            this.panel17.Controls.Add(this.label6);
-            this.panel17.Controls.Add(this.dpNgayBD);
-            this.panel17.Controls.Add(this.txtdktt);
-            this.panel17.Controls.Add(this.label7);
-            this.panel17.Controls.Add(this.label3);
-            this.panel17.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel17.Location = new System.Drawing.Point(0, 0);
-            this.panel17.Name = "panel17";
-            this.panel17.Size = new System.Drawing.Size(915, 290);
-            this.panel17.TabIndex = 18;
+            this.uiButton1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.uiButton1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.uiButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.uiButton1.Location = new System.Drawing.Point(323, 25);
+            this.uiButton1.MinimumSize = new System.Drawing.Size(1, 1);
+            this.uiButton1.Name = "uiButton1";
+            this.uiButton1.Size = new System.Drawing.Size(100, 35);
+            this.uiButton1.TabIndex = 17;
+            this.uiButton1.Text = "Tìm";
+            this.uiButton1.TipsFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.uiButton1.Click += new System.EventHandler(this.uiButton1_Click);
             // 
             // FormQLKhuyenMai
             // 
@@ -939,25 +942,24 @@
             this.tab_DS.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
+            this.panel17.ResumeLayout(false);
+            this.panel17.PerformLayout();
+            this.panel16.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
+            this.panel12.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dvg_DSKM)).EndInit();
             this.panel5.ResumeLayout(false);
-            this.uiRadioButtonGroup1.ResumeLayout(false);
+            this.panel9.ResumeLayout(false);
+            this.panel13.ResumeLayout(false);
             this.rgb_Loc.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.btn_Search)).EndInit();
+            this.panel7.ResumeLayout(false);
+            this.uiRadioButtonGroup1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.tab_TaoKM.ResumeLayout(false);
             this.tab_TaoKM.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.panel7.ResumeLayout(false);
-            this.panel9.ResumeLayout(false);
-            this.panel13.ResumeLayout(false);
-            this.panel12.ResumeLayout(false);
-            this.panel16.ResumeLayout(false);
-            this.panel17.ResumeLayout(false);
-            this.panel17.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1006,8 +1008,6 @@
         private Sunny.UI.UITextBox txtdktt;
         private Sunny.UI.UITextBox txttenkm;
         private Sunny.UI.UITextBox txtgtkm;
-        private System.Windows.Forms.DateTimePicker dpNgayKT;
-        private System.Windows.Forms.DateTimePicker dpNgayBD;
         private System.Windows.Forms.Button btn_BatKM;
         private Sunny.UI.UIRichTextBox txtmota;
         private System.Windows.Forms.Label label8;
@@ -1016,7 +1016,6 @@
         private System.Windows.Forms.ComboBox cbtrangthai;
         private Sunny.UI.UIRadioButtonGroup rgb_Loc;
         private Sunny.UI.UITextBox txt_search;
-        private System.Windows.Forms.PictureBox btn_Search;
         private Sunny.UI.UIRadioButtonGroup uiRadioButtonGroup1;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Panel panel9;
@@ -1030,5 +1029,8 @@
         private System.Windows.Forms.Panel panel14;
         private System.Windows.Forms.Panel panel16;
         private System.Windows.Forms.Panel panel17;
+        private System.Windows.Forms.DateTimePicker dpNgayKT;
+        private System.Windows.Forms.DateTimePicker dpNgayBD;
+        private Sunny.UI.UIButton uiButton1;
     }
 }

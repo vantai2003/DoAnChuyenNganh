@@ -358,18 +358,18 @@ namespace DACN.GUI
             }
         }
 
-        private void btn_Search_Click(object sender, EventArgs e)
-        {
-            string searchValue = txt_search.Text;
-            List<KhuyenMaiDTO> listKM = KhuyenMaiDAO.Instance.TimKiemKM(searchValue);
-            dvg_DSKM.DataSource = listKM;
-        }
-
         private void btn_Loc_Click(object sender, EventArgs e)
         {
             string searchValue = cbtrangthai.SelectedItem.ToString();
             List<KhuyenMaiDTO> listKM = KhuyenMaiDAO.Instance.LocKMTrangThai(searchValue);
             dvg_DSKM.DataSource=listKM;
+        }
+
+        private void uiButton1_Click(object sender, EventArgs e)
+        {
+            string searchValue = txt_search.Text;
+            List<KhuyenMaiDTO> listKM = KhuyenMaiDAO.Instance.TimKiemKM(searchValue);
+            dvg_DSKM.DataSource = listKM;
         }
     }
 }

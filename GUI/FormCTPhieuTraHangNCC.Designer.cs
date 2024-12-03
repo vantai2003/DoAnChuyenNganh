@@ -37,13 +37,13 @@
             this.inToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.thoátToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.uiPanel1 = new Sunny.UI.UIPanel();
-            this.uiPanel2 = new Sunny.UI.UIPanel();
             this.uiPanel3 = new Sunny.UI.UIPanel();
-            this.uiPanel4 = new Sunny.UI.UIPanel();
             this.uiPanel5 = new Sunny.UI.UIPanel();
             this.dgv_CTPhieuTH = new Sunny.UI.UIDataGridView();
-            this.uiPanel6 = new Sunny.UI.UIPanel();
             this.uiPanel7 = new Sunny.UI.UIPanel();
+            this.uiPanel6 = new Sunny.UI.UIPanel();
+            this.uiPanel4 = new Sunny.UI.UIPanel();
+            this.uiPanel2 = new Sunny.UI.UIPanel();
             this.mn_CTPN.SuspendLayout();
             this.uiPanel1.SuspendLayout();
             this.uiPanel3.SuspendLayout();
@@ -93,21 +93,6 @@
             this.uiPanel1.Text = "uiPanel1";
             this.uiPanel1.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // uiPanel2
-            // 
-            this.uiPanel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.uiPanel2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.uiPanel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.uiPanel2.ForeColor = System.Drawing.Color.Yellow;
-            this.uiPanel2.Location = new System.Drawing.Point(0, 0);
-            this.uiPanel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.uiPanel2.MinimumSize = new System.Drawing.Size(1, 1);
-            this.uiPanel2.Name = "uiPanel2";
-            this.uiPanel2.Size = new System.Drawing.Size(1174, 93);
-            this.uiPanel2.TabIndex = 0;
-            this.uiPanel2.Text = "CHI TIẾT PHIẾU TRẢ HÀNG";
-            this.uiPanel2.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // uiPanel3
             // 
             this.uiPanel3.Controls.Add(this.uiPanel5);
@@ -122,19 +107,6 @@
             this.uiPanel3.TabIndex = 1;
             this.uiPanel3.Text = "uiPanel3";
             this.uiPanel3.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // uiPanel4
-            // 
-            this.uiPanel4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.uiPanel4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.uiPanel4.Location = new System.Drawing.Point(0, 423);
-            this.uiPanel4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.uiPanel4.MinimumSize = new System.Drawing.Size(1, 1);
-            this.uiPanel4.Name = "uiPanel4";
-            this.uiPanel4.RectColor = System.Drawing.Color.Transparent;
-            this.uiPanel4.Size = new System.Drawing.Size(1174, 80);
-            this.uiPanel4.TabIndex = 0;
-            this.uiPanel4.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // uiPanel5
             // 
@@ -157,6 +129,7 @@
             // 
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
             this.dgv_CTPhieuTH.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgv_CTPhieuTH.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgv_CTPhieuTH.BackgroundColor = System.Drawing.Color.White;
             this.dgv_CTPhieuTH.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -201,19 +174,6 @@
             this.dgv_CTPhieuTH.StripeOddColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
             this.dgv_CTPhieuTH.TabIndex = 0;
             // 
-            // uiPanel6
-            // 
-            this.uiPanel6.Dock = System.Windows.Forms.DockStyle.Right;
-            this.uiPanel6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.uiPanel6.Location = new System.Drawing.Point(1106, 0);
-            this.uiPanel6.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.uiPanel6.MinimumSize = new System.Drawing.Size(1, 1);
-            this.uiPanel6.Name = "uiPanel6";
-            this.uiPanel6.RectColor = System.Drawing.Color.Transparent;
-            this.uiPanel6.Size = new System.Drawing.Size(68, 423);
-            this.uiPanel6.TabIndex = 0;
-            this.uiPanel6.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // uiPanel7
             // 
             this.uiPanel7.Dock = System.Windows.Forms.DockStyle.Left;
@@ -225,7 +185,51 @@
             this.uiPanel7.RectColor = System.Drawing.Color.Transparent;
             this.uiPanel7.Size = new System.Drawing.Size(62, 423);
             this.uiPanel7.TabIndex = 1;
+            this.uiPanel7.Text = null;
             this.uiPanel7.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // uiPanel6
+            // 
+            this.uiPanel6.Dock = System.Windows.Forms.DockStyle.Right;
+            this.uiPanel6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.uiPanel6.Location = new System.Drawing.Point(1106, 0);
+            this.uiPanel6.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.uiPanel6.MinimumSize = new System.Drawing.Size(1, 1);
+            this.uiPanel6.Name = "uiPanel6";
+            this.uiPanel6.RectColor = System.Drawing.Color.Transparent;
+            this.uiPanel6.Size = new System.Drawing.Size(68, 423);
+            this.uiPanel6.TabIndex = 0;
+            this.uiPanel6.Text = null;
+            this.uiPanel6.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // uiPanel4
+            // 
+            this.uiPanel4.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.uiPanel4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.uiPanel4.Location = new System.Drawing.Point(0, 423);
+            this.uiPanel4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.uiPanel4.MinimumSize = new System.Drawing.Size(1, 1);
+            this.uiPanel4.Name = "uiPanel4";
+            this.uiPanel4.RectColor = System.Drawing.Color.Transparent;
+            this.uiPanel4.Size = new System.Drawing.Size(1174, 80);
+            this.uiPanel4.TabIndex = 0;
+            this.uiPanel4.Text = null;
+            this.uiPanel4.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // uiPanel2
+            // 
+            this.uiPanel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.uiPanel2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.uiPanel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.uiPanel2.ForeColor = System.Drawing.Color.Yellow;
+            this.uiPanel2.Location = new System.Drawing.Point(0, 0);
+            this.uiPanel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.uiPanel2.MinimumSize = new System.Drawing.Size(1, 1);
+            this.uiPanel2.Name = "uiPanel2";
+            this.uiPanel2.Size = new System.Drawing.Size(1174, 93);
+            this.uiPanel2.TabIndex = 0;
+            this.uiPanel2.Text = "CHI TIẾT PHIẾU TRẢ HÀNG";
+            this.uiPanel2.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // FormCTPhieuTraHangNCC
             // 

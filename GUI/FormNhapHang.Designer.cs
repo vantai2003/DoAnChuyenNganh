@@ -148,17 +148,18 @@
             // 
             // dvg_DSPhieuNhap
             // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
             this.dvg_DSPhieuNhap.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dvg_DSPhieuNhap.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
-            this.dvg_DSPhieuNhap.BackgroundColor = System.Drawing.Color.White;
+            this.dvg_DSPhieuNhap.BackgroundColor = System.Drawing.Color.DimGray;
             this.dvg_DSPhieuNhap.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.Desktop;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dvg_DSPhieuNhap.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dvg_DSPhieuNhap.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -185,14 +186,15 @@
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dvg_DSPhieuNhap.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dvg_DSPhieuNhap.RowHeadersWidth = 51;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.dvg_DSPhieuNhap.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dvg_DSPhieuNhap.RowTemplate.Height = 24;
+            this.dvg_DSPhieuNhap.ScrollBarBackColor = System.Drawing.Color.White;
+            this.dvg_DSPhieuNhap.ScrollBarStyleInherited = false;
             this.dvg_DSPhieuNhap.SelectedIndex = -1;
             this.dvg_DSPhieuNhap.Size = new System.Drawing.Size(1213, 266);
-            this.dvg_DSPhieuNhap.StripeEvenColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
-            this.dvg_DSPhieuNhap.StripeOddColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
+            this.dvg_DSPhieuNhap.StripeOddColor = System.Drawing.Color.White;
             this.dvg_DSPhieuNhap.TabIndex = 0;
             this.dvg_DSPhieuNhap.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dvg_DSPhieuNhap_CellClick);
             // 
@@ -342,6 +344,8 @@
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.ForeColor = System.Drawing.Color.Brown;
             this.label3.Location = new System.Drawing.Point(44, 33);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(80, 25);
@@ -351,6 +355,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.Maroon;
             this.label1.Location = new System.Drawing.Point(44, 77);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(84, 25);
@@ -372,6 +377,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.Color.Maroon;
             this.label4.Location = new System.Drawing.Point(44, 112);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(48, 25);
@@ -381,6 +387,7 @@
             // lbncc
             // 
             this.lbncc.AutoSize = true;
+            this.lbncc.ForeColor = System.Drawing.Color.Maroon;
             this.lbncc.Location = new System.Drawing.Point(44, 154);
             this.lbncc.Name = "lbncc";
             this.lbncc.Size = new System.Drawing.Size(133, 25);
@@ -390,6 +397,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.Maroon;
             this.label2.Location = new System.Drawing.Point(438, 72);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(96, 25);
@@ -677,7 +685,8 @@
             // 
             // dvg_DSPNDPD
             // 
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
             this.dvg_DSPNDPD.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dvg_DSPNDPD.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dvg_DSPNDPD.BackgroundColor = System.Drawing.Color.White;
@@ -717,13 +726,14 @@
             this.dvg_DSPNDPD.RowHeadersWidth = 51;
             dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.Black;
             this.dvg_DSPNDPD.RowsDefaultCellStyle = dataGridViewCellStyle10;
             this.dvg_DSPNDPD.RowTemplate.Height = 24;
             this.dvg_DSPNDPD.ScrollBarRectColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.dvg_DSPNDPD.ScrollBarStyleInherited = false;
             this.dvg_DSPNDPD.SelectedIndex = -1;
             this.dvg_DSPNDPD.Size = new System.Drawing.Size(1213, 276);
-            this.dvg_DSPNDPD.StripeOddColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
+            this.dvg_DSPNDPD.StripeOddColor = System.Drawing.Color.White;
             this.dvg_DSPNDPD.TabIndex = 0;
             this.dvg_DSPNDPD.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dvg_DSPNDPD_CellClick);
             // 

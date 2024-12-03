@@ -347,7 +347,7 @@
             // btn_Xoa
             // 
             this.btn_Xoa.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btn_Xoa.Image = global::DACN.Properties.Resources.Delete;
+            //this.btn_Xoa.Image = global::DACN.Properties.Resources.Delete;
             this.btn_Xoa.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btn_Xoa.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btn_Xoa.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);

@@ -59,6 +59,7 @@ namespace DACN.DAO
 
             return list;
         }
+
         public DataTable SearchSP(string searchquery)
         {
             List<CTHoaDonDTO> list = new List<CTHoaDonDTO>();
@@ -91,6 +92,12 @@ namespace DACN.DAO
             string query = "SP_Delete_CTHD @MaCTHD";
             int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { ID });
             return result;
+        }
+        public DataTable GetTTInCTHoaDon(string mahd)
+        {
+            string query = "SP_GetTTHD @MaHD";
+
+            return DataProvider.Instance.ExecuteQuery(query, new object[] { mahd });
         }
     }
 }

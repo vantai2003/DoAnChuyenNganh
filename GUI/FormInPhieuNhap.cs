@@ -19,7 +19,8 @@ namespace DACN.GUI
         public FormInPhieuNhap()
         {
             InitializeComponent();
-            mapn = FormDuyetPhieuNhap.maPN;
+            //mapn = FormDuyetPhieuNhap.maPN;
+            mapn = FormInHoaDon.maPN;
         }
 
         private void FormInPhieuNhap_Load(object sender, EventArgs e)
@@ -70,6 +71,7 @@ namespace DACN.GUI
             // Làm mới báo cáo
             this.rp_PhieuNhap.RefreshReport();
 
+            //this.reportViewer1.RefreshReport();
         }
         private DataTable ConvertPhieuNhap(List<PhieuNhapHangDTO> listPN)
         {

@@ -176,7 +176,7 @@
             <Top>0.02167in</Top>
             <Left>0.28in</Left>
             <Height>0in</Height>
-            <Width>8.69167in</Width>
+            <Width>5.96667in</Width>
             <Style>
               <Border>
                 <Style>Solid</Style>
@@ -193,6 +193,7 @@
                     <Value>Đơn vị nhập hàng (</Value>
                     <Style>
                       <FontFamily>times New Roman</FontFamily>
+                      <FontSize>9.5pt</FontSize>
                     </Style>
                   </TextRun>
                   <TextRun>
@@ -200,24 +201,28 @@
                     <Style>
                       <FontStyle>Italic</FontStyle>
                       <FontFamily>times New Roman</FontFamily>
+                      <FontSize>9.5pt</FontSize>
                     </Style>
                   </TextRun>
                   <TextRun>
                     <Value>):</Value>
                     <Style>
                       <FontFamily>times New Roman</FontFamily>
+                      <FontSize>9.5pt</FontSize>
                     </Style>
                   </TextRun>
                   <TextRun>
                     <Value xml:space="preserve"> </Value>
-                    <Style />
+                    <Style>
+                      <FontSize>9.5pt</FontSize>
+                    </Style>
                   </TextRun>
                   <TextRun>
                     <Value>CÔNG TY TNHH THƯƠNG MẠI SẮT THÉP MINH HIẾU</Value>
                     <Style>
                       <FontStyle>Normal</FontStyle>
                       <FontFamily>Times New Roman</FontFamily>
-                      <FontSize>12pt</FontSize>
+                      <FontSize>9.5pt</FontSize>
                       <FontWeight>Bold</FontWeight>
                       <TextDecoration>None</TextDecoration>
                       <Color>Red</Color>
@@ -233,6 +238,7 @@
                     <Style>
                       <FontStyle>Normal</FontStyle>
                       <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>9.5pt</FontSize>
                       <FontWeight>Normal</FontWeight>
                       <TextDecoration>None</TextDecoration>
                       <Color>#000000</Color>
@@ -243,27 +249,18 @@
                     <Style>
                       <FontStyle>Italic</FontStyle>
                       <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>9.5pt</FontSize>
                       <FontWeight>Normal</FontWeight>
                       <TextDecoration>None</TextDecoration>
                       <Color>#000000</Color>
                     </Style>
                   </TextRun>
                   <TextRun>
-                    <Value>):</Value>
+                    <Value>): </Value>
                     <Style>
                       <FontStyle>Normal</FontStyle>
                       <FontFamily>Times New Roman</FontFamily>
-                      <FontWeight>Normal</FontWeight>
-                      <TextDecoration>None</TextDecoration>
-                      <Color>#000000</Color>
-                    </Style>
-                  </TextRun>
-                  <TextRun>
-                    <Value xml:space="preserve"> </Value>
-                    <Style>
-                      <FontStyle>Normal</FontStyle>
-                      <FontFamily>Times New Roman</FontFamily>
-                      <FontSize>12pt</FontSize>
+                      <FontSize>9.5pt</FontSize>
                       <FontWeight>Normal</FontWeight>
                       <TextDecoration>None</TextDecoration>
                       <Color>#000000</Color>
@@ -274,7 +271,7 @@
                     <Style>
                       <FontStyle>Normal</FontStyle>
                       <FontFamily>Times New Roman</FontFamily>
-                      <FontSize>12pt</FontSize>
+                      <FontSize>9.5pt</FontSize>
                       <FontWeight>Bold</FontWeight>
                       <TextDecoration>None</TextDecoration>
                       <Color>#000000</Color>
@@ -290,6 +287,7 @@
                     <Style>
                       <FontStyle>Normal</FontStyle>
                       <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>9.5pt</FontSize>
                       <FontWeight>Normal</FontWeight>
                       <TextDecoration>None</TextDecoration>
                       <Color>#000000</Color>
@@ -300,6 +298,7 @@
                     <Style>
                       <FontStyle>Italic</FontStyle>
                       <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>9.5pt</FontSize>
                       <FontWeight>Normal</FontWeight>
                       <TextDecoration>None</TextDecoration>
                       <Color>#000000</Color>
@@ -310,6 +309,7 @@
                     <Style>
                       <FontStyle>Normal</FontStyle>
                       <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>9.5pt</FontSize>
                       <FontWeight>Normal</FontWeight>
                       <TextDecoration>None</TextDecoration>
                       <Color>#000000</Color>
@@ -320,6 +320,7 @@
                     <Style>
                       <FontStyle>Normal</FontStyle>
                       <FontFamily>Times New Roman</FontFamily>
+                      <FontSize>9.5pt</FontSize>
                       <FontWeight>Bold</FontWeight>
                       <TextDecoration>None</TextDecoration>
                       <Color>#000000</Color>
@@ -331,9 +332,9 @@
             </Paragraphs>
             <rd:DefaultName>Textbox5</rd:DefaultName>
             <Top>0.305in</Top>
-            <Left>0.34667in</Left>
+            <Left>0.11333in</Left>
             <Height>0.6in</Height>
-            <Width>7.86667in</Width>
+            <Width>6.36667in</Width>
             <ZIndex>1</ZIndex>
             <Style>
               <Border>
@@ -397,9 +398,9 @@
             </Paragraphs>
             <rd:DefaultName>Textbox6</rd:DefaultName>
             <Top>0.905in</Top>
-            <Left>0.34667in</Left>
+            <Left>0.11333in</Left>
             <Height>0.25in</Height>
-            <Width>2.35in</Width>
+            <Width>2.24167in</Width>
             <ZIndex>2</ZIndex>
             <Style>
               <Border>
@@ -442,10 +443,10 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox7</rd:DefaultName>
-            <Top>0.905in</Top>
-            <Left>4.005in</Left>
+            <Top>0.93278in</Top>
+            <Left>3.03833in</Left>
             <Height>0.25in</Height>
-            <Width>2.975in</Width>
+            <Width>2.86667in</Width>
             <ZIndex>3</ZIndex>
             <Style>
               <Border>
@@ -459,9 +460,9 @@
           </Textbox>
           <Line Name="Line2">
             <Top>1.275in</Top>
-            <Left>0.2625in</Left>
+            <Left>0.02916in</Left>
             <Height>0in</Height>
-            <Width>8.69167in</Width>
+            <Width>6.21751in</Width>
             <ZIndex>4</ZIndex>
             <Style>
               <Border>
@@ -713,9 +714,9 @@
             </Paragraphs>
             <rd:DefaultName>Textbox5</rd:DefaultName>
             <Top>1.34444in</Top>
-            <Left>0.34667in</Left>
+            <Left>0.11333in</Left>
             <Height>0.80833in</Height>
-            <Width>7.86667in</Width>
+            <Width>6.24167in</Width>
             <ZIndex>5</ZIndex>
             <Style>
               <Border>
@@ -731,27 +732,27 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>0.44167in</Width>
+                  <Width>0.42362in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.73333in</Width>
+                  <Width>1.75694in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.025in</Width>
+                  <Width>0.67361in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.4in</Width>
+                  <Width>0.94027in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.5675in</Width>
+                  <Width>0.9639in</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>1.47417in</Width>
+                  <Width>1.375in</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
                 <TablixRow>
-                  <Height>0.50833in</Height>
+                  <Height>0.625in</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -2477,10 +2478,10 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>DataSetCTPhieuNhap</DataSetName>
-            <Top>2.955in</Top>
-            <Left>0.34667in</Left>
-            <Height>2.00833in</Height>
-            <Width>8.64167in</Width>
+            <Top>2.305in</Top>
+            <Left>0.11333in</Left>
+            <Height>2.125in</Height>
+            <Width>6.13334in</Width>
             <ZIndex>6</ZIndex>
             <Style>
               <Border>
@@ -2513,10 +2514,10 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox41</rd:DefaultName>
-            <Top>5.43in</Top>
-            <Left>7.205in</Left>
+            <Top>4.74667in</Top>
+            <Left>4.02251in</Left>
             <Height>0.25in</Height>
-            <Width>1.74917in</Width>
+            <Width>1.52417in</Width>
             <ZIndex>7</ZIndex>
             <Style>
               <Border>
@@ -2553,8 +2554,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox42</rd:DefaultName>
-            <Top>5.41334in</Top>
-            <Left>0.88833in</Left>
+            <Top>4.74667in</Top>
+            <Left>0.68001in</Left>
             <Height>0.25in</Height>
             <Width>1.675in</Width>
             <ZIndex>8</ZIndex>
@@ -2612,8 +2613,8 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox43</rd:DefaultName>
-            <Top>7.38834in</Top>
-            <Left>0.88833in</Left>
+            <Top>5.94667in</Top>
+            <Left>0.44667in</Left>
             <Height>0.25in</Height>
             <Width>3.54167in</Width>
             <ZIndex>9</ZIndex>
@@ -2628,13 +2629,27 @@
             </Style>
           </Textbox>
         </ReportItems>
-        <Height>8.24166in</Height>
-        <Style />
+        <Height>6.89999in</Height>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <LeftBorder>
+            <Color>Black</Color>
+            <Style>Solid</Style>
+            <Width>1pt</Width>
+          </LeftBorder>
+          <RightBorder>
+            <Color>Black</Color>
+            <Style>Solid</Style>
+            <Width>1pt</Width>
+          </RightBorder>
+        </Style>
       </Body>
-      <Width>9.48in</Width>
+      <Width>7.90501in</Width>
       <Page>
         <PageHeader>
-          <Height>1.73333in</Height>
+          <Height>1.22499in</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <PrintOnLastPage>true</PrintOnLastPage>
           <ReportItems>
@@ -2661,7 +2676,7 @@
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
               <Top>0.36333in</Top>
-              <Left>3.47167in</Left>
+              <Left>2.11334in</Left>
               <Height>0.34167in</Height>
               <Width>2.75833in</Width>
               <Style>
@@ -2707,13 +2722,13 @@
                     </TextRun>
                   </TextRuns>
                   <Style>
-                    <TextAlign>Left</TextAlign>
+                    <TextAlign>Center</TextAlign>
                   </Style>
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox2</rd:DefaultName>
-              <Top>0.18833in</Top>
-              <Left>7.21333in</Left>
+              <Top>0.09944in</Top>
+              <Left>4.49944in</Left>
               <Height>0.25in</Height>
               <Width>2.26667in</Width>
               <ZIndex>1</ZIndex>
@@ -2754,13 +2769,13 @@
                     </TextRun>
                   </TextRuns>
                   <Style>
-                    <TextAlign>Left</TextAlign>
+                    <TextAlign>Center</TextAlign>
                   </Style>
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox3</rd:DefaultName>
-              <Top>0.50778in</Top>
-              <Left>7.21333in</Left>
+              <Top>0.46611in</Top>
+              <Left>5.24667in</Left>
               <Height>0.25in</Height>
               <Width>1in</Width>
               <ZIndex>2</ZIndex>
@@ -2799,8 +2814,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox4</rd:DefaultName>
-              <Top>1.11333in</Top>
-              <Left>3.47167in</Left>
+              <Top>0.88in</Top>
+              <Left>1.53in</Left>
               <Height>0.25in</Height>
               <Width>3.34167in</Width>
               <ZIndex>3</ZIndex>
@@ -2816,9 +2831,19 @@
             </Textbox>
           </ReportItems>
           <Style>
-            <Border>
+            <Border />
+            <TopBorder>
+              <Style>Solid</Style>
+            </TopBorder>
+            <BottomBorder>
               <Style>None</Style>
-            </Border>
+            </BottomBorder>
+            <LeftBorder>
+              <Style>Solid</Style>
+            </LeftBorder>
+            <RightBorder>
+              <Style>Solid</Style>
+            </RightBorder>
           </Style>
         </PageHeader>
         <PageFooter>
@@ -2830,7 +2855,7 @@
               <Top>0.1in</Top>
               <Left>0.44667in</Left>
               <Height>0in</Height>
-              <Width>8.525in</Width>
+              <Width>5.90833in</Width>
               <Style>
                 <Border>
                   <Style>Solid</Style>
@@ -2857,9 +2882,9 @@
               </Paragraphs>
               <rd:DefaultName>Textbox44</rd:DefaultName>
               <Top>0.34667in</Top>
-              <Left>1.66333in</Left>
+              <Left>0.68001in</Left>
               <Height>0.25in</Height>
-              <Width>6.78333in</Width>
+              <Width>5.24166in</Width>
               <ZIndex>1</ZIndex>
               <Style>
                 <Border>
@@ -2876,6 +2901,21 @@
             <Border>
               <Style>None</Style>
             </Border>
+            <BottomBorder>
+              <Color>Black</Color>
+              <Style>Solid</Style>
+              <Width>1pt</Width>
+            </BottomBorder>
+            <LeftBorder>
+              <Color>Black</Color>
+              <Style>Solid</Style>
+              <Width>1pt</Width>
+            </LeftBorder>
+            <RightBorder>
+              <Color>Black</Color>
+              <Style>Solid</Style>
+              <Width>1pt</Width>
+            </RightBorder>
           </Style>
         </PageFooter>
         <LeftMargin>1in</LeftMargin>

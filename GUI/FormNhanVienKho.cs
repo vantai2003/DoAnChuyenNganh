@@ -70,7 +70,6 @@ namespace DACN.GUI
         {
             OpenChildForm(new FormQLGiaNhapTuNCC());
         }
-
         private void btn_QLTraHang_Click(object sender, EventArgs e)
         {
             OpenChildForm(new FormQLTraHangNCC());

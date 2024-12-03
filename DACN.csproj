@@ -34,6 +34,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Bcl.AsyncInterfaces.8.0.0\lib\netstandard2.0\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1400.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
     </Reference>
@@ -46,6 +49,12 @@
     <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp, Version=112.1.0.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
+      <HintPath>packages\RestSharp.112.1.0\lib\netstandard2.0\RestSharp.dll</HintPath>
+    </Reference>
     <Reference Include="SunnyUI, Version=3.7.2.0, Culture=neutral, PublicKeyToken=27d7d2e821d97aeb, processorArchitecture=MSIL">
       <HintPath>packages\SunnyUI.3.7.2\lib\net40\SunnyUI.dll</HintPath>
     </Reference>
@@ -53,8 +62,30 @@
       <HintPath>packages\SunnyUI.Common.3.7.2\lib\net40\SunnyUI.Common.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
     <Reference Include="System.Core" />
     <Reference Include="System.Design" />
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Encodings.Web, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Text.Encodings.Web.8.0.0\lib\netstandard2.0\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Text.Json.8.0.4\lib\netstandard2.0\System.Text.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -91,6 +122,11 @@
     <Compile Include="DAO\SanPham_NhaCCDAO.cs" />
     <Compile Include="DAO\SaoLuuPhucHoiDAO.cs" />
     <Compile Include="DAO\TonKhoDAO.cs" />
+    <Compile Include="Dataset\dsHoaDon.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsHoaDon.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Dataset\dsPhieuNhap.cs">
       <DependentUpon>dsPhieuNhap.xsd</DependentUpon>
     </Compile>
@@ -99,22 +135,18 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsPhieuNhap.xsd</DependentUpon>
     </Compile>
+    <Compile Include="DTO\ApiRequestDTO.cs" />
     <Compile Include="DTO\CongNoDTO.cs" />
     <Compile Include="DTO\CTHoaDonDTO.cs" />
     <Compile Include="DTO\CTPhieuNHDTO.cs" />
     <Compile Include="DTO\CTPhieuTraHangKHDTO.cs" />
     <Compile Include="DTO\SanPham_NhaCungCapDTO.cs" />
+    <Compile Include="DTO\ThanhToanQRDTO.cs" />
     <Compile Include="GUI\FormBanHang.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUI\FormBanHang.Designer.cs">
       <DependentUpon>FormBanHang.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GUI\FormBaoCao.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUI\FormBaoCao.Designer.cs">
-      <DependentUpon>FormBaoCao.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\FormChonKH.cs">
       <SubType>Form</SubType>
@@ -140,6 +172,12 @@
     <Compile Include="GUI\FormChonHoaDon.Designer.cs">
       <DependentUpon>FormChonHoaDon.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\FormCTPhieuTraHangKH.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FormCTPhieuTraHangKH.Designer.cs">
+      <DependentUpon>FormCTPhieuTraHangKH.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\FormCTPhieuNhap_ChoNVKho.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -164,11 +202,23 @@
     <Compile Include="GUI\FormDoiMatKhau.Designer.cs">
       <DependentUpon>FormDoiMatKhau.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\FormInHoaDon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FormInHoaDon.Designer.cs">
+      <DependentUpon>FormInHoaDon.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\FormInPhieuNhap.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUI\FormInPhieuNhap.Designer.cs">
       <DependentUpon>FormInPhieuNhap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FormKeToan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FormKeToan.Designer.cs">
+      <DependentUpon>FormKeToan.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\FormNhanVienGiaoHang.cs">
       <SubType>Form</SubType>
@@ -371,6 +421,12 @@
     <Compile Include="GUI\FormTTNguoiDung.Designer.cs">
       <DependentUpon>FormTTNguoiDung.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\FormXuaHD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FormXuaHD.Designer.cs">
+      <DependentUpon>FormXuaHD.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\Icon_images\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -379,7 +435,13 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
+    <EmbeddedResource Include="Dataset\ReportHoaDon.rdlc" />
     <EmbeddedResource Include="Dataset\ReportPhieuNhap.rdlc" />
     <EmbeddedResource Include="GUI\FormBanHang.resx">
       <DependentUpon>FormBanHang.cs</DependentUpon>
@@ -396,6 +458,9 @@
     <EmbeddedResource Include="GUI\FormChonHoaDon.resx">
       <DependentUpon>FormChonHoaDon.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FormCTPhieuTraHangKH.resx">
+      <DependentUpon>FormCTPhieuTraHangKH.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\FormCTPhieuNhap_ChoNVKho.resx">
       <DependentUpon>FormCTPhieuNhap_ChoNVKho.cs</DependentUpon>
     </EmbeddedResource>
@@ -408,8 +473,14 @@
     <EmbeddedResource Include="GUI\FormDoiMatKhau.resx">
       <DependentUpon>FormDoiMatKhau.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FormInHoaDon.resx">
+      <DependentUpon>FormInHoaDon.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\FormInPhieuNhap.resx">
       <DependentUpon>FormInPhieuNhap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FormKeToan.resx">
+      <DependentUpon>FormKeToan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FormNhanVienGiaoHang.resx">
       <DependentUpon>FormNhanVienGiaoHang.cs</DependentUpon>
@@ -452,6 +523,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FormNguoiDung.resx">
       <DependentUpon>FormNguoiDung.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FormNhanVienBanHang.resx">
       <DependentUpon>FormNhanVienBanHang.cs</DependentUpon>
@@ -504,19 +576,28 @@
     <EmbeddedResource Include="GUI\FormTTNguoiDung.resx">
       <DependentUpon>FormTTNguoiDung.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FormXuaHD.resx">
+      <DependentUpon>FormXuaHD.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\Icon_images\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
+    <None Include="Dataset\dsHoaDon.xsc">
+      <DependentUpon>dsHoaDon.xsd</DependentUpon>
+    </None>
+    <None Include="Dataset\dsHoaDon.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsHoaDon.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Dataset\dsHoaDon.xss">
+      <DependentUpon>dsHoaDon.xsd</DependentUpon>
+    </None>
     <None Include="Dataset\dsPhieuNhap.xsc">
       <DependentUpon>dsPhieuNhap.xsd</DependentUpon>
     </None>
@@ -571,6 +652,13 @@
     <Content Include="GUI\Icon_images\user.png" />
     <Content Include="GUI\Icon_images\Vat_lieu.png" />
     <Content Include="GUI\Icon_images\warehouse.png" />
+    <None Include="Resources\coupon1.png" />
+    <None Include="Resources\order1.png" />
+    <None Include="Resources\document.png" />
+    <None Include="Resources\window.png" />
+    <None Include="Resources\employee.png" />
+    <None Include="Resources\pricing.png" />
+    <None Include="Resources\supply-chain.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
