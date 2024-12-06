@@ -44,14 +44,14 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.tsCTPN = new System.Windows.Forms.ToolStrip();
-            this.tsbThem = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.tsbSua = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
-            this.tsbXoa = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.tsbLuu = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
+            this.tsbThem = new System.Windows.Forms.ToolStripButton();
+            this.tsbSua = new System.Windows.Forms.ToolStripButton();
+            this.tsbXoa = new System.Windows.Forms.ToolStripButton();
+            this.tsbLuu = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKho)).BeginInit();
             this.tsCTPN.SuspendLayout();
             this.SuspendLayout();
@@ -88,6 +88,7 @@
             this.dgvKho.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.dgvKho.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
             this.dgvKho.Location = new System.Drawing.Point(12, 202);
+            this.dgvKho.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvKho.Name = "dgvKho";
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
@@ -103,7 +104,7 @@
             this.dgvKho.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvKho.RowTemplate.Height = 28;
             this.dgvKho.SelectedIndex = -1;
-            this.dgvKho.Size = new System.Drawing.Size(762, 236);
+            this.dgvKho.Size = new System.Drawing.Size(1014, 381);
             this.dgvKho.StripeOddColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
             this.dgvKho.TabIndex = 0;
             this.dgvKho.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvKho_CellClick);
@@ -133,11 +134,11 @@
             // 
             this.txtMaKho.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtMaKho.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txtMaKho.Location = new System.Drawing.Point(110, 77);
+            this.txtMaKho.Location = new System.Drawing.Point(110, 78);
             this.txtMaKho.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtMaKho.MinimumSize = new System.Drawing.Size(1, 16);
             this.txtMaKho.Name = "txtMaKho";
-            this.txtMaKho.Padding = new System.Windows.Forms.Padding(5);
+            this.txtMaKho.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtMaKho.ShowText = false;
             this.txtMaKho.Size = new System.Drawing.Size(150, 29);
             this.txtMaKho.TabIndex = 1;
@@ -152,7 +153,7 @@
             this.txtTenKho.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtTenKho.MinimumSize = new System.Drawing.Size(1, 16);
             this.txtTenKho.Name = "txtTenKho";
-            this.txtTenKho.Padding = new System.Windows.Forms.Padding(5);
+            this.txtTenKho.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtTenKho.ShowText = false;
             this.txtTenKho.Size = new System.Drawing.Size(150, 29);
             this.txtTenKho.TabIndex = 3;
@@ -163,11 +164,11 @@
             // 
             this.txtDiaChi.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtDiaChi.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.txtDiaChi.Location = new System.Drawing.Point(447, 77);
+            this.txtDiaChi.Location = new System.Drawing.Point(447, 78);
             this.txtDiaChi.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtDiaChi.MinimumSize = new System.Drawing.Size(1, 16);
             this.txtDiaChi.Name = "txtDiaChi";
-            this.txtDiaChi.Padding = new System.Windows.Forms.Padding(5);
+            this.txtDiaChi.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtDiaChi.ShowText = false;
             this.txtDiaChi.Size = new System.Drawing.Size(150, 29);
             this.txtDiaChi.TabIndex = 3;
@@ -219,9 +220,29 @@
             this.tsCTPN.Location = new System.Drawing.Point(0, 0);
             this.tsCTPN.Name = "tsCTPN";
             this.tsCTPN.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.tsCTPN.Size = new System.Drawing.Size(800, 40);
+            this.tsCTPN.Size = new System.Drawing.Size(1026, 40);
             this.tsCTPN.TabIndex = 12;
             this.tsCTPN.Text = "tsNCC";
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 40);
+            // 
+            // toolStripSeparator6
+            // 
+            this.toolStripSeparator6.Name = "toolStripSeparator6";
+            this.toolStripSeparator6.Size = new System.Drawing.Size(6, 40);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 40);
+            // 
+            // toolStripSeparator8
+            // 
+            this.toolStripSeparator8.Name = "toolStripSeparator8";
+            this.toolStripSeparator8.Size = new System.Drawing.Size(6, 40);
             // 
             // tsbThem
             // 
@@ -235,11 +256,6 @@
             this.tsbThem.Text = "Thêm";
             this.tsbThem.Click += new System.EventHandler(this.tsbThem_Click);
             // 
-            // toolStripSeparator4
-            // 
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 40);
-            // 
             // tsbSua
             // 
             this.tsbSua.Image = global::DACN.Properties.Resources.Edit;
@@ -252,14 +268,9 @@
             this.tsbSua.Text = "Sửa";
             this.tsbSua.Click += new System.EventHandler(this.tsbSua_Click);
             // 
-            // toolStripSeparator6
-            // 
-            this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(6, 40);
-            // 
             // tsbXoa
             // 
-            this.tsbXoa.Image = global::DACN.Properties.Resources.Delete;
+            //this.tsbXoa.Image = global::DACN.Properties.Resources.Delete;
             this.tsbXoa.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tsbXoa.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbXoa.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
@@ -268,11 +279,6 @@
             this.tsbXoa.Size = new System.Drawing.Size(98, 36);
             this.tsbXoa.Text = "Xóa";
             this.tsbXoa.Click += new System.EventHandler(this.tsbXoa_Click);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 40);
             // 
             // tsbLuu
             // 
@@ -286,16 +292,11 @@
             this.tsbLuu.Text = "Lưu";
             this.tsbLuu.Click += new System.EventHandler(this.tsbLuu_Click);
             // 
-            // toolStripSeparator8
-            // 
-            this.toolStripSeparator8.Name = "toolStripSeparator8";
-            this.toolStripSeparator8.Size = new System.Drawing.Size(6, 40);
-            // 
             // formKho
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1026, 644);
             this.Controls.Add(this.tsCTPN);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -304,6 +305,7 @@
             this.Controls.Add(this.txtDiaChi);
             this.Controls.Add(this.txtMaKho);
             this.Controls.Add(this.dgvKho);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "formKho";
             this.Text = "formKho";
             ((System.ComponentModel.ISupportInitialize)(this.dgvKho)).EndInit();

@@ -27,6 +27,20 @@ namespace DACN.GUI
         {
             List<CTPhieuNHDTO> listctpn = PhieuNhapHangDAO.Instance.GetCTPhieuNH(mapn);
             dvg_CapNhatKho.DataSource = listctpn;
+            dvg_CapNhatKho.Columns["MaCTPhieuNH"].HeaderText = "Mã CT phiếu nhập hàng";
+            dvg_CapNhatKho.Columns["MaSP"].HeaderText = "Mã sản phẩm";
+            dvg_CapNhatKho.Columns["TenSP"].HeaderText = "Tên sản phẩm";
+            dvg_CapNhatKho.Columns["TenLoai"].HeaderText = "Tên loại";
+            dvg_CapNhatKho.Columns["TenNCC"].HeaderText = "Tên nhà cung cấp";
+            dvg_CapNhatKho.Columns["MaPhieuNH"].HeaderText = "Mã phiếu nhập hàng";
+            dvg_CapNhatKho.Columns["DVT"].HeaderText = "DVT";
+            dvg_CapNhatKho.Columns["TrangThai"].HeaderText = "Trạng thái";
+            dvg_CapNhatKho.Columns["MaNV"].HeaderText = "Mã nhân viên";
+            dvg_CapNhatKho.Columns["SoLuong"].HeaderText = "Số lượng";
+            dvg_CapNhatKho.Columns["DonGia"].HeaderText = "Dơn giá";
+            dvg_CapNhatKho.Columns["TongTien"].HeaderText = "Tổng tiền";
+            dvg_CapNhatKho.Columns["NgayNhapHang"].HeaderText = "Ngày nhập hàng";
+            dvg_CapNhatKho.Columns["ThanhTien"].HeaderText = "Thành tiền";
         }
         private void btn_CapNhatKho_Click(object sender, EventArgs e)
         {
@@ -62,6 +76,19 @@ namespace DACN.GUI
             }
             mapn = "";
             makho = "";
+        }
+
+        private void btn_TaoPhieuTH_Click(object sender, EventArgs e)
+        {
+            if (mapn == null)
+            {
+                MessageBox.Show("Vui lòng chọn phiếu nhâp");
+            }
+            else
+            {
+                FormTaoPhieuTraHangNCC ftpth = new FormTaoPhieuTraHangNCC();
+                ftpth.ShowDialog();
+            }
         }
     }
 }

@@ -15,6 +15,9 @@ namespace DACN.GUI
         public FormGiamDoc()
         {
             InitializeComponent();
+            OpenChildForm(new FormDuyetPhieuNhap());
+            this.Width = 1400;
+            this.Height = 820;
         }
         private Form currentFormChild;
         private void OpenChildForm(Form childForm)
@@ -60,6 +63,11 @@ namespace DACN.GUI
         private void btn_ĐuyetM_Click(object sender, EventArgs e)
         {
             OpenChildForm(new FormDuyetKhuyenMai());
+        }
+
+        private void toolStripMenuItem_DoiMK_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new FormDoiMatKhau());
         }
     }
 }

@@ -15,6 +15,10 @@ namespace DACN.GUI
         public FormNhanVienKho()
         {
             InitializeComponent();
+            this.Width = 1350;
+            this.Height = 800;
+            this.StartPosition = FormStartPosition.CenterScreen;
+            OpenChildForm(new FormQLTonKho());
         }
         private Form currentFormChild;
         private void OpenChildForm(Form childForm)
@@ -55,6 +59,25 @@ namespace DACN.GUI
                 FormDangNhap loginForm = new FormDangNhap();
                 loginForm.Show();
             }
+        }
+
+        private void btn_QLGiaNhap_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new FormCT_SanPham_NCC());
+        }
+
+        private void btn_QLGiaNhap_Click_1(object sender, EventArgs e)
+        {
+            OpenChildForm(new FormQLGiaNhapTuNCC());
+        }
+        private void btn_QLTraHang_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new FormQLTraHangNCC());
+        }
+
+        private void toolStripMenuItem_DoiMK_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new FormDoiMatKhau());
         }
     }
 }

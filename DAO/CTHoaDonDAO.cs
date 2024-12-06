@@ -59,6 +59,7 @@ namespace DACN.DAO
 
             return list;
         }
+
         public DataTable SearchSP(string searchquery)
         {
             List<CTHoaDonDTO> list = new List<CTHoaDonDTO>();
@@ -79,16 +80,24 @@ namespace DACN.DAO
             return DataProvider.Instance.ExecuteQuery(query);
 
         }
-        public int updateSL(String masp, decimal soluong,string makho)
+        public int updateSL(string masp, string makho, decimal soluong)
         {
-            String Query = String.Format("update Kho_SanPham set SoLuongTon='{0}' where MaSP= '{1}' and MaKho ='{2}'", soluong, masp, makho);
-            return DataProvider.Instance.ExecuteNonQuery(Query);
+            string query = "SP_CapNhatSoLuongSP @MaSP , @MaKho , @SoLuong";
+            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { masp, makho, soluong });
+            return result;
+
         }
         public int Delete(string ID)
         {
             string query = "SP_Delete_CTHD @MaCTHD";
             int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { ID });
             return result;
+        }
+        public DataTable GetTTInCTHoaDon(string mahd)
+        {
+            string query = "SP_GetTTHD @MaHD";
+
+            return DataProvider.Instance.ExecuteQuery(query, new object[] { mahd });
         }
     }
 }

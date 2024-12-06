@@ -16,8 +16,9 @@ namespace DACN.GUI
         public FormTrangChuAdmin()
         {
             InitializeComponent();
-            Load();
-
+            OpenChildForm(new FormNguoiDung());
+            this.Width = 1250;
+            this.Height = 700;
         }
         private Form currentFormChild;
         private void OpenChildForm(Form childForm)
@@ -33,19 +34,11 @@ namespace DACN.GUI
             childForm.BringToFront();
             childForm.Show();
         }
-        private void Load()
-        {
-           txt_ThongTintt.Text = FormDangNhap.nhanvien;
-        }
+        
 
         private void btn_QuanLyTaiKhoam_Click_1(object sender, EventArgs e)
         {
             OpenChildForm(new FormNguoiDung());
-        }
-
-        private void btn_QuanLySanPham_Click(object sender, EventArgs e)
-        {
-            OpenChildForm(new FormQLHangHoa());
         }
 
         private void btn_DangXuat_Click(object sender, EventArgs e)
@@ -54,9 +47,10 @@ namespace DACN.GUI
             DialogResult dialogResult = MessageBox.Show("Bạn có chắc chắn muốn đăng xuất?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dialogResult == DialogResult.Yes)
             {
-                this.Close();
+                this.Hide();
                 FormDangNhap loginForm = new FormDangNhap();
                 loginForm.Show();
+                this.Close();
             }
         }
 
@@ -68,6 +62,11 @@ namespace DACN.GUI
         private void toolStripMenuItem5_Click(object sender, EventArgs e)
         {
             OpenChildForm(new FormTTNguoiDung());
+        }
+
+        private void toolStripMenuItem6_Click(object sender, EventArgs e)
+        {
+            OpenChildForm(new FormDoiMatKhau());
         }
     }
 }

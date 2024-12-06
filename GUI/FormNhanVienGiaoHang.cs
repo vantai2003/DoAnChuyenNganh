@@ -16,6 +16,8 @@ namespace DACN.GUI
         public FormNhanVienGiaoHang()
         {
             InitializeComponent();
+            this.Width = 1200;
+            this.Height = 900;
         }
 
 
@@ -76,20 +78,27 @@ namespace DACN.GUI
 
         private void btn_pth_Click_1(object sender, EventArgs e)
         {
-           
+            
         }
 
         private void btn_lappth_Click(object sender, EventArgs e)
         {
-            
-            FormPhieuTraHangKH fpthkh = new FormPhieuTraHangKH();
-            mahd = FormHoaDon.mahd;
-            if(String.IsNullOrEmpty(mahd))
+            try
             {
-                MessageBox.Show("Bạn phải chọn hóa đơn trước khi trả ? ", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                return;
+                mahd = FormHoaDon.mahd;
+                if (string.IsNullOrEmpty(mahd))
+                {
+                    MessageBox.Show("Vui lòng chọn hóa đơn trước khi tạo phiếu trả hàng.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                FormCTPhieuTraHangKH fpthkh = new FormCTPhieuTraHangKH();
+                fpthkh.ShowDialog();
             }
-            fpthkh.ShowDialog();
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Đã xảy ra lỗi: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

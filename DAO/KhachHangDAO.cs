@@ -50,5 +50,29 @@ namespace DACN.DAO
             int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { ID });
             return result;
         }
+        public bool KiemTraTrungSDT(string sdt)
+        {
+            string query = "SP_KiemTraTrungSDTKH @SDT";
+            DataTable result = DataProvider.Instance.ExecuteQuery(query, new object[] { sdt });
+            return result.Rows.Count > 0;
+        }
+
+        public bool KiemTraTrungEmail(string email)
+        {
+            string query = "SP_KiemTraTrungEmailKH @Email";
+            DataTable result = DataProvider.Instance.ExecuteQuery(query, new object[] { email });
+            return result.Rows.Count > 0;
+        }
+        public static string GenerateMaKH()
+        {
+            string query = "SP_TaoMaKH";
+            DataTable result = DataProvider.Instance.ExecuteQuery(query);
+
+            if (result.Rows.Count > 0)
+            {
+                return result.Rows[0][0].ToString();
+            }
+            return null;
+        }
     }
 }

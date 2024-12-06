@@ -9,7 +9,10 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.UI.Design;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolBar;
 
 namespace DACN.GUI
 {
@@ -19,6 +22,8 @@ namespace DACN.GUI
         public static string manv;
         public static string mapn;
         public static string makho;
+        public static decimal tongtien;
+        private decimal Tag = 0;
         public FormNhapHang()
         {
             InitializeComponent();
@@ -45,9 +50,10 @@ namespace DACN.GUI
             formChonSP.Owner = this;
             formChonSP.ShowDialog();
         }
-        public void AddProductToReceipt(string maSP, string tenSP,string dvt, string tenloaisp,decimal soLuong, decimal donGia)
+        public void AddProductToReceipt(string maSP, string tenSP,string dvt, string tenloaisp)
         {
-            decimal thanhTien = soLuong * donGia;
+            
+            
             DataGridViewRow row = new DataGridViewRow();
             row.CreateCells(dvg_TaoPN);
 
@@ -55,15 +61,35 @@ namespace DACN.GUI
             row.Cells[1].Value = tenSP;    
             row.Cells[2].Value = dvt; 
             row.Cells[3].Value = tenloaisp; 
-            row.Cells[4].Value = soLuong;  
-            row.Cells[5].Value = donGia;    
-            row.Cells[6].Value = thanhTien; 
 
             dvg_TaoPN.Rows.Add(row);
 
             decimal tongTien = TinhTongThanhTien();
             txtTongTien.Text = tongTien.ToString("N2");
+            AddDonGia();
         }
+        private void AddDonGia()
+        {
+            decimal donGiaNhap = 0;
+            foreach (DataGridViewRow row in dvg_TaoPN.Rows)
+            {
+                if (!row.IsNewRow)
+                {
+                    string maSP = row.Cells["MaSP"].Value.ToString();
+                    string maNCC = cb_NCC.SelectedValue.ToString();
+                    donGiaNhap = PhieuNhapHangDAO.Instance.GetDonGiaNhap(maSP, maNCC);
+                    row.Cells["DonGia"].Value = donGiaNhap;
+                    decimal soLuong = Convert.ToDecimal(row.Cells["SoLuong"].Value);
+                    row.Cells["ThanhTien"].Value = soLuong * donGiaNhap;
+                }
+            }
+            if (donGiaNhap == 0)
+            {
+                MessageBox.Show("Vui lòng thêm giá nhập");
+                return;
+            }
+        }
+
         private void InitializeDataGridView()
         {
             if (dvg_TaoPN.Columns.Count == 0)
@@ -76,6 +102,10 @@ namespace DACN.GUI
                 dvg_TaoPN.Columns.Add("DonGia", "Đơn Giá");
                 dvg_TaoPN.Columns.Add("ThanhTien", "Thành Tiền");
             }
+        }
+        public void AnCombobox()
+        {
+            cb_NCC.Enabled = false;
         }
         private decimal TinhTongThanhTien()
         {
@@ -99,71 +129,81 @@ namespace DACN.GUI
             {
                 MessageBox.Show("Vui lòng chọn ít nhất một sản phẩm trước khi tạo phiếu nhập.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-
-            DataTable dt = NhanVienDAO.Instance.GetThongTinDN(FormDangNhap.nhanvien);
-            if (dt.Rows.Count > 0)
+            else
             {
-                DataRow row = dt.Rows[0];
-                manv = row["MaNV"].ToString();
-            }
-            string maPN = PhieuNhapHangDAO.GenerateMaPN();
-            DateTime ngayDat = DateTime.Now;
-            decimal tongTien = decimal.Parse(txtTongTien.Text);
-            string trangThai = cb_TrangThai.SelectedItem.ToString();
-            string maNCC = mancc;
-            makho = cb_TaoPNKho.SelectedValue.ToString();
-
-            if (!string.IsNullOrEmpty(maPN))
-            {
-                bool phieuNhapAdded = PhieuNhapHangDAO.Instance.ThemPhieuNhapHang(maPN, ngayDat, tongTien, trangThai, manv, maNCC, makho);
-
-                if (phieuNhapAdded)
+                foreach (DataGridViewRow row in dvg_TaoPN.Rows)
                 {
-                    bool allDetailsAdded = true;
-                    foreach (DataGridViewRow dgvRow in dvg_TaoPN.Rows)
+                    if (Convert.ToDecimal(row.Cells["SoLuong"].Value) == 0)
                     {
-                        if (dgvRow.Cells["MaSP"].Value != null)
+                        MessageBox.Show("Vui lòng nhập số lượng lớn hơn 0");
+                        return;
+                    }
+                }
+                DataTable dt = NhanVienDAO.Instance.GetThongTinDN(FormDangNhap.nhanvien);
+                if (dt.Rows.Count > 0)
+                {
+                    DataRow row = dt.Rows[0];
+                    manv = row["MaNV"].ToString();
+                }
+                string maPN = PhieuNhapHangDAO.GenerateMaPN();
+                DateTime ngayDat = DateTime.Now;
+                decimal tongTien = decimal.Parse(txtTongTien.Text);
+                string trangThai = cb_TrangThai.SelectedItem.ToString();
+                string maNCC = mancc;
+                makho = cb_TaoPNKho.SelectedValue.ToString();
+
+                if (!string.IsNullOrEmpty(maPN))
+                {
+                    bool phieuNhapAdded = PhieuNhapHangDAO.Instance.ThemPhieuNhapHang(maPN, ngayDat, tongTien, trangThai, manv, maNCC, makho);
+
+                    if (phieuNhapAdded)
+                    {
+                        bool allDetailsAdded = true;
+                        foreach (DataGridViewRow dgvRow in dvg_TaoPN.Rows)
                         {
-                            string maSP = dgvRow.Cells["MaSP"].Value.ToString();
-                            decimal soLuong = Convert.ToDecimal(dgvRow.Cells["SoLuong"].Value);
-                            decimal donGia = Convert.ToDecimal(dgvRow.Cells["DonGia"].Value);
-                            DateTime ngayNhapHang = DateTime.Now;
-                            CTPhieuNHDTO ctPhieuNhap = new CTPhieuNHDTO
+                            if (dgvRow.Cells["MaSP"].Value != null)
                             {
-                                MaCTPhieuNH = PhieuNhapHangDAO.GenerateMaCTPN(),
-                                MaPhieuNH = maPN,
-                                MaSP = maSP,
-                                SoLuong = soLuong,
-                                DonGia = donGia,
-                                NgayNhapHang = ngayNhapHang
-                            };
-                            bool detailAdded = PhieuNhapHangDAO.Instance.ThemCTPhieuNhapHang(ctPhieuNhap);
-                            if (!detailAdded)
-                            {
-                                allDetailsAdded = false;                           
+                                string maSP = dgvRow.Cells["MaSP"].Value.ToString();
+                                decimal soLuong = Convert.ToDecimal(dgvRow.Cells["SoLuong"].Value);
+                                decimal donGia = Convert.ToDecimal(dgvRow.Cells["DonGia"].Value);
+                                DateTime ngayNhapHang = DateTime.Now;
+                                CTPhieuNHDTO ctPhieuNhap = new CTPhieuNHDTO
+                                {
+                                    MaCTPhieuNH = PhieuNhapHangDAO.GenerateMaCTPN(),
+                                    MaPhieuNH = maPN,
+                                    MaSP = maSP,
+                                    SoLuong = soLuong,
+                                    DonGia = donGia,
+                                    NgayNhapHang = ngayNhapHang
+                                };
+                                bool detailAdded = PhieuNhapHangDAO.Instance.ThemCTPhieuNhapHang(ctPhieuNhap);
+                                if (!detailAdded)
+                                {
+                                    allDetailsAdded = false;
+                                }
                             }
                         }
-                    }
 
-                    if (allDetailsAdded)
-                    {
-                        MessageBox.Show("Thêm phiếu nhập và chi tiết phiếu nhập thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        dvg_TaoPN.Rows.Clear();
-                        txtTongTien.Text = "0";
+                        if (allDetailsAdded)
+                        {
+                            MessageBox.Show("Thêm phiếu nhập và chi tiết phiếu nhập thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            dvg_TaoPN.Rows.Clear();
+                            txtTongTien.Text = "0";
+                        }
+                        else
+                        {
+                            MessageBox.Show("Có lỗi khi thêm một số chi tiết phiếu nhập.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
                     }
                     else
                     {
-                        MessageBox.Show("Có lỗi khi thêm một số chi tiết phiếu nhập.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show("Lỗi khi thêm phiếu nhập", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Lỗi khi thêm phiếu nhập", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Lỗi khi tạo mã phiếu nhập", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-            }
-            else
-            {
-                MessageBox.Show("Lỗi khi tạo mã phiếu nhập", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }
@@ -172,14 +212,23 @@ namespace DACN.GUI
         {
             if (dvg_TaoPN.SelectedRows.Count > 0)
             {
-                foreach (DataGridViewRow row in dvg_TaoPN.SelectedRows)
+                DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xóa các dòng đã chọn?", "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
                 {
-                    dvg_TaoPN.Rows.Remove(row);
+                    for (int i = dvg_TaoPN.SelectedRows.Count - 1; i >= 0; i--)
+                    {
+                        DataGridViewRow row = dvg_TaoPN.SelectedRows[i];
+                        dvg_TaoPN.Rows.Remove(row);
+                        if (dvg_TaoPN.SelectedRows.Count == 0)
+                        {
+                            cb_NCC.Enabled = true;
+                        }
+                    }
                 }
             }
             else
             {
-                MessageBox.Show("Vui lòng chọn sản phẩm cần xóa.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Vui lòng chọn dòng cần xóa.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
         private void UpdateTongTien()
@@ -198,20 +247,20 @@ namespace DACN.GUI
 
         private void dvg_TaoPN_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == dvg_TaoPN.Columns["SoLuong"].Index || e.ColumnIndex == dvg_TaoPN.Columns["DonGia"].Index)
+            // Kiểm tra nếu cột đang sửa là Số Lượng (Không cho phép sửa Đơn Giá)
+            if (e.ColumnIndex == dvg_TaoPN.Columns["SoLuong"].Index)
             {
                 DataGridViewRow row = dvg_TaoPN.Rows[e.RowIndex];
-                if (decimal.TryParse(row.Cells["SoLuong"].Value?.ToString(), out decimal soLuong) &&
-                    decimal.TryParse(row.Cells["DonGia"].Value?.ToString(), out decimal donGia))
+                if (decimal.TryParse(row.Cells["SoLuong"].Value?.ToString(), out decimal soLuong))
                 {
-                    if (soLuong < 0 || donGia < 0)
+                    if (soLuong < 1)
                     {
-                        MessageBox.Show("Số lượng và đơn giá không được phép âm.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        if (soLuong < 0) row.Cells["SoLuong"].Value = 0;
-                        if (donGia < 0) row.Cells["DonGia"].Value = 0;
+                        MessageBox.Show("Số lượng không được nhỏ hơn 1.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        row.Cells["SoLuong"].Value = 0;
                     }
                     else
                     {
+                        decimal donGia = Convert.ToDecimal(row.Cells["DonGia"].Value);
                         decimal thanhTien = soLuong * donGia;
                         row.Cells["ThanhTien"].Value = thanhTien;
                         UpdateTongTien();
@@ -219,20 +268,97 @@ namespace DACN.GUI
                 }
                 else
                 {
-                    MessageBox.Show("Vui lòng nhập số hợp lệ cho Số Lượng và Đơn Giá.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    row.Cells["ThanhTien"].Value = 0;
+                    MessageBox.Show("Vui lòng nhập Số lượng hợp lệ.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    row.Cells["SoLuong"].Value = 0;
                 }
+            }
+            else if (e.ColumnIndex == dvg_TaoPN.Columns["DonGia"].Index)
+            {
+                MessageBox.Show("Không thể sửa giá trị Đơn Giá.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                DataGridViewRow row = dvg_TaoPN.Rows[e.RowIndex];
+                row.Cells["DonGia"].Value = Tag;//reset lại giá tị từ Tag
             }
         }
         private void LoadDSPN()
         {
             List<PhieuNhapHangDTO> listPN = PhieuNhapHangDAO.Instance.GetPhieuNhap();
             dvg_DSPhieuNhap.DataSource = listPN;
+            dvg_DSPhieuNhap.Columns["MaPhieuNH"].HeaderText = "Mã phiếu nhập hàng";
+            dvg_DSPhieuNhap.Columns["NgayDatHang"].HeaderText = "Ngày đặt hàng";
+            dvg_DSPhieuNhap.Columns["TrangThai"].HeaderText = "Trạng thái";
+            dvg_DSPhieuNhap.Columns["MaNV"].HeaderText = "Mã nhân viên";
+            dvg_DSPhieuNhap.Columns["TenNV"].HeaderText = "Tên nhân viên";
+            dvg_DSPhieuNhap.Columns["TenNCC"].HeaderText = "Tên nhà cung cấp";
+            dvg_DSPhieuNhap.Columns["TenKho"].HeaderText = "Tên kho";
+            dvg_DSPhieuNhap.Columns["TongTien"].HeaderText = "Tổng tiền";
+            List<KhoDTO> listkho = KhoDAO.Instance.GetKho();
+            cbkho.DataSource = listkho;
+            cbkho.DisplayMember = "TenKho";
+            cbkho.ValueMember = "TenKho";
+            List<NhaCungCapDTO> listncc = NhaCungCapDAO.Instance.GetNhaCungCap();
+            cbncc.DataSource = listncc;
+            cbncc.DisplayMember = "TenNCC";
+            cbncc.ValueMember = "TenNCC";
+            cb_CongTy.SelectedIndex = 0;
+            //chuột phải thao tác xem  chi tiết
+            ContextMenuStrip contextMenu = new ContextMenuStrip();
+            ToolStripMenuItem xemChiTietMenuItem = new ToolStripMenuItem("Xem chi tiết");
+            xemChiTietMenuItem.Click += XemChiTietMenuItem_Click;
+            contextMenu.Items.Add(xemChiTietMenuItem);
+            dvg_DSPhieuNhap.ContextMenuStrip = contextMenu;
+            //add nút xóa
+            if (!dvg_DSPhieuNhap.Columns.Contains("btnDelete"))
+            {
+                DataGridViewButtonColumn btnDelete = new DataGridViewButtonColumn
+                {
+                    HeaderText = "Hành động",
+                    Name = "btnDelete",
+                    Text = "Xóa",
+                    UseColumnTextForButtonValue = true,
+                    Width = 80,
+                    FlatStyle = FlatStyle.Flat
+                };
+                btnDelete.DefaultCellStyle.BackColor = Color.DarkBlue;
+                btnDelete.DefaultCellStyle.ForeColor = Color.DeepPink;
+                btnDelete.DefaultCellStyle.Font = new Font("Arial", 10, FontStyle.Bold);
+                dvg_DSPhieuNhap.Columns.Add(btnDelete);
+
+
+                DataGridViewButtonColumn btnEdit = new DataGridViewButtonColumn
+                {
+                    HeaderText = "",
+                    Name = "btnEdit",
+                    Text = "Sửa",
+                    UseColumnTextForButtonValue = true,
+                    Width = 80,
+                    FlatStyle = FlatStyle.Flat
+                };
+                btnEdit.DefaultCellStyle.BackColor = Color.White;
+                btnEdit.DefaultCellStyle.ForeColor = Color.DarkViolet;
+                btnEdit.DefaultCellStyle.Font = new Font("Arial", 10, FontStyle.Bold);
+                dvg_DSPhieuNhap.Columns.Add(btnEdit);
+            }
         }
-        private void LoadDSPNDaPheDuyet()
+        private void XemChiTietMenuItem_Click(object sender, EventArgs e)
+        {
+            int rowIndex = dvg_DSPhieuNhap.SelectedCells[0].RowIndex;
+            DataGridViewRow row = dvg_DSPhieuNhap.Rows[rowIndex];
+            mapn = row.Cells["MaPhieuNH"].Value.ToString();
+            FormCTPhieuNhap_ChoNVKho formChiTiet = new FormCTPhieuNhap_ChoNVKho();
+            formChiTiet.Show();
+        }
+        public void LoadDSPNDaPheDuyet()
         {
             List<PhieuNhapHangDTO> listPN = PhieuNhapHangDAO.Instance.DSPhieuNhapDaPD();
             dvg_DSPNDPD.DataSource = listPN;
+            dvg_DSPNDPD.Columns["MaPhieuNH"].HeaderText = "Mã phiếu nhập hàng";
+            dvg_DSPNDPD.Columns["NgayDatHang"].HeaderText = "Ngày đặt hàng";
+            dvg_DSPNDPD.Columns["TongTien"].HeaderText = "Tổng tiền";
+            dvg_DSPNDPD.Columns["TrangThai"].HeaderText = "Trạng thái";
+            dvg_DSPNDPD.Columns["MaNV"].HeaderText = "Mã nhân viên";
+            dvg_DSPNDPD.Columns["TenNV"].HeaderText = "Tên nhân viên";
+            dvg_DSPNDPD.Columns["TenNCC"].HeaderText = "Tên nhà cung cấp";
+            dvg_DSPNDPD.Columns["TenKho"].HeaderText = "Tên kho";
         }
         private void tab_body_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -248,7 +374,6 @@ namespace DACN.GUI
                     LoadPhieuNhap();
                     break;
                 case 2:
-
                     LoadDSPNDaPheDuyet();
                     break;
                 default:
@@ -258,8 +383,97 @@ namespace DACN.GUI
 
         private void btn_XemCT_Click(object sender, EventArgs e)
         {
-            FormCapNhatKho fcnk = new FormCapNhatKho();
-            fcnk.ShowDialog();
+            if(mapn == null)
+            {
+                MessageBox.Show("Vui lòng chọn phiếu nhâp");
+            }
+            else
+            {
+                FormCapNhatKho fcnk = new FormCapNhatKho();
+                fcnk.ShowDialog();
+            }
+            
+        }
+
+        private void btn_TaoPTH_Click(object sender, EventArgs e)
+        {
+            if (mapn == null)
+            {
+                MessageBox.Show("Vui lòng chọn phiếu nhâp");
+            }
+            else
+            {
+                FormTaoPhieuTraHangNCC ftpth = new FormTaoPhieuTraHangNCC();
+                ftpth.ShowDialog();
+            }
+        }
+
+        private void btn_TimPN_Click(object sender, EventArgs e)
+        {
+            string searchValue = txt_SearchPN.Text;
+            List<PhieuNhapHangDTO> listPN = PhieuNhapHangDAO.Instance.TimPhieuNhap(searchValue);
+            dvg_DSPhieuNhap.DataSource= listPN;
+
+        }
+
+        private void btn_Loc_Click(object sender, EventArgs e)
+        {
+            // Kiểm tra giá trị từ combobox Kho, nếu trống thì truyền null
+            string tenNCC = string.IsNullOrEmpty(cbncc.SelectedValue?.ToString()) ? null : cbncc.SelectedValue.ToString();
+            string tenKho = string.IsNullOrEmpty(cbkho.SelectedValue?.ToString()) ? null : cbkho.SelectedValue.ToString();
+            List<PhieuNhapHangDTO> listPN = PhieuNhapHangDAO.Instance.LocPhieuNhap(tenKho, tenNCC);
+            dvg_DSPhieuNhap.DataSource = listPN;
+        }
+
+        private void btn_SuaPN_Click(object sender, EventArgs e)
+        {
+            FormSuaPhieuNhap fSuaPN = new FormSuaPhieuNhap();
+            fSuaPN.ShowDialog();
+        }
+
+        private void btn_LocTheoNgay_Click(object sender, EventArgs e)
+        {
+            string tuNgay = Convert.ToString(dp_TuNgay.Value);
+            string denNgay =Convert.ToString(dp_DenNgay.Value);
+            List<PhieuNhapHangDTO> listPN = PhieuNhapHangDAO.Instance.LocTheoNgay(tuNgay, denNgay);
+            dvg_DSPhieuNhap.DataSource = listPN;
+        }
+
+        private void dvg_DSPhieuNhap_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+            if (e.ColumnIndex == dvg_DSPhieuNhap.Columns["btnDelete"].Index && e.RowIndex >= 0)
+            {
+                string id = dvg_DSPhieuNhap.Rows[e.RowIndex].Cells["MaPhieuNH"].Value.ToString();
+                DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn xóa phiếu nhập", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
+                {
+                    bool success = PhieuNhapHangDAO.Instance.XoaPN(id);
+                    if (success)
+                    {
+                        MessageBox.Show("Hãy chờ phê duyệt.");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Gửi yêu cầu xóa không thành công.");
+                    }
+                }
+            }
+            if(e.ColumnIndex == dvg_DSPhieuNhap.Columns["btnEdit"].Index && e.RowIndex >= 0)
+            {
+                mapn = dvg_DSPhieuNhap.Rows[e.RowIndex].Cells["MaPhieuNH"].Value.ToString();
+                tongtien = decimal.Parse(dvg_DSPhieuNhap.Rows[e.RowIndex].Cells["TongTien"].Value.ToString());
+                string trangThai = dvg_DSPhieuNhap.Rows[e.RowIndex].Cells["TrangThai"].Value.ToString();
+                if(trangThai == "Chờ phê duyệt nhập")
+                {
+                    FormSuaPhieuNhap fSuaPN = new FormSuaPhieuNhap();
+                    fSuaPN.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("Không thể sửa phiếu nhập!");
+                }
+            }
         }
 
         private void dvg_DSPNDPD_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -278,10 +492,18 @@ namespace DACN.GUI
             }
         }
 
-        private void btn_TaoPTH_Click(object sender, EventArgs e)
+        private void dvg_TaoPN_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            FormTaoPhieuTraHangNCC ftpth = new FormTaoPhieuTraHangNCC();
-            ftpth.ShowDialog();
+            DataGridViewRow row = new DataGridViewRow();
+            try
+            {
+                row = dvg_TaoPN.Rows[e.RowIndex];
+                Tag = Convert.ToDecimal(row.Cells["DonGia"].Value);
+            }
+            catch
+            {
+                MessageBox.Show("Vui lòng chọn phiếu nhập");
+            }
         }
     }
 }

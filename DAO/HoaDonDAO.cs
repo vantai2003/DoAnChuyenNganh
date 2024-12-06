@@ -29,16 +29,17 @@ namespace DACN.DAO
             }
             return list;
         }
+       
         public int Insert(HoaDonDTO obj)
         {
             string query = "sp_Insert_HD @MaHD , @NgayDatHang , @TongTien , @TrangThai , @DiaChiGiaoHang , @TienCoc , @ThanhToan , @MaKH , @MaNV";
-            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] {obj.MaHD, obj.NgayDatHang, obj.TongTien, obj.TrangThai, obj.DiaChiGiaoHang, obj.TienCoc, obj.ThanhToan, obj.MaKH, obj.MaNV });
+            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { obj.MaHD, obj.NgayDatHang, obj.TongTien, obj.TrangThai, obj.DiaChiGiaoHang, obj.TienCoc, obj.ThanhToan, obj.MaKH, obj.MaNV });
             return result;
         }
         public int Update(HoaDonDTO obj)
         {
             string query = "sp_Update_HD @MaHD , @NgayDatHang , @TongTien , @TrangThai , @DiaChiGiaoHang , @TienCoc , @ThanhToan , @MaKH , @MaNV";
-            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] {obj.MaHD, obj.NgayDatHang, obj.TongTien, obj.TrangThai, obj.DiaChiGiaoHang, obj.TienCoc, obj.ThanhToan, obj.MaKH, obj.MaNV });
+            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { obj.MaHD, obj.NgayDatHang, obj.TongTien, obj.TrangThai, obj.DiaChiGiaoHang, obj.TienCoc, obj.ThanhToan, obj.MaKH, obj.MaNV });
             return result;
         }
         public int Delete(string ID)
@@ -47,6 +48,17 @@ namespace DACN.DAO
             int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { ID });
             return result;
         }
+        public int ThanhToan(string mahd , decimal tienkhtra)
+        {
+            string query = "sp_Update_HD_ThanhToan @MaHD , @ThanhToan";
+            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] {mahd,tienkhtra});
+            return result;
+        }
+        public DataTable GetTTInHoaDon(string mahd)
+        {
+            string query = "SP_GetTTKH @MaHD";
 
+            return DataProvider.Instance.ExecuteQuery(query, new object[] { mahd });
+        }
     }
 }

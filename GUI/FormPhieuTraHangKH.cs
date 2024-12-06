@@ -23,10 +23,20 @@ namespace DACN.GUI
             InitializeComponent();
             mahd = FormHoaDon.mahd;
             LoadCTHD();
-
+            SetupDataGridView();
 
         }
+        private void SetupDataGridView()
+        {
+            // Đặt các cột khác thành ReadOnly
+            foreach (DataGridViewColumn column in dvg_TaoPTH.Columns)
+            {
+                column.ReadOnly = true;
+                dvg_TaoPTH.Columns["SoLuongTra"].ReadOnly = false;
 
+            }
+
+        }
         private void LoadCTHD()
         {
             List<CTHoaDonDTO> listHoaDon = CTHoaDonDAO.Instance.GetCTHDTheoMHD(mahd);
@@ -47,6 +57,13 @@ namespace DACN.GUI
             }
 
             dvg_TaoPTH.DataSource = listHoaDon;
+            dvg_TaoPTH.Columns["MaCTHD"].HeaderText = "Mã CT hóa đơn";
+            dvg_TaoPTH.Columns["SoLuong"].HeaderText = "Số lượng";
+            dvg_TaoPTH.Columns["DVT"].HeaderText = "ĐVT";
+            dvg_TaoPTH.Columns["DonGia"].HeaderText = "Đơn giá";
+            dvg_TaoPTH.Columns["MaSP"].HeaderText = "Mã sản phẩm";
+            dvg_TaoPTH.Columns["MaHD"].HeaderText = "Mã hóa đơn";
+            dvg_TaoPTH.Columns["ThanhTien"].HeaderText = "Thành tiền";
             RearrangeColumns();
 
 
@@ -199,9 +216,34 @@ namespace DACN.GUI
                 MessageBox.Show("Loi" + ex.ToString());
             }
         }
-            
- 
-        
-        
+
+        private void dvg_TaoPTH_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == dvg_TaoPTH.Columns["SoLuong"].Index || e.ColumnIndex == dvg_TaoPTH.Columns["SoLuongTra"].Index)
+            {
+                DataGridViewRow row = dvg_TaoPTH.Rows[e.RowIndex];
+                if (decimal.TryParse(row.Cells["SoLuong"].Value?.ToString(), out decimal soLuong) &&
+                    decimal.TryParse(row.Cells["SoLuongTra"].Value?.ToString(), out decimal SoLuongTra) 
+                    )
+                    
+                {
+                    if (SoLuongTra < 0)
+                    {
+                        MessageBox.Show("Số lượng trả không được phép âm.", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                     
+                        row.Cells["SoLuongTra"].Value = 0;
+                    }
+                    else if (soLuong < SoLuongTra)
+                    {
+                        MessageBox.Show("Số lượng trả không được lớn hơn số lượng ", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                   
+                        row.Cells["SoLuongTra"].Value = 0;
+                    }
+                  
+                }
+
+       
+            }
+        }
     }
 }

@@ -28,23 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pannel_body = new Sunny.UI.UIPanel();
             this.uiPanel2 = new Sunny.UI.UIPanel();
             this.uiPanel3 = new Sunny.UI.UIPanel();
             this.dvg_TonKho = new Sunny.UI.UIDataGridView();
             this.panel_Top = new Sunny.UI.UIPanel();
-            this.rgb_Loc = new Sunny.UI.UIRadioButtonGroup();
-            this.uiPanel1 = new Sunny.UI.UIPanel();
-            this.rdb_SanPham = new Sunny.UI.UIRadioButton();
-            this.rdb_Kho = new Sunny.UI.UIRadioButton();
-            this.txt_search = new Sunny.UI.UITextBox();
-            this.cb_Kho = new System.Windows.Forms.ComboBox();
             this.btn_Loc = new System.Windows.Forms.Button();
+            this.cb_Kho = new System.Windows.Forms.ComboBox();
+            this.txt_search = new Sunny.UI.UITextBox();
+            this.rgb_Loc = new Sunny.UI.UIRadioButtonGroup();
+            this.rdb_Kho = new Sunny.UI.UIRadioButton();
+            this.rdb_SanPham = new Sunny.UI.UIRadioButton();
+            this.uiPanel1 = new Sunny.UI.UIPanel();
             this.pannel_body.SuspendLayout();
             this.uiPanel2.SuspendLayout();
             this.uiPanel3.SuspendLayout();
@@ -100,45 +100,46 @@
             // 
             // dvg_TonKho
             // 
-            dataGridViewCellStyle26.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
-            this.dvg_TonKho.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle26;
+            dataGridViewCellStyle21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
+            this.dvg_TonKho.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle21;
+            this.dvg_TonKho.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dvg_TonKho.BackgroundColor = System.Drawing.Color.White;
             this.dvg_TonKho.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle27.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle27.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            dataGridViewCellStyle27.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle27.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle27.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle27.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dvg_TonKho.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle27;
+            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle22.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle22.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dvg_TonKho.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle22;
             this.dvg_TonKho.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle28.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle28.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            dataGridViewCellStyle28.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
-            dataGridViewCellStyle28.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle28.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle28.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dvg_TonKho.DefaultCellStyle = dataGridViewCellStyle28;
+            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle23.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle23.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle23.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
+            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dvg_TonKho.DefaultCellStyle = dataGridViewCellStyle23;
             this.dvg_TonKho.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dvg_TonKho.EnableHeadersVisualStyles = false;
             this.dvg_TonKho.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.dvg_TonKho.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
             this.dvg_TonKho.Location = new System.Drawing.Point(0, 0);
             this.dvg_TonKho.Name = "dvg_TonKho";
-            dataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle29.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle29.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            dataGridViewCellStyle29.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
-            dataGridViewCellStyle29.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle29.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle29.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dvg_TonKho.RowHeadersDefaultCellStyle = dataGridViewCellStyle29;
+            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle24.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle24.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle24.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
+            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dvg_TonKho.RowHeadersDefaultCellStyle = dataGridViewCellStyle24;
             this.dvg_TonKho.RowHeadersWidth = 51;
-            dataGridViewCellStyle30.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle30.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.dvg_TonKho.RowsDefaultCellStyle = dataGridViewCellStyle30;
+            dataGridViewCellStyle25.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle25.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.dvg_TonKho.RowsDefaultCellStyle = dataGridViewCellStyle25;
             this.dvg_TonKho.RowTemplate.Height = 24;
             this.dvg_TonKho.SelectedIndex = -1;
             this.dvg_TonKho.Size = new System.Drawing.Size(1214, 469);
@@ -162,6 +163,45 @@
             this.panel_Top.Text = null;
             this.panel_Top.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // btn_Loc
+            // 
+            this.btn_Loc.BackColor = System.Drawing.Color.Olive;
+            this.btn_Loc.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_Loc.Enabled = false;
+            this.btn_Loc.ForeColor = System.Drawing.Color.White;
+            this.btn_Loc.Location = new System.Drawing.Point(930, 22);
+            this.btn_Loc.Name = "btn_Loc";
+            this.btn_Loc.Size = new System.Drawing.Size(99, 62);
+            this.btn_Loc.TabIndex = 4;
+            this.btn_Loc.Text = "Lọc";
+            this.btn_Loc.UseVisualStyleBackColor = false;
+            this.btn_Loc.Click += new System.EventHandler(this.btn_Loc_Click);
+            // 
+            // cb_Kho
+            // 
+            this.cb_Kho.Enabled = false;
+            this.cb_Kho.FormattingEnabled = true;
+            this.cb_Kho.Location = new System.Drawing.Point(627, 38);
+            this.cb_Kho.Name = "cb_Kho";
+            this.cb_Kho.Size = new System.Drawing.Size(297, 33);
+            this.cb_Kho.TabIndex = 3;
+            // 
+            // txt_search
+            // 
+            this.txt_search.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txt_search.Enabled = false;
+            this.txt_search.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.txt_search.Location = new System.Drawing.Point(423, 35);
+            this.txt_search.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txt_search.MinimumSize = new System.Drawing.Size(1, 16);
+            this.txt_search.Name = "txt_search";
+            this.txt_search.Padding = new System.Windows.Forms.Padding(5);
+            this.txt_search.ShowText = false;
+            this.txt_search.Size = new System.Drawing.Size(197, 40);
+            this.txt_search.TabIndex = 2;
+            this.txt_search.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txt_search.Watermark = "";
+            // 
             // rgb_Loc
             // 
             this.rgb_Loc.Controls.Add(this.rdb_Kho);
@@ -172,10 +212,36 @@
             this.rgb_Loc.MinimumSize = new System.Drawing.Size(1, 1);
             this.rgb_Loc.Name = "rgb_Loc";
             this.rgb_Loc.Padding = new System.Windows.Forms.Padding(0, 32, 0, 0);
-            this.rgb_Loc.Size = new System.Drawing.Size(457, 84);
+            this.rgb_Loc.Size = new System.Drawing.Size(358, 84);
             this.rgb_Loc.TabIndex = 1;
             this.rgb_Loc.Text = "Lọc theo";
             this.rgb_Loc.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // rdb_Kho
+            // 
+            this.rdb_Kho.BackColor = System.Drawing.Color.Transparent;
+            this.rdb_Kho.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.rdb_Kho.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.rdb_Kho.Location = new System.Drawing.Point(240, 35);
+            this.rdb_Kho.MinimumSize = new System.Drawing.Size(1, 1);
+            this.rdb_Kho.Name = "rdb_Kho";
+            this.rdb_Kho.Size = new System.Drawing.Size(100, 29);
+            this.rdb_Kho.TabIndex = 1;
+            this.rdb_Kho.Text = "Kho";
+            this.rdb_Kho.CheckedChanged += new System.EventHandler(this.rdb_Kho_CheckedChanged);
+            // 
+            // rdb_SanPham
+            // 
+            this.rdb_SanPham.BackColor = System.Drawing.Color.Transparent;
+            this.rdb_SanPham.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.rdb_SanPham.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.rdb_SanPham.Location = new System.Drawing.Point(19, 35);
+            this.rdb_SanPham.MinimumSize = new System.Drawing.Size(1, 1);
+            this.rdb_SanPham.Name = "rdb_SanPham";
+            this.rdb_SanPham.Size = new System.Drawing.Size(150, 29);
+            this.rdb_SanPham.TabIndex = 0;
+            this.rdb_SanPham.Text = "Sản phẩm";
+            this.rdb_SanPham.CheckedChanged += new System.EventHandler(this.rdb_SanPham_CheckedChanged);
             // 
             // uiPanel1
             // 
@@ -193,70 +259,6 @@
             this.uiPanel1.TabIndex = 0;
             this.uiPanel1.Text = "QUẢN LÝ TỒN KHO";
             this.uiPanel1.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // rdb_SanPham
-            // 
-            this.rdb_SanPham.BackColor = System.Drawing.Color.Transparent;
-            this.rdb_SanPham.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.rdb_SanPham.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.rdb_SanPham.Location = new System.Drawing.Point(19, 35);
-            this.rdb_SanPham.MinimumSize = new System.Drawing.Size(1, 1);
-            this.rdb_SanPham.Name = "rdb_SanPham";
-            this.rdb_SanPham.Size = new System.Drawing.Size(150, 29);
-            this.rdb_SanPham.TabIndex = 0;
-            this.rdb_SanPham.Text = "Sản phẩm";
-            this.rdb_SanPham.CheckedChanged += new System.EventHandler(this.rdb_SanPham_CheckedChanged);
-            // 
-            // rdb_Kho
-            // 
-            this.rdb_Kho.BackColor = System.Drawing.Color.Transparent;
-            this.rdb_Kho.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.rdb_Kho.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.rdb_Kho.Location = new System.Drawing.Point(240, 35);
-            this.rdb_Kho.MinimumSize = new System.Drawing.Size(1, 1);
-            this.rdb_Kho.Name = "rdb_Kho";
-            this.rdb_Kho.Size = new System.Drawing.Size(150, 29);
-            this.rdb_Kho.TabIndex = 1;
-            this.rdb_Kho.Text = "Kho";
-            this.rdb_Kho.CheckedChanged += new System.EventHandler(this.rdb_Kho_CheckedChanged);
-            // 
-            // txt_search
-            // 
-            this.txt_search.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txt_search.Enabled = false;
-            this.txt_search.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.txt_search.Location = new System.Drawing.Point(529, 33);
-            this.txt_search.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txt_search.MinimumSize = new System.Drawing.Size(1, 16);
-            this.txt_search.Name = "txt_search";
-            this.txt_search.Padding = new System.Windows.Forms.Padding(5);
-            this.txt_search.ShowText = false;
-            this.txt_search.Size = new System.Drawing.Size(197, 40);
-            this.txt_search.TabIndex = 2;
-            this.txt_search.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
-            this.txt_search.Watermark = "";
-            // 
-            // cb_Kho
-            // 
-            this.cb_Kho.Enabled = false;
-            this.cb_Kho.FormattingEnabled = true;
-            this.cb_Kho.Location = new System.Drawing.Point(778, 33);
-            this.cb_Kho.Name = "cb_Kho";
-            this.cb_Kho.Size = new System.Drawing.Size(297, 33);
-            this.cb_Kho.TabIndex = 3;
-            // 
-            // btn_Loc
-            // 
-            this.btn_Loc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.btn_Loc.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_Loc.Enabled = false;
-            this.btn_Loc.Location = new System.Drawing.Point(1081, 28);
-            this.btn_Loc.Name = "btn_Loc";
-            this.btn_Loc.Size = new System.Drawing.Size(121, 41);
-            this.btn_Loc.TabIndex = 4;
-            this.btn_Loc.Text = "Lọc";
-            this.btn_Loc.UseVisualStyleBackColor = false;
-            this.btn_Loc.Click += new System.EventHandler(this.btn_Loc_Click);
             // 
             // FormQLTonKho
             // 

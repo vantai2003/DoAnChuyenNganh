@@ -26,9 +26,14 @@ namespace DACN.GUI
         {
             List<KhachHangDTO> listkh = KhachHangDAO.Instance.GetKhachHang();
 
+            dgvKhachHang.DataSource = listkh;
+            dgvKhachHang.Columns["MaKH"].HeaderText = "Mã khách hàng";
+            dgvKhachHang.Columns["TenKH"].HeaderText = "Tên khách hàng";
+            dgvKhachHang.Columns["SoDienThoai"].HeaderText = "SĐT";
+            dgvKhachHang.Columns["DiaChi"].HeaderText = "Địa chỉ";
+            dgvKhachHang.Columns["NgayTao"].HeaderText = "Ngày tạo";
+            dgvKhachHang.Columns["TenLoaiKH"].HeaderText = "Loại khách hàng";
             dgvKhachHang.DataSource = listkh; 
-
-            dgvKhachHang.DataSource = listkh; cbbLoaiKH.Items.Clear();
             dgvKhachHang.Columns["MaLoaiKH"].Visible = false;
 
             List<LoaiKhachHangDTO> listLoaiKH = LoaiKhachHangDAO.Instance.GetLoaiKhachHang();
@@ -72,30 +77,35 @@ namespace DACN.GUI
         }
         private bool ktDKKhachHang(string ma, string ten, string sdt, string email)
         {
-            if (string.IsNullOrWhiteSpace(ma))
+            try
             {
-                MessageBox.Show("Mã khách hàng không được để trống!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
+                if (string.IsNullOrWhiteSpace(ma))
+                {
+                    MessageBox.Show("Mã khách hàng không được để trống!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+
+                if (string.IsNullOrWhiteSpace(ten))
+                {
+                    MessageBox.Show("Tên khách hàng không được để trống!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+
+
+                bool isSdtEmpty = string.IsNullOrWhiteSpace(sdt);
+                bool isEmailEmpty = string.IsNullOrWhiteSpace(email);
+
+
+                if (isSdtEmpty && isEmailEmpty)
+                {
+                    MessageBox.Show("Số điện thoại hoặc email phải được cung cấp ít nhất một cái!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+                
+                return true;
             }
-
-            if (string.IsNullOrWhiteSpace(ten))
-            {
-                MessageBox.Show("Tên khách hàng không được để trống!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-
-
-            bool isSdtEmpty = string.IsNullOrWhiteSpace(sdt);
-            bool isEmailEmpty = string.IsNullOrWhiteSpace(email);
-
-
-            if (isSdtEmpty && isEmailEmpty)
-            {
-                MessageBox.Show("Số điện thoại hoặc email phải được cung cấp ít nhất một cái!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-
-            return true;
+            catch { MessageBox.Show("Thêm khách hàng không thành công"); return false; }
+            
         }
         private void btnChon_Click(object sender, EventArgs e)
         {
@@ -143,21 +153,31 @@ namespace DACN.GUI
 
         private void tsbThem_Click(object sender, EventArgs e)
         {
-            txtMK.Text = GenerateNewCodeKH();
-            khDTO.MaKH = txtMK.Text;
-            khDTO.TenKH = txtTenKH.Text;
-            khDTO.Email = txtEmail.Text;
-            khDTO.Diachi = txtDiaChi.Text;
-            khDTO.SoDienThoai = txtSDT.Text;
-            khDTO.NgayTao = DateTime.Now;
-            khDTO.MaLoaiKH = cbbLoaiKH.SelectedValue.ToString();
-            if (ktDKKhachHang(khDTO.MaKH, khDTO.TenKH, khDTO.SoDienThoai, khDTO.Email))
+            try
             {
-                khDAO.Insert(khDTO);
-                MessageBox.Show("Thêm thông tin thành công!");
+               
+                
+                    txtMK.Text = GenerateNewCodeKH();
+                    khDTO.MaKH = txtMK.Text;
+                    khDTO.TenKH = txtTenKH.Text;
+                    khDTO.Email = txtEmail.Text;
+                    khDTO.Diachi = txtDiaChi.Text;
+                    khDTO.SoDienThoai = txtSDT.Text;
+                    khDTO.NgayTao = DateTime.Now;
+                    khDTO.MaLoaiKH = cbbLoaiKH.SelectedValue.ToString();
+                    if (ktDKKhachHang(khDTO.MaKH, khDTO.TenKH, khDTO.SoDienThoai, khDTO.Email))
+                    {
+                        khDAO.Insert(khDTO);
+                        MessageBox.Show("Thêm thông tin thành công!");
 
+                    }
+                    LoadKH();
+               
+                
+                
             }
-            LoadKH();
+            catch(Exception ex) { MessageBox.Show("Thêm thất bại"+ex.ToString()); }
+            
         }
     }
     
