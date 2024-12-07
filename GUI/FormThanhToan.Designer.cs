@@ -57,6 +57,7 @@ namespace DACN.GUI
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
+            this.btnXacNhanQR = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -89,10 +90,10 @@ namespace DACN.GUI
             this.rdbThe.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.rdbThe.Location = new System.Drawing.Point(645, 99);
             this.rdbThe.Name = "rdbThe";
-            this.rdbThe.Size = new System.Drawing.Size(234, 36);
+            this.rdbThe.Size = new System.Drawing.Size(364, 36);
             this.rdbThe.TabIndex = 2;
             this.rdbThe.TabStop = true;
-            this.rdbThe.Text = "Thanh toán thẻ ";
+            this.rdbThe.Text = "Thanh toán chuyển khoản";
             this.rdbThe.UseVisualStyleBackColor = true;
             this.rdbThe.CheckedChanged += new System.EventHandler(this.rdbThe_CheckedChanged);
             // 
@@ -243,7 +244,8 @@ namespace DACN.GUI
             this.txt_soTien.Name = "txt_soTien";
             this.txt_soTien.Size = new System.Drawing.Size(237, 27);
             this.txt_soTien.TabIndex = 27;
-            this.txt_soTien.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
+            this.txt_soTien.TextChanged += new System.EventHandler(this.txt_soTien_TextChanged);
+            this.txt_soTien.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_soTien_KeyPress);
             // 
             // cb_template
             // 
@@ -366,11 +368,25 @@ namespace DACN.GUI
             this.label12.Text = "Ngân hàng";
             this.label12.Click += new System.EventHandler(this.label12_Click);
             // 
+            // btnXacNhanQR
+            // 
+            this.btnXacNhanQR.BackColor = System.Drawing.Color.Red;
+            this.btnXacNhanQR.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btnXacNhanQR.ForeColor = System.Drawing.SystemColors.Menu;
+            this.btnXacNhanQR.Location = new System.Drawing.Point(714, 662);
+            this.btnXacNhanQR.Name = "btnXacNhanQR";
+            this.btnXacNhanQR.Size = new System.Drawing.Size(146, 45);
+            this.btnXacNhanQR.TabIndex = 30;
+            this.btnXacNhanQR.Text = "Xác nhận";
+            this.btnXacNhanQR.UseVisualStyleBackColor = false;
+            this.btnXacNhanQR.Click += new System.EventHandler(this.btnXacNhanQR_Click);
+            // 
             // FormThanhToan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1049, 666);
+            this.ClientSize = new System.Drawing.Size(1055, 705);
+            this.Controls.Add(this.btnXacNhanQR);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnCreate);
             this.Controls.Add(this.txt_soTien);
@@ -400,7 +416,7 @@ namespace DACN.GUI
             this.Controls.Add(this.rdbTienmat);
             this.Controls.Add(this.label1);
             this.Name = "FormThanhToan";
-            this.Text = "`";
+            this.Text = "Phương thức thanh toán";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormThanhToan_FormClosed);
             this.Load += new System.EventHandler(this.FormThanhToan_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -439,5 +455,6 @@ namespace DACN.GUI
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Button btnXacNhanQR;
     }
 }
