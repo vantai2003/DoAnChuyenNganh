@@ -1,4 +1,5 @@
-﻿using DACN.DTO;
+﻿using DACN.DAO;
+using DACN.DTO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,12 +14,14 @@ namespace DACN.GUI
 {
     public partial class FormTrangChuAdmin : Form
     {
+        private string user;
         public FormTrangChuAdmin()
         {
             InitializeComponent();
             OpenChildForm(new FormNguoiDung());
             this.Width = 1250;
             this.Height = 700;
+            user = FormDangNhap.nhanvien;
         }
         private Form currentFormChild;
         private void OpenChildForm(Form childForm)
@@ -38,24 +41,29 @@ namespace DACN.GUI
 
         private void btn_QuanLyTaiKhoam_Click_1(object sender, EventArgs e)
         {
-            OpenChildForm(new FormNguoiDung());
+            if (CheckLoginStatus(user))
+            {
+                OpenChildForm(new FormNguoiDung());
+            }
         }
 
         private void btn_DangXuat_Click(object sender, EventArgs e)
         {
-            FormDangNhap.nhanvien = string.Empty;
             DialogResult dialogResult = MessageBox.Show("Bạn có chắc chắn muốn đăng xuất?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dialogResult == DialogResult.Yes)
             {
-                this.Hide();
+                LoginDAO.Instance.StatusDangXua(user);
+                this.Close();
                 FormDangNhap loginForm = new FormDangNhap();
                 loginForm.Show();
-                this.Close();
+                LoginDAO.Instance.LogoutUser(user);
+                user = null;
             }
         }
 
         private void btnSaoLuuPhucHoi_Click(object sender, EventArgs e)
         {
+            CheckLoginStatus(user);
             OpenChildForm(new FormSaoLuuPhucHoi());
         }
 
@@ -67,6 +75,21 @@ namespace DACN.GUI
         private void toolStripMenuItem6_Click(object sender, EventArgs e)
         {
             OpenChildForm(new FormDoiMatKhau());
+        }
+        private bool CheckLoginStatus(string username)
+        {
+            int status = LoginDAO.Instance.GetStatus(username);
+
+            if (status == 0)
+            {
+                MessageBox.Show("Tài khoản đã bị đăng xuất ở thiết bị khác.", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                FormDangNhap loginForm = new FormDangNhap();
+                this.Close();
+                loginForm.Show();
+                LoginDAO.Instance.LogoutUser(user);
+                return false;
+            }
+            return  true;
         }
     }
 }
