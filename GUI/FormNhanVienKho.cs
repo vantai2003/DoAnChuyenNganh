@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DACN.DAO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -51,13 +52,16 @@ namespace DACN.GUI
 
         private void btn_Logout_Click(object sender, EventArgs e)
         {
-            FormDangNhap.nhanvien = string.Empty; 
             DialogResult dialogResult = MessageBox.Show("Bạn có chắc chắn muốn đăng xuất?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dialogResult == DialogResult.Yes)
             {
+                LoginDAO.Instance.LogoutUser(FormDangNhap.nhanvien);
+                LoginDAO.Instance.StatusDangXua(FormDangNhap.nhanvien);
                 this.Close();
                 FormDangNhap loginForm = new FormDangNhap();
                 loginForm.Show();
+                FormDangNhap.nhanvien = string.Empty;
+
             }
         }
 

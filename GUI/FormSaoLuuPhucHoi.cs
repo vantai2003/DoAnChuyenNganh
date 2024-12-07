@@ -16,7 +16,9 @@ namespace DACN.GUI
         public FormSaoLuuPhucHoi()
         {
             InitializeComponent();
+
         }
+        
         private bool backupDatabase(string backupPath)
         {
             return SaoLuuPhucHoiDAO.BackupDatabase(backupPath);

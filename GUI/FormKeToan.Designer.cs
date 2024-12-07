@@ -273,6 +273,7 @@
             this.btn_DangXuat.TabIndex = 5;
             this.btn_DangXuat.Text = "Đăng xuất";
             this.btn_DangXuat.UseVisualStyleBackColor = false;
+            this.btn_DangXuat.Click += new System.EventHandler(this.btn_DangXuat_Click);
             // 
             // menuStrip2
             // 

@@ -15,7 +15,8 @@ namespace DACN.GUI
 {
     public partial class FormDangNhap : Form
     {
-
+        public static string password;
+        //private string error = DataProvider.thongBao;
         public FormDangNhap()
         {
             InitializeComponent();
@@ -33,13 +34,14 @@ namespace DACN.GUI
         }
         private void btn_Login_Click(object sender, EventArgs e)
         {
+            nhanvien = txt_UserName.Text.Trim();
+            password = txt_PassWord.Text;
+            DataProvider.Instance.SetConnectionString(nhanvien, password);
             string userName = txt_UserName.Text;
             string pass = NguoiDungDAO.Hash(txt_PassWord.Text);
-
             if (Login(userName, pass))
             {
-                nhanvien = txt_UserName.Text.Trim();
-
+                LoginDAO.Instance.StatusDangNhap(userName);
                 this.Hide();
                 switch (getRole(userName, pass))
                 {
@@ -60,7 +62,7 @@ namespace DACN.GUI
                         fnvbh.Show();
                         break;
                     case 4:
-                     
+
                         FormNhanVienGiaoHang fnvgh = new FormNhanVienGiaoHang();
                         fnvgh.Show();
                         break;
@@ -70,12 +72,7 @@ namespace DACN.GUI
                         break;
                 }
             }
-            else
-            {
-                MessageBox.Show("Sai tên đăng nhập hoặc mật khẩu!");
-            }
         }
-
         private void FormDangNhap_FormClosing(object sender, FormClosingEventArgs e)
         {
             DialogResult r;
