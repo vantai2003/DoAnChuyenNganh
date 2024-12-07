@@ -80,6 +80,7 @@
             this.btn_TaoPhieuTH.TabIndex = 1;
             this.btn_TaoPhieuTH.Text = "Tạo phiếu trả hàng";
             this.btn_TaoPhieuTH.UseVisualStyleBackColor = false;
+            this.btn_TaoPhieuTH.Click += new System.EventHandler(this.btn_TaoPhieuTH_Click);
             // 
             // btn_CapNhatKho
             // 
@@ -108,6 +109,7 @@
             // 
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
             this.dvg_CapNhatKho.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dvg_CapNhatKho.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dvg_CapNhatKho.BackgroundColor = System.Drawing.Color.White;
             this.dvg_CapNhatKho.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -169,7 +171,6 @@
             this.ClientSize = new System.Drawing.Size(1449, 677);
             this.Controls.Add(this.panel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.Name = "FormCapNhatKho";
             this.Text = "CẬP NHẬT VÀO KHO";
             this.panel1.ResumeLayout(false);

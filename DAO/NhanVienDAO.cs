@@ -33,7 +33,7 @@ namespace DACN.DAO
         }
         public DataTable GetThongTinDN(string tendn)
         {
-            string query = "SP_GetThongTinNguoiDung @TenDN";
+            string query = "SP_GetThongTinNguoiDung @MaNV";
             return DataProvider.Instance.ExecuteQuery(query, new object[] { tendn });
 
         }
@@ -90,5 +90,6 @@ namespace DACN.DAO
             }
             return listNhanVien;
         }
+        
     }
 }

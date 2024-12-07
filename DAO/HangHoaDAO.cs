@@ -97,5 +97,6 @@ namespace DACN.DAO
             return DataProvider.Instance.ExecuteQuery(query, new object[] { mancc });
 
         }
+        
     }
 }

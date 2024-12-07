@@ -22,20 +22,20 @@ namespace DACN.DAO
         }
         public bool Login(string username, string password)
         {
-            string query = "SP_Login @TenDN , @MatKhau";
+            string query = "SP_Login @MaNV , @MatKhau";
             DataTable result = DataProvider.Instance.ExecuteQuery(query, new object[] { username, password });
             return result.Rows.Count > 0;
         }
         public int getRole(string username, string password)
         {
-            string query = "SP_Login @TenDN , @MatKhau";
+            string query = "SP_Login @MaNV , @MatKhau";
             DataTable result = DataProvider.Instance.ExecuteQuery(query, new object[] { username, password });
             DataRow role = result.Rows[0];
             return (int)role["QuyenID"];
         }
         public int DoiMatKhau(string tendn, string matkhaucu, string matkhaumoi)
         {
-            string query = "SP_DoiMatKhau @TenDN , @MatKhauCu , @MatKhauMoi";
+            string query = "SP_DoiMatKhau @MaNV , @MatKhauCu , @MatKhauMoi";
             int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { tendn, matkhaucu, matkhaumoi });
             return result;
         }

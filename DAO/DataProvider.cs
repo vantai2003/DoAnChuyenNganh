@@ -12,9 +12,9 @@ namespace DACN.DAO
     {
         private static DataProvider instance;
 
-      // private string conStr = "Data Source=localhost;Initial Catalog=QL_SatThepXD;User ID=sa;Password = 123;Encrypt=False";
-     //   private string conStr = "Data Source=LAPTOP-70K25FBU\\NGUYENVANTAI;Initial Catalog=QL_SatThepXD;User ID=sa;Password = 123;Encrypt=False";
-
+        // private string conStr = "Data Source=localhost;Initial Catalog=QL_SatThepXD;User ID=sa;Password = 123;Encrypt=False";
+        //private string conStr = "Data Source=LAPTOP-70K25FBU\\MSSQLSERVER01;Initial Catalog=QL_SatThepXD;Integrated Security=True;Encrypt=False";
+       // private string conStr = "Data Source=LAPTOP-70K25FBU\\MSSQLSERVER01;Initial Catalog=QL_SatThepXD;User ID=admin;Password = 123;Encrypt=False";
 
         private string conStr = "Data Source=localhost;Initial Catalog=QL_SatThepXD;User ID=sa;Password = 123456;Encrypt=False";
 

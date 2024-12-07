@@ -33,6 +33,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCTPhieuNhap_ChoNVKho));
             this.dvg_CTPN = new Sunny.UI.UIDataGridView();
             this.mn_CTPN = new System.Windows.Forms.MenuStrip();
             this.inToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -40,7 +41,6 @@
             this.uiPanel1 = new Sunny.UI.UIPanel();
             this.uiPanel3 = new Sunny.UI.UIPanel();
             this.uiPanel2 = new Sunny.UI.UIPanel();
-            this.btn_Sửa = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dvg_CTPN)).BeginInit();
             this.mn_CTPN.SuspendLayout();
             this.uiPanel1.SuspendLayout();
@@ -51,6 +51,7 @@
             // 
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
             this.dvg_CTPN.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dvg_CTPN.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dvg_CTPN.BackgroundColor = System.Drawing.Color.White;
             this.dvg_CTPN.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -138,9 +139,10 @@
             // 
             // uiPanel3
             // 
-            this.uiPanel3.Controls.Add(this.btn_Sửa);
+            this.uiPanel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.uiPanel3.Controls.Add(this.dvg_CTPN);
             this.uiPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uiPanel3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.uiPanel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.uiPanel3.Location = new System.Drawing.Point(0, 76);
             this.uiPanel3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -166,15 +168,6 @@
             this.uiPanel2.Text = "CHI TIẾT PHIẾU NHẬP HÀNG";
             this.uiPanel2.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // btn_Sửa
-            // 
-            this.btn_Sửa.Location = new System.Drawing.Point(342, 356);
-            this.btn_Sửa.Name = "btn_Sửa";
-            this.btn_Sửa.Size = new System.Drawing.Size(149, 57);
-            this.btn_Sửa.TabIndex = 1;
-            this.btn_Sửa.Text = "Sửa";
-            this.btn_Sửa.UseVisualStyleBackColor = true;
-            // 
             // FormCTPhieuNhap_ChoNVKho
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -182,8 +175,9 @@
             this.ClientSize = new System.Drawing.Size(1017, 564);
             this.Controls.Add(this.mn_CTPN);
             this.Controls.Add(this.uiPanel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormCTPhieuNhap_ChoNVKho";
-            this.Text = "FormCTPhieuNhap_ChoNVKho";
+            this.Text = "CHI TIẾT PHIẾU NHẬP";
             ((System.ComponentModel.ISupportInitialize)(this.dvg_CTPN)).EndInit();
             this.mn_CTPN.ResumeLayout(false);
             this.mn_CTPN.PerformLayout();
@@ -203,6 +197,5 @@
         private Sunny.UI.UIPanel uiPanel1;
         private Sunny.UI.UIPanel uiPanel3;
         private Sunny.UI.UIPanel uiPanel2;
-        private System.Windows.Forms.Button btn_Sửa;
     }
 }

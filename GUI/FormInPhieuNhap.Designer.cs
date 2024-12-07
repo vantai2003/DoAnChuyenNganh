@@ -47,7 +47,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.rp_PhieuNhap);
             this.Name = "FormInPhieuNhap";
-            this.Text = "FormInPhieuNhap";
+            this.Text = "IN PHIẾU NHẬP";
             this.Load += new System.EventHandler(this.FormInPhieuNhap_Load);
             this.ResumeLayout(false);
 

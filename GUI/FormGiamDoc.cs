@@ -15,6 +15,9 @@ namespace DACN.GUI
         public FormGiamDoc()
         {
             InitializeComponent();
+            OpenChildForm(new FormDuyetPhieuNhap());
+            this.Width = 1400;
+            this.Height = 820;
         }
         private Form currentFormChild;
         private void OpenChildForm(Form childForm)

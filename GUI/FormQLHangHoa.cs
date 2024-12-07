@@ -21,6 +21,8 @@ namespace DACN.GUI
         {
             InitializeComponent();
             LoadSanPham();
+            this.Width = 1300;
+            this.Height = 700;
         }
         private void LoadLoaiSanPham()
         {
@@ -167,35 +169,6 @@ namespace DACN.GUI
             return HangHoaDAO.Instance.KiemTraTrungMaSP(masp);
         }
 
-        private void btn_ThemHH_Click(object sender, EventArgs e)
-        {
-            string maSP = HangHoaDAO.GenerateMaNV();
-            string tenSP = txt_TenHH.Text;
-            string dvt = cb_DVT.SelectedItem.ToString();
-            string loaiSP = cb_LoaiHH.SelectedValue.ToString();
-
-            if (!string.IsNullOrEmpty(maSP))
-            {
-
-
-                if (tenSP == "")
-                {
-                    MessageBox.Show("Tên sản phẩm không được để trống");
-                }
-                else
-                {
-                    HangHoaDAO.Instance.ThemSanPham(maSP, tenSP, dvt, loaiSP);
-                    MessageBox.Show("Thêm sản phẩm thành công!");
-                    LoadSanPham();
-                    txt_MaHH.Clear();
-                    txt_TenHH.Clear();
-                }
-            }
-            else
-            {
-                MessageBox.Show("Lỗi khi tạo mã sản phẩm");
-            }
-        }
 
         private void dvg_HangHoa_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -223,38 +196,6 @@ namespace DACN.GUI
                 btn_SuaHH.Enabled = true;
             }
             
-        }
-
-        private void btn_XoaHH_Click(object sender, EventArgs e)
-        {
-            string masp = "";
-            masp = txt_MaHH.Text;
-            if (masp == "")
-            {
-                MessageBox.Show("Vui lòng chọn sản phẩm muốn xóa");
-            }
-            else
-            {
-                DialogResult r;
-                r = MessageBox.Show("Bạn có chắc muốn xóa sản phẩm này?", "Thoát", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
-                if (r == DialogResult.Yes)
-                {
-                    HangHoaDAO.Instance.XoaSP(masp);
-                    MessageBox.Show("Xóa sản phẩm thành công!");
-                    txt_MaHH.Clear();
-                    txt_TenHH.Clear();
-                    cb_DVT.SelectedIndex = 0;
-                    cb_LoaiHH.SelectedIndex = 0;
-                    LoadSanPham();
-                }
-            }          
-        }
-
-        private void btn_SuaHH_Click(object sender, EventArgs e)
-        {
-            btn_LuuHH.Enabled = true;
-            flag = 1;
-                
         }
 
         private void btn_ReloadHH_Click(object sender, EventArgs e)
@@ -407,6 +348,67 @@ namespace DACN.GUI
                 List<Kho_SanPhamDTO> listTonKho = TonKhoDAO.Instance.LocTheoSP(searchValue);
                 dvg_TonKho.DataSource = listTonKho;
             }
+        }
+
+        private void btn_ThemHH_Click_1(object sender, EventArgs e)
+        {
+            string maSP = HangHoaDAO.GenerateMaNV();
+            string tenSP = txt_TenHH.Text;
+            string dvt = cb_DVT.SelectedItem.ToString();
+            string loaiSP = cb_LoaiHH.SelectedValue.ToString();
+
+            if (!string.IsNullOrEmpty(maSP))
+            {
+
+
+                if (tenSP == "")
+                {
+                    MessageBox.Show("Tên sản phẩm không được để trống");
+                }
+                else
+                {
+                    HangHoaDAO.Instance.ThemSanPham(maSP, tenSP, dvt, loaiSP);
+                    MessageBox.Show("Thêm sản phẩm thành công!");
+                    LoadSanPham();
+                    txt_MaHH.Clear();
+                    txt_TenHH.Clear();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Lỗi khi tạo mã sản phẩm");
+            }
+        }
+
+        private void btn_XoaHH_Click_1(object sender, EventArgs e)
+        {
+            string masp = "";
+            masp = txt_MaHH.Text;
+            if (masp == "")
+            {
+                MessageBox.Show("Vui lòng chọn sản phẩm muốn xóa");
+            }
+            else
+            {
+                DialogResult r;
+                r = MessageBox.Show("Bạn có chắc muốn xóa sản phẩm này?", "Thoát", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
+                if (r == DialogResult.Yes)
+                {
+                    HangHoaDAO.Instance.XoaSP(masp);
+                    MessageBox.Show("Xóa sản phẩm thành công!");
+                    txt_MaHH.Clear();
+                    txt_TenHH.Clear();
+                    cb_DVT.SelectedIndex = 0;
+                    cb_LoaiHH.SelectedIndex = 0;
+                    LoadSanPham();
+                }
+            }
+        }
+
+        private void btn_SuaHH_Click_1(object sender, EventArgs e)
+        {
+            btn_LuuHH.Enabled = true;
+            flag = 1;
         }
     }
 }

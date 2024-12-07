@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.btn_Import = new System.Windows.Forms.Button();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.dvg_ChonSP = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.uiPanel1 = new Sunny.UI.UIPanel();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dvg_ChonSP)).BeginInit();
@@ -51,6 +51,19 @@
             this.panel1.Size = new System.Drawing.Size(1230, 698);
             this.panel1.TabIndex = 0;
             // 
+            // btn_Import
+            // 
+            this.btn_Import.BackColor = System.Drawing.Color.ForestGreen;
+            this.btn_Import.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Import.ForeColor = System.Drawing.Color.White;
+            this.btn_Import.Location = new System.Drawing.Point(157, 511);
+            this.btn_Import.Name = "btn_Import";
+            this.btn_Import.Size = new System.Drawing.Size(111, 47);
+            this.btn_Import.TabIndex = 1;
+            this.btn_Import.Text = "Import";
+            this.btn_Import.UseVisualStyleBackColor = false;
+            this.btn_Import.Click += new System.EventHandler(this.btn_Import_Click);
+            // 
             // panel3
             // 
             this.panel3.Controls.Add(this.dvg_ChonSP);
@@ -60,16 +73,6 @@
             this.panel3.Size = new System.Drawing.Size(1230, 389);
             this.panel3.TabIndex = 1;
             // 
-            // btn_Import
-            // 
-            this.btn_Import.Location = new System.Drawing.Point(180, 512);
-            this.btn_Import.Name = "btn_Import";
-            this.btn_Import.Size = new System.Drawing.Size(101, 44);
-            this.btn_Import.TabIndex = 1;
-            this.btn_Import.Text = "Import";
-            this.btn_Import.UseVisualStyleBackColor = true;
-            this.btn_Import.Click += new System.EventHandler(this.btn_Import_Click);
-            // 
             // dvg_ChonSP
             // 
             this.dvg_ChonSP.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -77,25 +80,34 @@
             this.dvg_ChonSP.Name = "dvg_ChonSP";
             this.dvg_ChonSP.RowHeadersWidth = 51;
             this.dvg_ChonSP.RowTemplate.Height = 24;
-            this.dvg_ChonSP.Size = new System.Drawing.Size(896, 157);
+            this.dvg_ChonSP.Size = new System.Drawing.Size(896, 272);
             this.dvg_ChonSP.TabIndex = 0;
             this.dvg_ChonSP.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dvg_ChonSP_CellContentClick);
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.textBox1);
+            this.panel2.Controls.Add(this.uiPanel1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1230, 100);
             this.panel2.TabIndex = 0;
             // 
-            // textBox1
+            // uiPanel1
             // 
-            this.textBox1.Location = new System.Drawing.Point(480, 40);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 22);
-            this.textBox1.TabIndex = 0;
+            this.uiPanel1.BackColor = System.Drawing.Color.Transparent;
+            this.uiPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uiPanel1.FillColor = System.Drawing.Color.Khaki;
+            this.uiPanel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.uiPanel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.uiPanel1.Location = new System.Drawing.Point(0, 0);
+            this.uiPanel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.uiPanel1.MinimumSize = new System.Drawing.Size(1, 1);
+            this.uiPanel1.Name = "uiPanel1";
+            this.uiPanel1.Size = new System.Drawing.Size(1230, 100);
+            this.uiPanel1.TabIndex = 0;
+            this.uiPanel1.Text = "CHỌN SẢN PHẨM";
+            this.uiPanel1.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // FormChonSanPham
             // 
@@ -104,12 +116,11 @@
             this.ClientSize = new System.Drawing.Size(1230, 698);
             this.Controls.Add(this.panel1);
             this.Name = "FormChonSanPham";
-            this.Text = "FormSanPham";
+            this.Text = "CHỌN SẢN PHẨM";
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dvg_ChonSP)).EndInit();
             this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -119,8 +130,8 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.DataGridView dvg_ChonSP;
         private System.Windows.Forms.Button btn_Import;
+        private Sunny.UI.UIPanel uiPanel1;
     }
 }

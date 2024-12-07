@@ -54,5 +54,11 @@ namespace DACN.DAO
             int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] {mahd,tienkhtra});
             return result;
         }
+        public DataTable GetTTInHoaDon(string mahd)
+        {
+            string query = "SP_GetTTKH @MaHD";
+
+            return DataProvider.Instance.ExecuteQuery(query, new object[] { mahd });
+        }
     }
 }

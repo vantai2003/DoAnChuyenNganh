@@ -270,7 +270,7 @@
             // 
             // tsbXoa
             // 
-            this.tsbXoa.Image = global::DACN.Properties.Resources.Delete;
+            //this.tsbXoa.Image = global::DACN.Properties.Resources.Delete;
             this.tsbXoa.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.tsbXoa.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbXoa.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);

@@ -15,9 +15,9 @@ namespace DACN.DAO
             {
                 return false;
             }
-            if (double.TryParse(input, out _))
+            if (double.TryParse(input, out double result))
             {
-                return true;
+                return result >= 0;
             }
 
             return false;

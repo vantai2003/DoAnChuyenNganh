@@ -48,10 +48,10 @@
             this.panel_body.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_body.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.panel_body.Location = new System.Drawing.Point(0, 0);
-            this.panel_body.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.panel_body.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel_body.MinimumSize = new System.Drawing.Size(1, 1);
             this.panel_body.Name = "panel_body";
-            this.panel_body.Size = new System.Drawing.Size(976, 641);
+            this.panel_body.Size = new System.Drawing.Size(868, 513);
             this.panel_body.TabIndex = 0;
             this.panel_body.Text = null;
             this.panel_body.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
@@ -67,7 +67,7 @@
             this.uiPanel2.Controls.Add(this.txt_TenDN);
             this.uiPanel2.Controls.Add(this.uiPanel1);
             this.uiPanel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.uiPanel2.Location = new System.Drawing.Point(214, 28);
+            this.uiPanel2.Location = new System.Drawing.Point(345, 28);
             this.uiPanel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.uiPanel2.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiPanel2.Name = "uiPanel2";
@@ -189,11 +189,10 @@
             // 
             // FormDoiMatKhau
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(976, 641);
+            this.ClientSize = new System.Drawing.Size(868, 513);
             this.Controls.Add(this.panel_body);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FormDoiMatKhau";
             this.Text = "Đổi mật khẩu";
             this.panel_body.ResumeLayout(false);

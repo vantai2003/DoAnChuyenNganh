@@ -22,6 +22,8 @@ namespace DACN.GUI
         private decimal Tag = 0;
         private decimal flag = 0;
         private List<CTPhieuTraHangNCCDTO> selectedProducts = new List<CTPhieuTraHangNCCDTO>();
+        private FormNhapHang fnhaphang = new FormNhapHang();
+        
         public FormTaoPhieuTraHangNCC()
         {
             InitializeComponent();
@@ -85,88 +87,7 @@ namespace DACN.GUI
 
         private void btn_TaoPhieu_Click(object sender, EventArgs e)
         {
-            //DataTable dt = NhanVienDAO.Instance.GetThongTinDN(FormDangNhap.nhanvien);
-            //if (dt.Rows.Count > 0)
-            //{
-            //    DataRow row = dt.Rows[0];
-            //    manv = row["MaNV"].ToString();
-            //}
-            //string maPT = PhieuTraHangNCCDAO.GenerateMaPT();
-            //DateTime ngayTao = DateTime.Now;
-            //txt_TongTien.Text = mapn;
-            //string lyDo = rtb_LyDo.Text;
-            //decimal tongTien = 0;
-            //foreach(DataGridViewRow dvgRow in dvg_TaoPTH.Rows)
-            //{
-            //    if (dvgRow.Cells["MaSP"].Value != null)
-            //    {
-            //        decimal soLuong = Convert.ToDecimal(dvgRow.Cells["SoLuong"].Value);
-            //        decimal donGia = Convert.ToDecimal(dvgRow.Cells["DonGia"].Value);
-            //        decimal thanhTien = soLuong * donGia;
-            //        tongTien += thanhTien;
-            //    }
-            //}
-
-            //if (!string.IsNullOrEmpty(maPT))
-            //{
-            //    bool phieuNhapAdded = PhieuTraHangNCCDAO.Instance.ThemPhieuTraHang(maPT, tongTien, lyDo, ngayTao, manv, mapn);
-
-            //    if (phieuNhapAdded)
-            //    {
-            //        bool allDetailsAdded = true;
-            //        foreach (DataGridViewRow dgvRow in dvg_TaoPTH.Rows)
-            //        {
-            //            if (dgvRow.Cells["MaSP"].Value != null)
-            //            {
-            //                string maSP = dgvRow.Cells["MaSP"].Value.ToString();
-            //                decimal soLuongTra = Convert.ToDecimal(dgvRow.Cells["SoLuong"].Value);
-            //                decimal donGia = Convert.ToDecimal(dgvRow.Cells["DonGia"].Value);
-            //                CTPhieuTraHangNCCDTO ctPhieuTraNCC = new CTPhieuTraHangNCCDTO
-            //                {
-            //                    MaCTPhieuTraHang = PhieuTraHangNCCDAO.GenerateMaCTPN(),
-            //                    MaPhieuTraHang = maPT,
-            //                    MaSP = maSP,
-            //                    SoLuong = soLuongTra,
-            //                    DonGia = donGia,
-            //                };
-            //                bool detailAdded = PhieuTraHangNCCDAO.Instance.ThemCTPhieuTraHang(ctPhieuTraNCC);
-            //                if (!detailAdded)
-            //                {
-            //                    allDetailsAdded = false;
-            //                }
-            //                decimal soLuongNhapGoc = TonKhoDAO.Instance.CapNhatTonKho(maSP, mapn);
-            //                decimal soLuongConLai = soLuongNhapGoc - soLuongTra;
-            //                if(soLuongConLai > 0)
-            //                {
-            //                    bool updated = PhieuNhapHangDAO.Instance.CapNhatTonKho(maSP, makho, soLuongConLai);
-            //                    if (!updated)
-            //                    {
-            //                        MessageBox.Show("Có lỗi khi cập nhật tồn kho cho sản phẩm " + maSP, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            //                    }
-            //                }
-            //            }
-            //        }
-
-            //        if (allDetailsAdded)
-            //        {
-            //            PhieuNhapHangDAO.Instance.CapNhatTrangThaiTraHang(mapn);
-            //            MessageBox.Show("Tạo phiếu trả thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-            //        }
-            //        else
-            //        {
-            //            MessageBox.Show("Có lỗi khi thêm một số chi tiết phiếu nhập.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            //        }
-            //    }
-            //    else
-            //    {
-            //        MessageBox.Show("Lỗi khi thêm phiếu nhập", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //    }
-            //}
-            //else
-            //{
-            //    MessageBox.Show("Lỗi khi tạo mã phiếu nhập", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //}
+            
             DataTable dt = NhanVienDAO.Instance.GetThongTinDN(FormDangNhap.nhanvien);
             if (dt.Rows.Count > 0)
             {
@@ -243,6 +164,8 @@ namespace DACN.GUI
                         PhieuNhapHangDAO.Instance.CapNhatTrangThaiTraHang(mapn);
                         MessageBox.Show("Tạo phiếu trả thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         this.Close();
+                        fnhaphang.LoadDSPNDaPheDuyet();
+                        
                     }
                     else
                     {

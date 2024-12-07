@@ -31,6 +31,7 @@ namespace DACN.GUI
             dvg_DSDPN.Columns["TongTien"].HeaderText = "Tổng tiền";
             dvg_DSDPN.Columns["TrangThai"].HeaderText = "Trạng thái";
             dvg_DSDPN.Columns["MaNV"].HeaderText = "Mã nhân viên";
+            dvg_DSDPN.Columns["TenNV"].HeaderText = "Nhân viên tạo phiếu";
             dvg_DSDPN.Columns["TenNCC"].HeaderText = "Tên nhà cung cấp";
             dvg_DSDPN.Columns["TenKho"].HeaderText = "Tên kho";
             //chuột phải thao tác xem  chi tiết
@@ -110,10 +111,42 @@ namespace DACN.GUI
                 LoadDSPD();
             }
         }
+        private void XemChiTietMenuItem_Click1(object sender, EventArgs e)
+        {
+            int rowIndex = dvg_DSPN.SelectedCells[0].RowIndex;
+            DataGridViewRow row = dvg_DSPN.Rows[rowIndex];
+            maPN = row.Cells["MaPhieuNH"].Value.ToString();
+            FormChiTietPhieuNhap fctpn = new FormChiTietPhieuNhap();
+            fctpn.ShowDialog();
+        }
         private void LoadDSPN()
         {
             List<PhieuNhapHangDTO> listphieunhap = PhieuNhapHangDAO.Instance.GetPhieuNhap();
             dvg_DSPN.DataSource = listphieunhap;
+            dvg_DSPN.Columns["MaPhieuNH"].HeaderText = "Mã phiếu nhập hàng";
+            dvg_DSPN.Columns["NgayDatHang"].HeaderText = "Ngày đặt hàng";
+            dvg_DSPN.Columns["TongTien"].HeaderText = "Tổng tiền";
+            dvg_DSPN.Columns["TrangThai"].HeaderText = "Trạng thái";
+            dvg_DSPN.Columns["MaNV"].HeaderText = "Mã nhân viên";
+            dvg_DSPN.Columns["TenNV"].HeaderText = "Tên nhân viên";
+            dvg_DSPN.Columns["TenNCC"].HeaderText = "Tên nhà cung cấp";
+            dvg_DSPN.Columns["TenKho"].HeaderText = "Tên kho";
+
+            List<KhoDTO> listkho = KhoDAO.Instance.GetKho();
+            cbkho.DataSource = listkho;
+            cbkho.DisplayMember = "TenKho";
+            cbkho.ValueMember = "TenKho";
+            List<NhaCungCapDTO> listncc = NhaCungCapDAO.Instance.GetNhaCungCap();
+            cbncc.DataSource = listncc;
+            cbncc.DisplayMember = "TenNCC";
+            cbncc.ValueMember = "TenNCC";
+            cb_CongTy.SelectedIndex = 0;
+            //chuột phải thao tác xem  chi tiết
+            ContextMenuStrip contextMenu = new ContextMenuStrip();
+            ToolStripMenuItem xemChiTietMenuItem = new ToolStripMenuItem("Xem chi tiết");
+            xemChiTietMenuItem.Click += XemChiTietMenuItem_Click1;
+            contextMenu.Items.Add(xemChiTietMenuItem);
+            dvg_DSPN.ContextMenuStrip = contextMenu;
         }
 
         private void tab_DuyetPN_SelectedIndexChanged(object sender, EventArgs e)
@@ -158,6 +191,30 @@ namespace DACN.GUI
         {
             FormInPhieuNhap formInPhieuNhap = new FormInPhieuNhap();
             formInPhieuNhap.ShowDialog();
+        }
+
+        private void btn_LocTheoNgay_Click(object sender, EventArgs e)
+        {
+            string tuNgay = Convert.ToString(dp_TuNgay.Value);
+            string denNgay = Convert.ToString(dp_DenNgay.Value);
+            List<PhieuNhapHangDTO> listPN = PhieuNhapHangDAO.Instance.LocTheoNgay(tuNgay, denNgay);
+            dvg_DSPN.DataSource = listPN;
+        }
+
+        private void btn_Loc_Click(object sender, EventArgs e)
+        {
+            // Kiểm tra giá trị từ combobox Kho, nếu trống thì truyền null
+            string tenNCC = string.IsNullOrEmpty(cbncc.SelectedValue?.ToString()) ? null : cbncc.SelectedValue.ToString();
+            string tenKho = string.IsNullOrEmpty(cbkho.SelectedValue?.ToString()) ? null : cbkho.SelectedValue.ToString();
+            List<PhieuNhapHangDTO> listPN = PhieuNhapHangDAO.Instance.LocPhieuNhap(tenKho, tenNCC);
+            dvg_DSPN.DataSource = listPN;
+        }
+
+        private void btn_TimPN_Click(object sender, EventArgs e)
+        {
+            string searchValue = txt_SearchPN.Text;
+            List<PhieuNhapHangDTO> listPN = PhieuNhapHangDAO.Instance.TimPhieuNhap(searchValue);
+            dvg_DSPN.DataSource = listPN;
         }
     }
 }

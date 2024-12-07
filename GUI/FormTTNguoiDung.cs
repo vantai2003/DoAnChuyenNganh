@@ -26,13 +26,29 @@ namespace DACN.GUI
             if(dt.Rows.Count > 0)
             {
                 DataRow row = dt.Rows[0];
-                lbMaNV.Text = row["MaNV"].ToString();
-                lbTenNV.Text = row["TenNV"].ToString();
-                lbEmail.Text = row["Email"].ToString();
-                lbSDT.Text = row["SDT"].ToString();
-                lbChucVu.Text = row["ChucVu"].ToString();
-                lbNgayVaoLam.Text =row["NgayTuyenDung"].ToString();
+                txt_MaNV.Text = row["MaNV"].ToString();
+                txt_TenNV.Text = row["TenNV"].ToString();
+                txt_Email.Text = row["Email"].ToString();
+                txt_SDT.Text = row["SDT"].ToString();
+                txt_ChucVu.Text = row["ChucVu"].ToString();
+                txt_NgayVaoLam.Text =row["NgayTuyenDung"].ToString();
                 
+            }
+        }
+
+        private void btnCapNhatTT_Click(object sender, EventArgs e)
+        {
+            string manv = txt_MaNV.Text;
+            string tennv = txt_TenNV.Text;
+            string sdt = txt_SDT.Text;
+            string email = txt_Email.Text;
+            bool kq = NguoiDungDAO.Instance.SuaTTNguoiDung(manv, tennv, sdt, email);
+            if (kq) {
+                MessageBox.Show("Cập nhật thông tin thành công!");
+            }
+            else
+            {
+                MessageBox.Show("Cập nhật thông tin thất bại");
             }
         }
     }

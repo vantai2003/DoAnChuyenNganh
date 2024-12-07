@@ -47,10 +47,16 @@ namespace DACN.GUI
             string email = txt_Email.Text;
             DateTime ngayTD = dtp_NgayTD.Value;
             decimal luong = 0;
+            
+            if(KiemTraDuLieuDAO.KiemTraDuLieuSo(txt_Luong.Text) == false)
+            {
+                MessageBox.Show("Lương không hợp lệ");
+                return;
+            }
             if (txt_Luong.Text != "")
             {
                 luong = decimal.Parse(txt_Luong.Text);
-                
+
             }
             if (tenNV == "")
             {
@@ -77,7 +83,7 @@ namespace DACN.GUI
                     return;
                 }
                 bool dinhDangEmail = KiemTraDuLieuDAO.KiemTraEmail(email);
-                if(dinhDangEmail == false)
+                if(!string.IsNullOrEmpty(txt_Email.Text) && dinhDangEmail == false)
                 {
                     MessageBox.Show("Emaill không hợp lệ");
                     return;
@@ -90,6 +96,7 @@ namespace DACN.GUI
                 }
                 else
                 {
+
                     string maNV = NhanVienDAO.GenerateMaNV();
                     NhanVienDAO.Instance.ThemNhanVien(maNV, tenNV, chucVu, sdt, email, ngayTD, luong);
                     MessageBox.Show("Thêm nhân viên thành công!");

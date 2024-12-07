@@ -29,11 +29,10 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormBanHang));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btLamMoi = new System.Windows.Forms.Button();
             this.tbTimKiemHang = new System.Windows.Forms.TextBox();
             this.btn_lammoiHang = new System.Windows.Forms.Button();
@@ -68,7 +67,7 @@
             this.btLamMoi.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btLamMoi.ForeColor = System.Drawing.Color.White;
             this.btLamMoi.Location = new System.Drawing.Point(-292, 155);
-            this.btLamMoi.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btLamMoi.Margin = new System.Windows.Forms.Padding(4);
             this.btLamMoi.Name = "btLamMoi";
             this.btLamMoi.Size = new System.Drawing.Size(139, 59);
             this.btLamMoi.TabIndex = 46;
@@ -79,7 +78,7 @@
             // 
             this.tbTimKiemHang.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbTimKiemHang.Location = new System.Drawing.Point(12, 22);
-            this.tbTimKiemHang.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbTimKiemHang.Margin = new System.Windows.Forms.Padding(4);
             this.tbTimKiemHang.Name = "tbTimKiemHang";
             this.tbTimKiemHang.Size = new System.Drawing.Size(269, 30);
             this.tbTimKiemHang.TabIndex = 11;
@@ -90,7 +89,7 @@
             this.btn_lammoiHang.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_lammoiHang.ForeColor = System.Drawing.Color.White;
             this.btn_lammoiHang.Location = new System.Drawing.Point(348, 15);
-            this.btn_lammoiHang.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_lammoiHang.Margin = new System.Windows.Forms.Padding(4);
             this.btn_lammoiHang.Name = "btn_lammoiHang";
             this.btn_lammoiHang.Size = new System.Drawing.Size(120, 42);
             this.btn_lammoiHang.TabIndex = 12;
@@ -103,7 +102,7 @@
             this.label3.Location = new System.Drawing.Point(48, 1);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(64, 17);
+            this.label3.Size = new System.Drawing.Size(62, 16);
             this.label3.TabIndex = 13;
             this.label3.Text = "Tìm kiếm";
             // 
@@ -115,7 +114,7 @@
             this.pndata.Controls.Add(this.btn_lammoiHang);
             this.pndata.Controls.Add(this.tbTimKiemHang);
             this.pndata.Location = new System.Drawing.Point(7, 215);
-            this.pndata.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pndata.Margin = new System.Windows.Forms.Padding(4);
             this.pndata.Name = "pndata";
             this.pndata.Size = new System.Drawing.Size(485, 71);
             this.pndata.TabIndex = 51;
@@ -124,7 +123,7 @@
             // 
             this.pcSearch.Image = ((System.Drawing.Image)(resources.GetObject("pcSearch.Image")));
             this.pcSearch.Location = new System.Drawing.Point(288, 22);
-            this.pcSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pcSearch.Margin = new System.Windows.Forms.Padding(4);
             this.pcSearch.Name = "pcSearch";
             this.pcSearch.Size = new System.Drawing.Size(36, 31);
             this.pcSearch.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -137,7 +136,7 @@
             this.btnChonSP.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnChonSP.ForeColor = System.Drawing.Color.White;
             this.btnChonSP.Location = new System.Drawing.Point(540, 223);
-            this.btnChonSP.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnChonSP.Margin = new System.Windows.Forms.Padding(4);
             this.btnChonSP.Name = "btnChonSP";
             this.btnChonSP.Size = new System.Drawing.Size(195, 55);
             this.btnChonSP.TabIndex = 70;
@@ -199,7 +198,7 @@
             this.txtDiaChi.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.txtDiaChi.MinimumSize = new System.Drawing.Size(1, 12);
             this.txtDiaChi.Name = "txtDiaChi";
-            this.txtDiaChi.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtDiaChi.Padding = new System.Windows.Forms.Padding(4);
             this.txtDiaChi.ShowText = false;
             this.txtDiaChi.Size = new System.Drawing.Size(436, 23);
             this.txtDiaChi.TabIndex = 77;
@@ -212,7 +211,7 @@
             this.btnChonKH.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnChonKH.ForeColor = System.Drawing.Color.White;
             this.btnChonKH.Location = new System.Drawing.Point(20, 5);
-            this.btnChonKH.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnChonKH.Margin = new System.Windows.Forms.Padding(4);
             this.btnChonKH.Name = "btnChonKH";
             this.btnChonKH.Size = new System.Drawing.Size(211, 55);
             this.btnChonKH.TabIndex = 80;
@@ -229,7 +228,7 @@
             this.txtMaKH.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.txtMaKH.MinimumSize = new System.Drawing.Size(1, 12);
             this.txtMaKH.Name = "txtMaKH";
-            this.txtMaKH.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtMaKH.Padding = new System.Windows.Forms.Padding(4);
             this.txtMaKH.ShowText = false;
             this.txtMaKH.Size = new System.Drawing.Size(340, 23);
             this.txtMaKH.TabIndex = 82;
@@ -254,7 +253,7 @@
             this.txtTienCoc.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.txtTienCoc.MinimumSize = new System.Drawing.Size(1, 12);
             this.txtTienCoc.Name = "txtTienCoc";
-            this.txtTienCoc.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtTienCoc.Padding = new System.Windows.Forms.Padding(4);
             this.txtTienCoc.ShowText = false;
             this.txtTienCoc.Size = new System.Drawing.Size(436, 23);
             this.txtTienCoc.TabIndex = 83;
@@ -265,46 +264,38 @@
             // 
             // dgv_BanHang
             // 
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
-            this.dgv_BanHang.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle11;
-            this.dgv_BanHang.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
+            this.dgv_BanHang.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgv_BanHang.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgv_BanHang.BackgroundColor = System.Drawing.Color.White;
             this.dgv_BanHang.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_BanHang.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_BanHang.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgv_BanHang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_BanHang.DefaultCellStyle = dataGridViewCellStyle13;
             this.dgv_BanHang.EnableHeadersVisualStyles = false;
             this.dgv_BanHang.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.dgv_BanHang.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
             this.dgv_BanHang.Location = new System.Drawing.Point(7, 292);
             this.dgv_BanHang.Margin = new System.Windows.Forms.Padding(3, 1, 3, 1);
             this.dgv_BanHang.Name = "dgv_BanHang";
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_BanHang.RowHeadersDefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_BanHang.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgv_BanHang.RowHeadersWidth = 62;
-            dataGridViewCellStyle15.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.dgv_BanHang.RowsDefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.dgv_BanHang.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgv_BanHang.RowTemplate.Height = 28;
             this.dgv_BanHang.SelectedIndex = -1;
             this.dgv_BanHang.Size = new System.Drawing.Size(1399, 334);
@@ -359,7 +350,7 @@
             this.btnThemVao.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnThemVao.ForeColor = System.Drawing.Color.White;
             this.btnThemVao.Location = new System.Drawing.Point(425, 732);
-            this.btnThemVao.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnThemVao.Margin = new System.Windows.Forms.Padding(4);
             this.btnThemVao.Name = "btnThemVao";
             this.btnThemVao.Size = new System.Drawing.Size(403, 85);
             this.btnThemVao.TabIndex = 47;

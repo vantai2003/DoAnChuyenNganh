@@ -54,5 +54,28 @@ namespace DACN.DAO
             int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { ctpth.MaCTPhieuTraHang, ctpth.MaPhieuTraHang, ctpth.MaSP, ctpth.SoLuong, ctpth.DonGia });
             return result > 0;
         }
+        public DataTable GetPhieuTraHang()
+        {
+            string query = "SP_ListPhieuTraHangNCC";
+
+            return DataProvider.Instance.ExecuteQuery(query);
+        }
+        
+        public DataTable TimPhieuTHNCC(string searchvalue)
+        {
+            string query = "SP_TraHangNCC @SearchValue";
+            return DataProvider.Instance.ExecuteQuery(query, new[] {searchvalue});
+        }
+        public DataTable GetCTPhieuNH(string mapth)
+        {
+            string query = "SP_ListCTPhieuTH_NCC @MaPNH";
+            return DataProvider.Instance.ExecuteQuery(query, new object[] {mapth});
+        }
+        public bool XoaPhieuTHNCC(string mapth)
+        {
+            string query = "SP_DeletePhieuTH_NCC @MaPhieuTH";
+            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { mapth});
+            return result > 0;
+        }
     }
 }

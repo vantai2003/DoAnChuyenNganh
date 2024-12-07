@@ -10,18 +10,26 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace DACN.GUI
 {
     public partial class FormCTHoaDon : Form
     {
         private FormHoaDon _formHoaDon;
+        private string maHD;
         public FormCTHoaDon(string mahd)
         {
+            maHD = FormInHoaDon.maHD;
+            if(maHD != null)
+            {
+                mahd = maHD;
+            }
             InitializeComponent();
             LoadCTHDTheoMHD(mahd);
-      
 
+            txtTongTien.BackColor = Color.White;
+            txtTongTien.ForeColor = Color.Black;
 
         }
         public string GetTongTien()
@@ -46,7 +54,15 @@ namespace DACN.GUI
         {
             List<CTHoaDonDTO> listHoaDon = CTHoaDonDAO.Instance.GetCTHDTheoMHD(mahd);
             dgvCTHD.DataSource = listHoaDon;
+            dgvCTHD.Columns["MaCTHD"].HeaderText = "Mã CT hóa đơn";
+            dgvCTHD.Columns["SoLuong"].HeaderText = "Số lượng";
+            dgvCTHD.Columns["DVT"].HeaderText = "ĐVT";
+            dgvCTHD.Columns["DonGia"].HeaderText = "Đơn giá";
+            dgvCTHD.Columns["MaSP"].HeaderText = "Mã Sản phẩm";
+            dgvCTHD.Columns["MaHD"].HeaderText = "Mã hóa đơn";
+            dgvCTHD.Columns["ThanhTien"].HeaderText = "Thành tiền";
             UpdateTongTien(dgvCTHD);
+            
         }
 
         private void txtTongTien_TextChanged(object sender, EventArgs e)

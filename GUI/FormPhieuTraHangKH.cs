@@ -57,6 +57,13 @@ namespace DACN.GUI
             }
 
             dvg_TaoPTH.DataSource = listHoaDon;
+            dvg_TaoPTH.Columns["MaCTHD"].HeaderText = "Mã CT hóa đơn";
+            dvg_TaoPTH.Columns["SoLuong"].HeaderText = "Số lượng";
+            dvg_TaoPTH.Columns["DVT"].HeaderText = "ĐVT";
+            dvg_TaoPTH.Columns["DonGia"].HeaderText = "Đơn giá";
+            dvg_TaoPTH.Columns["MaSP"].HeaderText = "Mã sản phẩm";
+            dvg_TaoPTH.Columns["MaHD"].HeaderText = "Mã hóa đơn";
+            dvg_TaoPTH.Columns["ThanhTien"].HeaderText = "Thành tiền";
             RearrangeColumns();
 
 

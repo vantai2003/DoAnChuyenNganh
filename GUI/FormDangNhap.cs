@@ -19,6 +19,8 @@ namespace DACN.GUI
         public FormDangNhap()
         {
             InitializeComponent();
+            this.Width = 1000;
+            this.Height = 500;
         }
         public static string nhanvien;
         private bool Login(string username, string password)
@@ -50,8 +52,8 @@ namespace DACN.GUI
                         fGiamDoc.Show();
                         break;
                     case 2:
-                        FormThongKeDoanhThu fThongKe = new FormThongKeDoanhThu();
-                        fThongKe.Show();
+                        FormKeToan fKeToan = new FormKeToan();
+                        fKeToan.Show();
                         break;
                     case 3:
                         FormNhanVienBanHang fnvbh = new FormNhanVienBanHang();

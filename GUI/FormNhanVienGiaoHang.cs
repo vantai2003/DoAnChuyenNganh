@@ -16,6 +16,8 @@ namespace DACN.GUI
         public FormNhanVienGiaoHang()
         {
             InitializeComponent();
+            this.Width = 1200;
+            this.Height = 900;
         }
 
 

@@ -46,6 +46,7 @@ namespace DACN.GUI
             cb_Kho.Enabled = btn_Loc.Enabled = true;
             txt_search.Enabled = false;
             List<KhoDTO> listKHo = KhoDAO.Instance.GetKho();
+            listKHo.Insert(0, new KhoDTO { MaKho = "ALL", TenKho = "Chọn tất cả" });
             cb_Kho.DataSource = listKHo;
             cb_Kho.DisplayMember = "TenKho";
             cb_Kho.ValueMember = "MaKho";
@@ -57,8 +58,17 @@ namespace DACN.GUI
             if (flag == 1)
             {
                 string maKho = cb_Kho.SelectedValue.ToString();
-                List<Kho_SanPhamDTO> listTonKho = TonKhoDAO.Instance.LocTheoKho(maKho);
-                dvg_TonKho.DataSource = listTonKho;
+                if (maKho == "ALL")
+                {
+                    List<Kho_SanPhamDTO> listkhosp = TonKhoDAO.Instance.GetTonKho();
+                    dvg_TonKho.DataSource = listkhosp;
+                }
+                else
+                {
+                    List<Kho_SanPhamDTO> listTonKho = TonKhoDAO.Instance.LocTheoKho(maKho);
+                    dvg_TonKho.DataSource = listTonKho;
+                }
+                
             }
             else
             {

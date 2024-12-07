@@ -33,45 +33,14 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.mn_CTPN = new System.Windows.Forms.MenuStrip();
-            this.inToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.thoátToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.uiPanel1 = new Sunny.UI.UIPanel();
             this.uiPanel3 = new Sunny.UI.UIPanel();
             this.dvg_CTPN = new Sunny.UI.UIDataGridView();
             this.uiPanel2 = new Sunny.UI.UIPanel();
-            this.mn_CTPN.SuspendLayout();
             this.uiPanel1.SuspendLayout();
             this.uiPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dvg_CTPN)).BeginInit();
             this.SuspendLayout();
-            // 
-            // mn_CTPN
-            // 
-            this.mn_CTPN.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.mn_CTPN.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.mn_CTPN.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.inToolStripMenuItem,
-            this.thoátToolStripMenuItem});
-            this.mn_CTPN.Location = new System.Drawing.Point(0, 0);
-            this.mn_CTPN.Name = "mn_CTPN";
-            this.mn_CTPN.Size = new System.Drawing.Size(1141, 36);
-            this.mn_CTPN.TabIndex = 0;
-            this.mn_CTPN.Text = "menuStrip1";
-            // 
-            // inToolStripMenuItem
-            // 
-            this.inToolStripMenuItem.Image = global::DACN.Properties.Resources.Print1;
-            this.inToolStripMenuItem.Name = "inToolStripMenuItem";
-            this.inToolStripMenuItem.Size = new System.Drawing.Size(62, 32);
-            this.inToolStripMenuItem.Text = "In";
-            // 
-            // thoátToolStripMenuItem
-            // 
-            this.thoátToolStripMenuItem.Image = global::DACN.Properties.Resources.Close2;
-            this.thoátToolStripMenuItem.Name = "thoátToolStripMenuItem";
-            this.thoátToolStripMenuItem.Size = new System.Drawing.Size(96, 32);
-            this.thoátToolStripMenuItem.Text = "Thoát";
             // 
             // uiPanel1
             // 
@@ -79,11 +48,11 @@
             this.uiPanel1.Controls.Add(this.uiPanel2);
             this.uiPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.uiPanel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.uiPanel1.Location = new System.Drawing.Point(0, 36);
+            this.uiPanel1.Location = new System.Drawing.Point(0, 0);
             this.uiPanel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.uiPanel1.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiPanel1.Name = "uiPanel1";
-            this.uiPanel1.Size = new System.Drawing.Size(1141, 630);
+            this.uiPanel1.Size = new System.Drawing.Size(1141, 666);
             this.uiPanel1.TabIndex = 1;
             this.uiPanel1.Text = null;
             this.uiPanel1.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
@@ -97,7 +66,7 @@
             this.uiPanel3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.uiPanel3.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiPanel3.Name = "uiPanel3";
-            this.uiPanel3.Size = new System.Drawing.Size(1141, 554);
+            this.uiPanel3.Size = new System.Drawing.Size(1141, 590);
             this.uiPanel3.TabIndex = 1;
             this.uiPanel3.Text = null;
             this.uiPanel3.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
@@ -106,6 +75,7 @@
             // 
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
             this.dvg_CTPN.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dvg_CTPN.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dvg_CTPN.BackgroundColor = System.Drawing.Color.White;
             this.dvg_CTPN.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -170,25 +140,16 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1141, 666);
             this.Controls.Add(this.uiPanel1);
-            this.Controls.Add(this.mn_CTPN);
-            this.MainMenuStrip = this.mn_CTPN;
             this.Name = "FormChiTietPhieuNhap";
-            this.Text = "FormChiTietPhieuNhap";
-            this.mn_CTPN.ResumeLayout(false);
-            this.mn_CTPN.PerformLayout();
+            this.Text = "CHI TIẾT PHIẾU NHẬP";
             this.uiPanel1.ResumeLayout(false);
             this.uiPanel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dvg_CTPN)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.MenuStrip mn_CTPN;
-        private System.Windows.Forms.ToolStripMenuItem inToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem thoátToolStripMenuItem;
         private Sunny.UI.UIPanel uiPanel1;
         private Sunny.UI.UIPanel uiPanel3;
         private Sunny.UI.UIPanel uiPanel2;

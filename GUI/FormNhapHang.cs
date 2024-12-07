@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using System.Web.UI.Design;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolBar;
 
 namespace DACN.GUI
 {
@@ -346,7 +347,7 @@ namespace DACN.GUI
             FormCTPhieuNhap_ChoNVKho formChiTiet = new FormCTPhieuNhap_ChoNVKho();
             formChiTiet.Show();
         }
-        private void LoadDSPNDaPheDuyet()
+        public void LoadDSPNDaPheDuyet()
         {
             List<PhieuNhapHangDTO> listPN = PhieuNhapHangDAO.Instance.DSPhieuNhapDaPD();
             dvg_DSPNDPD.DataSource = listPN;
@@ -503,12 +504,6 @@ namespace DACN.GUI
             {
                 MessageBox.Show("Vui lòng chọn phiếu nhập");
             }
-        }
-
-        private void btn_In_Click(object sender, EventArgs e)
-        {
-            FormInPhieuNhap formInPhieuNhap = new FormInPhieuNhap();
-            formInPhieuNhap.ShowDialog();
         }
     }
 }

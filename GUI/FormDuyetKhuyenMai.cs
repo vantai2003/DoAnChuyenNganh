@@ -112,5 +112,19 @@ namespace DACN.GUI
                     break;
             }
         }
+
+        private void btn_Loc_Click(object sender, EventArgs e)
+        {
+            string searchValue = cbtrangthai.SelectedItem.ToString();
+            List<KhuyenMaiDTO> listKM = KhuyenMaiDAO.Instance.LocKMTrangThai(searchValue);
+            dvg_DSKhuyenMai.DataSource = listKM;
+        }
+
+        private void btn_Tim_Click(object sender, EventArgs e)
+        {
+            string searchValue = txt_search.Text;
+            List<KhuyenMaiDTO> listKM = KhuyenMaiDAO.Instance.TimKiemKM(searchValue);
+            dvg_DSKhuyenMai.DataSource = listKM;
+        }
     }
 }

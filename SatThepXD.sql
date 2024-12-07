@@ -222,6 +222,16 @@ CREATE TABLE NguoiDung (
     FOREIGN KEY (MaNV) REFERENCES NhanVien(MaNV)
 );
 GO
+SELECT name 
+FROM sys.key_constraints 
+WHERE parent_object_id = OBJECT_ID('NguoiDung');
+
+ALTER TABLE NguoiDung DROP CONSTRAINT [FK__NguoiDung__MaNV__5FB337D6];
+
+ALTER TABLE NguoiDung ADD CONSTRAINT PK_NguoiDung PRIMARY KEY (MaNV);
+
+ALTER TABLE NguoiDung ADD CONSTRAINT FK_NguoiDung FOREIGN KEY (MaNV) REFERENCES NhanVien(MaNV)
+alter table NguoiDung Drop column TenDN
 INSERT INTO Quyen VALUES(0,N'Admin'),
 (1, N'Giám đốc'),
 (2, N'kế toán'),
@@ -232,7 +242,7 @@ GO
 
 INSERT INTO NhanVien VALUES('NV001',N'Nguyễn Văn Tài',N'Quản trị viên', '0326588524', 'banpro@gmail.com','2024-10-10', 20000000)
 GO
-INSERT INTO NguoiDung(TenDN, MatKhau, NgayTao ,QuyenID, MaNV) VALUES('admin', CONVERT(VARCHAR(32),HASHBYTES('MD5', 'admin@123'),2),GETDATE() ,0, 'NV001')
+INSERT INTO NguoiDung(MaNV ,MatKhau, NgayTao ,QuyenID) VALUES('NV001', CONVERT(VARCHAR(32),HASHBYTES('MD5', 'admin@123'),2),GETDATE() ,0)
 
 GO 
 -------------------------tạo role, người dùng------------------------------------------------
@@ -270,6 +280,10 @@ GRANT CONTROL ON DATABASE::QL_SatThepXD TO Admin_Role;
 GRANT ALTER ANY USER TO Admin_Role;
 
 
+<<<<<<< HEAD
+-- Stored Procedures Login
+drop proc SP_Login
+=======
 CREATE LOGIN [admin] WITH PASSWORD = 'E6E061838856BF47E1DE730719FB2609';
 GO
 CREATE USER [admin] FOR LOGIN [admin];
@@ -313,12 +327,25 @@ WHERE
 -- Giám đốc có quyền xem tất cả và chỉnh sửa một số bảng
 
 ------------------------- Stored Procedures Login-----------------------
+>>>>>>> 083b4ffc4de20326f3c28303c2f114f1c2999732
 GO
 CREATE PROC SP_Login
-@TenDN varchar(100), @MatKhau varchar(50)
+@MaNV varchar(50), @MatKhau varchar(50)
 AS 
 BEGIN
-	SELECT * FROM NguoiDung WHERE TenDN = @TenDN AND MatKhau = @MatKhau
+	SELECT * FROM NguoiDung WHERE MaNV = @MaNV AND MatKhau = @MatKhau
+END
+GO
+----------thủ tục hiển thị danh sách phiếu trả hàng
+select * from PhieuTraHangNCC
+exec SP_ListPhieuTraHangNCC
+drop proc SP_ListPhieuTraHangNCC
+CREATE PROC SP_ListPhieuTraHangNCC
+AS
+BEGIN
+	SELECT MaPhieuTraHang, TongTienNhan, LyDo, pthncc.MaNV,nv.TenNV, MaPhieuNH, NgayTao
+	FROM PhieuTraHangNCC pthncc
+	join NhanVien nv ON pthncc.MaNV = nv.MaNV
 END
 GO
 ------------
@@ -384,61 +411,112 @@ GO
 CREATE PROC SP_GetListNguoiDung
 AS
 BEGIN
-	SELECT TenDN, NgayTao, nd.MaNV, nv.TenNV,nd.QuyenID ,q.TenQuyen
+	SELECT nd.MaNV, nv.TenNV, NgayTao ,q.TenQuyen
 	FROM NguoiDung nd
 	join NhanVien nv ON nd.MaNV = nv.MaNV
 	Join Quyen q ON nd.QuyenID = q.Id
 END
 GO
+<<<<<<< HEAD
+CREATE PROC SP_DoiMK
+@TenDN varchar(400),
+@MatKhau varchar(500)
+as
+begin
+	UPDATE NguoiDung SET MatKhau = @MatKhau
+	WHERE TenDN
+end
+select * from NguoiDung
+go
+drop proc SP_DoiMatKhau
+CREATE PROCEDURE SP_DoiMatKhau
+    @MaNV NVARCHAR(500),        
+    @MatKhauCu NVARCHAR(500),   
+    @MatKhauMoi NVARCHAR(500)   
+AS
+BEGIN
+        UPDATE NguoiDung
+        SET MatKhau = @MatKhauMoi
+        WHERE MaNV = @MaNV AND MatKhau = @MatKhauCu
+END
+
+------tìm kiếm phiếu trả hàng ncc
+CREATE PROC SP_TraHangNCC
+@SearchValue nvarchar(500)
+AS
+BEGIN
+	SELECT * FROM PhieuTraHangNCC WHERE MaPhieuTraHang LIKE '%' + @SearchValue + '%'
+END
+GO
 ----------------------------------Người dùng-----------------------------
 --thủ tục tìm người dùng
+drop proc SP_TimKiemNguoiDung
+=======
+----------------------------------Người dùng-----------------------------
+--thủ tục tìm người dùng
+>>>>>>> 083b4ffc4de20326f3c28303c2f114f1c2999732
 CREATE PROC SP_TimKiemNguoiDung
 @SearchValue varchar(50)
 AS
 BEGIN
+SELECT  nd.MaNV, nv.TenNV, NgayTao, q.TenQuyen
+	FROM NguoiDung nd
+	join NhanVien nv ON nd.MaNV = nv.MaNV
+	Join Quyen q ON nd.QuyenID = q.Id
 	SELECT * FROM NguoiDung WHERE TenDN LIKE '%' + @SearchValue + '%'
 	or MaNV LIKE '%' + @SearchValue + '%'
 END
 GO
 
 --thủ tục thêm người dùng
+drop proc SP_ThemNguoiDung
 CREATE PROC SP_ThemNguoiDung
-@TenDN varchar(50),
+@MaNV varchar(10),
 @MatKhau varchar(50),
 @NgayTao date,
-@MaNV varchar(10),
 @QuyenID int
 AS 
 BEGIN
-	INSERT INTO NguoiDung VALUES(@TenDN, @MatKhau, @NgayTao, @MaNV, @QuyenID)
+	INSERT INTO NguoiDung (MaNV, MatKhau, NgayTao, QuyenID) VALUES(@MaNV, @MatKhau, @NgayTao, @QuyenID)
 END
 GO
 
 --thủ tục kiểm tra trùng tên
+drop proc SP_KiemTraTrungten
 CREATE PROC SP_KiemTraTrungten
-@TenDN varchar(50)
+@MaNV varchar(50)
 AS
 BEGIN
-	SELECT * FROM NguoiDung WHERE TenDN = @TenDN
+	SELECT * FROM NguoiDung WHERE MaNV = @MaNV
 END
 GO
 --thu tuc xoa nguoi dung
+drop proc SP_XoaNguoiDung
 CREATE PROC SP_XoaNguoiDung
-@TenDN varchar(50)
+@MaNV varchar(50)
 AS
 BEGIN
-	DELETE FROM NguoiDung WHERE TenDN = @TenDN
+	DELETE FROM NguoiDung WHERE MaNV = @MaNV
 END
 GO
 --thủ tục sửa người dùng
+drop proc SP_SuaNguoiDung
 CREATE PROC SP_SuaNguoiDung
-@TenDN varchar(50), @MatKhau varchar(50), @MaNV varchar(50), @QuyenId int
+    @MaNV VARCHAR(50),
+    @MatKhau VARCHAR(50) = NULL, -- Cho phép NULL nếu không sửa mật khẩu
+    @QuyenId INT
 AS
 BEGIN
-	UPDATE NguoiDung
-	SET  MatKhau = @MatKhau, MaNV = @MaNV, QuyenID = @QuyenId
-	WHERE NguoiDung.TenDN = @TenDN
+    UPDATE NguoiDung
+    SET  
+        MatKhau = CASE 
+                    WHEN @MatKhau IS NOT NULL THEN @MatKhau
+                    ELSE MatKhau
+                  END,
+        QuyenID = @QuyenId
+    WHERE NguoiDung.MaNV = @MaNV;
 END
+GO
 GO
 
 
@@ -915,14 +993,15 @@ BEGIN
 END
 GO
 --Lấy thông tin người dùng 
+drop proc SP_GetThongTinNguoiDung
 CREATE PROCEDURE SP_GetThongTinNguoiDung
-@TenDN varchar(50)
+@MaNV varchar(50)
 AS
 BEGIN
 	SELECT nv.MaNV, nv.TenNV, nv.Email, nv.NgayTuyenDung, nv.SDT, nv.ChucVu
 	FROM NguoiDung nd
 	JOIN NhanVien nv ON nd.MaNV = nv.MaNV
-	WHERE nd.TenDN = @TenDN
+	WHERE nd.MaNV = @MaNV
 END
 GO
 -----------------------------------Nhaapj Hang
@@ -1050,6 +1129,152 @@ BEGIN
 	WHERE spncc.MaNCC = @MaNCC
 END
 GO
+<<<<<<< HEAD
+---Lọc bảng giá
+
+CREATE PROCEDURE SP_LocBangGia
+    @SanPham NVARCHAR(255) = NULL,           
+    @NhaCungCap NVARCHAR(255) = NULL     
+AS
+BEGIN
+    SELECT spncc.MaNCC, ncc.TenNCC, sp.MaSP, sp.TenSP, lp.TenLoai, sp.DVT, spncc.GiaNhap, spncc.NgayCapNhat
+	FROM CT_SanPhamNCC spncc
+	JOIN NhaCungCap ncc ON spncc.MaNCC = ncc.MaNCC
+	JOIN SanPham sp ON spncc.MaSP = sp.MaSP
+	JOIN LoaiSanPham lp ON sp.MaLoai = lp.MaLoai
+    WHERE 
+        (@SanPham IS NULL OR sp.TenSP = @SanPham) AND
+        (@NhaCungCap IS NULL OR ncc.TenNCC = @NhaCungCap)
+END
+go
+-------------listCCT phiếu trả hàng NCC
+CREATE PROC SP_ListCTPhieuTH_NCC
+@MaPNH varchar(50)
+as
+begin
+	select IDCTPhieuTHNCC, MaPhieuTraHang, ctpthncc.MaSP, sp.TenSP, SoLuong, DonGiaTra, ThanhTien
+	from CTPhieuTraHangNCC ctpthncc
+	join SanPham sp ON sp.MaSP = ctpthncc.MaSP
+	where MaPhieuTraHang = @MaPNH
+end
+go
+---------thủ tục xóa phiếu trả hàng ncc
+create proc SP_DeletePhieuTH_NCC
+@MaPhieuTH varchar(50)
+as
+begin
+	delete from CTPhieuTraHangNCC
+	where MaPhieuTraHang = @MaPhieuTH
+	delete from PhieuTraHangNCC
+	where MaPhieuTraHang = @MaPhieuTH
+	
+end
+-------list Bảng giá
+CREATE PROCEDURE SP_ListBangGia
+AS
+BEGIN
+	SELECT spncc.MaNCC, ncc.TenNCC, sp.MaSP, sp.TenSP, lp.TenLoai, sp.DVT, spncc.GiaNhap, spncc.NgayCapNhat
+	FROM CT_SanPhamNCC spncc
+	JOIN NhaCungCap ncc ON spncc.MaNCC = ncc.MaNCC
+	JOIN SanPham sp ON spncc.MaSP = sp.MaSP
+	JOIN LoaiSanPham lp ON sp.MaLoai = lp.MaLoai
+END
+GO
+---------cập nhật giá
+CREATE PROC SP_CapNhatGia
+@MaSP varchar(50),
+@MaNCC varchar(50),
+@GiaNhap decimal(18, 0),
+@NgayCapNhat date
+as
+begin
+	UPDATE CT_SanPhamNCC SET GiaNhap = @GiaNhap, NgayCapNhat = @NgayCapNhat
+	WHERE MaNCC = @MaNCC AND MaSP = @MaSP
+end
+
+------list nahf cung ứng
+Drop proc SP_GetListSanPhamNCC
+exec SP_GetListSanPhamNCC
+CREATE PROCEDURE SP_GetListSanPhamNCC
+AS
+BEGIN
+	SELECT spncc.MaNCC, ncc.TenNCC, sp.MaSP, sp.TenSP, lp.TenLoai, sp.DVT
+	FROM CT_SanPhamNCC spncc
+	JOIN NhaCungCap ncc ON spncc.MaNCC = ncc.MaNCC
+	JOIN SanPham sp ON spncc.MaSP = sp.MaSP
+	JOIN LoaiSanPham lp ON sp.MaLoai = lp.MaLoai
+END
+GO
+
+---------Lọc nahf cung ứng theo nhà cung cấp
+drop proc SP_GetListSanPhamNCCByIdNCC
+CREATE PROCEDURE SP_GetListSanPhamNCCByIdNCC
+@MaNCC varchar(50)
+AS
+BEGIN
+	SELECT spncc.MaNCC, ncc.TenNCC, sp.MaSP, sp.TenSP, lp.TenLoai, sp.DVT
+	FROM CT_SanPhamNCC spncc
+	JOIN NhaCungCap ncc ON spncc.MaNCC = ncc.MaNCC
+	JOIN SanPham sp ON spncc.MaSP = sp.MaSP
+	JOIN LoaiSanPham lp ON sp.MaLoai = lp.MaLoai
+	WHERE spncc.MaNCC = @MaNCC
+END
+GO
+
+---------Lọc nhà cung ứng theo sản phẩm
+drop proc SP_GetListSanPhamNCCBySP
+CREATE PROCEDURE SP_GetListSanPhamNCCBySP
+@SearchValues nvarchar(500)
+AS
+BEGIN
+	SELECT spncc.MaNCC, ncc.TenNCC, sp.MaSP, sp.TenSP, lp.TenLoai, sp.DVT
+	FROM CT_SanPhamNCC spncc
+	JOIN NhaCungCap ncc ON spncc.MaNCC = ncc.MaNCC
+	JOIN SanPham sp ON spncc.MaSP = sp.MaSP
+	JOIN LoaiSanPham lp ON sp.MaLoai = lp.MaLoai
+	 WHERE (sp.TenSP LIKE '%' + @SearchValues + '%')
+		OR (spncc.MaSP LIKE '%' + @SearchValues + '%')
+END
+GO
+----------xóa nhà cung ứng
+create proc SP_XoaCungUng
+@MaNCC varchar(50),
+@MaSP varchar(50)
+as
+begin
+	delete from CT_SanPhamNCC where MaNCC = @MaNCC and MaSP = @MaSP
+end
+---------------lọc ra những sản phẩm mà nhà cung cấp đó đã cung cấp rồi
+
+drop proc GetSanPhamChuaCungCap
+CREATE PROCEDURE GetSanPhamChuaCungCap
+    @MaNCC VARCHAR(50)
+AS
+BEGIN
+    -- Chỉ hiển thị các sản phẩm mà nhà cung cấp chưa cung cấp
+    SELECT SP.MaSP, SP.TenSP, SP.DVT,lsp.TenLoai
+    FROM SanPham SP
+	JOIN LoaiSanPham lsp ON sp.MaLoai = lsp.MaLoai
+    WHERE NOT EXISTS (
+        SELECT 1 
+        FROM CT_SanPhamNCC CTSN
+        WHERE CTSN.MaSP = SP.MaSP 
+          AND CTSN.MaNCC = @MaNCC
+    );
+END;
+select * from CT_SanPhamNCC
+---------thủ tục thêm SanPham_NhaCungCap\
+drop proc SP_ThemSanPhamNNCC
+CREATE PROC SP_ThemSanPhamNNCC
+@MaNCC varchar(50),
+@MaSP varchar(50)
+AS
+BEGIN
+	INSERT INTO CT_SanPhamNCC(MaNCC, MaSP) VALUES(@MaNCC, @MaSP)
+END
+drop proc SP_GetListPN
+=======
+>>>>>>> 083b4ffc4de20326f3c28303c2f114f1c2999732
 exec SP_GetListPN
 drop proc SP_GetListPN
 CREATE PROC SP_GetListPN
@@ -1120,9 +1345,30 @@ BEGIN
 
 	JOIN NhaCungCap ncc ON ncc.MaNCC = pn.MaNCC
     JOIN Kho k ON k.MaKho = pn.MaKho
+<<<<<<< HEAD
+	JOIN NhanVien nv ON nv.MaNV = pn.MaNV
+	where pn.TrangThai = N'Đã phê duyệt nhập'
+END
+GO
+--------------Lấy thông tin Nhà cung cấp từ phiếu nhập
+exec SP_TTNhaCCDeinPhieuPhap 'PN032'
+drop proc SP_TTNhaCCDeinPhieuPhap
+CREATE PROC SP_TTNhaCCDeinPhieuPhap
+@MaPN varchar(50)
+as
+begin 
+	SELECT pn.NgayDatHang,pn.TongTien , ncc.TenNCC, ncc.DiaChi, ncc.ThanhPho, ncc.QuocGia, ncc.SDT
+	FROM  PhieuNhapHang pn
+	JOIN NhaCungCap ncc ON pn.MaNCC = ncc.MaNCC
+	WHERE pn.MaPhieuNH = @MaPN
+end;
+go
+
+=======
 	where pn.TrangThai = N'Đã phê duyệt'
 END
 GO
+>>>>>>> 083b4ffc4de20326f3c28303c2f114f1c2999732
 ----truy xuất ngược từ tên kho
 CREATE PROCEDURE SP_GetMaKhoByTenKho
 @TenKho NVARCHAR(400)
@@ -2261,3 +2507,88 @@ AS BEGIN
 	INNER JOIN SanPham sp ON ct.MaSP = sp.MaSP
     WHERE pt.MaHD = @MaHD
 END
+
+
+-----------tạo người dùng hệ thống
+
+
+CREATE LOGIN nv001 WITH PASSWORD = '567';
+ALTER SERVER ROLE sysadmin ADD MEMBER nv001;
+-----Tạo nhóm quyền
+CREATE ROLE kho; --rồi
+CREATE ROLE admin;
+CREATE ROLE giamdoc;
+CREATE ROLE ke_toan; -- rồi
+CREATE ROLE ban_hang; --rồi
+CREATE ROLE giao_hang;
+-----gán quyền cho nhóm quyền
+
+-- Cấp quyền cho nhóm Kho (kho)
+GRANT SELECT, INSERT, UPDATE, DELETE ON dbo.Kho_SanPham TO kho;
+GRANT SELECT, INSERT, UPDATE, DELETE ON CT_SanPhamNCC TO kho;
+GRANT SELECT, INSERT, UPDATE, DELETE ON PhieuNhapHang TO kho;
+GRANT SELECT, INSERT, UPDATE, DELETE ON CTPhieuNhapHang TO kho;
+GRANT SELECT, INSERT, UPDATE, DELETE ON CTPhieuTraHangNCC TO kho;
+GRANT SELECT, INSERT, UPDATE, DELETE ON PhieuTraHangNCC TO kho;
+GRANT SELECT, INSERT, UPDATE, DELETE ON Kho TO kho;
+GRANT SELECT, INSERT, UPDATE, DELETE ON NhaCungCap TO kho;
+GRANT SELECT, INSERT, UPDATE, DELETE ON CTPhieuNhapHang TO kho;
+
+-- Cấp quyền cho nhóm Admin (admin)
+GRANT SELECT, INSERT, UPDATE, DELETE ON dbo.NguoiDung, dbo.Kho_SanPham, dbo.PhieuNhapHang TO admin;
+
+-- Cấp quyền cho nhóm Giám đốc (giamdoc)
+GRANT SELECT, INSERT, UPDATE, DELETE ON dbo.PhieuNhapHang, dbo.PhieuTraHangKH TO giamdoc;
+
+-- Cấp quyền cho nhóm Kế toán (ke_toan)
+GRANT SELECT ON dbo.CTPhieuTraHangKH TO ke_toan;
+GRANT SELECT ON dbo.PhieuTraHangNCC TO ke_toan;
+GRANT SELECT ON dbo.CTPhieuTraHangNCC TO ke_toan;
+GRANT SELECT ON dbo.PhieuTraHangKH TO ke_toan;  -- Kiểm tra xem bảng này có cần thiết hay không
+GRANT SELECT ON dbo.CT_HoaDon TO ke_toan;
+GRANT SELECT ON dbo.HoaDon TO ke_toan;
+GRANT SELECT ON dbo.PhieuNhapHang TO ke_toan;
+GRANT SELECT ON dbo.CTPhieuNhapHang TO ke_toan;
+
+-- Cấp quyền cho nhóm Bán hàng (ban_hang)
+GRANT SELECT, INSERT, UPDATE, DELETE ON dbo.HoaDon TO ban_hang;
+GRANT SELECT, INSERT, UPDATE, DELETE ON dbo.CT_HoaDon TO ban_hang;
+GRANT SELECT, INSERT, UPDATE, DELETE ON dbo.CTDieuKienKM TO ban_hang;
+GRANT SELECT, INSERT, UPDATE, DELETE ON dbo.KhuyenMai TO ban_hang;
+GRANT SELECT, INSERT, UPDATE, DELETE ON dbo.Kho TO ban_hang;
+GRANT SELECT, INSERT, UPDATE, DELETE ON dbo.KhachHang TO ban_hang;
+GRANT SELECT, INSERT, UPDATE, DELETE ON dbo.Kho_SanPham TO ban_hang;
+GRANT SELECT, INSERT, UPDATE, DELETE ON dbo.LoaiKH TO ban_hang;
+GRANT SELECT, INSERT, UPDATE, DELETE ON dbo.LoaiSanPham TO ban_hang;
+GRANT SELECT, INSERT, UPDATE, DELETE ON dbo.NhaCungCap TO ban_hang;
+GRANT SELECT, INSERT, UPDATE, DELETE ON dbo.PhieuTraHangKH TO ban_hang;
+GRANT SELECT, INSERT, UPDATE, DELETE ON dbo.CTPhieuTraHangKH TO ban_hang;
+GRANT SELECT, INSERT, UPDATE, DELETE ON dbo.SanPham TO ban_hang;
+-- Cấp quyền cho nhóm Giao hàng (giao_hang)
+---chưa chạy
+GRANT SELECT ON dbo.CT_HoaDon TO giao_hang;
+GRANT SELECT,INSERT, UPDATE DELETE ON dbo.PhieuTraHangKH TO giao_hang;
+GRANT SELECT,INSERT, UPDATE DELETE ON dbo.CTPhieuTraHangKH TO giao_hang;
+GRANT SELECT ON dbo.HoaDon TO giao_hang;
+GRANT SELECT,INSERT, UPDATE DELETE ON dbo.CTPhieuTraHangKH TO giao_hang;
+GRANT SELECT,INSERT, UPDATE DELETE ON dbo.CTPhieuTraHangKH TO giao_hang;
+GRANT SELECT,INSERT, UPDATE DELETE ON dbo.CTPhieuTraHangKH TO giao_hang;
+GRANT SELECT,INSERT, UPDATE DELETE ON dbo.CTPhieuTraHangKH TO giao_hang;
+
+
+
+-- Tạo login cho admin
+CREATE LOGIN admin WITH PASSWORD = 'Admin@123';
+
+-- Tạo user trong database
+USE [YourDatabaseName]; -- Thay bằng tên database của bạn
+CREATE USER admin FOR LOGIN admin;
+
+-- Gán quyền sysadmin (toàn quyền trên SQL Server)
+EXEC sp_addsrvrolemember @loginame = 'admin', @rolename = 'sysadmin';
+---------test nhóm quyền
+CREATE LOGIN nv_ban_hang WITH PASSWORD = '123456';
+CREATE USER nv_ban_hang FOR LOGIN nv_ban_hang;
+EXEC sp_addrolemember 'ban_hang', 'nv_ban_hang';
+
+

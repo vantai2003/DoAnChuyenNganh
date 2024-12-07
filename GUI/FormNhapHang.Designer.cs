@@ -85,7 +85,6 @@
             this.btn_XemCT = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dvg_DSPNDPD = new Sunny.UI.UIDataGridView();
-            this.btn_In = new System.Windows.Forms.Button();
             this.tab_body.SuspendLayout();
             this.tab_DanhSach.SuspendLayout();
             this.panel_Body.SuspendLayout();
@@ -149,17 +148,18 @@
             // 
             // dvg_DSPhieuNhap
             // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
             this.dvg_DSPhieuNhap.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dvg_DSPhieuNhap.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
-            this.dvg_DSPhieuNhap.BackgroundColor = System.Drawing.Color.White;
+            this.dvg_DSPhieuNhap.BackgroundColor = System.Drawing.Color.DimGray;
             this.dvg_DSPhieuNhap.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dvg_DSPhieuNhap.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dvg_DSPhieuNhap.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -186,14 +186,15 @@
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dvg_DSPhieuNhap.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dvg_DSPhieuNhap.RowHeadersWidth = 51;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.dvg_DSPhieuNhap.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dvg_DSPhieuNhap.RowTemplate.Height = 24;
+            this.dvg_DSPhieuNhap.ScrollBarBackColor = System.Drawing.Color.White;
+            this.dvg_DSPhieuNhap.ScrollBarStyleInherited = false;
             this.dvg_DSPhieuNhap.SelectedIndex = -1;
             this.dvg_DSPhieuNhap.Size = new System.Drawing.Size(1213, 266);
-            this.dvg_DSPhieuNhap.StripeEvenColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
-            this.dvg_DSPhieuNhap.StripeOddColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
+            this.dvg_DSPhieuNhap.StripeOddColor = System.Drawing.Color.White;
             this.dvg_DSPhieuNhap.TabIndex = 0;
             this.dvg_DSPhieuNhap.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dvg_DSPhieuNhap_CellClick);
             // 
@@ -217,10 +218,10 @@
             // 
             // btn_TimPN
             // 
-            this.btn_TimPN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btn_TimPN.BackColor = System.Drawing.Color.Teal;
             this.btn_TimPN.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_TimPN.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.btn_TimPN.ForeColor = System.Drawing.Color.Black;
+            this.btn_TimPN.ForeColor = System.Drawing.Color.Yellow;
             this.btn_TimPN.Image = global::DACN.Properties.Resources.Search1;
             this.btn_TimPN.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_TimPN.Location = new System.Drawing.Point(533, 20);
@@ -261,7 +262,6 @@
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.btn_In);
             this.panel4.Controls.Add(this.dp_DenNgay);
             this.panel4.Controls.Add(this.dp_TuNgay);
             this.panel4.Controls.Add(this.btn_LocTheoNgay);
@@ -302,12 +302,14 @@
             // 
             // btn_LocTheoNgay
             // 
-            this.btn_LocTheoNgay.Location = new System.Drawing.Point(737, 68);
+            this.btn_LocTheoNgay.BackColor = System.Drawing.Color.Teal;
+            this.btn_LocTheoNgay.ForeColor = System.Drawing.Color.Yellow;
+            this.btn_LocTheoNgay.Location = new System.Drawing.Point(737, 64);
             this.btn_LocTheoNgay.Name = "btn_LocTheoNgay";
             this.btn_LocTheoNgay.Size = new System.Drawing.Size(174, 40);
             this.btn_LocTheoNgay.TabIndex = 14;
             this.btn_LocTheoNgay.Text = "Lọc theo ngày";
-            this.btn_LocTheoNgay.UseVisualStyleBackColor = true;
+            this.btn_LocTheoNgay.UseVisualStyleBackColor = false;
             this.btn_LocTheoNgay.Click += new System.EventHandler(this.btn_LocTheoNgay_Click);
             // 
             // cbncc
@@ -342,6 +344,8 @@
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.ForeColor = System.Drawing.Color.Brown;
             this.label3.Location = new System.Drawing.Point(44, 33);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(80, 25);
@@ -351,6 +355,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.Maroon;
             this.label1.Location = new System.Drawing.Point(44, 77);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(84, 25);
@@ -359,17 +364,20 @@
             // 
             // btn_Loc
             // 
-            this.btn_Loc.Location = new System.Drawing.Point(796, 134);
+            this.btn_Loc.BackColor = System.Drawing.Color.Teal;
+            this.btn_Loc.ForeColor = System.Drawing.Color.Yellow;
+            this.btn_Loc.Location = new System.Drawing.Point(737, 114);
             this.btn_Loc.Name = "btn_Loc";
             this.btn_Loc.Size = new System.Drawing.Size(85, 65);
             this.btn_Loc.TabIndex = 8;
             this.btn_Loc.Text = "Lọc";
-            this.btn_Loc.UseVisualStyleBackColor = true;
+            this.btn_Loc.UseVisualStyleBackColor = false;
             this.btn_Loc.Click += new System.EventHandler(this.btn_Loc_Click);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.Color.Maroon;
             this.label4.Location = new System.Drawing.Point(44, 112);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(48, 25);
@@ -379,6 +387,7 @@
             // lbncc
             // 
             this.lbncc.AutoSize = true;
+            this.lbncc.ForeColor = System.Drawing.Color.Maroon;
             this.lbncc.Location = new System.Drawing.Point(44, 154);
             this.lbncc.Name = "lbncc";
             this.lbncc.Size = new System.Drawing.Size(133, 25);
@@ -388,6 +397,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.ForeColor = System.Drawing.Color.Maroon;
             this.label2.Location = new System.Drawing.Point(438, 72);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(96, 25);
@@ -471,7 +481,7 @@
             // 
             this.btn_Xoa.BackColor = System.Drawing.Color.Teal;
             this.btn_Xoa.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.btn_Xoa.Location = new System.Drawing.Point(1015, 525);
+            this.btn_Xoa.Location = new System.Drawing.Point(869, 513);
             this.btn_Xoa.Name = "btn_Xoa";
             this.btn_Xoa.Size = new System.Drawing.Size(158, 48);
             this.btn_Xoa.TabIndex = 8;
@@ -483,7 +493,7 @@
             // 
             this.btn_ToaPN.BackColor = System.Drawing.Color.Teal;
             this.btn_ToaPN.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.btn_ToaPN.Location = new System.Drawing.Point(250, 521);
+            this.btn_ToaPN.Location = new System.Drawing.Point(95, 520);
             this.btn_ToaPN.Name = "btn_ToaPN";
             this.btn_ToaPN.Size = new System.Drawing.Size(176, 52);
             this.btn_ToaPN.TabIndex = 7;
@@ -494,7 +504,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(584, 520);
+            this.label10.Location = new System.Drawing.Point(520, 525);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(102, 25);
             this.label10.TabIndex = 6;
@@ -505,7 +515,7 @@
             this.txtTongTien.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtTongTien.Enabled = false;
             this.txtTongTien.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.txtTongTien.Location = new System.Drawing.Point(756, 520);
+            this.txtTongTien.Location = new System.Drawing.Point(629, 525);
             this.txtTongTien.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtTongTien.MinimumSize = new System.Drawing.Size(1, 16);
             this.txtTongTien.Name = "txtTongTien";
@@ -539,7 +549,7 @@
             // lb_trangthai
             // 
             this.lb_trangthai.AutoSize = true;
-            this.lb_trangthai.Location = new System.Drawing.Point(232, 122);
+            this.lb_trangthai.Location = new System.Drawing.Point(111, 122);
             this.lb_trangthai.Name = "lb_trangthai";
             this.lb_trangthai.Size = new System.Drawing.Size(100, 25);
             this.lb_trangthai.TabIndex = 29;
@@ -553,7 +563,7 @@
             "Chờ phê duyệt nhập",
             "Đã phê duyệt",
             "Từ chối"});
-            this.cb_TrangThai.Location = new System.Drawing.Point(338, 114);
+            this.cb_TrangThai.Location = new System.Drawing.Point(250, 114);
             this.cb_TrangThai.Name = "cb_TrangThai";
             this.cb_TrangThai.Size = new System.Drawing.Size(248, 33);
             this.cb_TrangThai.TabIndex = 28;
@@ -562,7 +572,7 @@
             // 
             this.btn_ChonSP.BackColor = System.Drawing.Color.Teal;
             this.btn_ChonSP.ForeColor = System.Drawing.Color.Yellow;
-            this.btn_ChonSP.Location = new System.Drawing.Point(861, 114);
+            this.btn_ChonSP.Location = new System.Drawing.Point(709, 114);
             this.btn_ChonSP.Name = "btn_ChonSP";
             this.btn_ChonSP.Size = new System.Drawing.Size(215, 45);
             this.btn_ChonSP.TabIndex = 27;
@@ -573,7 +583,7 @@
             // cb_TaoPNKho
             // 
             this.cb_TaoPNKho.FormattingEnabled = true;
-            this.cb_TaoPNKho.Location = new System.Drawing.Point(338, 58);
+            this.cb_TaoPNKho.Location = new System.Drawing.Point(250, 45);
             this.cb_TaoPNKho.Name = "cb_TaoPNKho";
             this.cb_TaoPNKho.Size = new System.Drawing.Size(248, 33);
             this.cb_TaoPNKho.TabIndex = 26;
@@ -581,7 +591,7 @@
             // lb_ncc
             // 
             this.lb_ncc.AutoSize = true;
-            this.lb_ncc.Location = new System.Drawing.Point(703, 58);
+            this.lb_ncc.Location = new System.Drawing.Point(570, 53);
             this.lb_ncc.Name = "lb_ncc";
             this.lb_ncc.Size = new System.Drawing.Size(133, 25);
             this.lb_ncc.TabIndex = 25;
@@ -590,7 +600,7 @@
             // cb_NCC
             // 
             this.cb_NCC.FormattingEnabled = true;
-            this.cb_NCC.Location = new System.Drawing.Point(861, 55);
+            this.cb_NCC.Location = new System.Drawing.Point(709, 50);
             this.cb_NCC.Name = "cb_NCC";
             this.cb_NCC.Size = new System.Drawing.Size(284, 33);
             this.cb_NCC.TabIndex = 24;
@@ -598,7 +608,7 @@
             // lb_kho
             // 
             this.lb_kho.AutoSize = true;
-            this.lb_kho.Location = new System.Drawing.Point(232, 58);
+            this.lb_kho.Location = new System.Drawing.Point(121, 45);
             this.lb_kho.Name = "lb_kho";
             this.lb_kho.Size = new System.Drawing.Size(48, 25);
             this.lb_kho.TabIndex = 19;
@@ -642,22 +652,26 @@
             // 
             // btn_TaoPTH
             // 
+            this.btn_TaoPTH.BackColor = System.Drawing.Color.Teal;
+            this.btn_TaoPTH.ForeColor = System.Drawing.Color.Yellow;
             this.btn_TaoPTH.Location = new System.Drawing.Point(709, 404);
             this.btn_TaoPTH.Name = "btn_TaoPTH";
-            this.btn_TaoPTH.Size = new System.Drawing.Size(288, 41);
+            this.btn_TaoPTH.Size = new System.Drawing.Size(288, 50);
             this.btn_TaoPTH.TabIndex = 2;
             this.btn_TaoPTH.Text = "Tạo phiếu trả hàng";
-            this.btn_TaoPTH.UseVisualStyleBackColor = true;
+            this.btn_TaoPTH.UseVisualStyleBackColor = false;
             this.btn_TaoPTH.Click += new System.EventHandler(this.btn_TaoPTH_Click);
             // 
             // btn_XemCT
             // 
+            this.btn_XemCT.BackColor = System.Drawing.Color.Teal;
+            this.btn_XemCT.ForeColor = System.Drawing.Color.Yellow;
             this.btn_XemCT.Location = new System.Drawing.Point(131, 393);
             this.btn_XemCT.Name = "btn_XemCT";
             this.btn_XemCT.Size = new System.Drawing.Size(245, 52);
             this.btn_XemCT.TabIndex = 1;
             this.btn_XemCT.Text = "Xem chi tiết phiếu nhập";
-            this.btn_XemCT.UseVisualStyleBackColor = true;
+            this.btn_XemCT.UseVisualStyleBackColor = false;
             this.btn_XemCT.Click += new System.EventHandler(this.btn_XemCT_Click);
             // 
             // panel1
@@ -666,12 +680,13 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1213, 321);
+            this.panel1.Size = new System.Drawing.Size(1213, 276);
             this.panel1.TabIndex = 0;
             // 
             // dvg_DSPNDPD
             // 
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
             this.dvg_DSPNDPD.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dvg_DSPNDPD.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dvg_DSPNDPD.BackgroundColor = System.Drawing.Color.White;
@@ -711,25 +726,16 @@
             this.dvg_DSPNDPD.RowHeadersWidth = 51;
             dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.Black;
             this.dvg_DSPNDPD.RowsDefaultCellStyle = dataGridViewCellStyle10;
             this.dvg_DSPNDPD.RowTemplate.Height = 24;
             this.dvg_DSPNDPD.ScrollBarRectColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.dvg_DSPNDPD.ScrollBarStyleInherited = false;
             this.dvg_DSPNDPD.SelectedIndex = -1;
-            this.dvg_DSPNDPD.Size = new System.Drawing.Size(1213, 321);
-            this.dvg_DSPNDPD.StripeOddColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
+            this.dvg_DSPNDPD.Size = new System.Drawing.Size(1213, 276);
+            this.dvg_DSPNDPD.StripeOddColor = System.Drawing.Color.White;
             this.dvg_DSPNDPD.TabIndex = 0;
             this.dvg_DSPNDPD.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dvg_DSPNDPD_CellClick);
-            // 
-            // btn_In
-            // 
-            this.btn_In.Location = new System.Drawing.Point(926, 25);
-            this.btn_In.Name = "btn_In";
-            this.btn_In.Size = new System.Drawing.Size(102, 45);
-            this.btn_In.TabIndex = 45;
-            this.btn_In.Text = "In";
-            this.btn_In.UseVisualStyleBackColor = true;
-            this.btn_In.Click += new System.EventHandler(this.btn_In_Click);
             // 
             // FormNhapHang
             // 
@@ -738,7 +744,7 @@
             this.ClientSize = new System.Drawing.Size(1213, 699);
             this.Controls.Add(this.tab_body);
             this.Name = "FormNhapHang";
-            this.Text = "FormNhapHang";
+            this.Text = "NHẬP HÀNG";
             this.tab_body.ResumeLayout(false);
             this.tab_DanhSach.ResumeLayout(false);
             this.panel_Body.ResumeLayout(false);
@@ -810,6 +816,5 @@
         private System.Windows.Forms.DateTimePicker dp_DenNgay;
         private System.Windows.Forms.DateTimePicker dp_TuNgay;
         private Sunny.UI.UIDataGridView dvg_DSPNDPD;
-        private System.Windows.Forms.Button btn_In;
     }
 }

@@ -50,21 +50,26 @@ namespace DACN.GUI
                 dgvHoaDon.Columns.Add(chkColumn);
             }
 
-            // Handle CellContentClick event to ensure single selection
-            dgvHoaDon.CellContentClick += (sender, e) =>
+
+            dgvHoaDon.CellClick += (sender, e) =>
             {
-                if (e.ColumnIndex == chkColumn.Index && e.RowIndex >= 0)
+                if (e.RowIndex >= 0)
                 {
-                    // Uncheck all other rows
+                   
                     foreach (DataGridViewRow row in dgvHoaDon.Rows)
                     {
-                        if (row.Index != e.RowIndex)
-                        {
-                            row.Cells["Chon"].Value = false;
-                        }
+                        row.Cells["Chon"].Value = false;
                     }
-                    // Check current row
-                    dgvHoaDon.Rows[e.RowIndex].Cells["Chon"].Value = true;
+
+                    if (e.ColumnIndex == dgvHoaDon.Columns["Chon"].Index)
+                    {
+                        bool currentValue = (bool)(dgvHoaDon.Rows[e.RowIndex].Cells["Chon"].Value ?? false);
+                        dgvHoaDon.Rows[e.RowIndex].Cells["Chon"].Value = !currentValue; 
+                    }
+                    else
+                    {
+                        dgvHoaDon.Rows[e.RowIndex].Cells["Chon"].Value = true; 
+                    }
                 }
             };
 
@@ -194,11 +199,6 @@ namespace DACN.GUI
 
         }
 
-        private void pcSearch_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btn_lammoiHang_Click(object sender, EventArgs e)
         {
             LoadHoaDon();
@@ -221,6 +221,7 @@ namespace DACN.GUI
             {
                 if (e.RowIndex >= 0)
                 {
+                  
                     DataGridViewRow row = dgvHoaDon.Rows[e.RowIndex];
                     txtMaKH.Text = row.Cells["MaKH"].Value.ToString();
                     txtMaHD.Text = row.Cells["MaHD"].Value.ToString();
@@ -397,5 +398,6 @@ namespace DACN.GUI
                 MessageBox.Show($"Đã xảy ra lỗi: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
     }
 }
