@@ -68,7 +68,6 @@ namespace DACN.GUI
             this.panel_right.Name = "panel_right";
             this.panel_right.Size = new System.Drawing.Size(1233, 666);
             this.panel_right.TabIndex = 1;
-            this.panel_right.Paint += new System.Windows.Forms.PaintEventHandler(this.panel_right_Paint);
             // 
             // panel_body1
             // 
@@ -274,7 +273,6 @@ namespace DACN.GUI
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FormNhanVienGiaoHang";
             this.Text = "NHÂN VIÊN GIAO HÀNG";
-            this.Load += new System.EventHandler(this.FormNhanVienGiaoHang_Load);
             this.panel_right.ResumeLayout(false);
             this.panel_right.PerformLayout();
             this.panel_body1.ResumeLayout(false);

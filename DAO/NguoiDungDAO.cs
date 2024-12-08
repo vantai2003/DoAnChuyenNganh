@@ -119,5 +119,29 @@ namespace DACN.DAO
             }
             
         }
+        public bool XoaNguoiDungHeThong(string tenDN)
+        {
+            try
+            {
+                string query = "SP_XoaTKHeThong @TenDN";
+                int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { tenDN });
+
+                if (result > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Xóa không thành công!");
+                return false;
+            }
+
+        }
+        
     }
 }

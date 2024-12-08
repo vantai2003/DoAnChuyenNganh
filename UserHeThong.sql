@@ -1,5 +1,24 @@
 ﻿CREATE LOGIN admin WITH PASSWORD = '123';
 ALTER SERVER ROLE sysadmin ADD MEMBER admin;
+
+--------Tạo user có quyền kill session
+CREATE LOGIN userkill 
+WITH PASSWORD = '123';
+--cấp quyền kill session cho nó
+use master
+GRANT ALTER ANY CONNECTION TO userkill;
+GRANT VIEW SERVER STATE TO userkill;
+USE QL_SatThepXD;
+CREATE USER userkill FOR LOGIN userkill;
+GRANT VIEW DATABASE STATE TO userkill;
+---cấp quyền excute cho use
+GRANT EXECUTE ON KillUserSessions TO [userkill];
+USE QL_SatThepXD;
+GRANT EXECUTE ON OBJECT::dbo.KillUserSessions TO userkill;
+
+---giới hạn quyền
+REVOKE SELECT, INSERT, UPDATE, DELETE ON DATABASE::QL_SatThepXD FROM userkill;
+
 exec SP_TaoTKHeThong 'NV010', '123'
 drop proc SP_TaoTKHeThong
 
