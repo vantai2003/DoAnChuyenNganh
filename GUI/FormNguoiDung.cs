@@ -16,10 +16,13 @@ namespace DACN.GUI
 {
     public partial class FormNguoiDung : Form
     {
+        private string user;
         public FormNguoiDung()
         {
             InitializeComponent();
+            user = FormDangNhap.nhanvien;
             LoadNguoiDung();
+            
         }
         private int flag = 0;
         private void LoadNguoiDung()
@@ -46,7 +49,7 @@ namespace DACN.GUI
             cb_NhanVien.SelectedIndex = 2;
             cb_vitrilv.Enabled = cb_NhanVien.Enabled =txt_pass.Enabled = true;
         }
-
+        
         private void btn_Search_Click(object sender, EventArgs e)
         {
             List<NguoiDungDTO> listNguoiDung = NguoiDungDAO.Instance.TimKiemNguoiDung(txt_Search.Text);
@@ -159,6 +162,7 @@ namespace DACN.GUI
         {
             string tenDN = "";
             tenDN = cb_NhanVien.SelectedValue.ToString();
+            string Mk = txt_pass.Text;
             string matKhau = NguoiDungDAO.Hash(txt_pass.Text);
             if (tenDN == "" || txt_pass.Text == "")
             {
@@ -178,17 +182,23 @@ namespace DACN.GUI
 
                         int quyenID = int.Parse(cb_vitrilv.SelectedValue.ToString());
 
-                        NguoiDungDAO.Instance.ThemNguoiDung(tenDN, matKhau, ngayTao, quyenID);
-                        if(NguoiDungDAO.Instance.TaoNguoiDungHeThong(tenDN, matKhau))
+                       int kq = NguoiDungDAO.Instance.ThemNguoiDung(tenDN, matKhau, ngayTao, quyenID);
+                       if(kq > 0)
                         {
-                            MessageBox.Show("Tạo người dùng dưới hệ thống thất bại");
-                            return;
-                        }
-                        else
-                        {
-                            MessageBox.Show("Thêm người dùng thành công");
-                            LoadNguoiDung();
-                        }
+                            bool kqAddTKHT = NguoiDungDAO.Instance.TaoNguoiDungHeThong(tenDN, Mk);
+                            if (kqAddTKHT == true)
+                            {
+                                MessageBox.Show("Thêm người dùng thành công");
+                                LoadNguoiDung();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Thêm người dùng thất bại");
+                            }
+                       }
+                        else { MessageBox.Show("Thêm thất bại"); }
+                        
+                        
                         
                     }
 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DACN.DAO;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -53,6 +54,20 @@ namespace DACN.GUI
         private void toolStripMenuItem7_Click(object sender, EventArgs e)
         {
             OpenChildForm(new FormDoiMatKhau());
+        }
+
+        private void btn_DangXuat_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("Bạn có chắc chắn muốn đăng xuất?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dialogResult == DialogResult.Yes)
+            {
+                LoginDAO.Instance.LogoutUser(FormDangNhap.nhanvien);
+                LoginDAO.Instance.StatusDangXua(FormDangNhap.nhanvien);
+                this.Close();
+                FormDangNhap loginForm = new FormDangNhap();
+                loginForm.Show();
+                FormDangNhap.nhanvien = string.Empty;
+            }
         }
     }
 }

@@ -2581,14 +2581,39 @@ GRANT SELECT,INSERT, UPDATE DELETE ON dbo.CTPhieuTraHangKH TO giao_hang;
 CREATE LOGIN admin WITH PASSWORD = 'Admin@123';
 
 -- Tạo user trong database
-USE [YourDatabaseName]; -- Thay bằng tên database của bạn
-CREATE USER admin FOR LOGIN admin;
+--USE [YourDatabaseName]; -- Thay bằng tên database của bạn
+--CREATE USER admin FOR LOGIN admin;
 
--- Gán quyền sysadmin (toàn quyền trên SQL Server)
-EXEC sp_addsrvrolemember @loginame = 'admin', @rolename = 'sysadmin';
----------test nhóm quyền
-CREATE LOGIN nv_ban_hang WITH PASSWORD = '123456';
-CREATE USER nv_ban_hang FOR LOGIN nv_ban_hang;
-EXEC sp_addrolemember 'ban_hang', 'nv_ban_hang';
+---- Gán quyền sysadmin (toàn quyền trên SQL Server)
+--EXEC sp_addsrvrolemember @loginame = 'admin', @rolename = 'sysadmin';
+-----------test nhóm quyền
+--CREATE LOGIN nv_ban_hang WITH PASSWORD = '123456';
+--CREATE USER nv_ban_hang FOR LOGIN nv_ban_hang;
+--EXEC sp_addrolemember 'ban_hang', 'nv_ban_hang';
 
+---thủ tục cập nhật trạng thái sau khi đăng nhập để đăng xuất
+--đăng nhập
+exec SP_SetStatus 'nv001'
+create proc SP_SetStatus
+@MaNV varchar(50)
+as
+begin
+	update NguoiDung set TrangThaiDangNhap = '1'
+	where MaNV = @MaNV
+end
+--đăng xuất
+create proc SP_SetStatus0
+@MaNV varchar(50)
+as
+begin
+	update NguoiDung set TrangThaiDangNhap = '0'
+	where MaNV = @MaNV
+end
+---thủ tục lấy trạng thái đăng nhập
 
+create proc SP_TrangThai
+@MaNV varchar(50)
+as
+begin
+	select TrangThaiDangNhap from NguoiDung where MaNV = @MaNV
+end

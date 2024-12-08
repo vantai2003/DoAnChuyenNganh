@@ -112,16 +112,12 @@ namespace DACN.DAO
                     return false;
                 }
             }
-            catch (SqlException ex)
+            catch
             {
-                MessageBox.Show($"Lỗi SQL: {ex.Message}");
+                MessageBox.Show("Thêm không thành công!");
                 return false;
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Lỗi: {ex.Message}");
-                return false;
-            }
+            
         }
     }
 }
