@@ -27,17 +27,18 @@ namespace DACN.DTO
         public HoaDonDTO(DataRow row)
         {
             this.MaHD = row["MaHD"].ToString();
-            //this.MaNV = row["MANV"].ToString();
-            this.TenNV = row["TenNV"].ToString();
             this.MaKH = row["MaKH"].ToString();
             this.TenKH = row["TenKH"].ToString();
+            this.DiaChiGiaoHang = row["DiaChiGiaoHang"].ToString();
+            //this.MaNV = row["MANV"].ToString();
+            
+            this.TongTien = decimal.Parse(row["TongTien"].ToString());
+            this.TienCoc = decimal.Parse(row["TienCoc"].ToString());
+            this.ThanhToan = decimal.TryParse(row["ThanhToan"]?.ToString(), out decimal thanhToan) ? thanhToan : 0;  
+            this.SoTienKM = row["TienKM"].ToString();
             this.NgayDatHang = DateTime.Parse(row["NgayDatHang"].ToString());
             this.TrangThai = row["TrangThai"].ToString();
-            this.DiaChiGiaoHang = row["DiaChiGiaoHang"].ToString();
-            this.TienCoc = decimal.Parse(row["TienCoc"].ToString());
-            this.ThanhToan = decimal.TryParse(row["ThanhToan"]?.ToString(), out decimal thanhToan) ? thanhToan : 0;
-            this.TongTien = decimal.Parse(row["TongTien"].ToString());
-            this.SoTienKM = row["TienKM"].ToString();
+            this.TenNV = row["TenNV"].ToString();
         }
         public HoaDonDTO() { }
     }

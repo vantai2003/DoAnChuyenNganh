@@ -63,10 +63,12 @@ namespace DACN.GUI
             this.panel_right.Controls.Add(this.uiPanel1);
             this.panel_right.Controls.Add(this.menuStrip1);
             this.panel_right.Dock = System.Windows.Forms.DockStyle.Fill;
+
             this.panel_right.Location = new System.Drawing.Point(0, 0);
             this.panel_right.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel_right.Name = "panel_right";
             this.panel_right.Size = new System.Drawing.Size(1233, 666);
+
             this.panel_right.TabIndex = 1;
             // 
             // panel_body1
@@ -147,6 +149,7 @@ namespace DACN.GUI
             // 
             this.btn_DangXuat.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_DangXuat.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btn_DangXuat.ForeColor = System.Drawing.Color.Black;
             this.btn_DangXuat.Image = global::DACN.Properties.Resources.icon_logout1;
             this.btn_DangXuat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_DangXuat.Location = new System.Drawing.Point(86, 426);
