@@ -147,7 +147,7 @@
             this.btn_QLNhaCungUng.TabIndex = 5;
             this.btn_QLNhaCungUng.Text = "QUẢN LÝ CUNG ỨNG";
             this.btn_QLNhaCungUng.UseVisualStyleBackColor = false;
-            this.btn_QLNhaCungUng.Click += new System.EventHandler(this.btn_QLGiaNhap_Click);
+            this.btn_QLNhaCungUng.Click += new System.EventHandler(this.btn_QLCungUng_Click);
             // 
             // btn_Logout
             // 

@@ -117,6 +117,7 @@ namespace DACN.GUI
                 if (r == DialogResult.Yes)
                 {
                     NguoiDungDAO.Instance.XoaNguoiDung(tenDN);
+                    NguoiDungDAO.Instance.XoaNguoiDungHeThong(tenDN);
                     MessageBox.Show("Xóa người dùng thành công!");
                     LoadNguoiDung();
                 }
