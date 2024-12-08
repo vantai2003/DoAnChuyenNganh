@@ -18,7 +18,9 @@ namespace DACN.DAO
         private string password;
         private string conStr;
         public static string thongBao = null;
-        private string conStrAdmin = "Data Source=LAPTOP-70K25FBU\\MSSQLSERVER01;Initial Catalog=QL_SatThepXD;User ID=userkill;Password=123;Encrypt=False";
+        private string conStrAdmin = "Data Source=MSI\\SQLEXPRESS;Initial Catalog=QL_SatThepXD;User ID=userkill;Password=123;Encrypt=False";
+
+        //private string conStrAdmin = "Data Source=LAPTOP-70K25FBU\\MSSQLSERVER01;Initial Catalog=QL_SatThepXD;User ID=userkill;Password=123;Encrypt=False";
         private SqlConnection connection;
         public string User
         {
@@ -40,7 +42,7 @@ namespace DACN.DAO
         //private string conStr = $"Data Source=LAPTOP-70K25FBU\\MSSQLSERVER01;Initial Catalog=QL_SatThepXD;User ID={User};Password = {};Encrypt=False";
 
 
-        //private string conStr = "Data Source=localhost;Initial Catalog=QL_SatThepXD;User ID=sa;Password = 123456;Encrypt=False";
+        //private string conStr = "Data Source=localhost;Initial Catalog=QL_SatThepXD;User ID=nv001;Password = 123;Encrypt=False";
 
         public static DataProvider Instance
         {
@@ -58,8 +60,10 @@ namespace DACN.DAO
             user = user.ToLower();
             password = password.ToLower();
             //conStr = $"Data Source=LAPTOP-70K25FBU\\MSSQLSERVER01;Initial Catalog=QL_SatThepXD;User ID={user};Password={password};Encrypt=False";
-           conStr = "Data Source=localhost ;Initial Catalog=QL_SatThepXD;User ID={user};Password={};Integrated Security=True;Encrypt=False"; 
+            conStr = $"Data Source=MSI\\SQLEXPRESS;Initial Catalog=QL_SatThepXD;User ID={user};Password={password};Encrypt=False"; 
+            
         }
+
 
         public DataTable ExecuteQuery(string query, object[] parameter = null)
         {

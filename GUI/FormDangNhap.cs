@@ -37,6 +37,7 @@ namespace DACN.GUI
             nhanvien = txt_UserName.Text.Trim();
             password = txt_PassWord.Text;
             DataProvider.Instance.SetConnectionString(nhanvien, password);
+            Console.WriteLine("NhanVien" + nhanvien + "pass: " + password);
             string userName = txt_UserName.Text;
             string pass = NguoiDungDAO.Hash(txt_PassWord.Text);
             if (Login(userName, pass))
