@@ -280,10 +280,6 @@ GRANT CONTROL ON DATABASE::QL_SatThepXD TO Admin_Role;
 GRANT ALTER ANY USER TO Admin_Role;
 
 
-<<<<<<< HEAD
--- Stored Procedures Login
-drop proc SP_Login
-=======
 CREATE LOGIN [admin] WITH PASSWORD = 'E6E061838856BF47E1DE730719FB2609';
 GO
 CREATE USER [admin] FOR LOGIN [admin];
@@ -327,7 +323,6 @@ WHERE
 -- Giám đốc có quyền xem tất cả và chỉnh sửa một số bảng
 
 ------------------------- Stored Procedures Login-----------------------
->>>>>>> 083b4ffc4de20326f3c28303c2f114f1c2999732
 GO
 CREATE PROC SP_Login
 @MaNV varchar(50), @MatKhau varchar(50)

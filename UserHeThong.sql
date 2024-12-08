@@ -71,6 +71,55 @@ BEGIN
 
     PRINT 'Người dùng đã được tạo thành công và cấp quyền sử dụng tất cả thủ tục.';
 END;
+
+SELECT 1 FROM sys.database_principals WHERE name = 'NV009'
+
+----thủ tục xóa người dùng
+use QL_SatThepXD
+exec SP_XoaTKHeThong 'NV004'
+drop proc SP_XoaTKHeThong
+CREATE PROCEDURE SP_XoaTKHeThong
+    @TenDN NVARCHAR(50)
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    DECLARE @Sql NVARCHAR(MAX); -- Khai báo biến SQL động
+
+    BEGIN TRY
+        -- Kiểm tra và xóa USER trong cơ sở dữ liệu hiện tại
+        IF EXISTS (SELECT 1 FROM sys.database_principals WHERE name = @TenDN)
+        BEGIN
+            SET @Sql = 'DROP USER [' + @TenDN + ']';
+            EXEC sp_executesql @Sql;
+            PRINT 'USER trong cơ sở dữ liệu đã được xóa.';
+        END
+        ELSE
+        BEGIN
+            PRINT 'USER không tồn tại trong cơ sở dữ liệu.';
+        END
+
+        -- Kiểm tra và xóa LOGIN ở cấp máy chủ
+        IF EXISTS (SELECT 1 FROM sys.server_principals WHERE name = @TenDN)
+        BEGIN
+            SET @Sql = 'DROP LOGIN [' + @TenDN + ']';
+            EXEC sp_executesql @Sql;
+            PRINT 'LOGIN ở cấp máy chủ đã được xóa.';
+        END
+        ELSE
+        BEGIN
+            PRINT 'LOGIN không tồn tại ở cấp máy chủ.';
+        END
+    END TRY
+    BEGIN CATCH
+        -- Xử lý lỗi
+        DECLARE @ErrorMessage NVARCHAR(4000) = ERROR_MESSAGE();
+        RAISERROR(@ErrorMessage, 16, 1);
+    END CATCH
+END;
+
+
+
 --------------thủ tục đăng xuất
 drop proc KillUserSessions
 exec KillUserSessions 'nv001'
