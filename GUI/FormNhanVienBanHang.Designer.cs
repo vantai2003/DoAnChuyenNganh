@@ -207,7 +207,6 @@
             this.pn0.Name = "pn0";
             this.pn0.Size = new System.Drawing.Size(351, 230);
             this.pn0.TabIndex = 8;
-            this.pn0.Paint += new System.Windows.Forms.PaintEventHandler(this.pn0_Paint);
             // 
             // lbUserName
             // 
