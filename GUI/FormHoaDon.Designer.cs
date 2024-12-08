@@ -296,6 +296,7 @@
             this.uiButton2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.uiButton2.FillColor = System.Drawing.Color.OrangeRed;
             this.uiButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+
             this.uiButton2.Location = new System.Drawing.Point(519, 63);
             this.uiButton2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.uiButton2.MinimumSize = new System.Drawing.Size(1, 1);
@@ -310,6 +311,7 @@
             // 
             this.txtMaNV.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtMaNV.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+
             this.txtMaNV.Location = new System.Drawing.Point(273, 60);
             this.txtMaNV.Margin = new System.Windows.Forms.Padding(4);
             this.txtMaNV.MinimumSize = new System.Drawing.Size(1, 13);
@@ -325,6 +327,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+
             this.label1.Location = new System.Drawing.Point(33, 63);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(106, 25);
@@ -335,6 +338,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+
             this.label6.Location = new System.Drawing.Point(857, 23);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(93, 25);
@@ -346,6 +350,7 @@
             // 
             this.dtpNgayTao.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dtpNgayTao.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+
             this.dtpNgayTao.Location = new System.Drawing.Point(956, 20);
             this.dtpNgayTao.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtpNgayTao.Name = "dtpNgayTao";
@@ -357,6 +362,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+
             this.label2.Location = new System.Drawing.Point(29, 20);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(221, 25);
@@ -403,6 +409,7 @@
             // 
             this.txtTienCoc.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtTienCoc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+
             this.txtTienCoc.Location = new System.Drawing.Point(273, 97);
             this.txtTienCoc.Margin = new System.Windows.Forms.Padding(4);
             this.txtTienCoc.MinimumSize = new System.Drawing.Size(1, 13);
@@ -428,6 +435,7 @@
             // 
             this.txtDiaChi.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtDiaChi.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+
             this.txtDiaChi.Location = new System.Drawing.Point(183, 206);
             this.txtDiaChi.Margin = new System.Windows.Forms.Padding(4);
             this.txtDiaChi.MinimumSize = new System.Drawing.Size(1, 13);
@@ -444,6 +452,7 @@
             this.txtMaKH.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtMaKH.Enabled = false;
             this.txtMaKH.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+
             this.txtMaKH.Location = new System.Drawing.Point(273, 17);
             this.txtMaKH.Margin = new System.Windows.Forms.Padding(4);
             this.txtMaKH.MinimumSize = new System.Drawing.Size(1, 13);
@@ -459,6 +468,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+
             this.label9.Location = new System.Drawing.Point(33, 170);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(149, 25);
@@ -470,6 +480,7 @@
             this.txtTongTien.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtTongTien.Enabled = false;
             this.txtTongTien.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+
             this.txtTongTien.Location = new System.Drawing.Point(273, 170);
             this.txtTongTien.Margin = new System.Windows.Forms.Padding(4);
             this.txtTongTien.MinimumSize = new System.Drawing.Size(1, 13);
@@ -488,6 +499,7 @@
             this.cbbTrangThai.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.cbbTrangThai.ItemHoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(200)))), ((int)(((byte)(255)))));
             this.cbbTrangThai.ItemSelectForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
+
             this.cbbTrangThai.Location = new System.Drawing.Point(862, 63);
             this.cbbTrangThai.Margin = new System.Windows.Forms.Padding(4);
             this.cbbTrangThai.MinimumSize = new System.Drawing.Size(56, 0);
@@ -632,6 +644,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+
             this.ClientSize = new System.Drawing.Size(1223, 677);
             this.Controls.Add(this.uiPanel3);
             this.Controls.Add(this.tsCTPN);

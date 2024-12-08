@@ -26,6 +26,7 @@ namespace DACN.GUI
         public FormThanhToan(string tth, string tc, string tkm, string  stct)
         {
             InitializeComponent();
+            CenterToScreen();
             tongtienhang = tth;
             tiencoc = tc;
             tienkm = tkm;
@@ -114,8 +115,9 @@ namespace DACN.GUI
             try
             {
                 decimal tiencantra = decimal.TryParse(txt_tiencantra.Text, out decimal stct) ? stct :0;
-                decimal tienthanhtoan = decimal.TryParse(txt_tienthanhtoan.Text, out decimal temp) ? temp : 0;
+                     decimal tienthanhtoan = decimal.TryParse(txt_tienthanhtoan.Text, out decimal temp) ? temp : 0;
                 decimal tientra = tiencantra - tienthanhtoan;
+      
                 string mahd = FormHoaDon.mahd;
                 HoaDonDAO.Instance.ThanhToan(mahd, tientra);
                 MessageBox.Show("Thanh toán thành công!");
@@ -166,6 +168,7 @@ namespace DACN.GUI
 
             var image = Base64ToImage(dataResult.data.qrDataURL.Replace("data:image/png;base64,", ""));
             pictureBox1.Image = image;
+            btnXacNhanQR.Visible = true;
         }
         public Image Base64ToImage(string base64String)
         {
@@ -248,6 +251,7 @@ namespace DACN.GUI
 
             txtInfo.Visible = txtSTK.Visible = txtTenTaiKhoan.Visible = txt_soTien.Visible = cb_nganhang.Visible = cb_template.Visible = btnCreate.Visible = pictureBox1.Visible = false;
             label10.Visible = label11.Visible = label2.Visible = label8.Visible = label9.Visible = label12.Visible = false;
+            btnXacNhanQR.Visible = false;
         }
 
         private void txt_tongtienhang_TextChanged(object sender, EventArgs e)
@@ -258,6 +262,65 @@ namespace DACN.GUI
         private void label7_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnXacNhanQR_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                decimal tiencantra = decimal.TryParse(txt_tiencantra.Text, out decimal stct) ? stct : 0;
+                decimal tientra = decimal.TryParse(txt_soTien.Text, out decimal temp) ? temp : 0;
+
+                //string mahd = "HD001";
+                string mahd = FormHoaDon.mahd;
+                HoaDonDAO.Instance.ThanhToan(mahd, tiencantra - tientra);
+                MessageBox.Show("Thanh toán thành công!");
+                this.Close();
+
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+
+        }
+
+        private void txt_soTien_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txt_tienthanhtoan.Text))
+            {
+                txt_tienthanhtoan.Text = "0";
+            }
+            if (decimal.TryParse(txt_tiencantra.Text, out decimal tiencantra) && decimal.TryParse(txt_soTien.Text, out decimal tienthanhtoan) && tienthanhtoan > tiencantra)
+            {
+                MessageBox.Show("Nhập số tiền thanh toán không hợp lệ!!!");
+                txt_soTien.Text = "0";
+            }
+        }
+
+        private void txt_soTien_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != '.' && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+                return;
+            }
+
+            if (e.KeyChar == '.')
+            {
+                if (txt_tienthanhtoan.Text.Contains("."))
+                {
+                    e.Handled = true;
+                    return;
+                }
+                if (txt_tienthanhtoan.Text.Length == 0)
+
+                {
+                    e.Handled = true;
+                    return;
+                }
+            }
         }
     }
 }
