@@ -24,12 +24,10 @@ namespace DACN.GUI
             InitializeComponent();
             LoadListKM();
         }
-
         private void btn_TaoKM_Click(object sender, EventArgs e)
         {
             string maKM = KhuyenMaiDAO.GenerateMaKM();
             string tenKM = txt_TenKM.Text;
-           
             string moTa = txt_MoTa.Text;
             string trangThai = cb_TrangThai.SelectedItem.ToString();
             if (!rd_TheoKhoangTG.Checked && !rd_TheoTongTien.Checked && !rd_TheoLoaiKH.Checked)
@@ -58,7 +56,6 @@ namespace DACN.GUI
                 {
                     ngayBD = null;
                     ngayKT = null;
-                    
                     if (string.IsNullOrWhiteSpace(txt_DieuKienTongTien.Text))
                     {
                         MessageBox.Show("Giá trị điều kiện tổng tiền không được để trống!", "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -92,7 +89,6 @@ namespace DACN.GUI
                 }
                 try
                 {
-
                     KhuyenMaiDAO.Instance.ThemKM(maKM, tenKM, ngayBD, ngayKT, moTa, trangThai, giaTriKM, loaiDieuKien, dieuKienTongTien);
                     MessageBox.Show("Thêm thành công");
                     txt_TenKM.Clear();
@@ -123,7 +119,6 @@ namespace DACN.GUI
             txt_TenKM.Enabled = lb_gtdktt.Enabled = txt_DieuKienTongTien.Enabled = true;
             flag = 2;
             loaiDK = "Theo tổng tiền";
-            
         }
         private void LoadListLoaiKH()
         {
@@ -301,10 +296,7 @@ namespace DACN.GUI
             else
             {
                 string tenKM = txttenkm.Text;
-
                 string moTa = txtmota.Text;
-
-
                 if (string.IsNullOrWhiteSpace(txtgtkm.Text))
                 {
                     MessageBox.Show("Giá trị khuyến mãi không được để trống!", "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -318,7 +310,6 @@ namespace DACN.GUI
                 else
                 {
                     decimal giaTriKM = decimal.Parse(txtgtkm.Text);
-
                     if (temp == 1)
                     {
                         DateTime ngayBD = dpNgayBD.Value;
@@ -344,7 +335,6 @@ namespace DACN.GUI
                             decimal dieuKienTongTien = decimal.Parse(txtdktt.Text);
                             KhuyenMaiDAO.Instance.SuaKMTongTien(maKM, tenKM, giaTriKM, moTa, dieuKienTongTien);
                         }
-
                     }
                     else
                     {
@@ -352,10 +342,7 @@ namespace DACN.GUI
                     }
                     MessageBox.Show("Sửa khuyến mãi thành công");
                     LoadListKM();
-                    
-                }
-                
-            }
+                }            }
         }
 
         private void btn_Loc_Click(object sender, EventArgs e)
@@ -365,7 +352,7 @@ namespace DACN.GUI
             dvg_DSKM.DataSource=listKM;
         }
 
-        private void uiButton1_Click(object sender, EventArgs e)
+        private void btn_Tim_Click(object sender, EventArgs e)
         {
             string searchValue = txt_search.Text;
             List<KhuyenMaiDTO> listKM = KhuyenMaiDAO.Instance.TimKiemKM(searchValue);

@@ -21,7 +21,6 @@ namespace DACN.GUI
         {
             InitializeComponent();
             LoadListNhanVien();
-            
         }
         private void LoadListNhanVien()
         {
@@ -40,14 +39,12 @@ namespace DACN.GUI
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            
             string tenNV = txt_HoTen.Text;
             string chucVu = txt_ChuVu.Text;
             string sdt = txt_sdt.Text;
             string email = txt_Email.Text;
             DateTime ngayTD = dtp_NgayTD.Value;
             decimal luong = 0;
-            
             if(KiemTraDuLieuDAO.KiemTraDuLieuSo(txt_Luong.Text) == false)
             {
                 MessageBox.Show("Lương không hợp lệ");
@@ -56,7 +53,6 @@ namespace DACN.GUI
             if (txt_Luong.Text != "")
             {
                 luong = decimal.Parse(txt_Luong.Text);
-
             }
             if (tenNV == "")
             {
@@ -66,7 +62,6 @@ namespace DACN.GUI
             {
                 MessageBox.Show("Số điện thoại không được để trống!");
             }
-            
             else
             {
                 bool ktSDT = NhanVienDAO.Instance.KiemTraTrungSDT(sdt);
@@ -75,7 +70,6 @@ namespace DACN.GUI
                     MessageBox.Show("Số điện thoại đã tồn tại!");
                     return;
                 }
-                
                 bool dinhDangSDT = KiemTraDuLieuDAO.KTSoDienThoai(sdt);
                 if(dinhDangSDT == false)
                 {
@@ -96,16 +90,12 @@ namespace DACN.GUI
                 }
                 else
                 {
-
                     string maNV = NhanVienDAO.GenerateMaNV();
                     NhanVienDAO.Instance.ThemNhanVien(maNV, tenNV, chucVu, sdt, email, ngayTD, luong);
                     MessageBox.Show("Thêm nhân viên thành công!");
                     LoadListNhanVien();
                 }
-                
-            }
-            
-        }
+            }        }
 
         private void dvg_NhanVien_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -174,7 +164,6 @@ namespace DACN.GUI
             if (txt_Luong.Text != "")
             {
                 luong = decimal.Parse(txt_Luong.Text);
-
             }
             if (tenNV == "")
             {
@@ -216,7 +205,6 @@ namespace DACN.GUI
                     return;
                 }
             }
-
             string maNV = txt_MaNV.Text;
             NhanVienDAO.Instance.SuaNV(maNV, tenNV, chucVu, sdt, email, ngayTD, luong);
             MessageBox.Show("Sửa nhân viên thành công!");

@@ -14,7 +14,6 @@ namespace DACN.GUI
 {
     public partial class FormTTNguoiDung : Form
     {
-        
         public FormTTNguoiDung()
         {
             InitializeComponent();
@@ -32,7 +31,6 @@ namespace DACN.GUI
                 txt_SDT.Text = row["SDT"].ToString();
                 txt_ChucVu.Text = row["ChucVu"].ToString();
                 txt_NgayVaoLam.Text =row["NgayTuyenDung"].ToString();
-                
             }
         }
 

@@ -44,7 +44,6 @@ namespace DACN.GUI
                 Rectangle rect = dvg_ChonSP.GetCellDisplayRectangle(0, -1, true); 
                 chkSelectAll.Location = new Point(rect.Location.X + 15, rect.Location.Y + 5); 
                 dvg_ChonSP.Controls.Add(chkSelectAll);
-
             }
             dvg_ChonSP.AllowUserToAddRows = false;
             dvg_ChonSP.AutoSize = true;
@@ -55,7 +54,6 @@ namespace DACN.GUI
             dvg_ChonSP.Columns["TenSP"].HeaderText = "Tên Sản phẩm";
             dvg_ChonSP.Columns["DVT"].HeaderText = "Đơn vị tính";
             dvg_ChonSP.Columns["TenLoai"].HeaderText = "Tên loại";
-
         }
         private void chkSelectAll_CheckedChanged(object sender, EventArgs e)
         {
@@ -64,7 +62,7 @@ namespace DACN.GUI
             foreach (DataGridViewRow row in dvg_ChonSP.Rows)
             {
                 DataGridViewCheckBoxCell chkCell = (DataGridViewCheckBoxCell)row.Cells["Chon"];
-                chkCell.Value = checkStatus; // Set giá trị
+                chkCell.Value = checkStatus;
             }
         }
 

@@ -15,7 +15,6 @@ namespace DACN.GUI
 {
     public partial class FormTaoPhieuTraHangNCC : Form
     {
-
         private static string mapn;
         private static string manv;
         private static string makho;
@@ -23,20 +22,16 @@ namespace DACN.GUI
         private decimal flag = 0;
         private List<CTPhieuTraHangNCCDTO> selectedProducts = new List<CTPhieuTraHangNCCDTO>();
         private FormNhapHang fnhaphang = new FormNhapHang();
-        
         public FormTaoPhieuTraHangNCC()
         {
             InitializeComponent();
             mapn = FormNhapHang.mapn;
-            
             LoadCTPN();
         }
         private void LoadCTPN()
         {
             List<CTPhieuNHDTO> listctpn = PhieuNhapHangDAO.Instance.GetCTPhieuNH(mapn);
             DataGridViewCheckBoxColumn chkColumn = dvg_TaoPTH.Columns["Chon"] as DataGridViewCheckBoxColumn;
-
-
             if (chkColumn == null)
             {
                 chkColumn = new DataGridViewCheckBoxColumn();
@@ -53,7 +48,6 @@ namespace DACN.GUI
                 Rectangle rect = dvg_TaoPTH.GetCellDisplayRectangle(0, -1, true); // Lấy vị trí của header
                 chkSelectAll.Location = new Point(rect.Location.X + 15, rect.Location.Y + 5); // Điều chỉnh vị trí
                 dvg_TaoPTH.Controls.Add(chkSelectAll);
-
             }
             dvg_TaoPTH.AllowUserToAddRows = false;
             dvg_TaoPTH.AutoSize = true;
@@ -281,12 +275,7 @@ namespace DACN.GUI
                 }
                 else
                 {
-                    //string maSP = row.Cells["MaSP"].Value.ToString();
-                    //HangHoaDTO productToRemove = selectedProducts.FirstOrDefault(p => p.MaSP == maSP);
-                    //if (productToRemove != null)
-                    //{
-                    //    selectedProducts.Remove(productToRemove);
-                    //}
+                    
                 }
             }
         }

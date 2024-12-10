@@ -15,7 +15,6 @@ namespace DACN.GUI
 {
     public partial class FormPhieuTraHangKH : Form
     {
-
         private static string makho;
         private static string mahd;
         public FormPhieuTraHangKH()
@@ -24,7 +23,6 @@ namespace DACN.GUI
             mahd = FormHoaDon.mahd;
             LoadCTHD();
             SetupDataGridView();
-
         }
         private void SetupDataGridView()
         {
@@ -33,9 +31,7 @@ namespace DACN.GUI
             {
                 column.ReadOnly = true;
                 dvg_TaoPTH.Columns["SoLuongTra"].ReadOnly = false;
-
             }
-
         }
         private void LoadCTHD()
         {
@@ -53,7 +49,6 @@ namespace DACN.GUI
                 cbbKho.SelectedIndex = 0;
                 // Thêm cột vào DataGridView
                 dvg_TaoPTH.Columns.Add(colSoLuongTra);
-
             }
 
             dvg_TaoPTH.DataSource = listHoaDon;
@@ -65,15 +60,11 @@ namespace DACN.GUI
             dvg_TaoPTH.Columns["MaHD"].HeaderText = "Mã hóa đơn";
             dvg_TaoPTH.Columns["ThanhTien"].HeaderText = "Thành tiền";
             RearrangeColumns();
-
-
         }
         private void RearrangeColumns()
         {
             // Tạo một danh sách mới cho các cột theo thứ tự mong muốn
             var newOrder = new List<string>();
-
-            // Thêm các cột theo thứ tự bạn mong muốn
             newOrder.Add("MaCTHD");
             newOrder.Add("SoLuong");
             newOrder.Add("SoLuongTra");
@@ -82,8 +73,6 @@ namespace DACN.GUI
             newOrder.Add("MaSP");
             newOrder.Add("MaHD");
             newOrder.Add("ThanhTien");
-
-
             // Thiết lập lại thứ tự cột trong DataGridView
             foreach (var columnName in newOrder)
             {
@@ -93,22 +82,6 @@ namespace DACN.GUI
                 }
             }
         }
-
-        private void uiPanel4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dvg_TaoPTH_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void btn_taophieuKH_Click(object sender, EventArgs e)
         {
             // Lấy thông tin nhân viên
@@ -121,13 +94,11 @@ namespace DACN.GUI
                     DataRow row = dt.Rows[0];
                     manv = row["MaNV"].ToString();
                 }
-
                 // Tạo mã phiếu trả
-                string maPT = PhieuTraHangKHDAO.GenerateMaPT(); // Phương thức tạo mã phiếu trả cho KH
+                string maPT = PhieuTraHangKHDAO.GenerateMaPT();
                 DateTime ngayTao = DateTime.Now;
                 string lyDo = rtb_lydo.Text;
                 decimal tongTien = 0;
-
                 // Tính tổng tiền từ DataGridView
                 foreach (DataGridViewRow dvgRow in dvg_TaoPTH.Rows)
                 {
@@ -206,11 +177,7 @@ namespace DACN.GUI
                 {
                     MessageBox.Show("Lỗi khi tạo mã phiếu trả hàng", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-
-
-
             }
-
             catch (Exception ex)
             {
                 MessageBox.Show("Loi" + ex.ToString());
@@ -241,8 +208,6 @@ namespace DACN.GUI
                     }
                   
                 }
-
-       
             }
         }
     }

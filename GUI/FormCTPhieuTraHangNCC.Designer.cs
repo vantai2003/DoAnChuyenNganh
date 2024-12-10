@@ -34,8 +34,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.mn_CTPN = new System.Windows.Forms.MenuStrip();
-            this.inToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.thoátToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.uiPanel1 = new Sunny.UI.UIPanel();
             this.uiPanel3 = new Sunny.UI.UIPanel();
             this.uiPanel5 = new Sunny.UI.UIPanel();
@@ -44,6 +42,8 @@
             this.uiPanel6 = new Sunny.UI.UIPanel();
             this.uiPanel4 = new Sunny.UI.UIPanel();
             this.uiPanel2 = new Sunny.UI.UIPanel();
+            this.inToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.thoátToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mn_CTPN.SuspendLayout();
             this.uiPanel1.SuspendLayout();
             this.uiPanel3.SuspendLayout();
@@ -63,20 +63,6 @@
             this.mn_CTPN.Size = new System.Drawing.Size(1174, 36);
             this.mn_CTPN.TabIndex = 2;
             this.mn_CTPN.Text = "menuStrip1";
-            // 
-            // inToolStripMenuItem
-            // 
-            this.inToolStripMenuItem.Image = global::DACN.Properties.Resources.Print1;
-            this.inToolStripMenuItem.Name = "inToolStripMenuItem";
-            this.inToolStripMenuItem.Size = new System.Drawing.Size(62, 32);
-            this.inToolStripMenuItem.Text = "In";
-            // 
-            // thoátToolStripMenuItem
-            // 
-            this.thoátToolStripMenuItem.Image = global::DACN.Properties.Resources.Close2;
-            this.thoátToolStripMenuItem.Name = "thoátToolStripMenuItem";
-            this.thoátToolStripMenuItem.Size = new System.Drawing.Size(96, 32);
-            this.thoátToolStripMenuItem.Text = "Thoát";
             // 
             // uiPanel1
             // 
@@ -231,6 +217,20 @@
             this.uiPanel2.Text = "CHI TIẾT PHIẾU TRẢ HÀNG";
             this.uiPanel2.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // inToolStripMenuItem
+            // 
+            this.inToolStripMenuItem.Image = global::DACN.Properties.Resources.Print1;
+            this.inToolStripMenuItem.Name = "inToolStripMenuItem";
+            this.inToolStripMenuItem.Size = new System.Drawing.Size(62, 32);
+            this.inToolStripMenuItem.Text = "In";
+            // 
+            // thoátToolStripMenuItem
+            // 
+            this.thoátToolStripMenuItem.Image = global::DACN.Properties.Resources.Close2;
+            this.thoátToolStripMenuItem.Name = "thoátToolStripMenuItem";
+            this.thoátToolStripMenuItem.Size = new System.Drawing.Size(96, 32);
+            this.thoátToolStripMenuItem.Text = "Thoát";
+            // 
             // FormCTPhieuTraHangNCC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -239,7 +239,7 @@
             this.Controls.Add(this.uiPanel1);
             this.Controls.Add(this.mn_CTPN);
             this.Name = "FormCTPhieuTraHangNCC";
-            this.Text = "CHI TIẾT PHIẾU TRẢ HÀNG";
+            this.Text = "CHI TIẾT PHIẾU TRẢ HÀNG NHÀ CUNG CẤP";
             this.mn_CTPN.ResumeLayout(false);
             this.mn_CTPN.PerformLayout();
             this.uiPanel1.ResumeLayout(false);

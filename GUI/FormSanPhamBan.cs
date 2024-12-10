@@ -21,11 +21,9 @@ namespace DACN.GUI
         {
             InitializeComponent();
             LoadSanPhamBan();
-
         }
         private void LoadSanPhamBan()
         {
-
             DataTable dtsanpham = CTHoaDonDAO.Instance.GetSanPhamBan();
             DataGridViewCheckBoxColumn chkColumn = uiDataGridView1.Columns["Chon"] as DataGridViewCheckBoxColumn;
             if (chkColumn == null)
@@ -35,18 +33,19 @@ namespace DACN.GUI
                 chkColumn.Name = "Chon";
                 uiDataGridView1.Columns.Add(chkColumn);
             }
-
             uiDataGridView1.AllowUserToAddRows = false;
             uiDataGridView1.DataSource = dtsanpham;
             uiDataGridView1.AutoSize = true;
 
             SetupDataGridView();
-
+            uiDataGridView1.Columns["MaSP"].HeaderText = "Mã sản phẩm";
+            uiDataGridView1.Columns["TenSP"].HeaderText = "Tên sản phẩm";
+            uiDataGridView1.Columns["DVT"].HeaderText = "ĐVT";
+            uiDataGridView1.Columns["TenKho"].HeaderText = "Tên kho";
+            uiDataGridView1.Columns["SoLuongTon"].HeaderText = "Số lượng tồn";
+            uiDataGridView1.Columns["TenLoai"].HeaderText = "Loại";
         }
-        private void uiButton1_Click(object sender, EventArgs e)
-        {
 
-        }
         private void SetupDataGridView()
         {
             // Đặt các cột khác thành ReadOnly
@@ -54,14 +53,9 @@ namespace DACN.GUI
             {
                 column.ReadOnly = true;
                 uiDataGridView1.Columns["Chon"].ReadOnly = false;
-
             }
-
         }
-        private void uiDataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
 
-        }
 
         private void btnChonSP_Click(object sender, EventArgs e)
         {
@@ -84,8 +78,6 @@ namespace DACN.GUI
                                 return;
                             }    
                             string tenKho = row.Cells["TenKho"].Value.ToString();
-
-
                             formBanHang.AddProductToReceipt(maSP, tenSP, dvt, tenloaisp, soLuongTon, tenKho);
                         }
                         catch (Exception ex)
@@ -104,7 +96,6 @@ namespace DACN.GUI
             {
                 DataGridViewRow row = uiDataGridView1.Rows[e.RowIndex];
                 bool isChecked = row.Cells["Chon"].Selected; 
-
                 if (isChecked)
                 {
                     try
@@ -114,7 +105,6 @@ namespace DACN.GUI
                             MessageBox.Show("Missing data in row!");
                             return;
                         }
-
                         string maSP = row.Cells["MaSP"].Value.ToString();
                         string tenSP = row.Cells["TenSP"].Value.ToString();
                         string dvt = row.Cells["DVT"].Value.ToString();
@@ -129,10 +119,8 @@ namespace DACN.GUI
                             TenKho = tenKho,
                             SoLuongTon = soLuongTon,
                             TenLoaiSP = tenloaisp
-
                         });
                     }
-                    
                     catch (Exception ex)
                     {
                         MessageBox.Show("An error occurred: " + ex.Message);
@@ -169,9 +157,7 @@ namespace DACN.GUI
             uiDataGridView1.AllowUserToAddRows = false;
             uiDataGridView1.DataSource = dtsanpham;
             uiDataGridView1.AutoSize = true;
-
             SetupDataGridView();
-
         }
     }
-    }
+}

@@ -17,7 +17,6 @@ namespace DACN.GUI
         public FormDuyetPhieuNhap()
         {
             InitializeComponent();
-
             LoadDSPD();
         }
         public static string maPN = "";
@@ -70,9 +69,7 @@ namespace DACN.GUI
                     MessageBox.Show("Đã phê duyệt xóa");
                     LoadDSPD();
                 }
-                
             }
-
         }
 
         private void dvg_DSDPN_CellClick(object sender, DataGridViewCellEventArgs e)

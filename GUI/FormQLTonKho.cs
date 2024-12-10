@@ -10,7 +10,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
 namespace DACN.GUI
 {
     public partial class FormQLTonKho : Form
@@ -53,7 +52,7 @@ namespace DACN.GUI
             flag = 1;
         }
 
-        private void btn_Loc_Click(object sender, EventArgs e)
+        private void btnChon_Click(object sender, EventArgs e)
         {
             if (flag == 1)
             {
@@ -68,7 +67,7 @@ namespace DACN.GUI
                     List<Kho_SanPhamDTO> listTonKho = TonKhoDAO.Instance.LocTheoKho(maKho);
                     dvg_TonKho.DataSource = listTonKho;
                 }
-                
+
             }
             else
             {

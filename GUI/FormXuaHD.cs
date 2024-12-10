@@ -21,7 +21,6 @@ namespace DACN.GUI
             InitializeComponent();
             maHD = FormInHoaDon.maHD;
         }
-
         private void FormXuaHD_Load(object sender, EventArgs e)
         {
             rpV_HD.LocalReport.ReportPath = @"D:\DACN\Project\DACN\Dataset\ReportHoaDon.rdlc";
@@ -44,7 +43,6 @@ namespace DACN.GUI
             reportParameters[0] = new ReportParameter("MaHoaDon", maHoaDon);
             reportParameters[1] = new ReportParameter("TienBangChu", tienChu);
 
-
             try
             {
                 rpV_HD.LocalReport.SetParameters(reportParameters);
@@ -54,9 +52,6 @@ namespace DACN.GUI
                 Console.Write("Lỗi khi thiết lập tham số: " + ex.Message);
                 return;
             }
-
-            // Làm mới báo cáo
-            
             this.rpV_HD.RefreshReport();
         }
     }

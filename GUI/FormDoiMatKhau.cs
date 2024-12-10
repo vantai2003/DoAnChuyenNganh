@@ -43,9 +43,7 @@ namespace DACN.GUI
                 {
                     MessageBox.Show("Sai Tên đăng nhập hoặc mật khẩu");
                     txt_MatKhauCu.Focus();
-                } 
-                    
-                
+                }
             }
         }
     }

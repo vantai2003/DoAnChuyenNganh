@@ -46,10 +46,8 @@ namespace DACN.GUI
         }
         private void btn_Search_Click(object sender, EventArgs e)
         {
-
-           List<LoaiSanPhamDTO> listloaisp = LoaiSanPhamDAO.Instance.TimKiemLHH(txt_Search.Text);
+            List<LoaiSanPhamDTO> listloaisp = LoaiSanPhamDAO.Instance.TimKiemLHH(txt_Search.Text);
             dvg_LoaiSP.DataSource=listloaisp;
-
         }
 
         private void btnThem_Click(object sender, EventArgs e)
@@ -75,7 +73,6 @@ namespace DACN.GUI
                         LoadLoaiSanPham();
                         txt_MaLoaiSP.Clear();
                         txt_TenLoaiSP.Clear();
-
                     }
                 }
                 else
@@ -130,9 +127,7 @@ namespace DACN.GUI
             catch 
             {
                 MessageBox.Show("Không xóa được loại sản phẩm này !");
-                
             }
-            
         }
 
         private void btn_Sua_Click(object sender, EventArgs e)
@@ -168,8 +163,6 @@ namespace DACN.GUI
         {
             return HangHoaDAO.Instance.KiemTraTrungMaSP(masp);
         }
-
-
         private void dvg_HangHoa_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
@@ -180,9 +173,7 @@ namespace DACN.GUI
                 txt_MaHH.Text = Convert.ToString(row.Cells["MaSP"].Value);
                 txt_TenHH.Text = Convert.ToString(row.Cells["TenSP"].Value);
                 cb_DVT.SelectedItem = row.Cells["DVT"].Value.ToString();
-                //cb_LoaiHH.SelectedValue = Convert.ToString(row.Cells["TenLoai"].Value);
                 string tenLoai = row.Cells["TenLoai"].Value.ToString();
-
                 foreach (LoaiSanPhamDTO loaiSP in cb_LoaiHH.Items)
                 {
                     if (loaiSP.TenLoai == tenLoai)
@@ -195,7 +186,6 @@ namespace DACN.GUI
                 btn_ThemHH.Enabled = false;
                 btn_SuaHH.Enabled = true;
             }
-            
         }
 
         private void btn_ReloadHH_Click(object sender, EventArgs e)
@@ -231,12 +221,6 @@ namespace DACN.GUI
             {
                 MessageBox.Show("Sửa thất bại");
             }
-        }
-
-        private void btn_SearchHH_Click(object sender, EventArgs e)
-        {
-            List<HangHoaDTO> listHH = HangHoaDAO.Instance.TimKiemHH(txt_SearchHH.Text);
-            dvg_HangHoa.DataSource = listHH;
         }
 
 
@@ -285,7 +269,6 @@ namespace DACN.GUI
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
             int index = tab_body.SelectedIndex;
-
             switch (index)
             {
                 case 0:
@@ -356,11 +339,8 @@ namespace DACN.GUI
             string tenSP = txt_TenHH.Text;
             string dvt = cb_DVT.SelectedItem.ToString();
             string loaiSP = cb_LoaiHH.SelectedValue.ToString();
-
             if (!string.IsNullOrEmpty(maSP))
             {
-
-
                 if (tenSP == "")
                 {
                     MessageBox.Show("Tên sản phẩm không được để trống");
@@ -409,6 +389,12 @@ namespace DACN.GUI
         {
             btn_LuuHH.Enabled = true;
             flag = 1;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            List<HangHoaDTO> listHH = HangHoaDAO.Instance.TimKiemHH(txt_SearchHH.Text);
+            dvg_HangHoa.DataSource = listHH;
         }
     }
 }

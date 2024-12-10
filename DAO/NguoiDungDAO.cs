@@ -102,19 +102,10 @@ namespace DACN.DAO
             {
                 string query = "SP_TaoTKHeThong @TenDN , @MatKhau";
                 int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { tenDN, matKhau });
-
-                if (result > 0)
-                {
-                    return true; 
-                }
-                else
-                {
-                    return false;
-                }
+                return true;
             }
             catch
             {
-                MessageBox.Show("Thêm không thành công!");
                 return false;
             }
             
@@ -142,6 +133,27 @@ namespace DACN.DAO
             }
 
         }
-        
+        public bool SuaNguoiDungHeThong(string tenDN, string matKhauMoi, int? quyenID)
+        {
+            try
+            {
+                string query = "SP_SuaTKHeThong @TenDN , @MatKhauMoi , @QuyenID";
+                List<object> parameters = new List<object>
+                    {
+                        tenDN,
+                        matKhauMoi ?? (object)DBNull.Value,
+                        quyenID.HasValue ? quyenID.Value : (object)DBNull.Value
+                    };
+
+                int result = DataProvider.Instance.ExecuteNonQuery(query, parameters.ToArray());
+
+                return result > 0; 
+            }
+            catch
+            {
+                return false; 
+            }
+        }
+
     }
 }

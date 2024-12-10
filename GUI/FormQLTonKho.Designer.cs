@@ -28,17 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pannel_body = new Sunny.UI.UIPanel();
             this.uiPanel2 = new Sunny.UI.UIPanel();
             this.uiPanel3 = new Sunny.UI.UIPanel();
             this.dvg_TonKho = new Sunny.UI.UIDataGridView();
             this.panel_Top = new Sunny.UI.UIPanel();
-            this.btn_Loc = new System.Windows.Forms.Button();
+            this.btn_Loc = new Sunny.UI.UIButton();
             this.cb_Kho = new System.Windows.Forms.ComboBox();
             this.txt_search = new Sunny.UI.UITextBox();
             this.rgb_Loc = new Sunny.UI.UIRadioButtonGroup();
@@ -100,46 +100,46 @@
             // 
             // dvg_TonKho
             // 
-            dataGridViewCellStyle21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
-            this.dvg_TonKho.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
+            this.dvg_TonKho.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dvg_TonKho.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dvg_TonKho.BackgroundColor = System.Drawing.Color.White;
             this.dvg_TonKho.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle22.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            dataGridViewCellStyle22.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dvg_TonKho.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dvg_TonKho.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dvg_TonKho.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle23.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle23.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            dataGridViewCellStyle23.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
-            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dvg_TonKho.DefaultCellStyle = dataGridViewCellStyle23;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dvg_TonKho.DefaultCellStyle = dataGridViewCellStyle3;
             this.dvg_TonKho.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dvg_TonKho.EnableHeadersVisualStyles = false;
             this.dvg_TonKho.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.dvg_TonKho.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
             this.dvg_TonKho.Location = new System.Drawing.Point(0, 0);
             this.dvg_TonKho.Name = "dvg_TonKho";
-            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle24.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle24.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            dataGridViewCellStyle24.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
-            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dvg_TonKho.RowHeadersDefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dvg_TonKho.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dvg_TonKho.RowHeadersWidth = 51;
-            dataGridViewCellStyle25.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle25.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.dvg_TonKho.RowsDefaultCellStyle = dataGridViewCellStyle25;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.dvg_TonKho.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dvg_TonKho.RowTemplate.Height = 24;
             this.dvg_TonKho.SelectedIndex = -1;
             this.dvg_TonKho.Size = new System.Drawing.Size(1214, 469);
@@ -165,17 +165,18 @@
             // 
             // btn_Loc
             // 
-            this.btn_Loc.BackColor = System.Drawing.Color.Olive;
             this.btn_Loc.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_Loc.Enabled = false;
-            this.btn_Loc.ForeColor = System.Drawing.Color.White;
-            this.btn_Loc.Location = new System.Drawing.Point(930, 22);
+            this.btn_Loc.FillColor = System.Drawing.Color.DodgerBlue;
+            this.btn_Loc.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btn_Loc.Location = new System.Drawing.Point(930, 33);
+            this.btn_Loc.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_Loc.MinimumSize = new System.Drawing.Size(1, 1);
             this.btn_Loc.Name = "btn_Loc";
-            this.btn_Loc.Size = new System.Drawing.Size(99, 62);
-            this.btn_Loc.TabIndex = 4;
+            this.btn_Loc.Size = new System.Drawing.Size(127, 45);
+            this.btn_Loc.TabIndex = 5;
             this.btn_Loc.Text = "Lọc";
-            this.btn_Loc.UseVisualStyleBackColor = false;
-            this.btn_Loc.Click += new System.EventHandler(this.btn_Loc_Click);
+            this.btn_Loc.TipsFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
+            this.btn_Loc.Click += new System.EventHandler(this.btnChon_Click);
             // 
             // cb_Kho
             // 
@@ -249,7 +250,7 @@
             this.uiPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.uiPanel1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.uiPanel1.FillColor2 = System.Drawing.Color.White;
-            this.uiPanel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
+            this.uiPanel1.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.uiPanel1.ForeColor = System.Drawing.Color.Lime;
             this.uiPanel1.Location = new System.Drawing.Point(0, 0);
             this.uiPanel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -287,10 +288,10 @@
         private Sunny.UI.UIPanel uiPanel3;
         private Sunny.UI.UIPanel panel_Top;
         private Sunny.UI.UIRadioButtonGroup rgb_Loc;
-        private System.Windows.Forms.Button btn_Loc;
         private System.Windows.Forms.ComboBox cb_Kho;
         private Sunny.UI.UITextBox txt_search;
         private Sunny.UI.UIRadioButton rdb_Kho;
         private Sunny.UI.UIRadioButton rdb_SanPham;
+        private Sunny.UI.UIButton btn_Loc;
     }
 }

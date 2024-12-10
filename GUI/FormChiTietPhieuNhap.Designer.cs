@@ -124,7 +124,7 @@
             this.uiPanel2.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.uiPanel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.uiPanel2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.uiPanel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.uiPanel2.Font = new System.Drawing.Font("Arial", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.uiPanel2.Location = new System.Drawing.Point(0, 0);
             this.uiPanel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.uiPanel2.MinimumSize = new System.Drawing.Size(1, 1);

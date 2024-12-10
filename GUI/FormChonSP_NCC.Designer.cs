@@ -28,6 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormChonSP_NCC));
             this.uiPanel1 = new Sunny.UI.UIPanel();
             this.uiPanel6 = new Sunny.UI.UIPanel();
@@ -111,10 +115,41 @@
             // 
             // dvg_ChonSP
             // 
-            this.dvg_ChonSP.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            this.dvg_ChonSP.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dvg_ChonSP.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dvg_ChonSP.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dvg_ChonSP.BackgroundColor = System.Drawing.Color.AliceBlue;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dvg_ChonSP.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dvg_ChonSP.ColumnHeadersHeight = 29;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dvg_ChonSP.DefaultCellStyle = dataGridViewCellStyle3;
             this.dvg_ChonSP.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dvg_ChonSP.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.dvg_ChonSP.Location = new System.Drawing.Point(0, 0);
             this.dvg_ChonSP.Name = "dvg_ChonSP";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dvg_ChonSP.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dvg_ChonSP.RowHeadersWidth = 51;
             this.dvg_ChonSP.RowTemplate.Height = 24;
             this.dvg_ChonSP.Size = new System.Drawing.Size(826, 352);
@@ -139,6 +174,7 @@
             // uiPanel10
             // 
             this.uiPanel10.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uiPanel10.FillColor = System.Drawing.Color.AliceBlue;
             this.uiPanel10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.uiPanel10.Location = new System.Drawing.Point(526, 0);
             this.uiPanel10.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -184,6 +220,7 @@
             this.grb_search.Controls.Add(this.btn_Search);
             this.grb_search.Controls.Add(this.txt_SearchHH);
             this.grb_search.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grb_search.FillColor = System.Drawing.Color.AliceBlue;
             this.grb_search.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.grb_search.Location = new System.Drawing.Point(0, 0);
             this.grb_search.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -274,11 +311,12 @@
             // 
             // btn_ThemSP
             // 
-            this.btn_ThemSP.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.btn_ThemSP.BackColor = System.Drawing.Color.ForestGreen;
             this.btn_ThemSP.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_ThemSP.Location = new System.Drawing.Point(8, 37);
+            this.btn_ThemSP.ForeColor = System.Drawing.Color.White;
+            this.btn_ThemSP.Location = new System.Drawing.Point(0, 37);
             this.btn_ThemSP.Name = "btn_ThemSP";
-            this.btn_ThemSP.Size = new System.Drawing.Size(184, 47);
+            this.btn_ThemSP.Size = new System.Drawing.Size(192, 47);
             this.btn_ThemSP.TabIndex = 1;
             this.btn_ThemSP.Text = "Thêm sản phẩm";
             this.btn_ThemSP.UseVisualStyleBackColor = false;
@@ -301,11 +339,12 @@
             // 
             // btn_Chon
             // 
-            this.btn_Chon.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.btn_Chon.BackColor = System.Drawing.Color.ForestGreen;
             this.btn_Chon.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_Chon.Location = new System.Drawing.Point(50, 35);
+            this.btn_Chon.ForeColor = System.Drawing.Color.White;
+            this.btn_Chon.Location = new System.Drawing.Point(31, 35);
             this.btn_Chon.Name = "btn_Chon";
-            this.btn_Chon.Size = new System.Drawing.Size(109, 49);
+            this.btn_Chon.Size = new System.Drawing.Size(128, 49);
             this.btn_Chon.TabIndex = 0;
             this.btn_Chon.Text = "Chọn";
             this.btn_Chon.UseVisualStyleBackColor = false;
@@ -314,6 +353,7 @@
             // uiPanel4
             // 
             this.uiPanel4.Dock = System.Windows.Forms.DockStyle.Right;
+            this.uiPanel4.FillColor = System.Drawing.Color.AliceBlue;
             this.uiPanel4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.uiPanel4.Location = new System.Drawing.Point(993, 114);
             this.uiPanel4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -328,6 +368,7 @@
             // uiPanel3
             // 
             this.uiPanel3.Dock = System.Windows.Forms.DockStyle.Left;
+            this.uiPanel3.FillColor = System.Drawing.Color.AliceBlue;
             this.uiPanel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.uiPanel3.Location = new System.Drawing.Point(0, 114);
             this.uiPanel3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -342,8 +383,9 @@
             // uiPanel2
             // 
             this.uiPanel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.uiPanel2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.uiPanel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.uiPanel2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.uiPanel2.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uiPanel2.ForeColor = System.Drawing.Color.Lime;
             this.uiPanel2.Location = new System.Drawing.Point(0, 0);
             this.uiPanel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.uiPanel2.MinimumSize = new System.Drawing.Size(1, 1);
@@ -360,7 +402,7 @@
             this.ClientSize = new System.Drawing.Size(1128, 687);
             this.Controls.Add(this.uiPanel1);
             this.Name = "FormChonSP_NCC";
-            this.Text = "CHỌN SẢN PHẨM";
+            this.Text = "CHỌN SẢN PHẨM CUNG ỨNG";
             this.uiPanel1.ResumeLayout(false);
             this.uiPanel6.ResumeLayout(false);
             this.uiPanel8.ResumeLayout(false);

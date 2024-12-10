@@ -19,16 +19,12 @@ namespace DACN.GUI
         }
         private void AddFormToTabPage(Form frm, TabPage tp)
         {
-
             tp.Controls.Clear();
-
             frm.TopLevel = false;
             frm.FormBorderStyle = FormBorderStyle.None;
             frm.Width = tp.Width;
             frm.Height = tp.Height;
             frm.Dock = DockStyle.Fill;
-
-
             tp.Controls.Add(frm);
             frm.Show();
         }
@@ -40,12 +36,10 @@ namespace DACN.GUI
 
         private void uiTabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
             foreach (var control in uiTabControl1.SelectedTab.Controls.OfType<Form>())
             {
                 control.Close();
             }
-
             switch (uiTabControl1.SelectedIndex)
             {
                 case 0:
@@ -57,13 +51,7 @@ namespace DACN.GUI
                     formHoaDon.SetBanHangMode();
                     AddFormToTabPage(formHoaDon, uiTabControl1.SelectedTab);
                     break;
-
             }
-        }
-
-        private void tabPage2_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

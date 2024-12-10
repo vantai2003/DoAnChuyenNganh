@@ -107,7 +107,6 @@
                     <Style>
                       <FontFamily>times New Roman</FontFamily>
                       <FontSize>12pt</FontSize>
-                      <Color>Red</Color>
                     </Style>
                   </TextRun>
                   <TextRun>
@@ -115,7 +114,6 @@
                     <Style>
                       <FontFamily>times New Roman</FontFamily>
                       <FontSize>12pt</FontSize>
-                      <Color>Red</Color>
                     </Style>
                   </TextRun>
                   <TextRun>
@@ -123,7 +121,6 @@
                     <Style>
                       <FontFamily>times New Roman</FontFamily>
                       <FontSize>12pt</FontSize>
-                      <Color>Red</Color>
                     </Style>
                   </TextRun>
                   <TextRun>
@@ -131,7 +128,6 @@
                     <Style>
                       <FontFamily>times New Roman</FontFamily>
                       <FontSize>12pt</FontSize>
-                      <Color>Red</Color>
                     </Style>
                   </TextRun>
                 </TextRuns>
@@ -147,7 +143,6 @@
                       <FontSize>12pt</FontSize>
                       <FontWeight>Normal</FontWeight>
                       <TextDecoration>None</TextDecoration>
-                      <Color>Red</Color>
                     </Style>
                   </TextRun>
                 </TextRuns>
@@ -163,7 +158,6 @@
                       <FontSize>12pt</FontSize>
                       <FontWeight>Normal</FontWeight>
                       <TextDecoration>None</TextDecoration>
-                      <Color>Red</Color>
                     </Style>
                   </TextRun>
                   <TextRun>
@@ -174,7 +168,6 @@
                       <FontSize>12pt</FontSize>
                       <FontWeight>Normal</FontWeight>
                       <TextDecoration>None</TextDecoration>
-                      <Color>Red</Color>
                     </Style>
                   </TextRun>
                   <TextRun>
@@ -185,7 +178,6 @@
                       <FontSize>12pt</FontSize>
                       <FontWeight>Normal</FontWeight>
                       <TextDecoration>None</TextDecoration>
-                      <Color>Red</Color>
                     </Style>
                   </TextRun>
                   <TextRun>
@@ -196,7 +188,6 @@
                       <FontSize>12pt</FontSize>
                       <FontWeight>Normal</FontWeight>
                       <TextDecoration>None</TextDecoration>
-                      <Color>Red</Color>
                     </Style>
                   </TextRun>
                 </TextRuns>
@@ -256,7 +247,6 @@
                                   <Style>
                                     <FontFamily>times New Roman</FontFamily>
                                     <FontWeight>Bold</FontWeight>
-                                    <Color>Red</Color>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -314,7 +304,6 @@
                                     <FontSize>11pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <TextDecoration>None</TextDecoration>
-                                    <Color>Red</Color>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -372,7 +361,6 @@
                                     <FontSize>11pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <TextDecoration>None</TextDecoration>
-                                    <Color>Red</Color>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -430,7 +418,6 @@
                                     <FontSize>11pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <TextDecoration>None</TextDecoration>
-                                    <Color>Red</Color>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -488,7 +475,6 @@
                                     <FontSize>11pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <TextDecoration>None</TextDecoration>
-                                    <Color>Red</Color>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -546,7 +532,6 @@
                                     <FontSize>11pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                     <TextDecoration>None</TextDecoration>
-                                    <Color>Red</Color>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -605,7 +590,6 @@
                                   <Value>(1)</Value>
                                   <Style>
                                     <FontFamily>times New Roman</FontFamily>
-                                    <Color>Red</Color>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -663,7 +647,6 @@
                                     <FontSize>11pt</FontSize>
                                     <FontWeight>Normal</FontWeight>
                                     <TextDecoration>None</TextDecoration>
-                                    <Color>Red</Color>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -721,7 +704,6 @@
                                     <FontSize>11pt</FontSize>
                                     <FontWeight>Normal</FontWeight>
                                     <TextDecoration>None</TextDecoration>
-                                    <Color>Red</Color>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -768,7 +750,6 @@
                                     <FontSize>11pt</FontSize>
                                     <FontWeight>Normal</FontWeight>
                                     <TextDecoration>None</TextDecoration>
-                                    <Color>Red</Color>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -824,7 +805,6 @@
                                     <FontSize>11pt</FontSize>
                                     <FontWeight>Normal</FontWeight>
                                     <TextDecoration>None</TextDecoration>
-                                    <Color>Red</Color>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -881,7 +861,6 @@
                                     <FontSize>11pt</FontSize>
                                     <FontWeight>Normal</FontWeight>
                                     <TextDecoration>None</TextDecoration>
-                                    <Color>Red</Color>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -940,7 +919,6 @@
                                   <Value>=RowNumber(nothing)</Value>
                                   <Style>
                                     <FontFamily>times New Roman</FontFamily>
-                                    <Color>Red</Color>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -994,7 +972,6 @@
                                   <Value>=Fields!TenSP.Value</Value>
                                   <Style>
                                     <FontFamily>times New Roman</FontFamily>
-                                    <Color>Red</Color>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1040,7 +1017,6 @@
                                   <Value>=Fields!DVT.Value</Value>
                                   <Style>
                                     <FontFamily>times New Roman</FontFamily>
-                                    <Color>Red</Color>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1093,7 +1069,6 @@
                                   <Value>=Fields!SoLuong.Value</Value>
                                   <Style>
                                     <FontFamily>times New Roman</FontFamily>
-                                    <Color>Red</Color>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1142,9 +1117,7 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>=String.Format("{0:N0}", CDec(Fields!DonGia.Value)).Replace(",", ".")</Value>
-                                  <Style>
-                                    <Color>Red</Color>
-                                  </Style>
+                                  <Style />
                                 </TextRun>
                               </TextRuns>
                               <Style>
@@ -1190,9 +1163,7 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>=Fields!ThanhTien.Value</Value>
-                                  <Style>
-                                    <Color>Red</Color>
-                                  </Style>
+                                  <Style />
                                 </TextRun>
                               </TextRuns>
                               <Style>
@@ -1250,7 +1221,6 @@
                                   <Value>TỔNG CỘNG</Value>
                                   <Style>
                                     <FontFamily>times New Roman</FontFamily>
-                                    <Color>Red</Color>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1306,9 +1276,7 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>=String.Format("{0:N0}", CDec(Sum(Fields!TongTien.Value, "DataSetHoaDon"))).Replace(",", ".")</Value>
-                                  <Style>
-                                    <Color>Red</Color>
-                                  </Style>
+                                  <Style />
                                 </TextRun>
                               </TextRuns>
                               <Style>
@@ -1367,7 +1335,6 @@
                                   <Value>TIỀN KHUYẾN MÃI</Value>
                                   <Style>
                                     <FontFamily>times New Roman</FontFamily>
-                                    <Color>Red</Color>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1420,9 +1387,7 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>=String.Format("{0:N0}", CDec(Sum(Fields!TienKM.Value, "DataSetHoaDon"))).Replace(",", ".")</Value>
-                                  <Style>
-                                    <Color>Red</Color>
-                                  </Style>
+                                  <Style />
                                 </TextRun>
                               </TextRuns>
                               <Style>
@@ -1481,7 +1446,6 @@
                                   <Value>TIỀN CỌC</Value>
                                   <Style>
                                     <FontFamily>times New Roman</FontFamily>
-                                    <Color>Red</Color>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1534,9 +1498,7 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>=String.Format("{0:N0}", CDec(Sum(Fields!TienCoc.Value, "DataSetHoaDon"))).Replace(",", ".")</Value>
-                                  <Style>
-                                    <Color>Red</Color>
-                                  </Style>
+                                  <Style />
                                 </TextRun>
                               </TextRuns>
                               <Style>
@@ -1587,7 +1549,6 @@
                                   <Value>THANH TOÁN</Value>
                                   <Style>
                                     <FontFamily>times New Roman</FontFamily>
-                                    <Color>Red</Color>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -1640,9 +1601,7 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>=String.Format("{0:N0}", CDec(First(Fields!ThanhToan.Value, "DataSetHoaDon"))).Replace(",", ".")</Value>
-                                  <Style>
-                                    <Color>Red</Color>
-                                  </Style>
+                                  <Style />
                                 </TextRun>
                               </TextRuns>
                               <Style>
@@ -1750,7 +1709,6 @@
                       <FontFamily>times New Roman</FontFamily>
                       <FontSize>12pt</FontSize>
                       <FontWeight>Bold</FontWeight>
-                      <Color>Red</Color>
                     </Style>
                   </TextRun>
                 </TextRuns>
@@ -1785,7 +1743,6 @@
                       <FontFamily>times New Roman</FontFamily>
                       <FontSize>12pt</FontSize>
                       <FontWeight>Bold</FontWeight>
-                      <Color>Red</Color>
                     </Style>
                   </TextRun>
                 </TextRuns>
@@ -1832,14 +1789,12 @@
                       <FontFamily>arial</FontFamily>
                       <FontSize>12pt</FontSize>
                       <FontWeight>Bold</FontWeight>
-                      <Color>Red</Color>
                     </Style>
                   </TextRun>
                   <TextRun>
                     <Value xml:space="preserve"> </Value>
                     <Style>
                       <FontSize>12pt</FontSize>
-                      <Color>Red</Color>
                     </Style>
                   </TextRun>
                   <TextRun>
@@ -1848,7 +1803,6 @@
                       <FontStyle>Italic</FontStyle>
                       <FontFamily>times New Roman</FontFamily>
                       <FontSize>11pt</FontSize>
-                      <Color>Red</Color>
                     </Style>
                   </TextRun>
                   <TextRun>
@@ -1857,7 +1811,6 @@
                       <FontStyle>Italic</FontStyle>
                       <FontFamily>times New Roman</FontFamily>
                       <FontSize>11pt</FontSize>
-                      <Color>Red</Color>
                     </Style>
                   </TextRun>
                 </TextRuns>
@@ -1890,7 +1843,6 @@
                     <Value>Ngày....tháng....năm 20...</Value>
                     <Style>
                       <FontSize>12pt</FontSize>
-                      <Color>Red</Color>
                     </Style>
                   </TextRun>
                 </TextRuns>
@@ -1925,7 +1877,6 @@
                       <FontFamily>times New Roman</FontFamily>
                       <FontSize>12pt</FontSize>
                       <FontWeight>Bold</FontWeight>
-                      <Color>Red</Color>
                     </Style>
                   </TextRun>
                 </TextRuns>
@@ -1971,7 +1922,6 @@
                         <FontFamily>arial</FontFamily>
                         <FontSize>12pt</FontSize>
                         <FontWeight>Bold</FontWeight>
-                        <Color>Red</Color>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -1987,7 +1937,6 @@
                         <FontFamily>times New Roman</FontFamily>
                         <FontSize>17pt</FontSize>
                         <FontWeight>Bold</FontWeight>
-                        <Color>Red</Color>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -2002,7 +1951,6 @@
                       <Style>
                         <FontFamily>times New Roman</FontFamily>
                         <FontWeight>Bold</FontWeight>
-                        <Color>Red</Color>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -2016,7 +1964,6 @@
                       <Value>Địa điểm kinh doanh: 107E Đường Trần Văn Mười X.Xuân Thượng - H. Hóc Môn - TP.HCM</Value>
                       <Style>
                         <FontFamily>arial</FontFamily>
-                        <Color>Red</Color>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -2031,7 +1978,6 @@
                       <Style>
                         <FontFamily>arial</FontFamily>
                         <FontWeight>Bold</FontWeight>
-                        <Color>Red</Color>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -2067,7 +2013,6 @@
                         <FontStyle>Italic</FontStyle>
                         <FontFamily>times New Roman</FontFamily>
                         <FontSize>12pt</FontSize>
-                        <Color>Red</Color>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -2083,7 +2028,6 @@
                         <FontStyle>Normal</FontStyle>
                         <FontFamily>arial</FontFamily>
                         <FontSize>11pt</FontSize>
-                        <Color>Red</Color>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -2099,7 +2043,6 @@
                         <FontStyle>Normal</FontStyle>
                         <FontFamily>arial</FontFamily>
                         <FontSize>11pt</FontSize>
-                        <Color>Red</Color>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -2115,7 +2058,6 @@
                         <FontStyle>Normal</FontStyle>
                         <FontFamily>arial</FontFamily>
                         <FontSize>11pt</FontSize>
-                        <Color>Red</Color>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -2132,7 +2074,6 @@
                         <FontFamily>arial</FontFamily>
                         <FontSize>13pt</FontSize>
                         <FontWeight>Bold</FontWeight>
-                        <Color>Red</Color>
                       </Style>
                     </TextRun>
                     <TextRun>
@@ -2141,7 +2082,6 @@
                         <FontStyle>Normal</FontStyle>
                         <FontFamily>arial</FontFamily>
                         <FontSize>14pt</FontSize>
-                        <Color>Red</Color>
                       </Style>
                     </TextRun>
                     <TextRun>
@@ -2150,7 +2090,6 @@
                         <FontStyle>Italic</FontStyle>
                         <FontFamily>times New Roman</FontFamily>
                         <FontSize>9pt</FontSize>
-                        <Color>Red</Color>
                       </Style>
                     </TextRun>
                     <TextRun>
@@ -2159,7 +2098,6 @@
                         <FontStyle>Normal</FontStyle>
                         <FontFamily>times New Roman</FontFamily>
                         <FontSize>8pt</FontSize>
-                        <Color>Red</Color>
                       </Style>
                     </TextRun>
                     <TextRun>
@@ -2168,7 +2106,6 @@
                         <FontStyle>Normal</FontStyle>
                         <FontFamily>times New Roman</FontFamily>
                         <FontSize>8pt</FontSize>
-                        <Color>Red</Color>
                       </Style>
                     </TextRun>
                   </TextRuns>
@@ -2214,7 +2151,7 @@
                     <TextRun>
                       <Value>Đơn vị cung cấp: Nhóm thực hiện đồ án chuyên ngành do cô Mận hướng dẫn</Value>
                       <Style>
-                        <Color>Red</Color>
+                        <Color>Blue</Color>
                       </Style>
                     </TextRun>
                   </TextRuns>

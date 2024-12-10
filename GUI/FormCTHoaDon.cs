@@ -27,10 +27,8 @@ namespace DACN.GUI
             }
             InitializeComponent();
             LoadCTHDTheoMHD(mahd);
-
             txtTongTien.BackColor = Color.White;
             txtTongTien.ForeColor = Color.Black;
-
         }
         public string GetTongTien()
         {
@@ -38,18 +36,17 @@ namespace DACN.GUI
         }
         private void UpdateTongTien(DataGridView dgv)
         {
-                decimal tongTien = 0;
-                foreach (DataGridViewRow row in dgv.Rows)
+            decimal tongTien = 0;
+            foreach (DataGridViewRow row in dgv.Rows)
+            {
+                if (row.Cells["ThanhTien"].Value != null && decimal.TryParse(row.Cells["ThanhTien"].Value.ToString(), out decimal thanhTien))
                 {
-                    if (row.Cells["ThanhTien"].Value != null && decimal.TryParse(row.Cells["ThanhTien"].Value.ToString(), out decimal thanhTien))
-                    {
-                        tongTien += thanhTien;
-                    }
+                    tongTien += thanhTien;
                 }
+            }
             txtTongTien.Text = tongTien.ToString("N2");
-
         }
-      
+
         public void LoadCTHDTheoMHD(string mahd)
         {
             List<CTHoaDonDTO> listHoaDon = CTHoaDonDAO.Instance.GetCTHDTheoMHD(mahd);
@@ -62,12 +59,6 @@ namespace DACN.GUI
             dgvCTHD.Columns["MaHD"].HeaderText = "Mã hóa đơn";
             dgvCTHD.Columns["ThanhTien"].HeaderText = "Thành tiền";
             UpdateTongTien(dgvCTHD);
-            
-        }
-
-        private void txtTongTien_TextChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void btnOK_Click(object sender, EventArgs e)

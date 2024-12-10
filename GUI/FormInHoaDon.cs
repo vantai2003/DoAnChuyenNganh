@@ -73,7 +73,6 @@ namespace DACN.GUI
             FormCTHoaDon formCTHoaDon = new FormCTHoaDon(maHD);
             formCTHoaDon.Owner = this;
             formCTHoaDon.ShowDialog();
-            
         }
         private void XemChiTietMenuItem_Click(object sender, EventArgs e)
         {
@@ -213,8 +212,6 @@ namespace DACN.GUI
             {
                 MessageBox.Show("Không thể xuất phiếu nhập, vui lòng thủ lại sau");
             }
-            
-            
         }
 
         private void dvg_DSPhieuNhap_CellClick(object sender, DataGridViewCellEventArgs e)

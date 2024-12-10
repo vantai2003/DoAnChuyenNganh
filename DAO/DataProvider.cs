@@ -18,9 +18,9 @@ namespace DACN.DAO
         private string password;
         private string conStr;
         public static string thongBao = null;
-        private string conStrAdmin = "Data Source=MSI\\SQLEXPRESS;Initial Catalog=QL_SatThepXD;User ID=userkill;Password=123;Encrypt=False";
+        //private string conStrAdmin = "Data Source=MSI\\SQLEXPRESS;Initial Catalog=QL_SatThepXD;User ID=userkill;Password=123;Encrypt=False";
 
-        //private string conStrAdmin = "Data Source=LAPTOP-70K25FBU\\MSSQLSERVER01;Initial Catalog=QL_SatThepXD;User ID=userkill;Password=123;Encrypt=False";
+        private string conStrAdmin = "Data Source=LAPTOP-70K25FBU\\MSSQLSERVER01;Initial Catalog=QL_SatThepXD;User ID=userkill;Password=123;Encrypt=False";
         private SqlConnection connection;
         public string User
         {
@@ -55,49 +55,54 @@ namespace DACN.DAO
             password = FormDangNhap.password;
             SetConnectionString(user, password);
         }
-        public void SetConnectionString(string user, string password)
+        public bool SetConnectionString(string user, string password)
         {
             user = user.ToLower();
             password = password.ToLower();
-            //conStr = $"Data Source=LAPTOP-70K25FBU\\MSSQLSERVER01;Initial Catalog=QL_SatThepXD;User ID={user};Password={password};Encrypt=False";
-            conStr = $"Data Source=MSI\\SQLEXPRESS;Initial Catalog=QL_SatThepXD;User ID={user};Password={password};Encrypt=False"; 
-            
+            conStr = $"Data Source=LAPTOP-70K25FBU\\MSSQLSERVER01;Initial Catalog=QL_SatThepXD;User ID={user};Password={password};Encrypt=False";
+            //conStr = $"Data Source=MSI\\SQLEXPRESS;Initial Catalog=QL_SatThepXD;User ID={user};Password={password};Encrypt=False"; 
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(conStr))
+                {
+                    connection.Open();
+                    connection.Close();
+
+                }
+                return true;
+            }
+            catch (SqlException ex)
+            {
+                return false;
+            }
         }
 
 
         public DataTable ExecuteQuery(string query, object[] parameter = null)
         {
             DataTable dt = new DataTable();
-
-            try
+            using (SqlConnection connection = new SqlConnection(conStr))
             {
-                using (SqlConnection connection = new SqlConnection(conStr))
+                connection.Open();
+                SqlCommand cmd = new SqlCommand(query, connection);
+                if (parameter != null)
                 {
-                    connection.Open();
-                    SqlCommand cmd = new SqlCommand(query, connection);
-                    if (parameter != null)
+                    string[] listPara = query.Split(' ');
+                    int i = 0;
+                    foreach (string item in listPara)
                     {
-                        string[] listPara = query.Split(' ');
-                        int i = 0;
-                        foreach (string item in listPara)
+                        if (item.Contains('@'))
                         {
-                            if (item.Contains('@'))
-                            {
-                                cmd.Parameters.AddWithValue(item, parameter[i]);
-                                i++;
-                            }
+                            cmd.Parameters.AddWithValue(item, parameter[i]);
+                            i++;
                         }
                     }
-                    SqlDataAdapter da = new SqlDataAdapter(cmd);
-                    da.Fill(dt);
-                    connection.Close();
                 }
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                da.Fill(dt);
+                connection.Close();
             }
 
-            catch (SqlException ex)
-            {
-                MessageBox.Show("Sai tên đăng nhập hoặc mật khẩu");
-            }
             return dt;
         }
         public int ExecuteNonQuery(string query, object[] parameter = null)

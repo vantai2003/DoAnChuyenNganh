@@ -51,24 +51,15 @@ namespace DACN.GUI
         {
             List<KhachHangDTO> list = new List<KhachHangDTO>();
             list = KhachHangDAO.Instance.GetKhachHang();
-            // Nếu danh sách rỗng, trả về mã mặc định
             if (list.Count == 0)
             {
                 return "KH001";
             }
-
-            // Lấy phần tử cuối cùng trong danh sách
             string lastCode = list.Last().MaKH;
-
             string prefix = lastCode.Substring(0, 2);
             string numberPart = lastCode.Substring(2);
-
-            // Chuyển số thành số nguyên và tăng lên 1
             int number = int.Parse(numberPart) + 1;
-
-            // Tạo mã mới
             string newCode = $"{prefix}{number:D3}";
-
             return newCode;
         }
         public void xoaTxt()
@@ -90,22 +81,16 @@ namespace DACN.GUI
                     MessageBox.Show("Tên khách hàng không được để trống!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
                 }
-
-
                 bool isSdtEmpty = string.IsNullOrWhiteSpace(sdt);
                 bool isEmailEmpty = string.IsNullOrWhiteSpace(email);
-
-
                 if (isSdtEmpty && isEmailEmpty)
                 {
                     MessageBox.Show("Số điện thoại hoặc email phải được cung cấp ít nhất một cái!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
                 }
-                
                 return true;
             }
             catch { MessageBox.Show("Thêm khách hàng không thành công"); return false; }
-            
         }
         private void btnChon_Click(object sender, EventArgs e)
         {
@@ -155,29 +140,22 @@ namespace DACN.GUI
         {
             try
             {
-               
-                
-                    txtMK.Text = GenerateNewCodeKH();
-                    khDTO.MaKH = txtMK.Text;
-                    khDTO.TenKH = txtTenKH.Text;
-                    khDTO.Email = txtEmail.Text;
-                    khDTO.Diachi = txtDiaChi.Text;
-                    khDTO.SoDienThoai = txtSDT.Text;
-                    khDTO.NgayTao = DateTime.Now;
-                    khDTO.MaLoaiKH = cbbLoaiKH.SelectedValue.ToString();
-                    if (ktDKKhachHang(khDTO.MaKH, khDTO.TenKH, khDTO.SoDienThoai, khDTO.Email))
-                    {
-                        khDAO.Insert(khDTO);
-                        MessageBox.Show("Thêm thông tin thành công!");
-
-                    }
-                    LoadKH();
-               
-                
-                
+                txtMK.Text = GenerateNewCodeKH();
+                khDTO.MaKH = txtMK.Text;
+                khDTO.TenKH = txtTenKH.Text;
+                khDTO.Email = txtEmail.Text;
+                khDTO.Diachi = txtDiaChi.Text;
+                khDTO.SoDienThoai = txtSDT.Text;
+                khDTO.NgayTao = DateTime.Now;
+                khDTO.MaLoaiKH = cbbLoaiKH.SelectedValue.ToString();
+                if (ktDKKhachHang(khDTO.MaKH, khDTO.TenKH, khDTO.SoDienThoai, khDTO.Email))
+                {
+                    khDAO.Insert(khDTO);
+                    MessageBox.Show("Thêm thông tin thành công!");
+                }
+                LoadKH();
             }
-            catch(Exception ex) { MessageBox.Show("Thêm thất bại"+ex.ToString()); }
-            
+            catch (Exception ex) { MessageBox.Show("Thêm thất bại" + ex.ToString()); }
         }
     }
     

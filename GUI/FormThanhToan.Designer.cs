@@ -105,7 +105,6 @@ namespace DACN.GUI
             this.txt_tongtienhang.Name = "txt_tongtienhang";
             this.txt_tongtienhang.Size = new System.Drawing.Size(631, 27);
             this.txt_tongtienhang.TabIndex = 5;
-            this.txt_tongtienhang.TextChanged += new System.EventHandler(this.txt_tongtienhang_TextChanged);
             // 
             // label3
             // 
@@ -126,7 +125,6 @@ namespace DACN.GUI
             this.label4.Size = new System.Drawing.Size(119, 25);
             this.label4.TabIndex = 7;
             this.label4.Text = "Tiền đặt cọc";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label5
             // 
@@ -198,7 +196,6 @@ namespace DACN.GUI
             this.txt_tiencantra.Name = "txt_tiencantra";
             this.txt_tiencantra.Size = new System.Drawing.Size(631, 27);
             this.txt_tiencantra.TabIndex = 15;
-            this.txt_tiencantra.TextChanged += new System.EventHandler(this.txt_tiencantra_TextChanged);
             // 
             // label7
             // 
@@ -209,7 +206,6 @@ namespace DACN.GUI
             this.label7.Size = new System.Drawing.Size(137, 25);
             this.label7.TabIndex = 14;
             this.label7.Text = "Số tiền cần trả";
-            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // pictureBox1
             // 
@@ -221,7 +217,6 @@ namespace DACN.GUI
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 29;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // btnCreate
             // 
@@ -260,7 +255,6 @@ namespace DACN.GUI
             this.cb_template.Name = "cb_template";
             this.cb_template.Size = new System.Drawing.Size(230, 28);
             this.cb_template.TabIndex = 26;
-            this.cb_template.SelectedIndexChanged += new System.EventHandler(this.cb_template_SelectedIndexChanged);
             // 
             // cb_nganhang
             // 
@@ -270,7 +264,6 @@ namespace DACN.GUI
             this.cb_nganhang.Name = "cb_nganhang";
             this.cb_nganhang.Size = new System.Drawing.Size(230, 28);
             this.cb_nganhang.TabIndex = 25;
-            this.cb_nganhang.SelectedIndexChanged += new System.EventHandler(this.cb_nganhang_SelectedIndexChanged);
             // 
             // txtInfo
             // 
@@ -280,7 +273,6 @@ namespace DACN.GUI
             this.txtInfo.Name = "txtInfo";
             this.txtInfo.Size = new System.Drawing.Size(237, 22);
             this.txtInfo.TabIndex = 24;
-            this.txtInfo.TextChanged += new System.EventHandler(this.txtInfo_TextChanged);
             // 
             // txtTenTaiKhoan
             // 
@@ -290,7 +282,6 @@ namespace DACN.GUI
             this.txtTenTaiKhoan.Size = new System.Drawing.Size(268, 27);
             this.txtTenTaiKhoan.TabIndex = 23;
             this.txtTenTaiKhoan.Text = "NGUYEN PHAN HOANG";
-            this.txtTenTaiKhoan.TextChanged += new System.EventHandler(this.txtTenTaiKhoan_TextChanged);
             // 
             // txtSTK
             // 
@@ -300,7 +291,6 @@ namespace DACN.GUI
             this.txtSTK.Size = new System.Drawing.Size(268, 27);
             this.txtSTK.TabIndex = 22;
             this.txtSTK.Text = "0587744230";
-            this.txtSTK.TextChanged += new System.EventHandler(this.txtSTK_TextChanged);
             // 
             // label2
             // 
@@ -311,7 +301,6 @@ namespace DACN.GUI
             this.label2.Size = new System.Drawing.Size(67, 20);
             this.label2.TabIndex = 21;
             this.label2.Text = "Ghi chú";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label8
             // 
@@ -322,7 +311,6 @@ namespace DACN.GUI
             this.label8.Size = new System.Drawing.Size(141, 20);
             this.label8.TabIndex = 20;
             this.label8.Text = "Tên chủ tài khoản";
-            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // label9
             // 
@@ -333,7 +321,6 @@ namespace DACN.GUI
             this.label9.Size = new System.Drawing.Size(78, 20);
             this.label9.TabIndex = 19;
             this.label9.Text = "Template";
-            this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
             // label10
             // 
@@ -344,7 +331,6 @@ namespace DACN.GUI
             this.label10.Size = new System.Drawing.Size(61, 20);
             this.label10.TabIndex = 18;
             this.label10.Text = "Số tiền";
-            this.label10.Click += new System.EventHandler(this.label10_Click);
             // 
             // label11
             // 
@@ -355,7 +341,6 @@ namespace DACN.GUI
             this.label11.Size = new System.Drawing.Size(101, 20);
             this.label11.TabIndex = 17;
             this.label11.Text = "Số tài khoản";
-            this.label11.Click += new System.EventHandler(this.label11_Click);
             // 
             // label12
             // 
@@ -366,7 +351,6 @@ namespace DACN.GUI
             this.label12.Size = new System.Drawing.Size(89, 20);
             this.label12.TabIndex = 16;
             this.label12.Text = "Ngân hàng";
-            this.label12.Click += new System.EventHandler(this.label12_Click);
             // 
             // btnXacNhanQR
             // 
@@ -418,7 +402,6 @@ namespace DACN.GUI
             this.Name = "FormThanhToan";
             this.Text = "Phương thức thanh toán";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormThanhToan_FormClosed);
-            this.Load += new System.EventHandler(this.FormThanhToan_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

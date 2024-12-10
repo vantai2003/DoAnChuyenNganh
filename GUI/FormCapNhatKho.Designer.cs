@@ -60,6 +60,7 @@
             // 
             // panel4
             // 
+            this.panel4.BackColor = System.Drawing.Color.AliceBlue;
             this.panel4.Controls.Add(this.btn_TaoPhieuTH);
             this.panel4.Controls.Add(this.btn_CapNhatKho);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -72,11 +73,11 @@
             // 
             this.btn_TaoPhieuTH.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.btn_TaoPhieuTH.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_TaoPhieuTH.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_TaoPhieuTH.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_TaoPhieuTH.ForeColor = System.Drawing.Color.White;
-            this.btn_TaoPhieuTH.Location = new System.Drawing.Point(700, 56);
+            this.btn_TaoPhieuTH.Location = new System.Drawing.Point(843, 45);
             this.btn_TaoPhieuTH.Name = "btn_TaoPhieuTH";
-            this.btn_TaoPhieuTH.Size = new System.Drawing.Size(202, 53);
+            this.btn_TaoPhieuTH.Size = new System.Drawing.Size(272, 53);
             this.btn_TaoPhieuTH.TabIndex = 1;
             this.btn_TaoPhieuTH.Text = "Tạo phiếu trả hàng";
             this.btn_TaoPhieuTH.UseVisualStyleBackColor = false;
@@ -86,11 +87,11 @@
             // 
             this.btn_CapNhatKho.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.btn_CapNhatKho.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_CapNhatKho.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_CapNhatKho.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_CapNhatKho.ForeColor = System.Drawing.Color.Transparent;
             this.btn_CapNhatKho.Location = new System.Drawing.Point(177, 57);
             this.btn_CapNhatKho.Name = "btn_CapNhatKho";
-            this.btn_CapNhatKho.Size = new System.Drawing.Size(179, 52);
+            this.btn_CapNhatKho.Size = new System.Drawing.Size(249, 52);
             this.btn_CapNhatKho.TabIndex = 0;
             this.btn_CapNhatKho.Text = "Cập nhật vào kho";
             this.btn_CapNhatKho.UseVisualStyleBackColor = false;
@@ -110,7 +111,7 @@
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
             this.dvg_CapNhatKho.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dvg_CapNhatKho.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dvg_CapNhatKho.BackgroundColor = System.Drawing.Color.White;
+            this.dvg_CapNhatKho.BackgroundColor = System.Drawing.Color.AliceBlue;
             this.dvg_CapNhatKho.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
@@ -158,6 +159,7 @@
             // 
             // panel2
             // 
+            this.panel2.BackColor = System.Drawing.Color.AliceBlue;
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";

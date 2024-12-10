@@ -35,16 +35,20 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormCTPhieuNhap_ChoNVKho));
             this.dvg_CTPN = new Sunny.UI.UIDataGridView();
-            this.mn_CTPN = new System.Windows.Forms.MenuStrip();
-            this.inToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.thoátToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.uiPanel1 = new Sunny.UI.UIPanel();
             this.uiPanel3 = new Sunny.UI.UIPanel();
+            this.miniToolStrip = new System.Windows.Forms.MenuStrip();
+            this.inToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.thoátToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mn_CTPN = new System.Windows.Forms.MenuStrip();
             this.uiPanel2 = new Sunny.UI.UIPanel();
+            this.uiPanel4 = new Sunny.UI.UIPanel();
+            this.uiPanel5 = new Sunny.UI.UIPanel();
             ((System.ComponentModel.ISupportInitialize)(this.dvg_CTPN)).BeginInit();
-            this.mn_CTPN.SuspendLayout();
             this.uiPanel1.SuspendLayout();
             this.uiPanel3.SuspendLayout();
+            this.mn_CTPN.SuspendLayout();
+            this.uiPanel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // dvg_CTPN
@@ -71,7 +75,7 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dvg_CTPN.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dvg_CTPN.Dock = System.Windows.Forms.DockStyle.Top;
+            this.dvg_CTPN.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dvg_CTPN.EnableHeadersVisualStyles = false;
             this.dvg_CTPN.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.dvg_CTPN.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
@@ -91,22 +95,55 @@
             this.dvg_CTPN.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dvg_CTPN.RowTemplate.Height = 24;
             this.dvg_CTPN.SelectedIndex = -1;
-            this.dvg_CTPN.Size = new System.Drawing.Size(1017, 319);
+            this.dvg_CTPN.Size = new System.Drawing.Size(1017, 341);
             this.dvg_CTPN.StripeOddColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
             this.dvg_CTPN.TabIndex = 0;
             // 
-            // mn_CTPN
+            // uiPanel1
             // 
-            this.mn_CTPN.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.mn_CTPN.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.mn_CTPN.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.inToolStripMenuItem,
-            this.thoátToolStripMenuItem});
-            this.mn_CTPN.Location = new System.Drawing.Point(0, 0);
-            this.mn_CTPN.Name = "mn_CTPN";
-            this.mn_CTPN.Size = new System.Drawing.Size(1017, 36);
-            this.mn_CTPN.TabIndex = 2;
-            this.mn_CTPN.Text = "menuStrip1";
+            this.uiPanel1.Controls.Add(this.uiPanel3);
+            this.uiPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uiPanel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.uiPanel1.Location = new System.Drawing.Point(0, 0);
+            this.uiPanel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.uiPanel1.MinimumSize = new System.Drawing.Size(1, 1);
+            this.uiPanel1.Name = "uiPanel1";
+            this.uiPanel1.Size = new System.Drawing.Size(1017, 564);
+            this.uiPanel1.TabIndex = 3;
+            this.uiPanel1.Text = null;
+            this.uiPanel1.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // uiPanel3
+            // 
+            this.uiPanel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.uiPanel3.Controls.Add(this.uiPanel5);
+            this.uiPanel3.Controls.Add(this.uiPanel4);
+            this.uiPanel3.Controls.Add(this.uiPanel2);
+            this.uiPanel3.Controls.Add(this.mn_CTPN);
+            this.uiPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uiPanel3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.uiPanel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.uiPanel3.Location = new System.Drawing.Point(0, 0);
+            this.uiPanel3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.uiPanel3.MinimumSize = new System.Drawing.Size(1, 1);
+            this.uiPanel3.Name = "uiPanel3";
+            this.uiPanel3.Size = new System.Drawing.Size(1017, 564);
+            this.uiPanel3.TabIndex = 1;
+            this.uiPanel3.Text = null;
+            this.uiPanel3.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // miniToolStrip
+            // 
+            this.miniToolStrip.AccessibleName = "New item selection";
+            this.miniToolStrip.AccessibleRole = System.Windows.Forms.AccessibleRole.ComboBox;
+            this.miniToolStrip.AutoSize = false;
+            this.miniToolStrip.Dock = System.Windows.Forms.DockStyle.None;
+            this.miniToolStrip.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.miniToolStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.miniToolStrip.Location = new System.Drawing.Point(164, 6);
+            this.miniToolStrip.Name = "miniToolStrip";
+            this.miniToolStrip.Size = new System.Drawing.Size(166, 36);
+            this.miniToolStrip.TabIndex = 2;
             // 
             // inToolStripMenuItem
             // 
@@ -122,80 +159,90 @@
             this.thoátToolStripMenuItem.Size = new System.Drawing.Size(96, 32);
             this.thoátToolStripMenuItem.Text = "Thoát";
             // 
-            // uiPanel1
+            // mn_CTPN
             // 
-            this.uiPanel1.Controls.Add(this.uiPanel3);
-            this.uiPanel1.Controls.Add(this.uiPanel2);
-            this.uiPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uiPanel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.uiPanel1.Location = new System.Drawing.Point(0, 0);
-            this.uiPanel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.uiPanel1.MinimumSize = new System.Drawing.Size(1, 1);
-            this.uiPanel1.Name = "uiPanel1";
-            this.uiPanel1.Size = new System.Drawing.Size(1017, 564);
-            this.uiPanel1.TabIndex = 3;
-            this.uiPanel1.Text = null;
-            this.uiPanel1.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // uiPanel3
-            // 
-            this.uiPanel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.uiPanel3.Controls.Add(this.dvg_CTPN);
-            this.uiPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uiPanel3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.uiPanel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.uiPanel3.Location = new System.Drawing.Point(0, 76);
-            this.uiPanel3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.uiPanel3.MinimumSize = new System.Drawing.Size(1, 1);
-            this.uiPanel3.Name = "uiPanel3";
-            this.uiPanel3.Size = new System.Drawing.Size(1017, 488);
-            this.uiPanel3.TabIndex = 1;
-            this.uiPanel3.Text = null;
-            this.uiPanel3.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            this.mn_CTPN.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.mn_CTPN.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.mn_CTPN.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.inToolStripMenuItem,
+            this.thoátToolStripMenuItem});
+            this.mn_CTPN.Location = new System.Drawing.Point(0, 0);
+            this.mn_CTPN.Name = "mn_CTPN";
+            this.mn_CTPN.Size = new System.Drawing.Size(1017, 36);
+            this.mn_CTPN.TabIndex = 2;
+            this.mn_CTPN.Text = "menuStrip1";
             // 
             // uiPanel2
             // 
-            this.uiPanel2.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.uiPanel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.uiPanel2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.uiPanel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.uiPanel2.Location = new System.Drawing.Point(0, 0);
+            this.uiPanel2.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uiPanel2.ForeColor = System.Drawing.Color.Teal;
+            this.uiPanel2.Location = new System.Drawing.Point(0, 36);
             this.uiPanel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.uiPanel2.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiPanel2.Name = "uiPanel2";
-            this.uiPanel2.Size = new System.Drawing.Size(1017, 76);
-            this.uiPanel2.TabIndex = 0;
+            this.uiPanel2.Size = new System.Drawing.Size(1017, 79);
+            this.uiPanel2.TabIndex = 3;
             this.uiPanel2.Text = "CHI TIẾT PHIẾU NHẬP HÀNG";
             this.uiPanel2.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // uiPanel4
+            // 
+            this.uiPanel4.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.uiPanel4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.uiPanel4.Location = new System.Drawing.Point(0, 456);
+            this.uiPanel4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.uiPanel4.MinimumSize = new System.Drawing.Size(1, 1);
+            this.uiPanel4.Name = "uiPanel4";
+            this.uiPanel4.Size = new System.Drawing.Size(1017, 108);
+            this.uiPanel4.TabIndex = 4;
+            this.uiPanel4.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // uiPanel5
+            // 
+            this.uiPanel5.Controls.Add(this.dvg_CTPN);
+            this.uiPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uiPanel5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.uiPanel5.Location = new System.Drawing.Point(0, 115);
+            this.uiPanel5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.uiPanel5.MinimumSize = new System.Drawing.Size(1, 1);
+            this.uiPanel5.Name = "uiPanel5";
+            this.uiPanel5.Size = new System.Drawing.Size(1017, 341);
+            this.uiPanel5.TabIndex = 5;
+            this.uiPanel5.Text = "uiPanel5";
+            this.uiPanel5.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // FormCTPhieuNhap_ChoNVKho
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1017, 564);
-            this.Controls.Add(this.mn_CTPN);
             this.Controls.Add(this.uiPanel1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormCTPhieuNhap_ChoNVKho";
             this.Text = "CHI TIẾT PHIẾU NHẬP";
             ((System.ComponentModel.ISupportInitialize)(this.dvg_CTPN)).EndInit();
-            this.mn_CTPN.ResumeLayout(false);
-            this.mn_CTPN.PerformLayout();
             this.uiPanel1.ResumeLayout(false);
             this.uiPanel3.ResumeLayout(false);
+            this.uiPanel3.PerformLayout();
+            this.mn_CTPN.ResumeLayout(false);
+            this.mn_CTPN.PerformLayout();
+            this.uiPanel5.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
         private Sunny.UI.UIDataGridView dvg_CTPN;
+        private Sunny.UI.UIPanel uiPanel1;
+        private Sunny.UI.UIPanel uiPanel3;
         private System.Windows.Forms.MenuStrip mn_CTPN;
         private System.Windows.Forms.ToolStripMenuItem inToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem thoátToolStripMenuItem;
-        private Sunny.UI.UIPanel uiPanel1;
-        private Sunny.UI.UIPanel uiPanel3;
+        private System.Windows.Forms.MenuStrip miniToolStrip;
+        private Sunny.UI.UIPanel uiPanel4;
         private Sunny.UI.UIPanel uiPanel2;
+        private Sunny.UI.UIPanel uiPanel5;
     }
 }

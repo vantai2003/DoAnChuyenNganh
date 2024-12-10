@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormQLTraHangNCC));
             this.dvg_PhieuTH = new Sunny.UI.UIDataGridView();
             this.pannel_body = new Sunny.UI.UIPanel();
@@ -40,17 +40,17 @@
             this.uiPanel3 = new Sunny.UI.UIPanel();
             this.uiPanel6 = new Sunny.UI.UIPanel();
             this.uiPanel5 = new Sunny.UI.UIPanel();
+            this.uiButton1 = new Sunny.UI.UIButton();
             this.uiPanel7 = new Sunny.UI.UIPanel();
             this.uiGroupBox1 = new Sunny.UI.UIGroupBox();
             this.txt_Search = new Sunny.UI.UITextBox();
+            this.btn_Search = new System.Windows.Forms.Button();
             this.uiPanel1 = new Sunny.UI.UIPanel();
             this.uiPanel4 = new Sunny.UI.UIPanel();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.uiButton1 = new Sunny.UI.UIButton();
-            this.btn_Search = new System.Windows.Forms.Button();
             this.btnLuu = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.btn_Xoa = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.dvg_PhieuTH)).BeginInit();
             this.pannel_body.SuspendLayout();
@@ -66,28 +66,28 @@
             // 
             // dvg_PhieuTH
             // 
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
-            this.dvg_PhieuTH.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
+            this.dvg_PhieuTH.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dvg_PhieuTH.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dvg_PhieuTH.BackgroundColor = System.Drawing.Color.White;
             this.dvg_PhieuTH.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dvg_PhieuTH.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dvg_PhieuTH.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dvg_PhieuTH.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.Green;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dvg_PhieuTH.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Green;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dvg_PhieuTH.DefaultCellStyle = dataGridViewCellStyle3;
             this.dvg_PhieuTH.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dvg_PhieuTH.EnableHeadersVisualStyles = false;
             this.dvg_PhieuTH.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
@@ -95,18 +95,18 @@
             this.dvg_PhieuTH.Location = new System.Drawing.Point(0, 0);
             this.dvg_PhieuTH.Name = "dvg_PhieuTH";
             this.dvg_PhieuTH.RectColor = System.Drawing.Color.Lime;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.Green;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dvg_PhieuTH.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Green;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dvg_PhieuTH.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dvg_PhieuTH.RowHeadersWidth = 51;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.dvg_PhieuTH.RowsDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.dvg_PhieuTH.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dvg_PhieuTH.RowTemplate.Height = 24;
             this.dvg_PhieuTH.ScrollBarColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.dvg_PhieuTH.ScrollBarRectColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
@@ -191,6 +191,19 @@
             this.uiPanel5.Text = null;
             this.uiPanel5.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // uiButton1
+            // 
+            this.uiButton1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.uiButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.uiButton1.Location = new System.Drawing.Point(692, 28);
+            this.uiButton1.MinimumSize = new System.Drawing.Size(1, 1);
+            this.uiButton1.Name = "uiButton1";
+            this.uiButton1.Size = new System.Drawing.Size(120, 35);
+            this.uiButton1.TabIndex = 15;
+            this.uiButton1.Text = "Làm mới";
+            this.uiButton1.TipsFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.uiButton1.Click += new System.EventHandler(this.uiButton1_Click);
+            // 
             // uiPanel7
             // 
             this.uiPanel7.Controls.Add(this.uiGroupBox1);
@@ -240,6 +253,22 @@
             this.txt_Search.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             this.txt_Search.Watermark = "";
             // 
+            // btn_Search
+            // 
+            this.btn_Search.BackColor = System.Drawing.Color.White;
+            this.btn_Search.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_Search.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Search.Image = ((System.Drawing.Image)(resources.GetObject("btn_Search.Image")));
+            this.btn_Search.Location = new System.Drawing.Point(379, 28);
+            this.btn_Search.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_Search.Name = "btn_Search";
+            this.btn_Search.Size = new System.Drawing.Size(145, 44);
+            this.btn_Search.TabIndex = 14;
+            this.btn_Search.Text = "Tìm kiếm";
+            this.btn_Search.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btn_Search.UseVisualStyleBackColor = false;
+            this.btn_Search.Click += new System.EventHandler(this.btn_Search_Click);
+            // 
             // uiPanel1
             // 
             this.uiPanel1.BackColor = System.Drawing.Color.Lime;
@@ -264,7 +293,7 @@
             this.uiPanel4.BackColor = System.Drawing.Color.DarkOliveGreen;
             this.uiPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.uiPanel4.FillColor = System.Drawing.Color.Teal;
-            this.uiPanel4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.uiPanel4.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.uiPanel4.ForeColor = System.Drawing.Color.White;
             this.uiPanel4.Location = new System.Drawing.Point(0, 38);
             this.uiPanel4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -298,40 +327,6 @@
             this.toolStripSeparator5.Name = "toolStripSeparator5";
             this.toolStripSeparator5.Size = new System.Drawing.Size(6, 38);
             // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 38);
-            // 
-            // uiButton1
-            // 
-            this.uiButton1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.uiButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.uiButton1.Location = new System.Drawing.Point(692, 28);
-            this.uiButton1.MinimumSize = new System.Drawing.Size(1, 1);
-            this.uiButton1.Name = "uiButton1";
-            this.uiButton1.Size = new System.Drawing.Size(120, 35);
-            this.uiButton1.TabIndex = 15;
-            this.uiButton1.Text = "Làm mới";
-            this.uiButton1.TipsFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.uiButton1.Click += new System.EventHandler(this.uiButton1_Click);
-            // 
-            // btn_Search
-            // 
-            this.btn_Search.BackColor = System.Drawing.Color.White;
-            this.btn_Search.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_Search.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Search.Image = ((System.Drawing.Image)(resources.GetObject("btn_Search.Image")));
-            this.btn_Search.Location = new System.Drawing.Point(379, 28);
-            this.btn_Search.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_Search.Name = "btn_Search";
-            this.btn_Search.Size = new System.Drawing.Size(145, 44);
-            this.btn_Search.TabIndex = 14;
-            this.btn_Search.Text = "Tìm kiếm";
-            this.btn_Search.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btn_Search.UseVisualStyleBackColor = false;
-            this.btn_Search.Click += new System.EventHandler(this.btn_Search_Click);
-            // 
             // btnLuu
             // 
             this.btnLuu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
@@ -344,16 +339,20 @@
             this.btnLuu.Size = new System.Drawing.Size(72, 34);
             this.btnLuu.Text = "In";
             // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 38);
+            // 
             // btn_Xoa
             // 
             this.btn_Xoa.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            //this.btn_Xoa.Image = global::DACN.Properties.Resources.Delete;
             this.btn_Xoa.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.btn_Xoa.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btn_Xoa.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
             this.btn_Xoa.Name = "btn_Xoa";
             this.btn_Xoa.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.btn_Xoa.Size = new System.Drawing.Size(90, 34);
+            this.btn_Xoa.Size = new System.Drawing.Size(60, 34);
             this.btn_Xoa.Text = "Xóa";
             this.btn_Xoa.Click += new System.EventHandler(this.btn_Xoa_Click);
             // 
