@@ -17,13 +17,10 @@ namespace DACN.GUI
         List<HoaDonDTO> listHoaDon = HoaDonDAO.Instance.GetHoaDon();
         HoaDonDAO hoaDonDAO = new HoaDonDAO();
         HoaDonDTO hoaDonDTO = new HoaDonDTO();
-       
         public static string mahd;
-
         bool sua = false;
         public FormHoaDon()
         {
-
             InitializeComponent();
             LoadHoaDon();
             tsbLuu.Enabled = false;
@@ -32,7 +29,6 @@ namespace DACN.GUI
 
         private void uiButton1_Click(object sender, EventArgs e)
         {
-
             FormCTHoaDon formCTHoaDon = new FormCTHoaDon(txtMaHD.Text);
             formCTHoaDon.Owner = this;
             formCTHoaDon.ShowDialog();
@@ -40,7 +36,6 @@ namespace DACN.GUI
         public void LoadHoaDon()
         {
             List<HoaDonDTO> listHoaDon = HoaDonDAO.Instance.GetHoaDon();
-
             DataGridViewCheckBoxColumn chkColumn = dgvHoaDon.Columns["Chon"] as DataGridViewCheckBoxColumn;
             if (chkColumn == null)
             {
@@ -49,13 +44,10 @@ namespace DACN.GUI
                 chkColumn.Name = "Chon";
                 dgvHoaDon.Columns.Add(chkColumn);
             }
-
-
             dgvHoaDon.CellClick += (sender, e) =>
             {
                 if (e.RowIndex >= 0)
                 {
-                   
                     foreach (DataGridViewRow row in dgvHoaDon.Rows)
                     {
                         row.Cells["Chon"].Value = false;
@@ -83,7 +75,6 @@ namespace DACN.GUI
             dgvHoaDon.Columns["TienCoc"].HeaderText = "Tiền cọc";
             dgvHoaDon.Columns["ThanhToan"].HeaderText = "Số tiền cần toán";
             dgvHoaDon.Columns["SoTienKM"].HeaderText = "Số tiền khuyến mãi";
-
             if (!dgvHoaDon.Columns.Contains("SoTienDaThanhToan"))
             {
                 dgvHoaDon.Columns.Add("SoTienDaThanhToan", "Số tiền đã thanh toán");
@@ -92,7 +83,6 @@ namespace DACN.GUI
             {
                 dgvHoaDon.Columns["SoTienDaThanhToan"].HeaderText = "Số tiền đã thanh toán";
             }
-
             foreach (DataGridViewRow row in dgvHoaDon.Rows)
             {
                 row.Cells["SoTienDaThanhToan"].Value = ((HoaDonDTO)row.DataBoundItem).SoTienDaThanhToan;
@@ -102,8 +92,6 @@ namespace DACN.GUI
             dgvHoaDon.Columns["MaNV"].Visible = false;
             loadCbbTrangThai();
             tsbSua.Enabled = false;
-         
-
             ContextMenuStrip contextMenu = new ContextMenuStrip();
             ToolStripMenuItem xemChiTietMenuItem = new ToolStripMenuItem("Xem chi tiết hóa đơn");
             xemChiTietMenuItem.Click += XemChiTietMenuItem_Click;
@@ -115,57 +103,45 @@ namespace DACN.GUI
             dgvHoaDon.ContextMenuStrip = contextMenu;
         }
 
-
         public void SetGiaoHangMode()
         {
             tsbThem.Visible = tsbXoa.Visible = tsbSua.Visible = tsbLuu.Visible =false;
             txtMaNV.Enabled = txtTienCoc.Enabled = txtDiaChi.Enabled = dtpNgayTao.Enabled = txtMaHD.Enabled = false;
-            
         }
         public void SetBanHangMode()
         {
             tsbThem.Visible = tsbXoa.Visible = tsbSua.Visible = tsbLuu.Visible = false;
             txtMaNV.Enabled = txtTienCoc.Enabled = txtDiaChi.Enabled = dtpNgayTao.Enabled = txtMaHD.Enabled = false;
             btnThanhToan.Visible = btn_pth.Visible = false;
-
         }
         public void LoadHoaDonGiaoHang()
         {
             List<HoaDonDTO> listHoaDon = HoaDonDAO.Instance.GetHoaDon();
             dgvHoaDon.DataSource = listHoaDon;
-          
-
         }
         private void XemChiTietMenuItem_Click(object sender, EventArgs e)
         {
             int rowIndex = dgvHoaDon.SelectedCells[0].RowIndex;
             DataGridViewRow row = dgvHoaDon.Rows[rowIndex];
             mahd = row.Cells["MaHD"].Value.ToString();
-
             FormCTHoaDon formCTHoaDon = new FormCTHoaDon(txtMaHD.Text);
             formCTHoaDon.Owner = this;
             formCTHoaDon.ShowDialog();
-          
         }
         private void xemChiTietPTMenuItem_Click(object sender, EventArgs e)
         {
             int rowIndex = dgvHoaDon.SelectedCells[0].RowIndex;
             DataGridViewRow row = dgvHoaDon.Rows[rowIndex];
             mahd = row.Cells["MaHD"].Value.ToString();
-
             FormCTPhieuTraHangKH cTPhieuTraHangKH = new FormCTPhieuTraHangKH();
-
             cTPhieuTraHangKH.ShowDialog();
-
         }
         public void loadCbbTrangThai()
         {
             cbbTrangThai.Items.Clear();
             cbbTrangThai.Items.Add("Chưa giao hàng");
             cbbTrangThai.Items.Add("Đã giao");
-
             cbbTrangThai.SelectedIndex = 0;
-
         }
         static string GenerateNewCode(List<HoaDonDTO> list)
         {
@@ -173,14 +149,11 @@ namespace DACN.GUI
             {
                 return "HD001";
             }
-
             string lastCode = list.Last().MaHD;
-
             string prefix = lastCode.Substring(0, 2);
             string numberPart = lastCode.Substring(2);
             int number = int.Parse(numberPart) + 1;
             string newCode = $"{prefix}{number:D3}";
-
             return newCode;
         }
         public void chonTongTien(string tongtien)
@@ -196,7 +169,6 @@ namespace DACN.GUI
             FormChonKH formChonkh = new FormChonKH();
             formChonkh.Owner = this;
             formChonkh.ShowDialog();
-
         }
 
         private void btn_lammoiHang_Click(object sender, EventArgs e)
@@ -212,7 +184,6 @@ namespace DACN.GUI
             txtTongTien.Clear();
             txt_TienKM.Clear();
             mahd = txtMaHD.Text;
-
         }
 
         private void dgvHoaDon_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -221,7 +192,6 @@ namespace DACN.GUI
             {
                 if (e.RowIndex >= 0)
                 {
-                  
                     DataGridViewRow row = dgvHoaDon.Rows[e.RowIndex];
                     txtMaKH.Text = row.Cells["MaKH"].Value.ToString();
                     txtMaHD.Text = row.Cells["MaHD"].Value.ToString();
@@ -361,22 +331,6 @@ namespace DACN.GUI
             FormThanhToan frmThanhtoan = new FormThanhToan(txtTongTien.Text,txtTienCoc.Text,txt_TienKM.Text, txtThanhToan.Text);
             frmThanhtoan.FormClosed += (s, args) => LoadHoaDon();
             frmThanhtoan.ShowDialog();
-
-        }
-
-        private void FormHoaDon_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dgvHoaDon_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void cbbTrangThai_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void btn_pth_Click(object sender, EventArgs e)
@@ -398,6 +352,5 @@ namespace DACN.GUI
                 MessageBox.Show($"Đã xảy ra lỗi: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
     }
 }

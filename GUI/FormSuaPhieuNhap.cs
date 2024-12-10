@@ -164,7 +164,6 @@ namespace DACN.GUI
                     TinhTongThanhTien();
                     MessageBox.Show("Cập nhật thành công!");
                 }
-                
             }
             else
             {
@@ -224,7 +223,6 @@ namespace DACN.GUI
                         {
                             row.Cells["IsModified"].Value = false;
                         }
-
                     }
                 }
                 foreach (string maCTPN in deletedRows)

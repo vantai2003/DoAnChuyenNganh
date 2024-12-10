@@ -49,6 +49,7 @@
             // 
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
             this.uiDataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.uiDataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.uiDataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.uiDataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -91,7 +92,7 @@
             this.btnChonSP.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnChonSP.ForeColor = System.Drawing.Color.White;
             this.btnChonSP.Location = new System.Drawing.Point(697, 58);
-            this.btnChonSP.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnChonSP.Margin = new System.Windows.Forms.Padding(4);
             this.btnChonSP.Name = "btnChonSP";
             this.btnChonSP.Size = new System.Drawing.Size(284, 55);
             this.btnChonSP.TabIndex = 72;
@@ -107,7 +108,7 @@
             this.pndata.Controls.Add(this.btn_lammoiHang);
             this.pndata.Controls.Add(this.tbTimKiemHang);
             this.pndata.Location = new System.Drawing.Point(26, 50);
-            this.pndata.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pndata.Margin = new System.Windows.Forms.Padding(4);
             this.pndata.Name = "pndata";
             this.pndata.Size = new System.Drawing.Size(584, 71);
             this.pndata.TabIndex = 71;
@@ -116,7 +117,7 @@
             // 
             this.pcSearch.Image = ((System.Drawing.Image)(resources.GetObject("pcSearch.Image")));
             this.pcSearch.Location = new System.Drawing.Point(5, 20);
-            this.pcSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pcSearch.Margin = new System.Windows.Forms.Padding(4);
             this.pcSearch.Name = "pcSearch";
             this.pcSearch.Size = new System.Drawing.Size(36, 31);
             this.pcSearch.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -139,7 +140,7 @@
             this.btn_lammoiHang.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_lammoiHang.ForeColor = System.Drawing.Color.White;
             this.btn_lammoiHang.Location = new System.Drawing.Point(400, 14);
-            this.btn_lammoiHang.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_lammoiHang.Margin = new System.Windows.Forms.Padding(4);
             this.btn_lammoiHang.Name = "btn_lammoiHang";
             this.btn_lammoiHang.Size = new System.Drawing.Size(159, 42);
             this.btn_lammoiHang.TabIndex = 12;
@@ -151,7 +152,7 @@
             // 
             this.tbTimKiemHang.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbTimKiemHang.Location = new System.Drawing.Point(52, 22);
-            this.tbTimKiemHang.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbTimKiemHang.Margin = new System.Windows.Forms.Padding(4);
             this.tbTimKiemHang.Name = "tbTimKiemHang";
             this.tbTimKiemHang.Size = new System.Drawing.Size(342, 30);
             this.tbTimKiemHang.TabIndex = 11;
@@ -159,6 +160,7 @@
             // 
             // FormSanPhamBan
             // 
+            this.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1145, 557);
@@ -167,7 +169,7 @@
             this.Controls.Add(this.uiDataGridView1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormSanPhamBan";
-            this.Text = "SẢN PHẨM";
+            this.Text = "CHỌN SẢN PHẨM BÁN";
             ((System.ComponentModel.ISupportInitialize)(this.uiDataGridView1)).EndInit();
             this.pndata.ResumeLayout(false);
             this.pndata.PerformLayout();

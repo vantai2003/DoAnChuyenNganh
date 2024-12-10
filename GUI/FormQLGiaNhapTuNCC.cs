@@ -37,15 +37,12 @@ namespace DACN.GUI
             cb_SanPham.DataSource = listHH;
             cb_SanPham.DisplayMember = "TenSP";
             cb_SanPham.ValueMember = "TenSP";
-
             List<NhaCungCapDTO> listNCC = NhaCungCapDAO.Instance.GetNhaCungCap();
             cb_NCC.DataSource = listNCC;
             cb_NCC.DisplayMember = "TenNCC";
             cb_NCC.ValueMember = "TenNCC";
-
             cb_SanPham.AutoCompleteMode = AutoCompleteMode.Suggest;
             cb_SanPham.AutoCompleteSource = AutoCompleteSource.CustomSource;
-
             cb_NCC.AutoCompleteMode = AutoCompleteMode.Suggest;
             cb_NCC.AutoCompleteSource = AutoCompleteSource.CustomSource;
             txt_GiaNhap.Clear();

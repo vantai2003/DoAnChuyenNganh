@@ -96,7 +96,6 @@ namespace DACN.GUI
                     MessageBox.Show("Xóa không thành công");
                 }
             }
-            
         }
     }
 }

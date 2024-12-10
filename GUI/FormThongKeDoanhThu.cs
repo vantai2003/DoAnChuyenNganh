@@ -19,7 +19,6 @@ namespace DACN.GUI
             InitializeComponent();
             LoadThongKe();
         }
-        
         public void LoadThongKe()
         {
             dtTuNgay.Value = new DateTime(2024, 1, 1);
@@ -41,27 +40,6 @@ namespace DACN.GUI
             txtTienBanHang.Text = CongNoDAO.Instance.GetTienBanHang(dtTuNgay.Value, dtDenNgay.Value).ToString();
             txtTienLoi.Text = tienloi.ToString();
         }
-
-        private void xemThongKe_Click(object sender, EventArgs e)
-        {
-  
-        }
-
-        private void btLamMoi_Click(object sender, EventArgs e)
-        { 
-
-        }
-
-        private void FormThongKeDoanhThu_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void uiLabel3_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void dtTuNgay_ValueChanged(object sender, EventArgs e)
         {
             ReLoadThongKe();

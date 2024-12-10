@@ -19,7 +19,6 @@ namespace DACN.GUI
         {
             InitializeComponent();
             LoadListDSKMCanPheDuyet();
-            
         }
         private void LoadListDSKMCanPheDuyet()
         {
@@ -34,7 +33,6 @@ namespace DACN.GUI
             dvg_DSKM.Columns["GiaTriKM"].HeaderText = "Giá trị khuyến mãi";
             dvg_DSKM.Columns["LoaiDK"].HeaderText = "Loại điều kiện";
             dvg_DSKM.Columns["DieuKienTongTien"].HeaderText = "Điều kiện của tổng tiền";
-
         }
 
         private void dvg_DSKM_CellClick(object sender, DataGridViewCellEventArgs e)

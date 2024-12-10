@@ -24,15 +24,11 @@ namespace DACN.GUI
             InitializeComponent();
             mancc = FormNhapHang.mancc;
             LoadSanPham();
-
-     
         }
         private void LoadSanPham()
         {
             DataTable dtSanPham = HangHoaDAO.Instance.GetSanPhamByNhaCungCap(mancc);
             DataGridViewCheckBoxColumn chkColumn = dvg_ChonSP.Columns["Chon"] as DataGridViewCheckBoxColumn;
-            
-            
             if (chkColumn == null)
             {
                 chkColumn = new DataGridViewCheckBoxColumn();
@@ -44,12 +40,10 @@ namespace DACN.GUI
                 chkSelectAll.Size = new Size(15, 15);
                 chkSelectAll.Location = new Point(10, 10);
                 chkSelectAll.CheckedChanged += new EventHandler(chkSelectAll_CheckedChanged);
-
                 // Thêm checkbox vào header của DataGridView
                 Rectangle rect = dvg_ChonSP.GetCellDisplayRectangle(0, -1, true); // Lấy vị trí của header
                 chkSelectAll.Location = new Point(rect.Location.X + 15, rect.Location.Y + 5); // Điều chỉnh vị trí
                 dvg_ChonSP.Controls.Add(chkSelectAll);
-
             }
             dvg_ChonSP.AllowUserToAddRows = false;
             dvg_ChonSP.AutoSize = true;
@@ -58,15 +52,12 @@ namespace DACN.GUI
             dvg_ChonSP.Columns["TenSP"].HeaderText = "Tên sản phẩm";
             dvg_ChonSP.Columns["DVT"].HeaderText = "Đơn vị tính";
             dvg_ChonSP.Columns["TenLoai"].HeaderText = "Loại";
-
             dvg_ChonSP.EndEdit(); // tránh focus dòng đầu tiên
             foreach (DataGridViewColumn column in dvg_ChonSP.Columns)
             {
                 column.ReadOnly = true;
                 dvg_ChonSP.Columns["Chon"].ReadOnly = false;
             }
-
-
         }
         private void chkSelectAll_CheckedChanged(object sender, EventArgs e)
         {

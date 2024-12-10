@@ -41,6 +41,18 @@ namespace DACN.GUI
             cb_NCC.ValueMember = "MaNCC";
             cb_TrangThai.SelectedIndex = 0;
             InitializeDataGridView();
+            foreach (DataGridViewColumn column in dvg_TaoPN.Columns)
+            {
+                column.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            }
+            dvg_TaoPN.EnableHeadersVisualStyles = false;
+            dvg_TaoPN.ColumnHeadersDefaultCellStyle.WrapMode = DataGridViewTriState.False;  
+            dvg_TaoPN.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 12, FontStyle.Bold); 
+            dvg_TaoPN.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dvg_TaoPN.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter; 
+            dvg_TaoPN.DefaultCellStyle.Font = new Font("Arial", 12); 
+            dvg_TaoPN.RowTemplate.Height = 40;
+            dvg_TaoPN.DefaultCellStyle.Padding = new Padding(5);
         }
 
         private void btn_ChonSP_Click(object sender, EventArgs e)
@@ -52,18 +64,13 @@ namespace DACN.GUI
         }
         public void AddProductToReceipt(string maSP, string tenSP,string dvt, string tenloaisp)
         {
-            
-            
             DataGridViewRow row = new DataGridViewRow();
             row.CreateCells(dvg_TaoPN);
-
             row.Cells[0].Value = maSP;   
             row.Cells[1].Value = tenSP;    
             row.Cells[2].Value = dvt; 
             row.Cells[3].Value = tenloaisp; 
-
             dvg_TaoPN.Rows.Add(row);
-
             decimal tongTien = TinhTongThanhTien();
             txtTongTien.Text = tongTien.ToString("N2");
             AddDonGia();
@@ -102,6 +109,7 @@ namespace DACN.GUI
                 dvg_TaoPN.Columns.Add("DonGia", "Đơn Giá");
                 dvg_TaoPN.Columns.Add("ThanhTien", "Thành Tiền");
             }
+            
         }
         public void AnCombobox()
         {
@@ -119,7 +127,6 @@ namespace DACN.GUI
                     tongTien += thanhTien;
                 }
             }
-
             return tongTien;
         }
 
@@ -322,8 +329,6 @@ namespace DACN.GUI
                 btnDelete.DefaultCellStyle.ForeColor = Color.DeepPink;
                 btnDelete.DefaultCellStyle.Font = new Font("Arial", 10, FontStyle.Bold);
                 dvg_DSPhieuNhap.Columns.Add(btnDelete);
-
-
                 DataGridViewButtonColumn btnEdit = new DataGridViewButtonColumn
                 {
                     HeaderText = "",

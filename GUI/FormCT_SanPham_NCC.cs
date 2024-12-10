@@ -39,7 +39,6 @@ namespace DACN.GUI
             cb_NhaCC.DataSource = listNCC;
             cb_NhaCC.DisplayMember = "TenNCC";
             cb_NhaCC.ValueMember = "MaNCC";
-            //InitializeDataGridView();
         }
         private void InitializeDataGridView()
         {

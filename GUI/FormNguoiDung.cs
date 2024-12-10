@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -22,7 +23,6 @@ namespace DACN.GUI
             InitializeComponent();
             user = FormDangNhap.nhanvien;
             LoadNguoiDung();
-            
         }
         private int flag = 0;
         private void LoadNguoiDung()
@@ -43,17 +43,11 @@ namespace DACN.GUI
             cb_NhanVien.DataSource = listNV;
             cb_NhanVien.DisplayMember = "MaNV";
             cb_NhanVien.ValueMember = "MaNV";
-            btn_Them.Enabled = true;
-            btn_Xoa.Enabled = btnSua.Enabled = btnLuu.Enabled = false;
+            ts_Them.Enabled = true;
+            ts_Xoa.Enabled = ts_Sua.Enabled = ts_Luu.Enabled = false;
             txt_pass.Clear();
             cb_NhanVien.SelectedIndex = 2;
             cb_vitrilv.Enabled = cb_NhanVien.Enabled =txt_pass.Enabled = true;
-        }
-        
-        private void btn_Search_Click(object sender, EventArgs e)
-        {
-            List<NguoiDungDTO> listNguoiDung = NguoiDungDAO.Instance.TimKiemNguoiDung(txt_Search.Text);
-            dvg_NguoiDung.DataSource = listNguoiDung;
         }
 
         private void dvg_NguoiDung_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -74,9 +68,9 @@ namespace DACN.GUI
                         break;
                     }
                 }
-                btn_Xoa.Enabled = true;
-                btn_Them.Enabled = false;
-                btnSua.Enabled = true;
+                ts_Xoa.Enabled = true;
+                ts_Them.Enabled = false;
+                ts_Sua.Enabled = true;
                 cb_NhanVien.Enabled = txt_pass.Enabled =  cb_vitrilv.Enabled = false;
                 flag = 2;
             }
@@ -96,70 +90,7 @@ namespace DACN.GUI
             string pattern = @"^[a-zA-Z0-9]+$";
             return Regex.IsMatch(input, pattern);
         }
-
-        private void btn_reload_Click(object sender, EventArgs e)
-        {
-            LoadNguoiDung();
-        }
-
-        private void btn_Xoa_Click(object sender, EventArgs e)
-        {
-            string tenDN = "";
-            tenDN = cb_NhanVien.SelectedValue.ToString();
-            if (tenDN == "")
-            {
-                MessageBox.Show("Vui lòng chọn người dùng để xóa");
-            }
-            else
-            {
-                DialogResult r;
-                r = MessageBox.Show("Bạn có chắc muốn xóa người dùng?", "Thoát", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
-                if (r == DialogResult.Yes)
-                {
-                    NguoiDungDAO.Instance.XoaNguoiDung(tenDN);
-                    NguoiDungDAO.Instance.XoaNguoiDungHeThong(tenDN);
-                    MessageBox.Show("Xóa người dùng thành công!");
-                    LoadNguoiDung();
-                }
-            }
-        }
-            
-
-        private void btnLuu_Click(object sender, EventArgs e)
-        {
-
-            if(flag == 2)
-            {
-                string tenDN = cb_NhanVien.SelectedValue.ToString();
-                string matKhau = null;
-                if(txt_pass.Text  != "")
-                {
-                    matKhau = txt_pass.Text;
-                }    
-                matKhau = NguoiDungDAO.Hash(txt_pass.Text);
-                int quyenId = int.Parse(cb_vitrilv.SelectedValue.ToString());
-                if(string.IsNullOrEmpty(txt_pass.Text))
-                {
-                    NguoiDungDAO.Instance.SuaNguoiDung(tenDN, quyenId);
-                    MessageBox.Show("Sửa người dùng thành công");
-                    LoadNguoiDung();
-                }
-                else
-                {
-                    NguoiDungDAO.Instance.SuaNguoiDung1(tenDN, matKhau ,quyenId);
-                    MessageBox.Show("Sửa người dùng thành công");
-                    LoadNguoiDung();
-                }
-                
-            }
-        }
-
-        private void btn_LamMoi_Click(object sender, EventArgs e)
-        {
-            LoadNguoiDung() ;
-        }
-
-        private void btn_Them_Click(object sender, EventArgs e)
+        private void ts_Them_Click(object sender, EventArgs e)
         {
             string tenDN = "";
             tenDN = cb_NhanVien.SelectedValue.ToString();
@@ -183,27 +114,18 @@ namespace DACN.GUI
 
                         int quyenID = int.Parse(cb_vitrilv.SelectedValue.ToString());
 
-                       int kq = NguoiDungDAO.Instance.ThemNguoiDung(tenDN, matKhau, ngayTao, quyenID);
-                       if(kq > 0)
+                        int kq = NguoiDungDAO.Instance.ThemNguoiDung(tenDN, matKhau, ngayTao, quyenID);
+                        if (kq > 0)
                         {
-                            bool kqAddTKHT = NguoiDungDAO.Instance.TaoNguoiDungHeThong(tenDN, Mk);
-                            if (kqAddTKHT == true)
+                            if(NguoiDungDAO.Instance.TaoNguoiDungHeThong(tenDN, Mk) == true)
                             {
-                                MessageBox.Show("Thêm người dùng thành công");
+                                MessageBox.Show("Thêm thành công!");
                                 LoadNguoiDung();
                             }
-                            else
-                            {
-                                MessageBox.Show("Thêm người dùng thất bại");
-                            }
-                       }
+                            else { MessageBox.Show("Thêm không thành công!"); }
+                        }
                         else { MessageBox.Show("Thêm thất bại"); }
-                        
-                        
-                        
                     }
-
-
                 }
                 else
                 {
@@ -212,11 +134,77 @@ namespace DACN.GUI
             }
         }
 
-        private void btnSua_Click(object sender, EventArgs e)
+        private void ts_Xoa_Click(object sender, EventArgs e)
+        {
+            string tenDN = "";
+            tenDN = cb_NhanVien.SelectedValue.ToString();
+            if (tenDN == "")
+            {
+                MessageBox.Show("Vui lòng chọn người dùng để xóa");
+            }
+            else
+            {
+                DialogResult r;
+                r = MessageBox.Show("Bạn có chắc muốn xóa người dùng?", "Thoát", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
+                if (r == DialogResult.Yes)
+                {
+                    NguoiDungDAO.Instance.XoaNguoiDung(tenDN);
+                    NguoiDungDAO.Instance.XoaNguoiDungHeThong(tenDN);
+                    MessageBox.Show("Xóa người dùng thành công!");
+                    LoadNguoiDung();
+                }
+            }
+        }
+
+        private void ts_Sua_Click(object sender, EventArgs e)
         {
             flag = 2;
-            txt_pass.Enabled = cb_vitrilv.Enabled = btnLuu.Enabled = true;
-            btn_Them.Enabled = btn_Xoa.Enabled = btnSua.Enabled = false;
+            txt_pass.Enabled = cb_vitrilv.Enabled = ts_Luu.Enabled = true;
+            ts_Them.Enabled = ts_Xoa.Enabled = ts_Sua.Enabled = false;
+        }
+
+        private void ts_Luu_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (flag == 2)
+                {
+                    string tenDN = cb_NhanVien.SelectedValue.ToString();
+                    string matKhau = null;
+                    if (txt_pass.Text != "")
+                    {
+                        matKhau = txt_pass.Text;
+                    }
+                    matKhau = NguoiDungDAO.Hash(txt_pass.Text);
+                    int quyenId = int.Parse(cb_vitrilv.SelectedValue.ToString());
+                    if (string.IsNullOrEmpty(txt_pass.Text))
+                    {
+                        NguoiDungDAO.Instance.SuaNguoiDung(tenDN, quyenId);
+                    }
+                    else
+                    {
+                        NguoiDungDAO.Instance.SuaNguoiDung1(tenDN, matKhau, quyenId);
+                    }
+                    NguoiDungDAO.Instance.SuaNguoiDungHeThong(tenDN, txt_pass.Text, quyenId);
+                    MessageBox.Show("Sửa thành công");
+                    LoadNguoiDung();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Sửa người dùng thất bại");
+            }
+        }
+
+        private void ts_LamMoi_Click(object sender, EventArgs e)
+        {
+            LoadNguoiDung();
+        }
+
+        private void btn_Tim_Click(object sender, EventArgs e)
+        {
+            List<NguoiDungDTO> listNguoiDung = NguoiDungDAO.Instance.TimKiemNguoiDung(txt_Search.Text);
+            dvg_NguoiDung.DataSource = listNguoiDung;
         }
     }
 }

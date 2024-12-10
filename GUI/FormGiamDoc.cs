@@ -42,7 +42,6 @@ namespace DACN.GUI
             {
                 OpenChildForm(new FormTTNguoiDung());
             }
-            
         }
 
         private void btn_DangXuat_Click(object sender, EventArgs e)
@@ -90,7 +89,6 @@ namespace DACN.GUI
             {
                 OpenChildForm(new FormDoiMatKhau());
             }
-            
         }
         private bool CheckLoginStatus(string username)
         {

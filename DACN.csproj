@@ -8,7 +8,7 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>DACN</RootNamespace>
     <AssemblyName>DACN</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
@@ -307,12 +307,6 @@
     <Compile Include="GUI\FormGiamDoc.Designer.cs">
       <DependentUpon>FormGiamDoc.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\formKho.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUI\formKho.Designer.cs">
-      <DependentUpon>formKho.cs</DependentUpon>
-    </Compile>
     <Compile Include="GUI\FormNguoiDung.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -518,9 +512,6 @@
     <EmbeddedResource Include="GUI\FormGiamDoc.resx">
       <DependentUpon>FormGiamDoc.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\formKho.resx">
-      <DependentUpon>formKho.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="GUI\FormNguoiDung.resx">
       <DependentUpon>FormNguoiDung.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -659,6 +650,20 @@
     <None Include="Resources\employee.png" />
     <None Include="Resources\pricing.png" />
     <None Include="Resources\supply-chain.png" />
+    <None Include="Resources\icons8-add-100.png" />
+    <None Include="Resources\icons8-add-1001.png" />
+    <None Include="Resources\icons8-save-50.png" />
+    <None Include="Resources\icons8-search-55.png" />
+    <None Include="Resources\icons8-cloud-backup-restore-65.png" />
+    <None Include="Resources\icons8-restore-65.png" />
+    <None Include="Resources\ximang_xuatkhauthep.jpg" />
+    <None Include="Resources\12.jpg" />
+    <None Include="Resources\icons8-filter-50.png" />
+    <None Include="Resources\icons8-edit-50.png" />
+    <None Include="Resources\icons8-check-60.png" />
+    <None Include="Resources\icons8-no-60.png" />
+    <None Include="Resources\bd95531d-66bb-453b-ad25-a565ea52f7ce.png" />
+    <None Include="Resources\iStock-1368100643-scaled.jpg" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

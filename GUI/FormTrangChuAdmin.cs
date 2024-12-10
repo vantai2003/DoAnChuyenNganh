@@ -19,7 +19,7 @@ namespace DACN.GUI
         {
             InitializeComponent();
             OpenChildForm(new FormNguoiDung());
-            this.Width = 1250;
+            this.Width = 1100;
             this.Height = 700;
             user = FormDangNhap.nhanvien;
         }
@@ -37,8 +37,6 @@ namespace DACN.GUI
             childForm.BringToFront();
             childForm.Show();
         }
-        
-
         private void btn_QuanLyTaiKhoam_Click_1(object sender, EventArgs e)
         {
             if (CheckLoginStatus(user))

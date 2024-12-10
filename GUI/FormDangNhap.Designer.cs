@@ -30,14 +30,14 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormDangNhap));
             this.uiPanel2 = new Sunny.UI.UIPanel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.btn_Login = new Sunny.UI.UIButton();
             this.txt_PassWord = new Sunny.UI.UITextBox();
             this.txt_UserName = new Sunny.UI.UITextBox();
             this.uiLabel1 = new Sunny.UI.UILabel();
-            this.uiPanel1 = new Sunny.UI.UIPanel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.uiPanel1 = new Sunny.UI.UIPanel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.uiPanel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -55,40 +55,15 @@
             this.uiPanel2.Dock = System.Windows.Forms.DockStyle.Right;
             this.uiPanel2.FillColor = System.Drawing.Color.Transparent;
             this.uiPanel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.uiPanel2.Location = new System.Drawing.Point(640, 0);
+            this.uiPanel2.Location = new System.Drawing.Point(672, 0);
             this.uiPanel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.uiPanel2.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiPanel2.Name = "uiPanel2";
             this.uiPanel2.RectColor = System.Drawing.Color.White;
-            this.uiPanel2.Size = new System.Drawing.Size(473, 543);
+            this.uiPanel2.Size = new System.Drawing.Size(441, 543);
             this.uiPanel2.TabIndex = 1;
             this.uiPanel2.Text = null;
             this.uiPanel2.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label3
-            // 
-            this.label3.ForeColor = System.Drawing.Color.Maroon;
-            this.label3.Image = global::DACN.Properties.Resources.password_login;
-            this.label3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label3.Location = new System.Drawing.Point(108, 239);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(129, 32);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "Mật khẩu";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // label2
-            // 
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.ForeColor = System.Drawing.Color.Maroon;
-            this.label2.Image = global::DACN.Properties.Resources.account_login;
-            this.label2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label2.Location = new System.Drawing.Point(108, 109);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(159, 45);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Tên tài khoản";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // btn_Login
             // 
@@ -144,18 +119,27 @@
             // uiLabel1
             // 
             this.uiLabel1.BackColor = System.Drawing.Color.Transparent;
-            this.uiLabel1.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uiLabel1.Font = new System.Drawing.Font("Times New Roman", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.uiLabel1.ForeColor = System.Drawing.Color.DeepPink;
-            this.uiLabel1.Location = new System.Drawing.Point(183, 45);
+            this.uiLabel1.Location = new System.Drawing.Point(151, 56);
             this.uiLabel1.Name = "uiLabel1";
             this.uiLabel1.Size = new System.Drawing.Size(287, 36);
             this.uiLabel1.TabIndex = 0;
             this.uiLabel1.Text = "ĐĂNG NHẬP";
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.uiPanel1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(672, 543);
+            this.panel1.TabIndex = 2;
+            // 
             // uiPanel1
             // 
             this.uiPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.uiPanel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("uiPanel1.BackgroundImage")));
+            this.uiPanel1.BackgroundImage = global::DACN.Properties.Resources.iStock_1368100643_scaled;
             this.uiPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.uiPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.uiPanel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
@@ -164,19 +148,35 @@
             this.uiPanel1.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiPanel1.Name = "uiPanel1";
             this.uiPanel1.RectColor = System.Drawing.Color.White;
-            this.uiPanel1.Size = new System.Drawing.Size(640, 543);
+            this.uiPanel1.Size = new System.Drawing.Size(672, 543);
             this.uiPanel1.TabIndex = 0;
             this.uiPanel1.Text = null;
             this.uiPanel1.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // panel1
+            // label3
             // 
-            this.panel1.Controls.Add(this.uiPanel1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(640, 543);
-            this.panel1.TabIndex = 2;
+            this.label3.ForeColor = System.Drawing.Color.Red;
+            this.label3.Image = global::DACN.Properties.Resources.password_login;
+            this.label3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label3.Location = new System.Drawing.Point(107, 239);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(129, 32);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "Mật khẩu";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label2
+            // 
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.ForeColor = System.Drawing.Color.Red;
+            this.label2.Image = global::DACN.Properties.Resources.account_login;
+            this.label2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label2.Location = new System.Drawing.Point(108, 109);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(159, 45);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "Tên tài khoản";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // FormDangNhap
             // 

@@ -60,7 +60,6 @@ namespace DACN.GUI
                 MessageBox.Show("Nhập số tiền thanh toán không hợp lệ!!!");
                 txt_tienthanhtoan.Text = "0";
             }
-
         }
 
         private void txt_tienthanhtoan_KeyPress(object sender, KeyPressEventArgs e)
@@ -86,11 +85,7 @@ namespace DACN.GUI
                 }
             }
         }
-        
-        private void FormThanhToan_Load(object sender, EventArgs e)
-        {
-            
-        }
+   
         private void ThanhToanQR_Load()
         {
             using (WebClient client = new WebClient())
@@ -105,10 +100,6 @@ namespace DACN.GUI
                 cb_template.SelectedIndex = 0;
             }
         }
-        private void txt_tiencantra_TextChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void btnXacnhan_Click(object sender, EventArgs e)
         {
@@ -122,24 +113,16 @@ namespace DACN.GUI
                 HoaDonDAO.Instance.ThanhToan(mahd, tientra);
                 MessageBox.Show("Thanh toán thành công!");
                 this.Close();
-        
-               
             }
             catch (Exception ex)
             {
                 Console.WriteLine("Error: " + ex.Message);
             }
-
         }
 
         public void FormThanhToan_FormClosed(object sender, FormClosedEventArgs e)
         {
             this.FormClosed -= FormThanhToan_FormClosed;
-        }
-
-        private void label11_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void btnCreate_Click(object sender, EventArgs e)
@@ -158,14 +141,10 @@ namespace DACN.GUI
 
             request.Method = Method.Post;
             request.AddHeader("Accept", "application/json");
-
             request.AddParameter("application/json", jsonRequest, ParameterType.RequestBody);
-
             var response = client.Execute(request);
             var content = response.Content;
             var dataResult = JsonConvert.DeserializeObject<ApiResponse>(content);
-
-
             var image = Base64ToImage(dataResult.data.qrDataURL.Replace("data:image/png;base64,", ""));
             pictureBox1.Image = image;
             btnXacNhanQR.Visible = true;
@@ -179,90 +158,15 @@ namespace DACN.GUI
             return image;
         }
 
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cb_template_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cb_nganhang_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtInfo_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtTenTaiKhoan_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtSTK_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label8_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label9_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label10_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label12_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void rdbTienmat_CheckedChanged(object sender, EventArgs e)
         {
             txt_tiencantra.Visible = txt_tienkm.Visible = txt_tongtienhang.Visible = txt_tiencoc.Visible = txt_tienthanhtoan.Visible= btnXacnhan.Visible = true;
             label3.Visible = label4.Visible = label5.Visible = label6.Visible = label7.Visible = true;
-
             txtInfo.Visible = txtSTK.Visible = txtTenTaiKhoan.Visible = txt_soTien.Visible = cb_nganhang.Visible = cb_template.Visible = btnCreate.Visible = pictureBox1.Visible = false;
             label10.Visible = label11.Visible = label2.Visible = label8.Visible = label9.Visible = label12.Visible = false;
             btnXacNhanQR.Visible = false;
         }
 
-        private void txt_tongtienhang_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label7_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void btnXacNhanQR_Click(object sender, EventArgs e)
         {
@@ -276,14 +180,11 @@ namespace DACN.GUI
                 HoaDonDAO.Instance.ThanhToan(mahd, tiencantra - tientra);
                 MessageBox.Show("Thanh toán thành công!");
                 this.Close();
-
-
             }
             catch (Exception ex)
             {
                 Console.WriteLine("Error: " + ex.Message);
             }
-
         }
 
         private void txt_soTien_TextChanged(object sender, EventArgs e)

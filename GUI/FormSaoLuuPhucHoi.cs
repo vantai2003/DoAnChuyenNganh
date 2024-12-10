@@ -16,7 +16,6 @@ namespace DACN.GUI
         public FormSaoLuuPhucHoi()
         {
             InitializeComponent();
-
         }
         
         private bool backupDatabase(string backupPath)
@@ -44,7 +43,6 @@ namespace DACN.GUI
                     {
                         MessageBox.Show("Sao Lưu thất bại");
                     }
-
                 }
             }
         }
@@ -55,10 +53,10 @@ namespace DACN.GUI
             {
                 ofd.Filter = "Backup Files|*.bak";
                 ofd.Title = "Chọn file sao lưu";
-                if(ofd.ShowDialog() == DialogResult.OK)
+                if (ofd.ShowDialog() == DialogResult.OK)
                 {
                     string backupPath = ofd.FileName;
-                    if(restoreDatabase(backupPath)== true)
+                    if (restoreDatabase(backupPath) == true)
                     {
                         MessageBox.Show("Phục hồi thành công!");
                     }

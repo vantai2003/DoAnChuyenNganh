@@ -55,14 +55,6 @@ namespace DACN.GUI
             
         }
 
-        private void btn_QLTonKho_Click(object sender, EventArgs e)
-        {
-            if (CheckLoginStatus(user))
-            {
-                OpenChildForm(new FormQLTonKho());
-            }
-        }
-
         private void btn_Logout_Click(object sender, EventArgs e)
         {
             DialogResult dialogResult = MessageBox.Show("Bạn có chắc chắn muốn đăng xuất?", "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -120,6 +112,14 @@ namespace DACN.GUI
             if (CheckLoginStatus(user))
             {
                 OpenChildForm(new FormCT_SanPham_NCC());
+            }
+        }
+
+        private void btn_QLTonKho_Click(object sender, EventArgs e)
+        {
+            if (CheckLoginStatus(user))
+            {
+                OpenChildForm(new FormQLTonKho());
             }
         }
     }

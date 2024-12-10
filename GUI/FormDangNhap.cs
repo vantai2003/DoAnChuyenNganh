@@ -16,7 +16,6 @@ namespace DACN.GUI
     public partial class FormDangNhap : Form
     {
         public static string password;
-        //private string error = DataProvider.thongBao;
         public FormDangNhap()
         {
             InitializeComponent();
@@ -36,8 +35,11 @@ namespace DACN.GUI
         {
             nhanvien = txt_UserName.Text.Trim();
             password = txt_PassWord.Text;
-            DataProvider.Instance.SetConnectionString(nhanvien, password);
-            Console.WriteLine("NhanVien" + nhanvien + "pass: " + password);
+            if(DataProvider.Instance.SetConnectionString(nhanvien, password)== false)
+            {
+                MessageBox.Show("Sai tên đăng nhập hoặc mật khẩu");
+                return;
+            }
             string userName = txt_UserName.Text;
             string pass = NguoiDungDAO.Hash(txt_PassWord.Text);
             if (Login(userName, pass))

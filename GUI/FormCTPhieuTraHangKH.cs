@@ -35,9 +35,6 @@ namespace DACN.GUI
             dgvCTHD.Columns["NgayTao"].HeaderText = "Ngày Tạo";
             dgvCTHD.Columns["LyDo"].HeaderText = "Lý Do";
             dgvCTHD.Columns["MaPhieuTraHang"].Visible = false;
-
-
         }
-
     }
 }

@@ -105,7 +105,6 @@
             this.txtTongTien.TabIndex = 77;
             this.txtTongTien.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             this.txtTongTien.Watermark = "";
-            this.txtTongTien.TextChanged += new System.EventHandler(this.txtTongTien_TextChanged);
             // 
             // btnOK
             // 

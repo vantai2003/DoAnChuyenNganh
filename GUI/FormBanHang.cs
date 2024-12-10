@@ -110,22 +110,15 @@ namespace DACN.GUI
         {
             List<CTHoaDonDTO> listCTHoaDon = new List<CTHoaDonDTO>();
             listCTHoaDon = CTHoaDonDAO.Instance.GetCTHD();
-            // Nếu danh sách rỗng, trả về mã mặc định
             if (listCTHoaDon.Count == 0)
             {
                 return "CTHD001";
             }
-
-            // Lấy phần tử cuối cùng trong danh sách
             string lastCode = listCTHoaDon.Last().MaCTHD;
 
             string prefix = lastCode.Substring(0, 4);
             string numberPart = lastCode.Substring(4);
-
-            // Chuyển số thành số nguyên và tăng lên 1
             int number = int.Parse(numberPart) + 1;
-
-            // Tạo mã mới
             string newCode = $"{prefix}{number:D3}";
 
             return newCode;

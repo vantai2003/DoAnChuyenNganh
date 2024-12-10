@@ -93,7 +93,6 @@ namespace DACN.GUI
             this.dvg_TaoPTH.Size = new System.Drawing.Size(1179, 495);
             this.dvg_TaoPTH.StripeOddColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
             this.dvg_TaoPTH.TabIndex = 4;
-            this.dvg_TaoPTH.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dvg_TaoPTH_CellContentClick);
             this.dvg_TaoPTH.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dvg_TaoPTH_CellEndEdit);
             // 
             // textBox1
@@ -115,7 +114,8 @@ namespace DACN.GUI
             // uiPanel2
             // 
             this.uiPanel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.uiPanel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.uiPanel2.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uiPanel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.uiPanel2.Location = new System.Drawing.Point(0, 0);
             this.uiPanel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.uiPanel2.MinimumSize = new System.Drawing.Size(1, 1);
@@ -141,7 +141,6 @@ namespace DACN.GUI
             this.uiPanel4.TabIndex = 9;
             this.uiPanel4.Text = null;
             this.uiPanel4.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            this.uiPanel4.Click += new System.EventHandler(this.uiPanel4_Click);
             // 
             // cbbKho
             // 
@@ -155,7 +154,7 @@ namespace DACN.GUI
             this.cbbKho.MinimumSize = new System.Drawing.Size(63, 0);
             this.cbbKho.Name = "cbbKho";
             this.cbbKho.Padding = new System.Windows.Forms.Padding(0, 0, 30, 2);
-            this.cbbKho.Size = new System.Drawing.Size(150, 29);
+            this.cbbKho.Size = new System.Drawing.Size(164, 29);
             this.cbbKho.SymbolSize = 24;
             this.cbbKho.TabIndex = 3;
             this.cbbKho.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
@@ -186,7 +185,7 @@ namespace DACN.GUI
             // 
             // btn_taophieuKH
             // 
-            this.btn_taophieuKH.Location = new System.Drawing.Point(763, 79);
+            this.btn_taophieuKH.Location = new System.Drawing.Point(782, 79);
             this.btn_taophieuKH.Name = "btn_taophieuKH";
             this.btn_taophieuKH.Size = new System.Drawing.Size(214, 50);
             this.btn_taophieuKH.TabIndex = 0;
@@ -205,7 +204,7 @@ namespace DACN.GUI
             this.Controls.Add(this.btn_TaoPhieu);
             this.Controls.Add(this.uiPanel2);
             this.Name = "FormPhieuTraHangKH";
-            this.Text = "TẠO PHIẾU TRẢ HÀNG";
+            this.Text = "TẠO PHIẾU TRẢ HÀNG KHÁCH HÀNG";
             ((System.ComponentModel.ISupportInitialize)(this.dvg_TaoPTH)).EndInit();
             this.uiPanel4.ResumeLayout(false);
             this.uiPanel4.PerformLayout();

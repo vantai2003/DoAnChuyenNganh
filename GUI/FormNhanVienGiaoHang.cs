@@ -20,7 +20,7 @@ namespace DACN.GUI
         {
             InitializeComponent();
             this.Width = 1200;
-            this.Height = 900;
+            this.Height = 850;
             user = FormDangNhap.nhanvien;
         }
         private Form currentFormChild;
