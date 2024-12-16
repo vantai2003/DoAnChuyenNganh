@@ -18,6 +18,7 @@ namespace DACN.GUI
         private KhoDTO KhoDTO = new KhoDTO();
         private KhoDAO KhoDAO = new KhoDAO();
         private string makho;
+        private int flag;
         public FormDanhMuc()
         {
             InitializeComponent();
@@ -46,7 +47,8 @@ namespace DACN.GUI
             cbbLoaiKH.DataSource = listLoaiKH;
             cbbLoaiKH.DisplayMember = "TenLoaiKH";
             cbbLoaiKH.ValueMember = "MaLoaiKH";
-            tsbLuu.Enabled = false;
+            tsbThem.Enabled = true;
+            tsbSua.Enabled = tsbXoa.Enabled = tsbLuu.Enabled = false;
             xoaTxt();
         }
         static string GenerateNewCodeNCC()
@@ -208,6 +210,7 @@ namespace DACN.GUI
 
         private void tsbSua_Click(object sender, EventArgs e)
         {
+            tsbThem.Enabled = tsbXoa.Enabled = tsbSua.Enabled = false;
             txtMK.Enabled = false;
             IsUpdate = true;
             tsbLuu.Enabled = true;
@@ -261,6 +264,8 @@ namespace DACN.GUI
                             break;
                         }
                     }
+                    tsbSua.Enabled = tsbXoa.Enabled =true;
+                    tsbThem.Enabled = false;
                 }
             }
             catch (Exception ex)
@@ -302,6 +307,7 @@ namespace DACN.GUI
             dgv_NCC.Columns["ThanhPho"].HeaderText = "Thành phố";
             dgv_NCC.Columns["QuocGia"].HeaderText = "Quốc gia";
             dgv_NCC.Columns["NgayTao"].HeaderText = "Ngày tạo";
+            btnXoa.Enabled = btnSua.Enabled = btnLuu.Enabled = false;
             btnLuu.Enabled = false;
             txtMaNCC.Clear();
             txtTenNCC.Clear();
@@ -362,7 +368,7 @@ namespace DACN.GUI
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-         
+            btnXoa.Enabled = btnThem.Enabled = btnSua.Enabled = false;
             txtMaNCC.Enabled = false;
             IsUpdate = true;
             btnLuu.Enabled = true;
@@ -370,6 +376,7 @@ namespace DACN.GUI
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
+
             if (MessageBox.Show("Bạn có muốn xóa thông tin này không?", "Thông báo", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 try
@@ -427,6 +434,9 @@ namespace DACN.GUI
                     txt_DiaChiNCC.Text = row.Cells["DiaChi"].Value.ToString();
                     txtThanhPho.Text = row.Cells["ThanhPho"].Value.ToString();
                     txt_QuocGia.Text = row.Cells["QuocGia"].Value.ToString();
+                    flag = 1;
+                    btnSua.Enabled = btnXoa.Enabled = true;
+                    btnThem.Enabled = false;
                 }
             }
             catch (Exception ex)
@@ -443,7 +453,12 @@ namespace DACN.GUI
             dgv_LoaiKhachHang.Columns["TenLoaiKH"].HeaderText = "Tên loại khách hàng";
             dgv_LoaiKhachHang.Columns["MucChiTieuToiThieu"].HeaderText = "Mức chi tiêu tối thiểu";
             dgv_LoaiKhachHang.Columns["MucChiTieuToiDa"].HeaderText = "Mức chi tiêu tối đa";
-            btn_LuuLoaiKH.Enabled = false;
+            btn_SuaLoaiKH.Enabled = btn_XoaLoaiKH.Enabled = btn_LuuLoaiKH.Enabled = false;
+            btn_ThemLoaiKH.Enabled = true;
+            txt_MaLoaiKH.Clear();
+            txt_TenLoaiKH.Clear();
+            txt_MucChiTieuToiThieu.Clear();
+            txt_MucChiTieuTD.Clear();
         }
   
         
@@ -500,7 +515,7 @@ namespace DACN.GUI
                     loaiKhachHangDAO.Insert(lkhDTO.MaLoaiKH, lkhDTO.TenLoaiKH, lkhDTO.MucChiTieuToiThieu, lkhDTO.MucChiTieuToiDa);
                     MessageBox.Show("Thêm thông tin thành công!");
                 }
-                else MessageBox.Show("Mã loại khách hàng và tên loại khách hàng không được để trống!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else MessageBox.Show("Tên loại khách hàng không được để trống!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 LoadLoaiKhachHang();
             }
         }
@@ -508,7 +523,7 @@ namespace DACN.GUI
         private void btn_SuaLoaiKH_Click(object sender, EventArgs e)
         {
             btn_LuuLoaiKH.Enabled = true;
-            txt_MaLoaiKH.Enabled = false;
+            btn_ThemLoaiKH.Enabled = btn_SuaLoaiKH.Enabled = btn_XoaLoaiKH.Enabled = txt_MaLoaiKH.Enabled = false;
             IsUpdate = true;
         }
 
@@ -598,6 +613,7 @@ namespace DACN.GUI
                     break;
                 case 1:
                     HienThiKH();
+
                     break;
                 case 2:
                     LoadLoaiKhachHang();
@@ -612,6 +628,7 @@ namespace DACN.GUI
 
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
+            LoadNCC();
             txtMaNCC.Clear();
             txtTenNCC.Clear();
             txt_DiaChiNCC.Clear();
@@ -777,6 +794,21 @@ namespace DACN.GUI
             {
                 MessageBox.Show("Xóa thất bại");
             }
+        }
+
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+            HienThiKH();
+            txtMK.Clear();
+            txtTenKH.Clear();
+            txtSDT.Clear();
+            txtEmail.Clear();
+            txtDiaChi.Clear();
+        }
+
+        private void toolStripButton3_Click(object sender, EventArgs e)
+        {
+            LoadLoaiKhachHang();
         }
     }
 }

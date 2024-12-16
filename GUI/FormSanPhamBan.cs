@@ -21,6 +21,7 @@ namespace DACN.GUI
         {
             InitializeComponent();
             LoadSanPhamBan();
+            this.Height = 700;
         }
         private void LoadSanPhamBan()
         {

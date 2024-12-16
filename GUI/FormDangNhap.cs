@@ -16,11 +16,24 @@ namespace DACN.GUI
     public partial class FormDangNhap : Form
     {
         public static string password;
+        public static string instance;
         public FormDangNhap()
         {
             InitializeComponent();
-            this.Width = 1000;
-            this.Height = 500;
+            this.Width = 1050;
+            this.Height = 600;
+            Load();
+        }
+        private void Load()
+        {
+            var loginInfo =LoginDAO.LoadFromRegistry();
+            if (loginInfo.rememberMe)
+            {
+                txt_instance.Text = loginInfo.instance;
+                txt_UserName.Text = loginInfo.username;
+                txt_PassWord.Text = loginInfo.password;
+                cb_Luutt.Checked = true;
+            }
         }
         public static string nhanvien;
         private bool Login(string username, string password)
@@ -33,48 +46,58 @@ namespace DACN.GUI
         }
         private void btn_Login_Click(object sender, EventArgs e)
         {
-            nhanvien = txt_UserName.Text.Trim();
-            password = txt_PassWord.Text;
-            if(DataProvider.Instance.SetConnectionString(nhanvien, password)== false)
+            if(txt_instance.Text=="" || txt_PassWord.Text == "" || txt_UserName.Text == "")
             {
-                MessageBox.Show("Sai tên đăng nhập hoặc mật khẩu");
-                return;
+                MessageBox.Show("Vui lòng nhập đầy đủ thông tin");
             }
-            string userName = txt_UserName.Text;
-            string pass = NguoiDungDAO.Hash(txt_PassWord.Text);
-            if (Login(userName, pass))
+            else
             {
-                LoginDAO.Instance.StatusDangNhap(userName);
-                this.Hide();
-                switch (getRole(userName, pass))
+                nhanvien = txt_UserName.Text.Trim();
+                password = txt_PassWord.Text;
+                instance = txt_instance.Text;
+                if (DataProvider.Instance.SetConnectionString(instance, nhanvien, password) == false)
                 {
-                    case 0:
-                        FormTrangChuAdmin fTrangchuAdmin = new FormTrangChuAdmin();
-                        fTrangchuAdmin.Show();
-                        break;
-                    case 1:
-                        FormGiamDoc fGiamDoc = new FormGiamDoc();
-                        fGiamDoc.Show();
-                        break;
-                    case 2:
-                        FormKeToan fKeToan = new FormKeToan();
-                        fKeToan.Show();
-                        break;
-                    case 3:
-                        FormNhanVienBanHang fnvbh = new FormNhanVienBanHang();
-                        fnvbh.Show();
-                        break;
-                    case 4:
+                    MessageBox.Show("Sai tên đăng nhập hoặc mật khẩu");
+                    return;
+                }
+                string userName = txt_UserName.Text;
+                string pass = NguoiDungDAO.Hash(txt_PassWord.Text);
+                if (Login(userName, pass))
+                {
+                    LoginDAO.Instance.StatusDangNhap(userName);
+                    LoginDAO.SaveToRegistry(instance, nhanvien, password, cb_Luutt.Checked);
+                    this.Hide();
+                    switch (getRole(userName, pass))
+                    {
+                        case 0:
+                            FormTrangChuAdmin fTrangchuAdmin = new FormTrangChuAdmin();
+                            fTrangchuAdmin.Show();
+                            break;
+                        case 1:
+                            FormGiamDoc fGiamDoc = new FormGiamDoc();
+                            fGiamDoc.Show();
+                            break;
+                        case 2:
+                            FormKeToan fKeToan = new FormKeToan();
+                            fKeToan.Show();
+                            break;
+                        case 3:
+                            FormNhanVienBanHang fnvbh = new FormNhanVienBanHang();
+                            fnvbh.Show();
+                            break;
+                        case 4:
 
-                        FormNhanVienGiaoHang fnvgh = new FormNhanVienGiaoHang();
-                        fnvgh.Show();
-                        break;
-                    case 5:
-                        FormNhanVienKho fnvkho = new FormNhanVienKho();
-                        fnvkho.Show();
-                        break;
+                            FormNhanVienGiaoHang fnvgh = new FormNhanVienGiaoHang();
+                            fnvgh.Show();
+                            break;
+                        case 5:
+                            FormNhanVienKho fnvkho = new FormNhanVienKho();
+                            fnvkho.Show();
+                            break;
+                    }
                 }
             }
+            
         }
         private void FormDangNhap_FormClosing(object sender, FormClosingEventArgs e)
         {

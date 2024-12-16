@@ -21,6 +21,8 @@ namespace DACN.GUI
         {
             InitializeComponent();
             LoadKH();
+            this.Width = 1150;
+            this.Height = 700;
         }
         public void LoadKH()
         {

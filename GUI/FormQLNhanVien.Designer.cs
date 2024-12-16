@@ -37,7 +37,6 @@
             this.btn_reload = new Sunny.UI.UIButton();
             this.btn_Search = new Sunny.UI.UIButton();
             this.txt_Search = new Sunny.UI.UITextBox();
-            this.btnLuu = new System.Windows.Forms.Button();
             this.txt_HoTen = new Sunny.UI.UITextBox();
             this.dvg_NhanVien = new Sunny.UI.UIDataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -48,6 +47,7 @@
             this.lb_manv = new System.Windows.Forms.Label();
             this.pane_body = new Sunny.UI.UIPanel();
             this.uiPanel2 = new Sunny.UI.UIPanel();
+            this.dtp_NgayTD = new System.Windows.Forms.DateTimePicker();
             this.txt_ChuVu = new Sunny.UI.UITextBox();
             this.txt_Luong = new Sunny.UI.UITextBox();
             this.txt_Email = new Sunny.UI.UITextBox();
@@ -55,13 +55,13 @@
             this.lb_ntd = new System.Windows.Forms.Label();
             this.lb_email = new System.Windows.Forms.Label();
             this.txt_sdt = new Sunny.UI.UITextBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.uiGroupBox1 = new Sunny.UI.UIGroupBox();
+            this.uiContextMenuStrip1 = new Sunny.UI.UIContextMenuStrip();
+            this.btnLuu = new System.Windows.Forms.Button();
             this.btnThem = new System.Windows.Forms.Button();
             this.btn_Sua = new System.Windows.Forms.Button();
             this.btn_Xoa = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.uiContextMenuStrip1 = new Sunny.UI.UIContextMenuStrip();
-            this.dtp_NgayTD = new System.Windows.Forms.DateTimePicker();
-            this.uiGroupBox1 = new Sunny.UI.UIGroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.dvg_NhanVien)).BeginInit();
             this.panel2.SuspendLayout();
             this.pane_body.SuspendLayout();
@@ -73,13 +73,12 @@
             // btn_reload
             // 
             this.btn_reload.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_reload.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.btn_reload.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btn_reload.Location = new System.Drawing.Point(691, 42);
+            this.btn_reload.Location = new System.Drawing.Point(691, 33);
             this.btn_reload.MinimumSize = new System.Drawing.Size(1, 1);
             this.btn_reload.Name = "btn_reload";
             this.btn_reload.Radius = 25;
-            this.btn_reload.Size = new System.Drawing.Size(115, 35);
+            this.btn_reload.Size = new System.Drawing.Size(115, 44);
             this.btn_reload.TabIndex = 2;
             this.btn_reload.Text = "Làm mới";
             this.btn_reload.TipsFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
@@ -89,12 +88,10 @@
             // 
             this.btn_Search.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btn_Search.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_Search.FillColor = System.Drawing.Color.Lime;
             this.btn_Search.FillDisableColor = System.Drawing.Color.Cyan;
             this.btn_Search.FillHoverColor = System.Drawing.Color.Fuchsia;
             this.btn_Search.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btn_Search.ForeColor = System.Drawing.Color.Sienna;
-            this.btn_Search.LightColor = System.Drawing.Color.Red;
+            this.btn_Search.LightColor = System.Drawing.Color.White;
             this.btn_Search.Location = new System.Drawing.Point(337, 28);
             this.btn_Search.MinimumSize = new System.Drawing.Size(1, 1);
             this.btn_Search.Name = "btn_Search";
@@ -123,20 +120,6 @@
             this.txt_Search.TabIndex = 0;
             this.txt_Search.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             this.txt_Search.Watermark = "";
-            // 
-            // btnLuu
-            // 
-            this.btnLuu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.btnLuu.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnLuu.Enabled = false;
-            this.btnLuu.ForeColor = System.Drawing.Color.White;
-            this.btnLuu.Location = new System.Drawing.Point(873, 217);
-            this.btnLuu.Name = "btnLuu";
-            this.btnLuu.Size = new System.Drawing.Size(120, 60);
-            this.btnLuu.TabIndex = 51;
-            this.btnLuu.Text = "Lưu";
-            this.btnLuu.UseVisualStyleBackColor = false;
-            this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
             // 
             // txt_HoTen
             // 
@@ -314,7 +297,6 @@
             this.uiPanel2.Controls.Add(this.lb_namenv);
             this.uiPanel2.Controls.Add(this.lb_manv);
             this.uiPanel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.uiPanel2.FillColor = System.Drawing.Color.Ivory;
             this.uiPanel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.uiPanel2.Location = new System.Drawing.Point(0, 398);
             this.uiPanel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -324,6 +306,16 @@
             this.uiPanel2.TabIndex = 2;
             this.uiPanel2.Text = null;
             this.uiPanel2.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // dtp_NgayTD
+            // 
+            this.dtp_NgayTD.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dtp_NgayTD.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtp_NgayTD.Location = new System.Drawing.Point(583, 76);
+            this.dtp_NgayTD.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dtp_NgayTD.Name = "dtp_NgayTD";
+            this.dtp_NgayTD.Size = new System.Drawing.Size(149, 30);
+            this.dtp_NgayTD.TabIndex = 60;
             // 
             // txt_ChuVu
             // 
@@ -421,6 +413,58 @@
             this.txt_sdt.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             this.txt_sdt.Watermark = "";
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
+            this.panel1.Controls.Add(this.uiGroupBox1);
+            this.panel1.Controls.Add(this.btn_reload);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1187, 100);
+            this.panel1.TabIndex = 0;
+            // 
+            // uiGroupBox1
+            // 
+            this.uiGroupBox1.Controls.Add(this.txt_Search);
+            this.uiGroupBox1.Controls.Add(this.btn_Search);
+            this.uiGroupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.uiGroupBox1.Location = new System.Drawing.Point(72, 14);
+            this.uiGroupBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.uiGroupBox1.MinimumSize = new System.Drawing.Size(1, 1);
+            this.uiGroupBox1.Name = "uiGroupBox1";
+            this.uiGroupBox1.Padding = new System.Windows.Forms.Padding(0, 32, 0, 0);
+            this.uiGroupBox1.Size = new System.Drawing.Size(494, 78);
+            this.uiGroupBox1.TabIndex = 3;
+            this.uiGroupBox1.Text = "Tìm kiếm";
+            this.uiGroupBox1.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // uiContextMenuStrip1
+            // 
+            this.uiContextMenuStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
+            this.uiContextMenuStrip1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.uiContextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.uiContextMenuStrip1.Name = "uiContextMenuStrip1";
+            this.uiContextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
+            // btnLuu
+            // 
+            this.btnLuu.BackColor = System.Drawing.Color.White;
+            this.btnLuu.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLuu.Enabled = false;
+            this.btnLuu.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLuu.ForeColor = System.Drawing.Color.Black;
+            this.btnLuu.Image = global::DACN.Properties.Resources.icons8_save_50__1_;
+            this.btnLuu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLuu.Location = new System.Drawing.Point(873, 217);
+            this.btnLuu.Name = "btnLuu";
+            this.btnLuu.Size = new System.Drawing.Size(120, 60);
+            this.btnLuu.TabIndex = 51;
+            this.btnLuu.Text = "Lưu";
+            this.btnLuu.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnLuu.UseVisualStyleBackColor = false;
+            this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
+            // 
             // btnThem
             // 
             this.btnThem.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -468,50 +512,6 @@
             this.btn_Xoa.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btn_Xoa.UseVisualStyleBackColor = true;
             this.btn_Xoa.Click += new System.EventHandler(this.btn_Xoa_Click);
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.Ivory;
-            this.panel1.Controls.Add(this.uiGroupBox1);
-            this.panel1.Controls.Add(this.btn_reload);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1187, 100);
-            this.panel1.TabIndex = 0;
-            // 
-            // uiContextMenuStrip1
-            // 
-            this.uiContextMenuStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
-            this.uiContextMenuStrip1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.uiContextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.uiContextMenuStrip1.Name = "uiContextMenuStrip1";
-            this.uiContextMenuStrip1.Size = new System.Drawing.Size(61, 4);
-            // 
-            // dtp_NgayTD
-            // 
-            this.dtp_NgayTD.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.dtp_NgayTD.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtp_NgayTD.Location = new System.Drawing.Point(583, 76);
-            this.dtp_NgayTD.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dtp_NgayTD.Name = "dtp_NgayTD";
-            this.dtp_NgayTD.Size = new System.Drawing.Size(149, 30);
-            this.dtp_NgayTD.TabIndex = 60;
-            // 
-            // uiGroupBox1
-            // 
-            this.uiGroupBox1.Controls.Add(this.txt_Search);
-            this.uiGroupBox1.Controls.Add(this.btn_Search);
-            this.uiGroupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.uiGroupBox1.Location = new System.Drawing.Point(72, 14);
-            this.uiGroupBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.uiGroupBox1.MinimumSize = new System.Drawing.Size(1, 1);
-            this.uiGroupBox1.Name = "uiGroupBox1";
-            this.uiGroupBox1.Padding = new System.Windows.Forms.Padding(0, 32, 0, 0);
-            this.uiGroupBox1.Size = new System.Drawing.Size(494, 78);
-            this.uiGroupBox1.TabIndex = 3;
-            this.uiGroupBox1.Text = "Tìm kiếm";
-            this.uiGroupBox1.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // FormQLNhanVien
             // 

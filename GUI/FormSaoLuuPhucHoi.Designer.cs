@@ -30,9 +30,9 @@
         {
             this.panel_body = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.uiPanel1 = new Sunny.UI.UIPanel();
             this.btn_PhucHoi = new System.Windows.Forms.Button();
             this.btn_SaoLuu = new System.Windows.Forms.Button();
-            this.uiPanel1 = new Sunny.UI.UIPanel();
             this.panel_body.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -59,6 +59,21 @@
             this.panel2.Size = new System.Drawing.Size(948, 512);
             this.panel2.TabIndex = 1;
             // 
+            // uiPanel1
+            // 
+            this.uiPanel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.uiPanel1.FillColor = System.Drawing.Color.Transparent;
+            this.uiPanel1.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uiPanel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.uiPanel1.Location = new System.Drawing.Point(0, 0);
+            this.uiPanel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.uiPanel1.MinimumSize = new System.Drawing.Size(1, 1);
+            this.uiPanel1.Name = "uiPanel1";
+            this.uiPanel1.Size = new System.Drawing.Size(948, 146);
+            this.uiPanel1.TabIndex = 2;
+            this.uiPanel1.Text = "SAO LƯU VÀ PHỤC HỒI";
+            this.uiPanel1.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // btn_PhucHoi
             // 
             this.btn_PhucHoi.BackColor = System.Drawing.Color.White;
@@ -69,7 +84,7 @@
             this.btn_PhucHoi.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_PhucHoi.Location = new System.Drawing.Point(659, 312);
             this.btn_PhucHoi.Name = "btn_PhucHoi";
-            this.btn_PhucHoi.Size = new System.Drawing.Size(190, 83);
+            this.btn_PhucHoi.Size = new System.Drawing.Size(190, 92);
             this.btn_PhucHoi.TabIndex = 1;
             this.btn_PhucHoi.Text = "Phục hồi";
             this.btn_PhucHoi.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -86,27 +101,12 @@
             this.btn_SaoLuu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_SaoLuu.Location = new System.Drawing.Point(106, 312);
             this.btn_SaoLuu.Name = "btn_SaoLuu";
-            this.btn_SaoLuu.Size = new System.Drawing.Size(185, 81);
+            this.btn_SaoLuu.Size = new System.Drawing.Size(185, 92);
             this.btn_SaoLuu.TabIndex = 0;
             this.btn_SaoLuu.Text = "Sao lưu";
             this.btn_SaoLuu.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btn_SaoLuu.UseVisualStyleBackColor = false;
             this.btn_SaoLuu.Click += new System.EventHandler(this.btn_SaoLuu_Click);
-            // 
-            // uiPanel1
-            // 
-            this.uiPanel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.uiPanel1.FillColor = System.Drawing.Color.Transparent;
-            this.uiPanel1.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uiPanel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
-            this.uiPanel1.Location = new System.Drawing.Point(0, 0);
-            this.uiPanel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.uiPanel1.MinimumSize = new System.Drawing.Size(1, 1);
-            this.uiPanel1.Name = "uiPanel1";
-            this.uiPanel1.Size = new System.Drawing.Size(948, 146);
-            this.uiPanel1.TabIndex = 2;
-            this.uiPanel1.Text = "SAO LƯU VÀ PHỤC HỒI";
-            this.uiPanel1.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // FormSaoLuuPhucHoi
             // 

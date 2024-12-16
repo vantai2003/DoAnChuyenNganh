@@ -115,7 +115,7 @@ namespace DACN.GUI
             // 
             this.uiPanel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.uiPanel2.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uiPanel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.uiPanel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             this.uiPanel2.Location = new System.Drawing.Point(0, 0);
             this.uiPanel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.uiPanel2.MinimumSize = new System.Drawing.Size(1, 1);
@@ -185,12 +185,14 @@ namespace DACN.GUI
             // 
             // btn_taophieuKH
             // 
+            this.btn_taophieuKH.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
+            this.btn_taophieuKH.ForeColor = System.Drawing.Color.White;
             this.btn_taophieuKH.Location = new System.Drawing.Point(782, 79);
             this.btn_taophieuKH.Name = "btn_taophieuKH";
             this.btn_taophieuKH.Size = new System.Drawing.Size(214, 50);
             this.btn_taophieuKH.TabIndex = 0;
             this.btn_taophieuKH.Text = "Tạo phiếu";
-            this.btn_taophieuKH.UseVisualStyleBackColor = true;
+            this.btn_taophieuKH.UseVisualStyleBackColor = false;
             this.btn_taophieuKH.Click += new System.EventHandler(this.btn_taophieuKH_Click);
             // 
             // FormPhieuTraHangKH

@@ -158,6 +158,7 @@ namespace DACN.GUI
             txt_TenHH.Clear();
             cb_DVT.SelectedIndex = 0;
             cb_LoaiHH.SelectedIndex = 0;
+            rd_LoaiHH.Checked = false;
         }
         private bool ktTrungMaSP(string masp)
         {
@@ -362,26 +363,33 @@ namespace DACN.GUI
 
         private void btn_XoaHH_Click_1(object sender, EventArgs e)
         {
-            string masp = "";
-            masp = txt_MaHH.Text;
-            if (masp == "")
+            try
             {
-                MessageBox.Show("Vui lòng chọn sản phẩm muốn xóa");
-            }
-            else
-            {
-                DialogResult r;
-                r = MessageBox.Show("Bạn có chắc muốn xóa sản phẩm này?", "Thoát", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
-                if (r == DialogResult.Yes)
+                string masp = "";
+                masp = txt_MaHH.Text;
+                if (masp == "")
                 {
-                    HangHoaDAO.Instance.XoaSP(masp);
-                    MessageBox.Show("Xóa sản phẩm thành công!");
-                    txt_MaHH.Clear();
-                    txt_TenHH.Clear();
-                    cb_DVT.SelectedIndex = 0;
-                    cb_LoaiHH.SelectedIndex = 0;
-                    LoadSanPham();
+                    MessageBox.Show("Vui lòng chọn sản phẩm muốn xóa");
                 }
+                else
+                {
+                    DialogResult r;
+                    r = MessageBox.Show("Bạn có chắc muốn xóa sản phẩm này?", "Thoát", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
+                    if (r == DialogResult.Yes)
+                    {
+                        HangHoaDAO.Instance.XoaSP(masp);
+                        MessageBox.Show("Xóa sản phẩm thành công!");
+                        txt_MaHH.Clear();
+                        txt_TenHH.Clear();
+                        cb_DVT.SelectedIndex = 0;
+                        cb_LoaiHH.SelectedIndex = 0;
+                        LoadSanPham();
+                    }
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Không thể xóa sản phẩm này");
             }
         }
 

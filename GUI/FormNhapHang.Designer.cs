@@ -122,6 +122,8 @@
             this.tab_body.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tab_body.TabBackColor = System.Drawing.Color.White;
             this.tab_body.TabIndex = 1;
+            this.tab_body.TabSelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.tab_body.TabSelectedForeColor = System.Drawing.Color.Black;
             this.tab_body.TabUnSelectedForeColor = System.Drawing.Color.Black;
             this.tab_body.TipsFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.tab_body.SelectedIndexChanged += new System.EventHandler(this.tab_body_SelectedIndexChanged);
@@ -221,10 +223,10 @@
             // 
             // btn_TimPN
             // 
-            this.btn_TimPN.BackColor = System.Drawing.Color.Teal;
+            this.btn_TimPN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
             this.btn_TimPN.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_TimPN.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.btn_TimPN.ForeColor = System.Drawing.Color.Yellow;
+            this.btn_TimPN.ForeColor = System.Drawing.Color.White;
             this.btn_TimPN.Image = global::DACN.Properties.Resources.Search1;
             this.btn_TimPN.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_TimPN.Location = new System.Drawing.Point(533, 20);
@@ -306,9 +308,9 @@
             // 
             // btn_LocTheoNgay
             // 
-            this.btn_LocTheoNgay.BackColor = System.Drawing.Color.Teal;
+            this.btn_LocTheoNgay.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
             this.btn_LocTheoNgay.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_LocTheoNgay.ForeColor = System.Drawing.Color.Yellow;
+            this.btn_LocTheoNgay.ForeColor = System.Drawing.Color.White;
             this.btn_LocTheoNgay.Location = new System.Drawing.Point(841, 57);
             this.btn_LocTheoNgay.Name = "btn_LocTheoNgay";
             this.btn_LocTheoNgay.Size = new System.Drawing.Size(174, 47);
@@ -371,9 +373,9 @@
             // 
             // btn_Loc
             // 
-            this.btn_Loc.BackColor = System.Drawing.Color.Teal;
+            this.btn_Loc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
             this.btn_Loc.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_Loc.ForeColor = System.Drawing.Color.Yellow;
+            this.btn_Loc.ForeColor = System.Drawing.Color.White;
             this.btn_Loc.Location = new System.Drawing.Point(841, 114);
             this.btn_Loc.Name = "btn_Loc";
             this.btn_Loc.Size = new System.Drawing.Size(85, 65);
@@ -481,7 +483,7 @@
             this.dvg_TaoPN.BackgroundColor = System.Drawing.Color.AliceBlue;
             dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             dataGridViewCellStyle17.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -502,9 +504,9 @@
             // 
             // btn_Xoa
             // 
-            this.btn_Xoa.BackColor = System.Drawing.Color.Teal;
+            this.btn_Xoa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
             this.btn_Xoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
-            this.btn_Xoa.ForeColor = System.Drawing.Color.Yellow;
+            this.btn_Xoa.ForeColor = System.Drawing.Color.White;
             this.btn_Xoa.Location = new System.Drawing.Point(869, 513);
             this.btn_Xoa.Name = "btn_Xoa";
             this.btn_Xoa.Size = new System.Drawing.Size(181, 59);
@@ -515,9 +517,9 @@
             // 
             // btn_ToaPN
             // 
-            this.btn_ToaPN.BackColor = System.Drawing.Color.Teal;
+            this.btn_ToaPN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
             this.btn_ToaPN.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
-            this.btn_ToaPN.ForeColor = System.Drawing.Color.Yellow;
+            this.btn_ToaPN.ForeColor = System.Drawing.Color.White;
             this.btn_ToaPN.Location = new System.Drawing.Point(95, 520);
             this.btn_ToaPN.Name = "btn_ToaPN";
             this.btn_ToaPN.Size = new System.Drawing.Size(176, 52);
@@ -532,7 +534,7 @@
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.Location = new System.Drawing.Point(474, 524);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(125, 29);
+            this.label10.Size = new System.Drawing.Size(107, 26);
             this.label10.TabIndex = 6;
             this.label10.Text = "Tổng Tiền";
             // 
@@ -578,7 +580,7 @@
             this.lb_trangthai.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_trangthai.Location = new System.Drawing.Point(84, 123);
             this.lb_trangthai.Name = "lb_trangthai";
-            this.lb_trangthai.Size = new System.Drawing.Size(121, 29);
+            this.lb_trangthai.Size = new System.Drawing.Size(108, 26);
             this.lb_trangthai.TabIndex = 29;
             this.lb_trangthai.Text = "Trạng thái";
             // 
@@ -597,9 +599,9 @@
             // 
             // btn_ChonSP
             // 
-            this.btn_ChonSP.BackColor = System.Drawing.Color.Teal;
+            this.btn_ChonSP.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
             this.btn_ChonSP.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
-            this.btn_ChonSP.ForeColor = System.Drawing.Color.Yellow;
+            this.btn_ChonSP.ForeColor = System.Drawing.Color.White;
             this.btn_ChonSP.Location = new System.Drawing.Point(731, 103);
             this.btn_ChonSP.Name = "btn_ChonSP";
             this.btn_ChonSP.Size = new System.Drawing.Size(215, 56);
@@ -622,7 +624,7 @@
             this.lb_ncc.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_ncc.Location = new System.Drawing.Point(552, 47);
             this.lb_ncc.Name = "lb_ncc";
-            this.lb_ncc.Size = new System.Drawing.Size(160, 29);
+            this.lb_ncc.Size = new System.Drawing.Size(146, 26);
             this.lb_ncc.TabIndex = 25;
             this.lb_ncc.Text = "Nhà cung cấp";
             // 
@@ -640,20 +642,20 @@
             this.lb_kho.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_kho.Location = new System.Drawing.Point(90, 45);
             this.lb_kho.Name = "lb_kho";
-            this.lb_kho.Size = new System.Drawing.Size(56, 29);
+            this.lb_kho.Size = new System.Drawing.Size(51, 26);
             this.lb_kho.TabIndex = 19;
             this.lb_kho.Text = "Kho";
             // 
             // uiPanel3
             // 
             this.uiPanel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.uiPanel3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.uiPanel3.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uiPanel3.ForeColor = System.Drawing.Color.White;
+            this.uiPanel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             this.uiPanel3.Location = new System.Drawing.Point(0, 0);
             this.uiPanel3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.uiPanel3.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiPanel3.Name = "uiPanel3";
+            this.uiPanel3.RectColor = System.Drawing.Color.Transparent;
             this.uiPanel3.Size = new System.Drawing.Size(1213, 97);
             this.uiPanel3.TabIndex = 0;
             this.uiPanel3.Text = "NHẬP HÀNG";
@@ -682,9 +684,9 @@
             // 
             // btn_TaoPTH
             // 
-            this.btn_TaoPTH.BackColor = System.Drawing.Color.Teal;
+            this.btn_TaoPTH.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
             this.btn_TaoPTH.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
-            this.btn_TaoPTH.ForeColor = System.Drawing.Color.Yellow;
+            this.btn_TaoPTH.ForeColor = System.Drawing.Color.White;
             this.btn_TaoPTH.Location = new System.Drawing.Point(709, 404);
             this.btn_TaoPTH.Name = "btn_TaoPTH";
             this.btn_TaoPTH.Size = new System.Drawing.Size(316, 50);
@@ -695,9 +697,9 @@
             // 
             // btn_XemCT
             // 
-            this.btn_XemCT.BackColor = System.Drawing.Color.Teal;
+            this.btn_XemCT.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
             this.btn_XemCT.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
-            this.btn_XemCT.ForeColor = System.Drawing.Color.Yellow;
+            this.btn_XemCT.ForeColor = System.Drawing.Color.White;
             this.btn_XemCT.Location = new System.Drawing.Point(131, 393);
             this.btn_XemCT.Name = "btn_XemCT";
             this.btn_XemCT.Size = new System.Drawing.Size(273, 52);

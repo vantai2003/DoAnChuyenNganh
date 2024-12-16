@@ -40,9 +40,6 @@
             this.btn_LapPhieuNH = new System.Windows.Forms.Button();
             this.uiPanel3 = new Sunny.UI.UIPanel();
             this.btn_QLTonKho = new System.Windows.Forms.Button();
-            this.btn_Logout = new System.Windows.Forms.Button();
-            this.uiPanel1 = new Sunny.UI.UIPanel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.mn_caidat = new System.Windows.Forms.ToolStripMenuItem();
@@ -51,6 +48,9 @@
             this.mn_tttk = new System.Windows.Forms.ToolStripMenuItem();
             this.tStripMenuItem_ThongTinTK = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem_DoiMK = new System.Windows.Forms.ToolStripMenuItem();
+            this.btn_Logout = new System.Windows.Forms.Button();
+            this.uiPanel1 = new Sunny.UI.UIPanel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel_body.SuspendLayout();
             this.panel1.SuspendLayout();
             this.uiPanel8.SuspendLayout();
@@ -58,10 +58,10 @@
             this.uiPanel5.SuspendLayout();
             this.uiPanel4.SuspendLayout();
             this.uiPanel3.SuspendLayout();
-            this.uiPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
+            this.uiPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel_body
@@ -249,52 +249,6 @@
             this.btn_QLTonKho.UseVisualStyleBackColor = false;
             this.btn_QLTonKho.Click += new System.EventHandler(this.btn_QLTonKho_Click);
             // 
-            // btn_Logout
-            // 
-            this.btn_Logout.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_Logout.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Logout.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.btn_Logout.Image = global::DACN.Properties.Resources.icon_logout2;
-            this.btn_Logout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Logout.Location = new System.Drawing.Point(77, 665);
-            this.btn_Logout.Margin = new System.Windows.Forms.Padding(4);
-            this.btn_Logout.Name = "btn_Logout";
-            this.btn_Logout.Size = new System.Drawing.Size(195, 57);
-            this.btn_Logout.TabIndex = 4;
-            this.btn_Logout.Text = "Đăng xuất";
-            this.btn_Logout.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_Logout.UseVisualStyleBackColor = true;
-            this.btn_Logout.Click += new System.EventHandler(this.btn_Logout_Click);
-            // 
-            // uiPanel1
-            // 
-            this.uiPanel1.BackgroundImage = global::DACN.Properties.Resources._122;
-            this.uiPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.uiPanel1.Controls.Add(this.pictureBox1);
-            this.uiPanel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.uiPanel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.uiPanel1.Location = new System.Drawing.Point(0, 0);
-            this.uiPanel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.uiPanel1.MinimumSize = new System.Drawing.Size(1, 1);
-            this.uiPanel1.Name = "uiPanel1";
-            this.uiPanel1.Size = new System.Drawing.Size(349, 214);
-            this.uiPanel1.TabIndex = 10;
-            this.uiPanel1.Text = null;
-            this.uiPanel1.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox1.Image = global::DACN.Properties.Resources.Image_NV;
-            this.pictureBox1.Location = new System.Drawing.Point(275, 2);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(71, 63);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox1.TabIndex = 8;
-            this.pictureBox1.TabStop = false;
-            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.panel_body);
@@ -366,6 +320,52 @@
             this.toolStripMenuItem_DoiMK.Text = "Đổi mật khẩu";
             this.toolStripMenuItem_DoiMK.Click += new System.EventHandler(this.toolStripMenuItem_DoiMK_Click);
             // 
+            // btn_Logout
+            // 
+            this.btn_Logout.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_Logout.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Logout.ForeColor = System.Drawing.SystemColors.InactiveCaptionText;
+            this.btn_Logout.Image = global::DACN.Properties.Resources.icon_logout2;
+            this.btn_Logout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_Logout.Location = new System.Drawing.Point(77, 653);
+            this.btn_Logout.Margin = new System.Windows.Forms.Padding(4);
+            this.btn_Logout.Name = "btn_Logout";
+            this.btn_Logout.Size = new System.Drawing.Size(172, 69);
+            this.btn_Logout.TabIndex = 4;
+            this.btn_Logout.Text = "Đăng xuất";
+            this.btn_Logout.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btn_Logout.UseVisualStyleBackColor = true;
+            this.btn_Logout.Click += new System.EventHandler(this.btn_Logout_Click);
+            // 
+            // uiPanel1
+            // 
+            this.uiPanel1.BackgroundImage = global::DACN.Properties.Resources._122;
+            this.uiPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.uiPanel1.Controls.Add(this.pictureBox1);
+            this.uiPanel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.uiPanel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.uiPanel1.Location = new System.Drawing.Point(0, 0);
+            this.uiPanel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.uiPanel1.MinimumSize = new System.Drawing.Size(1, 1);
+            this.uiPanel1.Name = "uiPanel1";
+            this.uiPanel1.Size = new System.Drawing.Size(349, 214);
+            this.uiPanel1.TabIndex = 10;
+            this.uiPanel1.Text = null;
+            this.uiPanel1.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox1.Image = global::DACN.Properties.Resources.Image_NV;
+            this.pictureBox1.Location = new System.Drawing.Point(275, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(71, 63);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox1.TabIndex = 8;
+            this.pictureBox1.TabStop = false;
+            // 
             // FormNhanVienKho
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -382,12 +382,12 @@
             this.uiPanel5.ResumeLayout(false);
             this.uiPanel4.ResumeLayout(false);
             this.uiPanel3.ResumeLayout(false);
-            this.uiPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.uiPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }

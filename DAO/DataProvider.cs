@@ -3,6 +3,7 @@ using Microsoft.ReportingServices.Diagnostics.Internal;
 using Sunny.UI.Win32;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
@@ -14,14 +15,19 @@ namespace DACN.DAO
 {
     public class DataProvider
     {
+        //string server = Environment.MachineName;
+        private string instances;
         private string user;
         private string password;
         private string conStr;
         public static string thongBao = null;
         //private string conStrAdmin = "Data Source=MSI\\SQLEXPRESS;Initial Catalog=QL_SatThepXD;User ID=userkill;Password=123;Encrypt=False";
 
-        private string conStrAdmin = "Data Source=LAPTOP-70K25FBU\\MSSQLSERVER01;Initial Catalog=QL_SatThepXD;User ID=userkill;Password=123;Encrypt=False";
-        private SqlConnection connection;
+        //private string conStrAdmin = "Data Source=LAPTOP-70K25FBU\\MSSQLSERVER01;Initial Catalog=QL_SatThepXD;User ID=userkill;Password=123;Encrypt=False";
+        //private SqlConnection connection;
+        private string conStrAdmin = ConfigurationManager.ConnectionStrings["AdminDB"].ConnectionString;
+        private string conStrUser = ConfigurationManager.ConnectionStrings["UserDB"].ConnectionString;
+
         public string User
         {
             get { return user; }
@@ -53,13 +59,17 @@ namespace DACN.DAO
         {
             user = FormDangNhap.nhanvien;
             password = FormDangNhap.password;
-            SetConnectionString(user, password);
+            instances = FormDangNhap.instance;
+            SetConnectionString(instances,user, password);
         }
-        public bool SetConnectionString(string user, string password)
+        public bool SetConnectionString(string server, string user, string password)
         {
             user = user.ToLower();
             password = password.ToLower();
-            conStr = $"Data Source=LAPTOP-70K25FBU\\MSSQLSERVER01;Initial Catalog=QL_SatThepXD;User ID={user};Password={password};Encrypt=False";
+            server = server.ToLower();
+           // conStr = $"Data Source=LAPTOP-70K25FBU\\MSSQLSERVER01;Initial Catalog=QL_SatThepXD;User ID={user};Password={password};Encrypt=False";
+            
+            conStr = string.Format(conStrUser, server, user, password);
             //conStr = $"Data Source=MSI\\SQLEXPRESS;Initial Catalog=QL_SatThepXD;User ID={user};Password={password};Encrypt=False"; 
             try
             {
@@ -73,6 +83,7 @@ namespace DACN.DAO
             }
             catch (SqlException ex)
             {
+                Console.WriteLine("Chuoi ket noi: " + conStr);
                 return false;
             }
         }
@@ -159,6 +170,8 @@ namespace DACN.DAO
         {
             try
             {
+                instances = FormDangNhap.instance;
+                conStrAdmin = string.Format(conStrAdmin, instances);
                 using (SqlConnection connection = new SqlConnection(conStrAdmin))
                 {
                     connection.Open();

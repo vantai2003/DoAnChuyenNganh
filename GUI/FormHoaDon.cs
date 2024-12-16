@@ -185,7 +185,6 @@ namespace DACN.GUI
             txt_TienKM.Clear();
             mahd = txtMaHD.Text;
         }
-
         private void dgvHoaDon_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             try
@@ -211,8 +210,6 @@ namespace DACN.GUI
                 Console.WriteLine("Error: " + ex.Message);
             }
         }
-
-
         public bool dkHoaDon(string makh, string Diachi, string manv)
         {
             if (string.IsNullOrWhiteSpace(makh))
@@ -351,6 +348,13 @@ namespace DACN.GUI
             {
                 MessageBox.Show($"Đã xảy ra lỗi: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void pcSearch_Click(object sender, EventArgs e)
+        {
+            string searchValue = tbTimKiem.Text;
+            List<HoaDonDTO> listHD =  hoaDonDAO.TimHD(searchValue);
+            dgvHoaDon.DataSource = listHD;
         }
     }
 }

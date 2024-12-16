@@ -30,7 +30,8 @@ namespace DACN.GUI
         private void InitializeComponent()
         {
             this.panel_right = new System.Windows.Forms.Panel();
-            this.panel_body1 = new System.Windows.Forms.Panel();
+            this.uiPanel1 = new Sunny.UI.UIPanel();
+            this.panel_body = new Sunny.UI.UIPanel();
             this.pane_left = new System.Windows.Forms.Panel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pn0 = new System.Windows.Forms.Panel();
@@ -45,16 +46,15 @@ namespace DACN.GUI
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
-            this.uiPanel1 = new Sunny.UI.UIPanel();
-            this.panel_body = new Sunny.UI.UIPanel();
+            this.panel_body1 = new System.Windows.Forms.Panel();
             this.panel_right.SuspendLayout();
-            this.panel_body1.SuspendLayout();
+            this.uiPanel1.SuspendLayout();
             this.pane_left.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.pn0.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
-            this.uiPanel1.SuspendLayout();
+            this.panel_body1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel_right
@@ -63,23 +63,39 @@ namespace DACN.GUI
             this.panel_right.Controls.Add(this.uiPanel1);
             this.panel_right.Controls.Add(this.menuStrip1);
             this.panel_right.Dock = System.Windows.Forms.DockStyle.Fill;
-
             this.panel_right.Location = new System.Drawing.Point(0, 0);
             this.panel_right.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel_right.Name = "panel_right";
             this.panel_right.Size = new System.Drawing.Size(1233, 666);
-
             this.panel_right.TabIndex = 1;
             // 
-            // panel_body1
+            // uiPanel1
             // 
-            this.panel_body1.Controls.Add(this.panel_right);
-            this.panel_body1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_body1.Location = new System.Drawing.Point(0, 0);
-            this.panel_body1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.panel_body1.Name = "panel_body1";
-            this.panel_body1.Size = new System.Drawing.Size(1233, 666);
-            this.panel_body1.TabIndex = 1;
+            this.uiPanel1.Controls.Add(this.panel_body);
+            this.uiPanel1.Controls.Add(this.pane_left);
+            this.uiPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uiPanel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.uiPanel1.Location = new System.Drawing.Point(0, 31);
+            this.uiPanel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.uiPanel1.MinimumSize = new System.Drawing.Size(1, 1);
+            this.uiPanel1.Name = "uiPanel1";
+            this.uiPanel1.Size = new System.Drawing.Size(1233, 635);
+            this.uiPanel1.TabIndex = 3;
+            this.uiPanel1.Text = null;
+            this.uiPanel1.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // panel_body
+            // 
+            this.panel_body.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_body.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.panel_body.Location = new System.Drawing.Point(353, 0);
+            this.panel_body.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.panel_body.MinimumSize = new System.Drawing.Size(1, 1);
+            this.panel_body.Name = "panel_body";
+            this.panel_body.Size = new System.Drawing.Size(880, 635);
+            this.panel_body.TabIndex = 1;
+            this.panel_body.Text = null;
+            this.panel_body.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pane_left
             // 
@@ -93,7 +109,7 @@ namespace DACN.GUI
             this.pane_left.Location = new System.Drawing.Point(0, 0);
             this.pane_left.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pane_left.Name = "pane_left";
-            this.pane_left.Size = new System.Drawing.Size(383, 635);
+            this.pane_left.Size = new System.Drawing.Size(353, 635);
             this.pane_left.TabIndex = 0;
             // 
             // pictureBox3
@@ -119,14 +135,14 @@ namespace DACN.GUI
             this.pn0.Location = new System.Drawing.Point(0, 0);
             this.pn0.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pn0.Name = "pn0";
-            this.pn0.Size = new System.Drawing.Size(383, 242);
+            this.pn0.Size = new System.Drawing.Size(353, 242);
             this.pn0.TabIndex = 9;
             // 
             // lbUserName
             // 
             this.lbUserName.Font = new System.Drawing.Font("Segoe UI", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbUserName.ForeColor = System.Drawing.Color.White;
-            this.lbUserName.Location = new System.Drawing.Point(68, 185);
+            this.lbUserName.Location = new System.Drawing.Point(64, 185);
             this.lbUserName.Name = "lbUserName";
             this.lbUserName.Size = new System.Drawing.Size(265, 36);
             this.lbUserName.TabIndex = 1;
@@ -241,31 +257,15 @@ namespace DACN.GUI
             this.toolStripMenuItem6.Size = new System.Drawing.Size(262, 30);
             this.toolStripMenuItem6.Text = "Đổi mật khẩu";
             // 
-            // uiPanel1
+            // panel_body1
             // 
-            this.uiPanel1.Controls.Add(this.panel_body);
-            this.uiPanel1.Controls.Add(this.pane_left);
-            this.uiPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uiPanel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.uiPanel1.Location = new System.Drawing.Point(0, 31);
-            this.uiPanel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.uiPanel1.MinimumSize = new System.Drawing.Size(1, 1);
-            this.uiPanel1.Name = "uiPanel1";
-            this.uiPanel1.Size = new System.Drawing.Size(1233, 635);
-            this.uiPanel1.TabIndex = 3;
-            this.uiPanel1.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // panel_body
-            // 
-            this.panel_body.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_body.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.panel_body.Location = new System.Drawing.Point(383, 0);
-            this.panel_body.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.panel_body.MinimumSize = new System.Drawing.Size(1, 1);
-            this.panel_body.Name = "panel_body";
-            this.panel_body.Size = new System.Drawing.Size(850, 635);
-            this.panel_body.TabIndex = 1;
-            this.panel_body.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            this.panel_body1.Controls.Add(this.panel_right);
+            this.panel_body1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_body1.Location = new System.Drawing.Point(0, 0);
+            this.panel_body1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.panel_body1.Name = "panel_body1";
+            this.panel_body1.Size = new System.Drawing.Size(1233, 666);
+            this.panel_body1.TabIndex = 1;
             // 
             // FormNhanVienGiaoHang
             // 
@@ -278,14 +278,14 @@ namespace DACN.GUI
             this.Text = "NHÂN VIÊN GIAO HÀNG";
             this.panel_right.ResumeLayout(false);
             this.panel_right.PerformLayout();
-            this.panel_body1.ResumeLayout(false);
+            this.uiPanel1.ResumeLayout(false);
             this.pane_left.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.pn0.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this.uiPanel1.ResumeLayout(false);
+            this.panel_body1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

@@ -33,7 +33,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.mn_CTPN = new System.Windows.Forms.MenuStrip();
             this.uiPanel1 = new Sunny.UI.UIPanel();
             this.uiPanel3 = new Sunny.UI.UIPanel();
             this.uiPanel5 = new Sunny.UI.UIPanel();
@@ -42,27 +41,15 @@
             this.uiPanel6 = new Sunny.UI.UIPanel();
             this.uiPanel4 = new Sunny.UI.UIPanel();
             this.uiPanel2 = new Sunny.UI.UIPanel();
+            this.mn_CTPN = new System.Windows.Forms.MenuStrip();
             this.inToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.thoátToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.mn_CTPN.SuspendLayout();
             this.uiPanel1.SuspendLayout();
             this.uiPanel3.SuspendLayout();
             this.uiPanel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_CTPhieuTH)).BeginInit();
+            this.mn_CTPN.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // mn_CTPN
-            // 
-            this.mn_CTPN.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.mn_CTPN.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.mn_CTPN.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.inToolStripMenuItem,
-            this.thoátToolStripMenuItem});
-            this.mn_CTPN.Location = new System.Drawing.Point(0, 0);
-            this.mn_CTPN.Name = "mn_CTPN";
-            this.mn_CTPN.Size = new System.Drawing.Size(1174, 36);
-            this.mn_CTPN.TabIndex = 2;
-            this.mn_CTPN.Text = "menuStrip1";
             // 
             // uiPanel1
             // 
@@ -205,9 +192,8 @@
             // uiPanel2
             // 
             this.uiPanel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.uiPanel2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.uiPanel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.uiPanel2.ForeColor = System.Drawing.Color.Yellow;
+            this.uiPanel2.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uiPanel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             this.uiPanel2.Location = new System.Drawing.Point(0, 0);
             this.uiPanel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.uiPanel2.MinimumSize = new System.Drawing.Size(1, 1);
@@ -216,6 +202,19 @@
             this.uiPanel2.TabIndex = 0;
             this.uiPanel2.Text = "CHI TIẾT PHIẾU TRẢ HÀNG";
             this.uiPanel2.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // mn_CTPN
+            // 
+            this.mn_CTPN.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.mn_CTPN.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.mn_CTPN.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.inToolStripMenuItem,
+            this.thoátToolStripMenuItem});
+            this.mn_CTPN.Location = new System.Drawing.Point(0, 0);
+            this.mn_CTPN.Name = "mn_CTPN";
+            this.mn_CTPN.Size = new System.Drawing.Size(1174, 36);
+            this.mn_CTPN.TabIndex = 2;
+            this.mn_CTPN.Text = "menuStrip1";
             // 
             // inToolStripMenuItem
             // 
@@ -240,22 +239,18 @@
             this.Controls.Add(this.mn_CTPN);
             this.Name = "FormCTPhieuTraHangNCC";
             this.Text = "CHI TIẾT PHIẾU TRẢ HÀNG NHÀ CUNG CẤP";
-            this.mn_CTPN.ResumeLayout(false);
-            this.mn_CTPN.PerformLayout();
             this.uiPanel1.ResumeLayout(false);
             this.uiPanel3.ResumeLayout(false);
             this.uiPanel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_CTPhieuTH)).EndInit();
+            this.mn_CTPN.ResumeLayout(false);
+            this.mn_CTPN.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.MenuStrip mn_CTPN;
-        private System.Windows.Forms.ToolStripMenuItem inToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem thoátToolStripMenuItem;
         private Sunny.UI.UIPanel uiPanel1;
         private Sunny.UI.UIPanel uiPanel3;
         private Sunny.UI.UIPanel uiPanel5;
@@ -264,5 +259,8 @@
         private Sunny.UI.UIPanel uiPanel4;
         private Sunny.UI.UIPanel uiPanel2;
         private Sunny.UI.UIDataGridView dgv_CTPhieuTH;
+        private System.Windows.Forms.ToolStripMenuItem inToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem thoátToolStripMenuItem;
+        private System.Windows.Forms.MenuStrip mn_CTPN;
     }
 }

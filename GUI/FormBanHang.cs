@@ -61,10 +61,6 @@ namespace DACN.GUI
         {
            
         }
- 
-
-
-
         private void dgv_Hang_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             try
@@ -204,13 +200,21 @@ namespace DACN.GUI
         }
         private void btnThemVao_Click(object sender, EventArgs e)
         {
+            int rowCount = dgv_BanHang.Rows.Count;
+            if (dgv_BanHang.AllowUserToAddRows)
+            {
+                rowCount--;
+            }
 
-
-            if (dgv_BanHang.Rows.Count == 0)
+            if (rowCount < 1)
             {
                 MessageBox.Show("Vui lòng chọn ít nhất một sản phẩm trước.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+            //if (dgv_BanHang.Rows.Count < 1)
+            //{
+                
+            //}
             if (string.IsNullOrEmpty(txtMaKH.Text))
             {
                 MessageBox.Show("Vui lòng chọn Khách hàng.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -334,11 +338,6 @@ namespace DACN.GUI
             formChonKH.ShowDialog();
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void dgv_BanHang_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex == dgv_BanHang.Columns["SoLuong"].Index || e.ColumnIndex == dgv_BanHang.Columns["DonGia"].Index)
@@ -411,14 +410,13 @@ namespace DACN.GUI
             UpdateTongTien() ;
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
+        private void btn_lammoiHang_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void txtTongTien_TextChanged(object sender, EventArgs e)
-        {
-
+            txtDiaChi.Clear();
+            txtTienCoc.Clear();
+            txtMaKH.Clear();
+            txtTongTien.Clear();
+            txtThanhToan.Clear();
         }
     }
    

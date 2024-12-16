@@ -60,5 +60,16 @@ namespace DACN.DAO
 
             return DataProvider.Instance.ExecuteQuery(query, new object[] { mahd });
         }
+        public List<HoaDonDTO> TimHD(string mahd)
+        {
+            List<HoaDonDTO> list = new List<HoaDonDTO>();
+            DataTable data = DataProvider.Instance.ExecuteQuery("SP_TimHD @MaHD", new object[] {mahd});
+            foreach (DataRow row in data.Rows)
+            {
+                HoaDonDTO hd = new HoaDonDTO(row);
+                list.Add(hd);
+            }
+            return list;
+        }
     }
 }
