@@ -77,7 +77,7 @@ namespace DACN.GUI
             this.rdbTienmat.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.rdbTienmat.Location = new System.Drawing.Point(78, 99);
             this.rdbTienmat.Name = "rdbTienmat";
-            this.rdbTienmat.Size = new System.Drawing.Size(288, 36);
+            this.rdbTienmat.Size = new System.Drawing.Size(287, 36);
             this.rdbTienmat.TabIndex = 1;
             this.rdbTienmat.TabStop = true;
             this.rdbTienmat.Text = "Thanh toán tiền mặt";
@@ -90,7 +90,7 @@ namespace DACN.GUI
             this.rdbThe.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.rdbThe.Location = new System.Drawing.Point(645, 99);
             this.rdbThe.Name = "rdbThe";
-            this.rdbThe.Size = new System.Drawing.Size(364, 36);
+            this.rdbThe.Size = new System.Drawing.Size(363, 36);
             this.rdbThe.TabIndex = 2;
             this.rdbThe.TabStop = true;
             this.rdbThe.Text = "Thanh toán chuyển khoản";
@@ -177,7 +177,7 @@ namespace DACN.GUI
             // 
             // btnXacnhan
             // 
-            this.btnXacnhan.BackColor = System.Drawing.Color.Red;
+            this.btnXacnhan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
             this.btnXacnhan.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnXacnhan.ForeColor = System.Drawing.SystemColors.Menu;
             this.btnXacnhan.Location = new System.Drawing.Point(458, 488);
@@ -220,7 +220,7 @@ namespace DACN.GUI
             // 
             // btnCreate
             // 
-            this.btnCreate.BackColor = System.Drawing.Color.Red;
+            this.btnCreate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
             this.btnCreate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnCreate.ForeColor = System.Drawing.SystemColors.Menu;
             this.btnCreate.Location = new System.Drawing.Point(248, 468);
@@ -354,7 +354,7 @@ namespace DACN.GUI
             // 
             // btnXacNhanQR
             // 
-            this.btnXacNhanQR.BackColor = System.Drawing.Color.Red;
+            this.btnXacNhanQR.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
             this.btnXacNhanQR.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnXacNhanQR.ForeColor = System.Drawing.SystemColors.Menu;
             this.btnXacNhanQR.Location = new System.Drawing.Point(714, 662);
@@ -369,6 +369,7 @@ namespace DACN.GUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(1055, 705);
             this.Controls.Add(this.btnXacNhanQR);
             this.Controls.Add(this.pictureBox1);

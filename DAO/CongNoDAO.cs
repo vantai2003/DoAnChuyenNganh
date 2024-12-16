@@ -18,6 +18,7 @@ namespace DACN.DAO
             private set { CongNoDAO.instance = value; }
         }
         public CongNoDAO() { }
+
      
         public decimal GetTienNhapHang(DateTime tungay, DateTime denngay)
         {
@@ -52,6 +53,76 @@ namespace DACN.DAO
                 thanhtoan = Convert.ToDecimal(data.Rows[0][1]);
             }
             return tongtien - thanhtoan;
+        }
+        public decimal TongThuTheoNgay(DateTime ngay)
+        {
+            string query = "sp_ReportRevenueByDay @ReportDate";
+            object result = DataProvider.Instance.ExecuteScalar(query, new object[] { ngay });
+            if (result == DBNull.Value || result == null)
+            {
+                return 0;
+            }
+            return Convert.ToDecimal(result);
+        }
+        public decimal TongChiTheoNgay(DateTime ngay)
+        {
+            string query = "SP_ThongKeChi @ReportDate";
+            object result = DataProvider.Instance.ExecuteScalar(query, new object[] { ngay });
+            if (result == DBNull.Value || result == null)
+            {
+                return 0;
+            }
+            return Convert.ToDecimal(result);
+        }
+        public decimal TongThuTheoTuanHienTai()
+        {
+            string query = "SP_ReportRevenueByCurrentWeek";
+            object result = DataProvider.Instance.ExecuteScalar(query, new object[] {});
+            if (result == DBNull.Value || result == null)
+            {
+                return 0;
+            }
+            return Convert.ToDecimal(result);
+        }
+        public decimal TongChiTheoTuanHienTai()
+        {
+            string query = "SP_ThongKeChiTheoTuan";
+            object result = DataProvider.Instance.ExecuteScalar(query, new object[] { });
+            if (result == DBNull.Value || result == null)
+            {
+                return 0;
+            }
+            return Convert.ToDecimal(result);
+        }
+        public decimal TongThuTheoKhoangTG(DateTime ngaybd, DateTime ngaykt)
+        {
+            string query = "SP_ThongKeDoanhThuTheoKhoangThoiGian @StartDate , @EndDate";
+            object result = DataProvider.Instance.ExecuteScalar(query, new object[] { ngaybd, ngaykt});
+            if (result == DBNull.Value || result == null)
+            {
+                return 0;
+            }
+            return Convert.ToDecimal(result);
+        }
+        public decimal TongChiTheoKhoangTG(DateTime ngaybd, DateTime ngaykt)
+        {
+            string query = "Sp_ThongKeChiTheoKhoangThoiGIan @StartDate , @EndDate";
+            object result = DataProvider.Instance.ExecuteScalar(query, new object[] { ngaybd, ngaykt });
+            if (result == DBNull.Value || result == null)
+            {
+                return 0;
+            }
+            return Convert.ToDecimal(result);
+        }
+        public DataTable ThongKeTongThuChiTheoNam(int nam)
+        {
+            string query = "sp_ThongKeTongThuChiTheoNam @Nam";
+            return DataProvider.Instance.ExecuteQuery(query, new object[] { nam });
+        }
+        public DataTable ThongKeTongThuChiTatCa()
+        {
+            string query = "sp_ThongKeTongThuChiTatCa";
+            return DataProvider.Instance.ExecuteQuery(query);
         }
     }
 }

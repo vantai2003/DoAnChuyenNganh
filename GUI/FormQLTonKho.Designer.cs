@@ -103,12 +103,12 @@
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
             this.dvg_TonKho.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dvg_TonKho.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dvg_TonKho.BackgroundColor = System.Drawing.Color.White;
+            this.dvg_TonKho.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
             this.dvg_TonKho.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
@@ -208,12 +208,12 @@
             this.rgb_Loc.Controls.Add(this.rdb_Kho);
             this.rgb_Loc.Controls.Add(this.rdb_SanPham);
             this.rgb_Loc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.rgb_Loc.Location = new System.Drawing.Point(29, 0);
+            this.rgb_Loc.Location = new System.Drawing.Point(29, 5);
             this.rgb_Loc.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.rgb_Loc.MinimumSize = new System.Drawing.Size(1, 1);
             this.rgb_Loc.Name = "rgb_Loc";
             this.rgb_Loc.Padding = new System.Windows.Forms.Padding(0, 32, 0, 0);
-            this.rgb_Loc.Size = new System.Drawing.Size(358, 84);
+            this.rgb_Loc.Size = new System.Drawing.Size(358, 79);
             this.rgb_Loc.TabIndex = 1;
             this.rgb_Loc.Text = "Lọc theo";
             this.rgb_Loc.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
@@ -246,16 +246,16 @@
             // 
             // uiPanel1
             // 
-            this.uiPanel1.BackColor = System.Drawing.Color.Lime;
+            this.uiPanel1.BackColor = System.Drawing.Color.Transparent;
             this.uiPanel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.uiPanel1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.uiPanel1.FillColor2 = System.Drawing.Color.White;
             this.uiPanel1.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uiPanel1.ForeColor = System.Drawing.Color.Lime;
+            this.uiPanel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             this.uiPanel1.Location = new System.Drawing.Point(0, 0);
             this.uiPanel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.uiPanel1.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiPanel1.Name = "uiPanel1";
+            this.uiPanel1.RectColor = System.Drawing.Color.Transparent;
             this.uiPanel1.Size = new System.Drawing.Size(1214, 98);
             this.uiPanel1.TabIndex = 0;
             this.uiPanel1.Text = "QUẢN LÝ TỒN KHO";

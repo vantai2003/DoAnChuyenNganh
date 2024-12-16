@@ -51,6 +51,8 @@
             this.uiTabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.uiTabControl1.TabBackColor = System.Drawing.Color.White;
             this.uiTabControl1.TabIndex = 0;
+            this.uiTabControl1.TabSelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.uiTabControl1.TabSelectedForeColor = System.Drawing.Color.Black;
             this.uiTabControl1.TabUnSelectedForeColor = System.Drawing.Color.Black;
             this.uiTabControl1.TipsFont = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.uiTabControl1.ZoomScaleDisabled = true;

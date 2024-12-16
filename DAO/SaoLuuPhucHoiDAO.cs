@@ -26,14 +26,13 @@ namespace DACN.DAO
         public static bool RestoreDatabase(string backupPath)
         {
             //kết nối đến master để sao lưu, nếu không chuyển sẽ không phục hồi được vì vì không thể restore khi đang được sử dụng
-            string masterConnectionString = "Data Source=LAPTOP-70K25FBU\\NGUYENVANTAI;Initial Catalog=master;User ID=sa;Password=123;Encrypt=False";
-
+            string masterConnectionString = "Data Source=LAPTOP-70K25FBU\\MSSQLSERVER01;Initial Catalog=master;User ID=admin;Password=123;Encrypt=False";
             try
             {
                 using (SqlConnection connection = new SqlConnection(masterConnectionString))
                 {
                     connection.Open();
-                    string query = "EXEC SP_RestoreDatabase @BackupPath";
+                    string query = "SP_RestoreDatabase @BackupPath";
                     SqlCommand command = new SqlCommand(query, connection);
                     command.Parameters.AddWithValue("@BackupPath", backupPath);
                     command.ExecuteNonQuery();

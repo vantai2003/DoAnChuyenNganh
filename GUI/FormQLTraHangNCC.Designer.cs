@@ -47,11 +47,6 @@
             this.btn_Search = new System.Windows.Forms.Button();
             this.uiPanel1 = new Sunny.UI.UIPanel();
             this.uiPanel4 = new Sunny.UI.UIPanel();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
-            this.btnLuu = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.btn_Xoa = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.dvg_PhieuTH)).BeginInit();
             this.pannel_body.SuspendLayout();
             this.uiPanel2.SuspendLayout();
@@ -61,7 +56,6 @@
             this.uiPanel7.SuspendLayout();
             this.uiGroupBox1.SuspendLayout();
             this.uiPanel1.SuspendLayout();
-            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dvg_PhieuTH
@@ -69,7 +63,7 @@
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
             this.dvg_PhieuTH.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dvg_PhieuTH.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dvg_PhieuTH.BackgroundColor = System.Drawing.Color.White;
+            this.dvg_PhieuTH.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
             this.dvg_PhieuTH.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
@@ -186,6 +180,7 @@
             this.uiPanel5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.uiPanel5.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiPanel5.Name = "uiPanel5";
+            this.uiPanel5.RectColor = System.Drawing.Color.Transparent;
             this.uiPanel5.Size = new System.Drawing.Size(1071, 93);
             this.uiPanel5.TabIndex = 1;
             this.uiPanel5.Text = null;
@@ -198,7 +193,7 @@
             this.uiButton1.Location = new System.Drawing.Point(692, 28);
             this.uiButton1.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiButton1.Name = "uiButton1";
-            this.uiButton1.Size = new System.Drawing.Size(120, 35);
+            this.uiButton1.Size = new System.Drawing.Size(120, 44);
             this.uiButton1.TabIndex = 15;
             this.uiButton1.Text = "Làm mới";
             this.uiButton1.TipsFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
@@ -273,7 +268,6 @@
             // 
             this.uiPanel1.BackColor = System.Drawing.Color.Lime;
             this.uiPanel1.Controls.Add(this.uiPanel4);
-            this.uiPanel1.Controls.Add(this.toolStrip1);
             this.uiPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.uiPanel1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.uiPanel1.FillColor2 = System.Drawing.Color.White;
@@ -292,69 +286,17 @@
             // 
             this.uiPanel4.BackColor = System.Drawing.Color.DarkOliveGreen;
             this.uiPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uiPanel4.FillColor = System.Drawing.Color.Teal;
             this.uiPanel4.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uiPanel4.ForeColor = System.Drawing.Color.White;
-            this.uiPanel4.Location = new System.Drawing.Point(0, 38);
+            this.uiPanel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.uiPanel4.Location = new System.Drawing.Point(0, 0);
             this.uiPanel4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.uiPanel4.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiPanel4.Name = "uiPanel4";
-            this.uiPanel4.Size = new System.Drawing.Size(1071, 93);
+            this.uiPanel4.RectColor = System.Drawing.Color.Transparent;
+            this.uiPanel4.Size = new System.Drawing.Size(1071, 131);
             this.uiPanel4.TabIndex = 37;
             this.uiPanel4.Text = "DANH SÁCH TRẢ HÀNG";
             this.uiPanel4.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // toolStrip1
-            // 
-            this.toolStrip1.BackColor = System.Drawing.Color.White;
-            this.toolStrip1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripSeparator5,
-            this.btnLuu,
-            this.toolStripSeparator1,
-            this.btn_Xoa});
-            this.toolStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
-            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.toolStrip1.Size = new System.Drawing.Size(1071, 38);
-            this.toolStrip1.TabIndex = 36;
-            this.toolStrip1.Text = "tsNCC";
-            // 
-            // toolStripSeparator5
-            // 
-            this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 38);
-            // 
-            // btnLuu
-            // 
-            this.btnLuu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btnLuu.Image = global::DACN.Properties.Resources.Print2;
-            this.btnLuu.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.btnLuu.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnLuu.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
-            this.btnLuu.Name = "btnLuu";
-            this.btnLuu.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.btnLuu.Size = new System.Drawing.Size(72, 34);
-            this.btnLuu.Text = "In";
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 38);
-            // 
-            // btn_Xoa
-            // 
-            this.btn_Xoa.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.btn_Xoa.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.btn_Xoa.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btn_Xoa.Margin = new System.Windows.Forms.Padding(0, 2, 0, 2);
-            this.btn_Xoa.Name = "btn_Xoa";
-            this.btn_Xoa.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.btn_Xoa.Size = new System.Drawing.Size(60, 34);
-            this.btn_Xoa.Text = "Xóa";
-            this.btn_Xoa.Click += new System.EventHandler(this.btn_Xoa_Click);
             // 
             // FormQLTraHangNCC
             // 
@@ -373,9 +315,6 @@
             this.uiPanel7.ResumeLayout(false);
             this.uiGroupBox1.ResumeLayout(false);
             this.uiPanel1.ResumeLayout(false);
-            this.uiPanel1.PerformLayout();
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -388,10 +327,6 @@
         private Sunny.UI.UIPanel uiPanel3;
         private Sunny.UI.UIPanel uiPanel1;
         private Sunny.UI.UIPanel uiPanel4;
-        private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
-        private System.Windows.Forms.ToolStripButton btnLuu;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private Sunny.UI.UIPanel uiPanel6;
         private Sunny.UI.UIPanel uiPanel5;
         private Sunny.UI.UIPanel uiPanel7;
@@ -399,6 +334,5 @@
         private Sunny.UI.UITextBox txt_Search;
         private System.Windows.Forms.Button btn_Search;
         private Sunny.UI.UIButton uiButton1;
-        private System.Windows.Forms.ToolStripButton btn_Xoa;
     }
 }

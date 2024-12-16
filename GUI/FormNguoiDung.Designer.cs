@@ -98,9 +98,9 @@
             this.dvg_NguoiDung.BackgroundColor = System.Drawing.Color.AliceBlue;
             this.dvg_NguoiDung.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
@@ -120,6 +120,7 @@
             this.dvg_NguoiDung.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.dvg_NguoiDung.Location = new System.Drawing.Point(0, 0);
             this.dvg_NguoiDung.Name = "dvg_NguoiDung";
+            this.dvg_NguoiDung.RectColor = System.Drawing.Color.Transparent;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
@@ -248,7 +249,7 @@
             this.txt_Search.ButtonStyleInherited = false;
             this.txt_Search.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txt_Search.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.txt_Search.Location = new System.Drawing.Point(158, 236);
+            this.txt_Search.Location = new System.Drawing.Point(172, 238);
             this.txt_Search.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txt_Search.MinimumSize = new System.Drawing.Size(1, 16);
             this.txt_Search.Name = "txt_Search";
@@ -320,13 +321,13 @@
             // 
             // btn_Tim
             // 
-            this.btn_Tim.BackColor = System.Drawing.Color.DarkBlue;
+            this.btn_Tim.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
             this.btn_Tim.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_Tim.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Tim.ForeColor = System.Drawing.SystemColors.Window;
             this.btn_Tim.Image = global::DACN.Properties.Resources.icons8_search_55;
             this.btn_Tim.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_Tim.Location = new System.Drawing.Point(463, 221);
+            this.btn_Tim.Location = new System.Drawing.Point(487, 226);
             this.btn_Tim.Name = "btn_Tim";
             this.btn_Tim.Size = new System.Drawing.Size(165, 62);
             this.btn_Tim.TabIndex = 57;

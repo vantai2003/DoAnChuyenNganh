@@ -41,6 +41,8 @@
             this.tab_DuyetPN = new System.Windows.Forms.TabControl();
             this.tab_PheDuyet = new System.Windows.Forms.TabPage();
             this.uiPanel2 = new Sunny.UI.UIPanel();
+            this.btn_TuChoi = new System.Windows.Forms.Button();
+            this.btn_PheDuyet = new System.Windows.Forms.Button();
             this.uiPanel3 = new Sunny.UI.UIPanel();
             this.dvg_DSDPN = new Sunny.UI.UIDataGridView();
             this.uiPanel1 = new Sunny.UI.UIPanel();
@@ -50,6 +52,7 @@
             this.uiPanel9 = new Sunny.UI.UIPanel();
             this.dvg_DSPN = new Sunny.UI.UIDataGridView();
             this.uiPanel8 = new Sunny.UI.UIPanel();
+            this.btn_TimPN = new System.Windows.Forms.Button();
             this.txt_SearchPN = new Sunny.UI.UITextBox();
             this.uiPanel6 = new Sunny.UI.UIPanel();
             this.uiPanel5 = new Sunny.UI.UIPanel();
@@ -68,9 +71,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.uiPanel11 = new Sunny.UI.UIPanel();
             this.uiPanel10 = new Sunny.UI.UIPanel();
-            this.btn_TuChoi = new System.Windows.Forms.Button();
-            this.btn_PheDuyet = new System.Windows.Forms.Button();
-            this.btn_TimPN = new System.Windows.Forms.Button();
             this.tab_DuyetPN.SuspendLayout();
             this.tab_PheDuyet.SuspendLayout();
             this.uiPanel2.SuspendLayout();
@@ -127,6 +127,36 @@
             this.uiPanel2.Text = null;
             this.uiPanel2.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // btn_TuChoi
+            // 
+            this.btn_TuChoi.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
+            this.btn_TuChoi.ForeColor = System.Drawing.Color.White;
+            this.btn_TuChoi.Image = global::DACN.Properties.Resources.icons8_no_60;
+            this.btn_TuChoi.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_TuChoi.Location = new System.Drawing.Point(729, 296);
+            this.btn_TuChoi.Name = "btn_TuChoi";
+            this.btn_TuChoi.Size = new System.Drawing.Size(148, 85);
+            this.btn_TuChoi.TabIndex = 3;
+            this.btn_TuChoi.Text = "Từ chối";
+            this.btn_TuChoi.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btn_TuChoi.UseVisualStyleBackColor = false;
+            this.btn_TuChoi.Click += new System.EventHandler(this.btn_TuChoi_Click);
+            // 
+            // btn_PheDuyet
+            // 
+            this.btn_PheDuyet.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
+            this.btn_PheDuyet.ForeColor = System.Drawing.Color.White;
+            this.btn_PheDuyet.Image = global::DACN.Properties.Resources.icons8_check_60;
+            this.btn_PheDuyet.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_PheDuyet.Location = new System.Drawing.Point(153, 289);
+            this.btn_PheDuyet.Name = "btn_PheDuyet";
+            this.btn_PheDuyet.Size = new System.Drawing.Size(165, 92);
+            this.btn_PheDuyet.TabIndex = 2;
+            this.btn_PheDuyet.Text = "Phê duyệt";
+            this.btn_PheDuyet.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btn_PheDuyet.UseVisualStyleBackColor = false;
+            this.btn_PheDuyet.Click += new System.EventHandler(this.btn_PheDuyet_Click);
+            // 
             // uiPanel3
             // 
             this.uiPanel3.Controls.Add(this.dvg_DSDPN);
@@ -146,7 +176,7 @@
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
             this.dvg_DSDPN.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dvg_DSDPN.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dvg_DSDPN.BackgroundColor = System.Drawing.Color.White;
+            this.dvg_DSDPN.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
             this.dvg_DSDPN.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
@@ -193,13 +223,13 @@
             // uiPanel1
             // 
             this.uiPanel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.uiPanel1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.uiPanel1.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uiPanel1.ForeColor = System.Drawing.Color.White;
+            this.uiPanel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             this.uiPanel1.Location = new System.Drawing.Point(3, 3);
             this.uiPanel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.uiPanel1.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiPanel1.Name = "uiPanel1";
+            this.uiPanel1.RectColor = System.Drawing.Color.Transparent;
             this.uiPanel1.Size = new System.Drawing.Size(1318, 126);
             this.uiPanel1.TabIndex = 1;
             this.uiPanel1.Text = "DANH SÁCH PHIẾU NHẬP CẦN XỬ LÝ";
@@ -323,6 +353,23 @@
             this.uiPanel8.TabIndex = 1;
             this.uiPanel8.Text = null;
             this.uiPanel8.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btn_TimPN
+            // 
+            this.btn_TimPN.BackColor = System.Drawing.Color.Teal;
+            this.btn_TimPN.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_TimPN.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.btn_TimPN.ForeColor = System.Drawing.Color.Yellow;
+            this.btn_TimPN.Image = global::DACN.Properties.Resources.Search1;
+            this.btn_TimPN.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_TimPN.Location = new System.Drawing.Point(925, 8);
+            this.btn_TimPN.Name = "btn_TimPN";
+            this.btn_TimPN.Size = new System.Drawing.Size(95, 49);
+            this.btn_TimPN.TabIndex = 3;
+            this.btn_TimPN.Text = "Tìm";
+            this.btn_TimPN.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btn_TimPN.UseVisualStyleBackColor = false;
+            this.btn_TimPN.Click += new System.EventHandler(this.btn_TimPN_Click);
             // 
             // txt_SearchPN
             // 
@@ -540,53 +587,6 @@
             this.uiPanel10.TabIndex = 0;
             this.uiPanel10.Text = null;
             this.uiPanel10.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // btn_TuChoi
-            // 
-            this.btn_TuChoi.BackColor = System.Drawing.Color.Olive;
-            this.btn_TuChoi.ForeColor = System.Drawing.Color.White;
-            this.btn_TuChoi.Image = global::DACN.Properties.Resources.icons8_no_60;
-            this.btn_TuChoi.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_TuChoi.Location = new System.Drawing.Point(729, 296);
-            this.btn_TuChoi.Name = "btn_TuChoi";
-            this.btn_TuChoi.Size = new System.Drawing.Size(148, 85);
-            this.btn_TuChoi.TabIndex = 3;
-            this.btn_TuChoi.Text = "Từ chối";
-            this.btn_TuChoi.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_TuChoi.UseVisualStyleBackColor = false;
-            this.btn_TuChoi.Click += new System.EventHandler(this.btn_TuChoi_Click);
-            // 
-            // btn_PheDuyet
-            // 
-            this.btn_PheDuyet.BackColor = System.Drawing.Color.Olive;
-            this.btn_PheDuyet.ForeColor = System.Drawing.Color.White;
-            this.btn_PheDuyet.Image = global::DACN.Properties.Resources.icons8_check_60;
-            this.btn_PheDuyet.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_PheDuyet.Location = new System.Drawing.Point(153, 289);
-            this.btn_PheDuyet.Name = "btn_PheDuyet";
-            this.btn_PheDuyet.Size = new System.Drawing.Size(165, 92);
-            this.btn_PheDuyet.TabIndex = 2;
-            this.btn_PheDuyet.Text = "Phê duyệt";
-            this.btn_PheDuyet.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_PheDuyet.UseVisualStyleBackColor = false;
-            this.btn_PheDuyet.Click += new System.EventHandler(this.btn_PheDuyet_Click);
-            // 
-            // btn_TimPN
-            // 
-            this.btn_TimPN.BackColor = System.Drawing.Color.Teal;
-            this.btn_TimPN.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_TimPN.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.btn_TimPN.ForeColor = System.Drawing.Color.Yellow;
-            this.btn_TimPN.Image = global::DACN.Properties.Resources.Search1;
-            this.btn_TimPN.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_TimPN.Location = new System.Drawing.Point(925, 8);
-            this.btn_TimPN.Name = "btn_TimPN";
-            this.btn_TimPN.Size = new System.Drawing.Size(95, 49);
-            this.btn_TimPN.TabIndex = 3;
-            this.btn_TimPN.Text = "Tìm";
-            this.btn_TimPN.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btn_TimPN.UseVisualStyleBackColor = false;
-            this.btn_TimPN.Click += new System.EventHandler(this.btn_TimPN_Click);
             // 
             // FormDuyetPhieuNhap
             // 

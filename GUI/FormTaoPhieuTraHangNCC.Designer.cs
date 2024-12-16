@@ -90,7 +90,8 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(622, 42);
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Location = new System.Drawing.Point(593, 42);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(94, 25);
             this.label2.TabIndex = 4;
@@ -98,7 +99,7 @@
             // 
             // txt_TongTien
             // 
-            this.txt_TongTien.Location = new System.Drawing.Point(693, 37);
+            this.txt_TongTien.Location = new System.Drawing.Point(716, 37);
             this.txt_TongTien.Name = "txt_TongTien";
             this.txt_TongTien.Size = new System.Drawing.Size(179, 30);
             this.txt_TongTien.TabIndex = 3;
@@ -106,6 +107,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Location = new System.Drawing.Point(45, 42);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(60, 25);
@@ -116,7 +118,7 @@
             // 
             this.rtb_LyDo.FillColor = System.Drawing.Color.White;
             this.rtb_LyDo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.rtb_LyDo.Location = new System.Drawing.Point(179, 42);
+            this.rtb_LyDo.Location = new System.Drawing.Point(134, 42);
             this.rtb_LyDo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.rtb_LyDo.MinimumSize = new System.Drawing.Size(1, 1);
             this.rtb_LyDo.Name = "rtb_LyDo";
@@ -128,10 +130,10 @@
             // 
             // btn_TaoPhieu
             // 
-            this.btn_TaoPhieu.BackColor = System.Drawing.Color.DarkOrange;
+            this.btn_TaoPhieu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
             this.btn_TaoPhieu.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_TaoPhieu.ForeColor = System.Drawing.Color.White;
-            this.btn_TaoPhieu.Location = new System.Drawing.Point(693, 108);
+            this.btn_TaoPhieu.Location = new System.Drawing.Point(716, 94);
             this.btn_TaoPhieu.Name = "btn_TaoPhieu";
             this.btn_TaoPhieu.Size = new System.Drawing.Size(214, 50);
             this.btn_TaoPhieu.TabIndex = 0;
@@ -230,13 +232,13 @@
             // uiPanel2
             // 
             this.uiPanel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.uiPanel2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.uiPanel2.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uiPanel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.uiPanel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             this.uiPanel2.Location = new System.Drawing.Point(0, 0);
             this.uiPanel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.uiPanel2.MinimumSize = new System.Drawing.Size(1, 1);
             this.uiPanel2.Name = "uiPanel2";
+            this.uiPanel2.RectColor = System.Drawing.Color.Transparent;
             this.uiPanel2.Size = new System.Drawing.Size(1165, 87);
             this.uiPanel2.TabIndex = 0;
             this.uiPanel2.Text = "TẠO PHIẾU TRẢ HÀNG ";

@@ -37,17 +37,13 @@
             this.dvg_CTPN = new Sunny.UI.UIDataGridView();
             this.uiPanel1 = new Sunny.UI.UIPanel();
             this.uiPanel3 = new Sunny.UI.UIPanel();
-            this.miniToolStrip = new System.Windows.Forms.MenuStrip();
-            this.inToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.thoátToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.mn_CTPN = new System.Windows.Forms.MenuStrip();
-            this.uiPanel2 = new Sunny.UI.UIPanel();
-            this.uiPanel4 = new Sunny.UI.UIPanel();
             this.uiPanel5 = new Sunny.UI.UIPanel();
+            this.uiPanel4 = new Sunny.UI.UIPanel();
+            this.uiPanel2 = new Sunny.UI.UIPanel();
+            this.miniToolStrip = new System.Windows.Forms.MenuStrip();
             ((System.ComponentModel.ISupportInitialize)(this.dvg_CTPN)).BeginInit();
             this.uiPanel1.SuspendLayout();
             this.uiPanel3.SuspendLayout();
-            this.mn_CTPN.SuspendLayout();
             this.uiPanel5.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -56,7 +52,7 @@
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
             this.dvg_CTPN.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dvg_CTPN.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dvg_CTPN.BackgroundColor = System.Drawing.Color.White;
+            this.dvg_CTPN.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(243)))), ((int)(((byte)(249)))), ((int)(((byte)(255)))));
             this.dvg_CTPN.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
@@ -95,7 +91,7 @@
             this.dvg_CTPN.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dvg_CTPN.RowTemplate.Height = 24;
             this.dvg_CTPN.SelectedIndex = -1;
-            this.dvg_CTPN.Size = new System.Drawing.Size(1017, 341);
+            this.dvg_CTPN.Size = new System.Drawing.Size(1017, 377);
             this.dvg_CTPN.StripeOddColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(243)))), ((int)(((byte)(255)))));
             this.dvg_CTPN.TabIndex = 0;
             // 
@@ -119,7 +115,6 @@
             this.uiPanel3.Controls.Add(this.uiPanel5);
             this.uiPanel3.Controls.Add(this.uiPanel4);
             this.uiPanel3.Controls.Add(this.uiPanel2);
-            this.uiPanel3.Controls.Add(this.mn_CTPN);
             this.uiPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.uiPanel3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.uiPanel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
@@ -131,6 +126,48 @@
             this.uiPanel3.TabIndex = 1;
             this.uiPanel3.Text = null;
             this.uiPanel3.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // uiPanel5
+            // 
+            this.uiPanel5.Controls.Add(this.dvg_CTPN);
+            this.uiPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uiPanel5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.uiPanel5.Location = new System.Drawing.Point(0, 79);
+            this.uiPanel5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.uiPanel5.MinimumSize = new System.Drawing.Size(1, 1);
+            this.uiPanel5.Name = "uiPanel5";
+            this.uiPanel5.Size = new System.Drawing.Size(1017, 377);
+            this.uiPanel5.TabIndex = 5;
+            this.uiPanel5.Text = "uiPanel5";
+            this.uiPanel5.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // uiPanel4
+            // 
+            this.uiPanel4.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.uiPanel4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.uiPanel4.Location = new System.Drawing.Point(0, 456);
+            this.uiPanel4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.uiPanel4.MinimumSize = new System.Drawing.Size(1, 1);
+            this.uiPanel4.Name = "uiPanel4";
+            this.uiPanel4.Size = new System.Drawing.Size(1017, 108);
+            this.uiPanel4.TabIndex = 4;
+            this.uiPanel4.Text = null;
+            this.uiPanel4.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // uiPanel2
+            // 
+            this.uiPanel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.uiPanel2.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uiPanel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
+            this.uiPanel2.Location = new System.Drawing.Point(0, 0);
+            this.uiPanel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.uiPanel2.MinimumSize = new System.Drawing.Size(1, 1);
+            this.uiPanel2.Name = "uiPanel2";
+            this.uiPanel2.RectColor = System.Drawing.Color.Transparent;
+            this.uiPanel2.Size = new System.Drawing.Size(1017, 79);
+            this.uiPanel2.TabIndex = 3;
+            this.uiPanel2.Text = "CHI TIẾT PHIẾU NHẬP HÀNG";
+            this.uiPanel2.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // miniToolStrip
             // 
@@ -145,73 +182,6 @@
             this.miniToolStrip.Size = new System.Drawing.Size(166, 36);
             this.miniToolStrip.TabIndex = 2;
             // 
-            // inToolStripMenuItem
-            // 
-            this.inToolStripMenuItem.Image = global::DACN.Properties.Resources.Print1;
-            this.inToolStripMenuItem.Name = "inToolStripMenuItem";
-            this.inToolStripMenuItem.Size = new System.Drawing.Size(62, 32);
-            this.inToolStripMenuItem.Text = "In";
-            // 
-            // thoátToolStripMenuItem
-            // 
-            this.thoátToolStripMenuItem.Image = global::DACN.Properties.Resources.Close2;
-            this.thoátToolStripMenuItem.Name = "thoátToolStripMenuItem";
-            this.thoátToolStripMenuItem.Size = new System.Drawing.Size(96, 32);
-            this.thoátToolStripMenuItem.Text = "Thoát";
-            // 
-            // mn_CTPN
-            // 
-            this.mn_CTPN.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.mn_CTPN.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.mn_CTPN.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.inToolStripMenuItem,
-            this.thoátToolStripMenuItem});
-            this.mn_CTPN.Location = new System.Drawing.Point(0, 0);
-            this.mn_CTPN.Name = "mn_CTPN";
-            this.mn_CTPN.Size = new System.Drawing.Size(1017, 36);
-            this.mn_CTPN.TabIndex = 2;
-            this.mn_CTPN.Text = "menuStrip1";
-            // 
-            // uiPanel2
-            // 
-            this.uiPanel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.uiPanel2.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uiPanel2.ForeColor = System.Drawing.Color.Teal;
-            this.uiPanel2.Location = new System.Drawing.Point(0, 36);
-            this.uiPanel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.uiPanel2.MinimumSize = new System.Drawing.Size(1, 1);
-            this.uiPanel2.Name = "uiPanel2";
-            this.uiPanel2.Size = new System.Drawing.Size(1017, 79);
-            this.uiPanel2.TabIndex = 3;
-            this.uiPanel2.Text = "CHI TIẾT PHIẾU NHẬP HÀNG";
-            this.uiPanel2.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // uiPanel4
-            // 
-            this.uiPanel4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.uiPanel4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.uiPanel4.Location = new System.Drawing.Point(0, 456);
-            this.uiPanel4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.uiPanel4.MinimumSize = new System.Drawing.Size(1, 1);
-            this.uiPanel4.Name = "uiPanel4";
-            this.uiPanel4.Size = new System.Drawing.Size(1017, 108);
-            this.uiPanel4.TabIndex = 4;
-            this.uiPanel4.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // uiPanel5
-            // 
-            this.uiPanel5.Controls.Add(this.dvg_CTPN);
-            this.uiPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uiPanel5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.uiPanel5.Location = new System.Drawing.Point(0, 115);
-            this.uiPanel5.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.uiPanel5.MinimumSize = new System.Drawing.Size(1, 1);
-            this.uiPanel5.Name = "uiPanel5";
-            this.uiPanel5.Size = new System.Drawing.Size(1017, 341);
-            this.uiPanel5.TabIndex = 5;
-            this.uiPanel5.Text = "uiPanel5";
-            this.uiPanel5.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // FormCTPhieuNhap_ChoNVKho
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -224,9 +194,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dvg_CTPN)).EndInit();
             this.uiPanel1.ResumeLayout(false);
             this.uiPanel3.ResumeLayout(false);
-            this.uiPanel3.PerformLayout();
-            this.mn_CTPN.ResumeLayout(false);
-            this.mn_CTPN.PerformLayout();
             this.uiPanel5.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -237,9 +204,6 @@
         private Sunny.UI.UIDataGridView dvg_CTPN;
         private Sunny.UI.UIPanel uiPanel1;
         private Sunny.UI.UIPanel uiPanel3;
-        private System.Windows.Forms.MenuStrip mn_CTPN;
-        private System.Windows.Forms.ToolStripMenuItem inToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem thoátToolStripMenuItem;
         private System.Windows.Forms.MenuStrip miniToolStrip;
         private Sunny.UI.UIPanel uiPanel4;
         private Sunny.UI.UIPanel uiPanel2;

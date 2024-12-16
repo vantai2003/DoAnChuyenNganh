@@ -71,7 +71,7 @@
             // 
             // btn_TaoPhieuTH
             // 
-            this.btn_TaoPhieuTH.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.btn_TaoPhieuTH.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
             this.btn_TaoPhieuTH.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_TaoPhieuTH.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_TaoPhieuTH.ForeColor = System.Drawing.Color.White;
@@ -85,7 +85,7 @@
             // 
             // btn_CapNhatKho
             // 
-            this.btn_CapNhatKho.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.btn_CapNhatKho.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
             this.btn_CapNhatKho.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_CapNhatKho.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_CapNhatKho.ForeColor = System.Drawing.Color.Transparent;

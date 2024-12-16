@@ -1,4 +1,5 @@
 ﻿using DACN.DTO;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -68,6 +69,28 @@ namespace DACN.DAO
             }
             return 0;
         }
+        public static void SaveToRegistry(string instance, string username, string password, bool rememberMe)
+        {
+            RegistryKey key = Registry.CurrentUser.CreateSubKey(@"Software\MyApp");
+            key.SetValue("Instance", instance);
+            key.SetValue("Username", username);
+            key.SetValue("Password", password);
+            key.SetValue("RememberMe", rememberMe);
+            key.Close();
+        }
 
+        public static (string instance, string username, string password, bool rememberMe) LoadFromRegistry()
+        {
+            RegistryKey key = Registry.CurrentUser.OpenSubKey(@"Software\MyApp");
+            if (key != null)
+            {
+                string instance = key.GetValue("Instance")?.ToString();
+                string username = key.GetValue("Username")?.ToString();
+                string password = key.GetValue("Password")?.ToString();
+                bool rememberMe = bool.Parse(key.GetValue("RememberMe")?.ToString() ?? "false");
+                return (instance, username, password, rememberMe);
+            }
+            return (null, null, null, false);
+        }
     }
 }

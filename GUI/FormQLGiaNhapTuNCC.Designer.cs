@@ -223,7 +223,6 @@
             // btn_Load
             // 
             this.btn_Load.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_Load.FillColor = System.Drawing.Color.Olive;
             this.btn_Load.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.btn_Load.Location = new System.Drawing.Point(598, 5);
             this.btn_Load.MinimumSize = new System.Drawing.Size(1, 1);
@@ -238,7 +237,6 @@
             // btn_Loc
             // 
             this.btn_Loc.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_Loc.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btn_Loc.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.btn_Loc.Location = new System.Drawing.Point(598, 51);
             this.btn_Loc.MinimumSize = new System.Drawing.Size(1, 1);
@@ -430,7 +428,7 @@
             // 
             // btn_CapNhat
             // 
-            this.btn_CapNhat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btn_CapNhat.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
             this.btn_CapNhat.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_CapNhat.ForeColor = System.Drawing.Color.White;
             this.btn_CapNhat.Location = new System.Drawing.Point(435, 87);
@@ -480,9 +478,8 @@
             // 
             this.uiPanel2.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.uiPanel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.uiPanel2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.uiPanel2.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uiPanel2.ForeColor = System.Drawing.Color.White;
+            this.uiPanel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             this.uiPanel2.ForeDisableColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.uiPanel2.Location = new System.Drawing.Point(0, 0);
             this.uiPanel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);

@@ -47,8 +47,6 @@
             this.txt_DonGia = new Sunny.UI.UITextBox();
             this.txt_SoLuong = new Sunny.UI.UITextBox();
             this.uiPanel3 = new Sunny.UI.UIPanel();
-            this.btn_Luu = new System.Windows.Forms.Button();
-            this.btn_Xoa = new System.Windows.Forms.Button();
             this.dvg_SuaPN = new Sunny.UI.UIDataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
             this.uiPanel5 = new Sunny.UI.UIPanel();
@@ -59,6 +57,8 @@
             this.cbncc = new System.Windows.Forms.ComboBox();
             this.cbkho = new System.Windows.Forms.ComboBox();
             this.uiPanel1 = new Sunny.UI.UIPanel();
+            this.btn_Luu = new System.Windows.Forms.Button();
+            this.btn_Xoa = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.uiPanel2.SuspendLayout();
@@ -132,9 +132,9 @@
             // 
             this.btn_capNhat.BackColor = System.Drawing.Color.Fuchsia;
             this.btn_capNhat.ForeColor = System.Drawing.Color.White;
-            this.btn_capNhat.Location = new System.Drawing.Point(595, 130);
+            this.btn_capNhat.Location = new System.Drawing.Point(595, 110);
             this.btn_capNhat.Name = "btn_capNhat";
-            this.btn_capNhat.Size = new System.Drawing.Size(129, 54);
+            this.btn_capNhat.Size = new System.Drawing.Size(129, 74);
             this.btn_capNhat.TabIndex = 9;
             this.btn_capNhat.Text = "Cập nhật";
             this.btn_capNhat.UseVisualStyleBackColor = false;
@@ -249,7 +249,6 @@
             this.uiPanel3.Controls.Add(this.btn_Luu);
             this.uiPanel3.Controls.Add(this.btn_Xoa);
             this.uiPanel3.Dock = System.Windows.Forms.DockStyle.Right;
-            this.uiPanel3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.uiPanel3.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.uiPanel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.uiPanel3.Location = new System.Drawing.Point(912, 0);
@@ -262,30 +261,6 @@
             this.uiPanel3.TabIndex = 0;
             this.uiPanel3.Text = null;
             this.uiPanel3.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // btn_Luu
-            // 
-            this.btn_Luu.BackColor = System.Drawing.Color.Teal;
-            this.btn_Luu.ForeColor = System.Drawing.Color.Yellow;
-            this.btn_Luu.Location = new System.Drawing.Point(83, 130);
-            this.btn_Luu.Name = "btn_Luu";
-            this.btn_Luu.Size = new System.Drawing.Size(106, 39);
-            this.btn_Luu.TabIndex = 1;
-            this.btn_Luu.Text = "Lưu";
-            this.btn_Luu.UseVisualStyleBackColor = false;
-            this.btn_Luu.Click += new System.EventHandler(this.btn_Luu_Click);
-            // 
-            // btn_Xoa
-            // 
-            this.btn_Xoa.BackColor = System.Drawing.Color.Teal;
-            this.btn_Xoa.ForeColor = System.Drawing.Color.Yellow;
-            this.btn_Xoa.Location = new System.Drawing.Point(83, 44);
-            this.btn_Xoa.Name = "btn_Xoa";
-            this.btn_Xoa.Size = new System.Drawing.Size(89, 40);
-            this.btn_Xoa.TabIndex = 0;
-            this.btn_Xoa.Text = "Xóa";
-            this.btn_Xoa.UseVisualStyleBackColor = false;
-            this.btn_Xoa.Click += new System.EventHandler(this.btn_Xoa_Click);
             // 
             // dvg_SuaPN
             // 
@@ -387,10 +362,10 @@
             // 
             this.lbtt.AutoSize = true;
             this.lbtt.Enabled = false;
-            this.lbtt.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbtt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbtt.Location = new System.Drawing.Point(74, 116);
             this.lbtt.Name = "lbtt";
-            this.lbtt.Size = new System.Drawing.Size(78, 20);
+            this.lbtt.Size = new System.Drawing.Size(94, 25);
             this.lbtt.TabIndex = 4;
             this.lbtt.Text = "Tổng tiền";
             // 
@@ -438,9 +413,8 @@
             // 
             this.uiPanel1.BackColor = System.Drawing.Color.Transparent;
             this.uiPanel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.uiPanel1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.uiPanel1.Font = new System.Drawing.Font("Arial", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uiPanel1.ForeColor = System.Drawing.Color.Black;
+            this.uiPanel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(177)))), ((int)(((byte)(225)))));
             this.uiPanel1.Location = new System.Drawing.Point(0, 0);
             this.uiPanel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.uiPanel1.MinimumSize = new System.Drawing.Size(1, 1);
@@ -450,6 +424,36 @@
             this.uiPanel1.TabIndex = 0;
             this.uiPanel1.Text = "SỬA PHIẾU NHẬP";
             this.uiPanel1.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btn_Luu
+            // 
+            this.btn_Luu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
+            this.btn_Luu.ForeColor = System.Drawing.Color.White;
+            this.btn_Luu.Image = global::DACN.Properties.Resources.icons8_save_50__1_1;
+            this.btn_Luu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_Luu.Location = new System.Drawing.Point(83, 130);
+            this.btn_Luu.Name = "btn_Luu";
+            this.btn_Luu.Size = new System.Drawing.Size(114, 69);
+            this.btn_Luu.TabIndex = 1;
+            this.btn_Luu.Text = "Lưu";
+            this.btn_Luu.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btn_Luu.UseVisualStyleBackColor = false;
+            this.btn_Luu.Click += new System.EventHandler(this.btn_Luu_Click);
+            // 
+            // btn_Xoa
+            // 
+            this.btn_Xoa.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
+            this.btn_Xoa.ForeColor = System.Drawing.Color.White;
+            this.btn_Xoa.Image = global::DACN.Properties.Resources.icons8_delete_50;
+            this.btn_Xoa.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_Xoa.Location = new System.Drawing.Point(83, 30);
+            this.btn_Xoa.Name = "btn_Xoa";
+            this.btn_Xoa.Size = new System.Drawing.Size(114, 68);
+            this.btn_Xoa.TabIndex = 0;
+            this.btn_Xoa.Text = "Xóa";
+            this.btn_Xoa.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btn_Xoa.UseVisualStyleBackColor = false;
+            this.btn_Xoa.Click += new System.EventHandler(this.btn_Xoa_Click);
             // 
             // FormSuaPhieuNhap
             // 
