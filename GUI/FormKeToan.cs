@@ -99,5 +99,13 @@ namespace DACN.GUI
             }
             return true;
         }
+
+        private void btn_QuanLyCongNo_Click(object sender, EventArgs e)
+        {
+            if (CheckLoginStatus(user))
+            {
+                OpenChildForm(new FormQLCongNo());
+            }
+        }
     }
 }

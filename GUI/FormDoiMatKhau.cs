@@ -32,12 +32,15 @@ namespace DACN.GUI
                 string matKhauCu =  NguoiDungDAO.Hash(txt_MatKhauCu.Text);
                 string matKhauMoi =  NguoiDungDAO.Hash(txt_MkMoi.Text);
                 int kq = LoginDAO.Instance.DoiMatKhau(tenDN, matKhauCu, matKhauMoi);
+                NguoiDungDAO.Instance.DoiMKHT(tenDN, txt_MatKhauCu.Text, txt_MkMoi.Text);
                 if (kq > 0)
                 {
                     MessageBox.Show("Đổi mật khẩu thành công");
-                    txt_TenDN.Clear();
-                    txt_MatKhauCu.Clear();
-                    txt_MkMoi.Clear();
+                    Application.Exit();
+                    Application.Restart();
+                    //txt_TenDN.Clear();
+                    //txt_MatKhauCu.Clear();
+                    //txt_MkMoi.Clear();
                 }
                 else
                 {

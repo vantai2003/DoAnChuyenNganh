@@ -48,6 +48,8 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.btn_DangXuat = new System.Windows.Forms.Button();
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
+            this.btn_QuanLyCongNo = new Sunny.UI.UIButton();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pn0.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel_body.SuspendLayout();
@@ -55,6 +57,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.menuStrip2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.SuspendLayout();
             // 
             // uiContextMenuStrip1
@@ -72,7 +75,7 @@
             this.btnSaoLuuPhucHoi.FillHoverColor = System.Drawing.Color.Red;
             this.btnSaoLuuPhucHoi.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.btnSaoLuuPhucHoi.ForeColor = System.Drawing.Color.Yellow;
-            this.btnSaoLuuPhucHoi.Location = new System.Drawing.Point(12, 284);
+            this.btnSaoLuuPhucHoi.Location = new System.Drawing.Point(12, 272);
             this.btnSaoLuuPhucHoi.MinimumSize = new System.Drawing.Size(1, 1);
             this.btnSaoLuuPhucHoi.Name = "btnSaoLuuPhucHoi";
             this.btnSaoLuuPhucHoi.RectColor = System.Drawing.Color.Teal;
@@ -214,6 +217,8 @@
             // 
             // uiPanel1
             // 
+            this.uiPanel1.Controls.Add(this.pictureBox4);
+            this.uiPanel1.Controls.Add(this.btn_QuanLyCongNo);
             this.uiPanel1.Controls.Add(this.pictureBox3);
             this.uiPanel1.Controls.Add(this.pictureBox2);
             this.uiPanel1.Controls.Add(this.pn0);
@@ -238,7 +243,7 @@
             this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox3.Image = global::DACN.Properties.Resources.analytics;
-            this.pictureBox3.Location = new System.Drawing.Point(18, 307);
+            this.pictureBox3.Location = new System.Drawing.Point(18, 299);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(44, 39);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -266,7 +271,7 @@
             this.btn_DangXuat.ForeColor = System.Drawing.Color.White;
             this.btn_DangXuat.Image = global::DACN.Properties.Resources.icon_logout;
             this.btn_DangXuat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_DangXuat.Location = new System.Drawing.Point(18, 411);
+            this.btn_DangXuat.Location = new System.Drawing.Point(18, 441);
             this.btn_DangXuat.Margin = new System.Windows.Forms.Padding(0);
             this.btn_DangXuat.Name = "btn_DangXuat";
             this.btn_DangXuat.Size = new System.Drawing.Size(287, 75);
@@ -290,6 +295,39 @@
             this.menuStrip2.TabIndex = 3;
             this.menuStrip2.Text = "menuStrip1";
             // 
+            // btn_QuanLyCongNo
+            // 
+            this.btn_QuanLyCongNo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_QuanLyCongNo.FillColor = System.Drawing.Color.Teal;
+            this.btn_QuanLyCongNo.FillHoverColor = System.Drawing.Color.Red;
+            this.btn_QuanLyCongNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.btn_QuanLyCongNo.ForeColor = System.Drawing.Color.Yellow;
+            this.btn_QuanLyCongNo.Location = new System.Drawing.Point(12, 344);
+            this.btn_QuanLyCongNo.MinimumSize = new System.Drawing.Size(1, 1);
+            this.btn_QuanLyCongNo.Name = "btn_QuanLyCongNo";
+            this.btn_QuanLyCongNo.RectColor = System.Drawing.Color.Teal;
+            this.btn_QuanLyCongNo.RectHoverColor = System.Drawing.Color.Black;
+            this.btn_QuanLyCongNo.RectPressColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.btn_QuanLyCongNo.RectSelectedColor = System.Drawing.Color.Fuchsia;
+            this.btn_QuanLyCongNo.Size = new System.Drawing.Size(284, 94);
+            this.btn_QuanLyCongNo.TabIndex = 13;
+            this.btn_QuanLyCongNo.Text = "Quản lý công nợ";
+            this.btn_QuanLyCongNo.TipsFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.btn_QuanLyCongNo.Click += new System.EventHandler(this.btn_QuanLyCongNo_Click);
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.BackColor = System.Drawing.Color.Teal;
+            this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Location = new System.Drawing.Point(18, 370);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(44, 39);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox4.TabIndex = 14;
+            this.pictureBox4.TabStop = false;
+            // 
             // FormKeToan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -308,6 +346,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.menuStrip2.ResumeLayout(false);
             this.menuStrip2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -334,5 +373,7 @@
         private System.Windows.Forms.Panel panel_body;
         private Sunny.UI.UIPanel uiPanel1;
         private System.Windows.Forms.MenuStrip menuStrip2;
+        private System.Windows.Forms.PictureBox pictureBox4;
+        private Sunny.UI.UIButton btn_QuanLyCongNo;
     }
 }

@@ -36,10 +36,15 @@
             this.dvg_ChonSP = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
             this.uiPanel1 = new Sunny.UI.UIPanel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.panel7 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dvg_ChonSP)).BeginInit();
             this.panel2.SuspendLayout();
+            this.panel7.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -70,7 +75,10 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.AliceBlue;
-            this.panel3.Controls.Add(this.dvg_ChonSP);
+            this.panel3.Controls.Add(this.panel7);
+            this.panel3.Controls.Add(this.panel6);
+            this.panel3.Controls.Add(this.panel5);
+            this.panel3.Controls.Add(this.panel4);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 100);
             this.panel3.Name = "panel3";
@@ -90,8 +98,9 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dvg_ChonSP.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dvg_ChonSP.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dvg_ChonSP.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dvg_ChonSP.EnableHeadersVisualStyles = false;
-            this.dvg_ChonSP.Location = new System.Drawing.Point(157, 73);
+            this.dvg_ChonSP.Location = new System.Drawing.Point(0, 0);
             this.dvg_ChonSP.Name = "dvg_ChonSP";
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
@@ -103,7 +112,7 @@
             this.dvg_ChonSP.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dvg_ChonSP.RowHeadersWidth = 51;
             this.dvg_ChonSP.RowTemplate.Height = 24;
-            this.dvg_ChonSP.Size = new System.Drawing.Size(896, 299);
+            this.dvg_ChonSP.Size = new System.Drawing.Size(908, 322);
             this.dvg_ChonSP.TabIndex = 0;
             this.dvg_ChonSP.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dvg_ChonSP_CellContentClick);
             // 
@@ -131,6 +140,39 @@
             this.uiPanel1.Text = "CHỌN SẢN PHẨM NHẬP HÀNG";
             this.uiPanel1.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // panel4
+            // 
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel4.Location = new System.Drawing.Point(0, 0);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(1230, 67);
+            this.panel4.TabIndex = 1;
+            // 
+            // panel5
+            // 
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel5.Location = new System.Drawing.Point(0, 67);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(151, 322);
+            this.panel5.TabIndex = 2;
+            // 
+            // panel6
+            // 
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel6.Location = new System.Drawing.Point(1059, 67);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(171, 322);
+            this.panel6.TabIndex = 3;
+            // 
+            // panel7
+            // 
+            this.panel7.Controls.Add(this.dvg_ChonSP);
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel7.Location = new System.Drawing.Point(151, 67);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(908, 322);
+            this.panel7.TabIndex = 4;
+            // 
             // FormChonSanPham
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -143,6 +185,7 @@
             this.panel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dvg_ChonSP)).EndInit();
             this.panel2.ResumeLayout(false);
+            this.panel7.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -155,5 +198,9 @@
         private System.Windows.Forms.DataGridView dvg_ChonSP;
         private System.Windows.Forms.Button btn_Import;
         private Sunny.UI.UIPanel uiPanel1;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Panel panel4;
     }
 }
