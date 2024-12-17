@@ -154,6 +154,12 @@ namespace DACN.DAO
                 return false; 
             }
         }
+        public void DoiMKHT(string tenDN, string matKhauCu, string matKhauMoi)
+        {
+            string query = "SP_DoiMatKhauLogin @TenLogin , @MatKhauCu , @MatKhauMoi";
+            DataProvider.Instance.ExecuteNonQuery(query, new object[] { tenDN, matKhauCu, matKhauMoi });
+
+        }
 
     }
 }

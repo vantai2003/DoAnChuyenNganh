@@ -124,5 +124,15 @@ namespace DACN.DAO
             string query = "sp_ThongKeTongThuChiTatCa";
             return DataProvider.Instance.ExecuteQuery(query);
         }
+        public DataTable TimKiemCongNoKH(string makh)
+        {
+            string query = "SP_QLCongNo @MaKH";
+            return DataProvider.Instance.ExecuteQuery(query, new object[] {makh});
+        }
+        public DataTable HienThiCongNO()
+        {
+            string query = "SP_SelectCongNo";
+            return DataProvider.Instance.ExecuteQuery(query);
+        }
     }
 }

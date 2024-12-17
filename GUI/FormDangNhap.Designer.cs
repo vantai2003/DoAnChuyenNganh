@@ -30,17 +30,17 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormDangNhap));
             this.uiPanel2 = new Sunny.UI.UIPanel();
+            this.cb_Luutt = new Sunny.UI.UICheckBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txt_instance = new Sunny.UI.UITextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.btn_Login = new Sunny.UI.UIButton();
             this.txt_PassWord = new Sunny.UI.UITextBox();
             this.txt_UserName = new Sunny.UI.UITextBox();
             this.uiLabel1 = new Sunny.UI.UILabel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.txt_instance = new Sunny.UI.UITextBox();
             this.uiPanel1 = new Sunny.UI.UIPanel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.cb_Luutt = new Sunny.UI.UICheckBox();
             this.uiPanel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -71,6 +71,76 @@
             this.uiPanel2.Text = null;
             this.uiPanel2.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // cb_Luutt
+            // 
+            this.cb_Luutt.BackColor = System.Drawing.Color.Transparent;
+            this.cb_Luutt.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cb_Luutt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.cb_Luutt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
+            this.cb_Luutt.Location = new System.Drawing.Point(248, 405);
+            this.cb_Luutt.MinimumSize = new System.Drawing.Size(1, 1);
+            this.cb_Luutt.Name = "cb_Luutt";
+            this.cb_Luutt.Size = new System.Drawing.Size(150, 29);
+            this.cb_Luutt.TabIndex = 10;
+            this.cb_Luutt.Text = "Lưu thông tin";
+            // 
+            // label1
+            // 
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Navy;
+            this.label1.Image = global::DACN.Properties.Resources.icons8_server_50;
+            this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label1.Location = new System.Drawing.Point(72, 105);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(232, 45);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "Server name";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label1.UseCompatibleTextRendering = true;
+            // 
+            // txt_instance
+            // 
+            this.txt_instance.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txt_instance.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.txt_instance.Location = new System.Drawing.Point(72, 155);
+            this.txt_instance.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txt_instance.MinimumSize = new System.Drawing.Size(1, 16);
+            this.txt_instance.Name = "txt_instance";
+            this.txt_instance.Padding = new System.Windows.Forms.Padding(5);
+            this.txt_instance.ShowText = false;
+            this.txt_instance.Size = new System.Drawing.Size(318, 35);
+            this.txt_instance.TabIndex = 8;
+            this.txt_instance.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.txt_instance.Watermark = "";
+            // 
+            // label3
+            // 
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.label3.ForeColor = System.Drawing.Color.Navy;
+            this.label3.Image = global::DACN.Properties.Resources.icons8_password_50;
+            this.label3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label3.Location = new System.Drawing.Point(71, 295);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(204, 45);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "Mật khẩu";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label2
+            // 
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Navy;
+            this.label2.Image = global::DACN.Properties.Resources.icons8_user_50;
+            this.label2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label2.Location = new System.Drawing.Point(72, 198);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(232, 45);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "Tên tài khoản";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // btn_Login
             // 
             this.btn_Login.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -94,7 +164,7 @@
             // txt_PassWord
             // 
             this.txt_PassWord.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txt_PassWord.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.txt_PassWord.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.txt_PassWord.Location = new System.Drawing.Point(71, 345);
             this.txt_PassWord.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txt_PassWord.MinimumSize = new System.Drawing.Size(1, 16);
@@ -102,7 +172,7 @@
             this.txt_PassWord.Padding = new System.Windows.Forms.Padding(5);
             this.txt_PassWord.PasswordChar = '*';
             this.txt_PassWord.ShowText = false;
-            this.txt_PassWord.Size = new System.Drawing.Size(318, 38);
+            this.txt_PassWord.Size = new System.Drawing.Size(318, 35);
             this.txt_PassWord.TabIndex = 2;
             this.txt_PassWord.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             this.txt_PassWord.Watermark = "";
@@ -110,14 +180,14 @@
             // txt_UserName
             // 
             this.txt_UserName.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txt_UserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.txt_UserName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.txt_UserName.Location = new System.Drawing.Point(71, 252);
             this.txt_UserName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txt_UserName.MinimumSize = new System.Drawing.Size(1, 16);
             this.txt_UserName.Name = "txt_UserName";
             this.txt_UserName.Padding = new System.Windows.Forms.Padding(5);
             this.txt_UserName.ShowText = false;
-            this.txt_UserName.Size = new System.Drawing.Size(318, 38);
+            this.txt_UserName.Size = new System.Drawing.Size(318, 35);
             this.txt_UserName.TabIndex = 1;
             this.txt_UserName.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             this.txt_UserName.Watermark = "";
@@ -142,21 +212,6 @@
             this.panel1.Size = new System.Drawing.Size(675, 543);
             this.panel1.TabIndex = 2;
             // 
-            // txt_instance
-            // 
-            this.txt_instance.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txt_instance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.txt_instance.Location = new System.Drawing.Point(72, 155);
-            this.txt_instance.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txt_instance.MinimumSize = new System.Drawing.Size(1, 16);
-            this.txt_instance.Name = "txt_instance";
-            this.txt_instance.Padding = new System.Windows.Forms.Padding(5);
-            this.txt_instance.ShowText = false;
-            this.txt_instance.Size = new System.Drawing.Size(318, 38);
-            this.txt_instance.TabIndex = 8;
-            this.txt_instance.TextAlignment = System.Drawing.ContentAlignment.MiddleLeft;
-            this.txt_instance.Watermark = "";
-            // 
             // uiPanel1
             // 
             this.uiPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
@@ -173,60 +228,6 @@
             this.uiPanel1.TabIndex = 0;
             this.uiPanel1.Text = null;
             this.uiPanel1.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label1
-            // 
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Navy;
-            this.label1.Image = global::DACN.Properties.Resources.icons8_server_50;
-            this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label1.Location = new System.Drawing.Point(72, 105);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(243, 45);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "Server name";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label1.UseCompatibleTextRendering = true;
-            // 
-            // label3
-            // 
-            this.label3.ForeColor = System.Drawing.Color.Navy;
-            this.label3.Image = global::DACN.Properties.Resources.icons8_password_50;
-            this.label3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label3.Location = new System.Drawing.Point(71, 295);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(212, 45);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "Mật khẩu";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label2
-            // 
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Navy;
-            this.label2.Image = global::DACN.Properties.Resources.icons8_user_50;
-            this.label2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label2.Location = new System.Drawing.Point(72, 198);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(243, 45);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Tên tài khoản";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // cb_Luutt
-            // 
-            this.cb_Luutt.BackColor = System.Drawing.Color.Transparent;
-            this.cb_Luutt.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cb_Luutt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.cb_Luutt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(48)))), ((int)(((byte)(48)))));
-            this.cb_Luutt.Location = new System.Drawing.Point(248, 405);
-            this.cb_Luutt.MinimumSize = new System.Drawing.Size(1, 1);
-            this.cb_Luutt.Name = "cb_Luutt";
-            this.cb_Luutt.Size = new System.Drawing.Size(150, 29);
-            this.cb_Luutt.TabIndex = 10;
-            this.cb_Luutt.Text = "Lưu thông tin";
             // 
             // FormDangNhap
             // 

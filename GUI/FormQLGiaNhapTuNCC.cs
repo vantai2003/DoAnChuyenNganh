@@ -76,7 +76,7 @@ namespace DACN.GUI
             if (ktDuLieu == true)
             {
                 decimal giaNhap = Convert.ToDecimal(txt_GiaNhap.Text);
-                DateTime ngayCapNhat = dp_NgayCapNhat.Value;
+                DateTime ngayCapNhat = DateTime.Now;
                 bool kq = BangBaoGiaTuNCCDAO.Instance.CapNhatGia(masp, mancc, giaNhap, ngayCapNhat);
                 MessageBox.Show("Cập nhật giá thành công");
                 LoadBaoGia();

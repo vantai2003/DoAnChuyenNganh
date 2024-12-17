@@ -106,7 +106,7 @@ namespace DACN.GUI
             try
             {
                 decimal tiencantra = decimal.TryParse(txt_tiencantra.Text, out decimal stct) ? stct :0;
-                     decimal tienthanhtoan = decimal.TryParse(txt_tienthanhtoan.Text, out decimal temp) ? temp : 0;
+                decimal tienthanhtoan = decimal.TryParse(txt_tienthanhtoan.Text, out decimal temp) ? temp : 0;
                 decimal tientra = tiencantra - tienthanhtoan;
       
                 string mahd = FormHoaDon.mahd;

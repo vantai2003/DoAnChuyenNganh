@@ -419,6 +419,7 @@
             // dp_NgayCapNhat
             // 
             this.dp_NgayCapNhat.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dp_NgayCapNhat.Enabled = false;
             this.dp_NgayCapNhat.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dp_NgayCapNhat.Location = new System.Drawing.Point(229, 114);
             this.dp_NgayCapNhat.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);

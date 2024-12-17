@@ -55,11 +55,11 @@
             this.rdb_NCC = new Sunny.UI.UIRadioButton();
             this.rdb_SanPham = new Sunny.UI.UIRadioButton();
             this.uiPanel5 = new Sunny.UI.UIPanel();
-            this.btn_XoaHH = new System.Windows.Forms.Button();
             this.btn_Luu = new System.Windows.Forms.Button();
             this.btn_Sua = new System.Windows.Forms.Button();
             this.btn_Xoa = new System.Windows.Forms.Button();
             this.uiPanel4 = new Sunny.UI.UIPanel();
+            this.btn_XoaHH = new System.Windows.Forms.Button();
             this.uiPanel2 = new Sunny.UI.UIPanel();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.uiPanel9 = new Sunny.UI.UIPanel();
@@ -374,23 +374,6 @@
             this.uiPanel5.Text = null;
             this.uiPanel5.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // btn_XoaHH
-            // 
-            this.btn_XoaHH.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
-            this.btn_XoaHH.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_XoaHH.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_XoaHH.ForeColor = System.Drawing.Color.White;
-            this.btn_XoaHH.Image = ((System.Drawing.Image)(resources.GetObject("btn_XoaHH.Image")));
-            this.btn_XoaHH.Location = new System.Drawing.Point(29, 7);
-            this.btn_XoaHH.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btn_XoaHH.Name = "btn_XoaHH";
-            this.btn_XoaHH.Size = new System.Drawing.Size(132, 66);
-            this.btn_XoaHH.TabIndex = 59;
-            this.btn_XoaHH.Text = "Xóa";
-            this.btn_XoaHH.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btn_XoaHH.UseVisualStyleBackColor = false;
-            this.btn_XoaHH.Click += new System.EventHandler(this.btn_XoaHH_Click);
-            // 
             // btn_Luu
             // 
             this.btn_Luu.BackColor = System.Drawing.Color.OrangeRed;
@@ -450,6 +433,23 @@
             this.uiPanel4.TabIndex = 0;
             this.uiPanel4.Text = null;
             this.uiPanel4.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btn_XoaHH
+            // 
+            this.btn_XoaHH.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
+            this.btn_XoaHH.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_XoaHH.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_XoaHH.ForeColor = System.Drawing.Color.White;
+            this.btn_XoaHH.Image = ((System.Drawing.Image)(resources.GetObject("btn_XoaHH.Image")));
+            this.btn_XoaHH.Location = new System.Drawing.Point(29, 7);
+            this.btn_XoaHH.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_XoaHH.Name = "btn_XoaHH";
+            this.btn_XoaHH.Size = new System.Drawing.Size(132, 66);
+            this.btn_XoaHH.TabIndex = 59;
+            this.btn_XoaHH.Text = "Xóa";
+            this.btn_XoaHH.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btn_XoaHH.UseVisualStyleBackColor = false;
+            this.btn_XoaHH.Click += new System.EventHandler(this.btn_XoaHH_Click);
             // 
             // uiPanel2
             // 
@@ -547,7 +547,7 @@
             dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(160)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.Desktop;
             dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dvg_SanPham.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;

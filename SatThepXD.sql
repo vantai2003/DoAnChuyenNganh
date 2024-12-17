@@ -2790,6 +2790,40 @@ BEGIN
         @TongChi AS TongChi,
         (@TongThu - @TongChi) AS LoiNhuan;
 END
+-----Quản lý công nợ
+drop proc SP_QLCongNo
+CREATE PROCEDURE SP_QLCongNo
+    @searchValue NVARCHAR(300)
+AS
+BEGIN
+    SELECT 
+          hd.MaKH, kh.TenKH ,ISNULL(SUM(hd.ThanhToan), 0) AS CongNo
+    FROM 
+        HoaDon hd
+	JOIN KhachHang kh ON kh.MaKH = hd.MaKH
+    WHERE 
+        hd.MaKH LIKE '%' + LTRIM(RTRIM(@searchValue)) + '%'
+    OR kh.TenKH LIKE '%' + LTRIM(RTRIM(@searchValue)) + '%'
+	GROUP BY 
+        hd.MaKH, kh.TenKH;
+END;
+
+CREATE PROCEDURE SP_SelectCongNo
+AS
+BEGIN
+    SELECT 
+          hd.MaKH, kh.TenKH ,ISNULL(SUM(hd.ThanhToan), 0) AS CongNo
+    FROM 
+        HoaDon hd
+	JOIN KhachHang kh ON kh.MaKH = hd.MaKH
+	GROUP BY 
+        hd.MaKH, kh.TenKH
+	HAVING 
+        SUM(hd.ThanhToan) > 0;
+END;
+exec SP_SelectCongNo
+exec SP_QLCongNo 'KH020'
+select * from HoaDon
 exec SP_ThongKeChiTheoTuan
 exec SP_ReportRevenueByCurrentWeek
 EXEC sp_ReportRevenueByDay '2024-11-16';
